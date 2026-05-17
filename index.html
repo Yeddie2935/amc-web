@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fun Math Journey | AMC 8 Practice</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="topbar" aria-label="Main navigation">
+        <div class="brand">
+          <span class="brand-mark">∑</span>
+          <div>
+            <strong>Fun Math Journey</strong>
+            <small>AMC 8 from the ground up</small>
+          </div>
+        </div>
+        <div class="nav-actions">
+          <button class="ghost-button" id="resetProgressButton" type="button">Reset progress</button>
+          <a class="primary-button" href="#practice">Start practice</a>
+        </div>
+      </nav>
+
+      <section class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Competition math learning platform</p>
+          <h1>Learn AMC 8 concepts by topic, difficulty, and guided explanations.</h1>
+          <p class="hero-text">
+            Browse algebra, geometry, number theory, and counting/probability problems.
+            Track solved questions locally, review solution steps, and later plug in official
+            AMC 8 links or licensed problem text.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-button large" href="#problemBrowser">Explore problems</a>
+            <a class="secondary-button large" href="#contentPlan">Content plan</a>
+          </div>
+        </div>
+        <aside class="stats-card" aria-label="Your progress summary">
+          <span class="mini-label">Your progress</span>
+          <div class="progress-ring" id="progressRing" aria-hidden="true">
+            <span id="progressPercent">0%</span>
+          </div>
+          <p><strong id="solvedCount">0</strong> solved out of <strong id="totalCount">0</strong> loaded problems.</p>
+          <div class="stat-row">
+            <span>Current streak</span>
+            <strong id="streakCount">0</strong>
+          </div>
+          <div class="stat-row">
+            <span>Best category</span>
+            <strong id="bestCategory">—</strong>
+          </div>
+        </aside>
+      </section>
+    </header>
+
+    <main>
+      <section class="section" id="practice">
+        <div class="section-heading">
+          <p class="eyebrow">Guided path</p>
+          <h2>Choose a skill lane</h2>
+          <p>Each lane contains concept notes, practice problems, and explanation scripts that can later become short animations.</p>
+        </div>
+        <div class="lane-grid" id="laneGrid"></div>
+      </section>
+
+      <section class="section soft" id="problemBrowser">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">Problem library</p>
+            <h2>Browse and filter problems</h2>
+          </div>
+          <div class="filter-panel" role="search">
+            <label>
+              Search
+              <input id="searchInput" type="search" placeholder="e.g. ratios, area, probability" />
+            </label>
+            <label>
+              Category
+              <select id="categoryFilter"></select>
+            </label>
+            <label>
+              Difficulty
+              <select id="difficultyFilter"></select>
+            </label>
+            <label>
+              Status
+              <select id="statusFilter">
+                <option value="all">All</option>
+                <option value="unsolved">Unsolved</option>
+                <option value="solved">Solved</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="problem-list" id="problemList"></div>
+      </section>
+
+      <section class="section" id="contentPlan">
+        <div class="section-heading">
+          <p class="eyebrow">Content strategy</p>
+          <h2>How AMC 8 content should be added</h2>
+        </div>
+        <div class="content-grid">
+          <article class="content-card">
+            <h3>Phase 1: Original problems</h3>
+            <p>Create 50 launch problems using original wording. This avoids copyright risk and lets the platform prove the learning flow.</p>
+          </article>
+          <article class="content-card">
+            <h3>Phase 2: Link-first AMC archive</h3>
+            <p>Store metadata, category, difficulty, and official/source links. Keep the copyrighted statement off-site unless permission is obtained.</p>
+          </article>
+          <article class="content-card">
+            <h3>Phase 3: Licensed/imported content</h3>
+            <p>When you have permission or a public-domain-compatible source, import full problem text using the JSON schema in <code>data/problem-schema.md</code>.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="problem-dialog" id="problemDialog">
+      <div class="dialog-header">
+        <div>
+          <p class="eyebrow" id="dialogMeta">Problem</p>
+          <h2 id="dialogTitle">Problem title</h2>
+        </div>
+        <button class="icon-button" id="closeDialogButton" type="button" aria-label="Close">×</button>
+      </div>
+      <div class="dialog-body">
+        <article class="solve-panel">
+          <p id="dialogQuestion"></p>
+          <div class="choices" id="dialogChoices"></div>
+          <div class="answer-actions">
+            <button class="primary-button" id="checkAnswerButton" type="button">Check answer</button>
+            <button class="secondary-button" id="showExplanationButton" type="button">Show explanation</button>
+          </div>
+          <p class="feedback" id="feedbackText" aria-live="polite"></p>
+        </article>
+        <aside class="explanation-panel" id="explanationPanel" hidden>
+          <h3>Explanation</h3>
+          <p id="solutionIdea"></p>
+          <ol id="solutionSteps"></ol>
+          <div class="animation-card">
+            <div class="animation-card-header">
+              <span class="mini-label">Generated animation</span>
+              <span class="animation-step-label" id="animationStepLabel">Step 1/1</span>
+            </div>
+            <div class="animation-stage" id="animationStage" aria-live="polite"></div>
+            <p class="animation-caption" id="animationCaption"></p>
+            <div class="animation-controls" aria-label="Animation controls">
+              <button class="secondary-button compact" id="prevAnimationButton" type="button">Previous</button>
+              <button class="primary-button compact" id="playAnimationButton" type="button">Play</button>
+              <button class="secondary-button compact" id="nextAnimationButton" type="button">Next</button>
+            </div>
+            <div class="animation-dots" id="animationDots" aria-label="Animation steps"></div>
+            <details class="script-details">
+              <summary>Show animation script</summary>
+              <div id="animationFrames"></div>
+            </details>
+          </div>
+        </aside>
+      </div>
+    </dialog>
+
+    <footer class="footer">
+      <p>Built as a local MVP. Replace sample data with licensed AMC 8 metadata/content when ready.</p>
+    </footer>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>
