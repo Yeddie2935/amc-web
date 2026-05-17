@@ -218,6 +218,10 @@ a { color: inherit; text-decoration: none; }
   color: var(--muted);
 }
 
+#contentPlan {
+  display: none !important;
+}
+
 .stat-row strong { color: var(--text); }
 
 .section {
