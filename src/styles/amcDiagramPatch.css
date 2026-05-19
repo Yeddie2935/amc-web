@@ -1,0 +1,36 @@
+.fmj-diagram-note {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #9a3412;
+  border-radius: 14px;
+  padding: 10px 12px;
+  line-height: 1.45;
+}
+
+.fmj-problem-images {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.fmj-problem-image-frame {
+  margin: 0;
+  border: 1px solid var(--fmj-border);
+  border-radius: 14px;
+  background: white;
+  padding: 12px;
+}
+
+.fmj-problem-image-frame img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.fmj-problem-image-frame figcaption {
+  color: var(--fmj-muted);
+  font-size: 0.82rem;
+  text-align: center;
+  margin-top: 8px;
+}
