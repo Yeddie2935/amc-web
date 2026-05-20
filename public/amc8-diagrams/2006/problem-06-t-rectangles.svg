@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 340" role="img" aria-label="T shape made of two 2 by 4 rectangles">
+  <rect width="260" height="340" fill="white"/>
+  <path d="M40 30 H220 V110 H160 V310 H100 V110 H40 Z" fill="white" stroke="black" stroke-width="3"/>
+  <text x="130" y="22" font-size="18" text-anchor="middle" font-family="sans-serif">top rectangle: 4 by 2</text>
+  <text x="130" y="330" font-size="18" text-anchor="middle" font-family="sans-serif">stem: 2 by 4</text>
+</svg>

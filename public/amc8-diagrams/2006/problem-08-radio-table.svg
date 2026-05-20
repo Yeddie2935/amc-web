@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 230" role="img" aria-label="Survey table for radio station KACL">
+  <rect width="520" height="230" fill="white"/>
+  <g stroke="black" stroke-width="2" fill="none">
+    <rect x="20" y="30" width="480" height="160"/>
+    <line x1="140" y1="30" x2="140" y2="190"/>
+    <line x1="250" y1="30" x2="250" y2="190"/>
+    <line x1="380" y1="30" x2="380" y2="190"/>
+    <line x1="20" y1="70" x2="500" y2="70"/>
+    <line x1="20" y1="110" x2="500" y2="110"/>
+    <line x1="20" y1="150" x2="500" y2="150"/>
+  </g>
+  <g font-family="serif" font-size="26" text-anchor="middle">
+    <text x="195" y="59">Listen</text><text x="315" y="59">Don’t Listen</text><text x="440" y="59">Total</text>
+    <text x="80" y="99">Males</text><text x="195" y="99">?</text><text x="315" y="99">26</text><text x="440" y="99">?</text>
+    <text x="80" y="139">Females</text><text x="195" y="139">58</text><text x="315" y="139">?</text><text x="440" y="139">96</text>
+    <text x="80" y="179">Total</text><text x="195" y="179">136</text><text x="315" y="179">64</text><text x="440" y="179">200</text>
+  </g>
+</svg>

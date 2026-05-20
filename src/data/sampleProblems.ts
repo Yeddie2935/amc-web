@@ -14530,6 +14530,2068 @@ const amc2005Problems: Problem[] = [
   }
 ];
 
+const amc2006Problems: Problem[] = [
+  {
+    "id": "amc8-2006-01",
+    "title": "2006 AMC 8 Problem 1: Rounding Purchases",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 1,
+    "category": "Algebra",
+    "subcategory": "Rounding and estimation",
+    "difficulty": 1,
+    "statement": "Mindy made three purchases for $1.98, $5.04, and $9.89. What was her total, to the nearest dollar?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "10"
+      },
+      {
+        "label": "B",
+        "text": "15"
+      },
+      {
+        "label": "C",
+        "text": "16"
+      },
+      {
+        "label": "D",
+        "text": "17"
+      },
+      {
+        "label": "E",
+        "text": "18"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "17",
+    "solutionSteps": [
+      {
+        "title": "Round each price",
+        "body": "To the nearest dollar, $1.98 rounds to $2, $5.04 rounds to $5, and $9.89 rounds to $10.",
+        "equation": "2+5+10=17"
+      },
+      {
+        "title": "Choose the nearest total",
+        "body": "The rounded total is 17 dollars."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers and what is being asked.",
+        "visualHint": "The important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main relationship to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "arithmetic",
+      "rounding"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2006-02",
+    "title": "2006 AMC 8 Problem 2: AMC Score",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 2,
+    "category": "Other",
+    "subcategory": "Contest scoring",
+    "difficulty": 1,
+    "statement": "On the AMC 8 contest Billy answers 13 questions correctly, answers 7 questions incorrectly and doesn't answer the last 5. What is his score?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "6"
+      },
+      {
+        "label": "C",
+        "text": "13"
+      },
+      {
+        "label": "D",
+        "text": "19"
+      },
+      {
+        "label": "E",
+        "text": "26"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "13",
+    "solutionSteps": [
+      {
+        "title": "Use AMC 8 scoring",
+        "body": "The AMC 8 gives 1 point for each correct answer and 0 points for incorrect or blank answers."
+      },
+      {
+        "title": "Count correct answers",
+        "body": "Billy answered 13 questions correctly, so his score is 13."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers and what is being asked.",
+        "visualHint": "The important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main relationship to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "correct": 13,
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "scoring",
+      "arithmetic"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2006-03",
+    "title": "2006 AMC 8 Problem 3: Lap Time Improvement",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 3,
+    "category": "Algebra",
+    "subcategory": "Rates",
+    "difficulty": 1,
+    "statement": "Elisa swims laps in the pool. When she first started, she completed 10 laps in 25 minutes. Now, she can finish 12 laps in 24 minutes. By how many minutes has she improved her lap time?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/2"
+      },
+      {
+        "label": "B",
+        "text": "3/4"
+      },
+      {
+        "label": "C",
+        "text": "1"
+      },
+      {
+        "label": "D",
+        "text": "2"
+      },
+      {
+        "label": "E",
+        "text": "3"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "1/2",
+    "solutionSteps": [
+      {
+        "title": "Find the old lap time",
+        "body": "At first, Elisa took 25 minutes for 10 laps.",
+        "equation": "25/10=2.5"
+      },
+      {
+        "title": "Find the new lap time",
+        "body": "Now she takes 24 minutes for 12 laps.",
+        "equation": "24/12=2"
+      },
+      {
+        "title": "Subtract",
+        "body": "Her lap time improved by 2.5−2=0.5 minute, or 1/2 minute."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers and what is being asked.",
+        "visualHint": "The important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main relationship to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "oldTime": 2.5,
+        "newTime": 2,
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "rates",
+      "unit rate"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2006-04",
+    "title": "2006 AMC 8 Problem 4: Spinner Direction",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 4,
+    "category": "Geometry",
+    "subcategory": "Rotations",
+    "difficulty": 1,
+    "statement": "Initially, a spinner points west. Chenille moves it clockwise 2 1/4 revolutions and then counterclockwise 3 3/4 revolutions. In what direction does the spinner point after the two moves?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "north"
+      },
+      {
+        "label": "B",
+        "text": "east"
+      },
+      {
+        "label": "C",
+        "text": "south"
+      },
+      {
+        "label": "D",
+        "text": "west"
+      },
+      {
+        "label": "E",
+        "text": "northwest"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "east",
+    "solutionSteps": [
+      {
+        "title": "Find the net turn",
+        "body": "The counterclockwise turn exceeds the clockwise turn by 3 3/4−2 1/4=1 1/2 revolutions."
+      },
+      {
+        "title": "Apply the turn",
+        "body": "Starting west, a net 1 full revolution returns to west, and another 1/2 revolution points east."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Start west",
+        "narration": "Show the spinner pointing west.",
+        "visualHint": "The arrow starts at W."
+      },
+      {
+        "title": "Find net rotation",
+        "narration": "Subtract the clockwise rotations from the counterclockwise rotations.",
+        "visualHint": "3 3/4 − 2 1/4 = 1 1/2 counterclockwise."
+      },
+      {
+        "title": "Rotate to east",
+        "narration": "One full turn returns to west; the extra half turn points east.",
+        "visualHint": "The arrow ends at E and choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "geometry",
+      "rotation"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2006/problem-04-spinner.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2006-05",
+    "title": "2006 AMC 8 Problem 5: Midpoint Square Area",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 5,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 2,
+    "statement": "Points A, B, C, and D are midpoints of the sides of the larger square. If the larger square has area 60, what is the area of the smaller square?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "15"
+      },
+      {
+        "label": "B",
+        "text": "20"
+      },
+      {
+        "label": "C",
+        "text": "24"
+      },
+      {
+        "label": "D",
+        "text": "30"
+      },
+      {
+        "label": "E",
+        "text": "40"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "30",
+    "solutionSteps": [
+      {
+        "title": "Use midpoint geometry",
+        "body": "Connecting the side midpoints forms a smaller square whose diagonals are the side lengths of the larger square."
+      },
+      {
+        "title": "Compare areas",
+        "body": "The four corner triangles together have the same area as the inner square, so the inner square is half the large square."
+      },
+      {
+        "title": "Calculate",
+        "body": "Half of 60 is 30."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the midpoint square",
+        "narration": "Highlight the square formed by the four side midpoints.",
+        "visualHint": "The inner diamond ABCD is shown inside the larger square."
+      },
+      {
+        "title": "Match triangles",
+        "narration": "The four corner triangles together match the area of the inner square.",
+        "visualHint": "Corner triangles are paired with the inner square pieces."
+      },
+      {
+        "title": "Take half",
+        "narration": "The smaller square is half of 60.",
+        "visualHint": "60/2=30; choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "geometry",
+      "area"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2006/problem-05-midpoint-square.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2006-06",
+    "title": "2006 AMC 8 Problem 6: Perimeter of a T",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 6,
+    "category": "Geometry",
+    "subcategory": "Perimeter",
+    "difficulty": 1,
+    "statement": "The letter T is formed by placing two 2 × 4 inch rectangles next to each other, as shown. What is the perimeter of the T, in inches?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "12"
+      },
+      {
+        "label": "B",
+        "text": "16"
+      },
+      {
+        "label": "C",
+        "text": "20"
+      },
+      {
+        "label": "D",
+        "text": "22"
+      },
+      {
+        "label": "E",
+        "text": "24"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "20",
+    "solutionSteps": [
+      {
+        "title": "Start with two separate rectangles",
+        "body": "One 2 by 4 rectangle has perimeter 2(2+4)=12, so two separate rectangles have perimeter 24."
+      },
+      {
+        "title": "Remove the shared edge",
+        "body": "When joined, the shared length 2 is counted twice in the separate perimeters, so subtract 4."
+      },
+      {
+        "title": "Compute",
+        "body": "24−4=20."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers and what is being asked.",
+        "visualHint": "The important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main relationship to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "geometry",
+      "perimeter"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2006/problem-06-t-rectangles.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2006-07",
+    "title": "2006 AMC 8 Problem 7: Circle Radii",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 7,
+    "category": "Geometry",
+    "subcategory": "Circle formulas",
+    "difficulty": 2,
+    "statement": "Circle X has a radius of π. Circle Y has a circumference of 8π. Circle Z has an area of 9π. List the circles in order from smallest to largest radius.",
+    "choices": [
+      {
+        "label": "A",
+        "text": "X, Y, Z"
+      },
+      {
+        "label": "B",
+        "text": "Z, X, Y"
+      },
+      {
+        "label": "C",
+        "text": "Y, X, Z"
+      },
+      {
+        "label": "D",
+        "text": "Z, Y, X"
+      },
+      {
+        "label": "E",
+        "text": "X, Z, Y"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "Z, X, Y",
+    "solutionSteps": [
+      {
+        "title": "Find Y's radius",
+        "body": "For circle Y, 2πr=8π, so r=4."
+      },
+      {
+        "title": "Find Z's radius",
+        "body": "For circle Z, πr²=9π, so r=3."
+      },
+      {
+        "title": "Compare with X",
+        "body": "Circle X has radius π, which is between 3 and 4. The order is Z, X, Y."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers and what is being asked.",
+        "visualHint": "The important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main relationship to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "geometry",
+      "circles"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2006-08",
+    "title": "2006 AMC 8 Problem 8: Radio Survey Table",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 8,
+    "category": "Algebra",
+    "subcategory": "Tables and percentages",
+    "difficulty": 2,
+    "statement": "The table shows some of the results of a survey by radio station KACL. What percentage of the males surveyed listen to the station?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "39"
+      },
+      {
+        "label": "B",
+        "text": "48"
+      },
+      {
+        "label": "C",
+        "text": "52"
+      },
+      {
+        "label": "D",
+        "text": "55"
+      },
+      {
+        "label": "E",
+        "text": "75"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "75%",
+    "solutionSteps": [
+      {
+        "title": "Find male listeners",
+        "body": "Total listeners are 136 and female listeners are 58, so male listeners are 136−58=78."
+      },
+      {
+        "title": "Find total males",
+        "body": "Males consist of 78 listeners and 26 non-listeners, for a total of 104 males."
+      },
+      {
+        "title": "Convert to a percent",
+        "body": "78/104=3/4=75%."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Fill the missing table values",
+        "narration": "Use row and column totals to find male listeners and total males.",
+        "visualHint": "136−58=78 and 78+26=104 are filled into the table."
+      },
+      {
+        "title": "Form the percentage",
+        "narration": "Divide male listeners by total males.",
+        "visualHint": "78/104 simplifies to 3/4."
+      },
+      {
+        "title": "Convert to percent",
+        "narration": "Three-fourths is 75%.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "percent",
+      "table"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2006/problem-08-radio-table.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2006-09",
+    "title": "2006 AMC 8 Problem 9: Telescoping Product",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 9,
+    "category": "Algebra",
+    "subcategory": "Fractions",
+    "difficulty": 2,
+    "statement": "What is the product of 3/2 × 4/3 × 5/4 × ⋯ × 2006/2005?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "1002"
+      },
+      {
+        "label": "C",
+        "text": "1003"
+      },
+      {
+        "label": "D",
+        "text": "2005"
+      },
+      {
+        "label": "E",
+        "text": "2006"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "1003",
+    "solutionSteps": [
+      {
+        "title": "Look for cancellation",
+        "body": "Each denominator cancels with the previous or next numerator."
+      },
+      {
+        "title": "Keep only the endpoints",
+        "body": "Everything cancels except 2006 in the numerator and 2 in the denominator."
+      },
+      {
+        "title": "Compute",
+        "body": "2006/2=1003."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers and what is being asked.",
+        "visualHint": "The important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main relationship to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "fractions",
+      "telescoping"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2006-10",
+    "title": "2006 AMC 8 Problem 10: Rectangle Area Graph",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 10,
+    "category": "Algebra",
+    "subcategory": "Graphs",
+    "difficulty": 2,
+    "statement": "Jorge's teacher asks him to plot all the ordered pairs (w,l) of positive integers for which w is the width and l is the length of a rectangle with area 12. What should his graph look like?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "A"
+      },
+      {
+        "label": "B",
+        "text": "B"
+      },
+      {
+        "label": "C",
+        "text": "C"
+      },
+      {
+        "label": "D",
+        "text": "D"
+      },
+      {
+        "label": "E",
+        "text": "E"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "A",
+    "solutionSteps": [
+      {
+        "title": "Write the area relationship",
+        "body": "A rectangle with area 12 satisfies wl=12."
+      },
+      {
+        "title": "Solve for l",
+        "body": "The length is l=12/w, so as w increases, l decreases."
+      },
+      {
+        "title": "Match the graph",
+        "body": "Only graph A shows this inverse relationship using positive integer points."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Plot factor pairs",
+        "narration": "Show pairs such as (1,12), (2,6), (3,4), (4,3), (6,2), and (12,1).",
+        "visualHint": "Dots trace a decreasing pattern."
+      },
+      {
+        "title": "Explain the inverse pattern",
+        "narration": "If the width gets larger, the length must get smaller to keep area 12.",
+        "visualHint": "l=12/w appears."
+      },
+      {
+        "title": "Choose graph A",
+        "narration": "Graph A matches the decreasing curve of factor pairs.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "graphs",
+      "factors"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2006/problem-10-graph-choices.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2006-11",
+    "title": "2006 AMC 8 Problem 11: Digit Sums",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 11,
+    "category": "Number Theory",
+    "subcategory": "Digits",
+    "difficulty": 3,
+    "statement": "How many two-digit numbers have digits whose sum is a perfect square?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "13"
+      },
+      {
+        "label": "B",
+        "text": "16"
+      },
+      {
+        "label": "C",
+        "text": "17"
+      },
+      {
+        "label": "D",
+        "text": "18"
+      },
+      {
+        "label": "E",
+        "text": "19"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "17",
+    "solutionSteps": [
+      {
+        "title": "List possible square sums",
+        "body": "Two digits can sum to at most 18, so the possible positive square sums are 1, 4, 9, and 16."
+      },
+      {
+        "title": "Count each case",
+        "body": "There is 1 number with digit sum 1, 4 numbers with digit sum 4, 9 with digit sum 9, and 3 with digit sum 16."
+      },
+      {
+        "title": "Add",
+        "body": "1+4+9+3=17."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers and what is being asked.",
+        "visualHint": "The important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main relationship to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "number theory",
+      "digits"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2006-12",
+    "title": "2006 AMC 8 Problem 12: Combined Test Score",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 12,
+    "category": "Algebra",
+    "subcategory": "Weighted average",
+    "difficulty": 2,
+    "statement": "Antonette gets 70% on a 10-problem test, 80% on a 20-problem test, and 90% on a 30-problem test. If the three tests are combined into one 60-problem test, which percent is closest to her overall score?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "40"
+      },
+      {
+        "label": "B",
+        "text": "77"
+      },
+      {
+        "label": "C",
+        "text": "80"
+      },
+      {
+        "label": "D",
+        "text": "83"
+      },
+      {
+        "label": "E",
+        "text": "87"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "83",
+    "solutionSteps": [
+      {
+        "title": "Find correct answers",
+        "body": "70% of 10 is 7, 80% of 20 is 16, and 90% of 30 is 27."
+      },
+      {
+        "title": "Add correct answers",
+        "body": "Antonette got 7+16+27=50 correct out of 60."
+      },
+      {
+        "title": "Convert to percent",
+        "body": "50/60≈83.3%, so the closest choice is 83."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers and what is being asked.",
+        "visualHint": "The important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main relationship to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "percent",
+      "weighted average"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2006-13",
+    "title": "2006 AMC 8 Problem 13: Two Bikers",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 13,
+    "category": "Algebra",
+    "subcategory": "Distance-rate-time",
+    "difficulty": 3,
+    "statement": "Cassie leaves Escanaba at 8:30 AM heading for Marquette on her bike. She bikes at a uniform rate of 12 miles per hour. Brian leaves Marquette at 9:00 AM heading for Escanaba on his bike. He bikes at a uniform rate of 16 miles per hour. They both bike on the same 62-mile route between Escanaba and Marquette. At what time in the morning do they meet?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "10:00"
+      },
+      {
+        "label": "B",
+        "text": "10:15"
+      },
+      {
+        "label": "C",
+        "text": "10:30"
+      },
+      {
+        "label": "D",
+        "text": "11:00"
+      },
+      {
+        "label": "E",
+        "text": "11:30"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "11:00",
+    "solutionSteps": [
+      {
+        "title": "Account for Cassie's head start",
+        "body": "By 9:00 AM, Cassie has ridden 0.5×12=6 miles, leaving 62−6=56 miles between them."
+      },
+      {
+        "title": "Use combined speed",
+        "body": "Together they close the distance at 12+16=28 miles per hour."
+      },
+      {
+        "title": "Find the meeting time",
+        "body": "56/28=2 hours after 9:00 AM, so they meet at 11:00 AM."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers and what is being asked.",
+        "visualHint": "The important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main relationship to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "rates",
+      "distance"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2006-14",
+    "title": "2006 AMC 8 Problem 14: Reading Time Difference",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 14,
+    "category": "Algebra",
+    "subcategory": "Rates",
+    "difficulty": 2,
+    "statement": "Problems 14, 15 and 16 involve Mrs. Reed's English assignment. The students in Mrs. Reed's English class are reading the same 760-page novel. Alice reads a page in 20 seconds, Bob reads a page in 45 seconds and Chandra reads a page in 30 seconds. If Bob and Chandra both read the whole book, Bob will spend how many more seconds reading than Chandra?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7,600"
+      },
+      {
+        "label": "B",
+        "text": "11,400"
+      },
+      {
+        "label": "C",
+        "text": "12,500"
+      },
+      {
+        "label": "D",
+        "text": "15,200"
+      },
+      {
+        "label": "E",
+        "text": "22,800"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "11,400",
+    "solutionSteps": [
+      {
+        "title": "Compare seconds per page",
+        "body": "Bob takes 45 seconds per page and Chandra takes 30 seconds per page, a difference of 15 seconds per page."
+      },
+      {
+        "title": "Apply to 760 pages",
+        "body": "Over 760 pages, the time difference is 760×15=11,400 seconds."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers and what is being asked.",
+        "visualHint": "The important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main relationship to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "rates",
+      "reading"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2006-15",
+    "title": "2006 AMC 8 Problem 15: Team Reading Split",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 15,
+    "category": "Algebra",
+    "subcategory": "Rates",
+    "difficulty": 3,
+    "statement": "Problems 14, 15 and 16 involve Mrs. Reed's English assignment. The students are reading the same 760-page novel. Alice reads a page in 20 seconds, Bob in 45 seconds and Chandra in 30 seconds. Chandra and Bob team read the novel: Chandra reads from page 1 to a certain page and Bob reads from the next page through page 760. What is the last page that Chandra should read so that they spend the same amount of time reading?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "425"
+      },
+      {
+        "label": "B",
+        "text": "444"
+      },
+      {
+        "label": "C",
+        "text": "456"
+      },
+      {
+        "label": "D",
+        "text": "484"
+      },
+      {
+        "label": "E",
+        "text": "506"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "456",
+    "solutionSteps": [
+      {
+        "title": "Compare their reading speeds",
+        "body": "Chandra takes 30 seconds per page and Bob takes 45 seconds per page. For equal time, Bob reads 2 pages for every 3 pages Chandra reads."
+      },
+      {
+        "title": "Use the 3:2 page ratio",
+        "body": "Chandra should read 3/(3+2)=3/5 of the book."
+      },
+      {
+        "title": "Compute pages",
+        "body": "(3/5)×760=456, so Chandra should finish page 456."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers and what is being asked.",
+        "visualHint": "The important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main relationship to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "rates",
+      "ratio"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2006-16",
+    "title": "2006 AMC 8 Problem 16: Three-Person Team Reading",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 16,
+    "category": "Algebra",
+    "subcategory": "Rates",
+    "difficulty": 3,
+    "statement": "Problems 14, 15 and 16 involve Mrs. Reed's English assignment. The students are reading the same 760-page novel. Alice reads a page in 20 seconds, Bob in 45 seconds and Chandra in 30 seconds. Before Chandra and Bob start reading, Alice says she would like to team read with them. If they divide the book into three sections so that each reads for the same length of time, how many seconds will each have to read?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6400"
+      },
+      {
+        "label": "B",
+        "text": "6600"
+      },
+      {
+        "label": "C",
+        "text": "6800"
+      },
+      {
+        "label": "D",
+        "text": "7000"
+      },
+      {
+        "label": "E",
+        "text": "7200"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "7200",
+    "solutionSteps": [
+      {
+        "title": "Use reading speeds",
+        "body": "In the same amount of time, the page counts are inversely proportional to seconds per page: Alice:Chandra:Bob = 1/20:1/30:1/45."
+      },
+      {
+        "title": "Simplify the ratio",
+        "body": "The ratio is 9:6:4, so Bob reads 4/(9+6+4)=4/19 of 760 pages, which is 160 pages."
+      },
+      {
+        "title": "Find the equal time",
+        "body": "Bob takes 45 seconds per page, so 160×45=7200 seconds."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers and what is being asked.",
+        "visualHint": "The important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main relationship to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "rates",
+      "ratio"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2006-17",
+    "title": "2006 AMC 8 Problem 17: Spinner Sum Parity",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 17,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 3,
+    "statement": "Jeff rotates spinners P, Q, and R and adds the resulting numbers. What is the probability that his sum is an odd number?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/4"
+      },
+      {
+        "label": "B",
+        "text": "1/3"
+      },
+      {
+        "label": "C",
+        "text": "1/2"
+      },
+      {
+        "label": "D",
+        "text": "2/3"
+      },
+      {
+        "label": "E",
+        "text": "3/4"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "1/3",
+    "solutionSteps": [
+      {
+        "title": "Use parity",
+        "body": "Spinner Q always lands on an even number, and spinner R always lands on an odd number."
+      },
+      {
+        "title": "Decide what P must be",
+        "body": "Even + odd is odd, so P must also be even to make the total odd."
+      },
+      {
+        "title": "Find the probability",
+        "body": "Spinner P has one even sector, 2, out of three equal sectors, so the probability is 1/3."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Classify each spinner",
+        "narration": "Mark Q as always even and R as always odd.",
+        "visualHint": "Q sectors are all even; R sectors are all odd."
+      },
+      {
+        "title": "Find what P needs",
+        "narration": "Even plus odd is odd, so P must be even.",
+        "visualHint": "The number 2 on spinner P is highlighted."
+      },
+      {
+        "title": "Compute probability",
+        "narration": "Only one of the three equal sectors on P works.",
+        "visualHint": "1 out of 3 sectors; choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "probability",
+      "parity"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2006/problem-17-spinners.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2006-18",
+    "title": "2006 AMC 8 Problem 18: Surface Area of Painted Cube",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 18,
+    "category": "Geometry",
+    "subcategory": "Surface area",
+    "difficulty": 3,
+    "statement": "A cube with 3-inch edges is made using 27 cubes with 1-inch edges. Nineteen of the smaller cubes are white and eight are black. If the eight black cubes are placed at the corners of the larger cube, what fraction of the surface area of the larger cube is white?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/9"
+      },
+      {
+        "label": "B",
+        "text": "1/4"
+      },
+      {
+        "label": "C",
+        "text": "4/9"
+      },
+      {
+        "label": "D",
+        "text": "5/9"
+      },
+      {
+        "label": "E",
+        "text": "19/27"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "5/9",
+    "solutionSteps": [
+      {
+        "title": "Find total outer faces",
+        "body": "A 3 by 3 by 3 cube has surface area 6×3×3=54 unit-square faces."
+      },
+      {
+        "title": "Count black outer faces",
+        "body": "Each corner cube shows 3 outer faces, and there are 8 black corner cubes, so 8×3=24 outer faces are black."
+      },
+      {
+        "title": "Find the white fraction",
+        "body": "The remaining 54−24=30 faces are white, and 30/54=5/9."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers and what is being asked.",
+        "visualHint": "The important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main relationship to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "cube-net",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "geometry",
+      "surface area"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2006-19",
+    "title": "2006 AMC 8 Problem 19: Congruent Triangles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 19,
+    "category": "Geometry",
+    "subcategory": "Congruence",
+    "difficulty": 3,
+    "statement": "Triangle ABC is an isosceles triangle with AB = BC. Point D is the midpoint of both BC and AE, and CE is 11 units long. Triangle ABD is congruent to triangle ECD. What is the length of BD?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "4.5"
+      },
+      {
+        "label": "C",
+        "text": "5"
+      },
+      {
+        "label": "D",
+        "text": "5.5"
+      },
+      {
+        "label": "E",
+        "text": "6"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "5.5",
+    "solutionSteps": [
+      {
+        "title": "Use congruence",
+        "body": "Since triangle ABD is congruent to triangle ECD and CE=11, the corresponding side AB is also 11."
+      },
+      {
+        "title": "Use the isosceles condition",
+        "body": "AB=BC, so BC=11."
+      },
+      {
+        "title": "Use midpoint D",
+        "body": "D is the midpoint of BC, so BD=BC/2=11/2=5.5."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers and what is being asked.",
+        "visualHint": "The important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main relationship to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "geometry",
+      "congruence"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2006/problem-19-congruent-triangles.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2006-20",
+    "title": "2006 AMC 8 Problem 20: Tournament Wins",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 20,
+    "category": "Counting & Probability",
+    "subcategory": "Counting games",
+    "difficulty": 3,
+    "statement": "A singles tournament had six players. Each player played every other player only once, with no ties. If Helen won 4 games, Ines won 3 games, Janet won 2 games, Kendra won 2 games and Lara won 2 games, how many games did Monica win?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "0"
+      },
+      {
+        "label": "B",
+        "text": "1"
+      },
+      {
+        "label": "C",
+        "text": "2"
+      },
+      {
+        "label": "D",
+        "text": "3"
+      },
+      {
+        "label": "E",
+        "text": "4"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "2",
+    "solutionSteps": [
+      {
+        "title": "Count total games",
+        "body": "With 6 players and each pair playing once, the total number of games is 6×5/2=15."
+      },
+      {
+        "title": "Count known wins",
+        "body": "The known players won 4+3+2+2+2=13 games."
+      },
+      {
+        "title": "Find Monica's wins",
+        "body": "Every game has one winner, so Monica won 15−13=2 games."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers and what is being asked.",
+        "visualHint": "The important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main relationship to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "counting",
+      "tournament"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2006-21",
+    "title": "2006 AMC 8 Problem 21: Aquarium Water Rise",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 21,
+    "category": "Geometry",
+    "subcategory": "Volume",
+    "difficulty": 3,
+    "statement": "An aquarium has a rectangular base that measures 100 cm by 40 cm and has a height of 50 cm. The aquarium is filled with water to a depth of 37 cm. A rock with volume 1000 cm^3 is then placed in the aquarium and completely submerged. By how many centimeters does the water level rise?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "0.25"
+      },
+      {
+        "label": "B",
+        "text": "0.5"
+      },
+      {
+        "label": "C",
+        "text": "1"
+      },
+      {
+        "label": "D",
+        "text": "1.25"
+      },
+      {
+        "label": "E",
+        "text": "2.5"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "0.25",
+    "solutionSteps": [
+      {
+        "title": "Find the base area",
+        "body": "The base area is 100×40=4000 square centimeters."
+      },
+      {
+        "title": "Relate volume to height",
+        "body": "A rise of h centimeters adds 4000h cubic centimeters of water volume."
+      },
+      {
+        "title": "Use the rock volume",
+        "body": "4000h=1000, so h=1000/4000=0.25 cm."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers and what is being asked.",
+        "visualHint": "The important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main relationship to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "geometry",
+      "volume"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2006-22",
+    "title": "2006 AMC 8 Problem 22: Number Pyramid",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 22,
+    "category": "Algebra",
+    "subcategory": "Optimization",
+    "difficulty": 4,
+    "statement": "Three different one-digit positive integers are placed in the bottom row of cells. Numbers in adjacent cells are added and the sum is placed in the cell above them. In the second row, continue the same process to obtain a number in the top cell. What is the difference between the largest and smallest numbers possible in the top cell?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "16"
+      },
+      {
+        "label": "B",
+        "text": "24"
+      },
+      {
+        "label": "C",
+        "text": "25"
+      },
+      {
+        "label": "D",
+        "text": "26"
+      },
+      {
+        "label": "E",
+        "text": "35"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "26",
+    "solutionSteps": [
+      {
+        "title": "Write the top value",
+        "body": "If the bottom row is A, B, C, then the middle row is A+B and B+C, so the top is A+2B+C."
+      },
+      {
+        "title": "Minimize",
+        "body": "The center number counts twice, so put 1 in the center and 2 and 3 on the outside: 2+2(1)+3=7."
+      },
+      {
+        "title": "Maximize and subtract",
+        "body": "Put 9 in the center and 7 and 8 on the outside: 7+2(9)+8=33. The difference is 33−7=26."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Build the formula",
+        "narration": "Let the bottom row be A, B, C and add upward.",
+        "visualHint": "The top cell becomes A+2B+C."
+      },
+      {
+        "title": "Make the smallest top",
+        "narration": "Because the center is counted twice, place 1 in the center for the minimum.",
+        "visualHint": "2,1,3 gives top 7."
+      },
+      {
+        "title": "Make the largest top",
+        "narration": "Place 9 in the center for the maximum.",
+        "visualHint": "7,9,8 gives top 33, and 33−7=26."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "algebra",
+      "optimization"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2006/problem-22-number-pyramid.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2006-23",
+    "title": "2006 AMC 8 Problem 23: Gold Coin Remainders",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 23,
+    "category": "Number Theory",
+    "subcategory": "Remainders",
+    "difficulty": 4,
+    "statement": "A box contains gold coins. If the coins are equally divided among six people, four coins are left over. If the coins are equally divided among five people, three coins are left over. If the box holds the smallest number of coins that meets these two conditions, how many coins are left when equally divided among seven people?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "0"
+      },
+      {
+        "label": "B",
+        "text": "1"
+      },
+      {
+        "label": "C",
+        "text": "2"
+      },
+      {
+        "label": "D",
+        "text": "3"
+      },
+      {
+        "label": "E",
+        "text": "5"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "0",
+    "solutionSteps": [
+      {
+        "title": "Notice the common pattern",
+        "body": "The number leaves remainder 4 when divided by 6 and remainder 3 when divided by 5. In both cases, adding 2 makes it divisible."
+      },
+      {
+        "title": "Use the least common multiple",
+        "body": "The smallest positive number divisible by both 6 and 5 is 30, so the smallest coin count is 30−2=28."
+      },
+      {
+        "title": "Divide by 7",
+        "body": "28 is divisible by 7, so the remainder is 0."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers and what is being asked.",
+        "visualHint": "The important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main relationship to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "number theory",
+      "remainders"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2006-24",
+    "title": "2006 AMC 8 Problem 24: Letter Multiplication",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 24,
+    "category": "Number Theory",
+    "subcategory": "Digit puzzle",
+    "difficulty": 4,
+    "statement": "In the multiplication problem ABA × CD = CDCD, A, B, C, and D are different digits. What is A+B?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "4"
+      },
+      {
+        "label": "E",
+        "text": "9"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "1",
+    "solutionSteps": [
+      {
+        "title": "Factor the product",
+        "body": "CDCD is 101 times the two-digit number CD."
+      },
+      {
+        "title": "Compare factors",
+        "body": "Since ABA × CD = 101 × CD, and CD is nonzero, ABA=101."
+      },
+      {
+        "title": "Read off A and B",
+        "body": "ABA=101 means A=1 and B=0, so A+B=1."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers and what is being asked.",
+        "visualHint": "The important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main relationship to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "number theory",
+      "digit puzzle"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2006/problem-24-multiplication.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2006-25",
+    "title": "2006 AMC 8 Problem 25: Hidden Prime Cards",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2006,
+    "problemNumber": 25,
+    "category": "Number Theory",
+    "subcategory": "Prime numbers",
+    "difficulty": 5,
+    "statement": "Barry wrote 6 different numbers, one on each side of 3 cards, and laid the cards on a table, as shown. The sums of the two numbers on each of the three cards are equal. The three numbers on the hidden sides are prime numbers. What is the average of the hidden prime numbers?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "13"
+      },
+      {
+        "label": "B",
+        "text": "14"
+      },
+      {
+        "label": "C",
+        "text": "15"
+      },
+      {
+        "label": "D",
+        "text": "16"
+      },
+      {
+        "label": "E",
+        "text": "17"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "14",
+    "solutionSteps": [
+      {
+        "title": "Use parity",
+        "body": "The visible numbers 44 and 38 are even, while 59 is odd. To make the common sum work with three different primes, the hidden prime behind 59 must be the only even prime, 2."
+      },
+      {
+        "title": "Find the common sum",
+        "body": "The common sum is 59+2=61."
+      },
+      {
+        "title": "Find the other hidden primes",
+        "body": "The hidden numbers are 61−44=17 and 61−38=23."
+      },
+      {
+        "title": "Average",
+        "body": "The average is (2+17+23)/3=42/3=14."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the cards",
+        "narration": "Display the visible numbers 44, 59, and 38.",
+        "visualHint": "Three cards show 44, 59, and 38."
+      },
+      {
+        "title": "Use parity",
+        "narration": "Since 59 is odd, the hidden prime on that card must be 2 to create an odd common sum.",
+        "visualHint": "59+2=61 is shown as the common sum."
+      },
+      {
+        "title": "Reveal the hidden primes",
+        "narration": "Subtract the visible numbers from 61 to find 17 and 23, then average.",
+        "visualHint": "2, 17, and 23 average to 14; choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2006",
+      "number theory",
+      "prime numbers"
+    ],
+    "sourceName": "2006 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2006/problem-25-prime-cards.svg"
+    ],
+    "needsDiagram": true
+  }
+];
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
@@ -14537,6 +16599,7 @@ export const sampleProblems: Problem[] = [
   ...amc2003Problems,
   ...amc2004Problems,
   ...amc2005Problems,
+  ...amc2006Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems };

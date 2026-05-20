@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220" role="img" aria-label="Letter multiplication ABA times CD equals CDCD">
+  <rect width="360" height="220" fill="white"/>
+  <g font-family="serif" font-size="42" text-anchor="middle">
+    <text x="160" y="55">A</text><text x="215" y="55">B</text><text x="270" y="55">A</text>
+    <text x="100" y="105">×</text><text x="215" y="105">C</text><text x="270" y="105">D</text>
+    <line x1="90" y1="120" x2="305" y2="120" stroke="black" stroke-width="3"/>
+    <text x="105" y="170">C</text><text x="160" y="170">D</text><text x="215" y="170">C</text><text x="270" y="170">D</text>
+  </g>
+</svg>

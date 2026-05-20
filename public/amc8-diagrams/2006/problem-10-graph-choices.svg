@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" role="img" aria-label="Five graph choices for width and length pairs">
+  <rect width="720" height="430" fill="white"/>
+  <style>.axis{stroke:black;stroke-width:2}.dot{fill:black}.lbl{font:24px serif}.small{font:18px serif}</style>
+  <g transform="translate(25,20)">
+    <text class="lbl" x="0" y="115">(A)</text><line class="axis" x1="80" y1="125" x2="220" y2="125"/><line class="axis" x1="90" y1="0" x2="90" y2="135"/><text class="lbl" x="65" y="65">l</text><text class="lbl" x="150" y="155">w</text>
+    <circle class="dot" cx="105" cy="15" r="5"/><circle class="dot" cx="115" cy="55" r="5"/><circle class="dot" cx="128" cy="72" r="5"/><circle class="dot" cx="143" cy="84" r="5"/><circle class="dot" cx="170" cy="97" r="5"/><circle class="dot" cx="210" cy="111" r="5"/>
+  </g>
+  <g transform="translate(380,20)">
+    <text class="lbl" x="0" y="115">(B)</text><line class="axis" x1="80" y1="125" x2="220" y2="125"/><line class="axis" x1="90" y1="0" x2="90" y2="135"/><text class="lbl" x="65" y="65">l</text><text class="lbl" x="150" y="155">w</text>
+    <circle class="dot" cx="100" cy="112" r="5"/><circle class="dot" cx="120" cy="95" r="5"/><circle class="dot" cx="140" cy="75" r="5"/><circle class="dot" cx="160" cy="55" r="5"/><circle class="dot" cx="185" cy="35" r="5"/><circle class="dot" cx="210" cy="15" r="5"/>
+  </g>
+  <g transform="translate(25,245)">
+    <text class="lbl" x="0" y="115">(C)</text><line class="axis" x1="80" y1="125" x2="220" y2="125"/><line class="axis" x1="90" y1="0" x2="90" y2="135"/><text class="lbl" x="65" y="65">l</text><text class="lbl" x="150" y="155">w</text>
+    <circle class="dot" cx="100" cy="15" r="5"/><circle class="dot" cx="120" cy="35" r="5"/><circle class="dot" cx="140" cy="58" r="5"/><circle class="dot" cx="165" cy="82" r="5"/><circle class="dot" cx="190" cy="105" r="5"/><circle class="dot" cx="215" cy="118" r="5"/>
+  </g>
+  <g transform="translate(380,245)">
+    <text class="lbl" x="0" y="115">(D)</text><line class="axis" x1="80" y1="125" x2="220" y2="125"/><line class="axis" x1="90" y1="0" x2="90" y2="135"/><text class="lbl" x="65" y="65">l</text><text class="lbl" x="150" y="155">w</text>
+    <circle class="dot" cx="105" cy="70" r="5"/><circle class="dot" cx="125" cy="70" r="5"/><circle class="dot" cx="145" cy="70" r="5"/><circle class="dot" cx="165" cy="70" r="5"/><circle class="dot" cx="185" cy="70" r="5"/><circle class="dot" cx="205" cy="70" r="5"/>
+  </g>
+  <g transform="translate(575,245)">
+    <text class="lbl" x="0" y="115">(E)</text><line class="axis" x1="45" y1="125" x2="130" y2="125"/><line class="axis" x1="55" y1="0" x2="55" y2="135"/><text class="lbl" x="35" y="65">l</text><text class="lbl" x="90" y="155">w</text>
+    <circle class="dot" cx="95" cy="18" r="5"/><circle class="dot" cx="95" cy="38" r="5"/><circle class="dot" cx="95" cy="58" r="5"/><circle class="dot" cx="95" cy="78" r="5"/><circle class="dot" cx="95" cy="98" r="5"/><circle class="dot" cx="95" cy="118" r="5"/>
+  </g>
+</svg>

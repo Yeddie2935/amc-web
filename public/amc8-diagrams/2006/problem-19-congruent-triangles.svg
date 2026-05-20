@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 310" role="img" aria-label="Triangles ABC and ECD intersecting at midpoint D">
+  <rect width="430" height="310" fill="white"/>
+  <g fill="none" stroke="black" stroke-width="3">
+    <polyline points="70,240 150,50 240,240 70,240"/>
+    <polyline points="70,240 335,65 240,240 70,240"/>
+    <line x1="150" y1="50" x2="240" y2="240"/>
+    <line x1="70" y1="240" x2="335" y2="65"/>
+  </g>
+  <g font-family="serif" font-size="34">
+    <text x="48" y="270">A</text><text x="142" y="40">B</text><text x="235" y="275">C</text><text x="199" y="150">D</text><text x="340" y="65">E</text>
+  </g>
+</svg>

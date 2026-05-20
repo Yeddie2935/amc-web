@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 300" role="img" aria-label="Square with smaller square whose vertices are side midpoints">
+  <rect width="360" height="300" fill="white"/>
+  <rect x="90" y="50" width="180" height="180" fill="none" stroke="black" stroke-width="3"/>
+  <polygon points="180,50 270,140 180,230 90,140" fill="none" stroke="black" stroke-width="3"/>
+  <text x="180" y="38" font-family="serif" font-size="28" text-anchor="middle">A</text>
+  <text x="286" y="148" font-family="serif" font-size="28">B</text>
+  <text x="180" y="264" font-family="serif" font-size="28" text-anchor="middle">C</text>
+  <text x="58" y="148" font-family="serif" font-size="28">D</text>
+</svg>
