@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="350" viewBox="0 0 520 350" role="img" aria-label="problem-02-pasta-bar-graph.svg">
+  <rect width="100%" height="100%" fill="white"/>
+  <style>text{font-family:Arial, sans-serif;font-size:18px;fill:#111} .thin{stroke:#111;stroke-width:2;fill:none} .grid{stroke:#444;stroke-width:1.4} .shade{fill:#8a8a8a;stroke:#111;stroke-width:2} .light{fill:#f4f4f4;stroke:#111;stroke-width:2} .label{font-size:16px} .small{font-size:14px}</style>
+<line x1="80" y1="290" x2="470" y2="290" class="thin"/>
+<line x1="80" y1="40" x2="80" y2="290" class="thin"/>
+<line x1="75" y1="290" x2="80" y2="290" stroke="#111"/><text x="42" y="296" class="small">0</text><line x1="80" y1="290" x2="470" y2="290" stroke="#ddd"/>
+<line x1="75" y1="240" x2="80" y2="240" stroke="#111"/><text x="42" y="246" class="small">50</text><line x1="80" y1="240" x2="470" y2="240" stroke="#ddd"/>
+<line x1="75" y1="190" x2="80" y2="190" stroke="#111"/><text x="42" y="196" class="small">100</text><line x1="80" y1="190" x2="470" y2="190" stroke="#ddd"/>
+<line x1="75" y1="140" x2="80" y2="140" stroke="#111"/><text x="42" y="146" class="small">150</text><line x1="80" y1="140" x2="470" y2="140" stroke="#ddd"/>
+<line x1="75" y1="90" x2="80" y2="90" stroke="#111"/><text x="42" y="96" class="small">200</text><line x1="80" y1="90" x2="470" y2="90" stroke="#ddd"/>
+<line x1="75" y1="40" x2="80" y2="40" stroke="#111"/><text x="42" y="46" class="small">250</text><line x1="80" y1="40" x2="470" y2="40" stroke="#ddd"/>
+<rect x="105" y="140" width="60" height="150" fill="#888" stroke="#111" stroke-width="2"/>
+<text x="135" y="318" text-anchor="middle" class="small" transform="rotate(-45 135 318)">Lasagna</text>
+<rect x="195" y="190" width="60" height="100" fill="#888" stroke="#111" stroke-width="2"/>
+<text x="225" y="318" text-anchor="middle" class="small" transform="rotate(-45 225 318)">Manicotti</text>
+<rect x="285" y="140" width="60" height="150" fill="#888" stroke="#111" stroke-width="2"/>
+<text x="315" y="318" text-anchor="middle" class="small" transform="rotate(-45 315 318)">Ravioli</text>
+<rect x="375" y="40" width="60" height="250" fill="#888" stroke="#111" stroke-width="2"/>
+<text x="405" y="318" text-anchor="middle" class="small" transform="rotate(-45 405 318)">Spaghetti</text>
+<text x="260" y="25" text-anchor="middle">Pasta Preferences</text>
+</svg>

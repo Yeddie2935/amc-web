@@ -16592,6 +16592,2134 @@ const amc2006Problems: Problem[] = [
   }
 ];
 
+
+
+const amc2007Problems: Problem[] = [
+  {
+    "id": "amc8-2007-01",
+    "title": "2007 AMC 8 Problem 1: Final Week Average",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 1,
+    "category": "Algebra",
+    "subcategory": "Averages",
+    "difficulty": 1,
+    "statement": "Theresa's parents have agreed to buy her tickets to see her favorite band if she spends an average of 10 hours per week helping around the house for 6 weeks. For the first 5 weeks she helps around the house for 8, 11, 7, 12, and 10 hours. How many hours must she work for the final week to earn the tickets?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "9"
+      },
+      {
+        "label": "B",
+        "text": "10"
+      },
+      {
+        "label": "C",
+        "text": "11"
+      },
+      {
+        "label": "D",
+        "text": "12"
+      },
+      {
+        "label": "E",
+        "text": "13"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "12",
+    "solutionSteps": [
+      {
+        "title": "Find the total required hours",
+        "body": "To average 10 hours for 6 weeks, Theresa needs 10 × 6 = 60 total hours.",
+        "equation": "10\\times 6=60"
+      },
+      {
+        "title": "Add the first five weeks",
+        "body": "Her first five weeks total 8 + 11 + 7 + 12 + 10 = 48 hours.",
+        "equation": "8+11+7+12+10=48"
+      },
+      {
+        "title": "Find the final week",
+        "body": "She still needs 60 − 48 = 12 hours, so the answer is D.",
+        "equation": "60-48=12"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "algebra",
+      "average",
+      "arithmetic"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2007-02",
+    "title": "2007 AMC 8 Problem 2: Pasta Bar Graph Ratio",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 2,
+    "category": "Other",
+    "subcategory": "Bar graphs",
+    "difficulty": 1,
+    "statement": "650 students were surveyed about their pasta preferences. The choices were lasagna, manicotti, ravioli and spaghetti. The results of the survey are displayed in the bar graph. What is the ratio of the number of students who preferred spaghetti to the number of students who preferred manicotti?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2/5"
+      },
+      {
+        "label": "B",
+        "text": "1/2"
+      },
+      {
+        "label": "C",
+        "text": "5/4"
+      },
+      {
+        "label": "D",
+        "text": "5/3"
+      },
+      {
+        "label": "E",
+        "text": "5/2"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "5/2",
+    "solutionSteps": [
+      {
+        "title": "Read the bars",
+        "body": "The spaghetti bar is 250 students, and the manicotti bar is 100 students.",
+        "equation": "spaghetti=250,\\ manicotti=100"
+      },
+      {
+        "title": "Make the ratio",
+        "body": "The requested ratio is spaghetti to manicotti, so use 250/100.",
+        "equation": "250:100"
+      },
+      {
+        "title": "Simplify",
+        "body": "Divide both numbers by 50 to get 5:2, so the ratio is 5/2.",
+        "equation": "250/100=5/2"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "data",
+      "bar graph",
+      "ratio"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2007/problem-02-pasta-bar-graph.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2007-03",
+    "title": "2007 AMC 8 Problem 3: Prime Factors of 250",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 3,
+    "category": "Number Theory",
+    "subcategory": "Prime factorization",
+    "difficulty": 1,
+    "statement": "What is the sum of the two smallest prime factors of 250?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2"
+      },
+      {
+        "label": "B",
+        "text": "5"
+      },
+      {
+        "label": "C",
+        "text": "7"
+      },
+      {
+        "label": "D",
+        "text": "10"
+      },
+      {
+        "label": "E",
+        "text": "12"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "7",
+    "solutionSteps": [
+      {
+        "title": "Factor 250",
+        "body": "Break 250 into prime factors.",
+        "equation": "250=2\\times5^3"
+      },
+      {
+        "title": "Identify the two smallest prime factors",
+        "body": "The distinct prime factors are 2 and 5.",
+        "equation": "2,5"
+      },
+      {
+        "title": "Add them",
+        "body": "Their sum is 2 + 5 = 7.",
+        "equation": "2+5=7"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "number theory",
+      "prime factors"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2007-04",
+    "title": "2007 AMC 8 Problem 4: Ghost Windows",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 4,
+    "category": "Counting & Probability",
+    "subcategory": "Counting choices",
+    "difficulty": 1,
+    "statement": "A haunted house has six windows. In how many ways can Georgie the Ghost enter the house by one window and leave by a different window?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "12"
+      },
+      {
+        "label": "B",
+        "text": "15"
+      },
+      {
+        "label": "C",
+        "text": "18"
+      },
+      {
+        "label": "D",
+        "text": "30"
+      },
+      {
+        "label": "E",
+        "text": "36"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "30",
+    "solutionSteps": [
+      {
+        "title": "Choose an entrance",
+        "body": "There are 6 choices for the window Georgie enters."
+      },
+      {
+        "title": "Choose a different exit",
+        "body": "After choosing the entrance, 5 windows remain for the exit."
+      },
+      {
+        "title": "Multiply",
+        "body": "There are 6 × 5 = 30 possible enter-exit choices.",
+        "equation": "6\\times5=30"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "counting",
+      "multiplication principle"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2007-05",
+    "title": "2007 AMC 8 Problem 5: Saving for a Bike",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 5,
+    "category": "Algebra",
+    "subcategory": "Linear equations",
+    "difficulty": 1,
+    "statement": "Chandler wants to buy a 500 dollar mountain bike. For his birthday, his grandparents send him 50 dollars, his aunt sends him 35 dollars and his cousin gives him 15 dollars. He earns 16 dollars per week for his paper route. He will use all of his birthday money and all of the money he earns from his paper route. In how many weeks will he be able to buy the mountain bike?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "24"
+      },
+      {
+        "label": "B",
+        "text": "25"
+      },
+      {
+        "label": "C",
+        "text": "26"
+      },
+      {
+        "label": "D",
+        "text": "27"
+      },
+      {
+        "label": "E",
+        "text": "28"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "25",
+    "solutionSteps": [
+      {
+        "title": "Add birthday money",
+        "body": "His birthday money is 50 + 35 + 15 = 100 dollars.",
+        "equation": "50+35+15=100"
+      },
+      {
+        "title": "Find the remaining amount",
+        "body": "He needs 500 − 100 = 400 more dollars.",
+        "equation": "500-100=400"
+      },
+      {
+        "title": "Divide by weekly earnings",
+        "body": "At 16 dollars per week, he needs 400 ÷ 16 = 25 weeks.",
+        "equation": "400/16=25"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "algebra",
+      "linear equations",
+      "arithmetic"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2007-06",
+    "title": "2007 AMC 8 Problem 6: Long-Distance Call Cost Decrease",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 6,
+    "category": "Algebra",
+    "subcategory": "Percents",
+    "difficulty": 2,
+    "statement": "The average cost of a long-distance call in the USA in 1985 was 41 cents per minute, and the average cost of a long-distance call in the USA in 2005 was 7 cents per minute. Find the approximate percent decrease in the cost per minute of a long-distance call.",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7"
+      },
+      {
+        "label": "B",
+        "text": "17"
+      },
+      {
+        "label": "C",
+        "text": "34"
+      },
+      {
+        "label": "D",
+        "text": "41"
+      },
+      {
+        "label": "E",
+        "text": "80"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "80",
+    "solutionSteps": [
+      {
+        "title": "Find the decrease",
+        "body": "The cost decreased by 41 − 7 = 34 cents.",
+        "equation": "41-7=34"
+      },
+      {
+        "title": "Compare to the original",
+        "body": "Percent decrease uses the original cost, so compute 34/41.",
+        "equation": "34/41\\approx0.83"
+      },
+      {
+        "title": "Choose the closest percent",
+        "body": "0.83 is about 83%, so the closest choice is 80%."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "algebra",
+      "percents"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2007-07",
+    "title": "2007 AMC 8 Problem 7: Age Average After Someone Leaves",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 7,
+    "category": "Algebra",
+    "subcategory": "Averages",
+    "difficulty": 2,
+    "statement": "The average age of 5 people in a room is 30 years. An 18-year-old person leaves the room. What is the average age of the four remaining people?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "25"
+      },
+      {
+        "label": "B",
+        "text": "26"
+      },
+      {
+        "label": "C",
+        "text": "29"
+      },
+      {
+        "label": "D",
+        "text": "33"
+      },
+      {
+        "label": "E",
+        "text": "36"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "33",
+    "solutionSteps": [
+      {
+        "title": "Find the original total age",
+        "body": "Five people with average age 30 have total age 5 × 30 = 150.",
+        "equation": "5\\times30=150"
+      },
+      {
+        "title": "Remove the 18-year-old",
+        "body": "The remaining total is 150 − 18 = 132.",
+        "equation": "150-18=132"
+      },
+      {
+        "title": "Average the remaining four",
+        "body": "132 ÷ 4 = 33, so the new average is 33 years.",
+        "equation": "132/4=33"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "algebra",
+      "average"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2007-08",
+    "title": "2007 AMC 8 Problem 8: Trapezoid Triangle Area",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 8,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 2,
+    "statement": "In trapezoid ABCD, AD is perpendicular to DC, AD = AB = 3, and DC = 6. In addition, E is on DC, and BE is parallel to AD. Find the area of triangle BEC.",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3"
+      },
+      {
+        "label": "B",
+        "text": "4.5"
+      },
+      {
+        "label": "C",
+        "text": "6"
+      },
+      {
+        "label": "D",
+        "text": "9"
+      },
+      {
+        "label": "E",
+        "text": "18"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "4.5",
+    "solutionSteps": [
+      {
+        "title": "Recognize the square",
+        "body": "Since AD = AB = 3 and BE is parallel to AD, ABED is a 3 by 3 square."
+      },
+      {
+        "title": "Find EC",
+        "body": "The whole base DC is 6, and DE is 3, so EC = 3.",
+        "equation": "EC=6-3=3"
+      },
+      {
+        "title": "Use triangle area",
+        "body": "Triangle BEC has base EC = 3 and height BE = 3, so its area is 1/2 × 3 × 3 = 4.5.",
+        "equation": "\\frac12\\cdot3\\cdot3=4.5"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "geometry",
+      "area",
+      "trapezoid"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2007/problem-08-trapezoid-bec.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2007-09",
+    "title": "2007 AMC 8 Problem 9: Four-by-Four Digit Grid",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 9,
+    "category": "Logic",
+    "subcategory": "Latin square",
+    "difficulty": 2,
+    "statement": "To complete the grid below, each of the digits 1 through 4 must occur once in each row and once in each column. What number will occupy the lower right-hand square?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "4"
+      },
+      {
+        "label": "E",
+        "text": "cannot be determined"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "2",
+    "solutionSteps": [
+      {
+        "title": "Use column restrictions",
+        "body": "The first row already has 1 and 2, and the second column already has 3, forcing the top-right part of the grid."
+      },
+      {
+        "title": "Complete the last column",
+        "body": "The last column must contain 1, 2, 3, and 4 exactly once."
+      },
+      {
+        "title": "Determine the lower-right square",
+        "body": "After the forced placements, the lower-right square must be 2."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "logic",
+      "grid",
+      "deduction"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2007/problem-09-latin-square-grid.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2007-10",
+    "title": "2007 AMC 8 Problem 10: Nested Factor-Sum Function",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 10,
+    "category": "Number Theory",
+    "subcategory": "Divisors",
+    "difficulty": 2,
+    "statement": "For any positive integer n, define [n] to be the sum of the positive factors of n. For example, [6] = 1 + 2 + 3 + 6 = 12. Find [[11]].",
+    "choices": [
+      {
+        "label": "A",
+        "text": "13"
+      },
+      {
+        "label": "B",
+        "text": "20"
+      },
+      {
+        "label": "C",
+        "text": "24"
+      },
+      {
+        "label": "D",
+        "text": "28"
+      },
+      {
+        "label": "E",
+        "text": "30"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "28",
+    "solutionSteps": [
+      {
+        "title": "Evaluate the inner expression",
+        "body": "Since 11 is prime, its positive factors are 1 and 11, so [11] = 12.",
+        "equation": "[11]=1+11=12"
+      },
+      {
+        "title": "Evaluate the outer expression",
+        "body": "Now find [12] by adding all positive factors of 12.",
+        "equation": "[12]=1+2+3+4+6+12"
+      },
+      {
+        "title": "Add",
+        "body": "The sum is 28, so [[11]] = 28.",
+        "equation": "1+2+3+4+6+12=28"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "number theory",
+      "factors",
+      "functions"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2007-11",
+    "title": "2007 AMC 8 Problem 11: Tile Matching",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 11,
+    "category": "Logic",
+    "subcategory": "Spatial reasoning",
+    "difficulty": 3,
+    "statement": "Tiles I, II, III and IV are translated so one tile coincides with each of the rectangles A, B, C and D. In the final arrangement, the two numbers on any side common to two adjacent tiles must be the same. Which of the tiles is translated to rectangle C?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "I"
+      },
+      {
+        "label": "B",
+        "text": "II"
+      },
+      {
+        "label": "C",
+        "text": "III"
+      },
+      {
+        "label": "D",
+        "text": "IV"
+      },
+      {
+        "label": "E",
+        "text": "cannot be determined"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "IV",
+    "solutionSteps": [
+      {
+        "title": "Start with unique numbers",
+        "body": "Tile III has a 0 and a 5, which do not match any other outside edge except in one forced position."
+      },
+      {
+        "title": "Place Tile III",
+        "body": "Tile III must go in rectangle D so its unmatched 0 and 5 face the outside."
+      },
+      {
+        "title": "Match the left edge",
+        "body": "Tile III has 1 on its left edge, so the tile in rectangle C must have 1 on its right edge. That tile is IV."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "logic",
+      "spatial reasoning",
+      "matching"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2007/problem-11-tile-matching.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2007-12",
+    "title": "2007 AMC 8 Problem 12: Hexagram Area Ratio",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 12,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 2,
+    "statement": "A unit hexagram is composed of a regular hexagon of side length 1 and its 6 equilateral triangular extensions, as shown in the diagram. What is the ratio of the area of the extensions to the area of the original hexagon?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1:1"
+      },
+      {
+        "label": "B",
+        "text": "6:5"
+      },
+      {
+        "label": "C",
+        "text": "3:2"
+      },
+      {
+        "label": "D",
+        "text": "2:1"
+      },
+      {
+        "label": "E",
+        "text": "3:1"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "1:1",
+    "solutionSteps": [
+      {
+        "title": "Split the hexagon",
+        "body": "A regular hexagon of side length 1 can be divided into 6 congruent equilateral triangles."
+      },
+      {
+        "title": "Compare to the extensions",
+        "body": "Each extension is also an equilateral triangle with side length 1."
+      },
+      {
+        "title": "Compare total areas",
+        "body": "There are 6 extension triangles and 6 congruent triangles inside the hexagon, so the areas are equal: 1:1."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "geometry",
+      "area",
+      "hexagon"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2007/problem-12-hexagram.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2007-13",
+    "title": "2007 AMC 8 Problem 13: Equal Venn Sets",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 13,
+    "category": "Counting & Probability",
+    "subcategory": "Sets",
+    "difficulty": 3,
+    "statement": "Sets A and B, shown in the Venn diagram, have the same number of elements. Their union has 2007 elements and their intersection has 1001 elements. Find the number of elements in A.",
+    "choices": [
+      {
+        "label": "A",
+        "text": "503"
+      },
+      {
+        "label": "B",
+        "text": "1006"
+      },
+      {
+        "label": "C",
+        "text": "1504"
+      },
+      {
+        "label": "D",
+        "text": "1507"
+      },
+      {
+        "label": "E",
+        "text": "1510"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "1504",
+    "solutionSteps": [
+      {
+        "title": "Let each set have x elements",
+        "body": "Since A and B have the same number of elements, call each size x."
+      },
+      {
+        "title": "Use the union formula",
+        "body": "|A ∪ B| = |A| + |B| − |A ∩ B|, so 2007 = x + x − 1001.",
+        "equation": "2007=2x-1001"
+      },
+      {
+        "title": "Solve",
+        "body": "2x = 3008, so x = 1504.",
+        "equation": "x=1504"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "venn",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "counting",
+      "sets",
+      "venn diagram"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2007/problem-13-venn.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2007-14",
+    "title": "2007 AMC 8 Problem 14: Isosceles Triangle Side",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 14,
+    "category": "Geometry",
+    "subcategory": "Pythagorean theorem",
+    "difficulty": 3,
+    "statement": "The base of isosceles triangle ABC is 24 and its area is 60. What is the length of one of the congruent sides?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5"
+      },
+      {
+        "label": "B",
+        "text": "8"
+      },
+      {
+        "label": "C",
+        "text": "13"
+      },
+      {
+        "label": "D",
+        "text": "14"
+      },
+      {
+        "label": "E",
+        "text": "18"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "13",
+    "solutionSteps": [
+      {
+        "title": "Find the height",
+        "body": "Using area = 1/2 × base × height, 60 = 1/2 × 24 × h, so h = 5.",
+        "equation": "60=12h\\Rightarrow h=5"
+      },
+      {
+        "title": "Bisect the base",
+        "body": "The altitude of an isosceles triangle splits the base 24 into two segments of length 12."
+      },
+      {
+        "title": "Use the Pythagorean theorem",
+        "body": "One congruent side is the hypotenuse of a right triangle with legs 5 and 12, so the side is 13.",
+        "equation": "5^2+12^2=13^2"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "geometry",
+      "pythagorean theorem",
+      "area"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2007/problem-14-isosceles-triangle.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2007-15",
+    "title": "2007 AMC 8 Problem 15: Impossible Inequality",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 15,
+    "category": "Algebra",
+    "subcategory": "Inequalities",
+    "difficulty": 3,
+    "statement": "Let a, b and c be numbers with 0 < a < b < c. Which of the following is impossible?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "a + c < b"
+      },
+      {
+        "label": "B",
+        "text": "a · b < c"
+      },
+      {
+        "label": "C",
+        "text": "a + b < c"
+      },
+      {
+        "label": "D",
+        "text": "a · c < b"
+      },
+      {
+        "label": "E",
+        "text": "c / b = a"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "a + c < b",
+    "solutionSteps": [
+      {
+        "title": "Use the order",
+        "body": "Since b < c and a is positive, adding a to c makes it even larger."
+      },
+      {
+        "title": "Compare",
+        "body": "Because c > b, we have a + c > b, not a + c < b.",
+        "equation": "0<a,\\ b<c\\Rightarrow b<a+c"
+      },
+      {
+        "title": "Conclude",
+        "body": "So a + c < b is impossible."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "algebra",
+      "inequalities"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2007-16",
+    "title": "2007 AMC 8 Problem 16: Circle Circumference-Area Graph",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 16,
+    "category": "Algebra",
+    "subcategory": "Graphs",
+    "difficulty": 3,
+    "statement": "Amanda Reckonwith draws five circles with radii 1, 2, 3, 4 and 5. Then for each circle she plots the point (C, A), where C is its circumference and A is its area. Which of the following could be her graph?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Graph A"
+      },
+      {
+        "label": "B",
+        "text": "Graph B"
+      },
+      {
+        "label": "C",
+        "text": "Graph C"
+      },
+      {
+        "label": "D",
+        "text": "Graph D"
+      },
+      {
+        "label": "E",
+        "text": "Graph E"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "Graph A",
+    "solutionSteps": [
+      {
+        "title": "Write the coordinates",
+        "body": "For radius r, C = 2πr and A = πr²."
+      },
+      {
+        "title": "Compare growth",
+        "body": "The C-values grow evenly, but the A-values grow faster and faster because of r²."
+      },
+      {
+        "title": "Choose the graph",
+        "body": "The correct graph has evenly spaced x-values and increasingly spaced y-values, which is Graph A."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "algebra",
+      "graphs",
+      "circles"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2007/problem-16-circle-graph-options.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2007-17",
+    "title": "2007 AMC 8 Problem 17: Paint Mixture Percent",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 17,
+    "category": "Algebra",
+    "subcategory": "Percents",
+    "difficulty": 2,
+    "statement": "A mixture of 30 liters of paint is 25% red tint, 30% yellow tint and 45% water. Five liters of yellow tint are added to the original mixture. What is the percent of yellow tint in the new mixture?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "25"
+      },
+      {
+        "label": "B",
+        "text": "35"
+      },
+      {
+        "label": "C",
+        "text": "40"
+      },
+      {
+        "label": "D",
+        "text": "45"
+      },
+      {
+        "label": "E",
+        "text": "50"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "40",
+    "solutionSteps": [
+      {
+        "title": "Find the original yellow tint",
+        "body": "30% of 30 liters is 9 liters of yellow tint.",
+        "equation": "0.30\\times30=9"
+      },
+      {
+        "title": "Add yellow tint",
+        "body": "After adding 5 liters, there are 14 liters of yellow tint."
+      },
+      {
+        "title": "Find the new percent",
+        "body": "The total mixture is 35 liters, so 14/35 = 40%."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "algebra",
+      "percents",
+      "mixtures"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2007-18",
+    "title": "2007 AMC 8 Problem 18: Last Digits of a Product",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 18,
+    "category": "Number Theory",
+    "subcategory": "Digits",
+    "difficulty": 3,
+    "statement": "The product of the two 99-digit numbers 303,030,303,...,030,303 and 505,050,505,...,050,505 has thousands digit A and units digit B. What is the sum of A and B?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3"
+      },
+      {
+        "label": "B",
+        "text": "5"
+      },
+      {
+        "label": "C",
+        "text": "6"
+      },
+      {
+        "label": "D",
+        "text": "8"
+      },
+      {
+        "label": "E",
+        "text": "10"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "8",
+    "solutionSteps": [
+      {
+        "title": "Only the last four digits matter",
+        "body": "To find the thousands and units digits of the product, it is enough to multiply the last four digits."
+      },
+      {
+        "title": "Multiply",
+        "body": "The relevant last parts are 0303 and 0505, so compute 303 × 505 = 153015.",
+        "equation": "303\\times505=153015"
+      },
+      {
+        "title": "Read the last four digits",
+        "body": "The product ends in 3015, so A = 3 and B = 5. Their sum is 8.",
+        "equation": "3+5=8"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "number theory",
+      "digits",
+      "multiplication"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2007-19",
+    "title": "2007 AMC 8 Problem 19: Difference of Consecutive Squares",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 19,
+    "category": "Number Theory",
+    "subcategory": "Squares",
+    "difficulty": 3,
+    "statement": "Pick two consecutive positive integers whose sum is less than 100. Square both of those integers and then find the difference of the squares. Which of the following could be the difference?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2"
+      },
+      {
+        "label": "B",
+        "text": "64"
+      },
+      {
+        "label": "C",
+        "text": "79"
+      },
+      {
+        "label": "D",
+        "text": "96"
+      },
+      {
+        "label": "E",
+        "text": "131"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "79",
+    "solutionSteps": [
+      {
+        "title": "Represent the integers",
+        "body": "Let the consecutive integers be n and n + 1."
+      },
+      {
+        "title": "Subtract the squares",
+        "body": "The difference is (n + 1)² − n² = 2n + 1.",
+        "equation": "(n+1)^2-n^2=2n+1"
+      },
+      {
+        "title": "Use the restriction",
+        "body": "Since n + (n + 1) < 100, the difference 2n + 1 is odd and less than 100. The only matching choice is 79."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "number theory",
+      "squares",
+      "consecutive integers"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2007-20",
+    "title": "2007 AMC 8 Problem 20: Unicorns Season Record",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 20,
+    "category": "Algebra",
+    "subcategory": "Equations",
+    "difficulty": 4,
+    "statement": "Before district play, the Unicorns had won 45% of their basketball games. During district play, they won six more games and lost two, to finish the season having won half their games. How many games did the Unicorns play in all?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "48"
+      },
+      {
+        "label": "B",
+        "text": "50"
+      },
+      {
+        "label": "C",
+        "text": "52"
+      },
+      {
+        "label": "D",
+        "text": "54"
+      },
+      {
+        "label": "E",
+        "text": "60"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "48",
+    "solutionSteps": [
+      {
+        "title": "Let x be games before district play",
+        "body": "Before district play, the Unicorns had won 0.45x games."
+      },
+      {
+        "title": "Add district play",
+        "body": "They won 6 and lost 2, so they played x + 8 total games and won 0.45x + 6."
+      },
+      {
+        "title": "Set final wins to half",
+        "body": "Solve 0.45x + 6 = (x + 8)/2 to get x = 40, so the full season had 48 games.",
+        "equation": "0.45x+6=\\frac{x+8}{2}\\Rightarrow x=40"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "algebra",
+      "equations",
+      "percent"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2007-21",
+    "title": "2007 AMC 8 Problem 21: Winning Card Pair",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 21,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 3,
+    "statement": "Two cards are dealt from a deck of four red cards labeled A, B, C, D and four green cards labeled A, B, C, D. A winning pair is two of the same color or two of the same letter. What is the probability of drawing a winning pair?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2/7"
+      },
+      {
+        "label": "B",
+        "text": "3/8"
+      },
+      {
+        "label": "C",
+        "text": "1/2"
+      },
+      {
+        "label": "D",
+        "text": "4/7"
+      },
+      {
+        "label": "E",
+        "text": "5/8"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "4/7",
+    "solutionSteps": [
+      {
+        "title": "Fix the first card",
+        "body": "After the first card is dealt, 7 cards remain."
+      },
+      {
+        "title": "Count winning second cards",
+        "body": "There are 3 cards with the same color and 1 card with the same letter."
+      },
+      {
+        "title": "Find the probability",
+        "body": "That gives 4 winning cards out of 7 remaining cards, so the probability is 4/7.",
+        "equation": "4/7"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "probability",
+      "cards",
+      "counting"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2007-22",
+    "title": "2007 AMC 8 Problem 22: Lemming Distance Average",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 22,
+    "category": "Geometry",
+    "subcategory": "Distance",
+    "difficulty": 4,
+    "statement": "A lemming sits at a corner of a square with side length 10 meters. The lemming runs 6.2 meters along a diagonal toward the opposite corner. It stops, makes a 90° right turn and runs 2 more meters. A scientist measures the shortest distance between the lemming and each side of the square. What is the average of these four distances in meters?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2"
+      },
+      {
+        "label": "B",
+        "text": "4.5"
+      },
+      {
+        "label": "C",
+        "text": "5"
+      },
+      {
+        "label": "D",
+        "text": "6.2"
+      },
+      {
+        "label": "E",
+        "text": "7"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "Use any point inside the square",
+        "body": "For any point inside a 10 by 10 square, the distances to the left and right sides add to 10."
+      },
+      {
+        "title": "Use the other direction",
+        "body": "Similarly, the distances to the top and bottom sides also add to 10."
+      },
+      {
+        "title": "Average the four distances",
+        "body": "The four distances have total 20, so their average is 20 ÷ 4 = 5."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "geometry",
+      "distance",
+      "invariants"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2007/problem-22-lemming-square.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2007-23",
+    "title": "2007 AMC 8 Problem 23: Pinwheel Area",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 23,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 4,
+    "statement": "What is the area of the shaded pinwheel shown in the 5 × 5 grid?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "6"
+      },
+      {
+        "label": "C",
+        "text": "8"
+      },
+      {
+        "label": "D",
+        "text": "10"
+      },
+      {
+        "label": "E",
+        "text": "12"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "6",
+    "solutionSteps": [
+      {
+        "title": "Start with the whole grid",
+        "body": "The 5 by 5 grid has area 25."
+      },
+      {
+        "title": "Count unshaded area",
+        "body": "The unshaded area consists of four 1 by 1 corner squares and four triangles with total area 15, for a total of 19."
+      },
+      {
+        "title": "Subtract",
+        "body": "The shaded area is 25 − 19 = 6."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "geometry",
+      "area",
+      "grid"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2007/problem-23-pinwheel-grid.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2007-24",
+    "title": "2007 AMC 8 Problem 24: Three-Digit Multiple of 3",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 24,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 3,
+    "statement": "A bag contains four pieces of paper, each labeled with one of the digits 1, 2, 3 or 4, with no repeats. Three of these pieces are drawn, one at a time without replacement, to construct a three-digit number. What is the probability that the three-digit number is a multiple of 3?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/4"
+      },
+      {
+        "label": "B",
+        "text": "1/3"
+      },
+      {
+        "label": "C",
+        "text": "1/2"
+      },
+      {
+        "label": "D",
+        "text": "2/3"
+      },
+      {
+        "label": "E",
+        "text": "3/4"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "1/2",
+    "solutionSteps": [
+      {
+        "title": "Use divisibility by 3",
+        "body": "A number is divisible by 3 exactly when the sum of its digits is divisible by 3."
+      },
+      {
+        "title": "Choose the digit sets",
+        "body": "The possible sets are {1,2,3} and {2,3,4}. These occur when 4 or 1 is left out."
+      },
+      {
+        "title": "Find the probability",
+        "body": "Two of the four possible omitted digits work, so the probability is 2/4 = 1/2."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "probability",
+      "divisibility",
+      "digits"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2007-25",
+    "title": "2007 AMC 8 Problem 25: Dartboard Odd Score",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2007,
+    "problemNumber": 25,
+    "category": "Counting & Probability",
+    "subcategory": "Geometric probability",
+    "difficulty": 5,
+    "statement": "On the dart board shown in the figure below, the outer circle has radius 6 and the inner circle has radius 3. Three radii divide each circle into three congruent regions, with point values shown. The probability that a dart will hit a given region is proportional to the area of the region. When two darts hit this board, the score is the sum of the point values of the regions hit. What is the probability that the score is odd?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "17/36"
+      },
+      {
+        "label": "B",
+        "text": "35/72"
+      },
+      {
+        "label": "C",
+        "text": "1/2"
+      },
+      {
+        "label": "D",
+        "text": "37/72"
+      },
+      {
+        "label": "E",
+        "text": "19/36"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "35/72",
+    "solutionSteps": [
+      {
+        "title": "Find one-dart probabilities",
+        "body": "The inner circle has area 9π and the outer ring has area 27π, so each inner sector has area 3π and each outer sector has area 9π."
+      },
+      {
+        "title": "Probability of hitting 1 or 2",
+        "body": "The 1 regions have total area 21π, so P(1)=21/36=7/12. The 2 regions have total area 15π, so P(2)=5/12."
+      },
+      {
+        "title": "Two darts give an odd sum",
+        "body": "An odd sum needs one 1 and one 2, in either order: 2 × (7/12)(5/12) = 35/72.",
+        "equation": "2\\cdot\\frac{7}{12}\\cdot\\frac{5}{12}=\\frac{35}{72}"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2007",
+      "probability",
+      "area",
+      "dartboard"
+    ],
+    "sourceName": "2007 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2007/problem-25-dartboard.svg"
+    ],
+    "needsDiagram": true
+  }
+];
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
@@ -16600,6 +18728,7 @@ export const sampleProblems: Problem[] = [
   ...amc2004Problems,
   ...amc2005Problems,
   ...amc2006Problems,
+  ...amc2007Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems };
