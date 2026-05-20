@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 410" role="img"><style>
+text{font-family:Inter,Arial,sans-serif;fill:#111827}.label{font-size:18px;font-weight:700}.small{font-size:14px}.tiny{font-size:11px}.choice{font-size:14px;font-weight:600}.shape{fill:#fff;stroke:#111827;stroke-width:2.5}.thin{fill:none;stroke:#111827;stroke-width:2}.dash{fill:none;stroke:#111827;stroke-width:2;stroke-dasharray:7 6}.shade{fill:#d1d5db;stroke:#111827;stroke-width:2}.dark{fill:#111827;stroke:#111827;stroke-width:2}.bright{fill:#fff;stroke:#111827;stroke-width:2}.accent{fill:#eff6ff;stroke:#2563eb;stroke-width:2}.grid{stroke:#9ca3af;stroke-width:1}.muted{fill:#6b7280}.red{fill:#fee2e2;stroke:#dc2626;stroke-width:2}.green{fill:#dcfce7;stroke:#16a34a;stroke-width:2}.blue{fill:#dbeafe;stroke:#2563eb;stroke-width:2}
+</style><text x="25" y="35" class="label">Choose 3 of the 6 dots</text>
+<circle cx="90" cy="95" r="8" fill="#111827"/>
+<circle cx="315" cy="95" r="8" fill="#111827"/>
+<circle cx="540" cy="95" r="8" fill="#111827"/>
+<circle cx="90" cy="300" r="8" fill="#111827"/>
+<circle cx="315" cy="300" r="8" fill="#111827"/>
+<circle cx="540" cy="300" r="8" fill="#111827"/>
+<line x1="70" y1="95" x2="560" y2="95" stroke="#2563eb" stroke-width="2" stroke-dasharray="6 6"/>
+<line x1="70" y1="300" x2="560" y2="300" stroke="#2563eb" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="320" y="370" text-anchor="middle" class="small">There are C(6,3) choices, but the two horizontal rows are not triangles.</text></svg>

@@ -12454,12 +12454,2089 @@ const amc2004Problems: Problem[] = [
   }
 ];
 
+const amc2005Problems: Problem[] = [
+  {
+    "id": "amc8-2005-01",
+    "title": "2005 AMC 8 Problem 1: Wrong Operation",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 1,
+    "category": "Algebra",
+    "subcategory": "Arithmetic",
+    "difficulty": 1,
+    "statement": "Connie multiplies a number by 2 and gets 60 as her answer. However, she should have divided the number by 2 to get the correct answer. What is the correct answer?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7.5"
+      },
+      {
+        "label": "B",
+        "text": "15"
+      },
+      {
+        "label": "C",
+        "text": "30"
+      },
+      {
+        "label": "D",
+        "text": "120"
+      },
+      {
+        "label": "E",
+        "text": "240"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "15",
+    "solutionSteps": [
+      {
+        "title": "Find the original number",
+        "body": "If x is the number, Connie computed 2x=60.",
+        "equation": "2x=60 ⇒ x=30"
+      },
+      {
+        "title": "Use the correct operation",
+        "body": "She should divide the number by 2 instead.",
+        "equation": "30÷2=15"
+      },
+      {
+        "title": "Conclude",
+        "body": "The correct answer is 15."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "algebra",
+      "arithmetic"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2005-02",
+    "title": "2005 AMC 8 Problem 2: Folder Sale Savings",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 2,
+    "category": "Algebra",
+    "subcategory": "Percent",
+    "difficulty": 1,
+    "statement": "Karl bought five folders from Pay-A-Lot at a cost of $2.50 each. Pay-A-Lot had a 20%-off sale the following day. How much could Karl have saved on the purchase by waiting a day?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "$1.00"
+      },
+      {
+        "label": "B",
+        "text": "$2.00"
+      },
+      {
+        "label": "C",
+        "text": "$2.50"
+      },
+      {
+        "label": "D",
+        "text": "$2.75"
+      },
+      {
+        "label": "E",
+        "text": "$5.00"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "$2.50",
+    "solutionSteps": [
+      {
+        "title": "Find the original total",
+        "body": "Five folders cost $2.50 each.",
+        "equation": "5×2.50=$12.50"
+      },
+      {
+        "title": "Take 20%",
+        "body": "The savings would be 20% of $12.50.",
+        "equation": "0.20×12.50=$2.50"
+      },
+      {
+        "title": "Conclude",
+        "body": "Karl could have saved $2.50."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "algebra",
+      "percent"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2005-03",
+    "title": "2005 AMC 8 Problem 3: Diagonal Symmetry",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 3,
+    "category": "Geometry",
+    "subcategory": "Symmetry",
+    "difficulty": 2,
+    "statement": "What is the minimum number of small squares that must be colored black so that a line of symmetry lies on the diagonal BD of square ABCD?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "4"
+      },
+      {
+        "label": "E",
+        "text": "5"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Use reflection",
+        "body": "For BD to be a line of symmetry, every black square must have a matching reflected black square across diagonal BD."
+      },
+      {
+        "title": "Find unmatched partners",
+        "body": "Checking the grid, four reflected partner squares are missing."
+      },
+      {
+        "title": "Conclude",
+        "body": "The minimum number of additional black squares is 4."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "geometry",
+      "symmetry"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2005/problem-03-symmetry-grid.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2005-04",
+    "title": "2005 AMC 8 Problem 4: Square with Equal Perimeter",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 4,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 1,
+    "statement": "A square and a triangle have equal perimeters. The lengths of the three sides of the triangle are 6.1 cm, 8.2 cm and 9.7 cm. What is the area of the square in square centimeters?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "24"
+      },
+      {
+        "label": "B",
+        "text": "25"
+      },
+      {
+        "label": "C",
+        "text": "36"
+      },
+      {
+        "label": "D",
+        "text": "48"
+      },
+      {
+        "label": "E",
+        "text": "64"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "36",
+    "solutionSteps": [
+      {
+        "title": "Find the triangle perimeter",
+        "body": "Add the three side lengths.",
+        "equation": "6.1+8.2+9.7=24"
+      },
+      {
+        "title": "Find the square side",
+        "body": "The square has the same perimeter, so each side is one-fourth of 24.",
+        "equation": "24÷4=6"
+      },
+      {
+        "title": "Find the area",
+        "body": "The square area is side squared.",
+        "equation": "6^2=36"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "geometry",
+      "area"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2005-05",
+    "title": "2005 AMC 8 Problem 5: Soda Packs",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 5,
+    "category": "Number Theory",
+    "subcategory": "Optimization",
+    "difficulty": 1,
+    "statement": "Soda is sold in packs of 6, 12 and 24 cans. What is the minimum number of packs needed to buy exactly 90 cans of soda?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "5"
+      },
+      {
+        "label": "C",
+        "text": "6"
+      },
+      {
+        "label": "D",
+        "text": "8"
+      },
+      {
+        "label": "E",
+        "text": "15"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "Use large packs first",
+        "body": "Three 24-packs give 72 cans.",
+        "equation": "90-3×24=18"
+      },
+      {
+        "title": "Finish the remainder",
+        "body": "One 12-pack leaves 6 cans, so add one 6-pack."
+      },
+      {
+        "title": "Count packs",
+        "body": "The total number of packs is 3+1+1.",
+        "equation": "3+1+1=5"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "number theory",
+      "optimization"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2005-06",
+    "title": "2005 AMC 8 Problem 6: Comparing Decimals",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 6,
+    "category": "Number Theory",
+    "subcategory": "Digits",
+    "difficulty": 1,
+    "statement": "Suppose d is a digit. For how many values of d is 2.00d5 > 2.005?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "0"
+      },
+      {
+        "label": "B",
+        "text": "4"
+      },
+      {
+        "label": "C",
+        "text": "5"
+      },
+      {
+        "label": "D",
+        "text": "6"
+      },
+      {
+        "label": "E",
+        "text": "10"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "Compare place values",
+        "body": "The numbers agree through the thousandths place until the digit d is compared with 5."
+      },
+      {
+        "title": "Find possible digits",
+        "body": "The inequality works when d is 5, 6, 7, 8, or 9."
+      },
+      {
+        "title": "Count them",
+        "body": "There are 5 possible values of d."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "number theory",
+      "digits"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2005-07",
+    "title": "2005 AMC 8 Problem 7: Direct Distance",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 7,
+    "category": "Geometry",
+    "subcategory": "Pythagorean theorem",
+    "difficulty": 2,
+    "statement": "Bill walks 1/2 mile south, then 3/4 mile east, and finally 1/2 mile south. How many miles is he, in a direct line, from his starting point?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "1 1/4"
+      },
+      {
+        "label": "C",
+        "text": "1 1/2"
+      },
+      {
+        "label": "D",
+        "text": "1 3/4"
+      },
+      {
+        "label": "E",
+        "text": "2"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "1 1/4",
+    "solutionSteps": [
+      {
+        "title": "Combine vertical movement",
+        "body": "He walks south 1/2 mile and then another 1/2 mile, for 1 mile south total."
+      },
+      {
+        "title": "Make a right triangle",
+        "body": "The horizontal leg is 3/4 and the vertical leg is 1."
+      },
+      {
+        "title": "Use a 3-4-5 triangle",
+        "body": "The legs 3/4 and 1 match a scaled 3-4-5 triangle, so the hypotenuse is 5/4.",
+        "equation": "5/4=1 1/4"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "geometry",
+      "pythagorean theorem"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2005-08",
+    "title": "2005 AMC 8 Problem 8: Odd Expressions",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 8,
+    "category": "Number Theory",
+    "subcategory": "Parity",
+    "difficulty": 2,
+    "statement": "Suppose m and n are positive odd integers. Which of the following must also be an odd integer?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "m + 3n"
+      },
+      {
+        "label": "B",
+        "text": "3m − n"
+      },
+      {
+        "label": "C",
+        "text": "3m^2 + 3n^2"
+      },
+      {
+        "label": "D",
+        "text": "(nm + 3)^2"
+      },
+      {
+        "label": "E",
+        "text": "3mn"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "3mn",
+    "solutionSteps": [
+      {
+        "title": "Use parity",
+        "body": "Odd times odd is odd, so mn is odd and 3mn is odd."
+      },
+      {
+        "title": "Check the others",
+        "body": "The other expressions are even when m and n are odd."
+      },
+      {
+        "title": "Conclude",
+        "body": "The expression that must be odd is 3mn."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "number theory",
+      "parity"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2005-09",
+    "title": "2005 AMC 8 Problem 9: Isosceles Quadrilateral Diagonal",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 9,
+    "category": "Geometry",
+    "subcategory": "Triangles",
+    "difficulty": 2,
+    "statement": "In quadrilateral ABCD, sides AB and BC both have length 10, sides CD and DA both have length 17, and the measure of angle ADC is 60°. What is the length of diagonal AC?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "13.5"
+      },
+      {
+        "label": "B",
+        "text": "14"
+      },
+      {
+        "label": "C",
+        "text": "15.5"
+      },
+      {
+        "label": "D",
+        "text": "17"
+      },
+      {
+        "label": "E",
+        "text": "18.5"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "17",
+    "solutionSteps": [
+      {
+        "title": "Focus on triangle ADC",
+        "body": "Since AD=CD=17, triangle ADC is isosceles."
+      },
+      {
+        "title": "Use the 60-degree angle",
+        "body": "The angle at D is 60°. In an isosceles triangle with vertex angle 60°, all three angles are 60°."
+      },
+      {
+        "title": "Conclude",
+        "body": "Triangle ADC is equilateral, so AC=AD=17."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "geometry",
+      "triangles"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2005/problem-09-quadrilateral.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2005-10",
+    "title": "2005 AMC 8 Problem 10: Walking and Running",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 10,
+    "category": "Algebra",
+    "subcategory": "Rates",
+    "difficulty": 2,
+    "statement": "Joe had walked half way from home to school when he realized he was late. He ran the rest of the way to school. He ran 3 times as fast as he walked. Joe took 6 minutes to walk half way to school. How many minutes did it take Joe to get from home to school?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7"
+      },
+      {
+        "label": "B",
+        "text": "7.3"
+      },
+      {
+        "label": "C",
+        "text": "7.7"
+      },
+      {
+        "label": "D",
+        "text": "8"
+      },
+      {
+        "label": "E",
+        "text": "8.3"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "8",
+    "solutionSteps": [
+      {
+        "title": "Use the walking time",
+        "body": "Joe took 6 minutes to walk half the distance."
+      },
+      {
+        "title": "Running is three times faster",
+        "body": "For the same half-distance, running takes one-third as much time.",
+        "equation": "6÷3=2"
+      },
+      {
+        "title": "Add the times",
+        "body": "The total time is walking time plus running time.",
+        "equation": "6+2=8"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "algebra",
+      "rates"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2005-11",
+    "title": "2005 AMC 8 Problem 11: Discount and Tax Order",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 11,
+    "category": "Algebra",
+    "subcategory": "Percent",
+    "difficulty": 2,
+    "statement": "The sales tax rate in Rubenenkoville is 6%. During a sale at the Bergville Coat Closet, the price of a coat is discounted 20% from its $90.00 price. Two clerks, Jack and Jill, calculate the bill independently. Jack rings up $90.00 and adds 6% sales tax, then subtracts 20% from this total. Jill rings up $90.00, subtracts 20% of the price, then adds 6% of the discounted price for sales tax. What is Jack's total minus Jill's total?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "−$1.06"
+      },
+      {
+        "label": "B",
+        "text": "−$0.53"
+      },
+      {
+        "label": "C",
+        "text": "$0"
+      },
+      {
+        "label": "D",
+        "text": "$0.53"
+      },
+      {
+        "label": "E",
+        "text": "$1.06"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "$0",
+    "solutionSteps": [
+      {
+        "title": "Write Jack’s calculation",
+        "body": "Jack multiplies by 1.06 and then by 0.80.",
+        "equation": "90(1.06)(0.80)"
+      },
+      {
+        "title": "Write Jill’s calculation",
+        "body": "Jill multiplies by 0.80 and then by 1.06.",
+        "equation": "90(0.80)(1.06)"
+      },
+      {
+        "title": "Use commutativity",
+        "body": "The products are equal, so Jack’s total minus Jill’s total is $0."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "algebra",
+      "percent"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2005-12",
+    "title": "2005 AMC 8 Problem 12: Big Al Bananas",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 12,
+    "category": "Algebra",
+    "subcategory": "Arithmetic sequences",
+    "difficulty": 2,
+    "statement": "Big Al, the ape, ate 100 bananas from May 1 through May 5. Each day he ate six more bananas than on the previous day. How many bananas did Big Al eat on May 5?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "20"
+      },
+      {
+        "label": "B",
+        "text": "22"
+      },
+      {
+        "label": "C",
+        "text": "30"
+      },
+      {
+        "label": "D",
+        "text": "32"
+      },
+      {
+        "label": "E",
+        "text": "34"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "32",
+    "solutionSteps": [
+      {
+        "title": "Let May 5 be n",
+        "body": "The amounts over the five days are n−24, n−18, n−12, n−6, and n."
+      },
+      {
+        "title": "Use the total",
+        "body": "Their sum is 100.",
+        "equation": "(n-24)+(n-18)+(n-12)+(n-6)+n=100"
+      },
+      {
+        "title": "Solve",
+        "body": "This gives 5n−60=100, so n=32."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "algebra",
+      "arithmetic sequences"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2005-13",
+    "title": "2005 AMC 8 Problem 13: L-Shaped Polygon Area",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 13,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 3,
+    "statement": "The area of polygon ABCDEF is 52 with AB=8, BC=9 and FA=5. What is DE+EF?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7"
+      },
+      {
+        "label": "B",
+        "text": "8"
+      },
+      {
+        "label": "C",
+        "text": "9"
+      },
+      {
+        "label": "D",
+        "text": "10"
+      },
+      {
+        "label": "E",
+        "text": "11"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "9",
+    "solutionSteps": [
+      {
+        "title": "Find DE",
+        "body": "The full height BC is 9 and AF is 5, so DE=9−5=4."
+      },
+      {
+        "title": "Use the outside rectangle",
+        "body": "The outside rectangle has area 8×9=72. The missing rectangle has height 4 and width EF."
+      },
+      {
+        "title": "Solve for EF",
+        "body": "The polygon area is 52, so 72−4EF=52. Thus EF=5 and DE+EF=9."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "geometry",
+      "area"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2005/problem-13-l-shaped-polygon.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2005-14",
+    "title": "2005 AMC 8 Problem 14: Conference Games",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 14,
+    "category": "Counting & Probability",
+    "subcategory": "Counting",
+    "difficulty": 3,
+    "statement": "The Little Twelve Basketball Conference has two divisions, with six teams in each division. Each team plays each of the other teams in its own division twice and every team in the other division once. How many conference games are scheduled?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "80"
+      },
+      {
+        "label": "B",
+        "text": "96"
+      },
+      {
+        "label": "C",
+        "text": "100"
+      },
+      {
+        "label": "D",
+        "text": "108"
+      },
+      {
+        "label": "E",
+        "text": "192"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "96",
+    "solutionSteps": [
+      {
+        "title": "Games within one division",
+        "body": "Six teams have C(6,2)=15 pairings. Each pairing plays twice, so one division has 30 games."
+      },
+      {
+        "title": "Both divisions",
+        "body": "There are two divisions, so within-division games total 60."
+      },
+      {
+        "title": "Add cross-division games",
+        "body": "Each of 6 teams in one division plays each of 6 in the other: 36 games. Total is 60+36=96."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "counting & probability",
+      "counting"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2005-15",
+    "title": "2005 AMC 8 Problem 15: Isosceles Triangles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 15,
+    "category": "Geometry",
+    "subcategory": "Triangle inequality",
+    "difficulty": 3,
+    "statement": "How many different isosceles triangles have integer side lengths and perimeter 23?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2"
+      },
+      {
+        "label": "B",
+        "text": "4"
+      },
+      {
+        "label": "C",
+        "text": "6"
+      },
+      {
+        "label": "D",
+        "text": "9"
+      },
+      {
+        "label": "E",
+        "text": "11"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "6",
+    "solutionSteps": [
+      {
+        "title": "Set variables",
+        "body": "Let the equal sides be a and the base be b. Then 2a+b=23."
+      },
+      {
+        "title": "Use triangle inequality",
+        "body": "We need 2a>b. Since b=23−2a, this gives 2a>23−2a, so a>5.75."
+      },
+      {
+        "title": "Count possibilities",
+        "body": "Also b≥1, so a≤11. Thus a can be 6,7,8,9,10,11, giving 6 triangles."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "geometry",
+      "triangle inequality"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2005-16",
+    "title": "2005 AMC 8 Problem 16: Martian Socks",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 16,
+    "category": "Counting & Probability",
+    "subcategory": "Pigeonhole principle",
+    "difficulty": 2,
+    "statement": "A five-legged Martian has a drawer full of socks, each of which is red, white or blue, and there are at least five socks of each color. The Martian pulls out one sock at a time without looking. How many socks must the Martian remove from the drawer to be certain there will be 5 socks of the same color?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6"
+      },
+      {
+        "label": "B",
+        "text": "9"
+      },
+      {
+        "label": "C",
+        "text": "12"
+      },
+      {
+        "label": "D",
+        "text": "13"
+      },
+      {
+        "label": "E",
+        "text": "15"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "13",
+    "solutionSteps": [
+      {
+        "title": "Worst case before success",
+        "body": "The Martian could pull out 4 red, 4 white, and 4 blue socks without having five of any color."
+      },
+      {
+        "title": "Count that case",
+        "body": "That is 12 socks total."
+      },
+      {
+        "title": "One more forces five",
+        "body": "The 13th sock must make one color reach 5."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "counting & probability",
+      "pigeonhole principle"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2005-17",
+    "title": "2005 AMC 8 Problem 17: Greatest Average Speed",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 17,
+    "category": "Algebra",
+    "subcategory": "Graphs",
+    "difficulty": 2,
+    "statement": "The results of a cross-country team's training run are graphed below. Which student has the greatest average speed?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Angela"
+      },
+      {
+        "label": "B",
+        "text": "Briana"
+      },
+      {
+        "label": "C",
+        "text": "Carla"
+      },
+      {
+        "label": "D",
+        "text": "Debra"
+      },
+      {
+        "label": "E",
+        "text": "Evelyn"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "Evelyn",
+    "solutionSteps": [
+      {
+        "title": "Use slope",
+        "body": "Average speed is distance divided by time, which is the slope of the line from the origin to the student’s point."
+      },
+      {
+        "title": "Compare slopes",
+        "body": "Evelyn’s point is high and far to the left, giving the steepest line from the origin."
+      },
+      {
+        "title": "Conclude",
+        "body": "Evelyn has the greatest average speed."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "algebra",
+      "graphs"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2005/problem-17-distance-time-graph.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2005-18",
+    "title": "2005 AMC 8 Problem 18: Three-Digit Multiples of 13",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 18,
+    "category": "Number Theory",
+    "subcategory": "Multiples",
+    "difficulty": 2,
+    "statement": "How many three-digit numbers are divisible by 13?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7"
+      },
+      {
+        "label": "B",
+        "text": "67"
+      },
+      {
+        "label": "C",
+        "text": "69"
+      },
+      {
+        "label": "D",
+        "text": "76"
+      },
+      {
+        "label": "E",
+        "text": "77"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "69",
+    "solutionSteps": [
+      {
+        "title": "Find first multiple",
+        "body": "The first three-digit multiple of 13 is 104, which is 13×8."
+      },
+      {
+        "title": "Find last multiple",
+        "body": "The last three-digit multiple of 13 is 988, which is 13×76."
+      },
+      {
+        "title": "Count integers",
+        "body": "The multipliers run from 8 through 76 inclusive.",
+        "equation": "76-8+1=69"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "number theory",
+      "multiples"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2005-19",
+    "title": "2005 AMC 8 Problem 19: Trapezoid Perimeter",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 19,
+    "category": "Geometry",
+    "subcategory": "Pythagorean theorem",
+    "difficulty": 3,
+    "statement": "What is the perimeter of trapezoid ABCD?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "180"
+      },
+      {
+        "label": "B",
+        "text": "188"
+      },
+      {
+        "label": "C",
+        "text": "196"
+      },
+      {
+        "label": "D",
+        "text": "200"
+      },
+      {
+        "label": "E",
+        "text": "204"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "180",
+    "solutionSteps": [
+      {
+        "title": "Drop altitudes",
+        "body": "Drop perpendiculars from B and C to the bottom base. This creates a rectangle and two right triangles."
+      },
+      {
+        "title": "Find base pieces",
+        "body": "On the left, a 30-24 right triangle has horizontal leg 18. On the right, a 25-24 right triangle has horizontal leg 7."
+      },
+      {
+        "title": "Find perimeter",
+        "body": "The bottom base is 18+50+7=75, so the perimeter is 30+50+25+75=180."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "geometry",
+      "pythagorean theorem"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2005/problem-19-trapezoid.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2005-20",
+    "title": "2005 AMC 8 Problem 20: Clockwise Counterclockwise Game",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 20,
+    "category": "Number Theory",
+    "subcategory": "Modular arithmetic",
+    "difficulty": 3,
+    "statement": "Alice and Bob play a game involving a circle whose circumference is divided by 12 equally-spaced points. The points are numbered clockwise, from 1 to 12. Both start on point 12. Alice moves clockwise and Bob, counterclockwise. In a turn of the game, Alice moves 5 points clockwise and Bob moves 9 points counterclockwise. The game ends when they stop on the same point. How many turns will this take?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6"
+      },
+      {
+        "label": "B",
+        "text": "8"
+      },
+      {
+        "label": "C",
+        "text": "12"
+      },
+      {
+        "label": "D",
+        "text": "14"
+      },
+      {
+        "label": "E",
+        "text": "24"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "6",
+    "solutionSteps": [
+      {
+        "title": "Measure closing distance",
+        "body": "Each turn, Alice and Bob move toward coincidence by a combined 5+9=14 point-steps around a 12-point circle."
+      },
+      {
+        "title": "Use multiples of 12",
+        "body": "They meet when 14k is a multiple of 12."
+      },
+      {
+        "title": "Find the smallest k",
+        "body": "Since gcd(14,12)=2, the smallest k is 12/2=6."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "number theory",
+      "modular arithmetic"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2005-21",
+    "title": "2005 AMC 8 Problem 21: Triangles from Dots",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 21,
+    "category": "Counting & Probability",
+    "subcategory": "Combinations",
+    "difficulty": 3,
+    "statement": "How many distinct triangles can be drawn using three of the dots below as vertices?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "9"
+      },
+      {
+        "label": "B",
+        "text": "12"
+      },
+      {
+        "label": "C",
+        "text": "18"
+      },
+      {
+        "label": "D",
+        "text": "20"
+      },
+      {
+        "label": "E",
+        "text": "24"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "18",
+    "solutionSteps": [
+      {
+        "title": "Choose any three dots",
+        "body": "There are 6 dots, so there are C(6,3)=20 triples."
+      },
+      {
+        "title": "Remove straight lines",
+        "body": "The three top dots and the three bottom dots each form a straight line, not a triangle."
+      },
+      {
+        "title": "Subtract",
+        "body": "The number of triangles is 20−2=18."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "counting & probability",
+      "combinations"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2005/problem-21-six-dots.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2005-22",
+    "title": "2005 AMC 8 Problem 22: Best Detergent Buy",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 22,
+    "category": "Algebra",
+    "subcategory": "Rates",
+    "difficulty": 4,
+    "statement": "A company sells detergent in three different sized boxes: small (S), medium (M) and large (L). The medium size costs 50% more than the small size and contains 20% less detergent than the large size. The large size contains twice as much detergent as the small size and costs 30% more than the medium size. Rank the three sizes from best to worst buy.",
+    "choices": [
+      {
+        "label": "A",
+        "text": "SML"
+      },
+      {
+        "label": "B",
+        "text": "LMS"
+      },
+      {
+        "label": "C",
+        "text": "MSL"
+      },
+      {
+        "label": "D",
+        "text": "LSM"
+      },
+      {
+        "label": "E",
+        "text": "MLS"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "MLS",
+    "solutionSteps": [
+      {
+        "title": "Assign convenient values",
+        "body": "Let the small box cost $1 and contain 5 oz. Then the large box contains 10 oz."
+      },
+      {
+        "title": "Find medium and large costs",
+        "body": "The medium costs $1.50 and contains 8 oz. The large costs 30% more than medium, or $1.95."
+      },
+      {
+        "title": "Compare cost per ounce",
+        "body": "S: $0.200/oz, M: $0.1875/oz, L: $0.195/oz, so the order is M, L, S."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "ranking",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "algebra",
+      "rates"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2005-23",
+    "title": "2005 AMC 8 Problem 23: Semicircle in Right Triangle",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 23,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 4,
+    "statement": "Isosceles right triangle ABC encloses a semicircle of area 2π. The circle has its center O on hypotenuse AB and is tangent to sides AC and BC. What is the area of triangle ABC?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6"
+      },
+      {
+        "label": "B",
+        "text": "8"
+      },
+      {
+        "label": "C",
+        "text": "3π"
+      },
+      {
+        "label": "D",
+        "text": "10"
+      },
+      {
+        "label": "E",
+        "text": "4π"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "8",
+    "solutionSteps": [
+      {
+        "title": "Find the full circle",
+        "body": "The semicircle has area 2π, so the full circle would have area 4π."
+      },
+      {
+        "title": "Find the radius",
+        "body": "If πr²=4π, then r=2, so the diameter is 4."
+      },
+      {
+        "title": "Use symmetry",
+        "body": "Doubling the isosceles right triangle makes a square of side 4 and area 16. The original triangle has half that area: 8."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "geometry",
+      "area"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2005/problem-23-semicircle-triangle.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2005-24",
+    "title": "2005 AMC 8 Problem 24: Two-Key Calculator",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 24,
+    "category": "Number Theory",
+    "subcategory": "Binary",
+    "difficulty": 4,
+    "statement": "A certain calculator has only two keys [+1] and [x2]. When you press one of the keys, the calculator automatically displays the result. For instance, if the calculator originally displayed \"9\" and you pressed [+1], it would display \"10.\" If you then pressed [x2], it would display \"20.\" Starting with the display \"1,\" what is the fewest number of keystrokes you would need to reach \"200\"?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "8"
+      },
+      {
+        "label": "B",
+        "text": "9"
+      },
+      {
+        "label": "C",
+        "text": "10"
+      },
+      {
+        "label": "D",
+        "text": "11"
+      },
+      {
+        "label": "E",
+        "text": "12"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "9",
+    "solutionSteps": [
+      {
+        "title": "Work backward",
+        "body": "Reverse the operations: from 200, if even divide by 2; if odd subtract 1."
+      },
+      {
+        "title": "Reverse sequence",
+        "body": "200→100→50→25→24→12→6→3→2→1 takes 9 reverse steps."
+      },
+      {
+        "title": "Conclude",
+        "body": "Therefore the fewest number of forward keystrokes is 9."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "number theory",
+      "binary"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2005-25",
+    "title": "2005 AMC 8 Problem 25: Square and Circle Areas",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2005,
+    "problemNumber": 25,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 5,
+    "statement": "A square with side length 2 and a circle share the same center. The total area of the regions that are inside the circle and outside the square is equal to the total area of the regions that are outside the circle and inside the square. What is the radius of the circle?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2/√π"
+      },
+      {
+        "label": "B",
+        "text": "(1+√2)/2"
+      },
+      {
+        "label": "C",
+        "text": "3/2"
+      },
+      {
+        "label": "D",
+        "text": "√3"
+      },
+      {
+        "label": "E",
+        "text": "√π"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "2/√π",
+    "solutionSteps": [
+      {
+        "title": "Let the overlap be a",
+        "body": "Let a be the area common to the square and circle."
+      },
+      {
+        "title": "Set the leftover areas equal",
+        "body": "Circle-only area equals square-only area, so πr²−a=4−a."
+      },
+      {
+        "title": "Solve",
+        "body": "The a terms cancel, giving πr²=4, so r=2/√π."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key numbers, expressions, and what is being asked.",
+        "visualHint": "Important quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main idea to simplify the problem.",
+        "visualHint": "The relevant equation, count, or diagram relationship is shown."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2005",
+      "geometry",
+      "area"
+    ],
+    "sourceName": "2005 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2005/problem-25-square-circle.svg"
+    ],
+    "needsDiagram": true
+  }
+];
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
   ...amc2002Problems,
   ...amc2003Problems,
   ...amc2004Problems,
+  ...amc2005Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems };
