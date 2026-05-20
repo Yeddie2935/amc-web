@@ -6,6 +6,7 @@ import { SiteHeader } from "../components/layout/SiteHeader";
 import { SiteFooter } from "../components/layout/SiteFooter";
 import { PracticeLauncher } from "../components/practice/PracticeLauncher";
 import { ProblemWorkspace } from "../components/problem/ProblemWorkspace";
+import { buildPracticeSession } from "../lib/buildPracticeSession";
 
 function normalizeSkill(value: string | null) {
   if (!value) return null;
@@ -107,6 +108,13 @@ export function PracticePage() {
     urlParams.get("skill") ?? urlParams.get("category")
   );
 
+  const selectedDifficulty = (() => {
+    const difficultyValue = Number(urlParams.get("difficulty"));
+    return [1, 2, 3, 4, 5].includes(difficultyValue)
+      ? difficultyValue
+      : null;
+  })();
+
   const progressApi = useLocalProgress(sampleProblems);
   const [sessionProblems, setSessionProblems] = useState<Problem[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -117,6 +125,15 @@ export function PracticePage() {
         problemMatchesSkill(problem, selectedSkill)
       ),
     [selectedSkill]
+  );
+
+  const filteredProblems = useMemo(
+    () =>
+      skillProblems.filter(
+        (problem) =>
+          selectedDifficulty === null || problem.difficulty === selectedDifficulty
+      ),
+    [skillProblems, selectedDifficulty]
   );
 
   const currentProblem = sessionProblems[currentIndex];
@@ -130,11 +147,13 @@ export function PracticePage() {
   );
 
   useEffect(() => {
-    if (!selectedSkill) return;
+    if (!selectedSkill && selectedDifficulty === null) return;
 
-    setSessionProblems(skillProblems.slice(0, 10));
+    setSessionProblems(
+      buildPracticeSession(sampleProblems, selectedSkill, selectedDifficulty)
+    );
     setCurrentIndex(0);
-  }, [selectedSkill, skillProblems]);
+  }, [selectedSkill, selectedDifficulty]);
 
   function startSession(type: "mixed" | "unsolved" | "missed" | "challenge") {
     let pool = skillProblems;
@@ -153,7 +172,7 @@ export function PracticePage() {
       pool = skillProblems.filter((problem) => problem.difficulty >= 4);
     }
 
-    setSessionProblems(pool.slice(0, 10));
+    setSessionProblems(buildPracticeSession(pool, null, null));
     setCurrentIndex(0);
   }
 
@@ -164,35 +183,47 @@ export function PracticePage() {
     });
   }
 
+  const practiceTitle = selectedDifficulty
+    ? selectedSkill
+      ? `Level ${selectedDifficulty} ${getSkillTitle(selectedSkill)}`
+      : `Level ${selectedDifficulty} Practice`
+    : getSkillTitle(selectedSkill);
+
+  const practiceDescription = selectedSkill || selectedDifficulty
+    ? `${filteredProblems.length} problem${
+        filteredProblems.length === 1 ? "" : "s"
+      } available${selectedSkill ? " in this skill lane" : ""}${
+        selectedDifficulty ? ` at Level ${selectedDifficulty}` : ""
+      }.`
+    : "Practice mode should feel different from archive browsing: fewer distractions, one clean problem at a time, and progress tracking.";
+
   return (
     <>
       <SiteHeader currentPage="practice" />
       <main className="fmj-page">
         <section className="fmj-page-heading">
           <p className="fmj-eyebrow">Practice</p>
-          <h1>{getSkillTitle(selectedSkill)}</h1>
-          <p>
-            {selectedSkill
-              ? `${skillProblems.length} problem${
-                  skillProblems.length === 1 ? "" : "s"
-                } available in this skill lane.`
-              : "Practice mode should feel different from archive browsing: fewer distractions, one clean problem at a time, and progress tracking."}
-          </p>
+          <h1>{practiceTitle}</h1>
+          <p>{practiceDescription}</p>
         </section>
 
-        {selectedSkill && skillProblems.length === 0 && (
-          <section className="fmj-card">
-            <h2>No problems found for this skill yet.</h2>
-            <p>
-              This route is working, but no loaded problems are tagged with this
-              skill yet.
-            </p>
-          </section>
-        )}
+        {(selectedSkill || selectedDifficulty !== null) &&
+          filteredProblems.length === 0 && (
+            <section className="fmj-card">
+              <h2>No problems found for this selection.</h2>
+              <p>
+                {selectedSkill && selectedDifficulty !== null
+                  ? `No Level ${selectedDifficulty} problems were found for this skill lane yet.`
+                  : selectedSkill
+                  ? "This route is working, but no loaded problems are tagged with this skill yet."
+                  : `No Level ${selectedDifficulty} problems were found in the current question bank.`}
+              </p>
+            </section>
+          )}
 
-        {!currentProblem && skillProblems.length > 0 && (
+        {!currentProblem && filteredProblems.length > 0 && (
           <PracticeLauncher
-            totalProblems={skillProblems.length}
+            totalProblems={filteredProblems.length}
             missedCount={recommendedMissed.length}
             onStart={startSession}
           />

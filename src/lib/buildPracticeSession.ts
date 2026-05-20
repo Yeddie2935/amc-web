@@ -1,12 +1,27 @@
 import { filterProblemsBySkill, type PracticeProblemLike } from "./problemFilters";
 import type { SkillId } from "./skills";
 
-export function buildPracticeSession<T extends PracticeProblemLike>(
+function shuffle<T>(items: T[]): T[] {
+  const array = [...items];
+  for (let index = array.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [array[index], array[randomIndex]] = [array[randomIndex], array[index]];
+  }
+  return array;
+}
+
+export function buildPracticeSession<
+  T extends PracticeProblemLike & { difficulty?: number }
+>(
   allProblems: T[],
   selectedSkill: SkillId | string | null,
+  selectedDifficulty: number | null = null,
   limit = 10
 ): T[] {
-  // IMPORTANT: filter first, then take 10.
-  // If you take the first 10 first, every skill lane can accidentally show the same default set.
-  return filterProblemsBySkill(allProblems, selectedSkill).slice(0, limit);
+  const filteredBySkill = filterProblemsBySkill(allProblems, selectedSkill);
+  const filteredByDifficulty = selectedDifficulty
+    ? filteredBySkill.filter((problem) => problem.difficulty === selectedDifficulty)
+    : filteredBySkill;
+
+  return shuffle(filteredByDifficulty).slice(0, limit);
 }

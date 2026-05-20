@@ -1,11 +1,14 @@
 import { sampleProblems } from "../data/sampleProblems";
-import { summarizeByCategory } from "../lib/problemUtils";
+import type { DifficultyLevel } from "../types/amc";
+import { filterProblemsBySkill } from "../lib/problemFilters";
+import { SKILL_LANES } from "../lib/skills";
+import { getDifficultyDescription } from "../lib/problemUtils";
 import { SiteHeader } from "../components/layout/SiteHeader";
 import { SiteFooter } from "../components/layout/SiteFooter";
 
-export function LearnPage() {
-  const categories = summarizeByCategory(sampleProblems);
+const DIFFICULTY_LEVELS: DifficultyLevel[] = [1, 2, 3, 4, 5];
 
+export function LearnPage() {
   return (
     <>
       <SiteHeader currentPage="learn" />
@@ -15,42 +18,47 @@ export function LearnPage() {
           <h1>Choose a skill lane.</h1>
           <p>
             Each lane should eventually contain concept notes, warmups, AMC
-            examples, challenge problems, and animations.
+            examples, challenge problems, and animations. Pick a difficulty level
+            to jump straight to focused practice.
           </p>
         </section>
 
         <section className="fmj-learn-grid">
-          {categories.map(({ category, count }) => (
-            <a
-              key={category}
-              className="fmj-learn-card"
-              href={`/practice?category=${encodeURIComponent(category)}`}
-            >
-              <strong>{category}</strong>
-              <span>{count} loaded problems</span>
-              <p>{getLaneDescription(category)}</p>
-            </a>
-          ))}
+          {SKILL_LANES.map((lane) => {
+            const laneProblems = filterProblemsBySkill(sampleProblems, lane.id);
+            return (
+              <div key={lane.id} className="fmj-learn-card">
+                <a className="fmj-learn-card-link" href={`/practice?skill=${lane.id}`}>
+                  <strong>{lane.title}</strong>
+                  <span>{laneProblems.length} loaded problems</span>
+                </a>
+                <p>{lane.description}</p>
+                <div className="fmj-difficulty-row">
+                  {DIFFICULTY_LEVELS.map((level) => {
+                    const count = laneProblems.filter(
+                      (problem) => problem.difficulty === level
+                    ).length;
+                    return (
+                      <a
+                        key={level}
+                        href={`/practice?skill=${lane.id}&difficulty=${level}`}
+                        className={`fmj-difficulty-pill level-${level} ${
+                          count === 0 ? "empty" : ""
+                        }`}
+                        title={getDifficultyDescription(level)}
+                      >
+                        <span>Level {level}</span>
+                        <small>{count}</small>
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
         </section>
       </main>
       <SiteFooter />
     </>
   );
-}
-
-function getLaneDescription(category: string) {
-  switch (category) {
-    case "Algebra":
-      return "Ratios, percents, rates, equations, expressions, and statistics.";
-    case "Geometry":
-      return "Area, perimeter, angles, coordinate geometry, circles, and solids.";
-    case "Number Theory":
-      return "Divisibility, primes, factors, remainders, digits, and sequences.";
-    case "Counting & Probability":
-      return "Counting strategies, probability, cases, arrangements, and sets.";
-    case "Logic":
-      return "Deduction, rankings, constraints, and pattern reasoning.";
-    default:
-      return "Mixed AMC 8 skills that do not fit neatly in one lane yet.";
-  }
 }
