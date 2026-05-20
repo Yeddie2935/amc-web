@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img"><style>
+text{font-family:Inter,Arial,sans-serif;fill:#111827}.label{font-size:18px;font-weight:600}.small{font-size:14px}.tiny{font-size:11px}.shape{fill:#fff;stroke:#111827;stroke-width:2.5}.thin{fill:none;stroke:#111827;stroke-width:2}.dash{fill:none;stroke:#111827;stroke-width:2;stroke-dasharray:6 5}.shade{fill:#d1d5db;stroke:#111827;stroke-width:2}.accent{fill:#eff6ff;stroke:#2563eb;stroke-width:2}.grid{stroke:#9ca3af;stroke-width:1}.choice{font-size:14px;font-weight:600}.muted{fill:#6b7280}.cat{fill:#f59e0b}.mouse{fill:#94a3b8}.red{fill:#fee2e2;stroke:#dc2626;stroke-width:2}
+</style>
+<text x="20" y="35" class="label">Fourteen-cube figure</text>
+<g transform="translate(120,80)">
+<defs><g id="cube"><polygon points="0,30 45,50 90,30 45,10" fill="#fff" stroke="#111827" stroke-width="2"/><polygon points="0,30 0,80 45,100 45,50" fill="#fff" stroke="#111827" stroke-width="2"/><polygon points="45,50 90,30 90,80 45,100" fill="#fff" stroke="#111827" stroke-width="2"/></g></defs>
+<use href="#cube" x="0" y="90"/><use href="#cube" x="90" y="90"/><use href="#cube" x="180" y="90"/><use href="#cube" x="270" y="90"/>
+<use href="#cube" x="0" y="40"/><use href="#cube" x="270" y="40"/><use href="#cube" x="90" y="40"/><use href="#cube" x="180" y="40"/>
+<use href="#cube" x="0" y="-10"/><use href="#cube" x="90" y="-10"/><use href="#cube" x="180" y="-10"/><use href="#cube" x="270" y="-10"/>
+<use href="#cube" x="90" y="-60"/><use href="#cube" x="270" y="-60"/>
+</g>
+<text x="320" y="390" text-anchor="middle" class="small">Paint outside, then separate cubes.</text>
+</svg>

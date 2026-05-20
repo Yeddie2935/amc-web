@@ -8279,10 +8279,2118 @@ const amc2002Problems: Problem[] = [
   }
 ];
 
+const amc2003Problems: Problem[] = [
+  {
+    "id": "amc8-2003-01",
+    "title": "2003 AMC 8 Problem 1: Cube Counts",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 1,
+    "category": "Geometry",
+    "subcategory": "Solid geometry",
+    "difficulty": 1,
+    "statement": "Jamie counted the number of edges of a cube, Jimmy counted the number of corners, and Judy counted the number of faces. They then added the three numbers. What was the resulting sum?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "12"
+      },
+      {
+        "label": "B",
+        "text": "16"
+      },
+      {
+        "label": "C",
+        "text": "20"
+      },
+      {
+        "label": "D",
+        "text": "22"
+      },
+      {
+        "label": "E",
+        "text": "26"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "26",
+    "solutionSteps": [
+      {
+        "title": "Count edges, corners, and faces",
+        "body": "A cube has 12 edges, 8 corners, and 6 faces."
+      },
+      {
+        "title": "Add them",
+        "body": "Add the three counts.",
+        "equation": "12+8+6=26"
+      },
+      {
+        "title": "Choose the result",
+        "body": "The sum is 26, so the answer is E."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "geometry",
+      "solid geometry"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2003-02",
+    "title": "2003 AMC 8 Problem 2: Smallest Prime Factor",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 2,
+    "category": "Number Theory",
+    "subcategory": "Prime factors",
+    "difficulty": 1,
+    "statement": "Which of the following numbers has the smallest prime factor?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "55"
+      },
+      {
+        "label": "B",
+        "text": "57"
+      },
+      {
+        "label": "C",
+        "text": "58"
+      },
+      {
+        "label": "D",
+        "text": "59"
+      },
+      {
+        "label": "E",
+        "text": "61"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "58",
+    "solutionSteps": [
+      {
+        "title": "Look for factor 2",
+        "body": "The smallest prime number is 2, so any even choice has the smallest possible prime factor."
+      },
+      {
+        "title": "Find the even number",
+        "body": "Among the choices, only 58 is even."
+      },
+      {
+        "title": "Conclude",
+        "body": "Therefore 58 has the smallest prime factor, so the answer is C."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "number theory",
+      "prime factors",
+      "prime"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2003-03",
+    "title": "2003 AMC 8 Problem 3: Burger Without Filler",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 3,
+    "category": "Algebra",
+    "subcategory": "Percent",
+    "difficulty": 1,
+    "statement": "A burger at Ricky C's weighs 120 grams, of which 30 grams are filler. What percent of the burger is not filler?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "60%"
+      },
+      {
+        "label": "B",
+        "text": "65%"
+      },
+      {
+        "label": "C",
+        "text": "70%"
+      },
+      {
+        "label": "D",
+        "text": "75%"
+      },
+      {
+        "label": "E",
+        "text": "90%"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "75%",
+    "solutionSteps": [
+      {
+        "title": "Find the non-filler mass",
+        "body": "Subtract the filler from the total mass.",
+        "equation": "120-30=90"
+      },
+      {
+        "title": "Convert to a percent",
+        "body": "The non-filler part is 90 out of 120 grams.",
+        "equation": "90/120=3/4=75%"
+      },
+      {
+        "title": "Choose the answer",
+        "body": "The answer is 75%, choice D."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "algebra",
+      "percent",
+      "percent"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2003-04",
+    "title": "2003 AMC 8 Problem 4: Bicycles and Tricycles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 4,
+    "category": "Algebra",
+    "subcategory": "Systems of equations",
+    "difficulty": 2,
+    "statement": "A group of children riding on bicycles and tricycles rode past Billy Bob's house. Billy Bob counted 7 children and 19 wheels. How many tricycles were there?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2"
+      },
+      {
+        "label": "B",
+        "text": "4"
+      },
+      {
+        "label": "C",
+        "text": "5"
+      },
+      {
+        "label": "D",
+        "text": "6"
+      },
+      {
+        "label": "E",
+        "text": "7"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "Set up variables",
+        "body": "Let b be bicycles and t be tricycles. There are 7 riders total.",
+        "equation": "b+t=7"
+      },
+      {
+        "title": "Count wheels",
+        "body": "Bicycles have 2 wheels and tricycles have 3 wheels.",
+        "equation": "2b+3t=19"
+      },
+      {
+        "title": "Solve",
+        "body": "Subtract 2(b+t)=14 from the wheel equation to get t=5.",
+        "equation": "2b+3t-(2b+2t)=19-14=5"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "algebra",
+      "systems of equations"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2003-05",
+    "title": "2003 AMC 8 Problem 5: Two Percents of a Number",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 5,
+    "category": "Algebra",
+    "subcategory": "Percent",
+    "difficulty": 1,
+    "statement": "If 20% of a number is 12, what is 30% of the same number?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "15"
+      },
+      {
+        "label": "B",
+        "text": "18"
+      },
+      {
+        "label": "C",
+        "text": "20"
+      },
+      {
+        "label": "D",
+        "text": "24"
+      },
+      {
+        "label": "E",
+        "text": "30"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "18",
+    "solutionSteps": [
+      {
+        "title": "Find the whole number",
+        "body": "If 20% is 12, then the whole number is five times as large.",
+        "equation": "12÷5=60"
+      },
+      {
+        "title": "Find 30%",
+        "body": "30% of 60 is 18.",
+        "equation": "0.30×60=18"
+      },
+      {
+        "title": "Choose the answer",
+        "body": "The answer is 18, choice B."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "algebra",
+      "percent",
+      "percent"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2003-06",
+    "title": "2003 AMC 8 Problem 6: Squares Around a Triangle",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 6,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 2,
+    "statement": "Given the areas of the three squares in the figure, what is the area of the interior triangle?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "13"
+      },
+      {
+        "label": "B",
+        "text": "30"
+      },
+      {
+        "label": "C",
+        "text": "60"
+      },
+      {
+        "label": "D",
+        "text": "300"
+      },
+      {
+        "label": "E",
+        "text": "1800"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "30",
+    "solutionSteps": [
+      {
+        "title": "Turn square areas into side lengths",
+        "body": "The side lengths of the squares are the square roots of 25, 144, and 169: 5, 12, and 13."
+      },
+      {
+        "title": "Identify the triangle legs",
+        "body": "The interior triangle has legs 5 and 12; the 13-side square confirms a 5-12-13 right triangle."
+      },
+      {
+        "title": "Find the area",
+        "body": "Use one-half base times height.",
+        "equation": "(1/2)(5)(12)=30"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "geometry",
+      "area"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2003/problem-06-squares-triangle.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2003-07",
+    "title": "2003 AMC 8 Problem 7: Jenny's Test Average",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 7,
+    "category": "Algebra",
+    "subcategory": "Averages",
+    "difficulty": 2,
+    "statement": "Blake and Jenny each took four 100-point tests. Blake averaged 78 on the four tests. Jenny scored 10 points higher than Blake on the first test, 10 points lower than him on the second test, and 20 points higher on both the third and fourth tests. What is the difference between Jenny's average and Blake's average on these four tests?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "10"
+      },
+      {
+        "label": "B",
+        "text": "15"
+      },
+      {
+        "label": "C",
+        "text": "20"
+      },
+      {
+        "label": "D",
+        "text": "25"
+      },
+      {
+        "label": "E",
+        "text": "40"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "10",
+    "solutionSteps": [
+      {
+        "title": "Add Jenny's differences",
+        "body": "Compared with Blake, Jenny's total score changes by +10, -10, +20, and +20.",
+        "equation": "10-10+20+20=40"
+      },
+      {
+        "title": "Convert total change to average change",
+        "body": "The 40 extra points are spread over 4 tests.",
+        "equation": "40÷4=10"
+      },
+      {
+        "title": "Conclude",
+        "body": "Jenny's average is 10 points higher, so the answer is A."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "algebra",
+      "averages"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2003-08",
+    "title": "2003 AMC 8 Problem 8: Fewest Cookies",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 8,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 2,
+    "statement": "Problems 8, 9 and 10 use the same cookie-shape data. Four friends, Art, Roger, Paul and Trisha, bake cookies of the same thickness. Art's cookies are trapezoids, Roger's are rectangles, Paul's are parallelograms, and Trisha's are triangles, as shown. Each friend uses the same amount of dough, and Art makes exactly 12 cookies. Who gets the fewest cookies from one batch of cookie dough?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Art"
+      },
+      {
+        "label": "B",
+        "text": "Roger"
+      },
+      {
+        "label": "C",
+        "text": "Paul"
+      },
+      {
+        "label": "D",
+        "text": "Trisha"
+      },
+      {
+        "label": "E",
+        "text": "There is a tie for fewest."
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "Art",
+    "solutionSteps": [
+      {
+        "title": "Compare areas",
+        "body": "Art's trapezoid has area (3+5)/2 times 3 = 12 square inches. Roger's rectangle has area 8, and Paul and Trisha each have area 6."
+      },
+      {
+        "title": "Connect area to number of cookies",
+        "body": "With the same amount of dough, larger cookies mean fewer cookies."
+      },
+      {
+        "title": "Choose the largest cookie",
+        "body": "Art's cookie is largest, so Art gets the fewest cookies."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "geometry",
+      "area"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2003/problem-08-10-cookie-shapes.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2003-09",
+    "title": "2003 AMC 8 Problem 9: Cookie Price",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 9,
+    "category": "Geometry",
+    "subcategory": "Area and proportional reasoning",
+    "difficulty": 3,
+    "statement": "Problems 8, 9 and 10 use the same cookie-shape data. Four friends, Art, Roger, Paul and Trisha, bake cookies of the same thickness. Art's cookies are trapezoids, Roger's are rectangles, Paul's are parallelograms, and Trisha's are triangles, as shown. Each friend uses the same amount of dough, and Art makes exactly 12 cookies. Art's cookies sell for 60 cents each. To earn the same amount from a single batch, how much should one of Roger's cookies cost in cents?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "18"
+      },
+      {
+        "label": "B",
+        "text": "25"
+      },
+      {
+        "label": "C",
+        "text": "40"
+      },
+      {
+        "label": "D",
+        "text": "75"
+      },
+      {
+        "label": "E",
+        "text": "90"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "40",
+    "solutionSteps": [
+      {
+        "title": "Find the batch area",
+        "body": "Art's cookie area is 12 square inches and he makes 12 cookies, so each batch uses 144 square inches of dough.",
+        "equation": "12×12=144"
+      },
+      {
+        "title": "Find Roger's cookie count",
+        "body": "Roger's rectangle area is 4 by 2, or 8 square inches. He makes 144/8=18 cookies."
+      },
+      {
+        "title": "Match the revenue",
+        "body": "Art earns 12×60=720 cents. Roger needs 720/18=40 cents per cookie."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "geometry",
+      "area and proportional reasoning"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2003/problem-08-10-cookie-shapes.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2003-10",
+    "title": "2003 AMC 8 Problem 10: Trisha's Cookie Count",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 10,
+    "category": "Geometry",
+    "subcategory": "Area and proportional reasoning",
+    "difficulty": 2,
+    "statement": "Problems 8, 9 and 10 use the same cookie-shape data. Four friends, Art, Roger, Paul and Trisha, bake cookies of the same thickness. Art's cookies are trapezoids, Roger's are rectangles, Paul's are parallelograms, and Trisha's are triangles, as shown. How many cookies will be in one batch of Trisha's cookies?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "10"
+      },
+      {
+        "label": "B",
+        "text": "12"
+      },
+      {
+        "label": "C",
+        "text": "16"
+      },
+      {
+        "label": "D",
+        "text": "18"
+      },
+      {
+        "label": "E",
+        "text": "24"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "24",
+    "solutionSteps": [
+      {
+        "title": "Use Art's batch area",
+        "body": "Art makes 12 cookies of area 12, so the batch area is 144 square inches."
+      },
+      {
+        "title": "Find Trisha's cookie area",
+        "body": "Trisha's triangle has base 3 and height 4.",
+        "equation": "(1/2)(3)(4)=6"
+      },
+      {
+        "title": "Divide dough by cookie area",
+        "body": "Trisha makes 144/6=24 cookies."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "geometry",
+      "area and proportional reasoning"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2003/problem-08-10-cookie-shapes.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2003-11",
+    "title": "2003 AMC 8 Problem 11: Sale After Markup",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 11,
+    "category": "Algebra",
+    "subcategory": "Percent",
+    "difficulty": 2,
+    "statement": "Business is a little slow at Lou's Fine Shoes, so Lou decides to have a sale. On Friday, Lou increases all of Thursday's prices by 10 percent. Over the weekend, Lou advertises the sale: \"Ten percent off the listed price. Sale starts Monday.\" How much does a pair of shoes cost on Monday that cost 40 dollars on Thursday?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "36"
+      },
+      {
+        "label": "B",
+        "text": "39.60"
+      },
+      {
+        "label": "C",
+        "text": "40"
+      },
+      {
+        "label": "D",
+        "text": "40.40"
+      },
+      {
+        "label": "E",
+        "text": "44"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "$39.60",
+    "solutionSteps": [
+      {
+        "title": "Increase by 10%",
+        "body": "A $40 price becomes 110% of $40.",
+        "equation": "40×1.10=44"
+      },
+      {
+        "title": "Take 10% off the new price",
+        "body": "The sale price is 90% of $44.",
+        "equation": "44×0.90=39.60"
+      },
+      {
+        "title": "Conclude",
+        "body": "The Monday price is $39.60, choice B."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "algebra",
+      "percent",
+      "discount"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2003-12",
+    "title": "2003 AMC 8 Problem 12: Visible Dice Faces",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 12,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 3,
+    "statement": "When a fair six-sided die is tossed on a table top, the bottom face cannot be seen. What is the probability that the product of the faces that can be seen is divisible by 6?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/3"
+      },
+      {
+        "label": "B",
+        "text": "1/2"
+      },
+      {
+        "label": "C",
+        "text": "2/3"
+      },
+      {
+        "label": "D",
+        "text": "5/6"
+      },
+      {
+        "label": "E",
+        "text": "1"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "1",
+    "solutionSteps": [
+      {
+        "title": "Think about the hidden face",
+        "body": "The visible product is the product of five of the six numbers 1 through 6."
+      },
+      {
+        "title": "Check divisibility by 6",
+        "body": "A product divisible by 6 needs factors 2 and 3. No matter which one face is hidden, the visible faces still include enough factors to make 6."
+      },
+      {
+        "title": "Probability",
+        "body": "Every possible hidden face works, so the probability is 1."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "counting & probability",
+      "probability"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2003-13",
+    "title": "2003 AMC 8 Problem 13: Painted Cubes",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 13,
+    "category": "Geometry",
+    "subcategory": "Solid geometry",
+    "difficulty": 3,
+    "statement": "Fourteen white cubes are put together to form the figure shown. The complete surface of the figure, including the bottom, is painted red. The figure is then separated into individual cubes. How many of the individual cubes have exactly four red faces?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "6"
+      },
+      {
+        "label": "C",
+        "text": "8"
+      },
+      {
+        "label": "D",
+        "text": "10"
+      },
+      {
+        "label": "E",
+        "text": "12"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "6",
+    "solutionSteps": [
+      {
+        "title": "Translate red faces to hidden faces",
+        "body": "A cube has exactly four red faces if exactly two of its faces were touching other cubes."
+      },
+      {
+        "title": "Inspect the structure",
+        "body": "The cubes in the middle positions touch exactly two neighboring cubes."
+      },
+      {
+        "title": "Count them",
+        "body": "There are 6 such cubes, so the answer is B."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "cube-net",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "geometry",
+      "solid geometry"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2003/problem-13-cubes.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2003-14",
+    "title": "2003 AMC 8 Problem 14: TWO + TWO = FOUR",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 14,
+    "category": "Logic",
+    "subcategory": "Cryptarithm",
+    "difficulty": 4,
+    "statement": "In this addition problem, each letter stands for a different digit: TWO + TWO = FOUR. If T = 7 and the letter O represents an even number, what is the only possible value for W?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "0"
+      },
+      {
+        "label": "B",
+        "text": "1"
+      },
+      {
+        "label": "C",
+        "text": "2"
+      },
+      {
+        "label": "D",
+        "text": "3"
+      },
+      {
+        "label": "E",
+        "text": "4"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "3",
+    "solutionSteps": [
+      {
+        "title": "Ones column",
+        "body": "Since T=7, the thousands digit F must come from the carry. The solution starts by forcing O=4 because 7+7 gives a carry pattern ending in 4 in the sum."
+      },
+      {
+        "title": "Use the O column",
+        "body": "With O=4, the ones digit R is 8."
+      },
+      {
+        "title": "Test possible W values",
+        "body": "W must be less than 5 and cannot repeat a used digit. The only possible value that keeps all letters different and the addition valid is W=3."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "logic",
+      "cryptarithm"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2003/problem-14-cryptarithm.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2003-15",
+    "title": "2003 AMC 8 Problem 15: Minimum Cubes from Views",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 15,
+    "category": "Geometry",
+    "subcategory": "Solid geometry",
+    "difficulty": 3,
+    "statement": "A figure is constructed from unit cubes. Each cube shares at least one face with another cube. What is the minimum number of cubes needed to build a figure with the front and side views shown?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3"
+      },
+      {
+        "label": "B",
+        "text": "4"
+      },
+      {
+        "label": "C",
+        "text": "5"
+      },
+      {
+        "label": "D",
+        "text": "6"
+      },
+      {
+        "label": "E",
+        "text": "7"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Use the views as constraints",
+        "body": "The front view requires two stacked cubes in one column and one cube beside the lower cube."
+      },
+      {
+        "title": "Match cubes across views",
+        "body": "The side view has the same L-shape, so some cubes can satisfy both views at once."
+      },
+      {
+        "title": "Minimum construction",
+        "body": "A 4-cube arrangement can produce both views, and fewer cannot satisfy the height and width requirements."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "cube-net",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "geometry",
+      "solid geometry"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2003/problem-15-front-side.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2003-16",
+    "title": "2003 AMC 8 Problem 16: Theme Park Seating",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 16,
+    "category": "Counting & Probability",
+    "subcategory": "Counting",
+    "difficulty": 2,
+    "statement": "Ali, Bonnie, Carlo, and Dianna are going to drive together to a nearby theme park. The car they are using has 4 seats: 1 driver seat, 1 front passenger seat, and 2 back passenger seats. Bonnie and Carlo are the only ones who know how to drive the car. How many possible seating arrangements are there?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2"
+      },
+      {
+        "label": "B",
+        "text": "4"
+      },
+      {
+        "label": "C",
+        "text": "6"
+      },
+      {
+        "label": "D",
+        "text": "12"
+      },
+      {
+        "label": "E",
+        "text": "24"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "12",
+    "solutionSteps": [
+      {
+        "title": "Choose the driver",
+        "body": "Only Bonnie or Carlo can drive, giving 2 choices."
+      },
+      {
+        "title": "Arrange the other seats",
+        "body": "After the driver is chosen, the remaining 3 people can fill the passenger seats in 3×2×1 ways."
+      },
+      {
+        "title": "Multiply",
+        "body": "The total is 2×3×2=12 arrangements."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "counting & probability",
+      "counting"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2003-17",
+    "title": "2003 AMC 8 Problem 17: Jim's Siblings",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 17,
+    "category": "Logic",
+    "subcategory": "Table reasoning",
+    "difficulty": 3,
+    "statement": "The six children listed in the table are from two families of three siblings each. Each child has blue or brown eyes and black or blond hair. Children from the same family have at least one of these characteristics in common. Which two children are Jim's siblings?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Nadeen and Austin"
+      },
+      {
+        "label": "B",
+        "text": "Benjamin and Sue"
+      },
+      {
+        "label": "C",
+        "text": "Benjamin and Austin"
+      },
+      {
+        "label": "D",
+        "text": "Nadeen and Tevyn"
+      },
+      {
+        "label": "E",
+        "text": "Austin and Sue"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "Austin and Sue",
+    "solutionSteps": [
+      {
+        "title": "List Jim's possible siblings",
+        "body": "Jim has brown eyes and blond hair, so a sibling must share brown eyes or blond hair with him."
+      },
+      {
+        "title": "Check groups of three",
+        "body": "Austin and Sue both share blond hair with Jim, and they also share a characteristic with each other."
+      },
+      {
+        "title": "Conclude",
+        "body": "Jim's siblings are Austin and Sue, choice E."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "ranking",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "logic",
+      "table reasoning"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2003/problem-17-sibling-table.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2003-18",
+    "title": "2003 AMC 8 Problem 18: Sarah's Party Graph",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 18,
+    "category": "Logic",
+    "subcategory": "Graphs",
+    "difficulty": 4,
+    "statement": "Each of the twenty dots on the graph represents one of Sarah's classmates. Classmates who are friends are connected with a line segment. For her birthday party, Sarah is inviting all of her friends and all of those classmates who are friends with at least one of her friends. How many classmates will not be invited to Sarah's party?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "4"
+      },
+      {
+        "label": "C",
+        "text": "5"
+      },
+      {
+        "label": "D",
+        "text": "6"
+      },
+      {
+        "label": "E",
+        "text": "7"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "6",
+    "solutionSteps": [
+      {
+        "title": "Invite direct friends",
+        "body": "Start with every dot connected directly to Sarah."
+      },
+      {
+        "title": "Invite friends of friends",
+        "body": "Then include every dot connected to one of Sarah's friends."
+      },
+      {
+        "title": "Count the leftovers",
+        "body": "The remaining uninvited classmates are the isolated dot, a small separate group of three, and two dots too far away in the graph, for a total of 6."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "logic",
+      "graphs"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2003/problem-18-friendship-graph.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2003-19",
+    "title": "2003 AMC 8 Problem 19: Common Multiples",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 19,
+    "category": "Number Theory",
+    "subcategory": "LCM",
+    "difficulty": 3,
+    "statement": "How many integers between 1000 and 2000 have all three of the numbers 15, 20, and 25 as factors?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "4"
+      },
+      {
+        "label": "E",
+        "text": "5"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "3",
+    "solutionSteps": [
+      {
+        "title": "Find the LCM",
+        "body": "A number divisible by 15, 20, and 25 must be divisible by their least common multiple.",
+        "equation": "15=3×5, 20=2^2×5, 25=5^2"
+      },
+      {
+        "title": "Compute the LCM",
+        "body": "Use the largest powers of each prime.",
+        "equation": "LCM=2^2×3×5^2=300"
+      },
+      {
+        "title": "Count multiples",
+        "body": "The multiples of 300 between 1000 and 2000 are 1200, 1500, and 1800."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "number theory",
+      "lcm"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2003-20",
+    "title": "2003 AMC 8 Problem 20: Clock Angle at 4:20",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 20,
+    "category": "Geometry",
+    "subcategory": "Clock angles",
+    "difficulty": 3,
+    "statement": "What is the measure of the acute angle formed by the hands of the clock at 4:20 PM?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "0"
+      },
+      {
+        "label": "B",
+        "text": "5"
+      },
+      {
+        "label": "C",
+        "text": "8"
+      },
+      {
+        "label": "D",
+        "text": "10"
+      },
+      {
+        "label": "E",
+        "text": "12"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "10°",
+    "solutionSteps": [
+      {
+        "title": "Place the minute hand",
+        "body": "At 20 minutes, the minute hand points exactly at the 4."
+      },
+      {
+        "title": "Move the hour hand",
+        "body": "At 4:20, the hour hand has moved one-third of the way from 4 to 5."
+      },
+      {
+        "title": "Find the angle",
+        "body": "One hour mark is 30°, so one-third of that is 10°."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "clock-angle",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "geometry",
+      "clock angles"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2003-21",
+    "title": "2003 AMC 8 Problem 21: Trapezoid Side Length",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 21,
+    "category": "Geometry",
+    "subcategory": "Trapezoids",
+    "difficulty": 4,
+    "statement": "The area of trapezoid ABCD is 164 square centimeters. The altitude is 8 cm, AB is 10 cm, and CD is 17 cm. What is BC, in centimeters?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "9"
+      },
+      {
+        "label": "B",
+        "text": "10"
+      },
+      {
+        "label": "C",
+        "text": "12"
+      },
+      {
+        "label": "D",
+        "text": "15"
+      },
+      {
+        "label": "E",
+        "text": "20"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "10",
+    "solutionSteps": [
+      {
+        "title": "Use trapezoid area",
+        "body": "The area formula gives the sum of the bases.",
+        "equation": "164=8(BC+AD)/2, so BC+AD=41"
+      },
+      {
+        "title": "Find horizontal offsets",
+        "body": "With height 8, side AB=10 gives a 6-unit horizontal offset, and side CD=17 gives a 15-unit offset."
+      },
+      {
+        "title": "Relate the bases",
+        "body": "Therefore AD = BC + 6 + 15 = BC + 21. So BC + AD = BC + BC + 21 = 41, giving BC=10."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "geometry",
+      "trapezoids"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2003/problem-21-trapezoid.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2003-22",
+    "title": "2003 AMC 8 Problem 22: Largest Shaded Region",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 22,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 4,
+    "statement": "The figures are composed of squares and circles. Which figure has a shaded region with largest area?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "A only"
+      },
+      {
+        "label": "B",
+        "text": "B only"
+      },
+      {
+        "label": "C",
+        "text": "C only"
+      },
+      {
+        "label": "D",
+        "text": "both A and B"
+      },
+      {
+        "label": "E",
+        "text": "all are equal"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "C only",
+    "solutionSteps": [
+      {
+        "title": "Figures A and B",
+        "body": "In both A and B, the shaded area is the square area minus the total circle area, which is 4-π."
+      },
+      {
+        "title": "Figure C",
+        "body": "The circle has radius 1, so its area is π. The inscribed square has diagonal 2 and area 2."
+      },
+      {
+        "title": "Compare",
+        "body": "Figure C has shaded area π-2, which is larger than 4-π, so C is largest."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "geometry",
+      "area"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2003/problem-22-shaded-regions.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2003-23",
+    "title": "2003 AMC 8 Problem 23: Cat and Mouse Pattern",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 23,
+    "category": "Number Theory",
+    "subcategory": "Cycles",
+    "difficulty": 3,
+    "statement": "In the pattern, the cat moves clockwise through the four squares, and the mouse moves counterclockwise through the eight exterior segments of the four squares. If the pattern is continued, where would the cat and mouse be after the 247th move?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "A"
+      },
+      {
+        "label": "B",
+        "text": "B"
+      },
+      {
+        "label": "C",
+        "text": "C"
+      },
+      {
+        "label": "D",
+        "text": "D"
+      },
+      {
+        "label": "E",
+        "text": "E"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "A",
+    "solutionSteps": [
+      {
+        "title": "Cat cycle",
+        "body": "The cat repeats every 4 moves. Since 247 leaves remainder 3 when divided by 4, the cat is in the same square as after move 3."
+      },
+      {
+        "title": "Mouse cycle",
+        "body": "The mouse repeats every 8 moves. Since 247 leaves remainder 7 when divided by 8, the mouse is in the same position as after move 7."
+      },
+      {
+        "title": "Match the picture",
+        "body": "That combination matches choice A."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "number theory",
+      "cycles"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2003/problem-23-cat-mouse-pattern.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2003-24",
+    "title": "2003 AMC 8 Problem 24: Ship Distance Graph",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 24,
+    "category": "Algebra",
+    "subcategory": "Graphs",
+    "difficulty": 4,
+    "statement": "A ship travels from point A to point B along a semicircular path, centered at Island X. Then it travels along a straight path from B to C. Which graph best shows the ship's distance from Island X as it moves along its course?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "A"
+      },
+      {
+        "label": "B",
+        "text": "B"
+      },
+      {
+        "label": "C",
+        "text": "C"
+      },
+      {
+        "label": "D",
+        "text": "D"
+      },
+      {
+        "label": "E",
+        "text": "E"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "B",
+    "solutionSteps": [
+      {
+        "title": "Semicircle part",
+        "body": "Every point on the semicircle is the same distance from X, so the graph starts horizontal."
+      },
+      {
+        "title": "Straight-line part",
+        "body": "Along segment BC, the distance to X first decreases until the closest point, then increases."
+      },
+      {
+        "title": "Match the graph",
+        "body": "The graph with a horizontal start followed by a curved dip is choice B."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "algebra",
+      "graphs"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2003/problem-24-ship-distance-graphs.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2003-25",
+    "title": "2003 AMC 8 Problem 25: Folded Triangle Area",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2003,
+    "problemNumber": 25,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 5,
+    "statement": "In the figure, the area of square WXYZ is 25 square centimeters. The four smaller squares have sides 1 cm long. In triangle ABC, AB = AC, and when triangle ABC is folded over side BC, point A coincides with O, the center of square WXYZ. What is the area of triangle ABC, in square centimeters?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "15/4"
+      },
+      {
+        "label": "B",
+        "text": "21/4"
+      },
+      {
+        "label": "C",
+        "text": "27/4"
+      },
+      {
+        "label": "D",
+        "text": "21/2"
+      },
+      {
+        "label": "E",
+        "text": "27/2"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "27/4",
+    "solutionSteps": [
+      {
+        "title": "Find BC",
+        "body": "Since the large square has area 25, its side length is 5. The points B and C are each 1 cm from the top and bottom, so BC=5-1-1=3."
+      },
+      {
+        "title": "Find the altitude",
+        "body": "Folding sends A to the center O, so the altitude from A to BC equals the distance from BC to O. That distance is 1+1+5/2=9/2."
+      },
+      {
+        "title": "Compute area",
+        "body": "Use one-half base times height.",
+        "equation": "(1/2)(3)(9/2)=27/4"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the key quantities and what is being asked.",
+        "visualHint": "Important numbers are highlighted."
+      },
+      {
+        "title": "Compute",
+        "narration": "Use the relationship from the problem to calculate the answer.",
+        "visualHint": "The calculation is shown step by step."
+      },
+      {
+        "title": "Choose",
+        "narration": "Match the result to the answer choices.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2003",
+      "geometry",
+      "area"
+    ],
+    "sourceName": "2003 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2003/problem-25-folded-triangle.svg"
+    ],
+    "needsDiagram": true
+  }
+];
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
   ...amc2002Problems,
+  ...amc2003Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems };

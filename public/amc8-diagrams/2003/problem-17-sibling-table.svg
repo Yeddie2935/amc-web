@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img"><style>
+text{font-family:Inter,Arial,sans-serif;fill:#111827}.label{font-size:18px;font-weight:600}.small{font-size:14px}.tiny{font-size:11px}.shape{fill:#fff;stroke:#111827;stroke-width:2.5}.thin{fill:none;stroke:#111827;stroke-width:2}.dash{fill:none;stroke:#111827;stroke-width:2;stroke-dasharray:6 5}.shade{fill:#d1d5db;stroke:#111827;stroke-width:2}.accent{fill:#eff6ff;stroke:#2563eb;stroke-width:2}.grid{stroke:#9ca3af;stroke-width:1}.choice{font-size:14px;font-weight:600}.muted{fill:#6b7280}.cat{fill:#f59e0b}.mouse{fill:#94a3b8}.red{fill:#fee2e2;stroke:#dc2626;stroke-width:2}
+</style>
+<text x="25" y="35" class="label">Children's characteristics</text>
+<g transform="translate(55,65)">
+<rect x="0" y="0" width="500" height="252" fill="#fff" stroke="#111827" stroke-width="2"/>
+<line x1="170" y1="0" x2="170" y2="252" class="thin"/><line x1="340" y1="0" x2="340" y2="252" class="thin"/>
+<g class="small" text-anchor="middle" font-size="16"><text x="85" y="28">Child</text><text x="255" y="28">Eye Color</text><text x="425" y="28">Hair Color</text></g>
+<g class="small" text-anchor="middle" font-size="15">
+<line x1="0" y1="42" x2="500" y2="42" class="thin"/><line x1="0" y1="77" x2="500" y2="77" class="thin"/><line x1="0" y1="112" x2="500" y2="112" class="thin"/><line x1="0" y1="147" x2="500" y2="147" class="thin"/><line x1="0" y1="182" x2="500" y2="182" class="thin"/><line x1="0" y1="217" x2="500" y2="217" class="thin"/>
+<text x="85" y="67">Benjamin</text><text x="255" y="67">Blue</text><text x="425" y="67">Black</text>
+<text x="85" y="102">Jim</text><text x="255" y="102">Brown</text><text x="425" y="102">Blonde</text>
+<text x="85" y="137">Nadeen</text><text x="255" y="137">Brown</text><text x="425" y="137">Black</text>
+<text x="85" y="172">Austin</text><text x="255" y="172">Blue</text><text x="425" y="172">Blonde</text>
+<text x="85" y="207">Tevyn</text><text x="255" y="207">Blue</text><text x="425" y="207">Black</text>
+<text x="85" y="242">Sue</text><text x="255" y="242">Blue</text><text x="425" y="242">Blonde</text>
+</g></g>
+</svg>
