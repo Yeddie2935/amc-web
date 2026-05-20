@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 180" role="img" aria-label="First three squares built from square tiles: 1 by 1, 2 by 2, and 3 by 3">
+  <style>.tile{fill:white;stroke:#111;stroke-width:3}.txt{font:24px serif;fill:#111}</style>
+  <g transform="translate(35,75)"><rect width="45" height="45" class="tile"/><text x="22" y="82" text-anchor="middle" class="txt">1×1</text></g>
+  <g transform="translate(160,30)"><rect width="45" height="45" class="tile"/><rect x="45" width="45" height="45" class="tile"/><rect y="45" width="45" height="45" class="tile"/><rect x="45" y="45" width="45" height="45" class="tile"/><text x="45" y="128" text-anchor="middle" class="txt">2×2</text></g>
+  <g transform="translate(315,0)"><rect width="45" height="45" class="tile"/><rect x="45" width="45" height="45" class="tile"/><rect x="90" width="45" height="45" class="tile"/><rect y="45" width="45" height="45" class="tile"/><rect x="45" y="45" width="45" height="45" class="tile"/><rect x="90" y="45" width="45" height="45" class="tile"/><rect y="90" width="45" height="45" class="tile"/><rect x="45" y="90" width="45" height="45" class="tile"/><rect x="90" y="90" width="45" height="45" class="tile"/><text x="67" y="170" text-anchor="middle" class="txt">3×3</text></g>
+</svg>

@@ -1,5 +1,4 @@
 import type { Problem } from "../types/amc";
-import { amc2001Problems } from "./amc2001Problems";
 
 /**
  * Clean structured import: 1999 AMC 8 Problems 1–25.
@@ -872,7 +871,7 @@ const legacySampleProblems: Problem[] = [
         "casework"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "See attribution page"
+      "license": "CC BY-NC-SA"
     },
     {
       "id": "amc8-1999-12",
@@ -950,7 +949,7 @@ const legacySampleProblems: Problem[] = [
         "percent"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "See attribution page"
+      "license": "CC BY-NC-SA"
     },
     {
       "id": "amc8-1999-13",
@@ -1029,7 +1028,7 @@ const legacySampleProblems: Problem[] = [
         "weighted average"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "See attribution page"
+      "license": "CC BY-NC-SA"
     },
     {
       "id": "amc8-1999-14",
@@ -1109,7 +1108,7 @@ const legacySampleProblems: Problem[] = [
         "perimeter"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "See attribution page"
+      "license": "CC BY-NC-SA"
     },
     {
       "id": "amc8-1999-15",
@@ -1188,7 +1187,7 @@ const legacySampleProblems: Problem[] = [
         "optimization"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "See attribution page"
+      "license": "CC BY-NC-SA"
     },
     {
       "id": "amc8-1999-16",
@@ -1267,7 +1266,7 @@ const legacySampleProblems: Problem[] = [
         "arithmetic"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "See attribution page"
+      "license": "CC BY-NC-SA"
     },
     {
       "id": "amc8-1999-17",
@@ -1347,7 +1346,7 @@ const legacySampleProblems: Problem[] = [
         "cookies"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "See attribution page"
+      "license": "CC BY-NC-SA"
     },
     {
       "id": "amc8-1999-18",
@@ -1427,7 +1426,7 @@ const legacySampleProblems: Problem[] = [
         "cookies"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "See attribution page"
+      "license": "CC BY-NC-SA"
     },
     {
       "id": "amc8-1999-19",
@@ -1507,7 +1506,7 @@ const legacySampleProblems: Problem[] = [
         "cookies"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "See attribution page"
+      "license": "CC BY-NC-SA"
     },
     {
       "id": "amc8-1999-20",
@@ -1585,7 +1584,7 @@ const legacySampleProblems: Problem[] = [
         "stack map"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "See attribution page"
+      "license": "CC BY-NC-SA"
     },
     {
       "id": "amc8-1999-21",
@@ -1667,7 +1666,7 @@ const legacySampleProblems: Problem[] = [
         "star"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "See attribution page"
+      "license": "CC BY-NC-SA"
     },
     {
       "id": "amc8-1999-22",
@@ -1746,7 +1745,7 @@ const legacySampleProblems: Problem[] = [
         "fractions"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "See attribution page"
+      "license": "CC BY-NC-SA"
     },
     {
       "id": "amc8-1999-23",
@@ -1831,7 +1830,7 @@ const legacySampleProblems: Problem[] = [
         "coordinate geometry"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "See attribution page"
+      "license": "CC BY-NC-SA"
     },
     {
       "id": "amc8-1999-24",
@@ -1910,7 +1909,7 @@ const legacySampleProblems: Problem[] = [
         "exponents"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "See attribution page"
+      "license": "CC BY-NC-SA"
     },
     {
       "id": "amc8-1999-25",
@@ -1995,7 +1994,7 @@ const legacySampleProblems: Problem[] = [
         "similarity"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "See attribution page"
+      "license": "CC BY-NC-SA"
     },
 {
     "id": "amc8-2000-01",
@@ -3958,9 +3957,4332 @@ const legacySampleProblems: Problem[] = [
   }
 ];
 
+/**
+ * Structured import: 2001 AMC 8 Problems 1–25.
+ * Includes recreated SVG diagrams for the visual problems, referenced by imageUrls.
+ */
+const amc2001Problems: Problem[] = [
+  {
+    "id": "amc8-2001-01",
+    "title": "2001 AMC 8 Problem 1: Painting Golf Ball Dimples",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 1,
+    "category": "Algebra",
+    "subcategory": "Unit conversion",
+    "difficulty": 1,
+    "statement": "Casey's shop class is making a golf trophy. He has to paint 300 dimples on a golf ball. If it takes him 2 seconds to paint one dimple, how many minutes will it take for him to finish?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "6"
+      },
+      {
+        "label": "C",
+        "text": "8"
+      },
+      {
+        "label": "D",
+        "text": "10"
+      },
+      {
+        "label": "E",
+        "text": "12"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "10 minutes",
+    "solutionSteps": [
+      {
+        "title": "Find the total seconds",
+        "body": "There are 300 dimples and each takes 2 seconds.",
+        "equation": "300 × 2 = 600 seconds"
+      },
+      {
+        "title": "Convert seconds to minutes",
+        "body": "One minute is 60 seconds, so divide by 60.",
+        "equation": "600 ÷ 60 = 10"
+      },
+      {
+        "title": "Choose the answer",
+        "body": "It will take 10 minutes, so the answer is D."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Count dimples",
+        "narration": "Show 300 dimples, each taking 2 seconds.",
+        "visualHint": "300 groups of 2 seconds combine into 600 seconds."
+      },
+      {
+        "title": "Convert to minutes",
+        "narration": "Divide the 600 seconds by 60 seconds per minute.",
+        "visualHint": "600 ÷ 60 = 10 appears."
+      },
+      {
+        "title": "Circle choice D",
+        "narration": "The total time is 10 minutes.",
+        "visualHint": "Choice D is highlighted."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "equation": "300 × 2 ÷ 60 = 10"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "arithmetic",
+      "time",
+      "unit conversion"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2001-02",
+    "title": "2001 AMC 8 Problem 2: Product 24 and Sum 11",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 2,
+    "category": "Algebra",
+    "subcategory": "Factors",
+    "difficulty": 1,
+    "statement": "I'm thinking of two whole numbers. Their product is 24 and their sum is 11. What is the larger number?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3"
+      },
+      {
+        "label": "B",
+        "text": "4"
+      },
+      {
+        "label": "C",
+        "text": "6"
+      },
+      {
+        "label": "D",
+        "text": "8"
+      },
+      {
+        "label": "E",
+        "text": "12"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "8",
+    "solutionSteps": [
+      {
+        "title": "List factor pairs",
+        "body": "The whole-number factor pairs of 24 are 1 and 24, 2 and 12, 3 and 8, and 4 and 6."
+      },
+      {
+        "title": "Check the sums",
+        "body": "Only 3 and 8 have sum 11.",
+        "equation": "3 + 8 = 11"
+      },
+      {
+        "title": "Pick the larger number",
+        "body": "The larger of the two numbers is 8, so the answer is D."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show factor pairs",
+        "narration": "Display the factor pairs of 24.",
+        "visualHint": "Pairs 1×24, 2×12, 3×8, and 4×6 appear."
+      },
+      {
+        "title": "Test sums",
+        "narration": "Add each pair and keep the pair that sums to 11.",
+        "visualHint": "3 + 8 = 11 glows."
+      },
+      {
+        "title": "Choose larger",
+        "narration": "The larger number in the pair is 8.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "equation": "3 × 8 = 24, 3 + 8 = 11"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "factors",
+      "whole numbers"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2001-03",
+    "title": "2001 AMC 8 Problem 3: Elberta and Anjou Money",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 3,
+    "category": "Algebra",
+    "subcategory": "Fractions",
+    "difficulty": 1,
+    "statement": "Granny Smith has $63. Elberta has $2 more than Anjou and Anjou has one-third as much as Granny Smith. How many dollars does Elberta have?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "17"
+      },
+      {
+        "label": "B",
+        "text": "18"
+      },
+      {
+        "label": "C",
+        "text": "19"
+      },
+      {
+        "label": "D",
+        "text": "21"
+      },
+      {
+        "label": "E",
+        "text": "23"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "$23",
+    "solutionSteps": [
+      {
+        "title": "Find Anjou's money",
+        "body": "Anjou has one-third of Granny Smith's $63.",
+        "equation": "63 ÷ 3 = 21"
+      },
+      {
+        "title": "Add Elberta's extra money",
+        "body": "Elberta has $2 more than Anjou.",
+        "equation": "21 + 2 = 23"
+      },
+      {
+        "title": "Choose the answer",
+        "body": "Elberta has $23, so the answer is E."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Split $63 into thirds",
+        "narration": "Divide Granny Smith's money into three equal parts.",
+        "visualHint": "$63 becomes three bars of $21."
+      },
+      {
+        "title": "Add two dollars",
+        "narration": "Elberta has one $21 part plus $2.",
+        "visualHint": "$21 + $2 = $23."
+      },
+      {
+        "title": "Circle choice E",
+        "narration": "The amount is $23.",
+        "visualHint": "Choice E is highlighted."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "total": 63,
+        "parts": 3,
+        "extra": 2
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "money",
+      "fractions"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2001-04",
+    "title": "2001 AMC 8 Problem 4: Smallest Even Five-Digit Number",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 4,
+    "category": "Number Theory",
+    "subcategory": "Digits and place value",
+    "difficulty": 2,
+    "statement": "The digits 1, 2, 3, 4 and 9 are each used once to form the smallest possible even five-digit number. The digit in the tens place is",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "4"
+      },
+      {
+        "label": "E",
+        "text": "9"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "9",
+    "solutionSteps": [
+      {
+        "title": "Reserve an even ones digit",
+        "body": "The number must end in 2 or 4. To make the whole number as small as possible, use the smaller digits at the front and save 4 for the ones place."
+      },
+      {
+        "title": "Build the smallest number",
+        "body": "Use 1, 2, and 3 in the first three positions, then put 9 in the tens place and 4 in the ones place.",
+        "equation": "12394"
+      },
+      {
+        "title": "Read the tens digit",
+        "body": "The tens digit is 9, so the answer is E."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Sort the digits",
+        "narration": "Arrange the digits from smallest to largest.",
+        "visualHint": "1, 2, 3, 4, 9 appear."
+      },
+      {
+        "title": "Keep the number even",
+        "narration": "The ones digit must be even, so 4 goes at the end after using 1, 2, 3 as early as possible.",
+        "visualHint": "The number 12394 forms."
+      },
+      {
+        "title": "Read the tens place",
+        "narration": "The tens place is the second digit from the right.",
+        "visualHint": "The 9 is highlighted and choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "ranking",
+      "data": {
+        "number": "12394",
+        "highlight": "tens digit 9"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "digits",
+      "place value",
+      "even numbers"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2001-05",
+    "title": "2001 AMC 8 Problem 5: Lightning and Thunder Distance",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 5,
+    "category": "Algebra",
+    "subcategory": "Rates and unit conversion",
+    "difficulty": 1,
+    "statement": "On a dark and stormy night Snoopy suddenly saw a flash of lightning. Ten seconds later he heard the sound of thunder. The speed of sound is 1088 feet per second and one mile is 5280 feet. Estimate, to the nearest half-mile, how far Snoopy was from the flash of lightning?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "1 1/2"
+      },
+      {
+        "label": "C",
+        "text": "2"
+      },
+      {
+        "label": "D",
+        "text": "2 1/2"
+      },
+      {
+        "label": "E",
+        "text": "3"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "2 miles",
+    "solutionSteps": [
+      {
+        "title": "Find the distance in feet",
+        "body": "The sound traveled for 10 seconds at 1088 feet per second.",
+        "equation": "1088 × 10 = 10880 feet"
+      },
+      {
+        "title": "Convert to miles",
+        "body": "Divide by 5280 feet per mile.",
+        "equation": "10880 ÷ 5280 ≈ 2.06"
+      },
+      {
+        "title": "Round to the nearest half-mile",
+        "body": "2.06 miles rounds to 2 miles, so the answer is C."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show sound traveling",
+        "narration": "A sound wave travels for 10 seconds.",
+        "visualHint": "1088 ft/s × 10 s = 10880 ft."
+      },
+      {
+        "title": "Convert to miles",
+        "narration": "Compare 10880 feet to 5280 feet per mile.",
+        "visualHint": "10880/5280 ≈ 2.06."
+      },
+      {
+        "title": "Round",
+        "narration": "The nearest half-mile is 2 miles.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "value": 2.06,
+        "roundTo": "nearest half-mile"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "rates",
+      "estimation",
+      "unit conversion"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2001-06",
+    "title": "2001 AMC 8 Problem 6: Equally Spaced Trees",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 6,
+    "category": "Algebra",
+    "subcategory": "Sequences and spacing",
+    "difficulty": 1,
+    "statement": "Six trees are equally spaced along one side of a straight road. The distance from the first tree to the fourth is 60 feet. What is the distance in feet between the first and last trees?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "90"
+      },
+      {
+        "label": "B",
+        "text": "100"
+      },
+      {
+        "label": "C",
+        "text": "105"
+      },
+      {
+        "label": "D",
+        "text": "120"
+      },
+      {
+        "label": "E",
+        "text": "140"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "100 feet",
+    "solutionSteps": [
+      {
+        "title": "Count the gaps",
+        "body": "From the 1st tree to the 4th tree there are 3 equal spaces."
+      },
+      {
+        "title": "Find one space",
+        "body": "Those 3 spaces total 60 feet.",
+        "equation": "60 ÷ 3 = 20"
+      },
+      {
+        "title": "Use all five spaces",
+        "body": "From the 1st tree to the 6th tree there are 5 spaces.",
+        "equation": "5 × 20 = 100"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Place six trees",
+        "narration": "Show six equally spaced trees in a row.",
+        "visualHint": "Five equal gaps appear."
+      },
+      {
+        "title": "Use trees 1 through 4",
+        "narration": "The first to fourth tree covers three gaps totaling 60 feet.",
+        "visualHint": "Each gap is labeled 20 feet."
+      },
+      {
+        "title": "Extend to the last tree",
+        "narration": "Five gaps make the full distance.",
+        "visualHint": "5 × 20 = 100, then choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "gaps": 5,
+        "gapLength": 20
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "spacing",
+      "sequences"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2001-07",
+    "title": "2001 AMC 8 Problem 7: Small Kite Area",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 7,
+    "category": "Geometry",
+    "subcategory": "Area of a kite",
+    "difficulty": 2,
+    "statement": "To promote her school's annual Kite Olympics, Genevieve makes a small kite and a large kite for a bulletin board display. The kites look like the one in the diagram. For her small kite Genevieve draws the kite on a one-inch grid. For the large kite she triples both the height and width of the entire grid. What is the number of square inches in the area of the small kite?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "21"
+      },
+      {
+        "label": "B",
+        "text": "22"
+      },
+      {
+        "label": "C",
+        "text": "23"
+      },
+      {
+        "label": "D",
+        "text": "24"
+      },
+      {
+        "label": "E",
+        "text": "25"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "21 square inches",
+    "solutionSteps": [
+      {
+        "title": "Read the diagonals",
+        "body": "From the grid, the horizontal diagonal is 6 inches and the vertical diagonal is 7 inches."
+      },
+      {
+        "title": "Use the kite area formula",
+        "body": "The area of a kite is half the product of its diagonals.",
+        "equation": "(6 × 7) ÷ 2 = 21"
+      },
+      {
+        "title": "Choose the answer",
+        "body": "The small kite has area 21 square inches, so the answer is A."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the grid kite",
+        "narration": "Display the kite on the one-inch grid.",
+        "visualHint": "The horizontal and vertical diagonals are highlighted."
+      },
+      {
+        "title": "Measure diagonals",
+        "narration": "Count 6 inches across and 7 inches vertically.",
+        "visualHint": "Labels 6 and 7 appear."
+      },
+      {
+        "title": "Compute area",
+        "narration": "Use half the product of the diagonals.",
+        "visualHint": "(6 × 7)/2 = 21; choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "diagonal1": 6,
+        "diagonal2": 7,
+        "area": 21
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "geometry",
+      "area",
+      "kite",
+      "diagram"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2001/problem-07-kite.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2001-08",
+    "title": "2001 AMC 8 Problem 8: Large Kite Bracing",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 8,
+    "category": "Geometry",
+    "subcategory": "Scale factor and diagonals",
+    "difficulty": 2,
+    "statement": "To promote her school's annual Kite Olympics, Genevieve makes a small kite and a large kite for a bulletin board display. The kites look like the one in the diagram. For her small kite Genevieve draws the kite on a one-inch grid. For the large kite she triples both the height and width of the entire grid. Genevieve puts bracing on her large kite in the form of a cross connecting opposite corners of the kite. How many inches of bracing material does she need?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "30"
+      },
+      {
+        "label": "B",
+        "text": "32"
+      },
+      {
+        "label": "C",
+        "text": "35"
+      },
+      {
+        "label": "D",
+        "text": "38"
+      },
+      {
+        "label": "E",
+        "text": "39"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "39 inches",
+    "solutionSteps": [
+      {
+        "title": "Scale the diagonals",
+        "body": "The small kite diagonals are 6 and 7 inches. Tripling the grid triples both diagonal lengths."
+      },
+      {
+        "title": "Find the large diagonals",
+        "body": "The large kite diagonals are 18 inches and 21 inches.",
+        "equation": "3 × 6 = 18, 3 × 7 = 21"
+      },
+      {
+        "title": "Add the bracing lengths",
+        "body": "The cross uses both diagonals.",
+        "equation": "18 + 21 = 39"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Start with the small diagonals",
+        "narration": "Show the 6-inch and 7-inch diagonals on the small kite.",
+        "visualHint": "The two diagonals glow."
+      },
+      {
+        "title": "Triple the grid",
+        "narration": "The large kite is 3 times as wide and 3 times as tall.",
+        "visualHint": "6 becomes 18 and 7 becomes 21."
+      },
+      {
+        "title": "Add the cross pieces",
+        "narration": "The bracing is the sum of the two large diagonals.",
+        "visualHint": "18 + 21 = 39, then choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "smallDiagonals": "6,7",
+        "scale": 3,
+        "largeDiagonals": "18,21",
+        "total": 39
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "geometry",
+      "scale factor",
+      "diagonals",
+      "diagram"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2001/problem-08-bracing.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2001-09",
+    "title": "2001 AMC 8 Problem 9: Kite Foil Waste",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 9,
+    "category": "Geometry",
+    "subcategory": "Area and scale factor",
+    "difficulty": 3,
+    "statement": "To promote her school's annual Kite Olympics, Genevieve makes a small kite and a large kite for a bulletin board display. The kites look like the one in the diagram. For her small kite Genevieve draws the kite on a one-inch grid. For the large kite she triples both the height and width of the entire grid. The large kite is covered with gold foil. The foil is cut from a rectangular piece that just covers the entire grid. How many square inches of waste material are cut off from the four corners?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "63"
+      },
+      {
+        "label": "B",
+        "text": "72"
+      },
+      {
+        "label": "C",
+        "text": "180"
+      },
+      {
+        "label": "D",
+        "text": "189"
+      },
+      {
+        "label": "E",
+        "text": "264"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "189 square inches",
+    "solutionSteps": [
+      {
+        "title": "Scale the bounding rectangle",
+        "body": "The small grid is 6 inches wide and 7 inches tall, so the large grid is 18 inches by 21 inches."
+      },
+      {
+        "title": "Find the rectangle area",
+        "body": "The rectangular foil piece has area 18 × 21.",
+        "equation": "18 × 21 = 378"
+      },
+      {
+        "title": "Use the kite area relationship",
+        "body": "The kite takes half of its bounding rectangle, so the waste is the other half.",
+        "equation": "378 ÷ 2 = 189"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the bounding rectangle",
+        "narration": "Draw the rectangle that just covers the large grid.",
+        "visualHint": "The 18 by 21 rectangle appears around the kite."
+      },
+      {
+        "title": "Split rectangle and kite",
+        "narration": "The kite uses half the rectangle area.",
+        "visualHint": "The outside corner waste regions are shaded."
+      },
+      {
+        "title": "Compute waste",
+        "narration": "Half of 378 square inches is waste.",
+        "visualHint": "378 ÷ 2 = 189, then choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "rectangleArea": 378,
+        "waste": 189
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "geometry",
+      "area",
+      "scale factor",
+      "diagram"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2001/problem-09-waste.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2001-10",
+    "title": "2001 AMC 8 Problem 10: State Quarters at 2000 Percent",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 10,
+    "category": "Algebra",
+    "subcategory": "Percents",
+    "difficulty": 1,
+    "statement": "A collector offers to buy state quarters for 2000% of their face value. At that rate how much will Bryden get for his four state quarters?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "20 dollars"
+      },
+      {
+        "label": "B",
+        "text": "50 dollars"
+      },
+      {
+        "label": "C",
+        "text": "200 dollars"
+      },
+      {
+        "label": "D",
+        "text": "500 dollars"
+      },
+      {
+        "label": "E",
+        "text": "2000 dollars"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "$20",
+    "solutionSteps": [
+      {
+        "title": "Find the face value",
+        "body": "Four quarters have face value one dollar.",
+        "equation": "4 × $0.25 = $1"
+      },
+      {
+        "title": "Convert the percent",
+        "body": "2000% means 20 times the original value.",
+        "equation": "2000% = 20"
+      },
+      {
+        "title": "Multiply",
+        "body": "Twenty times one dollar is $20, so the answer is A.",
+        "equation": "20 × $1 = $20"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show four quarters",
+        "narration": "Four quarters combine to $1.",
+        "visualHint": "Four quarter icons merge into $1."
+      },
+      {
+        "title": "Convert 2000%",
+        "narration": "2000 percent means 20 times the face value.",
+        "visualHint": "2000% → 20×."
+      },
+      {
+        "title": "Calculate payment",
+        "narration": "Multiply $1 by 20.",
+        "visualHint": "20 × $1 = $20; choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "equation": "2000% × $1 = 20 × $1 = $20"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "percent",
+      "money"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2001-11",
+    "title": "2001 AMC 8 Problem 11: Coordinate Trapezoid Area",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 11,
+    "category": "Geometry",
+    "subcategory": "Coordinate geometry",
+    "difficulty": 2,
+    "statement": "Points A, B, C and D have coordinates A(3, 2), B(3, −2), C(−3, −2) and D(−3, 0). The area of quadrilateral ABCD is",
+    "choices": [
+      {
+        "label": "A",
+        "text": "12"
+      },
+      {
+        "label": "B",
+        "text": "15"
+      },
+      {
+        "label": "C",
+        "text": "18"
+      },
+      {
+        "label": "D",
+        "text": "21"
+      },
+      {
+        "label": "E",
+        "text": "24"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "18",
+    "solutionSteps": [
+      {
+        "title": "Identify parallel sides",
+        "body": "AB and CD are vertical, so they are parallel. Their lengths are 4 and 2."
+      },
+      {
+        "title": "Find the distance between them",
+        "body": "The parallel sides lie on x = 3 and x = −3, so the distance between them is 6.",
+        "equation": "3 − (−3) = 6"
+      },
+      {
+        "title": "Use trapezoid area",
+        "body": "Area equals the average of the bases times the height.",
+        "equation": "((4 + 2)/2) × 6 = 18"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Plot the points",
+        "narration": "Place A, B, C, and D on the coordinate grid.",
+        "visualHint": "The polygon ABCD is drawn."
+      },
+      {
+        "title": "Measure the parallel sides",
+        "narration": "AB is 4 units and CD is 2 units.",
+        "visualHint": "Both vertical sides are highlighted."
+      },
+      {
+        "title": "Compute trapezoid area",
+        "narration": "Use the distance 6 between the parallel sides.",
+        "visualHint": "((4+2)/2)×6 = 18, then choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "A": "(3,2)",
+        "B": "(3,-2)",
+        "C": "(-3,-2)",
+        "D": "(-3,0)",
+        "area": 18
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "geometry",
+      "coordinate plane",
+      "area",
+      "trapezoid",
+      "diagram"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2001/problem-11-coordinate-trapezoid.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2001-12",
+    "title": "2001 AMC 8 Problem 12: Custom Operation",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 12,
+    "category": "Algebra",
+    "subcategory": "Defined operations",
+    "difficulty": 2,
+    "statement": "If a ⊗ b = (a + b)/(a − b), then (6 ⊗ 4) ⊗ 3 =",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "13"
+      },
+      {
+        "label": "C",
+        "text": "15"
+      },
+      {
+        "label": "D",
+        "text": "30"
+      },
+      {
+        "label": "E",
+        "text": "72"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Evaluate inside first",
+        "body": "Apply the operation to 6 and 4.",
+        "equation": "6 ⊗ 4 = (6 + 4)/(6 − 4) = 10/2 = 5"
+      },
+      {
+        "title": "Use the result with 3",
+        "body": "Now evaluate 5 ⊗ 3.",
+        "equation": "5 ⊗ 3 = (5 + 3)/(5 − 3) = 8/2 = 4"
+      },
+      {
+        "title": "Choose the answer",
+        "body": "The result is 4, so the answer is A."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Replace the operation",
+        "narration": "Substitute 6 and 4 into the formula.",
+        "visualHint": "(6+4)/(6−4) appears."
+      },
+      {
+        "title": "Simplify to 5",
+        "narration": "The inner operation equals 5.",
+        "visualHint": "(6⊗4)⊗3 becomes 5⊗3."
+      },
+      {
+        "title": "Evaluate again",
+        "narration": "Use the same rule one more time.",
+        "visualHint": "(5+3)/(5−3)=4; choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "equation": "(6 ⊗ 4) ⊗ 3 = 5 ⊗ 3 = 4"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "defined operation",
+      "fractions"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2001-13",
+    "title": "2001 AMC 8 Problem 13: Cherry Pie Graph Angle",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 13,
+    "category": "Algebra",
+    "subcategory": "Pie charts and fractions",
+    "difficulty": 2,
+    "statement": "Of the 36 students in Richelle's class, 12 prefer chocolate pie, 8 prefer apple, and 6 prefer blueberry. Half of the remaining students prefer cherry pie and half prefer lemon. For Richelle's pie graph showing this data, how many degrees should she use for cherry pie?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "10"
+      },
+      {
+        "label": "B",
+        "text": "20"
+      },
+      {
+        "label": "C",
+        "text": "30"
+      },
+      {
+        "label": "D",
+        "text": "50"
+      },
+      {
+        "label": "E",
+        "text": "72"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "50°",
+    "solutionSteps": [
+      {
+        "title": "Find the remaining students",
+        "body": "Subtract the students already counted.",
+        "equation": "36 − 12 − 8 − 6 = 10"
+      },
+      {
+        "title": "Find cherry students",
+        "body": "Half of the remaining 10 students prefer cherry pie.",
+        "equation": "10 ÷ 2 = 5"
+      },
+      {
+        "title": "Convert to degrees",
+        "body": "Cherry is 5/36 of the circle.",
+        "equation": "(5/36) × 360° = 50°"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Subtract known pie choices",
+        "narration": "Remove chocolate, apple, and blueberry from the class total.",
+        "visualHint": "36 − 12 − 8 − 6 = 10."
+      },
+      {
+        "title": "Split remaining students",
+        "narration": "Half prefer cherry and half prefer lemon.",
+        "visualHint": "10 splits into 5 and 5."
+      },
+      {
+        "title": "Make pie angle",
+        "narration": "Convert 5 of 36 students to a sector angle.",
+        "visualHint": "5/36 × 360° = 50°, then choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "part": 5,
+        "total": 36,
+        "degrees": 50
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "pie chart",
+      "fractions",
+      "degrees"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2001-14",
+    "title": "2001 AMC 8 Problem 14: Buffet Meal Choices",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 14,
+    "category": "Counting & Probability",
+    "subcategory": "Combinations",
+    "difficulty": 2,
+    "statement": "Tyler has entered a buffet line in which he chooses one kind of meat, two different vegetables and one dessert. If the order of food items is not important, how many different meals might he choose? Meat: beef, chicken, pork. Vegetables: baked beans, corn, potatoes, tomatoes. Dessert: brownies, chocolate cake, chocolate pudding, ice cream.",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "24"
+      },
+      {
+        "label": "C",
+        "text": "72"
+      },
+      {
+        "label": "D",
+        "text": "80"
+      },
+      {
+        "label": "E",
+        "text": "144"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "72",
+    "solutionSteps": [
+      {
+        "title": "Choose meat and dessert",
+        "body": "There are 3 meat choices and 4 dessert choices.",
+        "equation": "3 × 4 = 12"
+      },
+      {
+        "title": "Choose two vegetables",
+        "body": "Choose 2 different vegetables from 4, with order not important.",
+        "equation": "C(4,2) = 6"
+      },
+      {
+        "title": "Multiply independent choices",
+        "body": "For each meat-dessert pair there are 6 vegetable pairs.",
+        "equation": "12 × 6 = 72"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Pick meat and dessert",
+        "narration": "Show 3 meat options and 4 dessert options.",
+        "visualHint": "3 × 4 = 12."
+      },
+      {
+        "title": "Choose vegetables",
+        "narration": "Pair two different vegetables without caring about order.",
+        "visualHint": "C(4,2)=6 vegetable pairs appear."
+      },
+      {
+        "title": "Multiply",
+        "narration": "Combine the independent choices.",
+        "visualHint": "12 × 6 = 72; choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "meats": 3,
+        "vegetablesChoose2": 6,
+        "desserts": 4,
+        "total": 72
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "counting",
+      "combinations",
+      "multiplication principle"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2001-15",
+    "title": "2001 AMC 8 Problem 15: Peeling Potatoes Together",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 15,
+    "category": "Algebra",
+    "subcategory": "Work rates",
+    "difficulty": 2,
+    "statement": "Homer began peeling a pile of 44 potatoes at the rate of 3 potatoes per minute. Four minutes later Christen joined him and peeled at the rate of 5 potatoes per minute. When they finished, how many potatoes had Christen peeled?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "20"
+      },
+      {
+        "label": "B",
+        "text": "24"
+      },
+      {
+        "label": "C",
+        "text": "32"
+      },
+      {
+        "label": "D",
+        "text": "33"
+      },
+      {
+        "label": "E",
+        "text": "40"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "20 potatoes",
+    "solutionSteps": [
+      {
+        "title": "Homer works alone first",
+        "body": "For 4 minutes, Homer peels 3 potatoes per minute.",
+        "equation": "4 × 3 = 12"
+      },
+      {
+        "title": "Find the remaining potatoes",
+        "body": "After that, 32 potatoes remain.",
+        "equation": "44 − 12 = 32"
+      },
+      {
+        "title": "Use the combined rate",
+        "body": "Together they peel 3 + 5 = 8 potatoes per minute, so 32 potatoes take 4 minutes. Christen peels 5 per minute for 4 minutes.",
+        "equation": "4 × 5 = 20"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Homer starts alone",
+        "narration": "Homer peels 12 potatoes in the first 4 minutes.",
+        "visualHint": "44 drops to 32 remaining."
+      },
+      {
+        "title": "Both peel together",
+        "narration": "Their combined rate is 8 potatoes per minute.",
+        "visualHint": "32 ÷ 8 = 4 minutes."
+      },
+      {
+        "title": "Count Christen's potatoes",
+        "narration": "Christen peels 5 per minute for 4 minutes.",
+        "visualHint": "5 × 4 = 20; choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "total": 44,
+        "homerFirst": 12,
+        "combinedRate": 8,
+        "christenPeeled": 20
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "work rates",
+      "rates"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2001-16",
+    "title": "2001 AMC 8 Problem 16: Folded Paper Rectangles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 16,
+    "category": "Geometry",
+    "subcategory": "Perimeter and folding",
+    "difficulty": 3,
+    "statement": "A square piece of paper, 4 inches on a side, is folded in half vertically. Both layers are then cut in half parallel to the fold. Three new rectangles are formed, a large one and two small ones. What is the ratio of the perimeter of one of the small rectangles to the perimeter of the large rectangle?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/3"
+      },
+      {
+        "label": "B",
+        "text": "1/2"
+      },
+      {
+        "label": "C",
+        "text": "3/4"
+      },
+      {
+        "label": "D",
+        "text": "4/5"
+      },
+      {
+        "label": "E",
+        "text": "5/6"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "5/6",
+    "solutionSteps": [
+      {
+        "title": "Understand the pieces",
+        "body": "After folding, cutting parallel to the fold creates two small 4 by 1 rectangles and one large 4 by 2 rectangle."
+      },
+      {
+        "title": "Find the perimeters",
+        "body": "A small rectangle has perimeter 2(4 + 1) = 10, and the large rectangle has perimeter 2(4 + 2) = 12."
+      },
+      {
+        "title": "Form the ratio",
+        "body": "The ratio is 10/12, which simplifies to 5/6.",
+        "equation": "10/12 = 5/6"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Fold the square",
+        "narration": "Show the 4 by 4 square folded vertically.",
+        "visualHint": "A dashed vertical fold line appears."
+      },
+      {
+        "title": "Cut the folded paper",
+        "narration": "Cut parallel to the fold halfway across the folded width.",
+        "visualHint": "The small 4×1 pieces and the large 4×2 piece separate."
+      },
+      {
+        "title": "Compare perimeters",
+        "narration": "Compute 10 for the small rectangle and 12 for the large rectangle.",
+        "visualHint": "10/12 = 5/6; choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "small": "4×1",
+        "large": "4×2",
+        "ratio": "5/6"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "geometry",
+      "perimeter",
+      "folding",
+      "diagram"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2001/problem-16-folding.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2001-17",
+    "title": "2001 AMC 8 Problem 17: Millionaire Percent Increase",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 17,
+    "category": "Algebra",
+    "subcategory": "Percent increase",
+    "difficulty": 3,
+    "statement": "For the game show Who Wants To Be A Millionaire?, the dollar values of each question are shown in the table where K = 1000: Question 1 through 15 have values 100, 200, 300, 500, 1K, 2K, 4K, 8K, 16K, 32K, 64K, 125K, 250K, 500K, 1000K. Between which two questions is the percent increase of the value the smallest?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "From 1 to 2"
+      },
+      {
+        "label": "B",
+        "text": "From 2 to 3"
+      },
+      {
+        "label": "C",
+        "text": "From 3 to 4"
+      },
+      {
+        "label": "D",
+        "text": "From 11 to 12"
+      },
+      {
+        "label": "E",
+        "text": "From 14 to 15"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "From 2 to 3",
+    "solutionSteps": [
+      {
+        "title": "Check the obvious doubling jumps",
+        "body": "From 1 to 2 and from 14 to 15, the value doubles, which is a 100% increase."
+      },
+      {
+        "title": "Compare the smaller-looking jumps",
+        "body": "From 2 to 3, the value goes from 200 to 300, a 50% increase. From 3 to 4, it goes from 300 to 500, a 66 2/3% increase. From 11 to 12, it goes from 64K to 125K, almost a 95% increase."
+      },
+      {
+        "title": "Choose the smallest",
+        "body": "The smallest percent increase is from 2 to 3, so the answer is B.",
+        "equation": "(300 − 200)/200 = 1/2 = 50%"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the table",
+        "narration": "Display the question values from 1 to 15.",
+        "visualHint": "The value row appears with 100, 200, 300, 500, and so on."
+      },
+      {
+        "title": "Compare percent changes",
+        "narration": "Focus on the answer choices and compute each percent increase.",
+        "visualHint": "2→3 gives 50%, 3→4 gives 66 2/3%, and 11→12 is much larger."
+      },
+      {
+        "title": "Highlight smallest",
+        "narration": "The smallest increase is from question 2 to question 3.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "smallest": "From 2 to 3",
+        "percent": 50
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "percent",
+      "table",
+      "rates of change",
+      "diagram"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2001/problem-17-millionaire-table.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2001-18",
+    "title": "2001 AMC 8 Problem 18: Dice Product Multiple of 5",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 18,
+    "category": "Counting & Probability",
+    "subcategory": "Probability with dice",
+    "difficulty": 3,
+    "statement": "Two dice are thrown. What is the probability that the product of the two numbers is a multiple of 5?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/36"
+      },
+      {
+        "label": "B",
+        "text": "1/18"
+      },
+      {
+        "label": "C",
+        "text": "1/6"
+      },
+      {
+        "label": "D",
+        "text": "11/36"
+      },
+      {
+        "label": "E",
+        "text": "1/3"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "11/36",
+    "solutionSteps": [
+      {
+        "title": "Use the complement",
+        "body": "The product is a multiple of 5 exactly when at least one die shows 5."
+      },
+      {
+        "title": "Find no fives",
+        "body": "The probability that neither die shows 5 is (5/6)(5/6).",
+        "equation": "(5/6)^2 = 25/36"
+      },
+      {
+        "title": "Subtract from 1",
+        "body": "The probability of at least one 5 is 1 − 25/36.",
+        "equation": "1 − 25/36 = 11/36"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Focus on the factor 5",
+        "narration": "A product is a multiple of 5 only if at least one die is 5.",
+        "visualHint": "All outcomes with a 5 are highlighted on a 6 by 6 grid."
+      },
+      {
+        "title": "Count the complement",
+        "narration": "It is easier to count outcomes with no 5s.",
+        "visualHint": "A 5 by 5 block of no-five outcomes appears."
+      },
+      {
+        "title": "Subtract",
+        "narration": "Remove the 25 no-five outcomes from 36 total outcomes.",
+        "visualHint": "36 − 25 = 11, so probability 11/36; choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "totalOutcomes": 36,
+        "favorable": 11,
+        "probability": "11/36"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "probability",
+      "dice",
+      "complement"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2001-19",
+    "title": "2001 AMC 8 Problem 19: Speed-Time Graph for Car N",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 19,
+    "category": "Algebra",
+    "subcategory": "Graph interpretation",
+    "difficulty": 3,
+    "statement": "Car M traveled at a constant speed for a given time. This is shown by the dashed line. Car N traveled at twice the speed for the same distance. If Car M and Car N's speed and time are shown as solid line, which graph illustrates this?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Graph A"
+      },
+      {
+        "label": "B",
+        "text": "Graph B"
+      },
+      {
+        "label": "C",
+        "text": "Graph C"
+      },
+      {
+        "label": "D",
+        "text": "Graph D"
+      },
+      {
+        "label": "E",
+        "text": "Graph E"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "Graph D",
+    "solutionSteps": [
+      {
+        "title": "Use twice the speed",
+        "body": "On a speed-time graph, twice the speed means N must be twice as high as M."
+      },
+      {
+        "title": "Use same distance",
+        "body": "Distance is speed times time, or area under the speed-time graph. If speed doubles and distance stays the same, time must be cut in half."
+      },
+      {
+        "title": "Pick the matching graph",
+        "body": "The correct graph has N higher than M but only half as long in time. That is graph D."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show M's rectangle",
+        "narration": "For constant speed, distance is the area of a rectangle under the line.",
+        "visualHint": "The dashed M line forms a speed × time rectangle."
+      },
+      {
+        "title": "Double speed, halve time",
+        "narration": "N is twice as high but half as long, keeping the same area.",
+        "visualHint": "A tall narrow rectangle has the same area."
+      },
+      {
+        "title": "Match the choice",
+        "narration": "Only graph D shows N higher and shorter.",
+        "visualHint": "Choice D is highlighted."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "correct": "D",
+        "speedFactor": 2,
+        "timeFactor": "1/2"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "graphs",
+      "speed",
+      "distance",
+      "rates",
+      "diagram"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2001/problem-19-speed-graphs.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2001-20",
+    "title": "2001 AMC 8 Problem 20: Hidden Test Scores Logic",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 20,
+    "category": "Logic",
+    "subcategory": "Ordering",
+    "difficulty": 4,
+    "statement": "Kaleana shows her test score to Quay, Marty and Shana, but the others keep theirs hidden. Quay thinks, \"At least two of us have the same score.\" Marty thinks, \"I didn't get the lowest score.\" Shana thinks, \"I didn't get the highest score.\" List the scores from lowest to highest for Marty (M), Quay (Q) and Shana (S).",
+    "choices": [
+      {
+        "label": "A",
+        "text": "S,Q,M"
+      },
+      {
+        "label": "B",
+        "text": "Q,M,S"
+      },
+      {
+        "label": "C",
+        "text": "Q,S,M"
+      },
+      {
+        "label": "D",
+        "text": "M,S,Q"
+      },
+      {
+        "label": "E",
+        "text": "S,M,Q"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "S, Q, M",
+    "solutionSteps": [
+      {
+        "title": "Use Quay's statement",
+        "body": "Quay only knows Kaleana's score besides his own. For him to know two people have the same score, his score must equal Kaleana's."
+      },
+      {
+        "title": "Use Marty and Shana",
+        "body": "Marty knows he is not lowest, so he must be above Kaleana. Shana knows she is not highest, so she must be below Kaleana."
+      },
+      {
+        "title": "Order the three hidden scores",
+        "body": "Since Quay equals Kaleana, the order is Shana, Quay, Marty.",
+        "equation": "S < Q < M"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Mark Kaleana as known",
+        "narration": "Each student compares only their own score to Kaleana's visible score.",
+        "visualHint": "K appears in the center."
+      },
+      {
+        "title": "Infer relationships",
+        "narration": "Quay equals K, Marty is above K, and Shana is below K.",
+        "visualHint": "S < K = Q < M is shown."
+      },
+      {
+        "title": "Remove K",
+        "narration": "List only Marty, Quay, and Shana from lowest to highest.",
+        "visualHint": "S, Q, M appears and choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "ranking",
+      "data": {
+        "order": "S < Q < M"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "logic",
+      "ordering",
+      "inequalities"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2001-21",
+    "title": "2001 AMC 8 Problem 21: Largest Integer with Mean 15",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 21,
+    "category": "Algebra",
+    "subcategory": "Mean and median",
+    "difficulty": 3,
+    "statement": "The mean of a set of five different positive integers is 15. The median is 18. The maximum possible value of the largest of these five integers is",
+    "choices": [
+      {
+        "label": "A",
+        "text": "19"
+      },
+      {
+        "label": "B",
+        "text": "24"
+      },
+      {
+        "label": "C",
+        "text": "32"
+      },
+      {
+        "label": "D",
+        "text": "35"
+      },
+      {
+        "label": "E",
+        "text": "40"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "35",
+    "solutionSteps": [
+      {
+        "title": "Find the total sum",
+        "body": "Five integers with mean 15 have total sum 75.",
+        "equation": "5 × 15 = 75"
+      },
+      {
+        "title": "Make the other numbers small",
+        "body": "The median is 18, so the ordered list is _, _, 18, _, _. To maximize the largest number, make the other four values as small as possible: 1, 2, 18, and 19."
+      },
+      {
+        "title": "Find the largest value",
+        "body": "Subtract those four values from the total.",
+        "equation": "75 − 1 − 2 − 18 − 19 = 35"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Set the middle value",
+        "narration": "With five numbers, the median is the third number.",
+        "visualHint": "_, _, 18, _, _ appears."
+      },
+      {
+        "title": "Minimize the rest",
+        "narration": "Use 1 and 2 below 18, and 19 just above 18.",
+        "visualHint": "1, 2, 18, 19, _."
+      },
+      {
+        "title": "Use the total sum",
+        "narration": "Subtract from 75 to maximize the last number.",
+        "visualHint": "75 − 1 − 2 − 18 − 19 = 35; choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "sum": 75,
+        "known": "1,2,18,19",
+        "largest": 35
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "mean",
+      "median",
+      "integers",
+      "optimization"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2001-22",
+    "title": "2001 AMC 8 Problem 22: Impossible Test Score",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 22,
+    "category": "Number Theory",
+    "subcategory": "Scoring combinations",
+    "difficulty": 3,
+    "statement": "On a twenty-question test, each correct answer is worth 5 points, each unanswered question is worth 1 point and each incorrect answer is worth 0 points. Which of the following scores is NOT possible?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "90"
+      },
+      {
+        "label": "B",
+        "text": "91"
+      },
+      {
+        "label": "C",
+        "text": "92"
+      },
+      {
+        "label": "D",
+        "text": "95"
+      },
+      {
+        "label": "E",
+        "text": "97"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "97",
+    "solutionSteps": [
+      {
+        "title": "Find the top score",
+        "body": "All 20 questions correct gives 100 points.",
+        "equation": "20 × 5 = 100"
+      },
+      {
+        "title": "Find the next-highest score",
+        "body": "The best score below 100 is 19 correct and 1 blank, worth 96 points.",
+        "equation": "19 × 5 + 1 = 96"
+      },
+      {
+        "title": "Identify the gap",
+        "body": "No score between 96 and 100 is possible, so 97 is not possible. The answer is E."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Start at perfect score",
+        "narration": "Twenty correct answers give 100 points.",
+        "visualHint": "100 appears at the top of a score ladder."
+      },
+      {
+        "title": "Drop one question",
+        "narration": "The smallest drop from perfect is replacing one correct answer with a blank: lose 4 points.",
+        "visualHint": "100 becomes 96."
+      },
+      {
+        "title": "Spot the impossible score",
+        "narration": "Scores 97, 98, and 99 cannot happen.",
+        "visualHint": "97 is highlighted and choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "impossible": 97,
+        "gap": "97-99"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "scoring",
+      "combinations",
+      "integers"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2001-23",
+    "title": "2001 AMC 8 Problem 23: Noncongruent Triangles from Midpoints",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 23,
+    "category": "Geometry",
+    "subcategory": "Triangle congruence",
+    "difficulty": 4,
+    "statement": "Points R, S and T are vertices of an equilateral triangle, and points X, Y and Z are midpoints of its sides. How many noncongruent triangles can be drawn using any three of these six points as vertices?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "4"
+      },
+      {
+        "label": "E",
+        "text": "20"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Recognize symmetry",
+        "body": "The six points form an equilateral triangle with midpoints, so many choices of three points make congruent triangles."
+      },
+      {
+        "title": "Group by size and shape",
+        "body": "There is the large triangle RST, the middle equilateral triangles like SYZ, and two different sizes/shapes of smaller triangles from using vertices and midpoints."
+      },
+      {
+        "title": "Count the types",
+        "body": "These give 4 noncongruent triangle types total, so the answer is D."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the six points",
+        "narration": "Display R, S, T and side midpoints X, Y, Z.",
+        "visualHint": "The large equilateral triangle outline appears."
+      },
+      {
+        "title": "Group congruent examples",
+        "narration": "Triangles that can be rotated or reflected onto each other are one type.",
+        "visualHint": "Examples of the same shape glow together."
+      },
+      {
+        "title": "Count distinct shapes",
+        "narration": "There are four different shapes/sizes.",
+        "visualHint": "Four representative triangles are shown and choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "types": 4
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "geometry",
+      "triangles",
+      "congruence",
+      "diagram"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2001/problem-23-midpoints.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2001-24",
+    "title": "2001 AMC 8 Problem 24: Folded Colored Triangle Pairs",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 24,
+    "category": "Counting & Probability",
+    "subcategory": "Counting with constraints",
+    "difficulty": 4,
+    "statement": "Each half of this figure is composed of 3 red triangles, 5 blue triangles and 8 white triangles. When the upper half is folded down over the centerline, 2 pairs of red triangles coincide, as do 3 pairs of blue triangles. There are 2 red-white pairs. How many white pairs coincide?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "5"
+      },
+      {
+        "label": "C",
+        "text": "6"
+      },
+      {
+        "label": "D",
+        "text": "7"
+      },
+      {
+        "label": "E",
+        "text": "9"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "Remove same-color pairs",
+        "body": "On each half, 2 red-red pairs use 2 red triangles and 3 blue-blue pairs use 3 blue triangles."
+      },
+      {
+        "title": "Use red-white pairs",
+        "body": "After the red-red pairs, each half has only 1 red left. The 2 red-white pairs must use that 1 red on each half and 1 white on each half."
+      },
+      {
+        "title": "Finish the remaining colors",
+        "body": "Each half now has 2 blue and 7 white left. The remaining blue triangles must pair with white triangles, using 2 white on each half. That leaves 5 white triangles on each half, so there are 5 white-white pairs."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Track one half",
+        "narration": "Start with 3 red, 5 blue, and 8 white triangles on each half.",
+        "visualHint": "Color counters show R=3, B=5, W=8."
+      },
+      {
+        "title": "Subtract known pairs",
+        "narration": "Remove 2 red-red pairs, 3 blue-blue pairs, and 2 red-white pairs.",
+        "visualHint": "Counters update to R=0, B=2, W=7 on each half."
+      },
+      {
+        "title": "Pair remaining triangles",
+        "narration": "The remaining blue triangles pair with whites, leaving 5 whites on each half.",
+        "visualHint": "5 white-white pairs remain; choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "red": 3,
+        "blue": 5,
+        "white": 8,
+        "whitePairs": 5
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "counting",
+      "logic",
+      "folding",
+      "diagram"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2001/problem-24-folded-triangles.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2001-25",
+    "title": "2001 AMC 8 Problem 25: Four-Digit Multiple",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2001,
+    "problemNumber": 25,
+    "category": "Number Theory",
+    "subcategory": "Divisibility and permutations",
+    "difficulty": 4,
+    "statement": "There are 24 four-digit whole numbers that use each of the four digits 2, 4, 5 and 7 exactly once. Only one of these four-digit numbers is a multiple of another one. Which of the following is it?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5724"
+      },
+      {
+        "label": "B",
+        "text": "7245"
+      },
+      {
+        "label": "C",
+        "text": "7254"
+      },
+      {
+        "label": "D",
+        "text": "7425"
+      },
+      {
+        "label": "E",
+        "text": "7542"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "7425",
+    "solutionSteps": [
+      {
+        "title": "Look for a smaller partner",
+        "body": "If a listed number is a multiple of another permutation, dividing by 2 or 3 is the most useful quick check because larger factors would make the partner too small or not four digits with the required digits."
+      },
+      {
+        "title": "Test likely divisions",
+        "body": "The key successful check is 7425 divided by 3.",
+        "equation": "7425 ÷ 3 = 2475"
+      },
+      {
+        "title": "Verify the partner",
+        "body": "2475 also uses exactly the digits 2, 4, 5 and 7 once. Therefore 7425 is a multiple of another allowed number, so the answer is D."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the candidates",
+        "narration": "List the five answer choices.",
+        "visualHint": "5724, 7245, 7254, 7425, 7542 appear."
+      },
+      {
+        "title": "Try divisibility",
+        "narration": "Check whether dividing a candidate gives another number using the same four digits.",
+        "visualHint": "7425 ÷ 3 = 2475 is highlighted."
+      },
+      {
+        "title": "Confirm the digits",
+        "narration": "2475 uses 2, 4, 5, and 7 exactly once.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "equation": "7425 ÷ 3 = 2475"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2001",
+      "number theory",
+      "digits",
+      "divisibility",
+      "permutations"
+    ],
+    "sourceName": "2001 AMC 8",
+    "license": "CC BY-NC-SA"
+  }
+];
+
+/**
+ * Structured import: 2002 AMC 8 Problems 1–25.
+ * 2002 entries are kept inline in sampleProblems.ts, with recreated SVG diagrams referenced by imageUrls.
+ */
+const amc2002Problems: Problem[] = [
+  {
+    "id": "amc8-2002-01",
+    "title": "2002 AMC 8 Problem 1: Circle and Two Lines",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 1,
+    "category": "Geometry",
+    "subcategory": "Intersections",
+    "difficulty": 1,
+    "statement": "A circle and two distinct lines are drawn on a sheet of paper. What is the largest possible number of points of intersection of these figures?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2"
+      },
+      {
+        "label": "B",
+        "text": "3"
+      },
+      {
+        "label": "C",
+        "text": "4"
+      },
+      {
+        "label": "D",
+        "text": "5"
+      },
+      {
+        "label": "E",
+        "text": "6"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "Maximize line-circle intersections",
+        "body": "Each line can intersect the circle in at most two points.",
+        "equation": "2 + 2"
+      },
+      {
+        "title": "Add the line-line intersection",
+        "body": "The two distinct lines can intersect each other once if they are not parallel.",
+        "equation": "2 + 2 + 1 = 5"
+      },
+      {
+        "title": "Choose the answer",
+        "body": "The largest possible number of intersection points is 5, so the answer is D."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Draw the circle",
+        "narration": "Start with one circle on the page.",
+        "visualHint": "A circle appears."
+      },
+      {
+        "title": "Add two secant lines",
+        "narration": "Draw two lines so each cuts the circle twice.",
+        "visualHint": "Four line-circle intersection points appear."
+      },
+      {
+        "title": "Count the line crossing",
+        "narration": "Let the two lines cross each other once inside or outside the circle.",
+        "visualHint": "The fifth point is highlighted, and choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "idea": "2+2+1 intersections"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "geometry",
+      "intersections",
+      "circles",
+      "lines"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2002-02",
+    "title": "2002 AMC 8 Problem 2: Five-Dollar and Two-Dollar Bills",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 2,
+    "category": "Number Theory",
+    "subcategory": "Linear combinations",
+    "difficulty": 2,
+    "statement": "How many different combinations of $5 bills and $2 bills can be used to make a total of $17? Order does not matter in this problem.",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2"
+      },
+      {
+        "label": "B",
+        "text": "3"
+      },
+      {
+        "label": "C",
+        "text": "4"
+      },
+      {
+        "label": "D",
+        "text": "5"
+      },
+      {
+        "label": "E",
+        "text": "6"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "2",
+    "solutionSteps": [
+      {
+        "title": "Set up the equation",
+        "body": "Let f be the number of $5 bills and t be the number of $2 bills.",
+        "equation": "5f + 2t = 17"
+      },
+      {
+        "title": "Test possible $5 bills",
+        "body": "The number of $5 bills must be odd to leave an even amount for $2 bills: f = 1 or f = 3.",
+        "equation": "f=1 → t=6;\  f=3 → t=1"
+      },
+      {
+        "title": "Count combinations",
+        "body": "There are exactly 2 combinations, so the answer is A."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the target",
+        "narration": "Put $17 at the top of a small table.",
+        "visualHint": "A table has columns for $5 bills and $2 bills."
+      },
+      {
+        "title": "Try $5 bills",
+        "narration": "Only 1 or 3 five-dollar bills work.",
+        "visualHint": "Rows (1,6) and (3,1) remain."
+      },
+      {
+        "title": "Count the rows",
+        "narration": "There are two valid combinations.",
+        "visualHint": "Choice A is highlighted."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "equation": "5f+2t=17"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "number theory",
+      "combinations",
+      "money"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2002-03",
+    "title": "2002 AMC 8 Problem 3: Smallest Average of Even Integers",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 3,
+    "category": "Algebra",
+    "subcategory": "Averages",
+    "difficulty": 1,
+    "statement": "What is the smallest possible average of four distinct positive even integers?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3"
+      },
+      {
+        "label": "B",
+        "text": "4"
+      },
+      {
+        "label": "C",
+        "text": "5"
+      },
+      {
+        "label": "D",
+        "text": "6"
+      },
+      {
+        "label": "E",
+        "text": "7"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "Choose the smallest numbers",
+        "body": "To minimize the average, use the four smallest distinct positive even integers.",
+        "equation": "2,4,6,8"
+      },
+      {
+        "title": "Average them",
+        "body": "Add the numbers and divide by 4.",
+        "equation": "(2+4+6+8)/4 = 20/4 = 5"
+      },
+      {
+        "title": "Choose the answer",
+        "body": "The smallest possible average is 5, so the answer is C."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "List even numbers",
+        "narration": "Show the first positive even numbers.",
+        "visualHint": "2, 4, 6, 8 are highlighted."
+      },
+      {
+        "title": "Add and divide",
+        "narration": "Find their average.",
+        "visualHint": "20 ÷ 4 = 5 appears."
+      },
+      {
+        "title": "Circle C",
+        "narration": "The minimum average is 5.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "equation": "(2+4+6+8)/4=5"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "algebra",
+      "average",
+      "integers"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2002-04",
+    "title": "2002 AMC 8 Problem 4: Next Palindrome Year",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 4,
+    "category": "Number Theory",
+    "subcategory": "Digits",
+    "difficulty": 1,
+    "statement": "The year 2002 is a palindrome, a number that reads the same from left to right as it does from right to left. What is the product of the digits of the next year after 2002 that is a palindrome?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "0"
+      },
+      {
+        "label": "B",
+        "text": "4"
+      },
+      {
+        "label": "C",
+        "text": "9"
+      },
+      {
+        "label": "D",
+        "text": "16"
+      },
+      {
+        "label": "E",
+        "text": "25"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Find the next palindrome",
+        "body": "The next year after 2002 that reads the same both ways is 2112."
+      },
+      {
+        "title": "Multiply the digits",
+        "body": "Multiply its digits.",
+        "equation": "2×1×1×2=4"
+      },
+      {
+        "title": "Choose the answer",
+        "body": "The product is 4, so the answer is B."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Mirror the year",
+        "narration": "Move from 2002 to the next four-digit palindrome.",
+        "visualHint": "2112 appears with matching outer and inner digits."
+      },
+      {
+        "title": "Multiply digits",
+        "narration": "Multiply 2, 1, 1, and 2.",
+        "visualHint": "2 × 1 × 1 × 2 = 4."
+      },
+      {
+        "title": "Circle B",
+        "narration": "The product is 4.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "equation": "2×1×1×2=4"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "number theory",
+      "palindrome",
+      "digits"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2002-05",
+    "title": "2002 AMC 8 Problem 5: 706 Days Old",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 5,
+    "category": "Number Theory",
+    "subcategory": "Modular arithmetic",
+    "difficulty": 2,
+    "statement": "Carlos Montado was born on Saturday, November 9, 2002. On what day of the week will Carlos be 706 days old?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Monday"
+      },
+      {
+        "label": "B",
+        "text": "Wednesday"
+      },
+      {
+        "label": "C",
+        "text": "Friday"
+      },
+      {
+        "label": "D",
+        "text": "Saturday"
+      },
+      {
+        "label": "E",
+        "text": "Sunday"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "Friday",
+    "solutionSteps": [
+      {
+        "title": "Use the weekly cycle",
+        "body": "Days of the week repeat every 7 days.",
+        "equation": "706 = 7×100 + 6"
+      },
+      {
+        "title": "Move six days forward",
+        "body": "Starting from Saturday, six days later is Friday."
+      },
+      {
+        "title": "Choose the answer",
+        "body": "Carlos will be 706 days old on a Friday, so the answer is C."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show a week cycle",
+        "narration": "Mark Saturday as the starting day.",
+        "visualHint": "A seven-day loop appears."
+      },
+      {
+        "title": "Remove full weeks",
+        "narration": "700 days brings the day back to Saturday.",
+        "visualHint": "706 = 700 + 6."
+      },
+      {
+        "title": "Advance six days",
+        "narration": "Count forward six days to Friday.",
+        "visualHint": "Friday and choice C are highlighted."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "steps": 6
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "number theory",
+      "modular arithmetic",
+      "calendar"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2002-06",
+    "title": "2002 AMC 8 Problem 6: Birdbath Overflow Graph",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 6,
+    "category": "Algebra",
+    "subcategory": "Graphs",
+    "difficulty": 2,
+    "statement": "A birdbath is designed to overflow so that it will be self-cleaning. Water flows in at the rate of 20 milliliters per minute and drains at the rate of 18 milliliters per minute. Which graph shows the volume of water in the birdbath during the filling time and continuing into the overflow time?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "A"
+      },
+      {
+        "label": "B",
+        "text": "B"
+      },
+      {
+        "label": "C",
+        "text": "C"
+      },
+      {
+        "label": "D",
+        "text": "D"
+      },
+      {
+        "label": "E",
+        "text": "E"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "A",
+    "solutionSteps": [
+      {
+        "title": "Find the net filling rate",
+        "body": "Before overflow, the water volume increases at a constant rate.",
+        "equation": "20-18=2"
+      },
+      {
+        "title": "Understand overflow",
+        "body": "Once the birdbath is full, extra water spills out, so the volume stays constant."
+      },
+      {
+        "title": "Choose the graph",
+        "body": "Graph A rises at first and then levels off, so the answer is A."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Start filling",
+        "narration": "The volume rises steadily because more water enters than drains.",
+        "visualHint": "An increasing line segment appears."
+      },
+      {
+        "title": "Reach overflow",
+        "narration": "After the birdbath is full, the volume cannot keep increasing.",
+        "visualHint": "The graph becomes horizontal."
+      },
+      {
+        "title": "Match graph A",
+        "narration": "Only A shows increasing then flat.",
+        "visualHint": "Graph A is highlighted."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "correct": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "algebra",
+      "graphs",
+      "rates"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2002/problem-06-birdbath-graphs.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2002-07",
+    "title": "2002 AMC 8 Problem 7: Sweet Tooth Bar Graph",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 7,
+    "category": "Algebra",
+    "subcategory": "Data displays",
+    "difficulty": 2,
+    "statement": "The students in Mrs. Sawyer's class were asked to do a taste test of five kinds of candy. Each student chose one kind of candy. A bar graph of their preferences is shown. What percent of her class chose candy E?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5"
+      },
+      {
+        "label": "B",
+        "text": "12"
+      },
+      {
+        "label": "C",
+        "text": "15"
+      },
+      {
+        "label": "D",
+        "text": "16"
+      },
+      {
+        "label": "E",
+        "text": "20"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "20%",
+    "solutionSteps": [
+      {
+        "title": "Read the bar graph",
+        "body": "The bars show A=6, B=8, C=4, D=2, and E=5 students."
+      },
+      {
+        "title": "Find the total",
+        "body": "Add the bar heights to get the class size.",
+        "equation": "6+8+4+2+5=25"
+      },
+      {
+        "title": "Compute the percent",
+        "body": "Candy E was chosen by 5 out of 25 students.",
+        "equation": "5/25×100=20\%"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read E",
+        "narration": "Highlight the bar for candy E at height 5.",
+        "visualHint": "The E bar glows."
+      },
+      {
+        "title": "Add all bars",
+        "narration": "Add all five bar heights.",
+        "visualHint": "6 + 8 + 4 + 2 + 5 = 25."
+      },
+      {
+        "title": "Convert to percent",
+        "narration": "Five out of twenty-five is twenty percent.",
+        "visualHint": "5/25 = 20%, then choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "values": [
+          6,
+          8,
+          4,
+          2,
+          5
+        ]
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "algebra",
+      "bar graph",
+      "percent",
+      "data"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2002/problem-07-sweet-tooth-bar-graph.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2002-08",
+    "title": "2002 AMC 8 Problem 8: European Stamps from the 80s",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 8,
+    "category": "Algebra",
+    "subcategory": "Tables and data",
+    "difficulty": 2,
+    "statement": "Juan organizes the stamps in his collection by country and by the decade in which they were issued. The prices he paid for them at a stamp shop were: Brazil and France, 6 cents each, Peru 4 cents each, and Spain 5 cents each. Brazil and Peru are South American countries, and France and Spain are in Europe. How many of Juan's European stamps were issued in the '80s?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "9"
+      },
+      {
+        "label": "B",
+        "text": "15"
+      },
+      {
+        "label": "C",
+        "text": "18"
+      },
+      {
+        "label": "D",
+        "text": "24"
+      },
+      {
+        "label": "E",
+        "text": "42"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "24",
+    "solutionSteps": [
+      {
+        "title": "Identify Europe",
+        "body": "France and Spain are the European countries in the table."
+      },
+      {
+        "title": "Read the 80s column",
+        "body": "France has 15 stamps from the 80s, and Spain has 9.",
+        "equation": "15+9=24"
+      },
+      {
+        "title": "Choose the answer",
+        "body": "There are 24 European stamps from the 80s, so the answer is D."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Highlight Europe",
+        "narration": "Mark France and Spain in the country column.",
+        "visualHint": "France and Spain rows glow."
+      },
+      {
+        "title": "Read the 80s column",
+        "narration": "Find 15 and 9 in the 80s column.",
+        "visualHint": "The cells 15 and 9 are highlighted."
+      },
+      {
+        "title": "Add them",
+        "narration": "Add 15 and 9 to get 24.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "cells": "France 80s + Spain 80s"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "algebra",
+      "data table",
+      "data"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2002/problem-08-10-stamp-table.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2002-09",
+    "title": "2002 AMC 8 Problem 9: Cost of South American Stamps Before the 70s",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 9,
+    "category": "Algebra",
+    "subcategory": "Tables and data",
+    "difficulty": 2,
+    "statement": "Juan organizes the stamps in his collection by country and by the decade in which they were issued. The prices he paid for them at a stamp shop were: Brazil and France, 6 cents each, Peru 4 cents each, and Spain 5 cents each. Brazil and Peru are South American countries, and France and Spain are in Europe. In dollars and cents, how much did Juan's South American stamps issued before the '70s cost him?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "$0.40"
+      },
+      {
+        "label": "B",
+        "text": "$1.06"
+      },
+      {
+        "label": "C",
+        "text": "$1.80"
+      },
+      {
+        "label": "D",
+        "text": "$2.38"
+      },
+      {
+        "label": "E",
+        "text": "$2.64"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "$1.06",
+    "solutionSteps": [
+      {
+        "title": "Identify South America and before the 70s",
+        "body": "Use Brazil and Peru, and only the 50s and 60s columns."
+      },
+      {
+        "title": "Count the stamps",
+        "body": "Brazil has 4+7=11 stamps at 6 cents each. Peru has 6+4=10 stamps at 4 cents each."
+      },
+      {
+        "title": "Compute the cost",
+        "body": "Add the two costs.",
+        "equation": "11(0.06)+10(0.04)=0.66+0.40=1.06"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Highlight rows and columns",
+        "narration": "Highlight Brazil and Peru in the 50s and 60s columns.",
+        "visualHint": "Four cells glow: 4, 7, 6, 4."
+      },
+      {
+        "title": "Compute each country's cost",
+        "narration": "Brazil costs 66 cents and Peru costs 40 cents.",
+        "visualHint": "11×6¢ and 10×4¢ appear."
+      },
+      {
+        "title": "Add costs",
+        "narration": "The total is $1.06.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "equation": "11(0.06)+10(0.04)=1.06"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "algebra",
+      "data table",
+      "data"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2002/problem-08-10-stamp-table.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2002-10",
+    "title": "2002 AMC 8 Problem 10: Average Price of 70s Stamps",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 10,
+    "category": "Algebra",
+    "subcategory": "Tables and data",
+    "difficulty": 2,
+    "statement": "Juan organizes the stamps in his collection by country and by the decade in which they were issued. The prices he paid for them at a stamp shop were: Brazil and France, 6 cents each, Peru 4 cents each, and Spain 5 cents each. Brazil and Peru are South American countries, and France and Spain are in Europe. The average price of Juan's '70s stamps is closest to",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3.5 cents"
+      },
+      {
+        "label": "B",
+        "text": "4 cents"
+      },
+      {
+        "label": "C",
+        "text": "4.5 cents"
+      },
+      {
+        "label": "D",
+        "text": "5 cents"
+      },
+      {
+        "label": "E",
+        "text": "5.5 cents"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "5.5 cents",
+    "solutionSteps": [
+      {
+        "title": "Use the 70s column",
+        "body": "The 70s counts are Brazil 12, France 12, Peru 6, and Spain 13."
+      },
+      {
+        "title": "Compute total cost",
+        "body": "Brazil and France cost 6 cents each, Peru 4 cents, and Spain 5 cents.",
+        "equation": "12(6)+12(6)+6(4)+13(5)=233"
+      },
+      {
+        "title": "Divide by total stamps",
+        "body": "There are 12+12+6+13=43 stamps, so the average is about 5.42 cents, closest to 5.5 cents.",
+        "equation": "233/43≈5.42"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Highlight the 70s column",
+        "narration": "Read the four 70s counts.",
+        "visualHint": "12, 12, 6, and 13 glow."
+      },
+      {
+        "title": "Weight by price",
+        "narration": "Multiply each count by its country price.",
+        "visualHint": "12×6 + 12×6 + 6×4 + 13×5."
+      },
+      {
+        "title": "Average",
+        "narration": "Divide by 43 stamps and round to the closest choice.",
+        "visualHint": "5.42 is closest to 5.5, so choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "equation": "233/43≈5.42"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "algebra",
+      "data table",
+      "weighted average"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2002/problem-08-10-stamp-table.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2002-11",
+    "title": "2002 AMC 8 Problem 11: Square Tile Sequence",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 11,
+    "category": "Algebra",
+    "subcategory": "Sequences",
+    "difficulty": 2,
+    "statement": "A sequence of squares is made of identical square tiles. The edge of each square is one tile length longer than the edge of the previous square. The first three squares are shown. How many more tiles does the seventh square require than the sixth?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "11"
+      },
+      {
+        "label": "B",
+        "text": "12"
+      },
+      {
+        "label": "C",
+        "text": "13"
+      },
+      {
+        "label": "D",
+        "text": "14"
+      },
+      {
+        "label": "E",
+        "text": "15"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "13",
+    "solutionSteps": [
+      {
+        "title": "Recognize the pattern",
+        "body": "The nth square has side length n, so it uses n² tiles."
+      },
+      {
+        "title": "Compare the sixth and seventh",
+        "body": "The seventh square uses 7²=49 tiles, and the sixth uses 6²=36 tiles."
+      },
+      {
+        "title": "Subtract",
+        "body": "The difference is 13 tiles.",
+        "equation": "49-36=13"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show early squares",
+        "narration": "Display 1×1, 2×2, and 3×3 squares.",
+        "visualHint": "The square side length increases by 1 each time."
+      },
+      {
+        "title": "Jump to sixth and seventh",
+        "narration": "Use 6² and 7² for the sixth and seventh squares.",
+        "visualHint": "36 and 49 appear."
+      },
+      {
+        "title": "Subtract",
+        "narration": "The seventh needs 13 more tiles.",
+        "visualHint": "49−36=13, choice C is highlighted."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "equation": "7^2-6^2=13"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "algebra",
+      "sequence",
+      "area"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2002/problem-11-square-tiles.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2002-12",
+    "title": "2002 AMC 8 Problem 12: Spinner Probability",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 12,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 2,
+    "statement": "A board game spinner is divided into three regions labeled A, B and C. The probability of the arrow stopping on region A is 1/3 and on region B is 1/2. The probability of the arrow stopping on region C is",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/12"
+      },
+      {
+        "label": "B",
+        "text": "1/6"
+      },
+      {
+        "label": "C",
+        "text": "1/5"
+      },
+      {
+        "label": "D",
+        "text": "1/3"
+      },
+      {
+        "label": "E",
+        "text": "2/5"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "1/6",
+    "solutionSteps": [
+      {
+        "title": "Use total probability",
+        "body": "The spinner must land in A, B, or C, so the probabilities add to 1."
+      },
+      {
+        "title": "Subtract A and B",
+        "body": "Find the remaining probability for C.",
+        "equation": "1-1/3-1/2 = 1/6"
+      },
+      {
+        "title": "Choose the answer",
+        "body": "The probability is 1/6, so the answer is B."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the whole spinner",
+        "narration": "The whole probability is 1.",
+        "visualHint": "A circle labeled total 1 appears."
+      },
+      {
+        "title": "Remove known parts",
+        "narration": "Subtract 1/3 and 1/2.",
+        "visualHint": "The leftover sector is labeled 1/6."
+      },
+      {
+        "title": "Circle B",
+        "narration": "Region C has probability 1/6.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "equation": "1-1/3-1/2=1/6"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "probability",
+      "fractions"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2002-13",
+    "title": "2002 AMC 8 Problem 13: Jellybean Box Volume",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 13,
+    "category": "Geometry",
+    "subcategory": "Volume scaling",
+    "difficulty": 2,
+    "statement": "For his birthday, Bert gets a box that holds 125 jellybeans when filled to capacity. A few weeks later, Carrie gets a larger box full of jellybeans. Her box is twice as high, twice as wide and twice as long as Bert's. Approximately, how many jellybeans did Carrie get?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "250"
+      },
+      {
+        "label": "B",
+        "text": "500"
+      },
+      {
+        "label": "C",
+        "text": "625"
+      },
+      {
+        "label": "D",
+        "text": "750"
+      },
+      {
+        "label": "E",
+        "text": "1000"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "1000",
+    "solutionSteps": [
+      {
+        "title": "Scale volume",
+        "body": "Doubling each dimension multiplies volume by 2×2×2."
+      },
+      {
+        "title": "Find the volume factor",
+        "body": "The larger box has 8 times the volume.",
+        "equation": "2^3=8"
+      },
+      {
+        "title": "Multiply jellybeans",
+        "body": "Carrie's box holds about 8 times as many jellybeans.",
+        "equation": "125×8=1000"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the small box",
+        "narration": "Bert's box holds 125 jellybeans.",
+        "visualHint": "A small box is labeled 125."
+      },
+      {
+        "title": "Double all dimensions",
+        "narration": "Height, width, and length each double.",
+        "visualHint": "2 × 2 × 2 = 8."
+      },
+      {
+        "title": "Scale capacity",
+        "narration": "Multiply 125 by 8.",
+        "visualHint": "1000 appears and choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "cube-net",
+      "data": {
+        "scale": 2,
+        "factor": 8
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "geometry",
+      "volume",
+      "scale factor"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2002-14",
+    "title": "2002 AMC 8 Problem 14: Successive Discounts",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 14,
+    "category": "Algebra",
+    "subcategory": "Percent",
+    "difficulty": 2,
+    "statement": "A merchant offers a large group of items at 30% off. Later, the merchant takes 20% off these sale prices. The total discount is",
+    "choices": [
+      {
+        "label": "A",
+        "text": "35%"
+      },
+      {
+        "label": "B",
+        "text": "44%"
+      },
+      {
+        "label": "C",
+        "text": "50%"
+      },
+      {
+        "label": "D",
+        "text": "56%"
+      },
+      {
+        "label": "E",
+        "text": "60%"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "44%",
+    "solutionSteps": [
+      {
+        "title": "Use a $100 starting price",
+        "body": "A 30% discount leaves 70% of the original price.",
+        "equation": "100×0.70=70"
+      },
+      {
+        "title": "Apply the second discount",
+        "body": "Taking 20% off the sale price leaves 80% of 70 dollars.",
+        "equation": "70×0.80=56"
+      },
+      {
+        "title": "Find total discount",
+        "body": "A final price of $56 means the total discount is $44 out of $100, or 44%."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Start at 100",
+        "narration": "Use $100 to make percentages easy.",
+        "visualHint": "A price tag shows $100."
+      },
+      {
+        "title": "Apply 30% off",
+        "narration": "The price becomes $70.",
+        "visualHint": "100 × 0.70 = 70."
+      },
+      {
+        "title": "Apply 20% off sale price",
+        "narration": "The price becomes $56, so the discount is 44%.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "equation": "100(0.70)(0.80)=56"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "algebra",
+      "percent",
+      "discount"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2002-15",
+    "title": "2002 AMC 8 Problem 15: Largest Area Polygon",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 15,
+    "category": "Geometry",
+    "subcategory": "Area on grids",
+    "difficulty": 3,
+    "statement": "Which of the following polygons has the largest area?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "A"
+      },
+      {
+        "label": "B",
+        "text": "B"
+      },
+      {
+        "label": "C",
+        "text": "C"
+      },
+      {
+        "label": "D",
+        "text": "D"
+      },
+      {
+        "label": "E",
+        "text": "E"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "E",
+    "solutionSteps": [
+      {
+        "title": "Break into simple pieces",
+        "body": "Each polygon is drawn on a dot grid, so count unit squares and half-unit triangles."
+      },
+      {
+        "title": "Compare areas",
+        "body": "The areas are A=5, B=5, C=5, D=4.5, and E=5.5 square units."
+      },
+      {
+        "title": "Choose the largest",
+        "body": "Polygon E has the largest area, so the answer is E."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Overlay unit squares",
+        "narration": "Show a grid over each polygon.",
+        "visualHint": "Unit squares and half-triangles appear."
+      },
+      {
+        "title": "Count area",
+        "narration": "Compare the five totals.",
+        "visualHint": "A=5, B=5, C=5, D=4.5, E=5.5."
+      },
+      {
+        "title": "Highlight E",
+        "narration": "E is largest.",
+        "visualHint": "Polygon E is outlined."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "areas": [
+          5,
+          5,
+          5,
+          4.5,
+          5.5
+        ]
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "geometry",
+      "area",
+      "dot grid"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2002/problem-15-polygons.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2002-16",
+    "title": "2002 AMC 8 Problem 16: Right Isosceles Triangles on a 3-4-5 Triangle",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 16,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 3,
+    "statement": "Right isosceles triangles are constructed on the sides of a 3-4-5 right triangle, as shown. A capital letter represents the area of each triangle. Which one of the following is true?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "X + Z = W + Y"
+      },
+      {
+        "label": "B",
+        "text": "W + X = Z"
+      },
+      {
+        "label": "C",
+        "text": "3X + 4Y = 5Z"
+      },
+      {
+        "label": "D",
+        "text": "X + W = 1/2(Y + Z)"
+      },
+      {
+        "label": "E",
+        "text": "X + Y = Z"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "X + Y = Z",
+    "solutionSteps": [
+      {
+        "title": "Find each area",
+        "body": "A right isosceles triangle built on side s has legs s and s, so its area is s²/2."
+      },
+      {
+        "title": "Compute the three outer areas",
+        "body": "The areas on sides 3, 4, and 5 are X=9/2, Y=16/2, and Z=25/2."
+      },
+      {
+        "title": "Check the relationship",
+        "body": "Since 9/2 + 16/2 = 25/2, we have X + Y = Z."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Label side lengths",
+        "narration": "Show the 3, 4, and 5 sides of the central right triangle.",
+        "visualHint": "The sides 3, 4, 5 glow."
+      },
+      {
+        "title": "Use area formula",
+        "narration": "Each right isosceles triangle has area side²/2.",
+        "visualHint": "X=4.5, Y=8, Z=12.5."
+      },
+      {
+        "title": "Add X and Y",
+        "narration": "X plus Y equals Z.",
+        "visualHint": "Choice E is highlighted."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "equation": "3^2/2+4^2/2=5^2/2"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "geometry",
+      "right triangle",
+      "area",
+      "Pythagorean theorem"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2002/problem-16-right-isosceles-triangles.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2002-17",
+    "title": "2002 AMC 8 Problem 17: Contest Score",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 17,
+    "category": "Algebra",
+    "subcategory": "Linear equations",
+    "difficulty": 2,
+    "statement": "In a mathematics contest with ten problems, a student gains 5 points for a correct answer and loses 2 points for an incorrect answer. If Olivia answered every problem and her score was 29, how many correct answers did she have?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5"
+      },
+      {
+        "label": "B",
+        "text": "6"
+      },
+      {
+        "label": "C",
+        "text": "7"
+      },
+      {
+        "label": "D",
+        "text": "8"
+      },
+      {
+        "label": "E",
+        "text": "9"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "7",
+    "solutionSteps": [
+      {
+        "title": "Let c be correct answers",
+        "body": "Then 10-c answers are incorrect."
+      },
+      {
+        "title": "Write the score equation",
+        "body": "Correct answers add 5 points and incorrect answers subtract 2 points.",
+        "equation": "5c-2(10-c)=29"
+      },
+      {
+        "title": "Solve",
+        "body": "Simplify to 7c-20=29, so c=7."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Set variables",
+        "narration": "Let c count correct answers.",
+        "visualHint": "Incorrect answers become 10−c."
+      },
+      {
+        "title": "Build score",
+        "narration": "Use 5 points for correct and −2 for incorrect.",
+        "visualHint": "5c − 2(10−c) = 29."
+      },
+      {
+        "title": "Solve",
+        "narration": "c equals 7.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "equation": "5c-2(10-c)=29"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "algebra",
+      "linear equation",
+      "contest scoring"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2002-18",
+    "title": "2002 AMC 8 Problem 18: Skating Average",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 18,
+    "category": "Algebra",
+    "subcategory": "Averages",
+    "difficulty": 3,
+    "statement": "Gage skated 1 hr 15 min each day for 5 days and 1 hr 30 min each day for 3 days. How long would he have to skate the ninth day in order to average 85 minutes of skating each day for the entire time?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1 hr"
+      },
+      {
+        "label": "B",
+        "text": "1 hr 10 min"
+      },
+      {
+        "label": "C",
+        "text": "1 hr 20 min"
+      },
+      {
+        "label": "D",
+        "text": "1 hr 40 min"
+      },
+      {
+        "label": "E",
+        "text": "2 hr"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "2 hr",
+    "solutionSteps": [
+      {
+        "title": "Convert to minutes",
+        "body": "1 hr 15 min is 75 minutes, and 1 hr 30 min is 90 minutes."
+      },
+      {
+        "title": "Find the needed total",
+        "body": "A 9-day average of 85 minutes requires 9×85 minutes total.",
+        "equation": "9×85=765"
+      },
+      {
+        "title": "Subtract the first 8 days",
+        "body": "The first 8 days total 5×75 + 3×90 = 645 minutes, so the ninth day must be 120 minutes, or 2 hours.",
+        "equation": "765-645=120"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Convert times",
+        "narration": "Convert the two daily times to 75 and 90 minutes.",
+        "visualHint": "1:15 → 75, 1:30 → 90."
+      },
+      {
+        "title": "Compute target total",
+        "narration": "Nine days at 85 minutes each is 765 minutes.",
+        "visualHint": "9 × 85 = 765."
+      },
+      {
+        "title": "Find missing day",
+        "narration": "Subtract the 645 minutes already skated.",
+        "visualHint": "120 minutes = 2 hr, choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "equation": "9(85)-5(75)-3(90)=120"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "algebra",
+      "average",
+      "time"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2002-19",
+    "title": "2002 AMC 8 Problem 19: Three-Digit Numbers with One Zero",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 19,
+    "category": "Counting & Probability",
+    "subcategory": "Counting",
+    "difficulty": 3,
+    "statement": "How many whole numbers between 99 and 999 contain exactly one 0?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "72"
+      },
+      {
+        "label": "B",
+        "text": "90"
+      },
+      {
+        "label": "C",
+        "text": "144"
+      },
+      {
+        "label": "D",
+        "text": "162"
+      },
+      {
+        "label": "E",
+        "text": "180"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "162",
+    "solutionSteps": [
+      {
+        "title": "Consider three-digit forms",
+        "body": "The zero can be in the tens place or the ones place, but not the hundreds place."
+      },
+      {
+        "title": "Count each case",
+        "body": "For a0b, there are 9 choices for a and 9 for b. For ab0, there are again 9 choices for a and 9 for b.",
+        "equation": "9×9 + 9×9"
+      },
+      {
+        "title": "Add",
+        "body": "The total is 162, so the answer is D.",
+        "equation": "81+81=162"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Place the zero",
+        "narration": "Show the two possible patterns: a0b and ab0.",
+        "visualHint": "The middle and last digit positions are highlighted."
+      },
+      {
+        "title": "Count choices",
+        "narration": "The nonzero digits each have 9 choices.",
+        "visualHint": "9×9 for each pattern."
+      },
+      {
+        "title": "Add cases",
+        "narration": "81 plus 81 is 162.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "equation": "9×9+9×9=162"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "counting",
+      "digits",
+      "casework"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2002-20",
+    "title": "2002 AMC 8 Problem 20: Shaded Region in Triangle",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 20,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 4,
+    "statement": "The area of triangle XYZ is 8 square inches. Points A and B are midpoints of congruent segments XY and XZ. Altitude XC bisects YZ. The area, in square inches, of the shaded region is",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1 1/2"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "2 1/2"
+      },
+      {
+        "label": "D",
+        "text": "3"
+      },
+      {
+        "label": "E",
+        "text": "3 1/2"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "3",
+    "solutionSteps": [
+      {
+        "title": "Use symmetry",
+        "body": "Since XC bisects the base and is an altitude in the isosceles triangle, the left half of triangle XYZ has area 4."
+      },
+      {
+        "title": "Locate the small top triangle",
+        "body": "A is the midpoint of XY, and the horizontal segment meets XC halfway up the altitude. The small triangle above the shaded trapezoid has area 1."
+      },
+      {
+        "title": "Subtract",
+        "body": "The shaded trapezoid is the left half area minus the small top triangle.",
+        "equation": "4-1=3"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Split the big triangle",
+        "narration": "Use altitude XC to divide triangle XYZ into two equal areas.",
+        "visualHint": "Each half has area 4."
+      },
+      {
+        "title": "Remove the small top triangle",
+        "narration": "The small triangle XAD has area 1.",
+        "visualHint": "The small top triangle is unshaded."
+      },
+      {
+        "title": "Compute shaded area",
+        "narration": "The shaded region has area 3.",
+        "visualHint": "4 − 1 = 3, choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "equation": "4-1=3"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "geometry",
+      "area",
+      "midpoints",
+      "similar triangles"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2002/problem-20-shaded-triangle.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2002-21",
+    "title": "2002 AMC 8 Problem 21: At Least as Many Heads as Tails",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 21,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 3,
+    "statement": "Harold tosses a coin four times. The probability that he gets at least as many heads as tails is",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5/16"
+      },
+      {
+        "label": "B",
+        "text": "3/8"
+      },
+      {
+        "label": "C",
+        "text": "1/2"
+      },
+      {
+        "label": "D",
+        "text": "5/8"
+      },
+      {
+        "label": "E",
+        "text": "11/16"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "11/16",
+    "solutionSteps": [
+      {
+        "title": "List favorable head counts",
+        "body": "At least as many heads as tails in 4 tosses means 2, 3, or 4 heads."
+      },
+      {
+        "title": "Count favorable outcomes",
+        "body": "There are C(4,2)=6 ways for 2 heads, C(4,3)=4 ways for 3 heads, and 1 way for 4 heads.",
+        "equation": "6+4+1=11"
+      },
+      {
+        "title": "Divide by all outcomes",
+        "body": "There are 2^4=16 total outcomes, so the probability is 11/16."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show four coin slots",
+        "narration": "There are sixteen possible outcomes for four coin tosses.",
+        "visualHint": "2^4 = 16 appears."
+      },
+      {
+        "title": "Count favorable cases",
+        "narration": "Use 2, 3, or 4 heads.",
+        "visualHint": "6 + 4 + 1 = 11."
+      },
+      {
+        "title": "Form probability",
+        "narration": "The probability is 11/16.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "equation": "(6+4+1)/16=11/16"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "probability",
+      "coin flips",
+      "combinations"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2002-22",
+    "title": "2002 AMC 8 Problem 22: Surface Area of Six Cubes",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 22,
+    "category": "Geometry",
+    "subcategory": "Surface area",
+    "difficulty": 3,
+    "statement": "Six cubes, each an inch on an edge, are fastened together, as shown. Find the total surface area in square inches. Include the top, bottom, and sides.",
+    "choices": [
+      {
+        "label": "A",
+        "text": "18"
+      },
+      {
+        "label": "B",
+        "text": "24"
+      },
+      {
+        "label": "C",
+        "text": "26"
+      },
+      {
+        "label": "D",
+        "text": "30"
+      },
+      {
+        "label": "E",
+        "text": "36"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "26",
+    "solutionSteps": [
+      {
+        "title": "Start with separate cubes",
+        "body": "Six separate unit cubes would have 6×6 = 36 exposed faces."
+      },
+      {
+        "title": "Subtract hidden faces",
+        "body": "Each shared face hides 2 faces. The figure has 5 cube-to-cube joins, so 10 faces are hidden."
+      },
+      {
+        "title": "Compute surface area",
+        "body": "The surface area is 36 − 10 = 26 square inches."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Count all cube faces",
+        "narration": "Six cubes have 36 faces before being attached.",
+        "visualHint": "6 × 6 = 36."
+      },
+      {
+        "title": "Find shared faces",
+        "narration": "Five attachments hide two faces each.",
+        "visualHint": "5 × 2 = 10 hidden faces."
+      },
+      {
+        "title": "Subtract",
+        "narration": "The exposed surface area is 26.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "cube-net",
+      "data": {
+        "equation": "6×6-5×2=26"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "geometry",
+      "surface area",
+      "cubes"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2002/problem-22-cubes.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2002-23",
+    "title": "2002 AMC 8 Problem 23: Fraction of Darker Floor Tiles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 23,
+    "category": "Geometry",
+    "subcategory": "Area fraction",
+    "difficulty": 4,
+    "statement": "A corner of a tiled floor is shown. If the entire floor is tiled in this way and each of the four corners looks like this one, then what fraction of the tiled floor is made of darker tiles?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/3"
+      },
+      {
+        "label": "B",
+        "text": "4/9"
+      },
+      {
+        "label": "C",
+        "text": "1/2"
+      },
+      {
+        "label": "D",
+        "text": "5/9"
+      },
+      {
+        "label": "E",
+        "text": "5/8"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "4/9",
+    "solutionSteps": [
+      {
+        "title": "Find the repeating unit",
+        "body": "The pattern repeats in 6 by 6 blocks, and the symmetry lets us inspect a 3 by 3 square."
+      },
+      {
+        "title": "Count dark tiles",
+        "body": "In the 3 by 3 unit, 4 of the 9 equal small tiles are dark."
+      },
+      {
+        "title": "Write the fraction",
+        "body": "Therefore the fraction of the whole floor that is dark is 4/9."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the tile pattern",
+        "narration": "Display the repeating floor pattern.",
+        "visualHint": "A 6×6 repeat block is outlined."
+      },
+      {
+        "title": "Zoom into a 3×3 block",
+        "narration": "Symmetry reduces the count to a 3×3 square.",
+        "visualHint": "Four shaded tiles are counted out of nine."
+      },
+      {
+        "title": "Form the fraction",
+        "narration": "The dark fraction is four ninths.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "equation": "4/9"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "geometry",
+      "area fraction",
+      "tiling"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2002/problem-23-tiled-floor.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2002-24",
+    "title": "2002 AMC 8 Problem 24: Pear-Orange Juice Blend",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 24,
+    "category": "Algebra",
+    "subcategory": "Rates and percent",
+    "difficulty": 3,
+    "statement": "Miki has a dozen oranges of the same size and a dozen pears of the same size. Miki uses her juicer to extract 8 ounces of pear juice from 3 pears and 8 ounces of orange juice from 2 oranges. She makes a pear-orange juice blend from an equal number of pears and oranges. What percent of the blend is pear juice?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "30"
+      },
+      {
+        "label": "B",
+        "text": "40"
+      },
+      {
+        "label": "C",
+        "text": "50"
+      },
+      {
+        "label": "D",
+        "text": "60"
+      },
+      {
+        "label": "E",
+        "text": "70"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "40%",
+    "solutionSteps": [
+      {
+        "title": "Find juice per fruit",
+        "body": "Each pear gives 8/3 ounces, and each orange gives 8/2 = 4 ounces."
+      },
+      {
+        "title": "Use one pear and one orange",
+        "body": "Equal numbers of pears and oranges means the percentage is the same as for one of each."
+      },
+      {
+        "title": "Compute the pear fraction",
+        "body": "Pear juice is (8/3)/(8/3+4) = 8/(8+12) = 8/20 = 40%."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Compare one fruit each",
+        "narration": "Use one pear and one orange because the blend uses equal counts.",
+        "visualHint": "Pear: 8/3 oz, orange: 4 oz."
+      },
+      {
+        "title": "Make a fraction",
+        "narration": "Pear juice over total juice gives the percent.",
+        "visualHint": "(8/3)/(8/3+4)."
+      },
+      {
+        "title": "Simplify",
+        "narration": "The pear part is 40 percent.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "equation": "(8/3)/(8/3+4)=0.40"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "algebra",
+      "rates",
+      "percent"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2002-25",
+    "title": "2002 AMC 8 Problem 25: Ott's Share of Group Money",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2002,
+    "problemNumber": 25,
+    "category": "Algebra",
+    "subcategory": "Fractions",
+    "difficulty": 4,
+    "statement": "Loki, Moe, Nick and Ott are good friends. Ott had no money, but the others did. Moe gave Ott one-fifth of his money, Loki gave Ott one-fourth of his money and Nick gave Ott one-third of his money. Each gave Ott the same amount of money. What fractional part of the group's money does Ott now have?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/10"
+      },
+      {
+        "label": "B",
+        "text": "1/4"
+      },
+      {
+        "label": "C",
+        "text": "1/3"
+      },
+      {
+        "label": "D",
+        "text": "2/5"
+      },
+      {
+        "label": "E",
+        "text": "1/2"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "1/4",
+    "solutionSteps": [
+      {
+        "title": "Let each gift be x",
+        "body": "If each friend gives Ott x dollars, then Moe had 5x, Loki had 4x, and Nick had 3x originally."
+      },
+      {
+        "title": "Find the group total",
+        "body": "The group's total money is 5x + 4x + 3x = 12x."
+      },
+      {
+        "title": "Find Ott's share",
+        "body": "Ott receives x from each of three friends, so he has 3x. His share is 3x/12x = 1/4."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Equal gifts",
+        "narration": "Represent each amount given to Ott as x.",
+        "visualHint": "Moe, Loki, and Nick each give x."
+      },
+      {
+        "title": "Work backward",
+        "narration": "Their original amounts were 5x, 4x, and 3x.",
+        "visualHint": "The total is 12x."
+      },
+      {
+        "title": "Compute Ott's part",
+        "narration": "Ott now has 3x out of 12x.",
+        "visualHint": "3/12 = 1/4, choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "equation": "3x/(5x+4x+3x)=1/4"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2002",
+      "algebra",
+      "fractions",
+      "ratios"
+    ],
+    "sourceName": "2002 AMC 8",
+    "license": "CC BY-NC-SA"
+  }
+];
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
+  ...amc2002Problems,
 ];
 
-export { legacySampleProblems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems };

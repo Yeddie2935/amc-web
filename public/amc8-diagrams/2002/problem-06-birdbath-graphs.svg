@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 210" role="img" aria-label="Five possible volume versus time graphs for the birdbath problem">
+  <style>.axis{stroke:#111;stroke-width:3;fill:none}.line{stroke:#111;stroke-width:4;fill:none;stroke-linecap:round}.label{font:24px serif;fill:#111}.small{font:18px sans-serif;fill:#111}.correct{stroke:#3b82f6;stroke-width:4;fill:none;stroke-dasharray:7 5}</style>
+  <rect x="5" y="5" width="175" height="190" rx="12" class="correct"/>
+  <g transform="translate(35,30)"><path d="M35 140V20 M35 140H145" class="axis"/><path d="M35 140L92 82H145" class="line"/><text x="81" y="185" class="label">A</text><text x="70" y="165" class="small">Time</text><text x="0" y="85" transform="rotate(-90 0 85)" class="small">Volume</text></g>
+  <g transform="translate(215,30)"><path d="M35 140V20 M35 140H145" class="axis"/><path d="M35 55H70L145 140" class="line"/><text x="81" y="185" class="label">B</text><text x="70" y="165" class="small">Time</text><text x="0" y="85" transform="rotate(-90 0 85)" class="small">Volume</text></g>
+  <g transform="translate(395,30)"><path d="M35 140V20 M35 140H145" class="axis"/><path d="M35 140L145 28" class="line"/><text x="81" y="185" class="label">C</text><text x="70" y="165" class="small">Time</text><text x="0" y="85" transform="rotate(-90 0 85)" class="small">Volume</text></g>
+  <g transform="translate(575,30)"><path d="M35 140V20 M35 140H145" class="axis"/><path d="M35 45H145" class="line"/><text x="81" y="185" class="label">D</text><text x="70" y="165" class="small">Time</text><text x="0" y="85" transform="rotate(-90 0 85)" class="small">Volume</text></g>
+  <g transform="translate(755,30)"><path d="M35 140V20 M35 140H145" class="axis"/><path d="M35 140L90 85L145 140" class="line"/><text x="81" y="185" class="label">E</text><text x="70" y="165" class="small">Time</text><text x="0" y="85" transform="rotate(-90 0 85)" class="small">Volume</text></g>
+</svg>

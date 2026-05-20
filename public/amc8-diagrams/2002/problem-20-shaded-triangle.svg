@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 330" role="img" aria-label="Triangle XYZ with altitude XC, midpoints A and B, and shaded trapezoid YADC">
+<style>.line{stroke:#111;stroke-width:3;fill:none}.shade{fill:#cfcfcf}.txt{font:28px serif;fill:#111}</style>
+<g transform="translate(65,35)">
+  <polygon points="245,0 0,220 490,220" fill="white" stroke="#111" stroke-width="3"/>
+  <polygon points="0,220 123,110 245,110 245,220" class="shade"/>
+  <line x1="245" y1="0" x2="245" y2="220" class="line"/><line x1="123" y1="110" x2="367" y2="110" class="line"/>
+  <text x="245" y="-12" text-anchor="middle" class="txt">X</text><text x="-18" y="226" class="txt">Y</text><text x="505" y="226" class="txt">Z</text><text x="115" y="103" text-anchor="end" class="txt">A</text><text x="375" y="103" class="txt">B</text><text x="245" y="252" text-anchor="middle" class="txt">C</text>
+</g>
+</svg>
