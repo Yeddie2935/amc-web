@@ -1,11 +1,12 @@
 import type { Problem } from "../types/amc";
+import { amc2001Problems } from "./amc2001Problems";
 
 /**
  * Clean structured import: 1999 AMC 8 Problems 1–25.
  * Each problem has typed statement text, answer choices, an original solution,
  * and an animation storyboard for the Fun Math Journey site.
  */
-export const sampleProblems: Problem[] = [
+const legacySampleProblems: Problem[] = [
   {
     "id": "amc8-1999-01",
     "title": "1999 AMC 8 Problem 1: Missing Operation",
@@ -3956,3 +3957,10 @@ export const sampleProblems: Problem[] = [
     "license": "CC BY-NC-SA"
   }
 ];
+
+export const sampleProblems: Problem[] = [
+  ...legacySampleProblems,
+  ...amc2001Problems,
+];
+
+export { legacySampleProblems };
