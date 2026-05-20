@@ -10386,11 +10386,2080 @@ const amc2003Problems: Problem[] = [
   }
 ];
 
+const amc2004Problems: Problem[] = [
+  {
+    "id": "amc8-2004-01",
+    "title": "2004 AMC 8 Problem 1: Map Scale",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 1,
+    "category": "Algebra",
+    "subcategory": "Proportions",
+    "difficulty": 1,
+    "statement": "On a map, a 12-centimeter length represents 72 kilometers. How many kilometers does a 17-centimeter length represent?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6"
+      },
+      {
+        "label": "B",
+        "text": "102"
+      },
+      {
+        "label": "C",
+        "text": "204"
+      },
+      {
+        "label": "D",
+        "text": "864"
+      },
+      {
+        "label": "E",
+        "text": "1224"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "102",
+    "solutionSteps": [
+      {
+        "title": "Find the scale",
+        "body": "Divide the real distance by the map distance to find kilometers per centimeter.",
+        "equation": "72 ÷ 12 = 6"
+      },
+      {
+        "title": "Scale 17 centimeters",
+        "body": "Each centimeter represents 6 kilometers.",
+        "equation": "17 × 6 = 102"
+      },
+      {
+        "title": "Conclude",
+        "body": "A 17-centimeter length represents 102 kilometers."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "algebra",
+      "proportions"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2004-02",
+    "title": "2004 AMC 8 Problem 2: Rearranging 2004",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 2,
+    "category": "Counting & Probability",
+    "subcategory": "Counting",
+    "difficulty": 1,
+    "statement": "How many different four-digit numbers can be formed by rearranging the four digits in 2004?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "6"
+      },
+      {
+        "label": "C",
+        "text": "16"
+      },
+      {
+        "label": "D",
+        "text": "24"
+      },
+      {
+        "label": "E",
+        "text": "81"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "6",
+    "solutionSteps": [
+      {
+        "title": "Choose the first digit",
+        "body": "The first digit cannot be 0, so it must be 2 or 4."
+      },
+      {
+        "title": "Arrange the remaining digits",
+        "body": "After choosing the first digit, the other nonzero digit can go in any of the three remaining positions."
+      },
+      {
+        "title": "Multiply",
+        "body": "There are 2 choices for the first digit and 3 positions for the other nonzero digit.",
+        "equation": "2 × 3 = 6"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "counting & probability",
+      "counting"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2004-03",
+    "title": "2004 AMC 8 Problem 3: Enough Meals",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 3,
+    "category": "Algebra",
+    "subcategory": "Ratios",
+    "difficulty": 1,
+    "statement": "Twelve friends met for dinner at Oscar's Overstuffed Oyster House, and each ordered one meal. The portions were so large, there was enough food for 18 people. If they shared, how many meals should they have ordered to have just enough food for the 12 of them?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "8"
+      },
+      {
+        "label": "B",
+        "text": "9"
+      },
+      {
+        "label": "C",
+        "text": "10"
+      },
+      {
+        "label": "D",
+        "text": "15"
+      },
+      {
+        "label": "E",
+        "text": "18"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "8",
+    "solutionSteps": [
+      {
+        "title": "Set the rate",
+        "body": "Twelve meals feed 18 people, so one meal feeds 18/12 people."
+      },
+      {
+        "title": "Scale to 12 people",
+        "body": "The number of meals needed is 12 divided by 18/12.",
+        "equation": "12 ÷ (18/12) = 8"
+      },
+      {
+        "title": "Conclude",
+        "body": "They should have ordered 8 meals."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "algebra",
+      "ratios"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2004-04",
+    "title": "2004 AMC 8 Problem 4: Choosing Starters",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 4,
+    "category": "Counting & Probability",
+    "subcategory": "Combinations",
+    "difficulty": 1,
+    "statement": "Ms. Hamilton’s eighth-grade class wants to participate in the annual three-person-team basketball tournament. Lance, Sally, Joy, and Fred are chosen for the team. In how many ways can the three starters be chosen?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2"
+      },
+      {
+        "label": "B",
+        "text": "4"
+      },
+      {
+        "label": "C",
+        "text": "6"
+      },
+      {
+        "label": "D",
+        "text": "8"
+      },
+      {
+        "label": "E",
+        "text": "10"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Choose who sits out",
+        "body": "Choosing 3 starters from 4 people is the same as choosing the 1 person who does not start."
+      },
+      {
+        "title": "Count choices",
+        "body": "There are 4 possible people to leave out."
+      },
+      {
+        "title": "Conclude",
+        "body": "There are 4 possible starting teams."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "counting & probability",
+      "combinations"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2004-05",
+    "title": "2004 AMC 8 Problem 5: Single-Elimination Tournament",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 5,
+    "category": "Counting & Probability",
+    "subcategory": "Counting",
+    "difficulty": 1,
+    "statement": "Ms. Hamilton's eighth-grade class wants to participate in the annual three-person-team basketball tournament. The losing team of each game is eliminated from the tournament. If sixteen teams compete, how many games will be played to determine the winner?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "7"
+      },
+      {
+        "label": "C",
+        "text": "8"
+      },
+      {
+        "label": "D",
+        "text": "15"
+      },
+      {
+        "label": "E",
+        "text": "16"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "15",
+    "solutionSteps": [
+      {
+        "title": "Use eliminations",
+        "body": "Each game eliminates exactly one team."
+      },
+      {
+        "title": "Leave one champion",
+        "body": "To go from 16 teams to 1 champion, 15 teams must be eliminated."
+      },
+      {
+        "title": "Conclude",
+        "body": "Therefore, 15 games are played."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "counting & probability",
+      "counting"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2004-06",
+    "title": "2004 AMC 8 Problem 6: Sally’s Shooting Percentage",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 6,
+    "category": "Algebra",
+    "subcategory": "Percent",
+    "difficulty": 2,
+    "statement": "After Sally takes 20 shots, she has made 55% of her shots. After she takes 5 more shots, she raises her percentage to 56%. How many of the last 5 shots did she make?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "4"
+      },
+      {
+        "label": "E",
+        "text": "5"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "3",
+    "solutionSteps": [
+      {
+        "title": "Find original makes",
+        "body": "Sally made 55% of 20 shots.",
+        "equation": "0.55 × 20 = 11"
+      },
+      {
+        "title": "Find final makes",
+        "body": "After 25 shots total, making 56% means she made 14 shots.",
+        "equation": "0.56 × 25 = 14"
+      },
+      {
+        "title": "Subtract",
+        "body": "She made 14 − 11 = 3 of the last 5 shots."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "algebra",
+      "percent"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2004-07",
+    "title": "2004 AMC 8 Problem 7: Target Heart Rate",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 7,
+    "category": "Algebra",
+    "subcategory": "Percent",
+    "difficulty": 1,
+    "statement": "An athlete's target heart rate, in beats per minute, is 80% of the theoretical maximum heart rate. The maximum heart rate is found by subtracting the athlete's age, in years, from 220. To the nearest whole number, what is the target heart rate of an athlete who is 26 years old?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "134"
+      },
+      {
+        "label": "B",
+        "text": "155"
+      },
+      {
+        "label": "C",
+        "text": "176"
+      },
+      {
+        "label": "D",
+        "text": "194"
+      },
+      {
+        "label": "E",
+        "text": "243"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "155",
+    "solutionSteps": [
+      {
+        "title": "Find maximum heart rate",
+        "body": "Subtract the athlete’s age from 220.",
+        "equation": "220 − 26 = 194"
+      },
+      {
+        "title": "Take 80%",
+        "body": "The target heart rate is 80% of 194.",
+        "equation": "0.80 × 194 = 155.2"
+      },
+      {
+        "title": "Round",
+        "body": "To the nearest whole number, this is 155."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "algebra",
+      "percent"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2004-08",
+    "title": "2004 AMC 8 Problem 8: Digit Sum 7",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 8,
+    "category": "Number Theory",
+    "subcategory": "Digits",
+    "difficulty": 1,
+    "statement": "Find the number of two-digit positive integers whose digits total 7.",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6"
+      },
+      {
+        "label": "B",
+        "text": "7"
+      },
+      {
+        "label": "C",
+        "text": "8"
+      },
+      {
+        "label": "D",
+        "text": "9"
+      },
+      {
+        "label": "E",
+        "text": "10"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "7",
+    "solutionSteps": [
+      {
+        "title": "List possible tens digits",
+        "body": "The tens digit can be 1, 2, 3, 4, 5, 6, or 7."
+      },
+      {
+        "title": "Determine units digit",
+        "body": "For each tens digit, the units digit is forced so the sum is 7."
+      },
+      {
+        "title": "Count",
+        "body": "There are 7 such numbers: 16, 25, 34, 43, 52, 61, and 70."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "number theory",
+      "digits"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2004-09",
+    "title": "2004 AMC 8 Problem 9: Average of Last Three",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 9,
+    "category": "Algebra",
+    "subcategory": "Averages",
+    "difficulty": 2,
+    "statement": "The average of the five numbers in a list is 54. The average of the first two numbers is 48. What is the average of the last three numbers?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "55"
+      },
+      {
+        "label": "B",
+        "text": "56"
+      },
+      {
+        "label": "C",
+        "text": "57"
+      },
+      {
+        "label": "D",
+        "text": "58"
+      },
+      {
+        "label": "E",
+        "text": "59"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "58",
+    "solutionSteps": [
+      {
+        "title": "Find total sum",
+        "body": "Five numbers with average 54 have total 270.",
+        "equation": "5 × 54 = 270"
+      },
+      {
+        "title": "Find first two sum",
+        "body": "The first two numbers have average 48, so their sum is 96.",
+        "equation": "2 × 48 = 96"
+      },
+      {
+        "title": "Average the last three",
+        "body": "The last three sum to 270 − 96 = 174, so their average is 174 ÷ 3 = 58."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "algebra",
+      "averages"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2004-10",
+    "title": "2004 AMC 8 Problem 10: Handy Aaron’s Pay",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 10,
+    "category": "Algebra",
+    "subcategory": "Time and money",
+    "difficulty": 2,
+    "statement": "Handy Aaron helped a neighbor 1 1/4 hours on Monday, 50 minutes on Tuesday, from 8:20 to 10:45 on Wednesday morning, and a half-hour on Friday. He is paid $3 per hour. How much did he earn for the week?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "$8"
+      },
+      {
+        "label": "B",
+        "text": "$9"
+      },
+      {
+        "label": "C",
+        "text": "$10"
+      },
+      {
+        "label": "D",
+        "text": "$12"
+      },
+      {
+        "label": "E",
+        "text": "$15"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "$15",
+    "solutionSteps": [
+      {
+        "title": "Convert times to minutes",
+        "body": "Monday is 75 minutes, Tuesday is 50 minutes, Wednesday is 145 minutes, and Friday is 30 minutes."
+      },
+      {
+        "title": "Add the time",
+        "body": "The total is 75 + 50 + 145 + 30 = 300 minutes = 5 hours."
+      },
+      {
+        "title": "Multiply by pay rate",
+        "body": "At $3 per hour, he earns 5 × 3 = $15."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "algebra",
+      "time and money"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2004-11",
+    "title": "2004 AMC 8 Problem 11: Rearranging Five Numbers",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 11,
+    "category": "Logic",
+    "subcategory": "Ordering",
+    "difficulty": 3,
+    "statement": "The numbers −2, 4, 6, 9 and 12 are rearranged according to these rules: 1. The largest is not first, but it is in one of the first three places. 2. The smallest is not last, but it is in one of the last three places. 3. The median is not first or last. What is the average of the first and last numbers?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3.5"
+      },
+      {
+        "label": "B",
+        "text": "5"
+      },
+      {
+        "label": "C",
+        "text": "6.5"
+      },
+      {
+        "label": "D",
+        "text": "7.5"
+      },
+      {
+        "label": "E",
+        "text": "8"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "6.5",
+    "solutionSteps": [
+      {
+        "title": "Place restricted numbers",
+        "body": "The largest 12, smallest −2, and median 6 must all be in the middle three positions."
+      },
+      {
+        "title": "Find the endpoints",
+        "body": "That leaves 4 and 9 as the first and last numbers in some order."
+      },
+      {
+        "title": "Average endpoints",
+        "body": "Their average is (4 + 9)/2 = 6.5."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "ranking",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "logic",
+      "ordering"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2004-12",
+    "title": "2004 AMC 8 Problem 12: Cell Phone Battery",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 12,
+    "category": "Algebra",
+    "subcategory": "Rates",
+    "difficulty": 3,
+    "statement": "Niki usually leaves her cell phone on. If her cell phone is on but she is not actually using it, the battery will last for 24 hours. If she is using it constantly, the battery will last for only 3 hours. Since the last recharge, her phone has been on 9 hours, and during that time she has used it for 60 minutes. If she does not use it any more but leaves the phone on, how many more hours will the battery last?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7"
+      },
+      {
+        "label": "B",
+        "text": "8"
+      },
+      {
+        "label": "C",
+        "text": "11"
+      },
+      {
+        "label": "D",
+        "text": "14"
+      },
+      {
+        "label": "E",
+        "text": "15"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "8",
+    "solutionSteps": [
+      {
+        "title": "Use battery rates",
+        "body": "Idle use drains 1/24 of the battery per hour, and active use drains 1/3 per hour."
+      },
+      {
+        "title": "Compute used battery",
+        "body": "There were 8 idle hours and 1 active hour.",
+        "equation": "8/24 + 1/3 = 1/3 + 1/3 = 2/3"
+      },
+      {
+        "title": "Find remaining idle time",
+        "body": "One-third of the battery remains, and idle use drains 1/24 per hour, so it lasts 8 more hours."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "algebra",
+      "rates"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2004-13",
+    "title": "2004 AMC 8 Problem 13: Oldest to Youngest",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 13,
+    "category": "Logic",
+    "subcategory": "Truth statements",
+    "difficulty": 3,
+    "statement": "Amy, Bill and Celine are friends with different ages. Exactly one of the following statements is true. I. Bill is the oldest. II. Amy is not the oldest. III. Celine is not the youngest. Rank the friends from oldest to youngest.",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Bill, Amy, Celine"
+      },
+      {
+        "label": "B",
+        "text": "Amy, Bill, Celine"
+      },
+      {
+        "label": "C",
+        "text": "Celine, Amy, Bill"
+      },
+      {
+        "label": "D",
+        "text": "Celine, Bill, Amy"
+      },
+      {
+        "label": "E",
+        "text": "Amy, Celine, Bill"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "Amy, Celine, Bill",
+    "solutionSteps": [
+      {
+        "title": "Test Bill oldest",
+        "body": "If Bill were oldest, then Amy is not oldest too, making two statements true. So Bill is not oldest."
+      },
+      {
+        "title": "Test Amy not oldest",
+        "body": "If Amy were not oldest, then Celine would be oldest, making Celine not youngest also true. Again two statements would be true."
+      },
+      {
+        "title": "Conclude",
+        "body": "Only statement III is true, so Amy is oldest, Celine is middle, and Bill is youngest."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "ranking",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "logic",
+      "truth statements"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2004-14",
+    "title": "2004 AMC 8 Problem 14: Geoboard Quadrilateral",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 14,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 4,
+    "statement": "What is the area enclosed by the geoboard quadrilateral shown?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "15"
+      },
+      {
+        "label": "B",
+        "text": "18 1/2"
+      },
+      {
+        "label": "C",
+        "text": "22 1/2"
+      },
+      {
+        "label": "D",
+        "text": "27"
+      },
+      {
+        "label": "E",
+        "text": "41"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "22 1/2",
+    "solutionSteps": [
+      {
+        "title": "Use Pick’s Theorem",
+        "body": "For a polygon on lattice points, area = I + B/2 − 1, where I is the number of interior lattice points and B is the number of boundary lattice points."
+      },
+      {
+        "title": "Count points",
+        "body": "The figure has 21 interior points and 5 boundary points."
+      },
+      {
+        "title": "Calculate",
+        "body": "Area = 21 + 5/2 − 1 = 22 1/2."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "geometry",
+      "area"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2004/problem-14-geoboard.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2004-15",
+    "title": "2004 AMC 8 Problem 15: Hexagonal Tile Border",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 15,
+    "category": "Geometry",
+    "subcategory": "Patterns",
+    "difficulty": 3,
+    "statement": "Thirteen dark and six bright hexagonal tiles were used to create the figure shown. If a new figure is created by attaching a border of bright tiles with the same size and shape as the others, what will be the difference between the total number of bright tiles and the total number of dark tiles in the new figure?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5"
+      },
+      {
+        "label": "B",
+        "text": "7"
+      },
+      {
+        "label": "C",
+        "text": "11"
+      },
+      {
+        "label": "D",
+        "text": "12"
+      },
+      {
+        "label": "E",
+        "text": "18"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "11",
+    "solutionSteps": [
+      {
+        "title": "Recognize rings",
+        "body": "The first ring around the center has 6 tiles, and the second ring has 12 tiles."
+      },
+      {
+        "title": "Add the new border",
+        "body": "The next ring has 18 bright tiles."
+      },
+      {
+        "title": "Compare totals",
+        "body": "Bright tiles: 6 + 18 = 24. Dark tiles: 1 + 12 = 13. The difference is 11."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "geometry",
+      "patterns"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2004/problem-15-hex-tiles.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2004-16",
+    "title": "2004 AMC 8 Problem 16: Orange Juice Mixture",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 16,
+    "category": "Algebra",
+    "subcategory": "Fractions",
+    "difficulty": 2,
+    "statement": "Two 600 mL pitchers contain orange juice. One pitcher is 1/3 full and the other pitcher is 2/5 full. Water is added to fill each pitcher completely, then both pitchers are poured into one large container. What fraction of the mixture in the large container is orange juice?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/8"
+      },
+      {
+        "label": "B",
+        "text": "3/16"
+      },
+      {
+        "label": "C",
+        "text": "11/30"
+      },
+      {
+        "label": "D",
+        "text": "11/19"
+      },
+      {
+        "label": "E",
+        "text": "11/15"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "11/30",
+    "solutionSteps": [
+      {
+        "title": "Find orange juice amounts",
+        "body": "The first pitcher has 600 × 1/3 = 200 mL of orange juice. The second has 600 × 2/5 = 240 mL."
+      },
+      {
+        "title": "Find total mixture",
+        "body": "Together they contain 440 mL of orange juice in 1200 mL of total liquid."
+      },
+      {
+        "title": "Simplify",
+        "body": "The fraction is 440/1200 = 11/30."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "algebra",
+      "fractions"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2004-17",
+    "title": "2004 AMC 8 Problem 17: Sharing Pencils",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 17,
+    "category": "Counting & Probability",
+    "subcategory": "Stars and bars",
+    "difficulty": 3,
+    "statement": "Three friends have a total of 6 identical pencils, and each one has at least one pencil. In how many ways can this happen?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "3"
+      },
+      {
+        "label": "C",
+        "text": "6"
+      },
+      {
+        "label": "D",
+        "text": "10"
+      },
+      {
+        "label": "E",
+        "text": "12"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "10",
+    "solutionSteps": [
+      {
+        "title": "Give each friend one pencil",
+        "body": "After giving one pencil to each friend, 3 pencils remain to distribute freely."
+      },
+      {
+        "title": "Use stars and bars",
+        "body": "The number of positive solutions to a + b + c = 6 is C(5,2)."
+      },
+      {
+        "title": "Calculate",
+        "body": "C(5,2) = 10 ways."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "counting & probability",
+      "stars and bars"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2004-18",
+    "title": "2004 AMC 8 Problem 18: Dart Region Worth 6",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 18,
+    "category": "Logic",
+    "subcategory": "Elimination",
+    "difficulty": 4,
+    "statement": "Five friends compete in a dart-throwing contest. Each one has two darts to throw at the same circular target, and each individual’s score is the sum of the scores in the target regions that are hit. The scores for the target regions are the whole numbers 1 through 10. Each throw hits the target in a region with a different value. The scores are: Alice 16 points, Ben 4 points, Cindy 7 points, Dave 11 points, and Ellen 17 points. Who hits the region worth 6 points?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Alice"
+      },
+      {
+        "label": "B",
+        "text": "Ben"
+      },
+      {
+        "label": "C",
+        "text": "Cindy"
+      },
+      {
+        "label": "D",
+        "text": "Dave"
+      },
+      {
+        "label": "E",
+        "text": "Ellen"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "Alice",
+    "solutionSteps": [
+      {
+        "title": "Start with Ben",
+        "body": "Ben’s score 4 must be 1 + 3 because no two throws hit the same region."
+      },
+      {
+        "title": "Force Cindy and Dave",
+        "body": "Cindy’s 7 must be 2 + 5 after 1 and 3 are used. Dave’s 11 must be 4 + 7."
+      },
+      {
+        "title": "Finish the remaining scores",
+        "body": "The remaining regions are 6, 8, 9, and 10. Alice’s 16 must be 6 + 10, so Alice hit 6."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "ranking",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "logic",
+      "elimination"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2004/problem-18-darts.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2004-19",
+    "title": "2004 AMC 8 Problem 19: Remainder 2",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 19,
+    "category": "Number Theory",
+    "subcategory": "LCM",
+    "difficulty": 3,
+    "statement": "A whole number larger than 2 leaves a remainder of 2 when divided by each of the numbers 3, 4, 5, and 6. The smallest such number lies between which two numbers?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "40 and 49"
+      },
+      {
+        "label": "B",
+        "text": "60 and 79"
+      },
+      {
+        "label": "C",
+        "text": "100 and 129"
+      },
+      {
+        "label": "D",
+        "text": "210 and 249"
+      },
+      {
+        "label": "E",
+        "text": "320 and 369"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "60 and 79",
+    "solutionSteps": [
+      {
+        "title": "Subtract the remainder",
+        "body": "If the number is x, then x − 2 is divisible by 3, 4, 5, and 6."
+      },
+      {
+        "title": "Find the LCM",
+        "body": "The least common multiple of 3, 4, 5, and 6 is 60."
+      },
+      {
+        "title": "Add back 2",
+        "body": "The smallest number is 60 + 2 = 62, which lies between 60 and 79."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "number theory",
+      "lcm"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2004-20",
+    "title": "2004 AMC 8 Problem 20: People and Chairs",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 20,
+    "category": "Algebra",
+    "subcategory": "Fractions",
+    "difficulty": 3,
+    "statement": "Two-thirds of the people in a room are seated in three-fourths of the chairs. The rest of the people are standing. If there are 6 empty chairs, how many people are in the room?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "12"
+      },
+      {
+        "label": "B",
+        "text": "18"
+      },
+      {
+        "label": "C",
+        "text": "24"
+      },
+      {
+        "label": "D",
+        "text": "27"
+      },
+      {
+        "label": "E",
+        "text": "36"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "27",
+    "solutionSteps": [
+      {
+        "title": "Find taken chairs",
+        "body": "If 3/4 of the chairs are taken, then 1/4 are empty. Six empty chairs means 18 chairs are taken."
+      },
+      {
+        "title": "Relate seated people",
+        "body": "Those 18 seated people are 2/3 of all the people."
+      },
+      {
+        "title": "Solve",
+        "body": "If (2/3)x = 18, then x = 27."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "algebra",
+      "fractions"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2004-21",
+    "title": "2004 AMC 8 Problem 21: Even Spinner Product",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 21,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 3,
+    "statement": "Spinners A and B are spun. On each spinner, the arrow is equally likely to land on each number. What is the probability that the product of the two spinners’ numbers is even?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/4"
+      },
+      {
+        "label": "B",
+        "text": "1/3"
+      },
+      {
+        "label": "C",
+        "text": "1/2"
+      },
+      {
+        "label": "D",
+        "text": "2/3"
+      },
+      {
+        "label": "E",
+        "text": "3/4"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "2/3",
+    "solutionSteps": [
+      {
+        "title": "Use the complement",
+        "body": "The product is odd only if both spinner results are odd."
+      },
+      {
+        "title": "Compute odd probabilities",
+        "body": "Spinner A has two odd numbers out of four, so P(odd) = 1/2. Spinner B has two odd numbers out of three, so P(odd) = 2/3."
+      },
+      {
+        "title": "Subtract from 1",
+        "body": "P(product even) = 1 − (1/2)(2/3) = 2/3."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "counting & probability",
+      "probability"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2004/problem-21-spinners.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2004-22",
+    "title": "2004 AMC 8 Problem 22: Married Men at a Party",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 22,
+    "category": "Algebra",
+    "subcategory": "Fractions",
+    "difficulty": 4,
+    "statement": "At a party there are only single women and married men with their wives. The probability that a randomly selected woman is single is 2/5. What fraction of the people in the room are married men?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/3"
+      },
+      {
+        "label": "B",
+        "text": "3/8"
+      },
+      {
+        "label": "C",
+        "text": "2/5"
+      },
+      {
+        "label": "D",
+        "text": "5/12"
+      },
+      {
+        "label": "E",
+        "text": "3/5"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "3/8",
+    "solutionSteps": [
+      {
+        "title": "Choose a convenient number",
+        "body": "Suppose there are 5 women. Since 2/5 are single, 2 are single and 3 are married."
+      },
+      {
+        "title": "Add husbands",
+        "body": "The 3 married women each have a husband present, so there are 3 married men."
+      },
+      {
+        "title": "Find the fraction",
+        "body": "There are 8 people total, so the fraction who are married men is 3/8."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "algebra",
+      "fractions"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2004-23",
+    "title": "2004 AMC 8 Problem 23: Distance from Home",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 23,
+    "category": "Geometry",
+    "subcategory": "Graphs",
+    "difficulty": 4,
+    "statement": "Tess runs counterclockwise around rectangular block JKLM. She lives at corner J. Which graph could represent her straight-line distance from home?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Graph A"
+      },
+      {
+        "label": "B",
+        "text": "Graph B"
+      },
+      {
+        "label": "C",
+        "text": "Graph C"
+      },
+      {
+        "label": "D",
+        "text": "Graph D"
+      },
+      {
+        "label": "E",
+        "text": "Graph E"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "Graph D",
+    "solutionSteps": [
+      {
+        "title": "Start at home",
+        "body": "At corner J, Tess’s distance from home starts at 0."
+      },
+      {
+        "title": "Track the rectangle",
+        "body": "As she runs along the first side, distance increases. Around the far corner near L, her distance is greatest, then it decreases as she returns."
+      },
+      {
+        "title": "Choose the shape",
+        "body": "The only graph with one middle maximum and ending back at 0 is graph D."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "geometry",
+      "graphs"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2004/problem-23-distance-graphs.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2004-24",
+    "title": "2004 AMC 8 Problem 24: Parallelogram Height",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 24,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 5,
+    "statement": "In the figure, ABCD is a rectangle and EFGH is a parallelogram. Using the measurements given in the figure, what is the length d of the segment that is perpendicular to HE and FG?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6.8"
+      },
+      {
+        "label": "B",
+        "text": "7.1"
+      },
+      {
+        "label": "C",
+        "text": "7.6"
+      },
+      {
+        "label": "D",
+        "text": "7.8"
+      },
+      {
+        "label": "E",
+        "text": "8.1"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "7.6",
+    "solutionSteps": [
+      {
+        "title": "Find the parallelogram area",
+        "body": "The rectangle is 10 by 8, so its area is 80. Subtract the four corner triangles: two with area (1/2)(3)(4) and two with area (1/2)(6)(5).",
+        "equation": "80 − 12 − 30 = 38"
+      },
+      {
+        "title": "Find the base",
+        "body": "FG is the hypotenuse of a 3-4-5 triangle, so FG = 5."
+      },
+      {
+        "title": "Solve for height",
+        "body": "Area = base × height, so 38 = 5d and d = 7.6."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "geometry",
+      "area"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2004/problem-24-parallelogram.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2004-25",
+    "title": "2004 AMC 8 Problem 25: Intersecting Squares and Circle",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2004,
+    "problemNumber": 25,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 5,
+    "statement": "Two 4 × 4 squares intersect at right angles, bisecting their intersecting sides, as shown. The circle’s diameter is the segment between the two points of intersection. What is the area of the shaded region created by removing the circle from the squares?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "16 − 4π"
+      },
+      {
+        "label": "B",
+        "text": "16 − 2π"
+      },
+      {
+        "label": "C",
+        "text": "28 − 4π"
+      },
+      {
+        "label": "D",
+        "text": "28 − 2π"
+      },
+      {
+        "label": "E",
+        "text": "32 − 2π"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "28 − 2π",
+    "solutionSteps": [
+      {
+        "title": "Find area of the union",
+        "body": "Two 4 by 4 squares have total area 32, but their overlap is a 2 by 2 square, area 4. The union area is 32 − 4 = 28."
+      },
+      {
+        "title": "Find circle area",
+        "body": "The circle’s diameter is the diagonal of the 2 by 2 overlap square, so radius squared is 2."
+      },
+      {
+        "title": "Subtract the circle",
+        "body": "The circle area is 2π, so the shaded area is 28 − 2π."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the question",
+        "narration": "Identify the important numbers, labels, and what the problem asks for.",
+        "visualHint": "Key quantities are highlighted."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Apply the main idea to reduce the problem to a short calculation.",
+        "visualHint": "The relevant equation or counting setup appears."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2004",
+      "geometry",
+      "area"
+    ],
+    "sourceName": "2004 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2004/problem-25-overlapping-squares.svg"
+    ],
+    "needsDiagram": true
+  }
+];
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
   ...amc2002Problems,
   ...amc2003Problems,
+  ...amc2004Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems };

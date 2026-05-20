@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 390" role="img"><style>
+text{font-family:Inter,Arial,sans-serif;fill:#111827}.label{font-size:18px;font-weight:700}.small{font-size:14px}.tiny{font-size:11px}.shape{fill:#fff;stroke:#111827;stroke-width:2.5}.thin{fill:none;stroke:#111827;stroke-width:2}.dash{fill:none;stroke:#111827;stroke-width:2;stroke-dasharray:6 5}.shade{fill:#d1d5db;stroke:#111827;stroke-width:2}.dark{fill:#111827;stroke:#111827;stroke-width:2}.bright{fill:#fff;stroke:#111827;stroke-width:2}.accent{fill:#eff6ff;stroke:#2563eb;stroke-width:2}.grid{stroke:#9ca3af;stroke-width:1}.muted{fill:#6b7280}.choice{font-size:14px;font-weight:600}.red{fill:#fee2e2;stroke:#dc2626;stroke-width:2}.green{fill:#dcfce7;stroke:#16a34a;stroke-width:2}.blue{fill:#dbeafe;stroke:#2563eb;stroke-width:2}
+</style><text x="25" y="35" class="label">Dart scores 1 through 10</text>
+<circle cx="160" cy="210" r="120" fill="#fff" stroke="#111827" stroke-width="3"/>
+<circle cx="160" cy="210" r="40" fill="none" stroke="#111827" stroke-width="2"/>
+<circle cx="160" cy="210" r="80" fill="none" stroke="#111827" stroke-width="2"/>
+<line x1="160" y1="210" x2="160.0" y2="90.0" class="thin"/>
+<line x1="160" y1="210" x2="230.5" y2="112.9" class="thin"/>
+<line x1="160" y1="210" x2="274.1" y2="172.9" class="thin"/>
+<line x1="160" y1="210" x2="274.1" y2="247.1" class="thin"/>
+<line x1="160" y1="210" x2="230.5" y2="307.1" class="thin"/>
+<line x1="160" y1="210" x2="160.0" y2="330.0" class="thin"/>
+<line x1="160" y1="210" x2="89.5" y2="307.1" class="thin"/>
+<line x1="160" y1="210" x2="45.9" y2="247.1" class="thin"/>
+<line x1="160" y1="210" x2="45.9" y2="172.9" class="thin"/>
+<line x1="160" y1="210" x2="89.5" y2="112.9" class="thin"/>
+<text x="189.4" y="124.6" text-anchor="middle" class="small">1</text>
+<text x="236.9" y="159.2" text-anchor="middle" class="small">2</text>
+<text x="255.0" y="215.0" text-anchor="middle" class="small">3</text>
+<text x="236.9" y="270.8" text-anchor="middle" class="small">4</text>
+<text x="189.4" y="305.4" text-anchor="middle" class="small">5</text>
+<text x="130.6" y="305.4" text-anchor="middle" class="small">6</text>
+<text x="83.1" y="270.8" text-anchor="middle" class="small">7</text>
+<text x="65.0" y="215.0" text-anchor="middle" class="small">8</text>
+<text x="83.1" y="159.2" text-anchor="middle" class="small">9</text>
+<text x="130.6" y="124.6" text-anchor="middle" class="small">10</text>
+<text x="340" y="110" class="small">Scores:</text>
+<text x="340" y="145" class="small">Alice 16, Ben 4, Cindy 7</text>
+<text x="340" y="175" class="small">Dave 11, Ellen 17</text>
+<text x="340" y="225" class="small">Ben: 1 + 3</text>
+<text x="340" y="255" class="small">Cindy: 2 + 5</text>
+<text x="340" y="285" class="small">Dave: 4 + 7</text>
+<text x="340" y="315" class="small">Alice: 6 + 10</text></svg>
