@@ -22967,6 +22967,2014 @@ const amc2009Problems: Problem[] = [
   }
 ];
 
+
+const amc2010Problems: Problem[] = [
+  {
+    "id": "amc8-2010-01",
+    "title": "2010 AMC 8 Problem 1: Euclid Middle School Contest Takers",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 1,
+    "category": "Algebra",
+    "subcategory": "Arithmetic",
+    "difficulty": 1,
+    "statement": "At Euclid Middle School the mathematics teachers are Mrs. Germain, Mr. Newton, and Mrs. Young. There are 11 students in Mrs. Germain's class, 8 students in Mr. Newton's class, and 9 students in Mrs. Young's class taking the AMC 8 this year. How many mathematics students at Euclid Middle School are taking the contest?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "26"
+      },
+      {
+        "label": "B",
+        "text": "27"
+      },
+      {
+        "label": "C",
+        "text": "28"
+      },
+      {
+        "label": "D",
+        "text": "29"
+      },
+      {
+        "label": "E",
+        "text": "30"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "28",
+    "solutionSteps": [
+      {
+        "title": "Add the classes",
+        "body": "The three class counts are separate groups of students, so add them.",
+        "equation": "11+8+9=28"
+      },
+      {
+        "title": "Conclude",
+        "body": "There are 28 students taking the contest, so the answer is C."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "algebra",
+      "arithmetic",
+      "addition"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2010-02",
+    "title": "2010 AMC 8 Problem 2: Custom Operation",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 2,
+    "category": "Algebra",
+    "subcategory": "Operations",
+    "difficulty": 1,
+    "statement": "If a @ b = (a × b)/(a + b) for positive integers a and b, then what is 5 @ 10?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3/10"
+      },
+      {
+        "label": "B",
+        "text": "1"
+      },
+      {
+        "label": "C",
+        "text": "2"
+      },
+      {
+        "label": "D",
+        "text": "10/3"
+      },
+      {
+        "label": "E",
+        "text": "50"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "10/3",
+    "solutionSteps": [
+      {
+        "title": "Substitute",
+        "body": "Use a=5 and b=10 in the definition.",
+        "equation": "5@10=(5×10)/(5+10)"
+      },
+      {
+        "title": "Simplify",
+        "body": "The value is 50/15, which reduces to 10/3."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "algebra",
+      "operations",
+      "custom operation"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2010-03",
+    "title": "2010 AMC 8 Problem 3: Gasoline Bar Graph",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 3,
+    "category": "Algebra",
+    "subcategory": "Percents",
+    "difficulty": 2,
+    "statement": "The graph shows the price of five gallons of gasoline during the first ten months of the year. By what percent is the highest price more than the lowest price?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "50"
+      },
+      {
+        "label": "B",
+        "text": "62"
+      },
+      {
+        "label": "C",
+        "text": "70"
+      },
+      {
+        "label": "D",
+        "text": "89"
+      },
+      {
+        "label": "E",
+        "text": "100"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "70",
+    "solutionSteps": [
+      {
+        "title": "Read the graph",
+        "body": "The highest price is 17 dollars and the lowest price is 10 dollars."
+      },
+      {
+        "title": "Compare to the lowest price",
+        "body": "The increase is 7 dollars, and 7 is 70% of 10.",
+        "equation": "(17-10)/10=70%"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "algebra",
+      "percents",
+      "bar graph",
+      "percent increase"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2010/problem-03-gas-prices.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2010-04",
+    "title": "2010 AMC 8 Problem 4: Mean Median Mode Sum",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 4,
+    "category": "Algebra",
+    "subcategory": "Statistics",
+    "difficulty": 1,
+    "statement": "What is the sum of the mean, median, and mode of the numbers 2, 3, 0, 3, 1, 4, 0, 3?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6.5"
+      },
+      {
+        "label": "B",
+        "text": "7"
+      },
+      {
+        "label": "C",
+        "text": "7.5"
+      },
+      {
+        "label": "D",
+        "text": "8.5"
+      },
+      {
+        "label": "E",
+        "text": "9"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "7.5",
+    "solutionSteps": [
+      {
+        "title": "Find mode and median",
+        "body": "Ordered list: 0,0,1,2,3,3,3,4. The mode is 3 and the median is (2+3)/2=2.5."
+      },
+      {
+        "title": "Find mean and add",
+        "body": "The mean is 16/8=2, so the total is 3+2.5+2=7.5."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "algebra",
+      "statistics",
+      "mean",
+      "median",
+      "mode"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2010-05",
+    "title": "2010 AMC 8 Problem 5: Stool Height",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 5,
+    "category": "Algebra",
+    "subcategory": "Unit conversion",
+    "difficulty": 1,
+    "statement": "Alice needs to replace a light bulb located 10 centimeters below the ceiling in her kitchen. The ceiling is 2.4 meters above the floor. Alice is 1.5 meters tall and can reach 46 centimeters above the top of her head. Standing on a stool, she can just reach the light bulb. What is the height of the stool, in centimeters?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "32"
+      },
+      {
+        "label": "B",
+        "text": "34"
+      },
+      {
+        "label": "C",
+        "text": "36"
+      },
+      {
+        "label": "D",
+        "text": "38"
+      },
+      {
+        "label": "E",
+        "text": "40"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "34",
+    "solutionSteps": [
+      {
+        "title": "Convert to centimeters",
+        "body": "The ceiling is 240 cm high and Alice is 150 cm tall."
+      },
+      {
+        "title": "Subtract reach from bulb height",
+        "body": "The bulb is 10 cm below the ceiling, so its height is 230 cm. Alice reaches 150+46=196 cm from the floor, so the stool is 34 cm."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "algebra",
+      "unit conversion",
+      "measurement",
+      "unit conversion"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2010-06",
+    "title": "2010 AMC 8 Problem 6: Lines of Symmetry",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 6,
+    "category": "Geometry",
+    "subcategory": "Symmetry",
+    "difficulty": 1,
+    "statement": "Which of the following figures has the greatest number of lines of symmetry?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "equilateral triangle"
+      },
+      {
+        "label": "B",
+        "text": "non-square rhombus"
+      },
+      {
+        "label": "C",
+        "text": "non-square rectangle"
+      },
+      {
+        "label": "D",
+        "text": "isosceles trapezoid"
+      },
+      {
+        "label": "E",
+        "text": "square"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "square",
+    "solutionSteps": [
+      {
+        "title": "Count symmetry lines",
+        "body": "An equilateral triangle has 3, a non-square rhombus has 2, a non-square rectangle has 2, and an isosceles trapezoid has 1."
+      },
+      {
+        "title": "Compare with square",
+        "body": "A square has 4 lines of symmetry, the greatest number listed."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "geometry",
+      "symmetry",
+      "symmetry"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2010-07",
+    "title": "2010 AMC 8 Problem 7: Smallest Coin Set",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 7,
+    "category": "Counting & Probability",
+    "subcategory": "Constructive counting",
+    "difficulty": 2,
+    "statement": "Using only pennies, nickels, dimes, and quarters, what is the smallest number of coins Freddie would need so he could pay any amount of money less than a dollar?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6"
+      },
+      {
+        "label": "B",
+        "text": "10"
+      },
+      {
+        "label": "C",
+        "text": "15"
+      },
+      {
+        "label": "D",
+        "text": "25"
+      },
+      {
+        "label": "E",
+        "text": "99"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "10",
+    "solutionSteps": [
+      {
+        "title": "Cover cents digits",
+        "body": "Four pennies and one nickel can make any amount from 0 through 9 cents."
+      },
+      {
+        "title": "Cover tens values",
+        "body": "Three quarters make 75 cents and two dimes fill the missing tens. The total is 4+1+2+3=10 coins."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "counting & probability",
+      "constructive counting",
+      "coins",
+      "constructive counting"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2010-08",
+    "title": "2010 AMC 8 Problem 8: Relative Motion",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 8,
+    "category": "Algebra",
+    "subcategory": "Rate",
+    "difficulty": 2,
+    "statement": "As Emily is riding her bicycle on a long straight road, she spots Emerson skating in the same direction 1/2 mile in front of her. After she passes him, she can see him in her rear mirror until he is 1/2 mile behind her. Emily rides at a constant rate of 12 miles per hour, and Emerson skates at a constant rate of 8 miles per hour. For how many minutes can Emily see Emerson?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6"
+      },
+      {
+        "label": "B",
+        "text": "8"
+      },
+      {
+        "label": "C",
+        "text": "12"
+      },
+      {
+        "label": "D",
+        "text": "15"
+      },
+      {
+        "label": "E",
+        "text": "16"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "15",
+    "solutionSteps": [
+      {
+        "title": "Use relative speed",
+        "body": "Emily gains on Emerson at 12-8=4 mph."
+      },
+      {
+        "title": "Distance seen",
+        "body": "She sees him while closing 1/2 mile and then gaining another 1/2 mile, for 1 mile total. At 4 mph, that takes 1/4 hour = 15 minutes."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "algebra",
+      "rate",
+      "rate",
+      "relative speed"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2010-09",
+    "title": "2010 AMC 8 Problem 9: Weighted Test Average",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 9,
+    "category": "Algebra",
+    "subcategory": "Percents",
+    "difficulty": 1,
+    "statement": "Ryan got 80% of the problems correct on a 25-problem test, 90% on a 40-problem test, and 70% on a 10-problem test. What percent of all the problems did Ryan answer correctly?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "64"
+      },
+      {
+        "label": "B",
+        "text": "75"
+      },
+      {
+        "label": "C",
+        "text": "80"
+      },
+      {
+        "label": "D",
+        "text": "84"
+      },
+      {
+        "label": "E",
+        "text": "86"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "84",
+    "solutionSteps": [
+      {
+        "title": "Count correct answers",
+        "body": "Ryan got 20, 36, and 7 correct on the three tests."
+      },
+      {
+        "title": "Divide by total questions",
+        "body": "He got 63 correct out of 75 total, which is 84%."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "algebra",
+      "percents",
+      "weighted average",
+      "percent"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2010-10",
+    "title": "2010 AMC 8 Problem 10: Pepperoni Coverage",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 10,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 2,
+    "statement": "Six pepperoni circles will exactly fit across the diameter of a 12-inch pizza when placed. If a total of 24 circles of pepperoni are placed on this pizza without overlap, what fraction of the pizza is covered by pepperoni?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/2"
+      },
+      {
+        "label": "B",
+        "text": "2/3"
+      },
+      {
+        "label": "C",
+        "text": "3/4"
+      },
+      {
+        "label": "D",
+        "text": "5/6"
+      },
+      {
+        "label": "E",
+        "text": "7/8"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "2/3",
+    "solutionSteps": [
+      {
+        "title": "Find pepperoni size",
+        "body": "Each pepperoni has diameter 12/6=2, so radius 1."
+      },
+      {
+        "title": "Compare areas",
+        "body": "The 24 pepperonis have total area 24π. The pizza has radius 6 and area 36π, so the fraction is 24π/36π=2/3."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "geometry",
+      "area",
+      "circle area",
+      "ratio"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2010-11",
+    "title": "2010 AMC 8 Problem 11: Tree Heights Ratio",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 11,
+    "category": "Algebra",
+    "subcategory": "Ratios",
+    "difficulty": 2,
+    "statement": "The top of one tree is 16 feet higher than the top of another tree. The heights of the two trees are in the ratio 3:4. In feet, how tall is the taller tree?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "48"
+      },
+      {
+        "label": "B",
+        "text": "64"
+      },
+      {
+        "label": "C",
+        "text": "80"
+      },
+      {
+        "label": "D",
+        "text": "96"
+      },
+      {
+        "label": "E",
+        "text": "112"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "64",
+    "solutionSteps": [
+      {
+        "title": "Use ratio parts",
+        "body": "The difference between 3 parts and 4 parts is 1 part, and that difference is 16 feet."
+      },
+      {
+        "title": "Find taller tree",
+        "body": "The taller tree is 4 parts, so its height is 4×16=64 feet."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "algebra",
+      "ratios",
+      "ratios"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2010-12",
+    "title": "2010 AMC 8 Problem 12: Removing Red Balls",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 12,
+    "category": "Algebra",
+    "subcategory": "Percents",
+    "difficulty": 2,
+    "statement": "Of the 500 balls in a large bag, 80% are red and the rest are blue. How many of the red balls must be removed so that 75% of the remaining balls are red?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "25"
+      },
+      {
+        "label": "B",
+        "text": "50"
+      },
+      {
+        "label": "C",
+        "text": "75"
+      },
+      {
+        "label": "D",
+        "text": "100"
+      },
+      {
+        "label": "E",
+        "text": "150"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "100",
+    "solutionSteps": [
+      {
+        "title": "Count colors",
+        "body": "There are 400 red balls and 100 blue balls."
+      },
+      {
+        "title": "Use desired percentage",
+        "body": "If 75% are red, then 25% are blue. The 100 blue balls must be 25% of the bag, so 400 balls remain. Remove 100 red balls."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "algebra",
+      "percents",
+      "percents"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2010-13",
+    "title": "2010 AMC 8 Problem 13: Consecutive Triangle Sides",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 13,
+    "category": "Algebra",
+    "subcategory": "Consecutive integers",
+    "difficulty": 2,
+    "statement": "The lengths of the sides of a triangle in inches are three consecutive integers. The length of the shortest side is 30% of the perimeter. What is the length of the longest side?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7"
+      },
+      {
+        "label": "B",
+        "text": "8"
+      },
+      {
+        "label": "C",
+        "text": "9"
+      },
+      {
+        "label": "D",
+        "text": "10"
+      },
+      {
+        "label": "E",
+        "text": "11"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "11",
+    "solutionSteps": [
+      {
+        "title": "Set up sides",
+        "body": "Let the sides be n, n+1, and n+2. The perimeter is 3n+3."
+      },
+      {
+        "title": "Use 30 percent",
+        "body": "The shortest side is 30% of the perimeter: n=0.3(3n+3), so n=9. The longest side is 11."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "algebra",
+      "consecutive integers",
+      "consecutive integers",
+      "triangle"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2010-14",
+    "title": "2010 AMC 8 Problem 14: Prime Factors of 2010",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 14,
+    "category": "Number Theory",
+    "subcategory": "Prime factorization",
+    "difficulty": 2,
+    "statement": "What is the sum of the prime factors of 2010?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "67"
+      },
+      {
+        "label": "B",
+        "text": "75"
+      },
+      {
+        "label": "C",
+        "text": "77"
+      },
+      {
+        "label": "D",
+        "text": "201"
+      },
+      {
+        "label": "E",
+        "text": "210"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "77",
+    "solutionSteps": [
+      {
+        "title": "Factor 2010",
+        "body": "2010=2×3×5×67."
+      },
+      {
+        "title": "Add prime factors",
+        "body": "The sum is 2+3+5+67=77."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "number theory",
+      "prime factorization",
+      "prime factorization"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2010-15",
+    "title": "2010 AMC 8 Problem 15: Gumdrops Recolored",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 15,
+    "category": "Algebra",
+    "subcategory": "Percents",
+    "difficulty": 2,
+    "statement": "A jar contains 5 different colors of gumdrops. 30% are blue, 20% are brown, 15% are red, 10% are yellow, and the other 30 gumdrops are green. If half of the blue gumdrops are replaced with brown gumdrops, how many gumdrops will be brown?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "35"
+      },
+      {
+        "label": "B",
+        "text": "36"
+      },
+      {
+        "label": "C",
+        "text": "42"
+      },
+      {
+        "label": "D",
+        "text": "48"
+      },
+      {
+        "label": "E",
+        "text": "64"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "42",
+    "solutionSteps": [
+      {
+        "title": "Find total gumdrops",
+        "body": "The listed percentages total 75%, so green is 25%. If 30 gumdrops are 25%, the jar has 120 gumdrops."
+      },
+      {
+        "title": "Find new brown count",
+        "body": "Brown becomes 20% plus half of the 30% blue, or 35% of the jar. 35% of 120 is 42."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "algebra",
+      "percents",
+      "percents"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2010-16",
+    "title": "2010 AMC 8 Problem 16: Equal Area Square and Circle",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 16,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 2,
+    "statement": "A square and a circle have the same area. What is the ratio of the side length of the square to the radius of the circle?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "sqrt(pi)/2"
+      },
+      {
+        "label": "B",
+        "text": "sqrt(pi)"
+      },
+      {
+        "label": "C",
+        "text": "pi"
+      },
+      {
+        "label": "D",
+        "text": "2pi"
+      },
+      {
+        "label": "E",
+        "text": "pi^2"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "sqrt(pi)",
+    "solutionSteps": [
+      {
+        "title": "Equate areas",
+        "body": "If the square side is s and the circle radius is r, then s^2=πr^2."
+      },
+      {
+        "title": "Take square roots",
+        "body": "Dividing by r^2 gives (s/r)^2=π, so s/r=sqrt(π)."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "geometry",
+      "area",
+      "circle area",
+      "square root"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2010-17",
+    "title": "2010 AMC 8 Problem 17: Octagon Area Bisector",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 17,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 3,
+    "statement": "The diagram shows an octagon consisting of 10 unit squares. The portion below PQ is a unit square and a triangle with base 5. If PQ bisects the area of the octagon, what is the ratio XQ/QY?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2/5"
+      },
+      {
+        "label": "B",
+        "text": "1/2"
+      },
+      {
+        "label": "C",
+        "text": "3/5"
+      },
+      {
+        "label": "D",
+        "text": "2/3"
+      },
+      {
+        "label": "E",
+        "text": "3/4"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "2/3",
+    "solutionSteps": [
+      {
+        "title": "Half the area",
+        "body": "The octagon has area 10, so the region below PQ must have area 5."
+      },
+      {
+        "title": "Solve for QY",
+        "body": "Below PQ is one unit square plus a triangle of base 5. The triangle must have area 4, so 5h/2=4 and h=8/5. Thus QY=8/5-1=3/5 and XQ=2/5."
+      },
+      {
+        "title": "Take the ratio",
+        "body": "XQ/QY=(2/5)/(3/5)=2/3."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "geometry",
+      "area",
+      "area",
+      "ratio"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2010/problem-17-octagon-bisector.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2010-18",
+    "title": "2010 AMC 8 Problem 18: Decorative Window",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 18,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 3,
+    "statement": "A decorative window is made up of a rectangle with semicircles at either end. The ratio of AD to AB is 3:2. And AB is 30 inches. What is the ratio of the area of the rectangle to the combined area of the semicircles?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2:3"
+      },
+      {
+        "label": "B",
+        "text": "3:2"
+      },
+      {
+        "label": "C",
+        "text": "6:pi"
+      },
+      {
+        "label": "D",
+        "text": "9:pi"
+      },
+      {
+        "label": "E",
+        "text": "30:pi"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "6:pi",
+    "solutionSteps": [
+      {
+        "title": "Find rectangle dimensions",
+        "body": "Since AD:AB=3:2 and AB=30, AD=45."
+      },
+      {
+        "title": "Compare areas",
+        "body": "The rectangle area is 30×45=1350. The two semicircles combine to one circle of radius 15, area 225π. The ratio is 1350:225π=6:π."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "geometry",
+      "area",
+      "area",
+      "semicircle"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2010/problem-18-window.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2010-19",
+    "title": "2010 AMC 8 Problem 19: Area Between Concentric Circles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 19,
+    "category": "Geometry",
+    "subcategory": "Circle geometry",
+    "difficulty": 3,
+    "statement": "The two circles pictured have the same center C. Chord AD is tangent to the inner circle at B, AC is 10, and chord AD has length 16. What is the area between the two circles?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "36π"
+      },
+      {
+        "label": "B",
+        "text": "49π"
+      },
+      {
+        "label": "C",
+        "text": "64π"
+      },
+      {
+        "label": "D",
+        "text": "81π"
+      },
+      {
+        "label": "E",
+        "text": "100π"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "64π",
+    "solutionSteps": [
+      {
+        "title": "Find inner radius",
+        "body": "The radius to a tangent chord bisects the chord, so AB=8. In right triangle ACB, AC=10 and AB=8, so CB=6."
+      },
+      {
+        "title": "Subtract circle areas",
+        "body": "The outer radius is 10 and the inner radius is 6, so the annulus area is 100π-36π=64π."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "geometry",
+      "circle geometry",
+      "circle geometry",
+      "pythagorean theorem"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2010/problem-19-concentric-circles.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2010-20",
+    "title": "2010 AMC 8 Problem 20: Hats and Gloves",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 20,
+    "category": "Counting & Probability",
+    "subcategory": "Inclusion-exclusion",
+    "difficulty": 3,
+    "statement": "In a room, 2/5 of the people are wearing gloves, and 3/4 of the people are wearing hats. What is the minimum number of people in the room wearing both a hat and gloves?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3"
+      },
+      {
+        "label": "B",
+        "text": "5"
+      },
+      {
+        "label": "C",
+        "text": "8"
+      },
+      {
+        "label": "D",
+        "text": "15"
+      },
+      {
+        "label": "E",
+        "text": "20"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "3",
+    "solutionSteps": [
+      {
+        "title": "Choose the smallest total",
+        "body": "The total number of people must be a multiple of 5 and 4, so use 20."
+      },
+      {
+        "title": "Use inclusion-exclusion",
+        "body": "Then 8 wear gloves and 15 wear hats. If everyone wears at least one item, overlap is 8+15-20=3."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "venn",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "counting & probability",
+      "inclusion-exclusion",
+      "inclusion-exclusion",
+      "fractions"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2010-21",
+    "title": "2010 AMC 8 Problem 21: Hui's Reading Plan",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 21,
+    "category": "Algebra",
+    "subcategory": "Equations",
+    "difficulty": 4,
+    "statement": "Hui is an avid reader. She bought a copy of the best seller Math is Beautiful. On the first day, Hui read 1/5 of the pages plus 12 more, and on the second day she read 1/4 of the remaining pages plus 15 pages. On the third day she read 1/3 of the remaining pages plus 18 pages. She then realized that there were only 62 pages left to read, which she read the next day. How many pages are in this book?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "120"
+      },
+      {
+        "label": "B",
+        "text": "180"
+      },
+      {
+        "label": "C",
+        "text": "240"
+      },
+      {
+        "label": "D",
+        "text": "300"
+      },
+      {
+        "label": "E",
+        "text": "360"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "240",
+    "solutionSteps": [
+      {
+        "title": "Work with x pages",
+        "body": "Let x be the total number of pages. After day 1, 4x/5-12 pages remain."
+      },
+      {
+        "title": "Continue the remaining pages",
+        "body": "After day 2, 3x/5-24 remain. After day 3, 2x/5-34 remain."
+      },
+      {
+        "title": "Solve",
+        "body": "Set 2x/5-34=62. Then 2x/5=96, so x=240."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "algebra",
+      "equations",
+      "equations",
+      "fractions"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2010-22",
+    "title": "2010 AMC 8 Problem 22: Reversed Three-Digit Number",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 22,
+    "category": "Algebra",
+    "subcategory": "Digits",
+    "difficulty": 3,
+    "statement": "The hundreds digit of a three-digit number is 2 more than the units digit. The digits of the three-digit number are reversed, and the result is subtracted from the original three-digit number. What is the units digit of the result?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "0"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "4"
+      },
+      {
+        "label": "D",
+        "text": "6"
+      },
+      {
+        "label": "E",
+        "text": "8"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "8",
+    "solutionSteps": [
+      {
+        "title": "Use place value",
+        "body": "Let the units digit be c. Then the hundreds digit is c+2."
+      },
+      {
+        "title": "Subtract reversed number",
+        "body": "The difference is 100(c+2)+10b+c - [100c+10b+(c+2)] = 198. The units digit is 8."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "algebra",
+      "digits",
+      "digits",
+      "place value"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2010-23",
+    "title": "2010 AMC 8 Problem 23: Semicircles Through the Center",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 23,
+    "category": "Geometry",
+    "subcategory": "Coordinate geometry",
+    "difficulty": 4,
+    "statement": "Semicircles POQ and ROS pass through the center O. What is the ratio of the combined areas of the two semicircles to the area of circle O?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "sqrt(2)/4"
+      },
+      {
+        "label": "B",
+        "text": "1/2"
+      },
+      {
+        "label": "C",
+        "text": "2/pi"
+      },
+      {
+        "label": "D",
+        "text": "2/3"
+      },
+      {
+        "label": "E",
+        "text": "sqrt(2)/2"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "1/2",
+    "solutionSteps": [
+      {
+        "title": "Find the large circle area",
+        "body": "The large circle has radius sqrt(2), using the points (1,1) and (-1,1), so its area is 2π."
+      },
+      {
+        "title": "Find semicircle areas",
+        "body": "Each semicircle has radius 1. Together, the two semicircles have area π."
+      },
+      {
+        "title": "Take the ratio",
+        "body": "The ratio is π/(2π)=1/2."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "geometry",
+      "coordinate geometry",
+      "coordinate geometry",
+      "circle area"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2010/problem-23-semicircles-coordinate.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2010-24",
+    "title": "2010 AMC 8 Problem 24: Ordering Powers",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 24,
+    "category": "Number Theory",
+    "subcategory": "Exponents",
+    "difficulty": 4,
+    "statement": "What is the correct ordering of the three numbers 10^8, 5^12, and 2^24?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2^24 < 10^8 < 5^12"
+      },
+      {
+        "label": "B",
+        "text": "2^24 < 5^12 < 10^8"
+      },
+      {
+        "label": "C",
+        "text": "5^12 < 2^24 < 10^8"
+      },
+      {
+        "label": "D",
+        "text": "10^8 < 5^12 < 2^24"
+      },
+      {
+        "label": "E",
+        "text": "10^8 < 2^24 < 5^12"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "2^24 < 10^8 < 5^12",
+    "solutionSteps": [
+      {
+        "title": "Take fourth roots",
+        "body": "All exponents are multiples of 4, so compare fourth roots."
+      },
+      {
+        "title": "Compare simpler numbers",
+        "body": "The fourth roots are 2^6=64, 10^2=100, and 5^3=125. Therefore 2^24 < 10^8 < 5^12."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "number theory",
+      "exponents",
+      "exponents",
+      "comparison"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2010-25",
+    "title": "2010 AMC 8 Problem 25: Climbing Six Stairs",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2010,
+    "problemNumber": 25,
+    "category": "Counting & Probability",
+    "subcategory": "Recursion",
+    "difficulty": 4,
+    "statement": "Everyday at school, Jo climbs a flight of 6 stairs. Jo can take the stairs 1, 2, or 3 at a time. For example, Jo could climb 3, then 1, then 2. In how many ways can Jo climb the stairs?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "13"
+      },
+      {
+        "label": "B",
+        "text": "18"
+      },
+      {
+        "label": "C",
+        "text": "20"
+      },
+      {
+        "label": "D",
+        "text": "22"
+      },
+      {
+        "label": "E",
+        "text": "24"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "24",
+    "solutionSteps": [
+      {
+        "title": "Use recurrence",
+        "body": "Let f(n) be the number of ways to reach step n. Then f(n)=f(n-1)+f(n-2)+f(n-3)."
+      },
+      {
+        "title": "Build up",
+        "body": "f(1)=1, f(2)=2, f(3)=4, so f(4)=7, f(5)=13, and f(6)=24."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2010",
+      "counting & probability",
+      "recursion",
+      "recursion",
+      "counting"
+    ],
+    "sourceName": "2010 AMC 8",
+    "license": "CC BY-NC-SA"
+  }
+];
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
@@ -22978,6 +24986,7 @@ export const sampleProblems: Problem[] = [
   ...amc2007Problems,
   ...amc2008Problems,
   ...amc2009Problems,
+  ...amc2010Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems };
