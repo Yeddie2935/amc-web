@@ -10,7 +10,7 @@ import { ProblemWorkspace } from "../components/problem/ProblemWorkspace";
 
 export function ArchivePage() {
   const progressApi = useLocalProgress(sampleProblems);
-  const years = getAvailableYears(sampleProblems);
+  const years = [...getAvailableYears(sampleProblems)].reverse();
   const [selectedYear, setSelectedYear] = useState(years[0] ?? 1999);
 
   const yearProblems = sampleProblems.filter(
