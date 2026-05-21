@@ -19322,7 +19322,7 @@ const amc2008Problems: Problem[] = [
     "contest": "AMC 8",
     "year": 2008,
     "problemNumber": 8,
-    "category": "Data",
+    "category": "Other",
     "subcategory": "Bar graphs",
     "difficulty": 1,
     "statement": "Candy sales from the Boosters Club from January through April are shown. What were the average sales per month in dollars?",
@@ -20839,6 +20839,2134 @@ const amc2008Problems: Problem[] = [
   }
 ];
 
+const amc2009Problems: Problem[] = [
+  {
+    "id": "amc8-2009-01",
+    "title": "2009 AMC 8 Problem 1: Bridget’s Apples",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 1,
+    "category": "Algebra",
+    "subcategory": "Equations",
+    "difficulty": 1,
+    "statement": "Bridget bought a bag of apples at the grocery store. She gave half of the apples to Ann. Then she gave Cassie 3 apples, keeping 4 apples for herself. How many apples did Bridget buy?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3"
+      },
+      {
+        "label": "B",
+        "text": "4"
+      },
+      {
+        "label": "C",
+        "text": "7"
+      },
+      {
+        "label": "D",
+        "text": "11"
+      },
+      {
+        "label": "E",
+        "text": "14"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "14",
+    "solutionSteps": [
+      {
+        "title": "Work backward",
+        "body": "After Bridget gave half the apples away, she still had the 3 apples for Cassie and the 4 apples for herself.",
+        "equation": "3+4=7"
+      },
+      {
+        "title": "Undo giving away half",
+        "body": "Those 7 apples are half of the original bag, so the original number was twice as large.",
+        "equation": "2\\cdot 7=14"
+      },
+      {
+        "title": "Conclude",
+        "body": "Bridget bought 14 apples."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "algebra",
+      "equations",
+      "working backward"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2009-02",
+    "title": "2009 AMC 8 Problem 2: Sports Cars and Sedans",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 2,
+    "category": "Algebra",
+    "subcategory": "Ratios and proportions",
+    "difficulty": 1,
+    "statement": "On average, for every 4 sports cars sold at the local dealership, 7 sedans are sold. The dealership predicts that it will sell 28 sports cars next month. How many sedans does it expect to sell?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7"
+      },
+      {
+        "label": "B",
+        "text": "32"
+      },
+      {
+        "label": "C",
+        "text": "35"
+      },
+      {
+        "label": "D",
+        "text": "49"
+      },
+      {
+        "label": "E",
+        "text": "112"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "49",
+    "solutionSteps": [
+      {
+        "title": "Use the ratio",
+        "body": "The sports-car-to-sedan ratio is 4:7."
+      },
+      {
+        "title": "Scale the ratio",
+        "body": "Since 28 sports cars is 7 times 4 sports cars, multiply the sedan count by 7 too.",
+        "equation": "7\\cdot 7=49"
+      },
+      {
+        "title": "Conclude",
+        "body": "The dealership expects to sell 49 sedans."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "algebra",
+      "ratio",
+      "proportion"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2009-03",
+    "title": "2009 AMC 8 Problem 3: Suzanna’s Bike Graph",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 3,
+    "category": "Algebra",
+    "subcategory": "Rates from graphs",
+    "difficulty": 1,
+    "statement": "The graph shows the constant rate at which Suzanna rides her bike. If she rides a total of a half an hour at the same speed, how many miles would she have ridden?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5"
+      },
+      {
+        "label": "B",
+        "text": "5.5"
+      },
+      {
+        "label": "C",
+        "text": "6"
+      },
+      {
+        "label": "D",
+        "text": "6.5"
+      },
+      {
+        "label": "E",
+        "text": "7"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "6",
+    "solutionSteps": [
+      {
+        "title": "Read the slope",
+        "body": "The graph shows 1 mile in 5 minutes, so her speed is 1/5 mile per minute.",
+        "equation": "1\text{ mile}/5\text{ min}"
+      },
+      {
+        "title": "Use 30 minutes",
+        "body": "A half hour is 30 minutes.",
+        "equation": "30\\cdot \frac15=6"
+      },
+      {
+        "title": "Conclude",
+        "body": "Suzanna rides 6 miles."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "graph",
+      "rates",
+      "proportional relationships"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2009/problem-03-bike-graph.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2009-04",
+    "title": "2009 AMC 8 Problem 4: Five Pieces Puzzle",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 4,
+    "category": "Geometry",
+    "subcategory": "Spatial reasoning",
+    "difficulty": 2,
+    "statement": "The five pieces shown below can be arranged to form four of the five figures shown in the choices. Which figure cannot be formed?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "A"
+      },
+      {
+        "label": "B",
+        "text": "B"
+      },
+      {
+        "label": "C",
+        "text": "C"
+      },
+      {
+        "label": "D",
+        "text": "D"
+      },
+      {
+        "label": "E",
+        "text": "E"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "B",
+    "solutionSteps": [
+      {
+        "title": "Look at the pieces",
+        "body": "The pieces are straight bars of lengths 1, 2, 3, 4, and 5 unit squares."
+      },
+      {
+        "title": "Test the longest piece",
+        "body": "Figure B has no place where the length-5 bar can fit without breaking the shape."
+      },
+      {
+        "title": "Conclude",
+        "body": "Figure B cannot be formed."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "geometry",
+      "spatial reasoning",
+      "polyominoes"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2009/problem-04-polyomino-pieces.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2009-05",
+    "title": "2009 AMC 8 Problem 5: Three-Term Sequence",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 5,
+    "category": "Algebra",
+    "subcategory": "Sequences",
+    "difficulty": 1,
+    "statement": "A sequence of numbers starts with 1, 2, and 3. The fourth number of the sequence is the sum of the previous three numbers in the sequence: 1 + 2 + 3 = 6. In the same way, every number after the fourth is the sum of the previous three numbers. What is the eighth number in the sequence?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "11"
+      },
+      {
+        "label": "B",
+        "text": "20"
+      },
+      {
+        "label": "C",
+        "text": "37"
+      },
+      {
+        "label": "D",
+        "text": "68"
+      },
+      {
+        "label": "E",
+        "text": "99"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "68",
+    "solutionSteps": [
+      {
+        "title": "Generate terms",
+        "body": "Each new term is the sum of the previous three.",
+        "equation": "1,2,3,6"
+      },
+      {
+        "title": "Continue",
+        "body": "The next terms are 2+3+6=11, then 3+6+11=20, then 6+11+20=37.",
+        "equation": "1,2,3,6,11,20,37"
+      },
+      {
+        "title": "Find the eighth",
+        "body": "The eighth term is 11+20+37=68.",
+        "equation": "11+20+37=68"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "sequences",
+      "recursion",
+      "arithmetic"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2009-06",
+    "title": "2009 AMC 8 Problem 6: Filling a Pool",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 6,
+    "category": "Algebra",
+    "subcategory": "Rates",
+    "difficulty": 1,
+    "statement": "Steve's empty swimming pool will hold 24,000 gallons of water when full. It will be filled by 4 hoses, each of which supplies 2.5 gallons of water per minute. How many hours will it take to fill Steve's pool?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "40"
+      },
+      {
+        "label": "B",
+        "text": "42"
+      },
+      {
+        "label": "C",
+        "text": "44"
+      },
+      {
+        "label": "D",
+        "text": "46"
+      },
+      {
+        "label": "E",
+        "text": "48"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "40",
+    "solutionSteps": [
+      {
+        "title": "Find the total rate",
+        "body": "Four hoses each supply 2.5 gallons per minute.",
+        "equation": "4\\cdot 2.5=10"
+      },
+      {
+        "title": "Find minutes",
+        "body": "At 10 gallons per minute, 24,000 gallons takes 2,400 minutes.",
+        "equation": "24000\\div 10=2400"
+      },
+      {
+        "title": "Convert to hours",
+        "body": "There are 60 minutes in an hour.",
+        "equation": "2400\\div 60=40"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "rates",
+      "unit conversion",
+      "algebra"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2009-07",
+    "title": "2009 AMC 8 Problem 7: Triangular Road Plot",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 7,
+    "category": "Geometry",
+    "subcategory": "Area of triangles",
+    "difficulty": 2,
+    "statement": "The triangular plot ACD lies between Aspen Road, Brown Road and a railroad. Main Street runs east and west, and the railroad runs north and south. The numbers in the diagram indicate distances in miles. The width of the railroad track can be ignored. How many square miles are in the plot of land ACD?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2"
+      },
+      {
+        "label": "B",
+        "text": "3"
+      },
+      {
+        "label": "C",
+        "text": "4.5"
+      },
+      {
+        "label": "D",
+        "text": "6"
+      },
+      {
+        "label": "E",
+        "text": "9"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "4.5",
+    "solutionSteps": [
+      {
+        "title": "Choose a base",
+        "body": "Use CD as the base. The diagram shows CD = 3 miles."
+      },
+      {
+        "title": "Find the height",
+        "body": "The perpendicular distance from A to the railroad line is AB = 3 miles."
+      },
+      {
+        "title": "Compute area",
+        "body": "The triangular plot has area one half times base times height.",
+        "equation": "\frac12\\cdot 3\\cdot 3=4.5"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "geometry",
+      "area",
+      "triangles"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2009/problem-07-road-triangle.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2009-08",
+    "title": "2009 AMC 8 Problem 8: Changing Rectangle Dimensions",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 8,
+    "category": "Geometry",
+    "subcategory": "Area scaling",
+    "difficulty": 2,
+    "statement": "The length of a rectangle is increased by 10 percent and the width is decreased by 10 percent. What percent of the old area is the new area?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "90"
+      },
+      {
+        "label": "B",
+        "text": "99"
+      },
+      {
+        "label": "C",
+        "text": "100"
+      },
+      {
+        "label": "D",
+        "text": "101"
+      },
+      {
+        "label": "E",
+        "text": "110"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "99",
+    "solutionSteps": [
+      {
+        "title": "Use simple dimensions",
+        "body": "Let the old rectangle be 10 by 10, so its area is 100."
+      },
+      {
+        "title": "Apply the changes",
+        "body": "The new dimensions are 11 by 9."
+      },
+      {
+        "title": "Compare areas",
+        "body": "The new area is 99, so it is 99 percent of the old area.",
+        "equation": "11\\cdot 9=99"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "geometry",
+      "area",
+      "percent"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2009-09",
+    "title": "2009 AMC 8 Problem 9: Regular Polygons Chain",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 9,
+    "category": "Geometry",
+    "subcategory": "Polygons",
+    "difficulty": 3,
+    "statement": "Construct a square on one side of an equilateral triangle. On one non-adjacent side of the square, construct a regular pentagon, as shown. On a non-adjacent side of the pentagon, construct a hexagon. Continue to construct regular polygons in the same way, until you construct an octagon. How many sides does the resulting polygon have?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "21"
+      },
+      {
+        "label": "B",
+        "text": "23"
+      },
+      {
+        "label": "C",
+        "text": "25"
+      },
+      {
+        "label": "D",
+        "text": "27"
+      },
+      {
+        "label": "E",
+        "text": "29"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "23",
+    "solutionSteps": [
+      {
+        "title": "List the shapes",
+        "body": "The chain uses polygons with 3, 4, 5, 6, 7, and 8 sides."
+      },
+      {
+        "title": "Account for glued sides",
+        "body": "The end shapes lose one side each to a neighbor, and the four middle shapes lose two sides each."
+      },
+      {
+        "title": "Count outside sides",
+        "body": "The outside boundary has (3+8−2) + (4+5+6+7−8) = 9+14 = 23 sides.",
+        "equation": "23"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "geometry",
+      "polygons",
+      "counting"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2009/problem-09-polygon-chain.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2009-10",
+    "title": "2009 AMC 8 Problem 10: Checkerboard Interior Squares",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 10,
+    "category": "Counting & Probability",
+    "subcategory": "Probability with grids",
+    "difficulty": 2,
+    "statement": "On a checkerboard composed of 64 unit squares, what is the probability that a randomly chosen unit square does not touch the outer edge of the board?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/16"
+      },
+      {
+        "label": "B",
+        "text": "7/16"
+      },
+      {
+        "label": "C",
+        "text": "1/2"
+      },
+      {
+        "label": "D",
+        "text": "9/16"
+      },
+      {
+        "label": "E",
+        "text": "49/64"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "9/16",
+    "solutionSteps": [
+      {
+        "title": "Count all squares",
+        "body": "An 8 by 8 checkerboard has 64 unit squares.",
+        "equation": "8^2=64"
+      },
+      {
+        "title": "Count interior squares",
+        "body": "Squares not touching the edge form a 6 by 6 interior block.",
+        "equation": "6^2=36"
+      },
+      {
+        "title": "Find probability",
+        "body": "The probability is 36 out of 64, which simplifies to 9/16.",
+        "equation": "\frac{36}{64}=\frac{9}{16}"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "probability",
+      "grid",
+      "checkerboard"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2009/problem-10-checkerboard.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2009-11",
+    "title": "2009 AMC 8 Problem 11: Pencil Purchases",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 11,
+    "category": "Number Theory",
+    "subcategory": "Common factors",
+    "difficulty": 3,
+    "statement": "The Amaco Middle School bookstore sells pencils costing a whole number of cents. Some seventh graders each bought a pencil, paying a total of 1.43 dollars. Some of the 30 sixth graders each bought a pencil, and they paid a total of 1.95 dollars. How many more sixth graders than seventh graders bought a pencil?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "4"
+      },
+      {
+        "label": "E",
+        "text": "5"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Convert to cents",
+        "body": "The totals are 143 cents and 195 cents."
+      },
+      {
+        "title": "Find the pencil price",
+        "body": "The price must divide both totals. Since 143=11·13 and 195=3·5·13, the pencil costs 13 cents."
+      },
+      {
+        "title": "Count students",
+        "body": "The seventh graders were 143/13=11 students, and the sixth graders were 195/13=15 students. The difference is 4.",
+        "equation": "15-11=4"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "number theory",
+      "factors",
+      "word problems"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2009-12",
+    "title": "2009 AMC 8 Problem 12: Two Spinners Prime Sum",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 12,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 2,
+    "statement": "The two spinners shown are spun once and each lands on one of the numbered sectors. What is the probability that the sum of the numbers in the two sectors is prime?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/2"
+      },
+      {
+        "label": "B",
+        "text": "2/3"
+      },
+      {
+        "label": "C",
+        "text": "3/4"
+      },
+      {
+        "label": "D",
+        "text": "7/9"
+      },
+      {
+        "label": "E",
+        "text": "5/6"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "7/9",
+    "solutionSteps": [
+      {
+        "title": "List the possible sums",
+        "body": "The first spinner has 1, 3, 5 and the second has 2, 4, 6, giving 9 equally likely sums."
+      },
+      {
+        "title": "Check primality",
+        "body": "The only non-prime sum is 3+6=9. The other 8? Wait, 1+2=3, 1+4=5, 1+6=7, 3+2=5, 3+4=7, 5+2=7, 5+6=11 are prime; 5+4=9 is also non-prime. There are 7 prime sums."
+      },
+      {
+        "title": "Find the probability",
+        "body": "There are 7 favorable outcomes out of 9.",
+        "equation": "\frac79"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "probability",
+      "spinners",
+      "prime numbers"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2009/problem-12-spinners.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2009-13",
+    "title": "2009 AMC 8 Problem 13: Digits 1, 3, and 5",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 13,
+    "category": "Counting & Probability",
+    "subcategory": "Permutations",
+    "difficulty": 2,
+    "statement": "A three-digit integer contains one of each of the digits 1, 3, and 5. What is the probability that the integer is divisible by 5?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/6"
+      },
+      {
+        "label": "B",
+        "text": "1/3"
+      },
+      {
+        "label": "C",
+        "text": "1/2"
+      },
+      {
+        "label": "D",
+        "text": "2/3"
+      },
+      {
+        "label": "E",
+        "text": "5/6"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "1/3",
+    "solutionSteps": [
+      {
+        "title": "Count all numbers",
+        "body": "The three digits can be arranged in 3! = 6 ways."
+      },
+      {
+        "title": "Use divisibility by 5",
+        "body": "The number must end in 5. Then the first two digits can be 1 and 3 in either order."
+      },
+      {
+        "title": "Find probability",
+        "body": "There are 2 favorable numbers out of 6.",
+        "equation": "\frac{2}{6}=\frac13"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "probability",
+      "permutations",
+      "divisibility"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2009-14",
+    "title": "2009 AMC 8 Problem 14: Round Trip Average Speed",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 14,
+    "category": "Algebra",
+    "subcategory": "Average speed",
+    "difficulty": 3,
+    "statement": "Austin and Temple are 50 miles apart along Interstate 35. Bonnie drove from Austin to her daughter's house in Temple, averaging 60 miles per hour. Leaving the car with her daughter, Bonnie rode a bus back to Austin along the same route and averaged 40 miles per hour on the return trip. What was the average speed for the round trip, in miles per hour?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "46"
+      },
+      {
+        "label": "B",
+        "text": "48"
+      },
+      {
+        "label": "C",
+        "text": "50"
+      },
+      {
+        "label": "D",
+        "text": "52"
+      },
+      {
+        "label": "E",
+        "text": "54"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "48",
+    "solutionSteps": [
+      {
+        "title": "Find each time",
+        "body": "The trip there took 50/60 = 5/6 hours, and the return trip took 50/40 = 5/4 hours."
+      },
+      {
+        "title": "Add distance and time",
+        "body": "The total distance is 100 miles and the total time is 5/6+5/4=25/12 hours."
+      },
+      {
+        "title": "Compute average speed",
+        "body": "Average speed is total distance divided by total time.",
+        "equation": "100\\div \frac{25}{12}=48"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "algebra",
+      "rates",
+      "average speed"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2009-15",
+    "title": "2009 AMC 8 Problem 15: Hot Chocolate Recipe",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 15,
+    "category": "Algebra",
+    "subcategory": "Ratios",
+    "difficulty": 3,
+    "statement": "A recipe that makes 5 servings of hot chocolate requires 2 squares of chocolate, 1/4 cup sugar, 1 cup water and 4 cups milk. Jordan has 5 squares of chocolate, 2 cups of sugar, lots of water, and 7 cups of milk. If he maintains the same ratio of ingredients, what is the greatest number of servings of hot chocolate he can make?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5 1/8"
+      },
+      {
+        "label": "B",
+        "text": "6 1/4"
+      },
+      {
+        "label": "C",
+        "text": "7 1/2"
+      },
+      {
+        "label": "D",
+        "text": "8 3/4"
+      },
+      {
+        "label": "E",
+        "text": "9 7/8"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "8 3/4",
+    "solutionSteps": [
+      {
+        "title": "Check each ingredient",
+        "body": "Chocolate could make 12.5 servings and sugar could make 40 servings. Water is unlimited."
+      },
+      {
+        "title": "Find the limiting ingredient",
+        "body": "Milk is limiting: 4 cups make 5 servings, so 7 cups make 7/4 batches."
+      },
+      {
+        "title": "Compute servings",
+        "body": "7/4 batches of 5 servings gives 35/4 = 8 3/4 servings.",
+        "equation": "5\\cdot\frac74=\frac{35}{4}=8\frac34"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "ratio",
+      "limiting factor",
+      "fractions"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2009-16",
+    "title": "2009 AMC 8 Problem 16: Digit Product 24",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 16,
+    "category": "Counting & Probability",
+    "subcategory": "Permutations",
+    "difficulty": 4,
+    "statement": "How many 3-digit positive integers have digits whose product equals 24?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "12"
+      },
+      {
+        "label": "B",
+        "text": "15"
+      },
+      {
+        "label": "C",
+        "text": "18"
+      },
+      {
+        "label": "D",
+        "text": "21"
+      },
+      {
+        "label": "E",
+        "text": "24"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "21",
+    "solutionSteps": [
+      {
+        "title": "Find digit groups",
+        "body": "The possible digit multisets are {1,3,8}, {1,4,6}, {2,2,6}, and {2,3,4}."
+      },
+      {
+        "title": "Count arrangements",
+        "body": "The sets with three distinct digits each give 6 numbers; {2,2,6} gives 3 numbers."
+      },
+      {
+        "title": "Add them",
+        "body": "There are 6+6+3+6 = 21 such integers.",
+        "equation": "21"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "counting",
+      "digits",
+      "permutations"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2009-17",
+    "title": "2009 AMC 8 Problem 17: Square and Cube Multipliers",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 17,
+    "category": "Number Theory",
+    "subcategory": "Prime factorization",
+    "difficulty": 4,
+    "statement": "The positive integers x and y are the two smallest positive integers for which the product of 360 and x is a square and the product of 360 and y is a cube. What is the sum of x and y?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "80"
+      },
+      {
+        "label": "B",
+        "text": "85"
+      },
+      {
+        "label": "C",
+        "text": "115"
+      },
+      {
+        "label": "D",
+        "text": "165"
+      },
+      {
+        "label": "E",
+        "text": "610"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "85",
+    "solutionSteps": [
+      {
+        "title": "Factor 360",
+        "body": "360 = 2^3 · 3^2 · 5."
+      },
+      {
+        "title": "Make a square",
+        "body": "To make all exponents even, multiply by 2·5, so x=10."
+      },
+      {
+        "title": "Make a cube",
+        "body": "To make exponents multiples of 3, multiply by 3·5^2, so y=75. Therefore x+y=85.",
+        "equation": "10+75=85"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "number theory",
+      "prime factorization",
+      "squares and cubes"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2009-18",
+    "title": "2009 AMC 8 Problem 18: Tiled Floor Pattern",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 18,
+    "category": "Counting & Probability",
+    "subcategory": "Patterns",
+    "difficulty": 3,
+    "statement": "The diagram represents a 7-foot-by-7-foot floor that is tiled with 1-square-foot black tiles and white tiles. Notice that the corners have white tiles. If a 15-foot-by-15-foot floor is to be tiled in the same manner, how many white tiles will be needed?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "49"
+      },
+      {
+        "label": "B",
+        "text": "57"
+      },
+      {
+        "label": "C",
+        "text": "64"
+      },
+      {
+        "label": "D",
+        "text": "96"
+      },
+      {
+        "label": "E",
+        "text": "126"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "64",
+    "solutionSteps": [
+      {
+        "title": "Notice the pattern",
+        "body": "For odd side lengths 1, 3, 5, 7, ... the number of white tiles follows 1, 4, 9, 16, ..."
+      },
+      {
+        "title": "Connect to squares",
+        "body": "A (2n−1)-by-(2n−1) floor has n^2 white tiles."
+      },
+      {
+        "title": "Use 15",
+        "body": "Since 15 is the 8th positive odd number, the floor needs 8^2 = 64 white tiles.",
+        "equation": "8^2=64"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "patterns",
+      "grid",
+      "counting"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2009/problem-18-tiled-floor.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2009-19",
+    "title": "2009 AMC 8 Problem 19: Isosceles Angle Cases",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 19,
+    "category": "Geometry",
+    "subcategory": "Angles",
+    "difficulty": 4,
+    "statement": "Two angles of an isosceles triangle measure 70° and x°. What is the sum of the three possible values of x?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "95"
+      },
+      {
+        "label": "B",
+        "text": "125"
+      },
+      {
+        "label": "C",
+        "text": "140"
+      },
+      {
+        "label": "D",
+        "text": "165"
+      },
+      {
+        "label": "E",
+        "text": "180"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "165",
+    "solutionSteps": [
+      {
+        "title": "Case 1",
+        "body": "If x is the other base angle with 70°, then x=70."
+      },
+      {
+        "title": "Case 2",
+        "body": "If 70° is the vertex angle, then 2x+70=180, so x=55."
+      },
+      {
+        "title": "Case 3",
+        "body": "If x is the vertex angle and 70° is a base angle, then x+140=180, so x=40. The sum is 70+55+40=165.",
+        "equation": "70+55+40=165"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "geometry",
+      "angles",
+      "isosceles triangles"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2009-20",
+    "title": "2009 AMC 8 Problem 20: Non-Congruent Dot Triangles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 20,
+    "category": "Geometry",
+    "subcategory": "Counting triangles",
+    "difficulty": 4,
+    "statement": "How many non-congruent triangles have vertices at three of the eight points in the array shown below?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5"
+      },
+      {
+        "label": "B",
+        "text": "6"
+      },
+      {
+        "label": "C",
+        "text": "7"
+      },
+      {
+        "label": "D",
+        "text": "8"
+      },
+      {
+        "label": "E",
+        "text": "9"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "8",
+    "solutionSteps": [
+      {
+        "title": "Use symmetry",
+        "body": "Represent each triangle with a base on one row; reflecting top and bottom gives congruent triangles."
+      },
+      {
+        "title": "Count base lengths",
+        "body": "For base length 1 there are 3 types, for base length 2 there are 3 types, and for base length 3 there are 2 types."
+      },
+      {
+        "title": "Add them",
+        "body": "The total is 3+3+2 = 8.",
+        "equation": "8"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "geometry",
+      "congruence",
+      "counting"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2009/problem-20-dot-array.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2009-21",
+    "title": "2009 AMC 8 Problem 21: Rows and Columns Average",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 21,
+    "category": "Algebra",
+    "subcategory": "Averages",
+    "difficulty": 4,
+    "statement": "Andy and Bethany have a rectangular array of numbers with 40 rows and 75 columns. Andy adds the numbers in each row. The average of his 40 sums is A. Bethany adds the numbers in each column. The average of her 75 sums is B. What is the value of A/B?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "64/225"
+      },
+      {
+        "label": "B",
+        "text": "8/15"
+      },
+      {
+        "label": "C",
+        "text": "1"
+      },
+      {
+        "label": "D",
+        "text": "15/8"
+      },
+      {
+        "label": "E",
+        "text": "225/64"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "15/8",
+    "solutionSteps": [
+      {
+        "title": "Let S be the total sum",
+        "body": "The 40 row sums average to A, so their total is 40A. The 75 column sums average to B, so their total is 75B."
+      },
+      {
+        "title": "Use the same total",
+        "body": "Both totals are the sum of every entry in the array.",
+        "equation": "40A=75B"
+      },
+      {
+        "title": "Solve the ratio",
+        "body": "Divide by 40B to get A/B=75/40=15/8.",
+        "equation": "\frac AB=\frac{75}{40}=\frac{15}{8}"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "algebra",
+      "averages",
+      "arrays"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2009-22",
+    "title": "2009 AMC 8 Problem 22: No Digit 1",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 22,
+    "category": "Counting & Probability",
+    "subcategory": "Complementary counting",
+    "difficulty": 4,
+    "statement": "How many whole numbers between 1 and 1000 do not contain the digit 1?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "512"
+      },
+      {
+        "label": "B",
+        "text": "648"
+      },
+      {
+        "label": "C",
+        "text": "720"
+      },
+      {
+        "label": "D",
+        "text": "728"
+      },
+      {
+        "label": "E",
+        "text": "800"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "728",
+    "solutionSteps": [
+      {
+        "title": "Use three digit slots",
+        "body": "Count numbers from 000 to 999 that do not contain 1."
+      },
+      {
+        "title": "Count choices",
+        "body": "Each slot has 9 choices: all digits except 1.",
+        "equation": "9^3=729"
+      },
+      {
+        "title": "Remove zero",
+        "body": "The number 000 represents 0, which is not between 1 and 1000, so subtract 1.",
+        "equation": "729-1=728"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "counting",
+      "digits",
+      "complementary counting"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2009-23",
+    "title": "2009 AMC 8 Problem 23: Jelly Beans for Class",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 23,
+    "category": "Algebra",
+    "subcategory": "Quadratic word problems",
+    "difficulty": 5,
+    "statement": "On the last day of school, Mrs. Wonderful gave jelly beans to her class. She gave each boy as many jelly beans as there were boys in the class. She gave each girl as many jelly beans as there were girls in the class. She brought 400 jelly beans, and when she finished, she had six jelly beans left. There were two more boys than girls in her class. How many students were in her class?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "26"
+      },
+      {
+        "label": "B",
+        "text": "28"
+      },
+      {
+        "label": "C",
+        "text": "30"
+      },
+      {
+        "label": "D",
+        "text": "32"
+      },
+      {
+        "label": "E",
+        "text": "34"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "28",
+    "solutionSteps": [
+      {
+        "title": "Set variables",
+        "body": "Let x be the number of girls. Then there are x+2 boys."
+      },
+      {
+        "title": "Set up jelly beans used",
+        "body": "She used 400−6=394 jelly beans. Girls receive x^2 total and boys receive (x+2)^2 total.",
+        "equation": "x^2+(x+2)^2=394"
+      },
+      {
+        "title": "Solve",
+        "body": "This simplifies to x^2+2x=195, so x=13. Then there are 13 girls and 15 boys, for 28 students.",
+        "equation": "13+15=28"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "algebra",
+      "quadratic",
+      "word problem"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2009-24",
+    "title": "2009 AMC 8 Problem 24: Cryptarithm Digit D",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 24,
+    "category": "Logic",
+    "subcategory": "Cryptarithms",
+    "difficulty": 5,
+    "statement": "The letters A, B, C and D represent digits. If AB − CA = A and AB + CA = DA, what digit does D represent?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5"
+      },
+      {
+        "label": "B",
+        "text": "6"
+      },
+      {
+        "label": "C",
+        "text": "7"
+      },
+      {
+        "label": "D",
+        "text": "8"
+      },
+      {
+        "label": "E",
+        "text": "9"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "9",
+    "solutionSteps": [
+      {
+        "title": "Use the subtraction ones column",
+        "body": "From B−A ending in A and the addition ones column B+A ending in A, B must be 0."
+      },
+      {
+        "title": "Find A",
+        "body": "Since 0−A requires borrowing and gives A, we get A=5."
+      },
+      {
+        "title": "Find C and D",
+        "body": "Using the tens columns gives C=4 and D=5+C=9.",
+        "equation": "D=9"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "logic",
+      "cryptarithm",
+      "digits"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2009/problem-24-cryptarithm.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2009-25",
+    "title": "2009 AMC 8 Problem 25: Cut and Reassembled Cube",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2009,
+    "problemNumber": 25,
+    "category": "Geometry",
+    "subcategory": "Surface area",
+    "difficulty": 5,
+    "statement": "A one-cubic-foot cube is cut into four pieces by three cuts parallel to the top face of the cube. The first cut is 1/2 foot from the top face. The second cut is 1/3 foot below the first cut, and the third cut is 1/17 foot below the second cut. From the top to the bottom the pieces are labeled A, B, C, and D. The pieces are then glued together end to end as shown in the second diagram. What is the total surface area of this solid in square feet?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6"
+      },
+      {
+        "label": "B",
+        "text": "7"
+      },
+      {
+        "label": "C",
+        "text": "419/51"
+      },
+      {
+        "label": "D",
+        "text": "158/17"
+      },
+      {
+        "label": "E",
+        "text": "11"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "11",
+    "solutionSteps": [
+      {
+        "title": "Top and bottom areas",
+        "body": "Each piece has top area 1 and bottom area 1. The four top faces total 4 and the four bottom faces total 4, giving 8."
+      },
+      {
+        "title": "Two long side views",
+        "body": "On two opposite sides, the stacked heights add to the original cube height 1, so these sides add 2 more square feet."
+      },
+      {
+        "title": "Front and back views",
+        "body": "The front view contributes 1/2 and the back view contributes 1/2. The total is 8+2+1=11.",
+        "equation": "8+2+\frac12+\frac12=11"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the quantities and what the question asks for.",
+        "visualHint": "Highlight the numbers, labels, or diagram pieces that matter."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the key equation, pattern, or counting idea step by step.",
+        "visualHint": "Animate the main calculation or diagram transformation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "cube-net",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2009",
+      "geometry",
+      "surface area",
+      "3D geometry"
+    ],
+    "sourceName": "2009 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2009/problem-25-cut-cube.svg"
+    ],
+    "needsDiagram": true
+  }
+];
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
@@ -20849,6 +22977,7 @@ export const sampleProblems: Problem[] = [
   ...amc2006Problems,
   ...amc2007Problems,
   ...amc2008Problems,
+  ...amc2009Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems };
