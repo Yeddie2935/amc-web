@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" role="img" aria-label="Three equal squares with shaded pentagon AJICB">
+  <rect width="480" height="300" fill="white"/>
+  <g fill="none" stroke="black" stroke-width="3">
+    <rect x="170" y="30" width="90" height="90"/>
+    <rect x="80" y="120" width="90" height="90"/>
+    <rect x="170" y="120" width="90" height="90"/>
+  </g>
+  <polygon points="170,30 260,30 260,120 260,210 170,120" fill="#999" opacity="0.7" stroke="black" stroke-width="3"/>
+  <line x1="170" y1="30" x2="260" y2="210" stroke="black" stroke-width="3"/>
+  <g font-family="Georgia,serif" font-size="18">
+    <text x="160" y="25">A</text><text x="265" y="25">B</text><text x="265" y="125">C</text><text x="158" y="125">D</text>
+    <text x="68" y="125">E</text><text x="68" y="225">F</text><text x="158" y="225">G</text><text x="175" y="125">H</text><text x="267" y="125">I</text><text x="267" y="225">J</text>
+  </g>
+</svg>

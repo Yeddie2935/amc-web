@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 340" role="img" aria-label="City park route grid with house southwest and school northeast">
+  <rect width="420" height="340" fill="white"/>
+  <g stroke="#999" stroke-width="1">
+    <path d="M60 40 V300 M100 40 V300 M140 40 V300 M180 40 V300 M220 40 V300 M260 40 V300 M300 40 V300 M340 40 V300"/>
+    <path d="M40 60 H360 M40 100 H360 M40 140 H360 M40 180 H360 M40 220 H360 M40 260 H360"/>
+  </g>
+  <rect x="140" y="100" width="120" height="120" fill="#222" opacity="0.9"/>
+  <path d="M60 260 H140 M140 260 V220 M260 100 H340 M340 100 V20" fill="none" stroke="#0f172a" stroke-width="4"/>
+  <line x1="140" y1="220" x2="260" y2="100" stroke="#0f172a" stroke-width="4"/>
+  <circle cx="60" cy="260" r="5" fill="black"/><circle cx="340" cy="20" r="5" fill="black"/>
+  <text x="55" y="285" font-family="Georgia,serif" font-size="18">Home</text><text x="300" y="35" font-family="Georgia,serif" font-size="18">School</text>
+  <text x="170" y="160" font-family="Georgia,serif" font-size="20" fill="white">Park</text>
+</svg>

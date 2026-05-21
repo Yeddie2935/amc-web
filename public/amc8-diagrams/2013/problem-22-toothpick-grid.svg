@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 300" role="img" aria-label="Toothpick grid schematic 60 long and 32 wide">
+  <rect width="460" height="300" fill="white"/>
+  <g stroke="black" stroke-width="3" stroke-linecap="round">
+    <line x1="70" y1="40" x2="390" y2="40"/><line x1="70" y1="95" x2="390" y2="95"/><line x1="70" y1="150" x2="390" y2="150"/>
+    <line x1="70" y1="40" x2="70" y2="230"/><line x1="125" y1="40" x2="125" y2="230"/><line x1="180" y1="40" x2="180" y2="230"/>
+    <line x1="235" y1="40" x2="235" y2="230"/><line x1="290" y1="40" x2="290" y2="230"/><line x1="345" y1="40" x2="345" y2="230"/><line x1="390" y1="40" x2="390" y2="230"/>
+  </g>
+  <text x="230" y="275" font-family="Georgia,serif" font-size="20" text-anchor="middle">60 toothpicks long, 32 toothpicks wide</text>
+</svg>

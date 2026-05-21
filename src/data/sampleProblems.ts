@@ -29085,6 +29085,2071 @@ const amc2012Problems: Problem[] = [
   }
 ];
 
+const amc2013Problems: Problem[] = [
+  {
+    "id": "amc8-2013-01",
+    "title": "2013 AMC 8 Problem 1: Model Car Rows",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 1,
+    "category": "Algebra",
+    "subcategory": "Multiples",
+    "difficulty": 1,
+    "statement": "Danica wants to arrange her model cars in rows with exactly 6 cars in each row. She now has 23 model cars. What is the smallest number of additional cars she must buy in order to be able to arrange all her cars this way?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "4"
+      },
+      {
+        "label": "E",
+        "text": "5"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "1",
+    "solutionSteps": [
+      {
+        "title": "Find the next full row",
+        "body": "Rows must have 6 cars each, so the total number of cars must be a multiple of 6."
+      },
+      {
+        "title": "Compare to 23",
+        "body": "The next multiple of 6 after 23 is 24.",
+        "equation": "6×4=24"
+      },
+      {
+        "title": "Find the extra cars",
+        "body": "Danica needs 24-23=1 additional car."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Circle answer choice A."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "multiples",
+      "division"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2013-02",
+    "title": "2013 AMC 8 Problem 2: Fish Market Discount",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 2,
+    "category": "Algebra",
+    "subcategory": "Percent discount",
+    "difficulty": 1,
+    "statement": "A sign at the fish market says, \"50% off, today only: half-pound packages for just $3 per package.\" What is the regular price for a full pound of fish, in dollars?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6"
+      },
+      {
+        "label": "B",
+        "text": "9"
+      },
+      {
+        "label": "C",
+        "text": "10"
+      },
+      {
+        "label": "D",
+        "text": "12"
+      },
+      {
+        "label": "E",
+        "text": "15"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "12",
+    "solutionSteps": [
+      {
+        "title": "Undo the 50% discount",
+        "body": "If $3 is half price for a half-pound package, then the regular price for a half pound is $6."
+      },
+      {
+        "title": "Scale to one pound",
+        "body": "A full pound is two half-pound packages.",
+        "equation": "2× 6=12"
+      },
+      {
+        "title": "Conclude",
+        "body": "The regular price for a full pound is $12."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "percent",
+      "unit price"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2013-03",
+    "title": "2013 AMC 8 Problem 3: Alternating Sum",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 3,
+    "category": "Algebra",
+    "subcategory": "Arithmetic patterns",
+    "difficulty": 2,
+    "statement": "What is the value of 4(-1+2-3+4-5+6-7+⋯+1000)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "-10"
+      },
+      {
+        "label": "B",
+        "text": "0"
+      },
+      {
+        "label": "C",
+        "text": "1"
+      },
+      {
+        "label": "D",
+        "text": "500"
+      },
+      {
+        "label": "E",
+        "text": "2000"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "2000",
+    "solutionSteps": [
+      {
+        "title": "Group pairs",
+        "body": "Pair consecutive terms inside the parentheses.",
+        "equation": "(-1+2)+(-3+4)+⋯+(-999+1000)"
+      },
+      {
+        "title": "Count pairs",
+        "body": "Each pair equals 1, and there are 500 pairs."
+      },
+      {
+        "title": "Multiply by 4",
+        "body": "The expression equals 4×500=2000."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Circle answer choice E."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "patterns",
+      "arithmetic"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2013-04",
+    "title": "2013 AMC 8 Problem 4: Forgotten Restaurant Money",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 4,
+    "category": "Algebra",
+    "subcategory": "Equal sharing",
+    "difficulty": 1,
+    "statement": "Eight friends ate at a restaurant and agreed to share the bill equally. Because Judi forgot her money, each of her seven friends paid an extra $2.50 to cover her portion of the total bill. What was the total bill?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "$120"
+      },
+      {
+        "label": "B",
+        "text": "$128"
+      },
+      {
+        "label": "C",
+        "text": "$140"
+      },
+      {
+        "label": "D",
+        "text": "$144"
+      },
+      {
+        "label": "E",
+        "text": "$160"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "$140",
+    "solutionSteps": [
+      {
+        "title": "Find Judi's share",
+        "body": "The seven friends together paid Judi's missing share.",
+        "equation": "7× 2.50=17.50"
+      },
+      {
+        "title": "Scale to all eight shares",
+        "body": "The total bill is eight equal shares."
+      },
+      {
+        "title": "Compute total",
+        "body": "8×$17.50=$140."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "rates",
+      "sharing"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2013-05",
+    "title": "2013 AMC 8 Problem 5: Mean vs Median Weights",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 5,
+    "category": "Other",
+    "subcategory": "Statistics",
+    "difficulty": 2,
+    "statement": "Hammie is in 6th grade and weighs 106 pounds. His quadruplet sisters are tiny babies and weigh 5, 5, 6, and 8 pounds. Which is greater, the average (mean) weight of these five children or the median weight, and by how many pounds?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "median, by 60"
+      },
+      {
+        "label": "B",
+        "text": "median, by 20"
+      },
+      {
+        "label": "C",
+        "text": "average, by 5"
+      },
+      {
+        "label": "D",
+        "text": "average, by 15"
+      },
+      {
+        "label": "E",
+        "text": "average, by 20"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "average, by 20",
+    "solutionSteps": [
+      {
+        "title": "Order the weights",
+        "body": "The weights in order are 5, 5, 6, 8, 106, so the median is 6."
+      },
+      {
+        "title": "Find the mean",
+        "body": "The sum is 130, and 130/5=26."
+      },
+      {
+        "title": "Compare",
+        "body": "The average exceeds the median by 26-6=20 pounds."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Circle answer choice E."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "mean",
+      "median"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2013-06",
+    "title": "2013 AMC 8 Problem 6: Product Pyramid",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 6,
+    "category": "Algebra",
+    "subcategory": "Working backward",
+    "difficulty": 2,
+    "statement": "The number in each box is the product of the numbers in the two boxes that touch it in the row above. For example, 30=6×5. What is the missing number in the top row?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2"
+      },
+      {
+        "label": "B",
+        "text": "3"
+      },
+      {
+        "label": "C",
+        "text": "4"
+      },
+      {
+        "label": "D",
+        "text": "5"
+      },
+      {
+        "label": "E",
+        "text": "6"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Work up from 600",
+        "body": "Let the missing middle-row number be x. Since 30×x=600, x=20."
+      },
+      {
+        "title": "Use the top row",
+        "body": "Let the missing top number be y. Since 5×y=20, y=4."
+      },
+      {
+        "title": "Answer",
+        "body": "The missing number in the top row is 4."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "multiplication",
+      "working backward"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2013/problem-06-product-pyramid.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2013-07",
+    "title": "2013 AMC 8 Problem 7: Train Cars Passing",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 7,
+    "category": "Algebra",
+    "subcategory": "Rates",
+    "difficulty": 2,
+    "statement": "Trey and his mom stopped at a railroad crossing to let a train pass. As the train began to pass, Trey counted 6 cars in the first 10 seconds. It took the train 2 minutes and 45 seconds to clear the crossing at a constant speed. Which of the following was the most likely number of cars in the train?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "60"
+      },
+      {
+        "label": "B",
+        "text": "80"
+      },
+      {
+        "label": "C",
+        "text": "100"
+      },
+      {
+        "label": "D",
+        "text": "120"
+      },
+      {
+        "label": "E",
+        "text": "140"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "100",
+    "solutionSteps": [
+      {
+        "title": "Convert time",
+        "body": "2 minutes 45 seconds is 165 seconds."
+      },
+      {
+        "title": "Use the rate",
+        "body": "6 cars in 10 seconds is the same as 3 cars in 5 seconds."
+      },
+      {
+        "title": "Scale up",
+        "body": "There are 33 groups of 5 seconds in 165 seconds, so about 3×33=99 cars, closest to 100."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "rates",
+      "proportions"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2013-08",
+    "title": "2013 AMC 8 Problem 8: Consecutive Heads",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 8,
+    "category": "Counting & Probability",
+    "subcategory": "Coin probability",
+    "difficulty": 2,
+    "statement": "A fair coin is tossed 3 times. What is the probability of at least two consecutive heads?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/8"
+      },
+      {
+        "label": "B",
+        "text": "1/4"
+      },
+      {
+        "label": "C",
+        "text": "3/8"
+      },
+      {
+        "label": "D",
+        "text": "1/2"
+      },
+      {
+        "label": "E",
+        "text": "3/4"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "3/8",
+    "solutionSteps": [
+      {
+        "title": "Count all outcomes",
+        "body": "There are 2^3=8 equally likely sequences of three coin tosses."
+      },
+      {
+        "title": "Count favorable outcomes",
+        "body": "The sequences with at least two consecutive heads are HHT, THH, and HHH."
+      },
+      {
+        "title": "Form the probability",
+        "body": "There are 3 favorable outcomes out of 8."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "probability",
+      "coin flips"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2013-09",
+    "title": "2013 AMC 8 Problem 9: Hulk Jump Sequence",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 9,
+    "category": "Algebra",
+    "subcategory": "Geometric sequences",
+    "difficulty": 2,
+    "statement": "The Incredible Hulk can double the distance he jumps with each succeeding jump. If his first jump is 1 meter, the second jump is 2 meters, the third jump is 4 meters, and so on, then on which jump will he first be able to jump more than 1 kilometer (1000 meters)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "9th"
+      },
+      {
+        "label": "B",
+        "text": "10th"
+      },
+      {
+        "label": "C",
+        "text": "11th"
+      },
+      {
+        "label": "D",
+        "text": "12th"
+      },
+      {
+        "label": "E",
+        "text": "13th"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "11th",
+    "solutionSteps": [
+      {
+        "title": "Recognize powers of 2",
+        "body": "The jumps are 1, 2, 4, 8, ..., so the nth jump is 2^(n-1)."
+      },
+      {
+        "title": "Find first over 1000",
+        "body": "2^9=512 and 2^10=1024."
+      },
+      {
+        "title": "Match the jump number",
+        "body": "Since 2^10 is the 11th jump, the first jump over 1000 meters is the 11th."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "geometric sequence",
+      "powers of 2"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2013-10",
+    "title": "2013 AMC 8 Problem 10: LCM to GCF Ratio",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 10,
+    "category": "Number Theory",
+    "subcategory": "LCM and GCF",
+    "difficulty": 3,
+    "statement": "What is the ratio of the least common multiple of 180 and 594 to the greatest common factor of 180 and 594?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "110"
+      },
+      {
+        "label": "B",
+        "text": "165"
+      },
+      {
+        "label": "C",
+        "text": "330"
+      },
+      {
+        "label": "D",
+        "text": "625"
+      },
+      {
+        "label": "E",
+        "text": "660"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "330",
+    "solutionSteps": [
+      {
+        "title": "Prime factorize",
+        "body": "180=2^2×3^2×5 and 594=2×3^3×11."
+      },
+      {
+        "title": "Find LCM and GCF",
+        "body": "The LCM is 5940 and the GCF is 18."
+      },
+      {
+        "title": "Take the ratio",
+        "body": "5940/18=330."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "prime factorization",
+      "lcm",
+      "gcf"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2013-11",
+    "title": "2013 AMC 8 Problem 11: Treadmill Time Difference",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 11,
+    "category": "Algebra",
+    "subcategory": "Speed and time",
+    "difficulty": 2,
+    "statement": "Ted's grandfather used his treadmill on 3 days this week. He went 2 miles each day. On Monday he jogged at 5 miles per hour. He walked at 3 miles per hour on Wednesday and at 4 miles per hour on Friday. If Grandfather had always walked at 4 miles per hour, he would have spent how many minutes less on the treadmill?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "4"
+      },
+      {
+        "label": "E",
+        "text": "5"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Find actual time",
+        "body": "Two miles at 5 mph takes 24 minutes, at 3 mph takes 40 minutes, and at 4 mph takes 30 minutes, for 94 minutes total."
+      },
+      {
+        "title": "Find all-at-4-mph time",
+        "body": "At 4 mph, two miles takes 30 minutes, so three days would take 90 minutes."
+      },
+      {
+        "title": "Subtract",
+        "body": "94-90=4 minutes less."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "speed",
+      "time"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2013-12",
+    "title": "2013 AMC 8 Problem 12: Sandals Fair Special",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 12,
+    "category": "Algebra",
+    "subcategory": "Percent discount",
+    "difficulty": 2,
+    "statement": "At the 2013 Winnebago County Fair a vendor is offering a \"fair special\" on sandals. If you buy one pair at the regular price of $50, you get a second pair at a 40% discount, and a third pair at half the regular price. Javier buys three pairs. What percentage of the $150 regular price did he save?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "25"
+      },
+      {
+        "label": "B",
+        "text": "30"
+      },
+      {
+        "label": "C",
+        "text": "33"
+      },
+      {
+        "label": "D",
+        "text": "40"
+      },
+      {
+        "label": "E",
+        "text": "45"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "30%",
+    "solutionSteps": [
+      {
+        "title": "Find sale total",
+        "body": "The three pairs cost $50, $30, and $25."
+      },
+      {
+        "title": "Compare to regular price",
+        "body": "The sale total is $105 compared with the regular total $150."
+      },
+      {
+        "title": "Find percent saved",
+        "body": "He saved $45 out of $150, which is 30%."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "percent",
+      "discount"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2013-13",
+    "title": "2013 AMC 8 Problem 13: Reversed Digits Error",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 13,
+    "category": "Number Theory",
+    "subcategory": "Digits",
+    "difficulty": 3,
+    "statement": "When Clara totaled her scores, she inadvertently reversed the units digit and the tens digit of one score. By which of the following might her incorrect sum have differed from the correct one?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "45"
+      },
+      {
+        "label": "B",
+        "text": "46"
+      },
+      {
+        "label": "C",
+        "text": "47"
+      },
+      {
+        "label": "D",
+        "text": "48"
+      },
+      {
+        "label": "E",
+        "text": "49"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "45",
+    "solutionSteps": [
+      {
+        "title": "Represent the score",
+        "body": "A two-digit score with tens digit a and units digit b is 10a+b."
+      },
+      {
+        "title": "Reverse the digits",
+        "body": "The reversed score is 10b+a."
+      },
+      {
+        "title": "Find the difference",
+        "body": "The difference is |(10a+b)-(10b+a)|=9|a-b|, a multiple of 9. Only 45 is a multiple of 9."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Circle answer choice A."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "digits",
+      "multiples of 9"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2013-14",
+    "title": "2013 AMC 8 Problem 14: Jelly Bean Match",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 14,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 2,
+    "statement": "Abe holds 1 green and 1 red jelly bean in his hand. Bob holds 1 green, 1 yellow, and 2 red jelly beans in his hand. Each randomly picks a jelly bean to show the other. What is the probability that the colors match?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/4"
+      },
+      {
+        "label": "B",
+        "text": "1/3"
+      },
+      {
+        "label": "C",
+        "text": "3/8"
+      },
+      {
+        "label": "D",
+        "text": "1/2"
+      },
+      {
+        "label": "E",
+        "text": "2/3"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "3/8",
+    "solutionSteps": [
+      {
+        "title": "Green match",
+        "body": "The probability both choose green is (1/2)(1/4)=1/8."
+      },
+      {
+        "title": "Red match",
+        "body": "The probability both choose red is (1/2)(2/4)=1/4."
+      },
+      {
+        "title": "Add cases",
+        "body": "The total probability is 1/8+1/4=3/8."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "probability",
+      "casework"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2013-15",
+    "title": "2013 AMC 8 Problem 15: Exponents Product",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 15,
+    "category": "Algebra",
+    "subcategory": "Exponents",
+    "difficulty": 3,
+    "statement": "If 3^p+3^4=90, 2^r+44=76, and 5^3+6^s=1421, what is the product of p, r, and s?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "27"
+      },
+      {
+        "label": "B",
+        "text": "40"
+      },
+      {
+        "label": "C",
+        "text": "50"
+      },
+      {
+        "label": "D",
+        "text": "70"
+      },
+      {
+        "label": "E",
+        "text": "90"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "40",
+    "solutionSteps": [
+      {
+        "title": "Solve for p",
+        "body": "3^4=81, so 3^p=9 and p=2."
+      },
+      {
+        "title": "Solve for r",
+        "body": "2^r=76-44=32, so r=5."
+      },
+      {
+        "title": "Solve for s and multiply",
+        "body": "6^s=1421-125=1296=6^4, so s=4. The product is 2×5×4=40."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "exponents",
+      "equations"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2013-16",
+    "title": "2013 AMC 8 Problem 16: Fibonacci Middle Ratios",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 16,
+    "category": "Algebra",
+    "subcategory": "Ratios",
+    "difficulty": 3,
+    "statement": "A number of students from Fibonacci Middle School are taking part in a community service project. The ratio of 8th-graders to 6th-graders is 5:3, and the ratio of 8th-graders to 7th-graders is 8:5. What is the smallest number of students that could be participating in the project?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "16"
+      },
+      {
+        "label": "B",
+        "text": "40"
+      },
+      {
+        "label": "C",
+        "text": "55"
+      },
+      {
+        "label": "D",
+        "text": "79"
+      },
+      {
+        "label": "E",
+        "text": "89"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "89",
+    "solutionSteps": [
+      {
+        "title": "Match 8th graders",
+        "body": "Scale 5:3 by 8 to get 40:24 for 8th:6th."
+      },
+      {
+        "title": "Scale the other ratio",
+        "body": "Scale 8:5 by 5 to get 40:25 for 8th:7th."
+      },
+      {
+        "title": "Add the smallest group sizes",
+        "body": "The smallest total is 40+25+24=89."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Circle answer choice E."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "ratios",
+      "least common multiple"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2013-17",
+    "title": "2013 AMC 8 Problem 17: Six Consecutive Integers",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 17,
+    "category": "Algebra",
+    "subcategory": "Averages",
+    "difficulty": 2,
+    "statement": "The sum of six consecutive positive integers is 2013. What is the largest of these six integers?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "335"
+      },
+      {
+        "label": "B",
+        "text": "338"
+      },
+      {
+        "label": "C",
+        "text": "340"
+      },
+      {
+        "label": "D",
+        "text": "345"
+      },
+      {
+        "label": "E",
+        "text": "350"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "338",
+    "solutionSteps": [
+      {
+        "title": "Find the average",
+        "body": "The average of the six integers is 2013/6=335.5."
+      },
+      {
+        "title": "Place consecutive integers around the average",
+        "body": "The six integers are 333, 334, 335, 336, 337, 338."
+      },
+      {
+        "title": "Choose largest",
+        "body": "The largest is 338."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "consecutive integers",
+      "mean"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2013-18",
+    "title": "2013 AMC 8 Problem 18: Rectangular Fort Blocks",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 18,
+    "category": "Geometry",
+    "subcategory": "Volume and surface layers",
+    "difficulty": 4,
+    "statement": "Isabella uses one-foot cubical blocks to build a rectangular fort that is 12 feet long, 10 feet wide, and 5 feet high. The floor and the four walls are all one foot thick. How many blocks does the fort contain?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "204"
+      },
+      {
+        "label": "B",
+        "text": "280"
+      },
+      {
+        "label": "C",
+        "text": "320"
+      },
+      {
+        "label": "D",
+        "text": "340"
+      },
+      {
+        "label": "E",
+        "text": "600"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "280",
+    "solutionSteps": [
+      {
+        "title": "Count the floor",
+        "body": "The floor is 12 by 10, so it uses 120 cubes."
+      },
+      {
+        "title": "Count each wall layer",
+        "body": "Above the floor there are 4 layers. Each layer around the wall uses 9+11+9+11=40 cubes."
+      },
+      {
+        "title": "Add everything",
+        "body": "The total is 120+4×40=280 cubes."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "cube-net",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "volume",
+      "3D geometry"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2013/problem-18-rectangular-fort.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2013-19",
+    "title": "2013 AMC 8 Problem 19: Hidden Test Scores",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 19,
+    "category": "Logic",
+    "subcategory": "Ranking",
+    "difficulty": 3,
+    "statement": "Bridget, Cassie, and Hannah are discussing the results of their last math test. Hannah shows Bridget and Cassie her test, but Bridget and Cassie don't show theirs to anyone. Cassie says, 'I didn't get the lowest score in our class,' and Bridget adds, 'I didn't get the highest score.' What is the ranking of the three girls from highest to lowest?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Hannah, Cassie, Bridget"
+      },
+      {
+        "label": "B",
+        "text": "Hannah, Bridget, Cassie"
+      },
+      {
+        "label": "C",
+        "text": "Cassie, Bridget, Hannah"
+      },
+      {
+        "label": "D",
+        "text": "Cassie, Hannah, Bridget"
+      },
+      {
+        "label": "E",
+        "text": "Bridget, Cassie, Hannah"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "Cassie, Hannah, Bridget",
+    "solutionSteps": [
+      {
+        "title": "Interpret Cassie's statement",
+        "body": "Cassie can know she is not lowest only if Hannah scored lower than Cassie."
+      },
+      {
+        "title": "Interpret Bridget's statement",
+        "body": "Bridget can know she is not highest only if Hannah scored higher than Bridget."
+      },
+      {
+        "title": "Combine",
+        "body": "Cassie scored above Hannah, and Hannah scored above Bridget."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "ranking",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "logic",
+      "ranking"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2013-20",
+    "title": "2013 AMC 8 Problem 20: Rectangle in Semicircle",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 20,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 3,
+    "statement": "A 1×2 rectangle is inscribed in a semicircle with the longer side on the diameter. What is the area of the semicircle?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "π/2"
+      },
+      {
+        "label": "B",
+        "text": "2π/3"
+      },
+      {
+        "label": "C",
+        "text": "π"
+      },
+      {
+        "label": "D",
+        "text": "4π/3"
+      },
+      {
+        "label": "E",
+        "text": "5π/3"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "π",
+    "solutionSteps": [
+      {
+        "title": "Locate the center",
+        "body": "By symmetry, the center of the semicircle lies at the midpoint of the longer side of the rectangle."
+      },
+      {
+        "title": "Find the radius",
+        "body": "The radius from the center to an upper corner of the rectangle has legs 1 and 1, so r=√2."
+      },
+      {
+        "title": "Find semicircle area",
+        "body": "The area is half of πr^2, so it is (1/2)π(2)=π."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "semicircle",
+      "pythagorean theorem"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2013/problem-20-semicircle-rectangle.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2013-21",
+    "title": "2013 AMC 8 Problem 21: City Park Routes",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 21,
+    "category": "Counting & Probability",
+    "subcategory": "Counting paths",
+    "difficulty": 3,
+    "statement": "Samantha lives 2 blocks west and 1 block south of the southwest corner of City Park. Her school is 2 blocks east and 2 blocks north of the northeast corner of City Park. On school days she bikes on streets to the southwest corner of City Park, then takes a diagonal path through the park to the northeast corner, and then bikes on streets to school. If her route is as short as possible, how many different routes can she take?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3"
+      },
+      {
+        "label": "B",
+        "text": "6"
+      },
+      {
+        "label": "C",
+        "text": "9"
+      },
+      {
+        "label": "D",
+        "text": "12"
+      },
+      {
+        "label": "E",
+        "text": "18"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "18",
+    "solutionSteps": [
+      {
+        "title": "Routes to the park",
+        "body": "From home to the southwest corner of the park, she must make 3 street moves: 2 east and 1 north. That gives 3 choices."
+      },
+      {
+        "title": "Routes from the park to school",
+        "body": "From the northeast corner of the park to school, she must make 4 street moves: 2 east and 2 north. That gives C(4,2)=6 choices."
+      },
+      {
+        "title": "Multiply independent choices",
+        "body": "The diagonal through the park is fixed, so the total is 3×6=18."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Circle answer choice E."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "combinations",
+      "grid paths"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2013/problem-21-city-park-routes.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2013-22",
+    "title": "2013 AMC 8 Problem 22: Toothpick Grid",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 22,
+    "category": "Counting & Probability",
+    "subcategory": "Counting grid edges",
+    "difficulty": 4,
+    "statement": "Toothpicks are used to make a grid that is 60 toothpicks long and 32 toothpicks wide. How many toothpicks are used altogether?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1920"
+      },
+      {
+        "label": "B",
+        "text": "1952"
+      },
+      {
+        "label": "C",
+        "text": "1980"
+      },
+      {
+        "label": "D",
+        "text": "2013"
+      },
+      {
+        "label": "E",
+        "text": "3932"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "3932",
+    "solutionSteps": [
+      {
+        "title": "Count vertical toothpicks",
+        "body": "There are 61 vertical columns, each 32 toothpicks long, for 61×32 toothpicks."
+      },
+      {
+        "title": "Count horizontal toothpicks",
+        "body": "There are 33 horizontal rows, each 60 toothpicks long, for 33×60 toothpicks."
+      },
+      {
+        "title": "Add",
+        "body": "61×32+33×60=3932."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Circle answer choice E."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "counting",
+      "grid"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2013/problem-22-toothpick-grid.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2013-23",
+    "title": "2013 AMC 8 Problem 23: Semicircles on Triangle Sides",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 23,
+    "category": "Geometry",
+    "subcategory": "Right triangles and circles",
+    "difficulty": 4,
+    "statement": "Angle ABC of triangle ABC is a right angle. The sides of triangle ABC are the diameters of semicircles as shown. The area of the semicircle on AB equals 8π, and the arc of the semicircle on AC has length 8.5π. What is the radius of the semicircle on BC?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7"
+      },
+      {
+        "label": "B",
+        "text": "7.5"
+      },
+      {
+        "label": "C",
+        "text": "8"
+      },
+      {
+        "label": "D",
+        "text": "8.5"
+      },
+      {
+        "label": "E",
+        "text": "9"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "7.5",
+    "solutionSteps": [
+      {
+        "title": "Find AB",
+        "body": "The semicircle on AB has area 8π, so the full circle would have area 16π. Its radius is 4 and AB=8."
+      },
+      {
+        "title": "Find AC",
+        "body": "The arc length of the semicircle on AC is 8.5π, so AC is 17."
+      },
+      {
+        "title": "Use the Pythagorean theorem",
+        "body": "Since ABC is right, BC=√(17^2-8^2)=15, so the semicircle on BC has radius 7.5."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "pythagorean theorem",
+      "semicircles"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2013/problem-23-semicircles-triangle.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2013-24",
+    "title": "2013 AMC 8 Problem 24: Three Squares Shaded Pentagon",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 24,
+    "category": "Geometry",
+    "subcategory": "Area ratios",
+    "difficulty": 5,
+    "statement": "Squares ABCD, EFGH, and GHIJ are equal in area. Points C and D are the midpoints of sides IH and HE, respectively. What is the ratio of the area of the shaded pentagon AJICB to the sum of the areas of the three squares?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/4"
+      },
+      {
+        "label": "B",
+        "text": "7/24"
+      },
+      {
+        "label": "C",
+        "text": "1/3"
+      },
+      {
+        "label": "D",
+        "text": "3/8"
+      },
+      {
+        "label": "E",
+        "text": "5/12"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "1/3",
+    "solutionSteps": [
+      {
+        "title": "Use unit squares",
+        "body": "Let each square have side length 1, so the total area of the three squares is 3."
+      },
+      {
+        "title": "Decompose the shaded region",
+        "body": "The shaded pentagon can be split into simple pieces whose total area is 1."
+      },
+      {
+        "title": "Take the ratio",
+        "body": "The ratio of shaded area to total square area is 1/3."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "area decomposition",
+      "ratio"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2013/problem-24-three-squares-pentagon.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2013-25",
+    "title": "2013 AMC 8 Problem 25: Rolling Ball Track",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2013,
+    "problemNumber": 25,
+    "category": "Geometry",
+    "subcategory": "Arc length",
+    "difficulty": 5,
+    "statement": "A ball with diameter 4 inches starts at point A to roll along the track shown. The track is comprised of 3 semicircular arcs whose radii are R1=100 inches, R2=60 inches, and R3=80 inches, respectively. The ball always remains in contact with the track and does not slip. What is the distance the center of the ball travels over the course from A to B?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "238π"
+      },
+      {
+        "label": "B",
+        "text": "240π"
+      },
+      {
+        "label": "C",
+        "text": "260π"
+      },
+      {
+        "label": "D",
+        "text": "280π"
+      },
+      {
+        "label": "E",
+        "text": "500π"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "238π",
+    "solutionSteps": [
+      {
+        "title": "Start with track arc lengths",
+        "body": "The semicircle lengths are 100π, 60π, and 80π, for a total of 240π."
+      },
+      {
+        "title": "Adjust for the center of the ball",
+        "body": "The ball has radius 2, so the path of its center is shifted from the track. The net adjustment over the three semicircles is -2π."
+      },
+      {
+        "title": "Compute",
+        "body": "The center travels 240π-2π=238π."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the quantities given and what the problem asks for.",
+        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Circle answer choice A."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2013",
+      "arc length",
+      "circles"
+    ],
+    "sourceName": "2013 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2013/problem-25-rolling-ball-track.svg"
+    ],
+    "needsDiagram": true
+  }
+];
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
@@ -29099,6 +31164,7 @@ export const sampleProblems: Problem[] = [
   ...amc2010Problems,
   ...amc2011Problems,
   ...amc2012Problems,
+  ...amc2013Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems };
