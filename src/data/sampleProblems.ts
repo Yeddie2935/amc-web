@@ -18720,6 +18720,2125 @@ const amc2007Problems: Problem[] = [
     "needsDiagram": true
   }
 ];
+
+const amc2008Problems: Problem[] = [
+  {
+    "id": "amc8-2008-01",
+    "title": "2008 AMC 8 Problem 1: Carnival Money Left",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 1,
+    "category": "Algebra",
+    "subcategory": "Arithmetic",
+    "difficulty": 1,
+    "statement": "Susan had 50 dollars to spend at the carnival. She spent 12 dollars on food and twice as much on rides. How many dollars did she have left to spend?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "12"
+      },
+      {
+        "label": "B",
+        "text": "14"
+      },
+      {
+        "label": "C",
+        "text": "26"
+      },
+      {
+        "label": "D",
+        "text": "38"
+      },
+      {
+        "label": "E",
+        "text": "50"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "14",
+    "solutionSteps": [
+      {
+        "title": "Find the ride cost",
+        "body": "She spent twice as much on rides as on food, so rides cost 2 × 12 = 24 dollars.",
+        "equation": "2×12=24"
+      },
+      {
+        "title": "Add spending",
+        "body": "Altogether she spent 12 + 24 = 36 dollars.",
+        "equation": "12+24=36"
+      },
+      {
+        "title": "Subtract from her budget",
+        "body": "She started with 50 dollars, so she had 50 − 36 = 14 dollars left.",
+        "equation": "50-36=14"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "algebra",
+      "arithmetic",
+      "money"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2008-02",
+    "title": "2008 AMC 8 Problem 2: BEST OF LUCK Code",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 2,
+    "category": "Logic",
+    "subcategory": "Coding",
+    "difficulty": 1,
+    "statement": "The ten-letter code BEST OF LUCK represents the ten digits 0–9, in order. What 4-digit number is represented by the code word CLUE?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "8671"
+      },
+      {
+        "label": "B",
+        "text": "8672"
+      },
+      {
+        "label": "C",
+        "text": "9781"
+      },
+      {
+        "label": "D",
+        "text": "9782"
+      },
+      {
+        "label": "E",
+        "text": "9872"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "8671",
+    "solutionSteps": [
+      {
+        "title": "Match letters to digits",
+        "body": "The letters B,E,S,T,O,F,L,U,C,K represent 0,1,2,3,4,5,6,7,8,9 in order."
+      },
+      {
+        "title": "Read CLUE",
+        "body": "C = 8, L = 6, U = 7, and E = 1."
+      },
+      {
+        "title": "Form the number",
+        "body": "Therefore CLUE represents 8671."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "logic",
+      "coding",
+      "digits"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2008-03",
+    "title": "2008 AMC 8 Problem 3: Friday the 13th",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 3,
+    "category": "Number Theory",
+    "subcategory": "Calendar arithmetic",
+    "difficulty": 1,
+    "statement": "If February is a month that contains Friday the 13th, what day of the week is February 1?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Sunday"
+      },
+      {
+        "label": "B",
+        "text": "Monday"
+      },
+      {
+        "label": "C",
+        "text": "Wednesday"
+      },
+      {
+        "label": "D",
+        "text": "Thursday"
+      },
+      {
+        "label": "E",
+        "text": "Saturday"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "Sunday",
+    "solutionSteps": [
+      {
+        "title": "Go back by weeks",
+        "body": "If February 13 is Friday, then February 6 is also Friday."
+      },
+      {
+        "title": "Go back five days",
+        "body": "February 1 is five days before Friday, February 6."
+      },
+      {
+        "title": "Name the day",
+        "body": "Five days before Friday is Sunday."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "calendar",
+      "modular arithmetic"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2008-04",
+    "title": "2008 AMC 8 Problem 4: Triangle and Trapezoids",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 4,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 1,
+    "statement": "In the figure, the outer equilateral triangle has area 16, the inner equilateral triangle has area 1, and the three trapezoids are congruent. What is the area of one of the trapezoids?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3"
+      },
+      {
+        "label": "B",
+        "text": "4"
+      },
+      {
+        "label": "C",
+        "text": "5"
+      },
+      {
+        "label": "D",
+        "text": "6"
+      },
+      {
+        "label": "E",
+        "text": "7"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "Find the surrounding area",
+        "body": "The area inside the large triangle but outside the small triangle is 16 − 1 = 15.",
+        "equation": "16-1=15"
+      },
+      {
+        "title": "Split equally",
+        "body": "This area is divided into three congruent trapezoids."
+      },
+      {
+        "title": "Divide by 3",
+        "body": "Each trapezoid has area 15 ÷ 3 = 5.",
+        "equation": "15/3=5"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "geometry",
+      "area",
+      "triangles"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2008/problem-04-equilateral-trapezoids.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2008-05",
+    "title": "2008 AMC 8 Problem 5: Palindrome Odometer",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 5,
+    "category": "Algebra",
+    "subcategory": "Rates",
+    "difficulty": 1,
+    "statement": "Barney Schwinn notices that the odometer on his bicycle reads 1441, a palindrome, because it reads the same forward and backward. After riding 4 more hours that day and 6 the next, he notices that the odometer shows another palindrome, 1661. What was his average speed in miles per hour?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "15"
+      },
+      {
+        "label": "B",
+        "text": "16"
+      },
+      {
+        "label": "C",
+        "text": "18"
+      },
+      {
+        "label": "D",
+        "text": "20"
+      },
+      {
+        "label": "E",
+        "text": "22"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "22",
+    "solutionSteps": [
+      {
+        "title": "Find the distance traveled",
+        "body": "The odometer changed from 1441 to 1661, so Barney rode 220 miles.",
+        "equation": "1661-1441=220"
+      },
+      {
+        "title": "Find the time",
+        "body": "He rode 4 hours plus 6 hours, or 10 hours total.",
+        "equation": "4+6=10"
+      },
+      {
+        "title": "Compute speed",
+        "body": "Average speed is distance divided by time: 220 ÷ 10 = 22 mph.",
+        "equation": "220/10=22"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "algebra",
+      "rates",
+      "arithmetic"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2008-06",
+    "title": "2008 AMC 8 Problem 6: Gray and White Squares Ratio",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 6,
+    "category": "Geometry",
+    "subcategory": "Area ratios",
+    "difficulty": 2,
+    "statement": "In the figure, what is the ratio of the area of the gray squares to the area of the white squares?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3 : 10"
+      },
+      {
+        "label": "B",
+        "text": "3 : 8"
+      },
+      {
+        "label": "C",
+        "text": "3 : 7"
+      },
+      {
+        "label": "D",
+        "text": "3 : 5"
+      },
+      {
+        "label": "E",
+        "text": "1 : 1"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "3 : 5",
+    "solutionSteps": [
+      {
+        "title": "Use the same unit size",
+        "body": "The large gray square can be split into four small squares of the same size as the surrounding tiles."
+      },
+      {
+        "title": "Count gray and white pieces",
+        "body": "There are 6 gray small-square units and 10 white small-square units."
+      },
+      {
+        "title": "Simplify the ratio",
+        "body": "The ratio 6:10 simplifies to 3:5.",
+        "equation": "6:10=3:5"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "geometry",
+      "area",
+      "ratio"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2008/problem-06-gray-white-squares.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2008-07",
+    "title": "2008 AMC 8 Problem 7: Equivalent Fractions",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 7,
+    "category": "Algebra",
+    "subcategory": "Proportions",
+    "difficulty": 1,
+    "statement": "If 3/5 = M/45 = 60/N, what is M + N?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "27"
+      },
+      {
+        "label": "B",
+        "text": "29"
+      },
+      {
+        "label": "C",
+        "text": "45"
+      },
+      {
+        "label": "D",
+        "text": "105"
+      },
+      {
+        "label": "E",
+        "text": "127"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "127",
+    "solutionSteps": [
+      {
+        "title": "Solve for M",
+        "body": "Since M/45 = 3/5, M = 45 × 3/5 = 27.",
+        "equation": "M=45*3/5=27"
+      },
+      {
+        "title": "Solve for N",
+        "body": "Since 60/N = 3/5, cross multiply to get 3N = 300, so N = 100.",
+        "equation": "3N=300 => N=100"
+      },
+      {
+        "title": "Add",
+        "body": "M + N = 27 + 100 = 127.",
+        "equation": "27+100=127"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "algebra",
+      "fractions",
+      "proportions"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2008-08",
+    "title": "2008 AMC 8 Problem 8: Candy Sales Average",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 8,
+    "category": "Data",
+    "subcategory": "Bar graphs",
+    "difficulty": 1,
+    "statement": "Candy sales from the Boosters Club from January through April are shown. What were the average sales per month in dollars?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "60"
+      },
+      {
+        "label": "B",
+        "text": "70"
+      },
+      {
+        "label": "C",
+        "text": "75"
+      },
+      {
+        "label": "D",
+        "text": "80"
+      },
+      {
+        "label": "E",
+        "text": "85"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "80",
+    "solutionSteps": [
+      {
+        "title": "Read the bars",
+        "body": "The monthly sales are 100, 60, 40, and 120 dollars."
+      },
+      {
+        "title": "Add the sales",
+        "body": "The total sales are 100 + 60 + 40 + 120 = 320 dollars.",
+        "equation": "100+60+40+120=320"
+      },
+      {
+        "title": "Average over four months",
+        "body": "320 ÷ 4 = 80 dollars per month.",
+        "equation": "320/4=80"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "data",
+      "bar graph",
+      "average"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2008/problem-08-candy-bar-graph.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2008-09",
+    "title": "2008 AMC 8 Problem 9: Two-Year Investment Change",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 9,
+    "category": "Algebra",
+    "subcategory": "Percents",
+    "difficulty": 2,
+    "statement": "In 2005 Tycoon Tammy invested 100 dollars for two years. During the first year her investment suffered a 15% loss, but during the second year the remaining investment showed a 20% gain. Over the two-year period, what was the change in Tammy's investment?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5% loss"
+      },
+      {
+        "label": "B",
+        "text": "2% loss"
+      },
+      {
+        "label": "C",
+        "text": "1% gain"
+      },
+      {
+        "label": "D",
+        "text": "2% gain"
+      },
+      {
+        "label": "E",
+        "text": "5% gain"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "2% gain",
+    "solutionSteps": [
+      {
+        "title": "Apply the loss",
+        "body": "After a 15% loss, 100 dollars becomes 85 dollars.",
+        "equation": "100*0.85=85"
+      },
+      {
+        "title": "Apply the gain",
+        "body": "A 20% gain changes 85 dollars to 85 × 1.20 = 102 dollars.",
+        "equation": "85*1.2=102"
+      },
+      {
+        "title": "Compare to the original",
+        "body": "102 dollars is 2 dollars more than 100 dollars, so this is a 2% gain."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "algebra",
+      "percent change"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2008-10",
+    "title": "2008 AMC 8 Problem 10: Combined Room Average",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 10,
+    "category": "Algebra",
+    "subcategory": "Weighted averages",
+    "difficulty": 2,
+    "statement": "The average age of the 6 people in Room A is 40. The average age of the 4 people in Room B is 25. If the two groups are combined, what is the average age of all the people?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "32.5"
+      },
+      {
+        "label": "B",
+        "text": "33"
+      },
+      {
+        "label": "C",
+        "text": "33.5"
+      },
+      {
+        "label": "D",
+        "text": "34"
+      },
+      {
+        "label": "E",
+        "text": "35"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "34",
+    "solutionSteps": [
+      {
+        "title": "Find Room A total",
+        "body": "Room A has total age 6 × 40 = 240.",
+        "equation": "6*40=240"
+      },
+      {
+        "title": "Find Room B total",
+        "body": "Room B has total age 4 × 25 = 100.",
+        "equation": "4*25=100"
+      },
+      {
+        "title": "Average all 10 people",
+        "body": "The combined total is 340 over 10 people, so the average is 34.",
+        "equation": "(240+100)/10=34"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "algebra",
+      "weighted average"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2008-11",
+    "title": "2008 AMC 8 Problem 11: Dogs and Cats",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 11,
+    "category": "Counting & Probability",
+    "subcategory": "Set counting",
+    "difficulty": 2,
+    "statement": "Each of the 39 students in the eighth grade at Lincoln Middle School has one dog or one cat or both a dog and a cat. Twenty students have a dog and 26 students have a cat. How many students have both a dog and a cat?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7"
+      },
+      {
+        "label": "B",
+        "text": "13"
+      },
+      {
+        "label": "C",
+        "text": "19"
+      },
+      {
+        "label": "D",
+        "text": "39"
+      },
+      {
+        "label": "E",
+        "text": "46"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "7",
+    "solutionSteps": [
+      {
+        "title": "Use inclusion-exclusion",
+        "body": "Dog owners plus cat owners counts students with both pets twice."
+      },
+      {
+        "title": "Set up the equation",
+        "body": "39 = 20 + 26 − both.",
+        "equation": "39=20+26-x"
+      },
+      {
+        "title": "Solve",
+        "body": "The number with both is 20 + 26 − 39 = 7.",
+        "equation": "20+26-39=7"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "venn",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "sets",
+      "counting",
+      "inclusion-exclusion"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2008-12",
+    "title": "2008 AMC 8 Problem 12: Bouncing Ball",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 12,
+    "category": "Algebra",
+    "subcategory": "Geometric sequences",
+    "difficulty": 2,
+    "statement": "A ball is dropped from a height of 3 meters. On its first bounce it rises to a height of 2 meters. It keeps falling and bouncing to 2/3 of the height it reached in the previous bounce. On which bounce will it not rise to a height of 0.5 meters?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3"
+      },
+      {
+        "label": "B",
+        "text": "4"
+      },
+      {
+        "label": "C",
+        "text": "5"
+      },
+      {
+        "label": "D",
+        "text": "6"
+      },
+      {
+        "label": "E",
+        "text": "7"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "List bounce heights",
+        "body": "The first bounce rises to 2 meters, and each later bounce is 2/3 of the previous height."
+      },
+      {
+        "title": "Compute until below 0.5",
+        "body": "The bounce heights are 2, 4/3, 8/9, 16/27, and 32/81."
+      },
+      {
+        "title": "Compare",
+        "body": "16/27 is still above 0.5, but 32/81 is below 0.5, so it happens on the 5th bounce."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "algebra",
+      "sequences",
+      "fractions"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2008-13",
+    "title": "2008 AMC 8 Problem 13: Pairwise Box Weights",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 13,
+    "category": "Algebra",
+    "subcategory": "Systems",
+    "difficulty": 2,
+    "statement": "Mr. Harman needs to know the combined weight in pounds of three boxes he wants to mail. However, the only available scale is not accurate for weights less than 100 pounds or more than 150 pounds. So the boxes are weighed in pairs in every possible way. The results are 122, 125 and 127 pounds. What is the combined weight in pounds of the three boxes?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "160"
+      },
+      {
+        "label": "B",
+        "text": "170"
+      },
+      {
+        "label": "C",
+        "text": "187"
+      },
+      {
+        "label": "D",
+        "text": "195"
+      },
+      {
+        "label": "E",
+        "text": "354"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "187",
+    "solutionSteps": [
+      {
+        "title": "Add the pair weights",
+        "body": "Adding the three pair weights gives 122 + 125 + 127 = 374.",
+        "equation": "122+125+127=374"
+      },
+      {
+        "title": "Notice double counting",
+        "body": "Each individual box is included in exactly two of the pair weights."
+      },
+      {
+        "title": "Divide by 2",
+        "body": "So the total weight of the three boxes is 374 ÷ 2 = 187 pounds.",
+        "equation": "374/2=187"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "algebra",
+      "systems",
+      "double counting"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2008-14",
+    "title": "2008 AMC 8 Problem 14: Three-Letter Grid",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 14,
+    "category": "Counting & Probability",
+    "subcategory": "Arrangements",
+    "difficulty": 3,
+    "statement": "Three A's, three B's, and three C's are placed in the nine spaces so that each row and column contain one of each letter. If A is placed in the upper left corner, how many arrangements are possible?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2"
+      },
+      {
+        "label": "B",
+        "text": "3"
+      },
+      {
+        "label": "C",
+        "text": "4"
+      },
+      {
+        "label": "D",
+        "text": "5"
+      },
+      {
+        "label": "E",
+        "text": "6"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Place the remaining A's",
+        "body": "With A fixed in the upper left, there are 2 possible ways to complete the positions of the other A's."
+      },
+      {
+        "title": "Place the B's",
+        "body": "For each A placement, there are 2 possible ways to place the B's while keeping one of each letter in every row and column."
+      },
+      {
+        "title": "Finish with C's",
+        "body": "The C's are then forced, so there are 2 × 2 = 4 arrangements.",
+        "equation": "2*2=4"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "counting",
+      "arrangements",
+      "grid"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2008/problem-14-letter-grid.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2008-15",
+    "title": "2008 AMC 8 Problem 15: Basketball Averages",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 15,
+    "category": "Algebra",
+    "subcategory": "Divisibility",
+    "difficulty": 3,
+    "statement": "In Theresa's first 8 basketball games, she scored 7, 4, 3, 6, 8, 3, 1 and 5 points. In her ninth game, she scored fewer than 10 points and her points-per-game average for the nine games was an integer. Similarly in her tenth game, she scored fewer than 10 points and her points-per-game average for the 10 games was also an integer. What is the product of the number of points she scored in the ninth and tenth games?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "35"
+      },
+      {
+        "label": "B",
+        "text": "40"
+      },
+      {
+        "label": "C",
+        "text": "48"
+      },
+      {
+        "label": "D",
+        "text": "56"
+      },
+      {
+        "label": "E",
+        "text": "72"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "40",
+    "solutionSteps": [
+      {
+        "title": "Add the first 8 games",
+        "body": "The first 8 scores sum to 37.",
+        "equation": "7+4+3+6+8+3+1+5=37"
+      },
+      {
+        "title": "Make the 9-game total divisible by 9",
+        "body": "The next multiple of 9 above 37 is 45, so she scored 8 points in game 9."
+      },
+      {
+        "title": "Make the 10-game total divisible by 10",
+        "body": "The next 10-game total must be a multiple of 10, so she scored 5 points in game 10. The product is 8 × 5 = 40."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "algebra",
+      "averages",
+      "divisibility"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2008-16",
+    "title": "2008 AMC 8 Problem 16: Seven-Cube Shape Ratio",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 16,
+    "category": "Geometry",
+    "subcategory": "Surface area",
+    "difficulty": 3,
+    "statement": "A shape is created by joining seven unit cubes, as shown. What is the ratio of the volume in cubic units to the surface area in square units?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1 : 6"
+      },
+      {
+        "label": "B",
+        "text": "7 : 36"
+      },
+      {
+        "label": "C",
+        "text": "1 : 5"
+      },
+      {
+        "label": "D",
+        "text": "7 : 30"
+      },
+      {
+        "label": "E",
+        "text": "6 : 25"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "7 : 30",
+    "solutionSteps": [
+      {
+        "title": "Find the volume",
+        "body": "The shape is made of seven unit cubes, so its volume is 7 cubic units."
+      },
+      {
+        "title": "Find exposed faces",
+        "body": "The shape has five protruding unit cubes around a central cube, giving 5 × 6 = 30 exposed unit faces in this arrangement."
+      },
+      {
+        "title": "Write the ratio",
+        "body": "The ratio of volume to surface area is 7:30."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "cube-net",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "geometry",
+      "3D geometry",
+      "surface area"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2008/problem-16-seven-cubes.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2008-17",
+    "title": "2008 AMC 8 Problem 17: Rectangle Area Range",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 17,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 3,
+    "statement": "Ms. Osborne asks each student in her class to draw a rectangle with integer side lengths and a perimeter of 50 units. All of her students calculate the area of the rectangle they draw. What is the difference between the largest and smallest possible areas of the rectangles?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "76"
+      },
+      {
+        "label": "B",
+        "text": "120"
+      },
+      {
+        "label": "C",
+        "text": "128"
+      },
+      {
+        "label": "D",
+        "text": "132"
+      },
+      {
+        "label": "E",
+        "text": "136"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "132",
+    "solutionSteps": [
+      {
+        "title": "Use the perimeter",
+        "body": "If the perimeter is 50, then length + width = 25."
+      },
+      {
+        "title": "Find the largest area",
+        "body": "The closest integer sides are 12 and 13, giving area 156."
+      },
+      {
+        "title": "Find the smallest area",
+        "body": "The smallest positive integer-sided rectangle is 1 by 24, giving area 24. The difference is 156 − 24 = 132."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "geometry",
+      "area",
+      "optimization"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2008-18",
+    "title": "2008 AMC 8 Problem 18: Aardvark Circular Path",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 18,
+    "category": "Geometry",
+    "subcategory": "Arc length",
+    "difficulty": 4,
+    "statement": "Two circles that share the same center have radii 10 meters and 20 meters. An aardvark runs along the path shown, starting at A and ending at K. How many meters does the aardvark run?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "10π + 20"
+      },
+      {
+        "label": "B",
+        "text": "10π + 30"
+      },
+      {
+        "label": "C",
+        "text": "10π + 40"
+      },
+      {
+        "label": "D",
+        "text": "20π + 20"
+      },
+      {
+        "label": "E",
+        "text": "20π + 40"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "20π + 40",
+    "solutionSteps": [
+      {
+        "title": "Break the path into pieces",
+        "body": "The path contains a quarter of the large circle, two quarter-arcs of the small circle, one small diameter, and two radial gaps."
+      },
+      {
+        "title": "Add arc lengths",
+        "body": "The arcs total 10π + 5π + 5π = 20π."
+      },
+      {
+        "title": "Add straight parts",
+        "body": "The straight pieces total 10 + 20 + 10 = 40, so the path length is 20π + 40."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "geometry",
+      "circles",
+      "arc length"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2008/problem-18-aardvark-path.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2008-19",
+    "title": "2008 AMC 8 Problem 19: Points Around a Square",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 19,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 3,
+    "statement": "Eight points are spaced around at intervals of one unit around a 2 × 2 square, as shown. Two of the 8 points are chosen at random. What is the probability that the two points are one unit apart?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/4"
+      },
+      {
+        "label": "B",
+        "text": "2/7"
+      },
+      {
+        "label": "C",
+        "text": "4/11"
+      },
+      {
+        "label": "D",
+        "text": "1/2"
+      },
+      {
+        "label": "E",
+        "text": "4/7"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "2/7",
+    "solutionSteps": [
+      {
+        "title": "Count favorable pairs",
+        "body": "Around the boundary of the 2 by 2 square, there are 8 adjacent one-unit pairs of points."
+      },
+      {
+        "title": "Count all pairs",
+        "body": "There are C(8,2) = 28 ways to choose two points."
+      },
+      {
+        "title": "Compute the probability",
+        "body": "The probability is 8/28 = 2/7.",
+        "equation": "8/28=2/7"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "probability",
+      "counting",
+      "geometry"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2008/problem-19-square-points.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2008-20",
+    "title": "2008 AMC 8 Problem 20: Penmanship Test",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 20,
+    "category": "Algebra",
+    "subcategory": "Ratios",
+    "difficulty": 4,
+    "statement": "The students in Mr. Neatkin's class took a penmanship test. Two-thirds of the boys and three-fourths of the girls passed the test, and an equal number of boys and girls passed the test. What is the minimum possible number of students in the class?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "12"
+      },
+      {
+        "label": "B",
+        "text": "17"
+      },
+      {
+        "label": "C",
+        "text": "24"
+      },
+      {
+        "label": "D",
+        "text": "27"
+      },
+      {
+        "label": "E",
+        "text": "36"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "17",
+    "solutionSteps": [
+      {
+        "title": "Set passed numbers equal",
+        "body": "Let b be boys and g be girls. Equal numbers passed means (2/3)b = (3/4)g.",
+        "equation": "(2/3)b = (3/4)g"
+      },
+      {
+        "title": "Solve the ratio",
+        "body": "Multiplying gives 8b = 9g, so b:g = 9:8."
+      },
+      {
+        "title": "Choose the minimum",
+        "body": "The smallest whole-number group has 9 boys and 8 girls, for 17 students total."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "algebra",
+      "ratios",
+      "equations"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2008-21",
+    "title": "2008 AMC 8 Problem 21: Bologna Wedge Volume",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 21,
+    "category": "Geometry",
+    "subcategory": "Volume",
+    "difficulty": 4,
+    "statement": "Jerry cuts a wedge from a 6-cm cylinder of bologna as shown by the dashed curve. Which answer choice is closest to the volume of his wedge in cubic centimeters?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "48"
+      },
+      {
+        "label": "B",
+        "text": "75"
+      },
+      {
+        "label": "C",
+        "text": "151"
+      },
+      {
+        "label": "D",
+        "text": "192"
+      },
+      {
+        "label": "E",
+        "text": "603"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "151",
+    "solutionSteps": [
+      {
+        "title": "Find cylinder radius and height",
+        "body": "The cylinder has diameter 8 cm, so radius 4 cm, and length 6 cm."
+      },
+      {
+        "title": "Compute cylinder volume",
+        "body": "The whole cylinder volume is π × 4² × 6 = 96π.",
+        "equation": "pi*4^2*6=96pi"
+      },
+      {
+        "title": "Take half",
+        "body": "The wedge is half the cylinder, so its volume is 48π, which is closest to 151."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "geometry",
+      "volume",
+      "cylinder"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2008/problem-21-cylinder-wedge.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2008-22",
+    "title": "2008 AMC 8 Problem 22: Three-Digit n Values",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 22,
+    "category": "Number Theory",
+    "subcategory": "Inequalities",
+    "difficulty": 4,
+    "statement": "For how many positive integer values of n are both n/3 and 3n three-digit whole numbers?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "12"
+      },
+      {
+        "label": "B",
+        "text": "21"
+      },
+      {
+        "label": "C",
+        "text": "27"
+      },
+      {
+        "label": "D",
+        "text": "33"
+      },
+      {
+        "label": "E",
+        "text": "34"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "12",
+    "solutionSteps": [
+      {
+        "title": "Let x = n/3",
+        "body": "Then 3n = 9x. We need both x and 9x to be three-digit whole numbers."
+      },
+      {
+        "title": "Find x range",
+        "body": "The smallest possible x is 100, and 9x ≤ 999 gives x ≤ 111."
+      },
+      {
+        "title": "Count integers",
+        "body": "The integers 100 through 111 give 12 possible values."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "number theory",
+      "inequalities",
+      "integer values"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2008-23",
+    "title": "2008 AMC 8 Problem 23: Triangle in a Square",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 23,
+    "category": "Geometry",
+    "subcategory": "Area ratios",
+    "difficulty": 4,
+    "statement": "In square ABCE, AF = 2FE and CD = 2DE. What is the ratio of the area of triangle BFD to the area of square ABCE?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/6"
+      },
+      {
+        "label": "B",
+        "text": "2/9"
+      },
+      {
+        "label": "C",
+        "text": "5/18"
+      },
+      {
+        "label": "D",
+        "text": "1/3"
+      },
+      {
+        "label": "E",
+        "text": "7/20"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "5/18",
+    "solutionSteps": [
+      {
+        "title": "Choose a convenient side length",
+        "body": "Let the square have side length 6, so AF = 4 and FE = 2, while CD = 4 and DE = 2."
+      },
+      {
+        "title": "Subtract surrounding triangles",
+        "body": "The square has area 36. The surrounding triangles have areas 12, 12, and 2."
+      },
+      {
+        "title": "Find the ratio",
+        "body": "Triangle BFD has area 36 − 12 − 12 − 2 = 10, so the ratio is 10/36 = 5/18."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "geometry",
+      "area ratios",
+      "square"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2008/problem-23-triangle-square.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2008-24",
+    "title": "2008 AMC 8 Problem 24: Tile and Die Square Product",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 24,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 4,
+    "statement": "Ten tiles numbered 1 through 10 are turned face down. One tile is turned up at random, and a die is rolled. What is the probability that the product of the numbers on the tile and the die will be a square?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/10"
+      },
+      {
+        "label": "B",
+        "text": "1/6"
+      },
+      {
+        "label": "C",
+        "text": "11/60"
+      },
+      {
+        "label": "D",
+        "text": "1/5"
+      },
+      {
+        "label": "E",
+        "text": "7/30"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "11/60",
+    "solutionSteps": [
+      {
+        "title": "Count all outcomes",
+        "body": "There are 10 possible tiles and 6 possible die rolls, for 60 equally likely outcomes."
+      },
+      {
+        "title": "Count square products",
+        "body": "The favorable pairs are (1,1), (1,4), (2,2), (4,1), (3,3), (9,1), (4,4), (8,2), (5,5), (6,6), and (9,4)."
+      },
+      {
+        "title": "Compute probability",
+        "body": "There are 11 favorable outcomes, so the probability is 11/60."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "probability",
+      "squares",
+      "counting"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2008-25",
+    "title": "2008 AMC 8 Problem 25: Black Circle Design",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2008,
+    "problemNumber": 25,
+    "category": "Geometry",
+    "subcategory": "Area percents",
+    "difficulty": 5,
+    "statement": "Margie's winning art design is shown. The smallest circle has radius 2 inches, with each successive circle's radius increasing by 2 inches. Approximately what percent of the design is black?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "42"
+      },
+      {
+        "label": "B",
+        "text": "44"
+      },
+      {
+        "label": "C",
+        "text": "45"
+      },
+      {
+        "label": "D",
+        "text": "46"
+      },
+      {
+        "label": "E",
+        "text": "48"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "42",
+    "solutionSteps": [
+      {
+        "title": "Use circle areas",
+        "body": "The circle radii are 2, 4, 6, 8, 10, and 12, so their areas are proportional to 4, 16, 36, 64, 100, and 144."
+      },
+      {
+        "title": "Add black rings",
+        "body": "The black area is (100 − 64)π + (36 − 16)π + 4π = 60π."
+      },
+      {
+        "title": "Find the percent",
+        "body": "The whole design has area 144π, and 60/144 = 5/12 ≈ 42%."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the important quantities and the question being asked.",
+        "visualHint": "The key numbers and relationships are highlighted."
+      },
+      {
+        "title": "Use the main idea",
+        "narration": "Apply the relevant arithmetic, geometry, counting, or probability idea step by step.",
+        "visualHint": "A clean diagram or equation shows the central relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2008",
+      "geometry",
+      "circles",
+      "area"
+    ],
+    "sourceName": "2008 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2008/problem-25-circle-design.svg"
+    ],
+    "needsDiagram": true
+  }
+];
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
@@ -18729,6 +20848,7 @@ export const sampleProblems: Problem[] = [
   ...amc2005Problems,
   ...amc2006Problems,
   ...amc2007Problems,
+  ...amc2008Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems };
