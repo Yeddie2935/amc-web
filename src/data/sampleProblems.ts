@@ -24975,6 +24975,2079 @@ const amc2010Problems: Problem[] = [
   }
 ];
 
+
+const amc2011Problems: Problem[] = [
+  {
+    "id": "amc8-2011-01",
+    "title": "2011 AMC 8 Problem 1: Apple Change",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 1,
+    "category": "Algebra",
+    "subcategory": "Arithmetic",
+    "difficulty": 1,
+    "statement": "Margie bought 3 apples at a cost of 50 cents per apple. She paid with a 5-dollar bill. How much change did Margie receive?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "$1.50"
+      },
+      {
+        "label": "B",
+        "text": "$2.00"
+      },
+      {
+        "label": "C",
+        "text": "$2.50"
+      },
+      {
+        "label": "D",
+        "text": "$3.00"
+      },
+      {
+        "label": "E",
+        "text": "$3.50"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "$3.50",
+    "solutionSteps": [
+      {
+        "title": "Find the apple cost",
+        "body": "Each apple costs $0.50, so 3 apples cost $1.50.",
+        "equation": "3×$0.50=$1.50"
+      },
+      {
+        "title": "Subtract from five dollars",
+        "body": "Margie's change is $5.00-$1.50=$3.50."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "algebra",
+      "arithmetic",
+      "money",
+      "subtraction"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2011-02",
+    "title": "2011 AMC 8 Problem 2: Comparing Garden Areas",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 2,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 1,
+    "statement": "Karl's rectangular vegetable garden is 20 feet by 45 feet, and Makenna's is 25 feet by 40 feet. Whose garden is larger in area?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Karl's garden is larger by 100 square feet."
+      },
+      {
+        "label": "B",
+        "text": "Karl's garden is larger by 25 square feet."
+      },
+      {
+        "label": "C",
+        "text": "The gardens are the same size."
+      },
+      {
+        "label": "D",
+        "text": "Makenna's garden is larger by 25 square feet."
+      },
+      {
+        "label": "E",
+        "text": "Makenna's garden is larger by 100 square feet."
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "Makenna's garden is larger by 100 square feet.",
+    "solutionSteps": [
+      {
+        "title": "Compute Karl's area",
+        "body": "Karl's garden has area 20×45=900 square feet."
+      },
+      {
+        "title": "Compute Makenna's area",
+        "body": "Makenna's garden has area 25×40=1000 square feet, which is 100 more."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "geometry",
+      "area",
+      "rectangle area"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2011-03",
+    "title": "2011 AMC 8 Problem 3: Black Border Tiles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 3,
+    "category": "Geometry",
+    "subcategory": "Counting area",
+    "difficulty": 2,
+    "statement": "Extend the square pattern of 8 black and 17 white square tiles by attaching a border of black tiles around the square. What is the ratio of black tiles to white tiles in the extended pattern?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "8:17"
+      },
+      {
+        "label": "B",
+        "text": "25:49"
+      },
+      {
+        "label": "C",
+        "text": "36:25"
+      },
+      {
+        "label": "D",
+        "text": "32:17"
+      },
+      {
+        "label": "E",
+        "text": "36:17"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "32:17",
+    "solutionSteps": [
+      {
+        "title": "Count the new border",
+        "body": "The original pattern is 5 by 5. Adding a one-tile border makes a 7 by 7 square, adding 49-25=24 black tiles."
+      },
+      {
+        "title": "Add black tiles",
+        "body": "The new number of black tiles is 8+24=32. The number of white tiles stays 17."
+      },
+      {
+        "title": "Form the ratio",
+        "body": "The ratio of black to white tiles is 32:17."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "geometry",
+      "counting area",
+      "tiles",
+      "ratio"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2011/problem-03-black-border-pattern.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2011-04",
+    "title": "2011 AMC 8 Problem 4: Fish Data Mean Median Mode",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 4,
+    "category": "Algebra",
+    "subcategory": "Statistics",
+    "difficulty": 2,
+    "statement": "Here is a list of the numbers of fish that Tyler caught in nine outings last summer: 2, 0, 1, 3, 0, 3, 3, 1, 2. Which statement about the mean, median, and mode is true?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "median < mean < mode"
+      },
+      {
+        "label": "B",
+        "text": "mean < mode < median"
+      },
+      {
+        "label": "C",
+        "text": "mean < median < mode"
+      },
+      {
+        "label": "D",
+        "text": "median < mode < mean"
+      },
+      {
+        "label": "E",
+        "text": "mode < median < mean"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "mean < median < mode",
+    "solutionSteps": [
+      {
+        "title": "Order the data",
+        "body": "In increasing order the data are 0, 0, 1, 1, 2, 2, 3, 3, 3."
+      },
+      {
+        "title": "Find the statistics",
+        "body": "The mean is 15/9, the median is 2, and the mode is 3."
+      },
+      {
+        "title": "Compare",
+        "body": "Since 15/9 < 2 < 3, the correct order is mean < median < mode."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "ranking",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "algebra",
+      "statistics",
+      "mean",
+      "median",
+      "mode"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2011-05",
+    "title": "2011 AMC 8 Problem 5: 2011 Minutes After Midnight",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 5,
+    "category": "Algebra",
+    "subcategory": "Time",
+    "difficulty": 1,
+    "statement": "What time was it 2011 minutes after midnight on January 1, 2011?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "January 1 at 9:31PM"
+      },
+      {
+        "label": "B",
+        "text": "January 1 at 11:51PM"
+      },
+      {
+        "label": "C",
+        "text": "January 2 at 3:11AM"
+      },
+      {
+        "label": "D",
+        "text": "January 2 at 9:31AM"
+      },
+      {
+        "label": "E",
+        "text": "January 2 at 6:01PM"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "January 2 at 9:31AM",
+    "solutionSteps": [
+      {
+        "title": "Convert minutes to hours",
+        "body": "2011 minutes is 33 hours and 31 minutes."
+      },
+      {
+        "title": "Move past one full day",
+        "body": "After 24 hours it is midnight on January 2. The remaining 9 hours and 31 minutes gives January 2 at 9:31AM."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "clock-angle",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "algebra",
+      "time",
+      "time",
+      "unit conversion"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2011-06",
+    "title": "2011 AMC 8 Problem 6: Cars and Motorcycles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 6,
+    "category": "Counting & Probability",
+    "subcategory": "Inclusion-exclusion",
+    "difficulty": 2,
+    "statement": "In a town of 351 adults, every adult owns a car, motorcycle, or both. If 331 adults own cars and 45 adults own motorcycles, how many of the car owners do not own a motorcycle?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "20"
+      },
+      {
+        "label": "B",
+        "text": "25"
+      },
+      {
+        "label": "C",
+        "text": "45"
+      },
+      {
+        "label": "D",
+        "text": "306"
+      },
+      {
+        "label": "E",
+        "text": "351"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "306",
+    "solutionSteps": [
+      {
+        "title": "Find the overlap",
+        "body": "By inclusion-exclusion, the number who own both is 331+45-351=25."
+      },
+      {
+        "title": "Subtract from car owners",
+        "body": "The car-only owners are 331-25=306."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "venn",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "counting & probability",
+      "inclusion-exclusion",
+      "inclusion-exclusion"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2011-07",
+    "title": "2011 AMC 8 Problem 7: Bolded Area Percent",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 7,
+    "category": "Geometry",
+    "subcategory": "Area fractions",
+    "difficulty": 3,
+    "statement": "Each of the following four large congruent squares is subdivided into combinations of congruent triangles or rectangles and is partially bolded. What percent of the total area is partially bolded?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "12 1/2"
+      },
+      {
+        "label": "B",
+        "text": "20"
+      },
+      {
+        "label": "C",
+        "text": "25"
+      },
+      {
+        "label": "D",
+        "text": "33 1/3"
+      },
+      {
+        "label": "E",
+        "text": "37 1/2"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "25",
+    "solutionSteps": [
+      {
+        "title": "Use each square as area 1",
+        "body": "The four bolded areas are 1/4, 1/8, 3/8, and 1/4."
+      },
+      {
+        "title": "Add bolded area",
+        "body": "The total bolded area is 1/4+1/8+3/8+1/4=1."
+      },
+      {
+        "title": "Convert to a percent",
+        "body": "The total area of the four squares is 4, so the percent bolded is 1/4=25%."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "geometry",
+      "area fractions",
+      "area fractions",
+      "percentage"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2011/problem-07-bolded-squares.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2011-08",
+    "title": "2011 AMC 8 Problem 8: Chip Sum Values",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 8,
+    "category": "Counting & Probability",
+    "subcategory": "Counting sums",
+    "difficulty": 1,
+    "statement": "Bag A has three chips labeled 1, 3, and 5. Bag B has three chips labeled 2, 4, and 6. If one chip is drawn from each bag, how many different values are possible for the sum of the two numbers on the chips?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "5"
+      },
+      {
+        "label": "C",
+        "text": "6"
+      },
+      {
+        "label": "D",
+        "text": "7"
+      },
+      {
+        "label": "E",
+        "text": "9"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "List possible sums",
+        "body": "The possible sums are 3, 5, 7, 9, and 11."
+      },
+      {
+        "title": "Count distinct values",
+        "body": "There are 5 different values."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "counting & probability",
+      "counting sums",
+      "counting",
+      "sums"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2011-09",
+    "title": "2011 AMC 8 Problem 9: Carmen's Average Speed",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 9,
+    "category": "Algebra",
+    "subcategory": "Graphs",
+    "difficulty": 2,
+    "statement": "Carmen takes a long bike ride on a hilly highway. The graph indicates the miles traveled during the time of her ride. What is Carmen's average speed for her entire ride in miles per hour?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2"
+      },
+      {
+        "label": "B",
+        "text": "2.5"
+      },
+      {
+        "label": "C",
+        "text": "4"
+      },
+      {
+        "label": "D",
+        "text": "4.5"
+      },
+      {
+        "label": "E",
+        "text": "5"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "Read total distance and time",
+        "body": "From the graph, Carmen travels 35 miles in 7 hours."
+      },
+      {
+        "title": "Compute average speed",
+        "body": "Average speed is total distance divided by total time: 35/7=5 miles per hour."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "algebra",
+      "graphs",
+      "distance-time graph",
+      "average speed"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2011/problem-09-bike-ride-graph.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2011-10",
+    "title": "2011 AMC 8 Problem 10: Taxi Fare",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 10,
+    "category": "Algebra",
+    "subcategory": "Linear equations",
+    "difficulty": 2,
+    "statement": "The taxi fare in Gotham City is $2.40 for the first 1/2 mile and additional mileage charged at the rate $0.20 for each additional 0.1 mile. You plan to give the driver a $2 tip. How many miles can you ride for $10?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3.0"
+      },
+      {
+        "label": "B",
+        "text": "3.25"
+      },
+      {
+        "label": "C",
+        "text": "3.3"
+      },
+      {
+        "label": "D",
+        "text": "3.5"
+      },
+      {
+        "label": "E",
+        "text": "3.75"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "3.3",
+    "solutionSteps": [
+      {
+        "title": "Account for base fare and tip",
+        "body": "After paying the $2.40 base fare and $2 tip, $5.60 remains for extra mileage."
+      },
+      {
+        "title": "Convert extra mileage cost",
+        "body": "At $0.20 per 0.1 mile, the extra mileage costs $2 per mile. So $5.60 buys 2.8 extra miles."
+      },
+      {
+        "title": "Add the first half mile",
+        "body": "The total distance is 0.5+2.8=3.3 miles."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "algebra",
+      "linear equations",
+      "linear equation",
+      "rates"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2011-11",
+    "title": "2011 AMC 8 Problem 11: Asha and Sasha Study Bars",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 11,
+    "category": "Algebra",
+    "subcategory": "Bar graphs",
+    "difficulty": 2,
+    "statement": "The graph shows the number of minutes studied by both Asha (black bar) and Sasha (grey bar) in one week. On the average, how many more minutes per day did Sasha study than Asha?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6"
+      },
+      {
+        "label": "B",
+        "text": "8"
+      },
+      {
+        "label": "C",
+        "text": "9"
+      },
+      {
+        "label": "D",
+        "text": "10"
+      },
+      {
+        "label": "E",
+        "text": "12"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "6",
+    "solutionSteps": [
+      {
+        "title": "Find daily differences",
+        "body": "Sasha minus Asha for the five days is 10, -10, 20, 30, and -20 minutes."
+      },
+      {
+        "title": "Average the differences",
+        "body": "The sum is 30, and 30/5=6 minutes per day."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "algebra",
+      "bar graphs",
+      "bar graph",
+      "average"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2011/problem-11-study-bar-graph.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2011-12",
+    "title": "2011 AMC 8 Problem 12: Opposite Seats",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 12,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 2,
+    "statement": "Angie, Bridget, Carlos, and Diego are seated at random around a square table, one person to a side. What is the probability that Angie and Carlos are seated opposite each other?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/4"
+      },
+      {
+        "label": "B",
+        "text": "1/3"
+      },
+      {
+        "label": "C",
+        "text": "1/2"
+      },
+      {
+        "label": "D",
+        "text": "2/3"
+      },
+      {
+        "label": "E",
+        "text": "3/4"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "1/3",
+    "solutionSteps": [
+      {
+        "title": "Fix Angie's seat",
+        "body": "Once Angie's seat is fixed, Carlos has 3 possible remaining seats."
+      },
+      {
+        "title": "Count favorable seats",
+        "body": "Only one of those seats is opposite Angie, so the probability is 1/3."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "counting & probability",
+      "probability",
+      "probability",
+      "seating"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2011-13",
+    "title": "2011 AMC 8 Problem 13: Overlapping Squares",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 13,
+    "category": "Geometry",
+    "subcategory": "Area percent",
+    "difficulty": 2,
+    "statement": "Two congruent squares, ABCD and PQRS, have side length 15. They overlap to form the 15 by 25 rectangle AQRD shown. What percent of the area of rectangle AQRD is shaded?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "15"
+      },
+      {
+        "label": "B",
+        "text": "18"
+      },
+      {
+        "label": "C",
+        "text": "20"
+      },
+      {
+        "label": "D",
+        "text": "24"
+      },
+      {
+        "label": "E",
+        "text": "25"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "20",
+    "solutionSteps": [
+      {
+        "title": "Find the overlap width",
+        "body": "The rectangle has width 25 while the two side-15 squares together would have width 30, so the overlap width is 5."
+      },
+      {
+        "title": "Compare areas",
+        "body": "The shaded overlap area is 5×15=75. The rectangle area is 25×15=375."
+      },
+      {
+        "title": "Convert to percent",
+        "body": "75/375=1/5=20%."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "geometry",
+      "area percent",
+      "overlap area",
+      "percent"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2011/problem-13-overlap-squares.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2011-14",
+    "title": "2011 AMC 8 Problem 14: Girls at the Dance",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 14,
+    "category": "Algebra",
+    "subcategory": "Ratios",
+    "difficulty": 2,
+    "statement": "There are 270 students at Colfax Middle School, where the ratio of boys to girls is 5:4. There are 180 students at Winthrop Middle School, where the ratio of boys to girls is 4:5. The two schools hold a dance and all students from both schools attend. What fraction of the students at the dance are girls?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7/18"
+      },
+      {
+        "label": "B",
+        "text": "7/15"
+      },
+      {
+        "label": "C",
+        "text": "22/45"
+      },
+      {
+        "label": "D",
+        "text": "1/2"
+      },
+      {
+        "label": "E",
+        "text": "23/45"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "22/45",
+    "solutionSteps": [
+      {
+        "title": "Find girls at each school",
+        "body": "At Colfax, girls are 4/9 of 270, or 120. At Winthrop, girls are 5/9 of 180, or 100."
+      },
+      {
+        "title": "Form the fraction",
+        "body": "There are 220 girls out of 450 students total. The fraction is 220/450=22/45."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "algebra",
+      "ratios",
+      "ratios",
+      "fractions"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2011-15",
+    "title": "2011 AMC 8 Problem 15: Digits in a Product",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 15,
+    "category": "Number Theory",
+    "subcategory": "Exponents",
+    "difficulty": 3,
+    "statement": "How many digits are in the product 4^5 · 5^10?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "8"
+      },
+      {
+        "label": "B",
+        "text": "9"
+      },
+      {
+        "label": "C",
+        "text": "10"
+      },
+      {
+        "label": "D",
+        "text": "11"
+      },
+      {
+        "label": "E",
+        "text": "12"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "11",
+    "solutionSteps": [
+      {
+        "title": "Rewrite powers",
+        "body": "4^5=(2^2)^5=2^10."
+      },
+      {
+        "title": "Make a power of ten",
+        "body": "2^10·5^10=10^10, which is 1 followed by 10 zeros."
+      },
+      {
+        "title": "Count digits",
+        "body": "10^10 has 11 digits."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "number theory",
+      "exponents",
+      "exponents",
+      "digits"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2011-16",
+    "title": "2011 AMC 8 Problem 16: Areas of Isosceles Triangles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 16,
+    "category": "Geometry",
+    "subcategory": "Triangle area",
+    "difficulty": 3,
+    "statement": "Let A be the area of the triangle with sides of length 25, 25, and 30. Let B be the area of the triangle with sides of length 25, 25, and 40. What is the relationship between A and B?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "A = 9/16 B"
+      },
+      {
+        "label": "B",
+        "text": "A = 3/4 B"
+      },
+      {
+        "label": "C",
+        "text": "A = B"
+      },
+      {
+        "label": "D",
+        "text": "A = 4/3 B"
+      },
+      {
+        "label": "E",
+        "text": "A = 16/9 B"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "A = B",
+    "solutionSteps": [
+      {
+        "title": "Drop altitudes",
+        "body": "The 25-25-30 triangle splits into two 15-20-25 right triangles."
+      },
+      {
+        "title": "Compare with the second triangle",
+        "body": "The 25-25-40 triangle splits into two 20-15-25 right triangles."
+      },
+      {
+        "title": "Conclude",
+        "body": "Both triangles are made from two congruent 15-20-25 right triangles, so their areas are equal."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "geometry",
+      "triangle area",
+      "pythagorean theorem",
+      "area"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2011-17",
+    "title": "2011 AMC 8 Problem 17: Prime Factor Exponents",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 17,
+    "category": "Number Theory",
+    "subcategory": "Prime factorization",
+    "difficulty": 2,
+    "statement": "Let w, x, y, and z be whole numbers. If 2^w · 3^x · 5^y · 7^z = 588, then what does 2w + 3x + 5y + 7z equal?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "21"
+      },
+      {
+        "label": "B",
+        "text": "25"
+      },
+      {
+        "label": "C",
+        "text": "27"
+      },
+      {
+        "label": "D",
+        "text": "35"
+      },
+      {
+        "label": "E",
+        "text": "56"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "21",
+    "solutionSteps": [
+      {
+        "title": "Factor 588",
+        "body": "588=2^2·3^1·5^0·7^2."
+      },
+      {
+        "title": "Substitute exponents",
+        "body": "w=2, x=1, y=0, z=2, so 2w+3x+5y+7z=4+3+0+14=21."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "number theory",
+      "prime factorization",
+      "prime factorization",
+      "exponents"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2011-18",
+    "title": "2011 AMC 8 Problem 18: First Die at Least Second",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 18,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 3,
+    "statement": "A fair 6-sided die is rolled twice. What is the probability that the first number that comes up is greater than or equal to the second number?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/6"
+      },
+      {
+        "label": "B",
+        "text": "5/12"
+      },
+      {
+        "label": "C",
+        "text": "1/2"
+      },
+      {
+        "label": "D",
+        "text": "7/12"
+      },
+      {
+        "label": "E",
+        "text": "5/6"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "7/12",
+    "solutionSteps": [
+      {
+        "title": "Count equal rolls",
+        "body": "There are 36 total outcomes and 6 outcomes where the two rolls are equal."
+      },
+      {
+        "title": "Split unequal rolls",
+        "body": "Of the remaining 30 outcomes, half have the first roll larger, so 15 outcomes."
+      },
+      {
+        "title": "Add favorable outcomes",
+        "body": "The favorable outcomes are 15+6=21, and 21/36=7/12."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "counting & probability",
+      "probability",
+      "dice",
+      "probability"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2011-19",
+    "title": "2011 AMC 8 Problem 19: Counting Rectangles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 19,
+    "category": "Geometry",
+    "subcategory": "Counting geometry",
+    "difficulty": 3,
+    "statement": "How many rectangles are in this figure?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "8"
+      },
+      {
+        "label": "B",
+        "text": "9"
+      },
+      {
+        "label": "C",
+        "text": "10"
+      },
+      {
+        "label": "D",
+        "text": "11"
+      },
+      {
+        "label": "E",
+        "text": "12"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "11",
+    "solutionSteps": [
+      {
+        "title": "Split into regions",
+        "body": "The overlapping outlines divide the figure into useful rectangular sections."
+      },
+      {
+        "title": "Count by size",
+        "body": "There are 3 rectangles using one section, 5 using two sections, none using three sections, and 3 using four sections."
+      },
+      {
+        "title": "Add",
+        "body": "The total is 3+5+3=11 rectangles."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "geometry",
+      "counting geometry",
+      "rectangles",
+      "counting"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2011/problem-19-rectangles-count.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2011-20",
+    "title": "2011 AMC 8 Problem 20: Trapezoid Area",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 20,
+    "category": "Geometry",
+    "subcategory": "Trapezoid area",
+    "difficulty": 3,
+    "statement": "Quadrilateral ABCD is a trapezoid, AD = 15, AB = 50, BC = 20, and the altitude is 12. What is the area of the trapezoid?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "600"
+      },
+      {
+        "label": "B",
+        "text": "650"
+      },
+      {
+        "label": "C",
+        "text": "700"
+      },
+      {
+        "label": "D",
+        "text": "750"
+      },
+      {
+        "label": "E",
+        "text": "800"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "750",
+    "solutionSteps": [
+      {
+        "title": "Find horizontal offsets",
+        "body": "The left right triangle has hypotenuse 15 and height 12, so its base is 9. The right triangle has hypotenuse 20 and height 12, so its base is 16."
+      },
+      {
+        "title": "Find the longer base",
+        "body": "CD=9+50+16=75."
+      },
+      {
+        "title": "Use trapezoid area",
+        "body": "The area is 12(50+75)/2=750."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "geometry",
+      "trapezoid area",
+      "pythagorean theorem",
+      "trapezoid"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2011/problem-20-trapezoid.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2011-21",
+    "title": "2011 AMC 8 Problem 21: Norb's Prime Age",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 21,
+    "category": "Logic",
+    "subcategory": "Constraints",
+    "difficulty": 3,
+    "statement": "Students guess that Norb's age is 24, 28, 30, 32, 36, 38, 41, 44, 47, and 49. Norb says, 'At least half of you guessed too low, two of you are off by one, and my age is a prime number.' How old is Norb?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "29"
+      },
+      {
+        "label": "B",
+        "text": "31"
+      },
+      {
+        "label": "C",
+        "text": "37"
+      },
+      {
+        "label": "D",
+        "text": "43"
+      },
+      {
+        "label": "E",
+        "text": "48"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "37",
+    "solutionSteps": [
+      {
+        "title": "Use too-low clue",
+        "body": "At least half the guesses are too low, so Norb must be older than 36."
+      },
+      {
+        "title": "Use off-by-one clue",
+        "body": "Two guesses are off by one only near possible ages 37 or 48 in the relevant range."
+      },
+      {
+        "title": "Use prime clue",
+        "body": "48 is not prime, but 37 is prime."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "ranking",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "logic",
+      "constraints",
+      "logic",
+      "prime numbers"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2011-22",
+    "title": "2011 AMC 8 Problem 22: Tens Digit of a Power",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 22,
+    "category": "Number Theory",
+    "subcategory": "Modular arithmetic",
+    "difficulty": 4,
+    "statement": "What is the tens digit of 7^2011?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "0"
+      },
+      {
+        "label": "B",
+        "text": "1"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "4"
+      },
+      {
+        "label": "E",
+        "text": "7"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Work with last two digits",
+        "body": "The powers of 7 modulo 100 repeat every 4 in the pattern ending 07, 49, 43, 01."
+      },
+      {
+        "title": "Use the exponent",
+        "body": "2011 leaves remainder 3 when divided by 4, so 7^2011 ends in 43."
+      },
+      {
+        "title": "Read the tens digit",
+        "body": "The tens digit is 4."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "number theory",
+      "modular arithmetic",
+      "modular arithmetic",
+      "powers"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2011-23",
+    "title": "2011 AMC 8 Problem 23: Four-Digit Multiples of 5",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 23,
+    "category": "Counting & Probability",
+    "subcategory": "Counting cases",
+    "difficulty": 4,
+    "statement": "How many 4-digit positive integers have four different digits, where the leading digit is not zero, the integer is a multiple of 5, and 5 is the largest digit?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "24"
+      },
+      {
+        "label": "B",
+        "text": "48"
+      },
+      {
+        "label": "C",
+        "text": "60"
+      },
+      {
+        "label": "D",
+        "text": "84"
+      },
+      {
+        "label": "E",
+        "text": "108"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "84",
+    "solutionSteps": [
+      {
+        "title": "Case 1: last digit is 5",
+        "body": "The first digit can be 1, 2, 3, or 4. Then there are 4 choices for the second digit and 3 for the third, giving 4·4·3=48."
+      },
+      {
+        "title": "Case 2: last digit is 0",
+        "body": "One of the first three places must be 5, and the other two are distinct choices from 1,2,3,4. This gives 3·4·3=36."
+      },
+      {
+        "title": "Add cases",
+        "body": "The total is 48+36=84."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "counting & probability",
+      "counting cases",
+      "casework",
+      "digits",
+      "multiples of 5"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2011-24",
+    "title": "2011 AMC 8 Problem 24: 10001 as Sum of Two Primes",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 24,
+    "category": "Number Theory",
+    "subcategory": "Prime numbers",
+    "difficulty": 4,
+    "statement": "In how many ways can 10001 be written as the sum of two primes?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "0"
+      },
+      {
+        "label": "B",
+        "text": "1"
+      },
+      {
+        "label": "C",
+        "text": "2"
+      },
+      {
+        "label": "D",
+        "text": "3"
+      },
+      {
+        "label": "E",
+        "text": "4"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "0",
+    "solutionSteps": [
+      {
+        "title": "Use parity",
+        "body": "An odd sum of two primes must be 2 plus an odd prime."
+      },
+      {
+        "title": "Check the only candidate",
+        "body": "10001-2=9999, but 9999 is divisible by 3, so it is not prime."
+      },
+      {
+        "title": "Conclude",
+        "body": "There are no ways."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "number theory",
+      "prime numbers",
+      "prime numbers",
+      "parity"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2011-25",
+    "title": "2011 AMC 8 Problem 25: Circle and Two Squares",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2011,
+    "problemNumber": 25,
+    "category": "Geometry",
+    "subcategory": "Area ratio",
+    "difficulty": 4,
+    "statement": "A circle with radius 1 is inscribed in a square and circumscribed about another square as shown. Which fraction is closest to the ratio of the circle's shaded area to the area between the two squares?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/2"
+      },
+      {
+        "label": "B",
+        "text": "1"
+      },
+      {
+        "label": "C",
+        "text": "3/2"
+      },
+      {
+        "label": "D",
+        "text": "2"
+      },
+      {
+        "label": "E",
+        "text": "5/2"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "1/2",
+    "solutionSteps": [
+      {
+        "title": "Find the inner square area",
+        "body": "The inner square has diagonal equal to the circle's diameter, 2, so its area is (2·2)/2=2."
+      },
+      {
+        "title": "Find the circle's shaded area",
+        "body": "The shaded part inside the circle is π-2."
+      },
+      {
+        "title": "Compare with the area between squares",
+        "body": "The outer square has side 2 and area 4, so the area between the squares is 4-2=2. The ratio is (π-2)/2≈0.57, closest to 1/2."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the problem",
+        "narration": "Identify the key quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers, labels, or diagram features."
+      },
+      {
+        "title": "Build the relationship",
+        "narration": "Use the main equation, counting idea, or geometric relationship.",
+        "visualHint": "Animate the central calculation or diagram step."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the computed result to the correct choice.",
+        "visualHint": "Circle the correct answer choice."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2011",
+      "geometry",
+      "area ratio",
+      "circle area",
+      "square area",
+      "ratio"
+    ],
+    "sourceName": "2011 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2011/problem-25-circle-square-ratio.svg"
+    ],
+    "needsDiagram": true
+  }
+];
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
@@ -24987,6 +27060,7 @@ export const sampleProblems: Problem[] = [
   ...amc2008Problems,
   ...amc2009Problems,
   ...amc2010Problems,
+  ...amc2011Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems };

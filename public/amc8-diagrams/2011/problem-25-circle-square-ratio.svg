@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360">
+  <rect width="100%" height="100%" fill="white"/>
+  <rect x="50" y="50" width="260" height="260" fill="#9ca3af" stroke="black" stroke-width="2"/>
+  <circle cx="180" cy="180" r="130" fill="#d1d5db" stroke="black" stroke-width="2"/>
+  <polygon points="180,50 310,180 180,310 50,180" fill="white" stroke="black" stroke-width="2"/>
+  <text x="95" y="335" font-size="15">circle shaded area = circle − inner square</text>
+</svg>
