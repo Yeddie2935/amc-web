@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 300" width="360" height="300" role="img" aria-label="A tilted square of area 4 inscribed in a larger square of area 5">
+  <rect width="100%" height="100%" fill="white"/>
+  <style>text{font-family:Inter,Arial,sans-serif;font-size:18px;fill:#111827}.lbl{font-size:20px;font-style:italic}</style>
+  <rect x="55" y="35" width="250" height="250" fill="#ffffff" stroke="#111827" stroke-width="3"/>
+  <polygon points="95,260 80,75 280,55 300,240" fill="#f8fafc" stroke="#111827" stroke-width="3"/>
+  <line x1="55" y1="260" x2="95" y2="260" stroke="#111827" stroke-width="2"/>
+  <line x1="55" y1="35" x2="80" y2="75" stroke="#111827" stroke-width="2"/>
+  <text class="lbl" x="28" y="245">a</text><text class="lbl" x="27" y="126">b</text>
+  <line x1="45" y1="285" x2="95" y2="285" stroke="#2563eb" stroke-width="2"/><text x="61" y="276">a</text>
+  <line x1="28" y1="35" x2="28" y2="260" stroke="#2563eb" stroke-width="2"/><text x="9" y="150">b</text>
+  <text x="88" y="25">area 5</text><text x="150" y="160">area 4</text>
+</svg>

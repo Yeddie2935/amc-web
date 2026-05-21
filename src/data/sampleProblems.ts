@@ -27048,6 +27048,2043 @@ const amc2011Problems: Problem[] = [
   }
 ];
 
+const amc2012Problems: Problem[] = [
+  {
+    "id": "amc8-2012-01",
+    "title": "2012 AMC 8 Problem 1: Hamburger Meat Scaling",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 1,
+    "category": "Algebra",
+    "subcategory": "Proportions",
+    "difficulty": 1,
+    "statement": "Rachelle uses 3 pounds of meat to make 8 hamburgers for her family. How many pounds of meat does she need to make 24 hamburgers for a neighbourhood picnic?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6"
+      },
+      {
+        "label": "B",
+        "text": "6 2/3"
+      },
+      {
+        "label": "C",
+        "text": "7 1/2"
+      },
+      {
+        "label": "D",
+        "text": "8"
+      },
+      {
+        "label": "E",
+        "text": "9"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "9",
+    "solutionSteps": [
+      {
+        "title": "Scale the recipe",
+        "body": "Twenty-four hamburgers is 3 times as many as 8 hamburgers."
+      },
+      {
+        "title": "Scale the meat",
+        "body": "Multiply the 3 pounds of meat by 3.",
+        "equation": "3 × 3 = 9"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Circle answer choice E."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "ratio",
+      "proportion",
+      "scaling"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-02",
+    "title": "2012 AMC 8 Problem 2: Population Change Estimate",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 2,
+    "category": "Algebra",
+    "subcategory": "Rates",
+    "difficulty": 1,
+    "statement": "In the country of East Westmore, statisticians estimate there is a baby born every 8 hours and a death every day. To the nearest hundred, how many people are added to the population of East Westmore each year?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "600"
+      },
+      {
+        "label": "B",
+        "text": "700"
+      },
+      {
+        "label": "C",
+        "text": "800"
+      },
+      {
+        "label": "D",
+        "text": "900"
+      },
+      {
+        "label": "E",
+        "text": "1000"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "700",
+    "solutionSteps": [
+      {
+        "title": "Find daily births",
+        "body": "A day has 24 hours, so a birth every 8 hours means 3 births per day.",
+        "equation": "24 ÷ 8 = 3"
+      },
+      {
+        "title": "Find daily increase",
+        "body": "There is also 1 death per day, so the net increase is 2 people per day."
+      },
+      {
+        "title": "Estimate yearly increase",
+        "body": "Over 365 days, the increase is 730, which rounds to 700 to the nearest hundred.",
+        "equation": "2 × 365 = 730"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "rates",
+      "rounding"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-03",
+    "title": "2012 AMC 8 Problem 3: Correct Sunset Time",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 3,
+    "category": "Algebra",
+    "subcategory": "Time arithmetic",
+    "difficulty": 1,
+    "statement": "On February 13 The Oshkosh Northwester listed the length of daylight as 10 hours and 24 minutes, the sunrise was 6:57 AM, and the sunset as 8:15 PM. The length of daylight and sunrise were correct, but the sunset was wrong. When did the sun really set?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5:10 PM"
+      },
+      {
+        "label": "B",
+        "text": "5:21 PM"
+      },
+      {
+        "label": "C",
+        "text": "5:41 PM"
+      },
+      {
+        "label": "D",
+        "text": "5:57 PM"
+      },
+      {
+        "label": "E",
+        "text": "6:03 PM"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "5:21 PM",
+    "solutionSteps": [
+      {
+        "title": "Add daylight to sunrise",
+        "body": "The correct sunset is sunrise time plus the length of daylight."
+      },
+      {
+        "title": "Add the times",
+        "body": "6:57 AM plus 10 hours is 4:57 PM. Adding 24 more minutes gives 5:21 PM."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "time",
+      "arithmetic"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-04",
+    "title": "2012 AMC 8 Problem 4: Pizza Fraction",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 4,
+    "category": "Algebra",
+    "subcategory": "Fractions",
+    "difficulty": 1,
+    "statement": "Peter's family ordered a 12-slice pizza for dinner. Peter ate one slice and shared another slice equally with his brother Paul. What fraction of the pizza did Peter eat?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/24"
+      },
+      {
+        "label": "B",
+        "text": "1/12"
+      },
+      {
+        "label": "C",
+        "text": "1/8"
+      },
+      {
+        "label": "D",
+        "text": "1/6"
+      },
+      {
+        "label": "E",
+        "text": "1/4"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "1/8",
+    "solutionSteps": [
+      {
+        "title": "Count Peter’s slices",
+        "body": "Peter ate 1 full slice plus half of another slice.",
+        "equation": "1 + 1/2 = 3/2"
+      },
+      {
+        "title": "Compare to the whole pizza",
+        "body": "The pizza has 12 slices, so Peter ate (3/2)/12 = 1/8 of the pizza."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "fractions"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-05",
+    "title": "2012 AMC 8 Problem 5: Right-Angle Side Length",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 5,
+    "category": "Geometry",
+    "subcategory": "Perimeter and side lengths",
+    "difficulty": 2,
+    "statement": "In the diagram, all angles are right angles and the lengths of the sides are given in centimeters. Note the diagram is not drawn to scale. What is X, in centimeters?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "4"
+      },
+      {
+        "label": "E",
+        "text": "5"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "Use vertical balance",
+        "body": "The total vertical distance going down must equal the total vertical distance going up."
+      },
+      {
+        "title": "Set up the equation",
+        "body": "On one side the vertical lengths add to 1+1+1+2+X. On the other side they add to 1+2+1+6.",
+        "equation": "1+1+1+2+X = 1+2+1+6"
+      },
+      {
+        "title": "Solve",
+        "body": "This gives 5+X=10, so X=5."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Circle answer choice E."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "geometry",
+      "right angles",
+      "lengths"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2012/problem-05-step-polygon.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2012-06",
+    "title": "2012 AMC 8 Problem 6: Photo Frame Border Area",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 6,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 2,
+    "statement": "A rectangular photograph is placed in a frame that forms a border two inches wide on all sides of the photograph. The photograph measures 8 inches high and 10 inches wide. What is the area of the border, in square inches?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "36"
+      },
+      {
+        "label": "B",
+        "text": "40"
+      },
+      {
+        "label": "C",
+        "text": "64"
+      },
+      {
+        "label": "D",
+        "text": "72"
+      },
+      {
+        "label": "E",
+        "text": "88"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "88",
+    "solutionSteps": [
+      {
+        "title": "Find the photo area",
+        "body": "The photograph area is 8×10=80 square inches."
+      },
+      {
+        "title": "Find the outer dimensions",
+        "body": "The border adds 2 inches to each side, so the outer rectangle is 12 inches by 14 inches."
+      },
+      {
+        "title": "Subtract",
+        "body": "The border area is the outer area minus the photograph area.",
+        "equation": "12×14 - 8×10 = 168 - 80 = 88"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Circle answer choice E."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "geometry",
+      "area",
+      "rectangles"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-07",
+    "title": "2012 AMC 8 Problem 7: Lowest Third Test Score",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 7,
+    "category": "Algebra",
+    "subcategory": "Averages",
+    "difficulty": 2,
+    "statement": "Isabella must take four 100-point tests in her math class. Her goal is to achieve an average grade of 95 on the tests. Her first two test scores were 97 and 91. After seeing her score on the third test, she realized she can still reach her goal. What is the lowest possible score she could have made on the third test?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "90"
+      },
+      {
+        "label": "B",
+        "text": "92"
+      },
+      {
+        "label": "C",
+        "text": "95"
+      },
+      {
+        "label": "D",
+        "text": "96"
+      },
+      {
+        "label": "E",
+        "text": "97"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "92",
+    "solutionSteps": [
+      {
+        "title": "Find needed total",
+        "body": "An average of 95 over 4 tests requires 380 total points.",
+        "equation": "95×4=380"
+      },
+      {
+        "title": "Use known scores",
+        "body": "The first two scores total 188, so she needs 192 more points."
+      },
+      {
+        "title": "Maximize the fourth test",
+        "body": "To make the third score as low as possible, assume she gets 100 on the fourth test. Then the third score must be 92."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "averages",
+      "optimization"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-08",
+    "title": "2012 AMC 8 Problem 8: Stacked Discounts",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 8,
+    "category": "Algebra",
+    "subcategory": "Percent",
+    "difficulty": 2,
+    "statement": "A shop advertises everything is \"half price in today’s sale.\" In addition, a coupon gives a 20% discount on sale prices. Using the coupon, the price today represents what percentage off the original price?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "10"
+      },
+      {
+        "label": "B",
+        "text": "33"
+      },
+      {
+        "label": "C",
+        "text": "40"
+      },
+      {
+        "label": "D",
+        "text": "60"
+      },
+      {
+        "label": "E",
+        "text": "70"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "60",
+    "solutionSteps": [
+      {
+        "title": "Start with half price",
+        "body": "Half price means the sale price is 50% of the original."
+      },
+      {
+        "title": "Apply the coupon to the sale price",
+        "body": "A 20% discount leaves 80% of the sale price.",
+        "equation": "0.80×0.50 = 0.40"
+      },
+      {
+        "title": "Convert to percent off",
+        "body": "The final price is 40% of the original, so the discount is 60%."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "percent",
+      "discounts"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-09",
+    "title": "2012 AMC 8 Problem 9: Birds and Mammals",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 9,
+    "category": "Algebra",
+    "subcategory": "Systems of equations",
+    "difficulty": 2,
+    "statement": "The Fort Worth Zoo has a number of two-legged birds and a number of four-legged mammals. On one visit to the zoo, Margie counted 200 heads and 522 legs. How many of the animals that Margie counted were two-legged birds?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "61"
+      },
+      {
+        "label": "B",
+        "text": "122"
+      },
+      {
+        "label": "C",
+        "text": "139"
+      },
+      {
+        "label": "D",
+        "text": "150"
+      },
+      {
+        "label": "E",
+        "text": "161"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "139",
+    "solutionSteps": [
+      {
+        "title": "Let variables represent animals",
+        "body": "Let b be birds and m be mammals. Then b+m=200 and 2b+4m=522."
+      },
+      {
+        "title": "Compare to all two-legged animals",
+        "body": "If all 200 animals had 2 legs, there would be 400 legs. The extra 122 legs come from mammals, 2 extra per mammal."
+      },
+      {
+        "title": "Find birds",
+        "body": "There are 61 mammals, so there are 200-61=139 birds."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "systems",
+      "word problems"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-10",
+    "title": "2012 AMC 8 Problem 10: Permutations of 2012",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 10,
+    "category": "Counting & Probability",
+    "subcategory": "Permutations",
+    "difficulty": 2,
+    "statement": "How many 4-digit numbers greater than 1000 are there that use the four digits of 2012?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6"
+      },
+      {
+        "label": "B",
+        "text": "7"
+      },
+      {
+        "label": "C",
+        "text": "8"
+      },
+      {
+        "label": "D",
+        "text": "9"
+      },
+      {
+        "label": "E",
+        "text": "12"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "9",
+    "solutionSteps": [
+      {
+        "title": "Choose the first digit",
+        "body": "The first digit cannot be 0. It can be 1 or 2."
+      },
+      {
+        "title": "Case 1: starts with 1",
+        "body": "The remaining digits are 0,2,2, which make 3 distinct arrangements."
+      },
+      {
+        "title": "Case 2: starts with 2",
+        "body": "The remaining digits 0,1,2 make 6 arrangements. The total is 3+6=9."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "counting",
+      "permutations"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-11",
+    "title": "2012 AMC 8 Problem 11: Mean Median and Mode",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 11,
+    "category": "Algebra",
+    "subcategory": "Statistics",
+    "difficulty": 2,
+    "statement": "The mean, median, and unique mode of the positive integers 3, 4, 5, 6, 6, 7, and x are all equal. What is the value of x?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5"
+      },
+      {
+        "label": "B",
+        "text": "6"
+      },
+      {
+        "label": "C",
+        "text": "7"
+      },
+      {
+        "label": "D",
+        "text": "11"
+      },
+      {
+        "label": "E",
+        "text": "12"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "11",
+    "solutionSteps": [
+      {
+        "title": "Identify likely common value",
+        "body": "Because 6 appears twice already, the unique mode is naturally 6 unless x creates another tie."
+      },
+      {
+        "title": "Force the mean to be 6",
+        "body": "The known numbers sum to 31. For 7 numbers to average 6, the total must be 42."
+      },
+      {
+        "title": "Solve for x",
+        "body": "So x=42-31=11. The median is also 6, so this works."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "statistics",
+      "mean",
+      "median",
+      "mode"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-12",
+    "title": "2012 AMC 8 Problem 12: Units Digit of a Power",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 12,
+    "category": "Number Theory",
+    "subcategory": "Units digits",
+    "difficulty": 2,
+    "statement": "What is the units digit of 13^2012?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "3"
+      },
+      {
+        "label": "C",
+        "text": "5"
+      },
+      {
+        "label": "D",
+        "text": "7"
+      },
+      {
+        "label": "E",
+        "text": "9"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "1",
+    "solutionSteps": [
+      {
+        "title": "Only the units digit matters",
+        "body": "The units digits of powers of 13 follow the same cycle as powers of 3."
+      },
+      {
+        "title": "Use the cycle",
+        "body": "Powers of 3 have units-digit cycle 3,9,7,1, repeating every 4."
+      },
+      {
+        "title": "Use the exponent",
+        "body": "Since 2012 is divisible by 4, the units digit is the 4th value in the cycle, 1."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Circle answer choice A."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "units digit",
+      "exponents"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-13",
+    "title": "2012 AMC 8 Problem 13: Pencil Price GCD",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 13,
+    "category": "Number Theory",
+    "subcategory": "Greatest common divisor",
+    "difficulty": 2,
+    "statement": "Jamar bought some pencils costing more than a penny each at the school bookstore and paid $1.43. Sharona bought some of the same pencils and paid $1.87. How many more pencils did Sharona buy than Jamar?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2"
+      },
+      {
+        "label": "B",
+        "text": "3"
+      },
+      {
+        "label": "C",
+        "text": "4"
+      },
+      {
+        "label": "D",
+        "text": "5"
+      },
+      {
+        "label": "E",
+        "text": "6"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Convert to cents",
+        "body": "The totals are 143 cents and 187 cents."
+      },
+      {
+        "title": "Find the pencil price",
+        "body": "The price per pencil must divide both totals and is more than 1 cent. The greatest common divisor of 143 and 187 is 11."
+      },
+      {
+        "title": "Count pencils",
+        "body": "Jamar bought 13 pencils and Sharona bought 17, so Sharona bought 4 more."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "gcd",
+      "divisibility"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-14",
+    "title": "2012 AMC 8 Problem 14: Conference Games",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 14,
+    "category": "Counting & Probability",
+    "subcategory": "Combinations",
+    "difficulty": 2,
+    "statement": "In the BIG N, a middle school football conference, each team plays every other team exactly once. If a total of 21 conference games were played during the 2012 season, how many teams were members of the BIG N conference?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6"
+      },
+      {
+        "label": "B",
+        "text": "7"
+      },
+      {
+        "label": "C",
+        "text": "8"
+      },
+      {
+        "label": "D",
+        "text": "9"
+      },
+      {
+        "label": "E",
+        "text": "10"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "7",
+    "solutionSteps": [
+      {
+        "title": "Use pair counting",
+        "body": "Each game is a pair of teams, so n teams create n(n-1)/2 games."
+      },
+      {
+        "title": "Set equal to 21",
+        "body": "Solve n(n-1)/2=21, so n(n-1)=42."
+      },
+      {
+        "title": "Find n",
+        "body": "Since 7×6=42, there are 7 teams."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "combinations",
+      "handshake"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-15",
+    "title": "2012 AMC 8 Problem 15: Remainder Two",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 15,
+    "category": "Number Theory",
+    "subcategory": "LCM",
+    "difficulty": 2,
+    "statement": "The smallest number greater than 2 that leaves a remainder of 2 when divided by 3, 4, 5, or 6 lies between what numbers?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "40 and 50"
+      },
+      {
+        "label": "B",
+        "text": "51 and 55"
+      },
+      {
+        "label": "C",
+        "text": "56 and 60"
+      },
+      {
+        "label": "D",
+        "text": "61 and 65"
+      },
+      {
+        "label": "E",
+        "text": "66 and 99"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "61 and 65",
+    "solutionSteps": [
+      {
+        "title": "Use the remainder condition",
+        "body": "If the number leaves remainder 2 when divided by 3,4,5,6, then subtracting 2 makes it divisible by all four."
+      },
+      {
+        "title": "Find the LCM",
+        "body": "The least common multiple of 3,4,5,6 is 60."
+      },
+      {
+        "title": "Add back the remainder",
+        "body": "The smallest number is 60+2=62, which lies between 61 and 65."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "lcm",
+      "remainders"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-16",
+    "title": "2012 AMC 8 Problem 16: Largest Sum from Digits",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 16,
+    "category": "Logic",
+    "subcategory": "Place value",
+    "difficulty": 3,
+    "statement": "Each of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9 is used only once to make two five-digit numbers so that they have the largest possible sum. Which of the following could be one of the numbers?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "76531"
+      },
+      {
+        "label": "B",
+        "text": "86724"
+      },
+      {
+        "label": "C",
+        "text": "87431"
+      },
+      {
+        "label": "D",
+        "text": "96240"
+      },
+      {
+        "label": "E",
+        "text": "97403"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "87431",
+    "solutionSteps": [
+      {
+        "title": "Maximize place values",
+        "body": "To maximize the sum, the largest digits must go in the largest place values across the two numbers."
+      },
+      {
+        "title": "Compare viable choices",
+        "body": "The candidate must use digits in decreasing order. Choices 76531 and 87431 are the only plausible ones."
+      },
+      {
+        "title": "Choose the better pairing",
+        "body": "87431 pairs with a number beginning 96, creating a larger sum than the best pairing for 76531."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "ranking",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "logic",
+      "place value"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-17",
+    "title": "2012 AMC 8 Problem 17: Cutting a Square into 10 Squares",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 17,
+    "category": "Geometry",
+    "subcategory": "Square tiling",
+    "difficulty": 3,
+    "statement": "A square with integer side length is cut into 10 squares, all of which have integer side length and at least 8 of which have area 1. What is the smallest possible value of the length of the side of the original square?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3"
+      },
+      {
+        "label": "B",
+        "text": "4"
+      },
+      {
+        "label": "C",
+        "text": "5"
+      },
+      {
+        "label": "D",
+        "text": "6"
+      },
+      {
+        "label": "E",
+        "text": "7"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Eliminate side length 3",
+        "body": "A 3 by 3 square has area 9, so it cannot be cut into 10 positive-area squares."
+      },
+      {
+        "title": "Try side length 4",
+        "body": "A 4 by 4 square can be made from eight 1 by 1 squares and two 2 by 2 squares."
+      },
+      {
+        "title": "Conclude",
+        "body": "This gives 10 integer-sided squares with at least eight unit squares, so 4 is possible and minimal."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "tiling",
+      "squares"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-18",
+    "title": "2012 AMC 8 Problem 18: Composite with Large Prime Factors",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 18,
+    "category": "Number Theory",
+    "subcategory": "Prime factors",
+    "difficulty": 3,
+    "statement": "What is the smallest positive integer that is neither prime nor square and that has no prime factor less than 50?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3127"
+      },
+      {
+        "label": "B",
+        "text": "3133"
+      },
+      {
+        "label": "C",
+        "text": "3137"
+      },
+      {
+        "label": "D",
+        "text": "3139"
+      },
+      {
+        "label": "E",
+        "text": "3149"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "3127",
+    "solutionSteps": [
+      {
+        "title": "Understand the restrictions",
+        "body": "The number must be composite, not a square, and all prime factors must be at least 50."
+      },
+      {
+        "title": "Use smallest possible primes",
+        "body": "The two smallest primes greater than 50 are 53 and 59."
+      },
+      {
+        "title": "Multiply",
+        "body": "Their product is 53×59=3127, which is not prime and not a square."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Circle answer choice A."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "prime factors",
+      "composite"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-19",
+    "title": "2012 AMC 8 Problem 19: Red Green Blue Marbles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 19,
+    "category": "Algebra",
+    "subcategory": "Systems",
+    "difficulty": 3,
+    "statement": "In a jar of red, green, and blue marbles, all but 6 are red marbles, all but 8 are green, and all but 4 are blue. How many marbles are in the jar?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6"
+      },
+      {
+        "label": "B",
+        "text": "8"
+      },
+      {
+        "label": "C",
+        "text": "9"
+      },
+      {
+        "label": "D",
+        "text": "10"
+      },
+      {
+        "label": "E",
+        "text": "12"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "9",
+    "solutionSteps": [
+      {
+        "title": "Translate each statement",
+        "body": "All but 6 are red means green plus blue is 6. Similarly, red plus blue is 8 and red plus green is 4."
+      },
+      {
+        "title": "Add equations",
+        "body": "Adding gives 2 times the total number of marbles equals 18."
+      },
+      {
+        "title": "Solve",
+        "body": "The total number of marbles is 9."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "systems",
+      "logic"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-20",
+    "title": "2012 AMC 8 Problem 20: Ordering Fractions",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 20,
+    "category": "Number Theory",
+    "subcategory": "Fractions",
+    "difficulty": 3,
+    "statement": "What is the correct ordering of the three numbers 5/19, 7/21, and 9/23, in increasing order?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "9/23 < 7/21 < 5/19"
+      },
+      {
+        "label": "B",
+        "text": "5/19 < 7/21 < 9/23"
+      },
+      {
+        "label": "C",
+        "text": "9/23 < 5/19 < 7/21"
+      },
+      {
+        "label": "D",
+        "text": "5/19 < 9/23 < 7/21"
+      },
+      {
+        "label": "E",
+        "text": "7/21 < 5/19 < 9/23"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "5/19 < 7/21 < 9/23",
+    "solutionSteps": [
+      {
+        "title": "Approximate or compare",
+        "body": "7/21 equals 1/3. The fraction 5/19 is slightly less than 1/3, and 9/23 is greater than 1/3."
+      },
+      {
+        "title": "Order them",
+        "body": "So the increasing order is 5/19, then 7/21, then 9/23."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "ranking",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "fractions",
+      "ordering"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-21",
+    "title": "2012 AMC 8 Problem 21: Painted Cube Faces",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 21,
+    "category": "Geometry",
+    "subcategory": "Surface area",
+    "difficulty": 3,
+    "statement": "Marla has a large white cube that has an edge of 10 feet. She also has enough green paint to cover 300 square feet. Marla uses all the paint to create a white square centered on each face, surrounded by a green border. What is the area of one of the white squares, in square feet?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5√2"
+      },
+      {
+        "label": "B",
+        "text": "10"
+      },
+      {
+        "label": "C",
+        "text": "10√2"
+      },
+      {
+        "label": "D",
+        "text": "50"
+      },
+      {
+        "label": "E",
+        "text": "50√2"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "50",
+    "solutionSteps": [
+      {
+        "title": "Distribute the paint",
+        "body": "The 300 square feet of green paint is spread equally over 6 faces, so each face gets 50 square feet of green."
+      },
+      {
+        "title": "Find one face area",
+        "body": "Each face is a 10 by 10 square, so its area is 100 square feet."
+      },
+      {
+        "title": "Find the white area",
+        "body": "The centered white square on each face has area 100-50=50."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "surface area",
+      "cube"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-22",
+    "title": "2012 AMC 8 Problem 22: Possible Medians",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 22,
+    "category": "Counting & Probability",
+    "subcategory": "Median",
+    "difficulty": 3,
+    "statement": "Let R be a set of nine distinct integers. Six of the elements are 2, 3, 4, 6, 9, and 14. What is the number of possible values of the median of R?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "5"
+      },
+      {
+        "label": "C",
+        "text": "6"
+      },
+      {
+        "label": "D",
+        "text": "7"
+      },
+      {
+        "label": "E",
+        "text": "8"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "7",
+    "solutionSteps": [
+      {
+        "title": "Median is the fifth number",
+        "body": "A set of 9 numbers has its median as the 5th number in increasing order."
+      },
+      {
+        "title": "Find the smallest possible median",
+        "body": "By placing the three unknown integers before 2, the fifth number can be as small as 3."
+      },
+      {
+        "title": "Find the largest possible median",
+        "body": "By placing the three unknown integers after 14, the fifth number can be as large as 9. The possible medians are 3 through 9, giving 7 values."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "median",
+      "counting"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-23",
+    "title": "2012 AMC 8 Problem 23: Triangle and Hexagon Areas",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 23,
+    "category": "Geometry",
+    "subcategory": "Similar areas",
+    "difficulty": 3,
+    "statement": "An equilateral triangle and a regular hexagon have equal perimeters. If the triangle’s area is 4, what is the area of the hexagon?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "5"
+      },
+      {
+        "label": "C",
+        "text": "6"
+      },
+      {
+        "label": "D",
+        "text": "4√3"
+      },
+      {
+        "label": "E",
+        "text": "6√3"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "6",
+    "solutionSteps": [
+      {
+        "title": "Compare side lengths",
+        "body": "If the triangle side is s, the perimeter is 3s. A regular hexagon with the same perimeter has side length s/2."
+      },
+      {
+        "title": "Compare small equilateral triangles",
+        "body": "The hexagon is made of 6 equilateral triangles, each with side length half the original triangle’s side."
+      },
+      {
+        "title": "Scale area",
+        "body": "Each small triangle has 1/4 the area of the original, so each has area 1. The hexagon area is 6."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "equilateral triangle",
+      "hexagon",
+      "area"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2012-24",
+    "title": "2012 AMC 8 Problem 24: Four Arcs Star Area",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 24,
+    "category": "Geometry",
+    "subcategory": "Circle area",
+    "difficulty": 4,
+    "statement": "A circle of radius 2 is cut into four congruent arcs. The four arcs are joined to form the star figure shown. What is the ratio of the area of the star figure to the area of the original circle?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "(4−π)/π"
+      },
+      {
+        "label": "B",
+        "text": "1/π"
+      },
+      {
+        "label": "C",
+        "text": "√2/π"
+      },
+      {
+        "label": "D",
+        "text": "(π−1)/π"
+      },
+      {
+        "label": "E",
+        "text": "3/π"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "(4−π)/π",
+    "solutionSteps": [
+      {
+        "title": "Enclose the star in a square",
+        "body": "The star fits inside a square of side 4, the diameter of the original circle."
+      },
+      {
+        "title": "Subtract the four quarter-circles",
+        "body": "The four rounded outside pieces together form one circle of radius 2, area 4π. The square area is 16."
+      },
+      {
+        "title": "Take the ratio",
+        "body": "The star area is 16−4π. Dividing by the original circle area 4π gives (4−π)/π."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Circle answer choice A."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "circle area",
+      "area ratio"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2012/problem-24-star-arcs.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2012-25",
+    "title": "2012 AMC 8 Problem 25: Inscribed Tilted Square",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2012,
+    "problemNumber": 25,
+    "category": "Geometry",
+    "subcategory": "Area decomposition",
+    "difficulty": 4,
+    "statement": "A square with area 4 is inscribed in a square with area 5, with each vertex of the smaller square on a side of the larger square. A vertex of the smaller square divides a side of the larger square into two segments, one of length a, and the other of length b. What is the value of ab?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/5"
+      },
+      {
+        "label": "B",
+        "text": "2/5"
+      },
+      {
+        "label": "C",
+        "text": "1/2"
+      },
+      {
+        "label": "D",
+        "text": "1"
+      },
+      {
+        "label": "E",
+        "text": "4"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "1/2",
+    "solutionSteps": [
+      {
+        "title": "Compare areas",
+        "body": "The outer square has area 5 and the inner square has area 4, so the four corner triangles have total area 1."
+      },
+      {
+        "title": "Use congruent triangles",
+        "body": "Each corner triangle has area 1/4."
+      },
+      {
+        "title": "Use triangle area",
+        "body": "One corner triangle has legs a and b, so its area is ab/2. Thus ab/2=1/4, giving ab=1/2."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read the setup",
+        "narration": "Identify the important quantities and what the question asks.",
+        "visualHint": "Highlight the given numbers or diagram labels."
+      },
+      {
+        "title": "Use the key idea",
+        "narration": "Apply the main arithmetic, counting, or geometry relationship.",
+        "visualHint": "Animate the central calculation step by step."
+      },
+      {
+        "title": "Select the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2012",
+      "square area",
+      "area decomposition"
+    ],
+    "sourceName": "2012 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2012/problem-25-inscribed-square.svg"
+    ],
+    "needsDiagram": true
+  }
+];
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
@@ -27061,6 +29098,7 @@ export const sampleProblems: Problem[] = [
   ...amc2009Problems,
   ...amc2010Problems,
   ...amc2011Problems,
+  ...amc2012Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems };

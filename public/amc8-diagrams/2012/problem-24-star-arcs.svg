@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 230" width="420" height="230" role="img" aria-label="Circle cut into four arcs and rearranged into a star">
+  <rect width="100%" height="100%" fill="white"/>
+  <style>text{font-family:Inter,Arial,sans-serif;font-size:14px;fill:#111827}.label{font-size:16px;font-weight:700}</style>
+  <g transform="translate(100,115)">
+    <ellipse cx="0" cy="0" rx="55" ry="90" fill="none" stroke="#111827" stroke-width="3"/>
+    <circle cx="0" cy="-90" r="4" fill="#111827"/><circle cx="55" cy="0" r="4" fill="#111827"/><circle cx="0" cy="90" r="4" fill="#111827"/><circle cx="-55" cy="0" r="4" fill="#111827"/>
+    <text x="-54" y="112">circle arcs</text>
+  </g>
+  <path d="M230 30 C250 90 250 90 310 115 C250 140 250 140 230 200 C210 140 210 140 150 115 C210 90 210 90 230 30Z" fill="#f8fafc" stroke="#111827" stroke-width="3"/>
+  <circle cx="230" cy="30" r="4" fill="#111827"/><circle cx="310" cy="115" r="4" fill="#111827"/><circle cx="230" cy="200" r="4" fill="#111827"/><circle cx="150" cy="115" r="4" fill="#111827"/>
+  <rect x="150" y="30" width="160" height="170" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="184" y="222">star inside a 4 by 4 square</text>
+</svg>
