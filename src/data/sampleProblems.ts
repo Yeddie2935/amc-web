@@ -33553,7 +33553,7 @@ const amc2015Problems: Problem[] = [
     "contest": "AMC 8",
     "year": 2015,
     "problemNumber": 5,
-    "category": "Statistics",
+    "category": "Other",
     "subcategory": "Mean median mode range",
     "difficulty": 2,
     "statement": "Billy's basketball team scored 42, 47, 53, 53, 58, 58, 58, 61, 64, 65, and 73 points over the first 11 games. If his team scores 40 in the 12th game, which statistic will show an increase?",
@@ -34221,7 +34221,7 @@ const amc2015Problems: Problem[] = [
     "contest": "AMC 8",
     "year": 2015,
     "problemNumber": 13,
-    "category": "Statistics",
+    "category": "Other",
     "subcategory": "Mean and subsets",
     "difficulty": 3,
     "statement": "How many subsets of two elements can be removed from the set {1,2,3,4,5,6,7,8,9,10,11} so that the mean of the remaining numbers is 6?",
@@ -39773,6 +39773,2175 @@ const amc2017Problems: Problem[] = [
   }
 ];
 
+const amc2018Problems: Problem[] = [
+  {
+    "id": "amc8-2018-01",
+    "title": "2018 AMC 8 Problem 1: Capitol Scale Model",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 1,
+    "category": "Algebra",
+    "subcategory": "Ratios and scale",
+    "difficulty": 1,
+    "statement": "An amusement park has a collection of scale models, with a ratio of 1:20, of buildings and other sights from around the country. The height of the United States Capitol is 289 feet. What is the height in feet of its duplicate to the nearest whole number?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "14"
+      },
+      {
+        "label": "B",
+        "text": "15"
+      },
+      {
+        "label": "C",
+        "text": "16"
+      },
+      {
+        "label": "D",
+        "text": "18"
+      },
+      {
+        "label": "E",
+        "text": "20"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "14 feet",
+    "solutionSteps": [
+      {
+        "title": "Use the scale ratio",
+        "body": "A 1:20 model has height equal to the real height divided by 20.",
+        "equation": "289 ÷ 20 = 14.45"
+      },
+      {
+        "title": "Round",
+        "body": "The nearest whole number to 14.45 is 14."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the scale",
+        "narration": "Compare the real building height with the model height.",
+        "visualHint": "A 1:20 arrow points from 289 to 289/20."
+      },
+      {
+        "title": "Divide",
+        "narration": "Divide 289 by 20.",
+        "visualHint": "14.45 appears."
+      },
+      {
+        "title": "Round",
+        "narration": "Round to the nearest foot.",
+        "visualHint": "14 is highlighted as choice A."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "realHeight": 289,
+        "scale": "1:20",
+        "answer": 14
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "algebra",
+      "ratios and scale"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2018-02",
+    "title": "2018 AMC 8 Problem 2: Telescoping Product",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 2,
+    "category": "Algebra",
+    "subcategory": "Fractions and products",
+    "difficulty": 2,
+    "statement": "What is the value of (1+1/1)(1+1/2)(1+1/3)(1+1/4)(1+1/5)(1+1/6)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7/6"
+      },
+      {
+        "label": "B",
+        "text": "4/3"
+      },
+      {
+        "label": "C",
+        "text": "7/2"
+      },
+      {
+        "label": "D",
+        "text": "7"
+      },
+      {
+        "label": "E",
+        "text": "8"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "7",
+    "solutionSteps": [
+      {
+        "title": "Rewrite each factor",
+        "body": "Each factor 1+1/n becomes (n+1)/n.",
+        "equation": "2/1 · 3/2 · 4/3 · 5/4 · 6/5 · 7/6"
+      },
+      {
+        "title": "Cancel",
+        "body": "Every denominator cancels with the next numerator.",
+        "equation": "7/1 = 7"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Rewrite factors",
+        "narration": "Turn each mixed-looking factor into a fraction.",
+        "visualHint": "The product becomes 2/1·3/2·4/3·...·7/6."
+      },
+      {
+        "title": "Cancel diagonally",
+        "narration": "Animate the matching numerator and denominator terms canceling.",
+        "visualHint": "Only 7 and 1 remain."
+      },
+      {
+        "title": "Conclude",
+        "narration": "The product equals 7.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "product": "(2/1)(3/2)(4/3)(5/4)(6/5)(7/6)",
+        "answer": 7
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "algebra",
+      "fractions and products"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2018-03",
+    "title": "2018 AMC 8 Problem 3: Counting-Out Circle",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 3,
+    "category": "Counting & Probability",
+    "subcategory": "Process simulation",
+    "difficulty": 2,
+    "statement": "Students Arn, Bob, Cyd, Dan, Eve, and Fon are arranged in that order in a circle. They start counting: Arn first, then Bob, and so forth. When the number contains a 7 as a digit, such as 47, or is a multiple of 7, that person leaves the circle and the counting continues. Who is the last one present in the circle?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Arn"
+      },
+      {
+        "label": "B",
+        "text": "Bob"
+      },
+      {
+        "label": "C",
+        "text": "Cyd"
+      },
+      {
+        "label": "D",
+        "text": "Dan"
+      },
+      {
+        "label": "E",
+        "text": "Eve"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "Dan",
+    "solutionSteps": [
+      {
+        "title": "Find elimination numbers",
+        "body": "The first five numbers that make someone leave are 7, 14, 17, 21, and 27."
+      },
+      {
+        "title": "Simulate the circle",
+        "body": "Counting around the shrinking circle eliminates Arn, then Cyd, then Fon, then Bob, then Eve."
+      },
+      {
+        "title": "Last remaining",
+        "body": "The only student left is Dan."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Place the students",
+        "narration": "Show Arn, Bob, Cyd, Dan, Eve, and Fon around a circle.",
+        "visualHint": "Six labeled dots appear."
+      },
+      {
+        "title": "Remove on special counts",
+        "narration": "On 7, 14, 17, 21, and 27, cross out the counted student.",
+        "visualHint": "Arn, Cyd, Fon, Bob, and Eve fade out."
+      },
+      {
+        "title": "Reveal winner",
+        "narration": "Dan remains.",
+        "visualHint": "Dan is highlighted as choice D."
+      }
+    ],
+    "animation": {
+      "type": "ranking",
+      "data": {
+        "eliminationCounts": [
+          7,
+          14,
+          17,
+          21,
+          27
+        ],
+        "winner": "Dan"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "counting & probability",
+      "process simulation"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2018-04",
+    "title": "2018 AMC 8 Problem 4: Area on Grid",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 4,
+    "category": "Geometry",
+    "subcategory": "Grid area",
+    "difficulty": 2,
+    "statement": "The twelve-sided figure shown has been drawn on 1 cm × 1 cm graph paper. What is the area of the figure in square centimeters?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "12"
+      },
+      {
+        "label": "B",
+        "text": "12.5"
+      },
+      {
+        "label": "C",
+        "text": "13"
+      },
+      {
+        "label": "D",
+        "text": "13.5"
+      },
+      {
+        "label": "E",
+        "text": "14"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "13",
+    "solutionSteps": [
+      {
+        "title": "Count the central block",
+        "body": "The middle contains a 3 by 3 block of unit squares.",
+        "equation": "3 · 3 = 9"
+      },
+      {
+        "title": "Add the half-squares",
+        "body": "The 8 small right triangles pair up to make 4 more unit squares.",
+        "equation": "8 · 1/2 = 4"
+      },
+      {
+        "title": "Total",
+        "body": "The total area is 9 + 4 = 13 square centimeters.",
+        "equation": "9 + 4 = 13"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Draw the polygon",
+        "narration": "Trace the twelve-sided boundary on the grid.",
+        "visualHint": "The boundary is drawn around the shape."
+      },
+      {
+        "title": "Highlight full squares",
+        "narration": "Shade the 3 by 3 middle block.",
+        "visualHint": "The label 3×3=9 appears."
+      },
+      {
+        "title": "Pair triangles",
+        "narration": "Flash the 8 half-squares as 4 full squares.",
+        "visualHint": "9+4=13 appears and choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "centralSquares": 9,
+        "halfSquares": 8,
+        "answer": 13
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "geometry",
+      "grid area"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2018/problem-04-grid-area-animated.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2018-05",
+    "title": "2018 AMC 8 Problem 5: Odd Minus Even Sum",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 5,
+    "category": "Algebra",
+    "subcategory": "Series and pairing",
+    "difficulty": 2,
+    "statement": "What is the value of 1 + 3 + 5 + ⋯ + 2017 + 2019 − 2 − 4 − 6 − ⋯ − 2016 − 2018?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "−1010"
+      },
+      {
+        "label": "B",
+        "text": "−1009"
+      },
+      {
+        "label": "C",
+        "text": "1008"
+      },
+      {
+        "label": "D",
+        "text": "1009"
+      },
+      {
+        "label": "E",
+        "text": "1010"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "1010",
+    "solutionSteps": [
+      {
+        "title": "Pair terms",
+        "body": "Group consecutive odd and even terms.",
+        "equation": "(1−2)+(3−4)+⋯+(2017−2018)+2019"
+      },
+      {
+        "title": "Evaluate pairs",
+        "body": "There are 1009 pairs, each equal to −1.",
+        "equation": "−1009 + 2019"
+      },
+      {
+        "title": "Finish",
+        "body": "The value is 1010.",
+        "equation": "−1009 + 2019 = 1010"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Pair the sequence",
+        "narration": "Slide each even term under the previous odd term.",
+        "visualHint": "Each pair becomes −1."
+      },
+      {
+        "title": "Count pairs",
+        "narration": "There are 1009 pairs.",
+        "visualHint": "−1009 is displayed."
+      },
+      {
+        "title": "Add leftover",
+        "narration": "The unpaired 2019 remains.",
+        "visualHint": "−1009+2019=1010, choice E."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "pairs": 1009,
+        "leftover": 2019,
+        "answer": 1010
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "algebra",
+      "series and pairing"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2018-06",
+    "title": "2018 AMC 8 Problem 6: Beach Trip Time",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 6,
+    "category": "Algebra",
+    "subcategory": "Rates",
+    "difficulty": 2,
+    "statement": "On a trip to the beach, Anh traveled 50 miles on the highway and 10 miles on a coastal access road. He drove three times as fast on the highway as on the coastal road. If Anh spent 30 minutes driving on the coastal road, how many minutes did his entire trip take?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "50"
+      },
+      {
+        "label": "B",
+        "text": "70"
+      },
+      {
+        "label": "C",
+        "text": "80"
+      },
+      {
+        "label": "D",
+        "text": "90"
+      },
+      {
+        "label": "E",
+        "text": "100"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "80 minutes",
+    "solutionSteps": [
+      {
+        "title": "Use the coastal rate",
+        "body": "Anh drives 10 miles on the coastal road in 30 minutes."
+      },
+      {
+        "title": "Compare highway speed",
+        "body": "At triple speed, 10 highway miles take 10 minutes.",
+        "equation": "30 ÷ 3 = 10"
+      },
+      {
+        "title": "Scale to 50 highway miles",
+        "body": "Fifty highway miles is five groups of ten miles, so the highway takes 50 minutes. Add the 30 coastal minutes.",
+        "equation": "50 + 30 = 80"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the two roads",
+        "narration": "Display a 10-mile coastal road and a 50-mile highway.",
+        "visualHint": "The highway is marked 3× faster."
+      },
+      {
+        "title": "Convert time for 10 miles",
+        "narration": "30 minutes becomes 10 minutes on the highway.",
+        "visualHint": "30÷3=10 pulses."
+      },
+      {
+        "title": "Add trip times",
+        "narration": "Five highway chunks take 50 minutes, plus 30 coastal minutes.",
+        "visualHint": "80 is highlighted."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "coastalMinutes": 30,
+        "highwayMinutes": 50,
+        "answer": 80
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "algebra",
+      "rates"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2018-07",
+    "title": "2018 AMC 8 Problem 7: Divisibility Remainder",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 7,
+    "category": "Number Theory",
+    "subcategory": "Divisibility rules",
+    "difficulty": 2,
+    "statement": "The 5-digit number 2018U is divisible by 9. What is the remainder when this number is divided by 8?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "3"
+      },
+      {
+        "label": "C",
+        "text": "5"
+      },
+      {
+        "label": "D",
+        "text": "6"
+      },
+      {
+        "label": "E",
+        "text": "7"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "3",
+    "solutionSteps": [
+      {
+        "title": "Find U",
+        "body": "A number is divisible by 9 when its digit sum is divisible by 9.",
+        "equation": "2+0+1+8+U = 11+U"
+      },
+      {
+        "title": "Choose the digit",
+        "body": "The only digit U that makes 11+U a multiple of 9 is 7, so the number is 20187."
+      },
+      {
+        "title": "Remainder mod 8",
+        "body": "Only the last three digits matter for divisibility by 8.",
+        "equation": "187 = 8·23 + 3"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Sum the digits",
+        "narration": "Add 2+0+1+8+U.",
+        "visualHint": "11+U appears."
+      },
+      {
+        "title": "Make a multiple of 9",
+        "narration": "Set U=7 so the digit sum is 18.",
+        "visualHint": "20187 is formed."
+      },
+      {
+        "title": "Divide by 8",
+        "narration": "Use the last three digits 187.",
+        "visualHint": "187 leaves remainder 3, choice B."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "digitSum": "11+U=18",
+        "U": 7,
+        "remainder": 3
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "number theory",
+      "divisibility rules"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2018-08",
+    "title": "2018 AMC 8 Problem 8: Exercise Bar Graph Mean",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 8,
+    "category": "Other",
+    "subcategory": "Mean from bar graph",
+    "difficulty": 2,
+    "statement": "Mr. Garcia asked the members of his health class how many days last week they exercised for at least 30 minutes. The results are summarized in the bar graph. What was the mean number of days of exercise last week, rounded to the nearest hundredth?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3.50"
+      },
+      {
+        "label": "B",
+        "text": "3.57"
+      },
+      {
+        "label": "C",
+        "text": "4.36"
+      },
+      {
+        "label": "D",
+        "text": "4.50"
+      },
+      {
+        "label": "E",
+        "text": "5.00"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "4.36",
+    "solutionSteps": [
+      {
+        "title": "Compute total days",
+        "body": "Multiply each number of days by its frequency and add.",
+        "equation": "1·1+2·3+3·2+4·6+5·8+6·3+7·2 = 109"
+      },
+      {
+        "title": "Compute total students",
+        "body": "Add the bar heights.",
+        "equation": "1+3+2+6+8+3+2 = 25"
+      },
+      {
+        "title": "Divide",
+        "body": "The mean is total days divided by total students.",
+        "equation": "109 ÷ 25 = 4.36"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Grow the bars",
+        "narration": "Animate the seven bars to their frequencies.",
+        "visualHint": "Bar heights 1,3,2,6,8,3,2 appear."
+      },
+      {
+        "title": "Add weighted days",
+        "narration": "Each bar contributes days × students.",
+        "visualHint": "The total 109 appears."
+      },
+      {
+        "title": "Divide by students",
+        "narration": "Divide by 25 students.",
+        "visualHint": "4.36 is highlighted as choice C."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "weightedTotal": 109,
+        "students": 25,
+        "mean": 4.36
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "other",
+      "mean from bar graph"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2018/problem-08-bar-mean-animated.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2018-09",
+    "title": "2018 AMC 8 Problem 9: Border and Large Tiles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 9,
+    "category": "Geometry",
+    "subcategory": "Area and perimeter tiles",
+    "difficulty": 2,
+    "statement": "Tyler is tiling the floor of his 12-foot by 16-foot living room. He plans to place one-foot by one-foot square tiles to form a border along the edges of the room and to fill in the rest of the floor with two-foot by two-foot square tiles. How many tiles will he use?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "48"
+      },
+      {
+        "label": "B",
+        "text": "87"
+      },
+      {
+        "label": "C",
+        "text": "89"
+      },
+      {
+        "label": "D",
+        "text": "96"
+      },
+      {
+        "label": "E",
+        "text": "120"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "87",
+    "solutionSteps": [
+      {
+        "title": "Count border tiles",
+        "body": "The border consists of the top and bottom rows plus the two side strips, without double-counting corners.",
+        "equation": "2·12 + 2·(16−2) = 52"
+      },
+      {
+        "title": "Count interior area",
+        "body": "After removing a 1-foot border, the inside is 10 by 14 square feet.",
+        "equation": "10·14 = 140"
+      },
+      {
+        "title": "Use 2 by 2 tiles",
+        "body": "Each inside tile covers 4 square feet, so the inside uses 35 tiles.",
+        "equation": "52 + 140/4 = 87"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Outline the border",
+        "narration": "Trace the 1-foot border around the room.",
+        "visualHint": "52 border tiles appears."
+      },
+      {
+        "title": "Shrink to the interior",
+        "narration": "Show the remaining 10 by 14 rectangle.",
+        "visualHint": "Interior area 140 appears."
+      },
+      {
+        "title": "Fill with 2×2 tiles",
+        "narration": "Group the interior into 35 large tiles and add.",
+        "visualHint": "52+35=87, choice B."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "borderTiles": 52,
+        "interiorTiles": 35,
+        "answer": 87
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "geometry",
+      "area and perimeter tiles"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2018-10",
+    "title": "2018 AMC 8 Problem 10: Harmonic Mean",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 10,
+    "category": "Algebra",
+    "subcategory": "Averages",
+    "difficulty": 2,
+    "statement": "The harmonic mean of a set of non-zero numbers is the reciprocal of the average of the reciprocals of the numbers. What is the harmonic mean of 1, 2, and 4?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3/7"
+      },
+      {
+        "label": "B",
+        "text": "7/12"
+      },
+      {
+        "label": "C",
+        "text": "12/7"
+      },
+      {
+        "label": "D",
+        "text": "7/4"
+      },
+      {
+        "label": "E",
+        "text": "7/3"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "12/7",
+    "solutionSteps": [
+      {
+        "title": "Add reciprocals",
+        "body": "The reciprocals are 1, 1/2, and 1/4.",
+        "equation": "1 + 1/2 + 1/4 = 7/4"
+      },
+      {
+        "title": "Average the reciprocals",
+        "body": "Divide by 3.",
+        "equation": "(7/4) ÷ 3 = 7/12"
+      },
+      {
+        "title": "Take the reciprocal",
+        "body": "The harmonic mean is the reciprocal of 7/12.",
+        "equation": "12/7"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "List reciprocals",
+        "narration": "Show 1, 1/2, and 1/4.",
+        "visualHint": "They combine to 7/4."
+      },
+      {
+        "title": "Average them",
+        "narration": "Divide 7/4 by 3.",
+        "visualHint": "7/12 appears."
+      },
+      {
+        "title": "Flip",
+        "narration": "Take the reciprocal.",
+        "visualHint": "12/7 is circled as choice C."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "reciprocalSum": "7/4",
+        "average": "7/12",
+        "answer": "12/7"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "algebra",
+      "averages"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2018-11",
+    "title": "2018 AMC 8 Problem 11: Adjacent Photo Seats",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 11,
+    "category": "Counting & Probability",
+    "subcategory": "Counting pairs",
+    "difficulty": 3,
+    "statement": "Abby, Bridget, and four classmates will be seated in two rows of three for a group picture. If the seating positions are assigned randomly, what is the probability that Abby and Bridget are adjacent to each other in the same row or the same column?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/3"
+      },
+      {
+        "label": "B",
+        "text": "2/5"
+      },
+      {
+        "label": "C",
+        "text": "7/15"
+      },
+      {
+        "label": "D",
+        "text": "1/2"
+      },
+      {
+        "label": "E",
+        "text": "2/3"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "7/15",
+    "solutionSteps": [
+      {
+        "title": "Choose two seats",
+        "body": "There are 6 seats, so there are 15 possible unordered pairs for Abby and Bridget.",
+        "equation": "C(6,2)=15"
+      },
+      {
+        "title": "Count adjacent pairs",
+        "body": "There are 4 horizontal adjacent pairs and 3 vertical adjacent pairs.",
+        "equation": "4+3=7"
+      },
+      {
+        "title": "Form probability",
+        "body": "The probability is 7 out of 15.",
+        "equation": "7/15"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the 2×3 grid",
+        "narration": "Display all six seats.",
+        "visualHint": "Six empty seats appear."
+      },
+      {
+        "title": "Highlight adjacent pairs",
+        "narration": "Pulse the horizontal and vertical adjacent pairs.",
+        "visualHint": "4 horizontal + 3 vertical is counted."
+      },
+      {
+        "title": "Make the fraction",
+        "narration": "Use 7 favorable pairs out of 15 pairs.",
+        "visualHint": "7/15 is highlighted."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "totalPairs": 15,
+        "adjacentPairs": 7,
+        "answer": "7/15"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "counting & probability",
+      "counting pairs"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2018/problem-11-seating-adjacency-animated.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2018-12",
+    "title": "2018 AMC 8 Problem 12: Fast Car Clock",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 12,
+    "category": "Algebra",
+    "subcategory": "Rates and time",
+    "difficulty": 3,
+    "statement": "The clock in Sri’s car gains time at a constant rate. At noon, the car clock and accurate watch both say 12:00. When the watch says 12:30, the car clock says 12:35. Later the car clock says 7:00. What is the actual time?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5:50"
+      },
+      {
+        "label": "B",
+        "text": "6:00"
+      },
+      {
+        "label": "C",
+        "text": "6:30"
+      },
+      {
+        "label": "D",
+        "text": "6:55"
+      },
+      {
+        "label": "E",
+        "text": "8:10"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "6:00",
+    "solutionSteps": [
+      {
+        "title": "Find the rate ratio",
+        "body": "When 35 car-clock minutes pass, 30 real minutes pass.",
+        "equation": "car time : real time = 35 : 30 = 7 : 6"
+      },
+      {
+        "title": "Convert 7 car-clock hours",
+        "body": "From noon to 7:00 on the car clock is 7 car-clock hours.",
+        "equation": "7 car hours · 6/7 = 6 real hours"
+      },
+      {
+        "title": "Actual time",
+        "body": "Six real hours after noon is 6:00.",
+        "equation": "12:00 + 6 hours = 6:00"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Compare clocks",
+        "narration": "Show 12:30 on the watch and 12:35 on the car clock.",
+        "visualHint": "35 car minutes = 30 real minutes."
+      },
+      {
+        "title": "Scale the later time",
+        "narration": "Convert 7 car-clock hours using 6/7.",
+        "visualHint": "7 becomes 6."
+      },
+      {
+        "title": "Read the actual time",
+        "narration": "Add 6 hours to noon.",
+        "visualHint": "6:00 is circled."
+      }
+    ],
+    "animation": {
+      "type": "clock-angle",
+      "data": {
+        "carMinutes": 35,
+        "realMinutes": 30,
+        "carElapsedHours": 7,
+        "realElapsedHours": 6
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "algebra",
+      "rates and time"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2018-13",
+    "title": "2018 AMC 8 Problem 13: Possible Last Test Scores",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 13,
+    "category": "Algebra",
+    "subcategory": "Integer constraints",
+    "difficulty": 3,
+    "statement": "Laila took five math tests, each worth a maximum of 100 points. Her score on each test was an integer from 0 to 100. She received the same score on the first four tests and a higher score on the last test. Her average score was 82. How many values are possible for her score on the last test?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "5"
+      },
+      {
+        "label": "C",
+        "text": "9"
+      },
+      {
+        "label": "D",
+        "text": "10"
+      },
+      {
+        "label": "E",
+        "text": "18"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Set up the total",
+        "body": "The total score must be 5·82 = 410. If the first four scores are x and the last is y, then 4x+y=410.",
+        "equation": "4x+y=410"
+      },
+      {
+        "title": "Use the higher last score",
+        "body": "The last score is greater than 82 and at most 100. Also y must make 410−y divisible by 4."
+      },
+      {
+        "title": "List valid y values",
+        "body": "The possible last scores are 86, 90, 94, and 98.",
+        "equation": "4 values"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Build the equation",
+        "narration": "Show four equal boxes x and one last-test box y.",
+        "visualHint": "4x+y=410 appears."
+      },
+      {
+        "title": "Apply constraints",
+        "narration": "y must be greater than 82 and at most 100.",
+        "visualHint": "The interval 83 to 100 is highlighted."
+      },
+      {
+        "title": "Step by fours",
+        "narration": "Valid y values appear every 4 points.",
+        "visualHint": "86,90,94,98 are counted: 4 values."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "possibleY": [
+          86,
+          90,
+          94,
+          98
+        ],
+        "answer": 4
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "algebra",
+      "integer constraints"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2018-14",
+    "title": "2018 AMC 8 Problem 14: Greatest Digit Product Number",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 14,
+    "category": "Number Theory",
+    "subcategory": "Digit product",
+    "difficulty": 3,
+    "statement": "Let N be the greatest five-digit number whose digits have a product of 120. What is the sum of the digits of N?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "15"
+      },
+      {
+        "label": "B",
+        "text": "16"
+      },
+      {
+        "label": "C",
+        "text": "17"
+      },
+      {
+        "label": "D",
+        "text": "18"
+      },
+      {
+        "label": "E",
+        "text": "20"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "18",
+    "solutionSteps": [
+      {
+        "title": "Choose the largest first digit",
+        "body": "The first digit should be as large as possible and must divide 120. The digit 8 works.",
+        "equation": "120 ÷ 8 = 15"
+      },
+      {
+        "title": "Continue greedily",
+        "body": "With product 15 remaining, use 5, then 3, then 1, then 1.",
+        "equation": "N = 85311"
+      },
+      {
+        "title": "Add digits",
+        "body": "The digit sum is 8+5+3+1+1.",
+        "equation": "18"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Start with 120",
+        "narration": "Show the target digit product 120.",
+        "visualHint": "Product goal appears."
+      },
+      {
+        "title": "Choose largest digits",
+        "narration": "Pick 8, then 5, then 3, then 1, then 1.",
+        "visualHint": "85311 appears."
+      },
+      {
+        "title": "Sum the digits",
+        "narration": "Add the digits.",
+        "visualHint": "8+5+3+1+1=18, choice D."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "N": 85311,
+        "digitSum": 18
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "number theory",
+      "digit product"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2018-15",
+    "title": "2018 AMC 8 Problem 15: Shaded Circle Region",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 15,
+    "category": "Geometry",
+    "subcategory": "Circle area",
+    "difficulty": 3,
+    "statement": "In the diagram, a diameter of each of the two smaller circles is a radius of the larger circle. If the two smaller circles have a combined area of 1 square unit, then what is the area of the shaded region, in square units?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/4"
+      },
+      {
+        "label": "B",
+        "text": "1/3"
+      },
+      {
+        "label": "C",
+        "text": "1/2"
+      },
+      {
+        "label": "D",
+        "text": "1"
+      },
+      {
+        "label": "E",
+        "text": "π/2"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "1",
+    "solutionSteps": [
+      {
+        "title": "Compare radii",
+        "body": "Each small circle has radius half the large circle’s radius."
+      },
+      {
+        "title": "Compare areas",
+        "body": "One small circle has one-fourth the area of the large circle, so two small circles have half the large circle’s area."
+      },
+      {
+        "title": "Subtract",
+        "body": "The shaded area is the large circle area minus the two small circles, which equals the combined area of the small circles: 1.",
+        "equation": "shaded area = 1"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the large circle",
+        "narration": "Display the large circle and the two smaller circles inside it.",
+        "visualHint": "The small circles pulse."
+      },
+      {
+        "title": "Use area scaling",
+        "narration": "Radius is halved, so area is quartered.",
+        "visualHint": "Each small circle is 1/4 of the large circle."
+      },
+      {
+        "title": "Subtract regions",
+        "narration": "The shaded region equals the combined white circles.",
+        "visualHint": "Answer 1 is highlighted."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "combinedSmallArea": 1,
+        "shadedArea": 1
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "geometry",
+      "circle area"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2018/problem-15-circle-area-animated.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2018-16",
+    "title": "2018 AMC 8 Problem 16: Grouped Language Books",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 16,
+    "category": "Counting & Probability",
+    "subcategory": "Permutations with blocks",
+    "difficulty": 3,
+    "statement": "Professor Chang has nine different language books lined up on a bookshelf: two Arabic, three German, and four Spanish. How many ways are there to arrange the nine books keeping the Arabic books together and the Spanish books together?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1440"
+      },
+      {
+        "label": "B",
+        "text": "2880"
+      },
+      {
+        "label": "C",
+        "text": "5760"
+      },
+      {
+        "label": "D",
+        "text": "182,440"
+      },
+      {
+        "label": "E",
+        "text": "362,880"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "5760",
+    "solutionSteps": [
+      {
+        "title": "Create blocks",
+        "body": "Treat the two Arabic books as one block and the four Spanish books as one block. Together with the three German books, there are 5 units."
+      },
+      {
+        "title": "Arrange units and internal orders",
+        "body": "The 5 units can be arranged in 5! ways. The Arabic block has 2! orders, and the Spanish block has 4! orders.",
+        "equation": "5! · 2! · 4!"
+      },
+      {
+        "title": "Multiply",
+        "body": "The total is 120·2·24 = 5760.",
+        "equation": "5!·2!·4! = 5760"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Bundle books",
+        "narration": "The Arabic books merge into one block and the Spanish books merge into one block.",
+        "visualHint": "Five units remain."
+      },
+      {
+        "title": "Permute blocks",
+        "narration": "Arrange the five units.",
+        "visualHint": "5! appears."
+      },
+      {
+        "title": "Reorder inside blocks",
+        "narration": "Multiply by 2! and 4!.",
+        "visualHint": "5760 is highlighted."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "units": 5,
+        "arabicOrders": 2,
+        "spanishOrders": 24,
+        "answer": 5760
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "counting & probability",
+      "permutations with blocks"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2018-17",
+    "title": "2018 AMC 8 Problem 17: Walking Steps to Meet",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 17,
+    "category": "Algebra",
+    "subcategory": "Relative motion",
+    "difficulty": 3,
+    "statement": "Bella begins to walk toward Ella’s house while Ella rides her bicycle toward Bella’s house. Ella rides 5 times as fast as Bella walks. The distance between their houses is 2 miles, or 10,560 feet, and Bella covers 2.5 feet with each step. How many steps will Bella take by the time she meets Ella?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "704"
+      },
+      {
+        "label": "B",
+        "text": "845"
+      },
+      {
+        "label": "C",
+        "text": "1056"
+      },
+      {
+        "label": "D",
+        "text": "1760"
+      },
+      {
+        "label": "E",
+        "text": "3520"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "704",
+    "solutionSteps": [
+      {
+        "title": "Use the speed ratio",
+        "body": "Bella and Ella cover the distance in a 1:5 ratio, so Bella covers 1/6 of 10,560 feet.",
+        "equation": "10560 ÷ 6 = 1760"
+      },
+      {
+        "title": "Convert feet to steps",
+        "body": "Each Bella step covers 2.5 feet.",
+        "equation": "1760 ÷ 2.5 = 704"
+      },
+      {
+        "title": "Conclude",
+        "body": "Bella takes 704 steps."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the two travelers",
+        "narration": "Bella and Ella move toward each other.",
+        "visualHint": "Ella’s arrow is 5 times as long."
+      },
+      {
+        "title": "Split total distance",
+        "narration": "Divide 10,560 feet into 6 equal speed-ratio parts.",
+        "visualHint": "Bella gets 1 part = 1760 feet."
+      },
+      {
+        "title": "Count steps",
+        "narration": "Divide by 2.5 feet per step.",
+        "visualHint": "704 appears as choice A."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "distance": 10560,
+        "bellaDistance": 1760,
+        "stepLength": 2.5,
+        "answer": 704
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "algebra",
+      "relative motion"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2018-18",
+    "title": "2018 AMC 8 Problem 18: Positive Factors of 23232",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 18,
+    "category": "Number Theory",
+    "subcategory": "Prime factorization",
+    "difficulty": 3,
+    "statement": "How many positive factors does 23,232 have?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "9"
+      },
+      {
+        "label": "B",
+        "text": "12"
+      },
+      {
+        "label": "C",
+        "text": "28"
+      },
+      {
+        "label": "D",
+        "text": "36"
+      },
+      {
+        "label": "E",
+        "text": "42"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "42",
+    "solutionSteps": [
+      {
+        "title": "Factor the number",
+        "body": "The prime factorization is 2^6 · 3^1 · 11^2.",
+        "equation": "23232 = 2^6·3·11^2"
+      },
+      {
+        "title": "Use divisor formula",
+        "body": "Add 1 to each exponent and multiply.",
+        "equation": "(6+1)(1+1)(2+1)"
+      },
+      {
+        "title": "Calculate",
+        "body": "The number of factors is 7·2·3 = 42.",
+        "equation": "42"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Factor 23,232",
+        "narration": "Break the number into prime powers.",
+        "visualHint": "2^6 · 3^1 · 11^2 appears."
+      },
+      {
+        "title": "Add one to exponents",
+        "narration": "Use the divisor counting formula.",
+        "visualHint": "7·2·3 appears."
+      },
+      {
+        "title": "Multiply",
+        "narration": "The product is 42.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "factorization": "2^6·3^1·11^2",
+        "answer": 42
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "number theory",
+      "prime factorization"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2018-19",
+    "title": "2018 AMC 8 Problem 19: Sign Pyramid",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 19,
+    "category": "Logic",
+    "subcategory": "Recursive signs",
+    "difficulty": 4,
+    "statement": "In a sign pyramid a cell gets “+” if the two cells below it have the same sign, and it gets “−” if the two cells below it have different signs. How many possible ways are there to fill the four cells in the bottom row to produce a “+” at the top?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2"
+      },
+      {
+        "label": "B",
+        "text": "4"
+      },
+      {
+        "label": "C",
+        "text": "8"
+      },
+      {
+        "label": "D",
+        "text": "12"
+      },
+      {
+        "label": "E",
+        "text": "16"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "8",
+    "solutionSteps": [
+      {
+        "title": "Think of same/different",
+        "body": "The sign rule acts like checking whether adjacent signs match or differ."
+      },
+      {
+        "title": "Count patterns",
+        "body": "For four bottom signs, exactly half of the 16 possible patterns produce a plus at the top."
+      },
+      {
+        "title": "Result",
+        "body": "Half of 16 is 8.",
+        "equation": "16 ÷ 2 = 8"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the pyramid rule",
+        "narration": "Build the example pyramid from bottom to top.",
+        "visualHint": "Same signs create +; different signs create −."
+      },
+      {
+        "title": "Cycle bottom rows",
+        "narration": "Animate several bottom sign patterns.",
+        "visualHint": "Top alternates between + and −."
+      },
+      {
+        "title": "Use symmetry",
+        "narration": "Exactly half of all 16 bottom patterns work.",
+        "visualHint": "8 ways is highlighted."
+      }
+    ],
+    "animation": {
+      "type": "logic",
+      "data": {
+        "totalBottomRows": 16,
+        "winningRows": 8
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "logic",
+      "recursive signs"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2018/problem-19-sign-pyramid-animated.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2018-20",
+    "title": "2018 AMC 8 Problem 20: Parallel Lines Area Ratio",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 20,
+    "category": "Geometry",
+    "subcategory": "Similarity and area",
+    "difficulty": 4,
+    "statement": "In triangle ABC, a point E is on AB with AE=1 and EB=2. Point D is on AC so that DE is parallel to BC, and point F is on BC so that EF is parallel to AC. What is the ratio of the area of CDEF to the area of triangle ABC?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4/9"
+      },
+      {
+        "label": "B",
+        "text": "1/2"
+      },
+      {
+        "label": "C",
+        "text": "5/9"
+      },
+      {
+        "label": "D",
+        "text": "3/5"
+      },
+      {
+        "label": "E",
+        "text": "2/3"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "4/9",
+    "solutionSteps": [
+      {
+        "title": "Use AE:AB",
+        "body": "Since AE=1 and EB=2, AB=3 and AE/AB=1/3."
+      },
+      {
+        "title": "Find the small triangle area",
+        "body": "Triangle ADE is similar to triangle ABC with side ratio 1/3, so its area ratio is 1/9.",
+        "equation": "[ADE] = (1/3)^2[ABC] = 1/9[ABC]"
+      },
+      {
+        "title": "Subtract from related region",
+        "body": "The parallelogram-style middle region leaves CDEF with 4/9 of the original triangle.",
+        "equation": "[CDEF]/[ABC]=4/9"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Draw parallels",
+        "narration": "Show DE parallel to BC and EF parallel to AC.",
+        "visualHint": "The similar triangles pulse."
+      },
+      {
+        "title": "Scale areas",
+        "narration": "Triangle ADE is 1/9 of ABC.",
+        "visualHint": "1/9 appears near ADE."
+      },
+      {
+        "title": "Highlight CDEF",
+        "narration": "Shade CDEF and show the final ratio.",
+        "visualHint": "4/9 is circled as choice A."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "ratio": "4/9"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "geometry",
+      "similarity and area"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2018/problem-20-triangle-ratio-animated.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2018-21",
+    "title": "2018 AMC 8 Problem 21: Three Remainders",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 21,
+    "category": "Number Theory",
+    "subcategory": "Chinese remainder style",
+    "difficulty": 4,
+    "statement": "How many positive three-digit integers have remainder 2 when divided by 6, remainder 5 when divided by 9, and remainder 7 when divided by 11?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "4"
+      },
+      {
+        "label": "E",
+        "text": "5"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "Notice a common form",
+        "body": "The number is 4 less than a multiple of 6, 9, and 11 because 6−2=9−5=11−7=4."
+      },
+      {
+        "title": "Use the LCM",
+        "body": "LCM(6,9,11)=198, so the numbers have the form 198k−4.",
+        "equation": "198k−4"
+      },
+      {
+        "title": "Count three-digit values",
+        "body": "For k=1,2,3,4,5 the values are 194, 392, 590, 788, and 986.",
+        "equation": "5 values"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Align remainders",
+        "narration": "Show each condition as “4 less than a multiple.”",
+        "visualHint": "6−2=9−5=11−7=4."
+      },
+      {
+        "title": "Create formula",
+        "narration": "Use LCM 198.",
+        "visualHint": "n=198k−4 appears."
+      },
+      {
+        "title": "List values",
+        "narration": "Display the five three-digit solutions.",
+        "visualHint": "194,392,590,788,986 are counted."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "solutions": [
+          194,
+          392,
+          590,
+          788,
+          986
+        ],
+        "answer": 5
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "number theory",
+      "chinese remainder style"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2018-22",
+    "title": "2018 AMC 8 Problem 22: Square with Diagonal and Midpoint",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 22,
+    "category": "Geometry",
+    "subcategory": "Coordinate area",
+    "difficulty": 4,
+    "statement": "Point E is the midpoint of side CD in square ABCD, and BE meets diagonal AC at F. The area of quadrilateral AFED is 45. What is the area of ABCD?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "100"
+      },
+      {
+        "label": "B",
+        "text": "108"
+      },
+      {
+        "label": "C",
+        "text": "120"
+      },
+      {
+        "label": "D",
+        "text": "135"
+      },
+      {
+        "label": "E",
+        "text": "144"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "108",
+    "solutionSteps": [
+      {
+        "title": "Use a unit square",
+        "body": "Place D=(0,0), A=(0,1), B=(1,1), C=(1,0), and E=(1/2,0)."
+      },
+      {
+        "title": "Find F",
+        "body": "The diagonal AC is y=−x+1 and line BE is y=2x−1, so F=(2/3,1/3)."
+      },
+      {
+        "title": "Find area fraction",
+        "body": "Quadrilateral AFED is 5/12 of the square. If that area is 45, the square area is 45÷(5/12)=108.",
+        "equation": "45 · 12/5 = 108"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Set coordinates",
+        "narration": "Label the square with unit coordinates.",
+        "visualHint": "D=(0,0), A=(0,1), C=(1,0)."
+      },
+      {
+        "title": "Intersect lines",
+        "narration": "Draw AC and BE meeting at F.",
+        "visualHint": "F=(2/3,1/3) appears."
+      },
+      {
+        "title": "Scale the area",
+        "narration": "AFED is 5/12 of the square.",
+        "visualHint": "45÷(5/12)=108 is highlighted."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "fraction": "5/12",
+        "givenArea": 45,
+        "answer": 108
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "geometry",
+      "coordinate area"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2018/problem-22-square-area-animated.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2018-23",
+    "title": "2018 AMC 8 Problem 23: Octagon Triangle Probability",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 23,
+    "category": "Counting & Probability",
+    "subcategory": "Geometric probability",
+    "difficulty": 4,
+    "statement": "From a regular octagon, a triangle is formed by connecting three randomly chosen vertices of the octagon. What is the probability that at least one side of the triangle is also a side of the octagon?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2/7"
+      },
+      {
+        "label": "B",
+        "text": "5/42"
+      },
+      {
+        "label": "C",
+        "text": "11/14"
+      },
+      {
+        "label": "D",
+        "text": "5/7"
+      },
+      {
+        "label": "E",
+        "text": "6/7"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "5/7",
+    "solutionSteps": [
+      {
+        "title": "Count all triangles",
+        "body": "Choose any 3 of the 8 vertices.",
+        "equation": "C(8,3)=56"
+      },
+      {
+        "title": "Count triangles with an octagon side",
+        "body": "Fix an octagon side. If only one side is used, there are 4 choices for the third vertex for each of 8 sides. If two adjacent sides are used, there are 8 triangles.",
+        "equation": "8·4 + 8 = 40"
+      },
+      {
+        "title": "Form probability",
+        "body": "The probability is 40/56 = 5/7.",
+        "equation": "40/56 = 5/7"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the octagon",
+        "narration": "Display the regular octagon.",
+        "visualHint": "Eight vertices appear."
+      },
+      {
+        "title": "Fix an edge",
+        "narration": "Highlight one side and four legal third vertices.",
+        "visualHint": "8·4 cases are counted."
+      },
+      {
+        "title": "Add corner triangles",
+        "narration": "Add the 8 triangles using two octagon sides.",
+        "visualHint": "40/56 simplifies to 5/7."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "total": 56,
+        "favorable": 40,
+        "answer": "5/7"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "counting & probability",
+      "geometric probability"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2018/problem-23-octagon-probability-animated.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2018-24",
+    "title": "2018 AMC 8 Problem 24: Cube Cross-Section",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 24,
+    "category": "Geometry",
+    "subcategory": "3D cross-section",
+    "difficulty": 5,
+    "statement": "In cube ABCDEFGH with opposite vertices C and E, J and I are the midpoints of segments FB and HD, respectively. Let R be the ratio of the area of cross-section EJCI to the area of one face of the cube. What is R^2?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5/4"
+      },
+      {
+        "label": "B",
+        "text": "4/3"
+      },
+      {
+        "label": "C",
+        "text": "3/2"
+      },
+      {
+        "label": "D",
+        "text": "25/16"
+      },
+      {
+        "label": "E",
+        "text": "9/4"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "3/2",
+    "solutionSteps": [
+      {
+        "title": "Identify the rhombus",
+        "body": "By symmetry, cross-section EJCI is a rhombus."
+      },
+      {
+        "title": "Find diagonals",
+        "body": "If the cube side length is s, then EC=s√3 and JI=s√2.",
+        "equation": "EC=s√3, JI=s√2"
+      },
+      {
+        "title": "Compute ratio",
+        "body": "The rhombus area is half the product of its diagonals, so R=√6/2 and R^2=3/2.",
+        "equation": "R^2 = (√6/2)^2 = 3/2"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Slice the cube",
+        "narration": "Shade the cross-section EJCI inside the cube.",
+        "visualHint": "The rhombus pulses."
+      },
+      {
+        "title": "Show diagonals",
+        "narration": "Draw diagonals EC and JI.",
+        "visualHint": "s√3 and s√2 appear."
+      },
+      {
+        "title": "Use rhombus area",
+        "narration": "Compute half the product and square the ratio.",
+        "visualHint": "R²=3/2 is highlighted."
+      }
+    ],
+    "animation": {
+      "type": "cube-net",
+      "data": {
+        "diagonal1": "s√3",
+        "diagonal2": "s√2",
+        "answer": "3/2"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "geometry",
+      "3d cross-section"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2018/problem-24-cube-cross-section-animated.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2018-25",
+    "title": "2018 AMC 8 Problem 25: Counting Perfect Cubes",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2018,
+    "problemNumber": 25,
+    "category": "Number Theory",
+    "subcategory": "Powers and cubes",
+    "difficulty": 4,
+    "statement": "How many perfect cubes lie between 2^8 + 1 and 2^18 + 1, inclusive?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "9"
+      },
+      {
+        "label": "C",
+        "text": "10"
+      },
+      {
+        "label": "D",
+        "text": "57"
+      },
+      {
+        "label": "E",
+        "text": "58"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "58",
+    "solutionSteps": [
+      {
+        "title": "Find the lower boundary",
+        "body": "2^8+1 = 257, and the smallest perfect cube greater than or equal to 257 is 7^3=343."
+      },
+      {
+        "title": "Find the upper boundary",
+        "body": "2^18+1 = 262145, and 64^3 = 2^18 is below it, so 64^3 is included."
+      },
+      {
+        "title": "Count cube bases",
+        "body": "The bases run from 7 through 64 inclusive.",
+        "equation": "64−7+1 = 58"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Evaluate bounds",
+        "narration": "Show 2^8+1 and 2^18+1 on a number line.",
+        "visualHint": "257 and 262145 appear."
+      },
+      {
+        "title": "Find cube bases",
+        "narration": "The first cube is 7^3 and the last is 64^3.",
+        "visualHint": "Bases 7 through 64 are highlighted."
+      },
+      {
+        "title": "Count inclusively",
+        "narration": "Subtract endpoints and add 1.",
+        "visualHint": "64−7+1=58, choice E."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "firstBase": 7,
+        "lastBase": 64,
+        "answer": 58
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2018",
+      "number theory",
+      "powers and cubes"
+    ],
+    "sourceName": "2018 AMC 8",
+    "license": "CC BY-NC-SA"
+  }
+];
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
@@ -39792,6 +41961,7 @@ export const sampleProblems: Problem[] = [
   ...amc2015Problems,
   ...amc2016Problems,
   ...amc2017Problems,
+  ...amc2018Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems, amc2016Problems, amc2017Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems, amc2016Problems, amc2017Problems, amc2018Problems };

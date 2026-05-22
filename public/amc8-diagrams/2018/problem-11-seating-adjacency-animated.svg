@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" role="img" aria-label="problem-11-seating-adjacency-animated.svg">
+
+<style>
+  .label{font-family:Inter,Arial,sans-serif;font-size:14px;fill:#111827}
+  .small{font-family:Inter,Arial,sans-serif;font-size:11px;fill:#374151}
+  .title{font-family:Inter,Arial,sans-serif;font-size:16px;font-weight:700;fill:#111827}
+  .line{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .thin{stroke:#6b7280;stroke-width:1.5;fill:none}
+  .grid{stroke:#d1d5db;stroke-width:1}
+  .shade{fill:#93c5fd;fill-opacity:.35;stroke:#2563eb;stroke-width:2}
+  .pulse{animation:pulse 1.6s ease-in-out infinite alternate;transform-origin:center}
+  .draw{stroke-dasharray:900;stroke-dashoffset:900;animation:draw 2.4s ease forwards}
+  .fade{animation:fade 2s ease-in-out infinite alternate}
+  .pop{animation:pop 1.5s ease-in-out infinite alternate;transform-origin:center}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes fade{from{opacity:.25}to{opacity:1}}
+  @keyframes pulse{from{opacity:.35;stroke-width:2}to{opacity:.95;stroke-width:4}}
+  @keyframes pop{from{transform:scale(.96);opacity:.65}to{transform:scale(1.04);opacity:1}}
+</style>
+
+
+<rect width="520" height="330" fill="white"/>
+<text x="24" y="32" class="title">Count adjacent seat pairs</text>
+<g transform="translate(130,70)">
+  <rect x="0" y="0" width="240" height="160" fill="#f9fafb" stroke="#111827" stroke-width="3"/>
+  <line x1="80" y1="0" x2="80" y2="160" class="thin"/><line x1="160" y1="0" x2="160" y2="160" class="thin"/><line x1="0" y1="80" x2="240" y2="80" class="thin"/>
+  <rect x="0" y="0" width="80" height="80" class="shade pulse"/><rect x="80" y="0" width="80" height="80" class="shade pulse"/>
+  <rect x="160" y="0" width="80" height="80" fill="#fde68a" opacity=".55"><animate attributeName="opacity" values=".1;.7;.1" dur="2s" repeatCount="indefinite"/></rect>
+  <rect x="160" y="80" width="80" height="80" fill="#fde68a" opacity=".55"><animate attributeName="opacity" values=".1;.7;.1" dur="2s" begin=".5s" repeatCount="indefinite"/></rect>
+  <text x="27" y="48" class="label">A</text><text x="107" y="48" class="label">B</text>
+</g>
+<text x="60" y="270" class="label">Horizontal pairs: 4</text>
+<text x="260" y="270" class="label">Vertical pairs: 3</text>
+<text x="160" y="305" class="title">7 adjacent pairs out of 15</text>
+
+</svg>
