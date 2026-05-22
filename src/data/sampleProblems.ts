@@ -31150,6 +31150,2062 @@ const amc2013Problems: Problem[] = [
   }
 ];
 
+const amc2014Problems: Problem[] = [
+  {
+    "id": "amc8-2014-01",
+    "title": "2014 AMC 8 Problem 1: Parentheses Matter",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 1,
+    "category": "Algebra",
+    "subcategory": "Order of operations",
+    "difficulty": 1,
+    "statement": "Harry and Terry are each told to calculate 8 − (2 + 5). Harry gets the correct answer. Terry ignores the parentheses and calculates 8 − 2 + 5. If Harry's answer is H and Terry's answer is T, what is H − T?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "−10"
+      },
+      {
+        "label": "B",
+        "text": "−6"
+      },
+      {
+        "label": "C",
+        "text": "0"
+      },
+      {
+        "label": "D",
+        "text": "6"
+      },
+      {
+        "label": "E",
+        "text": "10"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "−10",
+    "solutionSteps": [
+      {
+        "title": "Calculate Harry's value",
+        "body": "Harry follows the parentheses first: 8−(2+5)=8−7=1.",
+        "equation": "H=1"
+      },
+      {
+        "title": "Calculate Terry's value",
+        "body": "Terry works left to right without parentheses: 8−2+5=6+5=11.",
+        "equation": "T=11"
+      },
+      {
+        "title": "Subtract",
+        "body": "So H−T=1−11=−10."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Circle answer choice A."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "algebra",
+      "order of operations"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2014-02",
+    "title": "2014 AMC 8 Problem 2: Paying 35 Cents",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 2,
+    "category": "Number Theory",
+    "subcategory": "Coins",
+    "difficulty": 1,
+    "statement": "Paul owes Paula 35 cents and has a pocket full of 5-cent coins, 10-cent coins, and 25-cent coins that he can use to pay her. What is the difference between the largest and the smallest number of coins he can use to pay her?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "4"
+      },
+      {
+        "label": "E",
+        "text": "5"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "Use the fewest coins",
+        "body": "The fewest coins are a quarter and a dime, for 2 coins."
+      },
+      {
+        "title": "Use the most coins",
+        "body": "The most coins come from all nickels: 35 cents is seven 5-cent coins."
+      },
+      {
+        "title": "Find the difference",
+        "body": "The difference is 7−2=5."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Circle answer choice E."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "coins",
+      "arithmetic"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2014-03",
+    "title": "2014 AMC 8 Problem 3: Reading Pages",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 3,
+    "category": "Algebra",
+    "subcategory": "Averages",
+    "difficulty": 1,
+    "statement": "Isabella had a week to read a book for a school assignment. She read an average of 36 pages per day for the first three days and an average of 44 pages per day for the next three days. She then finished the book by reading 10 pages on the last day. How many pages were in the book?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "240"
+      },
+      {
+        "label": "B",
+        "text": "250"
+      },
+      {
+        "label": "C",
+        "text": "260"
+      },
+      {
+        "label": "D",
+        "text": "270"
+      },
+      {
+        "label": "E",
+        "text": "280"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "250",
+    "solutionSteps": [
+      {
+        "title": "First three days",
+        "body": "She read 3·36=108 pages."
+      },
+      {
+        "title": "Next three days",
+        "body": "She read 3·44=132 pages."
+      },
+      {
+        "title": "Add the last day",
+        "body": "The total is 108+132+10=250 pages."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "averages",
+      "arithmetic"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2014-04",
+    "title": "2014 AMC 8 Problem 4: Prime Sum",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 4,
+    "category": "Number Theory",
+    "subcategory": "Primes",
+    "difficulty": 1,
+    "statement": "The sum of two prime numbers is 85. What is the product of these two prime numbers?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "85"
+      },
+      {
+        "label": "B",
+        "text": "91"
+      },
+      {
+        "label": "C",
+        "text": "115"
+      },
+      {
+        "label": "D",
+        "text": "133"
+      },
+      {
+        "label": "E",
+        "text": "166"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "166",
+    "solutionSteps": [
+      {
+        "title": "Use parity",
+        "body": "An odd sum of two primes must include the only even prime, 2."
+      },
+      {
+        "title": "Find the other prime",
+        "body": "The other prime is 85−2=83."
+      },
+      {
+        "title": "Multiply",
+        "body": "The product is 2·83=166."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Circle answer choice E."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "primes",
+      "parity"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2014-05",
+    "title": "2014 AMC 8 Problem 5: Gas Money",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 5,
+    "category": "Algebra",
+    "subcategory": "Rates",
+    "difficulty": 1,
+    "statement": "Margie's car can go 32 miles on a gallon of gas, and gas currently costs $4 per gallon. How many miles can Margie drive on $20 worth of gas?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "64"
+      },
+      {
+        "label": "B",
+        "text": "128"
+      },
+      {
+        "label": "C",
+        "text": "160"
+      },
+      {
+        "label": "D",
+        "text": "320"
+      },
+      {
+        "label": "E",
+        "text": "640"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "160",
+    "solutionSteps": [
+      {
+        "title": "Find gallons",
+        "body": "At $4 per gallon, $20 buys 5 gallons."
+      },
+      {
+        "title": "Use miles per gallon",
+        "body": "At 32 miles per gallon, 5 gallons gives 5·32=160 miles."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "rates",
+      "unit rate"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2014-06",
+    "title": "2014 AMC 8 Problem 6: Six Rectangle Areas",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 6,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 1,
+    "statement": "Six rectangles each with a common base width of 2 have lengths of 1, 4, 9, 16, 25, and 36. What is the sum of the areas of the six rectangles?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "91"
+      },
+      {
+        "label": "B",
+        "text": "93"
+      },
+      {
+        "label": "C",
+        "text": "162"
+      },
+      {
+        "label": "D",
+        "text": "182"
+      },
+      {
+        "label": "E",
+        "text": "202"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "182",
+    "solutionSteps": [
+      {
+        "title": "Factor out the common width",
+        "body": "Each area is 2 times its length, so the total area is 2(1+4+9+16+25+36)."
+      },
+      {
+        "title": "Add lengths",
+        "body": "The lengths add to 91."
+      },
+      {
+        "title": "Multiply",
+        "body": "The total area is 2·91=182."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "geometry",
+      "area"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2014-07",
+    "title": "2014 AMC 8 Problem 7: Girls and Boys Ratio",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 7,
+    "category": "Algebra",
+    "subcategory": "Linear equations",
+    "difficulty": 1,
+    "statement": "There are four more girls than boys in Ms. Raub's class of 28 students. What is the ratio of the number of girls to the number of boys in her class?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3:4"
+      },
+      {
+        "label": "B",
+        "text": "4:3"
+      },
+      {
+        "label": "C",
+        "text": "3:2"
+      },
+      {
+        "label": "D",
+        "text": "7:4"
+      },
+      {
+        "label": "E",
+        "text": "2:1"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "4:3",
+    "solutionSteps": [
+      {
+        "title": "Set up variables",
+        "body": "Let b be the number of boys. Then the number of girls is b+4."
+      },
+      {
+        "title": "Solve",
+        "body": "b+(b+4)=28, so 2b=24 and b=12. There are 16 girls."
+      },
+      {
+        "title": "Form the ratio",
+        "body": "Girls to boys is 16:12=4:3."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "ratios",
+      "linear equations"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2014-08",
+    "title": "2014 AMC 8 Problem 8: Missing Digit Divisible by 11",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 8,
+    "category": "Number Theory",
+    "subcategory": "Divisibility",
+    "difficulty": 2,
+    "statement": "Eleven members of the Middle School Math Club each paid the same amount for a guest speaker. They paid their guest speaker $1A2. What is the missing digit A of this 3-digit number?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "0"
+      },
+      {
+        "label": "B",
+        "text": "1"
+      },
+      {
+        "label": "C",
+        "text": "2"
+      },
+      {
+        "label": "D",
+        "text": "3"
+      },
+      {
+        "label": "E",
+        "text": "4"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "3",
+    "solutionSteps": [
+      {
+        "title": "Use divisibility by 11",
+        "body": "Because 11 members paid the same amount, 1A2 must be divisible by 11."
+      },
+      {
+        "title": "Apply the rule",
+        "body": "For 1A2, the alternating digit sum difference is 1+2−A=3−A."
+      },
+      {
+        "title": "Choose A",
+        "body": "For 3−A to be 0, A=3."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "divisibility",
+      "digits"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2014-09",
+    "title": "2014 AMC 8 Problem 9: Triangle Angle Chase",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 9,
+    "category": "Geometry",
+    "subcategory": "Angles",
+    "difficulty": 2,
+    "statement": "In triangle ABC, D is a point on side AC such that BD=DC and angle BCD measures 70°. What is the degree measure of angle ADB?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "100"
+      },
+      {
+        "label": "B",
+        "text": "120"
+      },
+      {
+        "label": "C",
+        "text": "135"
+      },
+      {
+        "label": "D",
+        "text": "140"
+      },
+      {
+        "label": "E",
+        "text": "150"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "140°",
+    "solutionSteps": [
+      {
+        "title": "Use the isosceles triangle",
+        "body": "Since BD=DC, triangle BDC is isosceles, so angle DBC equals angle BCD, or 70°."
+      },
+      {
+        "title": "Find angle BDC",
+        "body": "The third angle in triangle BDC is 180°−70°−70°=40°."
+      },
+      {
+        "title": "Use a straight line",
+        "body": "Angles ADB and BDC are supplementary, so angle ADB=180°−40°=140°."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "geometry",
+      "angles",
+      "isosceles triangle"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2014/problem-09-triangle-angle.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2014-10",
+    "title": "2014 AMC 8 Problem 10: Seventh AMC 8 Year",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 10,
+    "category": "Other",
+    "subcategory": "Calendar arithmetic",
+    "difficulty": 1,
+    "statement": "The first AMC 8 was given in 1985 and it has been given annually since that time. Samantha turned 12 years old the year that she took the seventh AMC 8. In what year was Samantha born?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1979"
+      },
+      {
+        "label": "B",
+        "text": "1980"
+      },
+      {
+        "label": "C",
+        "text": "1981"
+      },
+      {
+        "label": "D",
+        "text": "1982"
+      },
+      {
+        "label": "E",
+        "text": "1983"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "1979",
+    "solutionSteps": [
+      {
+        "title": "Find the seventh contest year",
+        "body": "The first contest was in 1985, so the seventh was 6 years later: 1991."
+      },
+      {
+        "title": "Subtract Samantha's age",
+        "body": "Samantha was 12 in 1991, so she was born in 1991−12=1979."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Circle answer choice A."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "calendar",
+      "arithmetic"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2014-11",
+    "title": "2014 AMC 8 Problem 11: Avoiding an Intersection",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 11,
+    "category": "Counting & Probability",
+    "subcategory": "Lattice paths",
+    "difficulty": 3,
+    "statement": "Jack wants to bike from his house to Jill's house, which is located three blocks east and two blocks north of Jack's house. After biking each block, Jack can continue either east or north, but he needs to avoid a dangerous intersection one block east and one block north of his house. In how many ways can he reach Jill's house by biking a total of five blocks?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "5"
+      },
+      {
+        "label": "C",
+        "text": "6"
+      },
+      {
+        "label": "D",
+        "text": "8"
+      },
+      {
+        "label": "E",
+        "text": "10"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Count all shortest paths",
+        "body": "A shortest path uses 3 east moves and 2 north moves, so there are C(5,2)=10 total paths."
+      },
+      {
+        "title": "Subtract blocked paths",
+        "body": "Paths through the dangerous intersection use 1 east and 1 north to reach it, then 2 east and 1 north after it: C(2,1)·C(3,1)=6."
+      },
+      {
+        "title": "Compute safe paths",
+        "body": "The number of safe paths is 10−6=4."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Circle answer choice A."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "counting",
+      "lattice paths",
+      "complementary counting"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2014/problem-11-grid-paths.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2014-12",
+    "title": "2014 AMC 8 Problem 12: Matching Baby Pictures",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 12,
+    "category": "Counting & Probability",
+    "subcategory": "Permutations",
+    "difficulty": 2,
+    "statement": "A magazine printed photos of three celebrities along with three photos of the celebrities as babies. The baby pictures did not identify the celebrities. Readers were asked to match each celebrity with the correct baby picture. What is the probability that a reader guessing at random will match all three correctly?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/9"
+      },
+      {
+        "label": "B",
+        "text": "1/6"
+      },
+      {
+        "label": "C",
+        "text": "1/4"
+      },
+      {
+        "label": "D",
+        "text": "1/3"
+      },
+      {
+        "label": "E",
+        "text": "1/2"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "1/6",
+    "solutionSteps": [
+      {
+        "title": "Count arrangements",
+        "body": "There are 3! = 6 possible matchings of baby pictures to celebrities."
+      },
+      {
+        "title": "Only one works",
+        "body": "Exactly one of the 6 matchings is completely correct."
+      },
+      {
+        "title": "Find probability",
+        "body": "The probability is 1/6."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "probability",
+      "permutations"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2014-13",
+    "title": "2014 AMC 8 Problem 13: Parity of Squares",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 13,
+    "category": "Number Theory",
+    "subcategory": "Parity",
+    "difficulty": 2,
+    "statement": "If n and m are integers and n²+m² is even, which of the following is impossible?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "n and m are even"
+      },
+      {
+        "label": "B",
+        "text": "n and m are odd"
+      },
+      {
+        "label": "C",
+        "text": "n+m is even"
+      },
+      {
+        "label": "D",
+        "text": "n+m is odd"
+      },
+      {
+        "label": "E",
+        "text": "none of these are impossible"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "n+m is odd",
+    "solutionSteps": [
+      {
+        "title": "Use square parity",
+        "body": "A square has the same parity as the number being squared."
+      },
+      {
+        "title": "Make the sum even",
+        "body": "For n²+m² to be even, n and m must have the same parity: both even or both odd."
+      },
+      {
+        "title": "Conclude",
+        "body": "If n and m have the same parity, n+m is always even, so n+m odd is impossible."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "parity",
+      "squares"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2014-14",
+    "title": "2014 AMC 8 Problem 14: Rectangle and Triangle",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 14,
+    "category": "Geometry",
+    "subcategory": "Area and Pythagorean theorem",
+    "difficulty": 3,
+    "statement": "Rectangle ABCD and right triangle DCE have the same area. They are joined to form a trapezoid, as shown. What is DE?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "12"
+      },
+      {
+        "label": "B",
+        "text": "13"
+      },
+      {
+        "label": "C",
+        "text": "14"
+      },
+      {
+        "label": "D",
+        "text": "15"
+      },
+      {
+        "label": "E",
+        "text": "16"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "13",
+    "solutionSteps": [
+      {
+        "title": "Find rectangle area",
+        "body": "Rectangle ABCD has area 5·6=30."
+      },
+      {
+        "title": "Use equal triangle area",
+        "body": "Triangle DCE has height DC=5, so (1/2)·5·CE=30. Thus CE=12."
+      },
+      {
+        "title": "Use Pythagorean theorem",
+        "body": "Triangle DCE is right with legs 5 and 12, so DE=13."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "geometry",
+      "area",
+      "pythagorean theorem"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2014/problem-14-rectangle-triangle.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2014-15",
+    "title": "2014 AMC 8 Problem 15: Circle Arcs and Angles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 15,
+    "category": "Geometry",
+    "subcategory": "Inscribed angles",
+    "difficulty": 3,
+    "statement": "The circumference of the circle with center O is divided into 12 equal arcs, marked the letters A through L. What is the number of degrees in the sum of the angles x and y?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "75"
+      },
+      {
+        "label": "B",
+        "text": "80"
+      },
+      {
+        "label": "C",
+        "text": "90"
+      },
+      {
+        "label": "D",
+        "text": "120"
+      },
+      {
+        "label": "E",
+        "text": "150"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "90°",
+    "solutionSteps": [
+      {
+        "title": "Find one arc measure",
+        "body": "The circle is divided into 12 equal arcs, so each central step is 360°/12=30°."
+      },
+      {
+        "title": "Find x",
+        "body": "The central angle AOE covers 4 steps, so it is 120°. In isosceles triangle AOE, x=(180°−120°)/2=30°."
+      },
+      {
+        "title": "Find y and add",
+        "body": "The central angle GOI covers 2 steps, so it is 60°. Thus y=(180°−60°)/2=60°, and x+y=90°."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "geometry",
+      "circles",
+      "angles"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2014/problem-15-circle-arcs.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2014-16",
+    "title": "2014 AMC 8 Problem 16: Basketball Schedule",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 16,
+    "category": "Counting & Probability",
+    "subcategory": "Combinations",
+    "difficulty": 2,
+    "statement": "The Middle School Eight basketball conference has 8 teams. Every season, each team plays every other conference team twice, home and away, and each team also plays 4 games against non-conference opponents. What is the total number of games in a season involving the Middle School Eight teams?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "60"
+      },
+      {
+        "label": "B",
+        "text": "88"
+      },
+      {
+        "label": "C",
+        "text": "96"
+      },
+      {
+        "label": "D",
+        "text": "144"
+      },
+      {
+        "label": "E",
+        "text": "160"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "88",
+    "solutionSteps": [
+      {
+        "title": "Conference games",
+        "body": "There are C(8,2)=28 pairs of teams, and each pair plays twice, so there are 56 conference games."
+      },
+      {
+        "title": "Non-conference games",
+        "body": "Each of the 8 teams plays 4 non-conference games, giving 8·4=32 games involving these teams."
+      },
+      {
+        "title": "Add",
+        "body": "The total is 56+32=88."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "counting",
+      "combinations"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2014-17",
+    "title": "2014 AMC 8 Problem 17: Running to School",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 17,
+    "category": "Algebra",
+    "subcategory": "Rates",
+    "difficulty": 2,
+    "statement": "George walks 1 mile to school. He leaves home at the same time each day, walks at a steady speed of 3 miles per hour, and arrives just as school begins. Today he walked the first 1/2 mile at only 2 miles per hour. At how many miles per hour must George run the last 1/2 mile in order to arrive just as school begins today?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "6"
+      },
+      {
+        "label": "C",
+        "text": "8"
+      },
+      {
+        "label": "D",
+        "text": "10"
+      },
+      {
+        "label": "E",
+        "text": "12"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "6",
+    "solutionSteps": [
+      {
+        "title": "Normal travel time",
+        "body": "At 3 mph for 1 mile, the trip normally takes 1/3 hour."
+      },
+      {
+        "title": "Slow first half",
+        "body": "Today the first 1/2 mile at 2 mph takes (1/2)/2=1/4 hour."
+      },
+      {
+        "title": "Find needed speed",
+        "body": "He has 1/3−1/4=1/12 hour to travel 1/2 mile, so the speed is (1/2)/(1/12)=6 mph."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "rates",
+      "distance"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2014-18",
+    "title": "2014 AMC 8 Problem 18: Four Births",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 18,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 2,
+    "statement": "Four children were born at City Hospital yesterday. Assume each child is equally likely to be a boy or a girl. Which of the following outcomes is most likely?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "all 4 are boys"
+      },
+      {
+        "label": "B",
+        "text": "all 4 are girls"
+      },
+      {
+        "label": "C",
+        "text": "2 are girls and 2 are boys"
+      },
+      {
+        "label": "D",
+        "text": "3 are of one gender and 1 is of the other gender"
+      },
+      {
+        "label": "E",
+        "text": "all of these outcomes are equally likely"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "3 are of one gender and 1 is of the other gender",
+    "solutionSteps": [
+      {
+        "title": "Count outcomes",
+        "body": "There are 2^4=16 equally likely gender sequences."
+      },
+      {
+        "title": "Compare cases",
+        "body": "All boys and all girls each have 1 sequence; two and two has C(4,2)=6 sequences."
+      },
+      {
+        "title": "Most likely",
+        "body": "Three of one gender and one of the other has 4+4=8 sequences, the most."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "probability",
+      "casework"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2014-19",
+    "title": "2014 AMC 8 Problem 19: Minimizing White Surface Area",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 19,
+    "category": "Geometry",
+    "subcategory": "Surface area",
+    "difficulty": 4,
+    "statement": "A cube with 3-inch edges is to be constructed from 27 smaller cubes with 1-inch edges. Twenty-one of the cubes are colored red and 6 are colored white. If the 3-inch cube is constructed to have the smallest possible white surface area showing, what fraction of the surface area is white?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5/54"
+      },
+      {
+        "label": "B",
+        "text": "1/9"
+      },
+      {
+        "label": "C",
+        "text": "5/27"
+      },
+      {
+        "label": "D",
+        "text": "2/9"
+      },
+      {
+        "label": "E",
+        "text": "1/3"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "5/54",
+    "solutionSteps": [
+      {
+        "title": "Hide one white cube",
+        "body": "Place one white cube in the center, where none of its faces show."
+      },
+      {
+        "title": "Minimize the other five",
+        "body": "Place the remaining five white cubes at face centers, so each shows exactly one face."
+      },
+      {
+        "title": "Find the fraction",
+        "body": "There are 5 white unit faces showing out of total surface area 6·3²=54, so the fraction is 5/54."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Circle answer choice A."
+      }
+    ],
+    "animation": {
+      "type": "cube-net",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "geometry",
+      "surface area",
+      "cube"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2014-20",
+    "title": "2014 AMC 8 Problem 20: Rectangle Outside Circles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 20,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 4,
+    "statement": "Rectangle ABCD has sides CD=3 and DA=5. A circle of radius 1 is centered at A, a circle of radius 2 is centered at B, and a circle of radius 3 is centered at C. Which of the following is closest to the area of the region inside the rectangle but outside all three circles?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3.5"
+      },
+      {
+        "label": "B",
+        "text": "4.0"
+      },
+      {
+        "label": "C",
+        "text": "4.5"
+      },
+      {
+        "label": "D",
+        "text": "5.0"
+      },
+      {
+        "label": "E",
+        "text": "5.5"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "4.0",
+    "solutionSteps": [
+      {
+        "title": "Rectangle area",
+        "body": "The rectangle area is 3·5=15."
+      },
+      {
+        "title": "Circle sectors inside",
+        "body": "Inside the rectangle are three quarter circles with radii 1, 2, and 3, total area (π/4)(1²+2²+3²)=14π/4=7π/2."
+      },
+      {
+        "title": "Approximate",
+        "body": "15−7π/2 is about 15−11=4, so the closest choice is 4.0."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "geometry",
+      "area",
+      "circles"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2014/problem-20-rectangle-circles.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2014-21",
+    "title": "2014 AMC 8 Problem 21: Divisibility by 3 Digits",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 21,
+    "category": "Number Theory",
+    "subcategory": "Digit divisibility",
+    "difficulty": 4,
+    "statement": "The 7-digit numbers 74A52B1 and 326AB4C are each multiples of 3. Which of the following could be the value of C?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "5"
+      },
+      {
+        "label": "E",
+        "text": "8"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "1",
+    "solutionSteps": [
+      {
+        "title": "Use the first number",
+        "body": "For 74A52B1, the digit sum is 19+A+B, so A+B must be 2 modulo 3."
+      },
+      {
+        "title": "Use the second number",
+        "body": "For 326AB4C, the digit sum is 15+A+B+C, so A+B+C must be divisible by 3."
+      },
+      {
+        "title": "Find C",
+        "body": "Since A+B is 2 modulo 3, C must be 1 modulo 3. Among the choices, only 1 works."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Circle answer choice A."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "number theory",
+      "digits",
+      "divisibility"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2014-22",
+    "title": "2014 AMC 8 Problem 22: Product Plus Sum Digits",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 22,
+    "category": "Number Theory",
+    "subcategory": "Digits",
+    "difficulty": 4,
+    "statement": "A 2-digit number is such that the product of the digits plus the sum of the digits is equal to the number. What is the units digit of the number?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "3"
+      },
+      {
+        "label": "C",
+        "text": "5"
+      },
+      {
+        "label": "D",
+        "text": "7"
+      },
+      {
+        "label": "E",
+        "text": "9"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "9",
+    "solutionSteps": [
+      {
+        "title": "Write the number",
+        "body": "Let the number be 10a+b."
+      },
+      {
+        "title": "Translate the condition",
+        "body": "Product plus sum equals the number: ab+a+b=10a+b."
+      },
+      {
+        "title": "Solve",
+        "body": "This simplifies to ab=9a. Since a is nonzero, b=9."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Circle answer choice E."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "digits",
+      "algebra"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2014-23",
+    "title": "2014 AMC 8 Problem 23: Softball Uniform Numbers",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 23,
+    "category": "Logic",
+    "subcategory": "Logic with primes",
+    "difficulty": 5,
+    "statement": "Three members of the Euclid Middle School girls' softball team have 2-digit prime uniform numbers. Ashley says the sum of Brittany's and Caitlin's numbers is today's date. Brittany says the sum of Ashley's and Caitlin's numbers is her birthday earlier this month. Caitlin says the sum of Ashley's and Brittany's numbers is her birthday later this month. What number does Caitlin wear?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "11"
+      },
+      {
+        "label": "B",
+        "text": "13"
+      },
+      {
+        "label": "C",
+        "text": "17"
+      },
+      {
+        "label": "D",
+        "text": "19"
+      },
+      {
+        "label": "E",
+        "text": "23"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "11",
+    "solutionSteps": [
+      {
+        "title": "List possible small prime sums",
+        "body": "The sums must be dates, so they are at most 31. Possible sums of two 2-digit primes from the choices are 24, 28, and 30."
+      },
+      {
+        "title": "Use the order of dates",
+        "body": "Brittany's date is earlier, Ashley's is today, and Caitlin's is later, so Caitlin's corresponding sum is the largest."
+      },
+      {
+        "title": "Identify Caitlin's number",
+        "body": "For the other two girls to have the largest sum, Caitlin must have the smallest uniform number: 11."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Circle answer choice A."
+      }
+    ],
+    "animation": {
+      "type": "ranking",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "logic",
+      "primes",
+      "casework"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2014-24",
+    "title": "2014 AMC 8 Problem 24: Maximum Median Cans",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 24,
+    "category": "Counting & Probability",
+    "subcategory": "Optimization",
+    "difficulty": 5,
+    "statement": "One day the Beverage Barn sold 252 cans of soda to 100 customers, and every customer bought at least one can. What is the maximum possible median number of cans of soda bought per customer on that day?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2.5"
+      },
+      {
+        "label": "B",
+        "text": "3.0"
+      },
+      {
+        "label": "C",
+        "text": "3.5"
+      },
+      {
+        "label": "D",
+        "text": "4.0"
+      },
+      {
+        "label": "E",
+        "text": "4.5"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "3.5",
+    "solutionSteps": [
+      {
+        "title": "Set up the median",
+        "body": "With 100 customers, the median is the average of the 50th and 51st numbers after sorting purchases."
+      },
+      {
+        "title": "Make the first half small",
+        "body": "Give the first 49 customers one can each, leaving 203 cans for the top 51 customers."
+      },
+      {
+        "title": "Maximize the middle pair",
+        "body": "If the 50th customer had 4 cans, at least 49+51·4=253 cans would be needed. So the 50th can be 3 and the 51st can be 4, giving median 3.5."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "optimization",
+      "median",
+      "counting"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2014-25",
+    "title": "2014 AMC 8 Problem 25: Bike Path Semicircles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2014,
+    "problemNumber": 25,
+    "category": "Geometry",
+    "subcategory": "Arc length",
+    "difficulty": 5,
+    "statement": "A straight one-mile stretch of highway, 40 feet wide, is closed. Robert rides his bike on a path composed of semicircles as shown. If he rides at 5 miles per hour, how many hours will it take to cover the one-mile stretch? Note: 1 mile = 5280 feet.",
+    "choices": [
+      {
+        "label": "A",
+        "text": "π/11"
+      },
+      {
+        "label": "B",
+        "text": "π/10"
+      },
+      {
+        "label": "C",
+        "text": "π/5"
+      },
+      {
+        "label": "D",
+        "text": "2π/5"
+      },
+      {
+        "label": "E",
+        "text": "2π/3"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "π/10",
+    "solutionSteps": [
+      {
+        "title": "Compare arc length to diameter",
+        "body": "Each semicircle has length (π/2) times its diameter."
+      },
+      {
+        "title": "Scale the whole mile",
+        "body": "The whole path is therefore (π/2) times the one-mile straight stretch, or π/2 miles."
+      },
+      {
+        "title": "Use speed",
+        "body": "At 5 miles per hour, time = (π/2)/5 = π/10 hours."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the question",
+        "narration": "Identify the key numbers and the relationship being used.",
+        "visualHint": "Highlight the important quantities in the problem."
+      },
+      {
+        "title": "Apply the main idea",
+        "narration": "Work through the arithmetic, counting, geometry, or probability step by step.",
+        "visualHint": "Animate the central calculation."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2014",
+      "geometry",
+      "arc length",
+      "rates"
+    ],
+    "sourceName": "2014 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2014/problem-25-highway-semicircles.svg"
+    ],
+    "needsDiagram": true
+  }
+];
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
@@ -31165,6 +33221,7 @@ export const sampleProblems: Problem[] = [
   ...amc2011Problems,
   ...amc2012Problems,
   ...amc2013Problems,
+  ...amc2014Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems };

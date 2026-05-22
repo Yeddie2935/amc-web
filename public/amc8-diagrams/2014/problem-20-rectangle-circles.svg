@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 320" width="420" height="320" role="img" aria-label="Rectangle ABCD with quarter circles centered at A, B, and C">
+  <rect width="420" height="320" fill="white"/>
+  <g stroke="#111" stroke-width="3" fill="none">
+    <rect x="120" y="105" width="180" height="108"/>
+    <circle cx="120" cy="213" r="36"/>
+    <circle cx="120" cy="105" r="72"/>
+    <circle cx="300" cy="105" r="108"/>
+  </g>
+  <g fill="#111" font-family="serif" font-size="23">
+    <text x="103" y="237">A</text><text x="103" y="95">B</text><text x="304" y="95">C</text><text x="304" y="235">D</text>
+    <text x="315" y="165">3</text><text x="205" y="238">5</text>
+  </g>
+</svg>

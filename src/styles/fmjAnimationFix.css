@@ -51,6 +51,179 @@
   text-align: center;
 }
 
+.template-visual .template-card,
+.template-card {
+  width: min(100%, 640px);
+  background: white;
+  border: 1px solid var(--fmj-border);
+  border-radius: 20px;
+  padding: 22px;
+  display: grid;
+  gap: 16px;
+}
+
+.template-card-heading {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--fmj-primary);
+}
+
+.template-card-body {
+  display: grid;
+  gap: 14px;
+}
+
+.template-equation {
+  font-size: clamp(1.4rem, 4vw, 2.4rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.template-equation code {
+  display: block;
+  padding: 18px 20px;
+  border: 1px solid var(--fmj-border);
+  border-radius: 18px;
+  background: #f8fafc;
+}
+
+.template-answer {
+  font-weight: 900;
+  color: #16a34a;
+}
+
+.template-number-line,
+.template-bar-card,
+.template-probability-card,
+.template-ranking-card,
+.template-area-card,
+.template-clock-card {
+  display: grid;
+  gap: 12px;
+}
+
+.template-number-line {
+  display: grid;
+  gap: 12px;
+}
+
+.template-line {
+  height: 6px;
+  background: linear-gradient(90deg, #dbeafe 0%, #93c5fd 100%);
+  border-radius: 999px;
+  position: relative;
+}
+
+.template-marker {
+  position: absolute;
+  top: -16px;
+  left: clamp(20%, 45%, 80%);
+  transform: translateX(-50%);
+  background: #eef2ff;
+  color: #1d4ed8;
+  font-weight: 900;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.template-note {
+  color: #475569;
+  font-size: 0.98rem;
+}
+
+.template-clock-face {
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  border: 8px solid #0f172a;
+  position: relative;
+  margin: 0 auto;
+  background: radial-gradient(circle at center, #ffffff 0%, #e2e8f0 100%);
+}
+
+.template-clock-center {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #0f172a;
+  position: absolute;
+  left: calc(50% - 6px);
+  top: calc(50% - 6px);
+}
+
+.template-clock-hand {
+  position: absolute;
+  width: 6px;
+  border-radius: 999px;
+  background: #0f172a;
+  left: calc(50% - 3px);
+  bottom: 50%;
+  transform-origin: bottom center;
+}
+
+.template-clock-hand.minute {
+  height: 78px;
+}
+
+.template-clock-hand.hour {
+  height: 56px;
+  transform: rotate(-65deg);
+}
+
+.template-bar {
+  display: grid;
+  height: 34px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #d1fae5 0%, #34d399 100%);
+  overflow: hidden;
+}
+
+.template-bar-segment {
+  display: inline-grid;
+  place-items: center;
+  color: #065f46;
+  font-weight: 900;
+  padding: 0 14px;
+}
+
+.template-probability-fraction {
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  font-weight: 900;
+}
+
+.template-probability-text {
+  color: #475569;
+}
+
+.template-data-list {
+  display: grid;
+  gap: 10px;
+}
+
+.template-data-entry {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  background: #f8fafc;
+  border: 1px solid var(--fmj-border);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.template-data-key {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.template-data-value {
+  color: #475569;
+  text-align: right;
+}
+
+.template-empty {
+  color: #475569;
+}
+
 .equation-line {
   display: flex;
   align-items: center;

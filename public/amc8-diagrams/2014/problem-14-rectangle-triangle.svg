@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 230" width="460" height="230" role="img" aria-label="Rectangle ABCD joined to right triangle DCE">
+  <rect width="460" height="230" fill="white"/>
+  <g stroke="#111" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="50" y="55" width="150" height="125"/>
+    <path d="M200 55 L420 180 L200 180 Z"/>
+    <path d="M200 170 h10 v10"/>
+  </g>
+  <g font-family="serif" font-size="24" fill="#111">
+    <text x="36" y="50">A</text><text x="34" y="203">B</text><text x="188" y="203">C</text><text x="190" y="50">D</text><text x="425" y="190">E</text>
+    <text x="118" y="45">6</text><text x="25" y="125">5</text>
+  </g>
+</svg>

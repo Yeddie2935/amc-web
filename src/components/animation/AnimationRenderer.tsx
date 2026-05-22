@@ -1,6 +1,25 @@
 import { useEffect, useState } from "react";
-import type { Problem } from "../../types/amc";
+import type { Problem, AnimationFrame } from "../../types/amc";
 import { Button } from "../common/Button";
+import { AnimationTemplateVisual } from "./AnimationTemplate";
+
+const DEFAULT_ANIMATION_FRAMES: AnimationFrame[] = [
+  {
+    title: "Understand",
+    narration: "Identify the key information in the problem.",
+    visualHint: "Highlight the important numbers and relationships.",
+  },
+  {
+    title: "Solve",
+    narration: "Use the main math idea to work toward the answer.",
+    visualHint: "Show the calculation, diagram relationship, or counting setup.",
+  },
+  {
+    title: "Check",
+    narration: "Compare the result with the answer choices.",
+    visualHint: "Circle the final answer choice.",
+  },
+];
 
 interface AnimationRendererProps {
   problem: Problem;
@@ -13,23 +32,7 @@ export function AnimationRenderer({ problem }: AnimationRendererProps) {
     setStep(0);
   }, [problem.id]);
 
-  const frames = problem.animationFrames ?? [
-    {
-      title: "Understand",
-      narration: "Identify the key information in the problem.",
-      visualHint: "Highlight the important numbers and relationships.",
-    },
-    {
-      title: "Solve",
-      narration: "Use the main math idea to work toward the answer.",
-      visualHint: "Show the calculation, diagram relationship, or counting setup.",
-    },
-    {
-      title: "Check",
-      narration: "Compare the result with the answer choices.",
-      visualHint: "Circle the final answer choice.",
-    },
-  ];
+  const frames = problem.animationFrames ?? DEFAULT_ANIMATION_FRAMES;
 
   const safeStep = Math.min(step, frames.length - 1);
   const current = frames[safeStep];
@@ -89,7 +92,7 @@ function ProblemVisual({ problem, step }: { problem: Problem; step: number }) {
     case "amc8-1999-10":
       return <TrafficLightVisual step={step} />;
     default:
-      return <CleanFallbackVisual problem={problem} step={step} />;
+      return <AnimationTemplateVisual problem={problem} step={step} />;
   }
 }
 
@@ -305,14 +308,22 @@ function TrafficLightVisual({ step }: { step: number }) {
 }
 
 function CleanFallbackVisual({ problem, step }: { problem: Problem; step: number }) {
+  const frames = problem.animationFrames ?? DEFAULT_ANIMATION_FRAMES;
+  const safeIndex = Math.min(step, frames.length - 1);
+  const current = frames[safeIndex];
+
   return (
     <div className="fmj-visual-card fallback-visual">
       <div className="fallback-steps">
-        <span className={step === 0 ? "active" : ""}>1. Read</span>
-        <span className={step === 1 ? "active" : ""}>2. Reason</span>
-        <span className={step >= 2 ? "active" : ""}>3. Answer</span>
+        {frames.slice(0, 3).map((frame, index) => (
+          <span key={frame.title || index} className={index === safeIndex ? "active" : ""}>
+            {index + 1}. {frame.title}
+          </span>
+        ))}
       </div>
-      <p>{problem.category}</p>
+      <div className="fallback-hint">
+        <p>{current.visualHint}</p>
+      </div>
     </div>
   );
 }

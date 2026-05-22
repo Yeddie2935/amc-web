@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Problem } from "../../types/amc";
 import { Button } from "../common/Button";
+import { AnimationTemplateVisual } from "../animation/AnimationTemplate";
 
 interface ProblemAnimationProps {
   problem: Problem;
@@ -8,14 +9,34 @@ interface ProblemAnimationProps {
 
 const DEFAULT_STEP_TITLES = ["Set up", "Work it out", "Answer"];
 
+const DEFAULT_FALLBACK_FRAMES = [
+  {
+    title: "Set up",
+    narration: "Find the important numbers and relationships in the problem.",
+    visualHint: "Identify the key elements of the story or diagram.",
+  },
+  {
+    title: "Work it out",
+    narration: "Apply the right math idea to the setup.",
+    visualHint: "Show the calculation, diagram, or reasoning step.",
+  },
+  {
+    title: "Answer",
+    narration: "Confirm that your result matches the correct choice.",
+    visualHint: "Compare the final quantity to the answer options.",
+  },
+];
+
 export function ProblemAnimation({ problem }: ProblemAnimationProps) {
   const [step, setStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  const frames = problem.animationFrames ?? DEFAULT_FALLBACK_FRAMES;
+
   const stepTitles = useMemo(() => {
-    const fromData = problem.animationFrames?.map((frame) => frame.title) ?? [];
+    const fromData = frames.map((frame) => frame.title);
     return fromData.length >= 3 ? fromData.slice(0, 3) : DEFAULT_STEP_TITLES;
-  }, [problem.animationFrames]);
+  }, [frames]);
 
   useEffect(() => {
     setStep(0);
@@ -49,7 +70,7 @@ export function ProblemAnimation({ problem }: ProblemAnimationProps) {
   return (
     <div className="fmj-animated-explainer">
       <div className="fmj-animation-stage" data-step={step}>
-        {renderScene(problem.id, step)}
+        {renderScene(problem.id, step, problem)}
       </div>
 
       <div className="fmj-animation-controls">
@@ -81,7 +102,7 @@ export function ProblemAnimation({ problem }: ProblemAnimationProps) {
   );
 }
 
-function renderScene(problemId: string, step: number) {
+function renderScene(problemId: string, step: number, problem: Problem) {
   switch (problemId) {
     case "amc8-1999-01":
       return <OperationScene step={step} />;
@@ -104,7 +125,7 @@ function renderScene(problemId: string, step: number) {
     case "amc8-1999-10":
       return <TrafficLightScene step={step} />;
     default:
-      return <GenericScene step={step} />;
+      return <GenericScene problem={problem} step={step} />;
   }
 }
 
@@ -373,22 +394,45 @@ function TrafficLightScene({ step }: { step: number }) {
   );
 }
 
-function GenericScene({ step }: { step: number }) {
+function GenericScene({ problem, step }: { problem: Problem; step: number }) {
+  const frames = problem.animationFrames ?? [
+    {
+      title: "Understand",
+      narration: "Identify the given information and what the problem asks.",
+      visualHint: "Identify the key numbers or diagram details.",
+    },
+    {
+      title: "Solve",
+      narration: "Use the main math idea to work toward the answer.",
+      visualHint: "Show the calculation, diagram, or reasoning step.",
+    },
+    {
+      title: "Check",
+      narration: "Compare the result with the answer choices.",
+      visualHint: "Circle the final answer choice.",
+    },
+  ];
+
+  const safeIndex = Math.min(step, frames.length - 1);
+  const current = frames[safeIndex];
+
   return (
     <div className="fmj-scene fmj-scene-generic">
-      <div className="generic-board">
-        <span className={step === 0 ? "active" : ""}>1. Understand</span>
-        <span className={step === 1 ? "active" : ""}>2. Solve</span>
-        <span className={step === 2 ? "active" : ""}>3. Check</span>
+      {problem.animation ? (
+        <AnimationTemplateVisual problem={problem} step={safeIndex} />
+      ) : (
+        <div className="generic-board">
+          {frames.slice(0, 3).map((frame, index) => (
+            <span key={frame.title || index} className={index === safeIndex ? "active" : ""}>
+              {index + 1}. {frame.title}
+            </span>
+          ))}
+        </div>
+      )}
+      <StageCaption title={current.title} body={current.narration} />
+      <div className="generic-visual-hint">
+        <p>{current.visualHint}</p>
       </div>
-      <StageCaption
-        title={["Understand", "Solve", "Check"][step]}
-        body={[
-          "Identify the given information and what the problem asks.",
-          "Use the key math idea to work toward the answer.",
-          "Compare the result with the answer choices.",
-        ][step]}
-      />
     </div>
   );
 }
