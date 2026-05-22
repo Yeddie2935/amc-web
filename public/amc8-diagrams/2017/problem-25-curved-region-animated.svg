@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 420" role="img" aria-label="2017 AMC 8 problem 25 animated rhombus with two circular sectors removed">
+
+<style>
+  svg{font-family:Arial,Helvetica,sans-serif} .line{stroke:#111;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.thin{stroke:#111;stroke-width:2;fill:none}.label{font-size:18px;fill:#111}.small{font-size:14px;fill:#111}.shade{fill:#93a8c9;opacity:.45}.accent{stroke:#f59e0b;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}.pulse{animation:pulse 1.8s ease-in-out infinite}.draw{stroke-dasharray:700;stroke-dashoffset:700;animation:draw 2.5s ease forwards}.fade{opacity:0;animation:fade 1s ease forwards}.f2{animation-delay:.8s}.f3{animation-delay:1.6s}.f4{animation-delay:2.4s}@keyframes draw{to{stroke-dashoffset:0}}@keyframes fade{to{opacity:1}}@keyframes pulse{0%,100%{opacity:.25}50%{opacity:.85}}
+</style>
+
+<rect width="540" height="420" fill="white"/>
+<text x="24" y="34" class="label">Think: equilateral triangle side 4 minus two 60° sectors.</text>
+<g transform="translate(270 215)">
+  <polygon points="0,-150 130,75 0,155 -130,75" fill="#dbeafe" opacity=".55" stroke="#111" stroke-width="3"/>
+  <path d="M-130,75 Q0,15 130,75" fill="none" stroke="#111" stroke-width="3"/>
+  <path d="M-130,75 Q0,130 130,75" fill="none" stroke="#111" stroke-width="3"/>
+  <path d="M-130,75 A260,260 0 0,0 0,155" class="accent draw"/>
+  <path d="M130,75 A260,260 0 0,1 0,155" class="accent draw"/>
+  <text x="-8" y="-162" class="label">U</text><text x="-154" y="82" class="label">S</text><text x="139" y="82" class="label">T</text><text x="-8" y="184" class="label">R</text>
+  <text x="-77" y="-44" class="label fade f2">2</text><text x="68" y="-44" class="label fade f2">2</text><text x="-28" y="-92" class="label fade f2">60°</text>
+</g>
+<g class="fade f3"><text x="38" y="378" class="label">Area = 4√3 − 2·(60° sector of radius 2) = 4√3 − 4π/3.</text></g>
+</svg>

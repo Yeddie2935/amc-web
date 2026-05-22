@@ -37531,6 +37531,2248 @@ const amc2016Problems: Problem[] = [
 ];
 
 
+const amc2017Problems: Problem[] = [
+  {
+    "id": "amc8-2017-01",
+    "title": "2017 AMC 8 Problem 1: Largest Expression",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 1,
+    "category": "Algebra",
+    "subcategory": "Order of operations",
+    "difficulty": 1,
+    "statement": "Which of the following values is largest?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2 + 0 + 1 + 7"
+      },
+      {
+        "label": "B",
+        "text": "2 × 0 + 1 + 7"
+      },
+      {
+        "label": "C",
+        "text": "2 + 0 × 1 + 7"
+      },
+      {
+        "label": "D",
+        "text": "2 + 0 + 1 × 7"
+      },
+      {
+        "label": "E",
+        "text": "2 × 0 × 1 × 7"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "2 + 0 + 1 + 7",
+    "solutionSteps": [
+      {
+        "title": "Evaluate each expression",
+        "body": "Use order of operations before comparing the choices.",
+        "equation": "10, 8, 9, 9, 0"
+      },
+      {
+        "title": "Pick the largest",
+        "body": "The largest value is 10, which comes from choice A."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Reveal operations",
+        "narration": "Compute each choice one at a time.",
+        "visualHint": "Each expression flips to its value."
+      },
+      {
+        "title": "Compare values",
+        "narration": "Place the results on a number line.",
+        "visualHint": "10 is highlighted as the largest."
+      },
+      {
+        "title": "Circle the answer",
+        "narration": "Choice A is selected.",
+        "visualHint": "Choice A glows."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "values": [
+          10,
+          8,
+          9,
+          9,
+          0
+        ],
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "algebra",
+      "order of operations",
+      "arithmetic"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2017-02",
+    "title": "2017 AMC 8 Problem 2: Pie Chart Votes",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 2,
+    "category": "Algebra",
+    "subcategory": "Percents",
+    "difficulty": 1,
+    "statement": "Alicia, Brenda, and Colby were the candidates in a recent election for student president. The pie chart shows how the votes were distributed among the three candidates. If Brenda received 36 votes, then how many votes were cast all together?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "70"
+      },
+      {
+        "label": "B",
+        "text": "84"
+      },
+      {
+        "label": "C",
+        "text": "100"
+      },
+      {
+        "label": "D",
+        "text": "106"
+      },
+      {
+        "label": "E",
+        "text": "120"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "120",
+    "solutionSteps": [
+      {
+        "title": "Read Brenda's percent",
+        "body": "The chart shows Brenda received 30% of the votes."
+      },
+      {
+        "title": "Set up the percent equation",
+        "body": "If x is the total number of votes, then 30% of x is 36.",
+        "equation": "0.30x = 36"
+      },
+      {
+        "title": "Solve",
+        "body": "Divide by 0.30 to get x = 120."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Highlight Brenda",
+        "narration": "The 30% sector pulses.",
+        "visualHint": "Brenda's pie slice is highlighted."
+      },
+      {
+        "title": "Scale to 10%",
+        "narration": "Since 30% is 36, 10% is 12.",
+        "visualHint": "36 splits into three groups of 12."
+      },
+      {
+        "title": "Scale to 100%",
+        "narration": "Ten copies of 10% make 100%, so the total is 120.",
+        "visualHint": "The full circle fills and 120 appears."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "percent": 30,
+        "votes": 36,
+        "total": 120,
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "algebra",
+      "percents",
+      "pie chart"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2017/problem-02-pie-chart-animated.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2017-03",
+    "title": "2017 AMC 8 Problem 3: Nested Radical",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 3,
+    "category": "Algebra",
+    "subcategory": "Radicals",
+    "difficulty": 2,
+    "statement": "What is the value of the expression √(16√(8√4))?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "4√2"
+      },
+      {
+        "label": "C",
+        "text": "8"
+      },
+      {
+        "label": "D",
+        "text": "8√2"
+      },
+      {
+        "label": "E",
+        "text": "16"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "8",
+    "solutionSteps": [
+      {
+        "title": "Work from the inside",
+        "body": "The innermost radical is √4 = 2.",
+        "equation": "√(16√(8·2))"
+      },
+      {
+        "title": "Simplify the middle radical",
+        "body": "8·2 = 16, so the middle radical is √16 = 4.",
+        "equation": "√(16·4)"
+      },
+      {
+        "title": "Finish",
+        "body": "16·4 = 64, and √64 = 8."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Start inside",
+        "narration": "The innermost √4 is highlighted.",
+        "visualHint": "√4 becomes 2."
+      },
+      {
+        "title": "Simplify middle",
+        "narration": "The expression √(8·2) becomes √16 = 4.",
+        "visualHint": "Middle radical collapses."
+      },
+      {
+        "title": "Finish outside",
+        "narration": "The expression becomes √64.",
+        "visualHint": "√64 animates into 8."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "expression": "√(16√(8√4))",
+        "answer": 8
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "algebra",
+      "radicals",
+      "nested radical"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2017-04",
+    "title": "2017 AMC 8 Problem 4: Estimate a Product",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 4,
+    "category": "Algebra",
+    "subcategory": "Estimation",
+    "difficulty": 1,
+    "statement": "When 0.000315 is multiplied by 7,928,564, the product is closest to which of the following?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "210"
+      },
+      {
+        "label": "B",
+        "text": "240"
+      },
+      {
+        "label": "C",
+        "text": "2,100"
+      },
+      {
+        "label": "D",
+        "text": "2,400"
+      },
+      {
+        "label": "E",
+        "text": "24,000"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "2,400",
+    "solutionSteps": [
+      {
+        "title": "Round the factors",
+        "body": "Use 0.000315 ≈ 0.0003 and 7,928,564 ≈ 8,000,000."
+      },
+      {
+        "title": "Multiply the estimates",
+        "body": "0.0003 × 8,000,000 = 2400.",
+        "equation": "3×10^{-4} · 8×10^6 = 24×10^2"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Round values",
+        "narration": "The messy factors slide into easier estimates.",
+        "visualHint": "0.000315 → 0.0003 and 7,928,564 → 8,000,000."
+      },
+      {
+        "title": "Use powers of ten",
+        "narration": "Multiply 3×8 and combine powers of ten.",
+        "visualHint": "24×10² appears."
+      },
+      {
+        "title": "Choose closest",
+        "narration": "2400 matches choice D.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "estimate": 2400,
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "algebra",
+      "estimation",
+      "scientific notation"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2017-05",
+    "title": "2017 AMC 8 Problem 5: Product Over Sum",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 5,
+    "category": "Algebra",
+    "subcategory": "Arithmetic simplification",
+    "difficulty": 2,
+    "statement": "What is the value of (1·2·3·4·5·6·7·8)/(1+2+3+4+5+6+7+8)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1020"
+      },
+      {
+        "label": "B",
+        "text": "1120"
+      },
+      {
+        "label": "C",
+        "text": "1220"
+      },
+      {
+        "label": "D",
+        "text": "2240"
+      },
+      {
+        "label": "E",
+        "text": "3360"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "1120",
+    "solutionSteps": [
+      {
+        "title": "Find the denominator",
+        "body": "The sum 1+2+...+8 is 36."
+      },
+      {
+        "title": "Cancel factors",
+        "body": "The numerator is 8!, and 36 = 4·9 = 2²·3², so cancellation leaves 1120.",
+        "equation": "40320 ÷ 36 = 1120"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Sum the bottom",
+        "narration": "Pair numbers to get 36.",
+        "visualHint": "The denominator becomes 36."
+      },
+      {
+        "title": "Cancel factors",
+        "narration": "Cancel 2, 3, and 6 from the product.",
+        "visualHint": "Factors disappear from numerator and denominator."
+      },
+      {
+        "title": "Compute",
+        "narration": "The remaining product equals 1120.",
+        "visualHint": "1120 lands on choice B."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "numerator": "8!",
+        "denominator": 36,
+        "answer": 1120
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "algebra",
+      "arithmetic simplification",
+      "factorial"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2017-06",
+    "title": "2017 AMC 8 Problem 6: Triangle Angle Ratio",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 6,
+    "category": "Geometry",
+    "subcategory": "Angles",
+    "difficulty": 1,
+    "statement": "If the degree measures of the angles of a triangle are in the ratio 3:3:4, what is the degree measure of the largest angle of the triangle?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "18"
+      },
+      {
+        "label": "B",
+        "text": "36"
+      },
+      {
+        "label": "C",
+        "text": "60"
+      },
+      {
+        "label": "D",
+        "text": "72"
+      },
+      {
+        "label": "E",
+        "text": "90"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "72",
+    "solutionSteps": [
+      {
+        "title": "Add ratio parts",
+        "body": "The ratio 3:3:4 has 10 total parts."
+      },
+      {
+        "title": "Scale to 180°",
+        "body": "Each part is 180° ÷ 10 = 18°."
+      },
+      {
+        "title": "Largest angle",
+        "body": "The largest angle is 4 parts, so it is 4×18° = 72°."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Divide the triangle",
+        "narration": "Split 180° into 10 equal ratio parts.",
+        "visualHint": "Ten small angle blocks appear."
+      },
+      {
+        "title": "Find one part",
+        "narration": "Each part is labeled 18°.",
+        "visualHint": "180 ÷ 10 = 18 fades in."
+      },
+      {
+        "title": "Build largest angle",
+        "narration": "Four parts combine to make 72°.",
+        "visualHint": "Choice D is highlighted."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "ratio": [
+          3,
+          3,
+          4
+        ],
+        "largest": 72,
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "geometry",
+      "angles",
+      "angle sum"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2017-07",
+    "title": "2017 AMC 8 Problem 7: Repeated Three-Digit Number",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 7,
+    "category": "Number Theory",
+    "subcategory": "Divisibility",
+    "difficulty": 2,
+    "statement": "Let Z be a 6-digit positive integer, such as 247247, whose first three digits are the same as its last three digits taken in the same order. Which of the following numbers must also be a factor of Z?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "11"
+      },
+      {
+        "label": "B",
+        "text": "19"
+      },
+      {
+        "label": "C",
+        "text": "101"
+      },
+      {
+        "label": "D",
+        "text": "111"
+      },
+      {
+        "label": "E",
+        "text": "1111"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "11",
+    "solutionSteps": [
+      {
+        "title": "Write the structure",
+        "body": "Any such number has the form abcabc."
+      },
+      {
+        "title": "Factor it",
+        "body": "abcabc = 1000·abc + abc = 1001·abc.",
+        "equation": "abcabc = 1001·abc"
+      },
+      {
+        "title": "Factor 1001",
+        "body": "1001 = 7·11·13, so 11 must divide Z."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show repeated block",
+        "narration": "The block abc is copied to make abcabc.",
+        "visualHint": "abc + abc pattern appears."
+      },
+      {
+        "title": "Factor out abc",
+        "narration": "abcabc becomes 1001·abc.",
+        "visualHint": "1001 is highlighted."
+      },
+      {
+        "title": "Factor 1001",
+        "narration": "1001 splits into 7, 11, and 13.",
+        "visualHint": "11 is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "factorization": "1001=7·11·13",
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "number theory",
+      "divisibility",
+      "factors"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2017-08",
+    "title": "2017 AMC 8 Problem 8: House Number Logic",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 8,
+    "category": "Logic",
+    "subcategory": "Truth statements",
+    "difficulty": 3,
+    "statement": "Malcolm wants to visit Isabella after school and knows the street where she lives but not her house number. Isabella says her two-digit house number has exactly three true statements: it is prime; it is even; it is divisible by 7; one of its digits is 9. This lets Malcolm determine the house number. What is its units digit?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "6"
+      },
+      {
+        "label": "C",
+        "text": "7"
+      },
+      {
+        "label": "D",
+        "text": "8"
+      },
+      {
+        "label": "E",
+        "text": "9"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "8",
+    "solutionSteps": [
+      {
+        "title": "Eliminate prime",
+        "body": "A two-digit number cannot be both prime and even, and cannot be both prime and divisible by 7."
+      },
+      {
+        "title": "Use the other three statements",
+        "body": "So the true statements must be even, divisible by 7, and containing a 9."
+      },
+      {
+        "title": "Find the number",
+        "body": "The only even multiple of 7 with a digit 9 is 98, whose units digit is 8."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Test the prime statement",
+        "narration": "Prime conflicts with even or divisible by 7.",
+        "visualHint": "The prime statement is crossed out."
+      },
+      {
+        "title": "Keep three truths",
+        "narration": "Even, divisible by 7, and digit 9 remain.",
+        "visualHint": "Three check marks appear."
+      },
+      {
+        "title": "Find 98",
+        "narration": "Multiples 91 and 98 appear; only 98 is even.",
+        "visualHint": "The units digit 8 pulses."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "number": 98,
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "logic",
+      "truth statements",
+      "logic"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2017-09",
+    "title": "2017 AMC 8 Problem 9: Smallest Yellow Marbles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 9,
+    "category": "Number Theory",
+    "subcategory": "Divisibility",
+    "difficulty": 2,
+    "statement": "All of Marcy's marbles are blue, red, green, or yellow. One third are blue, one fourth are red, and six are green. What is the smallest number of yellow marbles that Marcy could have?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "4"
+      },
+      {
+        "label": "E",
+        "text": "5"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Use a common multiple",
+        "body": "The total number of marbles must be divisible by both 3 and 4, so it is a multiple of 12."
+      },
+      {
+        "title": "Try the smallest totals",
+        "body": "With 12 marbles, blue plus red leave only 5 non-blue/red marbles, not enough for 6 green."
+      },
+      {
+        "title": "Try 24",
+        "body": "With 24 marbles, 8 are blue and 6 are red, leaving 10. Six green means 4 yellow."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Mark total as multiple of 12",
+        "narration": "Blue thirds and red fourths require a total divisible by 12.",
+        "visualHint": "12, 24, 36 appear."
+      },
+      {
+        "title": "Reject 12",
+        "narration": "Twelve marbles leave only five spots for green/yellow.",
+        "visualHint": "The 12 case is crossed out."
+      },
+      {
+        "title": "Use 24",
+        "narration": "Six green plus four yellow fill the remaining 10.",
+        "visualHint": "Four yellow marbles appear."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "total": 24,
+        "yellow": 4,
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "number theory",
+      "divisibility",
+      "marbles",
+      "fractions"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2017-10",
+    "title": "2017 AMC 8 Problem 10: Largest Card Selected",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 10,
+    "category": "Counting & Probability",
+    "subcategory": "Combinations",
+    "difficulty": 2,
+    "statement": "A box contains five cards, numbered 1, 2, 3, 4, and 5. Three cards are selected randomly without replacement. What is the probability that 4 is the largest value selected?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/10"
+      },
+      {
+        "label": "B",
+        "text": "1/5"
+      },
+      {
+        "label": "C",
+        "text": "3/10"
+      },
+      {
+        "label": "D",
+        "text": "2/5"
+      },
+      {
+        "label": "E",
+        "text": "1/2"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "3/10",
+    "solutionSteps": [
+      {
+        "title": "Count all selections",
+        "body": "There are C(5,3)=10 ways to choose 3 cards."
+      },
+      {
+        "title": "Force 4 to be largest",
+        "body": "We must choose 4 and two cards from {1,2,3}, which gives C(3,2)=3 choices."
+      },
+      {
+        "title": "Probability",
+        "body": "The probability is 3/10."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "List all groups",
+        "narration": "All 10 three-card groups appear as small cards.",
+        "visualHint": "C(5,3)=10 is shown."
+      },
+      {
+        "title": "Keep groups with 4 largest",
+        "narration": "Only groups using 4 and not 5 remain.",
+        "visualHint": "{1,2,4}, {1,3,4}, {2,3,4} glow."
+      },
+      {
+        "title": "Form probability",
+        "narration": "Favorable over total is 3/10.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "total": 10,
+        "favorable": 3,
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "counting & probability",
+      "combinations",
+      "cards"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2017-11",
+    "title": "2017 AMC 8 Problem 11: Tiles on Diagonals",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 11,
+    "category": "Geometry",
+    "subcategory": "Square grids",
+    "difficulty": 2,
+    "statement": "A square-shaped floor is covered with congruent square tiles. If the total number of tiles that lie on the two diagonals is 37, how many tiles cover the floor?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "148"
+      },
+      {
+        "label": "B",
+        "text": "324"
+      },
+      {
+        "label": "C",
+        "text": "361"
+      },
+      {
+        "label": "D",
+        "text": "1296"
+      },
+      {
+        "label": "E",
+        "text": "1369"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "361",
+    "solutionSteps": [
+      {
+        "title": "Let n be the side length in tiles",
+        "body": "Each diagonal passes through n tiles, but the center tile is counted on both diagonals."
+      },
+      {
+        "title": "Set up the count",
+        "body": "The total tiles on the two diagonals is 2n − 1.",
+        "equation": "2n − 1 = 37"
+      },
+      {
+        "title": "Solve and square",
+        "body": "n = 19, so the whole floor has 19² = 361 tiles."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Draw two diagonals",
+        "narration": "Two diagonals cross through the tiled square.",
+        "visualHint": "Both diagonals animate across the grid."
+      },
+      {
+        "title": "Avoid double-counting center",
+        "narration": "The center tile is marked once.",
+        "visualHint": "2n−1 = 37 appears."
+      },
+      {
+        "title": "Square the side count",
+        "narration": "n=19, so total tiles are 19².",
+        "visualHint": "361 fills the square."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "sideTiles": 19,
+        "total": 361,
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "geometry",
+      "square grids",
+      "diagonals"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2017/problem-11-diagonal-tiles-animated.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2017-12",
+    "title": "2017 AMC 8 Problem 12: Remainder One",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 12,
+    "category": "Number Theory",
+    "subcategory": "LCM",
+    "difficulty": 2,
+    "statement": "The smallest positive integer greater than 1 that leaves a remainder of 1 when divided by 4, 5, and 6 lies between which of the following pairs of numbers?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2 and 19"
+      },
+      {
+        "label": "B",
+        "text": "20 and 39"
+      },
+      {
+        "label": "C",
+        "text": "40 and 59"
+      },
+      {
+        "label": "D",
+        "text": "60 and 79"
+      },
+      {
+        "label": "E",
+        "text": "80 and 124"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "60 and 79",
+    "solutionSteps": [
+      {
+        "title": "Use the LCM",
+        "body": "A number leaving remainder 1 for 4, 5, and 6 must be 1 more than a common multiple of 4, 5, and 6."
+      },
+      {
+        "title": "Find the smallest",
+        "body": "LCM(4,5,6)=60, so the smallest greater than 1 is 60+1=61."
+      },
+      {
+        "title": "Locate the range",
+        "body": "61 lies between 60 and 79."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Align remainders",
+        "narration": "The three division rules all point to remainder 1.",
+        "visualHint": "n−1 is shown as divisible by 4,5,6."
+      },
+      {
+        "title": "Find LCM",
+        "narration": "4, 5, and 6 combine into 60.",
+        "visualHint": "LCM = 60 appears."
+      },
+      {
+        "title": "Add one",
+        "narration": "60 + 1 = 61.",
+        "visualHint": "61 drops into the interval 60–79."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "value": 61,
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "number theory",
+      "lcm",
+      "remainders"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2017-13",
+    "title": "2017 AMC 8 Problem 13: Chess Wins and Losses",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 13,
+    "category": "Logic",
+    "subcategory": "Counting games",
+    "difficulty": 2,
+    "statement": "Peter, Emma, and Kyler played chess with each other. Peter won 4 games and lost 2 games. Emma won 3 games and lost 3 games. If Kyler lost 3 games, how many games did he win?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "0"
+      },
+      {
+        "label": "B",
+        "text": "1"
+      },
+      {
+        "label": "C",
+        "text": "2"
+      },
+      {
+        "label": "D",
+        "text": "3"
+      },
+      {
+        "label": "E",
+        "text": "4"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "1",
+    "solutionSteps": [
+      {
+        "title": "Wins equal losses",
+        "body": "Every chess game creates one win and one loss, so total wins equal total losses."
+      },
+      {
+        "title": "Count known totals",
+        "body": "Known losses are 2+3+3=8. Known wins are 4+3=7."
+      },
+      {
+        "title": "Find Kyler's wins",
+        "body": "Kyler must have 1 win to make total wins 8."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Balance wins and losses",
+        "narration": "A scale shows total wins must equal total losses.",
+        "visualHint": "Wins and losses labels balance."
+      },
+      {
+        "title": "Add known numbers",
+        "narration": "Losses total 8 and known wins total 7.",
+        "visualHint": "2+3+3 and 4+3 animate."
+      },
+      {
+        "title": "Fill the gap",
+        "narration": "Kyler needs one win.",
+        "visualHint": "A missing 1 appears on the wins side."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "losses": 8,
+        "knownWins": 7,
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "logic",
+      "counting games",
+      "invariant"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2017-14",
+    "title": "2017 AMC 8 Problem 14: Homework Percentages",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 14,
+    "category": "Algebra",
+    "subcategory": "Weighted average",
+    "difficulty": 3,
+    "statement": "Chloe and Zoe each solved half of the homework alone and the other half together. Chloe had correct answers to 80% of the problems she solved alone, but overall 88% of her answers were correct. Zoe had correct answers to 90% of the problems she solved alone. What was Zoe's overall percentage of correct answers?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "89"
+      },
+      {
+        "label": "B",
+        "text": "92"
+      },
+      {
+        "label": "C",
+        "text": "93"
+      },
+      {
+        "label": "D",
+        "text": "96"
+      },
+      {
+        "label": "E",
+        "text": "98"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "93",
+    "solutionSteps": [
+      {
+        "title": "Find the shared-half score",
+        "body": "Chloe averaged 88 overall. Her alone half was 80, which is 8 points below 88, so the shared half must be 8 points above 88: 96."
+      },
+      {
+        "title": "Average Zoe's halves",
+        "body": "Zoe scored 90 on her alone half and 96 on the shared half."
+      },
+      {
+        "title": "Compute overall",
+        "body": "The average of 90 and 96 is 93."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Use Chloe's balance",
+        "narration": "Show Chloe's two equal halves balancing to 88% overall.",
+        "visualHint": "80 is 8 below 88; shared half becomes 96."
+      },
+      {
+        "title": "Move shared score to Zoe",
+        "narration": "The 96% shared-half score transfers to Zoe.",
+        "visualHint": "A 96 label slides to Zoe's bar."
+      },
+      {
+        "title": "Average Zoe's halves",
+        "narration": "Average 90 and 96 to get 93.",
+        "visualHint": "93% appears."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "chloeAlone": 80,
+        "shared": 96,
+        "zoeAlone": 90,
+        "answer": 93
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "algebra",
+      "weighted average",
+      "percents"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2017-15",
+    "title": "2017 AMC 8 Problem 15: Paths Spelling AMC8",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 15,
+    "category": "Counting & Probability",
+    "subcategory": "Path counting",
+    "difficulty": 3,
+    "statement": "In the arrangement of letters and numerals shown, how many different paths can spell AMC8? Beginning at the A in the middle, a path allows only moves to an adjacent letter above, below, left, or right, not diagonally.",
+    "choices": [
+      {
+        "label": "A",
+        "text": "8"
+      },
+      {
+        "label": "B",
+        "text": "9"
+      },
+      {
+        "label": "C",
+        "text": "12"
+      },
+      {
+        "label": "D",
+        "text": "24"
+      },
+      {
+        "label": "E",
+        "text": "36"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "24",
+    "solutionSteps": [
+      {
+        "title": "Count M choices",
+        "body": "The central A is adjacent to 4 M's."
+      },
+      {
+        "title": "Count next choices",
+        "body": "Each M is adjacent to 3 C's, and each C is adjacent to 2 8's."
+      },
+      {
+        "title": "Multiply choices",
+        "body": "The number of paths is 4×3×2 = 24."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Start at A",
+        "narration": "The middle A lights up.",
+        "visualHint": "A is highlighted."
+      },
+      {
+        "title": "Choose M",
+        "narration": "Four adjacent M's appear.",
+        "visualHint": "Four arrows leave A."
+      },
+      {
+        "title": "Choose C then 8",
+        "narration": "Each M has 3 C choices and each C has 2 choices for 8.",
+        "visualHint": "Branch count 4×3×2 is built."
+      },
+      {
+        "title": "Multiply",
+        "narration": "The path count becomes 24.",
+        "visualHint": "Choice D pulses."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "choices": [
+          4,
+          3,
+          2
+        ],
+        "paths": 24,
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "counting & probability",
+      "path counting",
+      "paths",
+      "multiplication principle"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2017/problem-15-amc8-paths-animated.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2017-16",
+    "title": "2017 AMC 8 Problem 16: Equal Perimeter Split",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 16,
+    "category": "Geometry",
+    "subcategory": "Area ratios",
+    "difficulty": 3,
+    "statement": "In the figure, choose point D on side BC so that triangles ACD and ABD have equal perimeters. What is the area of triangle ABD?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3/4"
+      },
+      {
+        "label": "B",
+        "text": "3/2"
+      },
+      {
+        "label": "C",
+        "text": "2"
+      },
+      {
+        "label": "D",
+        "text": "12/5"
+      },
+      {
+        "label": "E",
+        "text": "5/2"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "12/5",
+    "solutionSteps": [
+      {
+        "title": "Use equal perimeters",
+        "body": "Perimeter ACD is 3 + CD + AD. Perimeter ABD is 4 + BD + AD."
+      },
+      {
+        "title": "Solve along BC",
+        "body": "Since BD + CD = 5 and the perimeters are equal, CD = 3 and BD = 2."
+      },
+      {
+        "title": "Use area ratio",
+        "body": "Triangles ACD and ABD share the same altitude to BC, so their areas are proportional to CD and BD."
+      },
+      {
+        "title": "Compute area",
+        "body": "Area ABC = (1/2)(3)(4)=6, so Area ABD = (2/5)·6 = 12/5."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Set equal perimeters",
+        "narration": "The AD term cancels from both perimeters.",
+        "visualHint": "3+CD = 4+BD appears."
+      },
+      {
+        "title": "Split BC",
+        "narration": "BC is divided into CD=3 and BD=2.",
+        "visualHint": "D moves to the 3:2 split."
+      },
+      {
+        "title": "Use shared altitude",
+        "narration": "Both smaller triangles use the same altitude from A.",
+        "visualHint": "Area ratio equals base ratio."
+      },
+      {
+        "title": "Compute",
+        "narration": "Two-fifths of area 6 is 12/5.",
+        "visualHint": "12/5 appears."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "baseSplit": [
+          3,
+          2
+        ],
+        "areaABC": 6,
+        "areaABD": "12/5",
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "geometry",
+      "area ratios",
+      "3-4-5 triangle"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2017/problem-16-triangle-split-animated.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2017-17",
+    "title": "2017 AMC 8 Problem 17: Coins and Chests",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 17,
+    "category": "Algebra",
+    "subcategory": "Systems",
+    "difficulty": 3,
+    "statement": "Starting with some gold coins and empty treasure chests, I tried to put 9 gold coins in each treasure chest, but that left 2 chests empty. So instead I put 6 gold coins in each chest, but then I had 3 gold coins left over. How many gold coins did I have?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "9"
+      },
+      {
+        "label": "B",
+        "text": "27"
+      },
+      {
+        "label": "C",
+        "text": "45"
+      },
+      {
+        "label": "D",
+        "text": "63"
+      },
+      {
+        "label": "E",
+        "text": "81"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "45",
+    "solutionSteps": [
+      {
+        "title": "Let c be the number of chests",
+        "body": "Putting 9 coins in each used chest means 9(c−2) coins."
+      },
+      {
+        "title": "Use the second setup",
+        "body": "Putting 6 in every chest with 3 left gives 6c+3 coins."
+      },
+      {
+        "title": "Solve",
+        "body": "Set 9(c−2)=6c+3, so c=7."
+      },
+      {
+        "title": "Find coins",
+        "body": "There are 9(7−2)=45 coins."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Model first attempt",
+        "narration": "Show c chests with 2 empty and 9 coins in the rest.",
+        "visualHint": "Expression 9(c−2) appears."
+      },
+      {
+        "title": "Model second attempt",
+        "narration": "Show 6 coins in all c chests plus 3 leftover.",
+        "visualHint": "Expression 6c+3 appears."
+      },
+      {
+        "title": "Solve for chests",
+        "narration": "The equation gives c=7.",
+        "visualHint": "c=7 is highlighted."
+      },
+      {
+        "title": "Compute coins",
+        "narration": "9·5 = 45 coins.",
+        "visualHint": "45 gold coins appear."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "chests": 7,
+        "coins": 45,
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "algebra",
+      "systems",
+      "linear equations"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2017-18",
+    "title": "2017 AMC 8 Problem 18: Non-Convex Quadrilateral Area",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 18,
+    "category": "Geometry",
+    "subcategory": "Right triangle decomposition",
+    "difficulty": 3,
+    "statement": "In the non-convex quadrilateral ABCD, angle BCD is a right angle, AB = 12, BC = 4, CD = 3, and AD = 13. What is the area of quadrilateral ABCD?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "12"
+      },
+      {
+        "label": "B",
+        "text": "24"
+      },
+      {
+        "label": "C",
+        "text": "26"
+      },
+      {
+        "label": "D",
+        "text": "30"
+      },
+      {
+        "label": "E",
+        "text": "36"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "24",
+    "solutionSteps": [
+      {
+        "title": "Draw diagonal BD",
+        "body": "In right triangle BCD, the legs are 3 and 4, so BD = 5."
+      },
+      {
+        "title": "Recognize the big right triangle",
+        "body": "Triangle ABD has sides 5, 12, and 13, so it is right."
+      },
+      {
+        "title": "Subtract areas",
+        "body": "Area ABD = 30 and area BCD = 6. The non-convex quadrilateral has area 30 − 6 = 24."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Add diagonal",
+        "narration": "Draw BD to split the shape.",
+        "visualHint": "BD animates into the quadrilateral."
+      },
+      {
+        "title": "Identify triples",
+        "narration": "BCD is 3-4-5 and ABD is 5-12-13.",
+        "visualHint": "Both right triangles glow."
+      },
+      {
+        "title": "Subtract",
+        "narration": "The small triangle is cut away from the big one.",
+        "visualHint": "30 − 6 = 24 appears."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "bigArea": 30,
+        "smallArea": 6,
+        "answer": 24
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "geometry",
+      "right triangle decomposition",
+      "pythagorean triples"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2017/problem-18-nonconvex-quadrilateral-animated.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2017-19",
+    "title": "2017 AMC 8 Problem 19: Factorials and Powers of Five",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 19,
+    "category": "Number Theory",
+    "subcategory": "Factorials",
+    "difficulty": 4,
+    "statement": "For any positive integer M, M! denotes the product of the integers 1 through M. What is the largest integer n for which 5^n is a factor of 98! + 99! + 100!?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "23"
+      },
+      {
+        "label": "B",
+        "text": "24"
+      },
+      {
+        "label": "C",
+        "text": "25"
+      },
+      {
+        "label": "D",
+        "text": "26"
+      },
+      {
+        "label": "E",
+        "text": "27"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "26",
+    "solutionSteps": [
+      {
+        "title": "Factor out 98!",
+        "body": "98! + 99! + 100! = 98!(1 + 99 + 100·99)."
+      },
+      {
+        "title": "Simplify the bracket",
+        "body": "1 + 99 + 9900 = 10000 = 10^4."
+      },
+      {
+        "title": "Count factors of 5 in 98!",
+        "body": "⌊98/5⌋ + ⌊98/25⌋ = 19 + 3 = 22."
+      },
+      {
+        "title": "Add the extra factors",
+        "body": "10000 contributes four more factors of 5, so n = 22 + 4 = 26."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Factor common term",
+        "narration": "98! is pulled out of all three terms.",
+        "visualHint": "98!(1+99+100·99) appears."
+      },
+      {
+        "title": "Simplify bracket",
+        "narration": "The bracket becomes 10000.",
+        "visualHint": "10000 flips into 10⁴."
+      },
+      {
+        "title": "Count fives in 98!",
+        "narration": "Multiples of 5 and 25 are counted.",
+        "visualHint": "19+3=22 appears."
+      },
+      {
+        "title": "Add four more",
+        "narration": "10000 contributes 5⁴.",
+        "visualHint": "22+4=26 is highlighted."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "v5_98_factorial": 22,
+        "extra": 4,
+        "answer": 26
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "number theory",
+      "factorials",
+      "exponent of prime"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2017-20",
+    "title": "2017 AMC 8 Problem 20: Odd Four-Digit Number",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 20,
+    "category": "Counting & Probability",
+    "subcategory": "Digit counting",
+    "difficulty": 4,
+    "statement": "An integer between 1000 and 9999, inclusive, is chosen at random. What is the probability that it is an odd integer whose digits are all distinct?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "14/75"
+      },
+      {
+        "label": "B",
+        "text": "56/225"
+      },
+      {
+        "label": "C",
+        "text": "107/400"
+      },
+      {
+        "label": "D",
+        "text": "7/25"
+      },
+      {
+        "label": "E",
+        "text": "9/25"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "56/225",
+    "solutionSteps": [
+      {
+        "title": "Count all numbers",
+        "body": "There are 9000 four-digit integers from 1000 through 9999."
+      },
+      {
+        "title": "Choose the units digit",
+        "body": "The number must be odd, so the units digit has 5 choices: 1,3,5,7,9."
+      },
+      {
+        "title": "Choose remaining digits",
+        "body": "The thousands digit has 8 choices, the hundreds has 8 choices, and the tens has 7 choices."
+      },
+      {
+        "title": "Form probability",
+        "body": "Favorable = 5·8·8·7 = 2240, so the probability is 2240/9000 = 56/225."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Set total",
+        "narration": "The interval 1000–9999 gives 9000 options.",
+        "visualHint": "9000 appears as denominator."
+      },
+      {
+        "title": "Choose odd units",
+        "narration": "Five odd digits appear in the units place.",
+        "visualHint": "1,3,5,7,9 glow."
+      },
+      {
+        "title": "Fill remaining places",
+        "narration": "Choices 8, 8, and 7 fill the other places.",
+        "visualHint": "5·8·8·7 = 2240 appears."
+      },
+      {
+        "title": "Reduce fraction",
+        "narration": "2240/9000 simplifies to 56/225.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "favorable": 2240,
+        "total": 9000,
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "counting & probability",
+      "digit counting",
+      "digits"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2017-21",
+    "title": "2017 AMC 8 Problem 21: Signs with Absolute Values",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 21,
+    "category": "Algebra",
+    "subcategory": "Signs and absolute value",
+    "difficulty": 4,
+    "statement": "Suppose a, b, and c are nonzero real numbers and a + b + c = 0. What are the possible values of a/|a| + b/|b| + c/|c| + abc/|abc|?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "0"
+      },
+      {
+        "label": "B",
+        "text": "1 and −1"
+      },
+      {
+        "label": "C",
+        "text": "2 and −2"
+      },
+      {
+        "label": "D",
+        "text": "0, 2, and −2"
+      },
+      {
+        "label": "E",
+        "text": "0, 1, and −1"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "0",
+    "solutionSteps": [
+      {
+        "title": "Use signs",
+        "body": "For any nonzero x, x/|x| is 1 if x is positive and −1 if x is negative."
+      },
+      {
+        "title": "Possible sign patterns",
+        "body": "Since a+b+c=0, the numbers cannot all have the same sign. There are either two positives and one negative, or two negatives and one positive."
+      },
+      {
+        "title": "Evaluate both cases",
+        "body": "Two positives and one negative gives 1+1−1−1=0. Two negatives and one positive gives −1−1+1+1=0."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Convert to signs",
+        "narration": "Each term becomes +1 or −1.",
+        "visualHint": "a/|a| becomes sign(a)."
+      },
+      {
+        "title": "Case 1",
+        "narration": "Two positives and one negative are tested.",
+        "visualHint": "1+1−1−1=0 appears."
+      },
+      {
+        "title": "Case 2",
+        "narration": "Two negatives and one positive are tested.",
+        "visualHint": "−1−1+1+1=0 appears."
+      },
+      {
+        "title": "Conclude",
+        "narration": "Both cases give only 0.",
+        "visualHint": "Choice A is selected."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "possibleValues": [
+          0
+        ],
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "algebra",
+      "signs and absolute value",
+      "absolute value"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2017-22",
+    "title": "2017 AMC 8 Problem 22: Inscribed Semicircle Radius",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 22,
+    "category": "Geometry",
+    "subcategory": "Tangency and area",
+    "difficulty": 4,
+    "statement": "In right triangle ABC, AC = 12, BC = 5, and angle C is a right angle. A semicircle is inscribed in the triangle as shown. What is the radius of the semicircle?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7/6"
+      },
+      {
+        "label": "B",
+        "text": "13/5"
+      },
+      {
+        "label": "C",
+        "text": "59/18"
+      },
+      {
+        "label": "D",
+        "text": "10/3"
+      },
+      {
+        "label": "E",
+        "text": "60/13"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "10/3",
+    "solutionSteps": [
+      {
+        "title": "Find the hypotenuse",
+        "body": "Triangle ABC is a 5-12-13 right triangle, so AB = 13."
+      },
+      {
+        "title": "Split the area by radius",
+        "body": "Let r be the radius. The radius is perpendicular to AB at the tangency point, so it can serve as the height to AB. It also serves as the height to BC in triangle BOC."
+      },
+      {
+        "title": "Use total area",
+        "body": "Area ABC = 30. Also, area = (1/2)(13)r + (1/2)(5)r = 9r."
+      },
+      {
+        "title": "Solve",
+        "body": "30 = 9r, so r = 10/3."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Recognize 5-12-13",
+        "narration": "Label AB as 13.",
+        "visualHint": "The hypotenuse label appears."
+      },
+      {
+        "title": "Draw the radius",
+        "narration": "The radius grows to the tangent point.",
+        "visualHint": "A perpendicular radius is highlighted."
+      },
+      {
+        "title": "Split the area",
+        "narration": "The big triangle breaks into two smaller triangles with height r.",
+        "visualHint": "½·13r + ½·5r appears."
+      },
+      {
+        "title": "Solve",
+        "narration": "30 = 9r gives r=10/3.",
+        "visualHint": "Choice D pulses."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "hypotenuse": 13,
+        "area": 30,
+        "radius": "10/3",
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "geometry",
+      "tangency and area",
+      "semicircle",
+      "right triangle"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2017/problem-22-inscribed-semicircle-animated.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2017-23",
+    "title": "2017 AMC 8 Problem 23: Four Days of Travel",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 23,
+    "category": "Number Theory",
+    "subcategory": "Divisors",
+    "difficulty": 4,
+    "statement": "Each day for four days, Linda traveled for one hour at a speed that resulted in her traveling one mile in an integer number of minutes. Each day after the first, her speed decreased so that the number of minutes to travel one mile increased by 5 minutes over the preceding day. Each of the four days, her distance traveled was also an integer number of miles. What was the total number of miles for the four trips?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "10"
+      },
+      {
+        "label": "B",
+        "text": "15"
+      },
+      {
+        "label": "C",
+        "text": "25"
+      },
+      {
+        "label": "D",
+        "text": "50"
+      },
+      {
+        "label": "E",
+        "text": "82"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "25",
+    "solutionSteps": [
+      {
+        "title": "Translate the condition",
+        "body": "In 60 minutes, if one mile takes x minutes, the distance is 60/x miles. So x must be a divisor of 60."
+      },
+      {
+        "title": "Find four divisors 5 apart",
+        "body": "The only sequence of four divisors of 60 increasing by 5 is 5, 10, 15, 20."
+      },
+      {
+        "title": "Compute distances",
+        "body": "The distances are 60/5, 60/10, 60/15, and 60/20, or 12, 6, 4, and 3 miles."
+      },
+      {
+        "title": "Add",
+        "body": "The total is 12+6+4+3 = 25."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Turn minutes into divisors",
+        "narration": "The expression 60/x appears.",
+        "visualHint": "x must divide 60."
+      },
+      {
+        "title": "Search factor list",
+        "narration": "Factors of 60 are listed.",
+        "visualHint": "5,10,15,20 are highlighted."
+      },
+      {
+        "title": "Compute distances",
+        "narration": "Each divisor becomes a daily distance.",
+        "visualHint": "12,6,4,3 appear."
+      },
+      {
+        "title": "Sum",
+        "narration": "The four trips total 25 miles.",
+        "visualHint": "Choice C is selected."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "minutesPerMile": [
+          5,
+          10,
+          15,
+          20
+        ],
+        "distances": [
+          12,
+          6,
+          4,
+          3
+        ],
+        "answer": 25
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "number theory",
+      "divisors",
+      "rates"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2017-24",
+    "title": "2017 AMC 8 Problem 24: Grandchildren Phone Calls",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 24,
+    "category": "Counting & Probability",
+    "subcategory": "Inclusion-exclusion",
+    "difficulty": 5,
+    "statement": "Mrs. Sanders has three grandchildren who call her regularly. One calls every 3 days, one every 4 days, and one every 5 days. All three called her on December 31, 2016. On how many days during the next year did she not receive a phone call from any grandchild?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "78"
+      },
+      {
+        "label": "B",
+        "text": "80"
+      },
+      {
+        "label": "C",
+        "text": "144"
+      },
+      {
+        "label": "D",
+        "text": "146"
+      },
+      {
+        "label": "E",
+        "text": "152"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "146",
+    "solutionSteps": [
+      {
+        "title": "Use inclusion-exclusion",
+        "body": "Count days in 2017 with at least one call, then subtract from 365."
+      },
+      {
+        "title": "Single-call sets",
+        "body": "The counts are ⌊365/3⌋, ⌊365/4⌋, and ⌊365/5⌋."
+      },
+      {
+        "title": "Correct overlaps",
+        "body": "Add back pairwise overlaps for lcm 12, 15, and 20, then subtract triple overlaps for lcm 60."
+      },
+      {
+        "title": "Subtract from 365",
+        "body": "The number of days with no calls is 146."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Mark three schedules",
+        "narration": "Calendars for every 3, 4, and 5 days appear.",
+        "visualHint": "Three colored rows of ticks are shown."
+      },
+      {
+        "title": "Apply PIE",
+        "narration": "Single counts are subtracted from 365.",
+        "visualHint": "⌊365/3⌋+⌊365/4⌋+⌊365/5⌋ appears."
+      },
+      {
+        "title": "Fix overlaps",
+        "narration": "Pair overlaps are added back and triple overlaps subtracted.",
+        "visualHint": "12,15,20,60 labels appear."
+      },
+      {
+        "title": "Finish",
+        "narration": "The no-call days total 146.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "venn",
+      "data": {
+        "answer": 146,
+        "periods": [
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "counting & probability",
+      "inclusion-exclusion",
+      "principle of inclusion-exclusion"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2017-25",
+    "title": "2017 AMC 8 Problem 25: Curved Region Area",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2017,
+    "problemNumber": 25,
+    "category": "Geometry",
+    "subcategory": "Sectors and area subtraction",
+    "difficulty": 5,
+    "statement": "In the figure shown, US and UT are line segments each of length 2, and m∠TUS = 60°. Arcs TR and SR are each one-sixth of a circle with radius 2. What is the area of the region shown?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3√3 − π"
+      },
+      {
+        "label": "B",
+        "text": "4√3 − 4π/3"
+      },
+      {
+        "label": "C",
+        "text": "2√3"
+      },
+      {
+        "label": "D",
+        "text": "4√3 − 2π/3"
+      },
+      {
+        "label": "E",
+        "text": "4 + 4π/3"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "4√3 − 4π/3",
+    "solutionSteps": [
+      {
+        "title": "Complete the outer triangle",
+        "body": "The straight sides and arcs fit inside an equilateral triangle with side length 4."
+      },
+      {
+        "title": "Area of the triangle",
+        "body": "An equilateral triangle with side 4 has area 4√3."
+      },
+      {
+        "title": "Subtract two sectors",
+        "body": "Each curved cut-out is a 60° sector of radius 2, with area (1/6)π(2²)=2π/3."
+      },
+      {
+        "title": "Finish",
+        "body": "Subtract two such sectors: 4√3 − 2(2π/3)=4√3 − 4π/3."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Complete the triangle",
+        "narration": "Draw the missing straight sides to form an equilateral triangle.",
+        "visualHint": "The full triangle appears behind the region."
+      },
+      {
+        "title": "Find triangle area",
+        "narration": "Use side length 4 to get area 4√3.",
+        "visualHint": "4√3 appears."
+      },
+      {
+        "title": "Show sectors",
+        "narration": "The two 60° sectors pulse.",
+        "visualHint": "Each sector is labeled 2π/3."
+      },
+      {
+        "title": "Subtract",
+        "narration": "The final area is 4√3 − 4π/3.",
+        "visualHint": "Choice B is highlighted."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "triangleArea": "4√3",
+        "sectorArea": "2π/3",
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2017",
+      "geometry",
+      "sectors and area subtraction",
+      "sectors",
+      "equilateral triangle"
+    ],
+    "sourceName": "2017 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2017/problem-25-curved-region-animated.svg"
+    ],
+    "needsDiagram": true
+  }
+];
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
@@ -37549,6 +39791,7 @@ export const sampleProblems: Problem[] = [
   ...amc2014Problems,
   ...amc2015Problems,
   ...amc2016Problems,
+  ...amc2017Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems, amc2016Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems, amc2016Problems, amc2017Problems };

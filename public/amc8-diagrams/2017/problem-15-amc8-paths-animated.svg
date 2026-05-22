@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 430" role="img" aria-label="2017 AMC 8 problem 15 animated AMC8 path counting grid">
+
+<style>
+  svg{font-family:Arial,Helvetica,sans-serif} .line{stroke:#111;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.thin{stroke:#111;stroke-width:2;fill:none}.label{font-size:18px;fill:#111}.small{font-size:14px;fill:#111}.shade{fill:#93a8c9;opacity:.45}.accent{stroke:#f59e0b;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}.pulse{animation:pulse 1.8s ease-in-out infinite}.draw{stroke-dasharray:700;stroke-dashoffset:700;animation:draw 2.5s ease forwards}.fade{opacity:0;animation:fade 1s ease forwards}.f2{animation-delay:.8s}.f3{animation-delay:1.6s}.f4{animation-delay:2.4s}@keyframes draw{to{stroke-dashoffset:0}}@keyframes fade{to{opacity:1}}@keyframes pulse{0%,100%{opacity:.25}50%{opacity:.85}}
+</style>
+
+<rect width="520" height="430" fill="white"/>
+<text x="24" y="32" class="label">Start at A. Count choices step by step.</text>
+<g transform="translate(260 220)" text-anchor="middle">
+  <text x="0" y="0" font-size="34" fill="#111">A</text>
+  <g class="fade f1"><text x="0" y="-70" font-size="30">M</text><text x="70" y="0" font-size="30">M</text><text x="0" y="70" font-size="30">M</text><text x="-70" y="0" font-size="30">M</text></g>
+  <g class="fade f2" fill="#111"><text x="-70" y="-70" font-size="28">C</text><text x="70" y="-70" font-size="28">C</text><text x="140" y="0" font-size="28">C</text><text x="70" y="70" font-size="28">C</text><text x="0" y="140" font-size="28">C</text><text x="-70" y="70" font-size="28">C</text><text x="-140" y="0" font-size="28">C</text><text x="0" y="-140" font-size="28">C</text></g>
+  <g class="fade f3" fill="#111"><text x="-140" y="-140" font-size="28">8</text><text x="0" y="-210" font-size="28">8</text><text x="140" y="-140" font-size="28">8</text><text x="210" y="0" font-size="28">8</text><text x="140" y="140" font-size="28">8</text><text x="0" y="210" font-size="28">8</text><text x="-140" y="140" font-size="28">8</text><text x="-210" y="0" font-size="28">8</text></g>
+  <path d="M0,-5 L0,-70 L70,-70 L140,-140" class="accent draw"/>
+</g>
+<g class="fade f4"><text x="42" y="380" class="label">Choices multiply: 4 × 3 × 2 = 24 paths</text></g>
+</svg>

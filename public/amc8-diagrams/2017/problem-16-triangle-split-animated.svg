@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" role="img" aria-label="2017 AMC 8 problem 16 animated 3-4-5 triangle split">
+
+<style>
+  svg{font-family:Arial,Helvetica,sans-serif} .line{stroke:#111;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.thin{stroke:#111;stroke-width:2;fill:none}.label{font-size:18px;fill:#111}.small{font-size:14px;fill:#111}.shade{fill:#93a8c9;opacity:.45}.accent{stroke:#f59e0b;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}.pulse{animation:pulse 1.8s ease-in-out infinite}.draw{stroke-dasharray:700;stroke-dashoffset:700;animation:draw 2.5s ease forwards}.fade{opacity:0;animation:fade 1s ease forwards}.f2{animation-delay:.8s}.f3{animation-delay:1.6s}.f4{animation-delay:2.4s}@keyframes draw{to{stroke-dashoffset:0}}@keyframes fade{to{opacity:1}}@keyframes pulse{0%,100%{opacity:.25}50%{opacity:.85}}
+</style>
+
+<rect width="520" height="360" fill="white"/>
+<text x="24" y="34" class="label">Equal perimeters force BD = 2 and CD = 3.</text>
+<g transform="translate(82 302)">
+  <polygon points="0,0 320,0 0,-240" fill="#f8fafc" stroke="#111" stroke-width="3"/>
+  <line x1="192" y1="-96" x2="0" y2="0" class="line draw"/>
+  <circle cx="192" cy="-96" r="6" fill="#f59e0b" class="pulse"/>
+  <text x="-22" y="8" class="label">A</text><text x="333" y="8" class="label">B</text><text x="-25" y="-245" class="label">C</text><text x="202" y="-98" class="label">D</text>
+  <text x="-36" y="-115" class="label">3</text><text x="155" y="22" class="label">4</text><text x="170" y="-185" class="label">5</text>
+  <text x="248" y="-45" class="label fade f2">BD = 2</text><text x="89" y="-158" class="label fade f2">CD = 3</text>
+</g>
+<g class="fade f3"><text x="34" y="332" class="label">Area(ABD) = (BD/BC)·Area(ABC) = (2/5)·6 = 12/5</text></g>
+</svg>

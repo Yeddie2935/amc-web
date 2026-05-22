@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 360" role="img" aria-label="2017 AMC 8 problem 18 animated non-convex quadrilateral split into two right triangles">
+
+<style>
+  svg{font-family:Arial,Helvetica,sans-serif} .line{stroke:#111;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.thin{stroke:#111;stroke-width:2;fill:none}.label{font-size:18px;fill:#111}.small{font-size:14px;fill:#111}.shade{fill:#93a8c9;opacity:.45}.accent{stroke:#f59e0b;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}.pulse{animation:pulse 1.8s ease-in-out infinite}.draw{stroke-dasharray:700;stroke-dashoffset:700;animation:draw 2.5s ease forwards}.fade{opacity:0;animation:fade 1s ease forwards}.f2{animation-delay:.8s}.f3{animation-delay:1.6s}.f4{animation-delay:2.4s}@keyframes draw{to{stroke-dashoffset:0}}@keyframes fade{to{opacity:1}}@keyframes pulse{0%,100%{opacity:.25}50%{opacity:.85}}
+</style>
+
+<rect width="540" height="360" fill="white"/>
+<text x="24" y="32" class="label">Draw BD, then subtract the small right triangle.</text>
+<g transform="translate(125 295)">
+  <polygon points="300,0 0,0 96,-72 120,-36" fill="#f8fafc" stroke="#111" stroke-width="3"/>
+  <line x1="0" y1="0" x2="120" y2="-36" class="accent draw"/>
+  <text x="312" y="9" class="label">A</text><text x="-22" y="9" class="label">B</text><text x="92" y="-78" class="label">C</text><text x="126" y="-43" class="label">D</text>
+  <text x="148" y="20" class="label">12</text><text x="42" y="-42" class="label">4</text><text x="106" y="-59" class="label">3</text><text x="217" y="-36" class="label">13</text>
+  <path d="M0,0 L96,-72 L120,-36" fill="#fef3c7" opacity=".8" class="pulse"/>
+  <path d="M0,0 L300,0 L120,-36" fill="#dbeafe" opacity=".55" class="fade f2"/>
+</g>
+<g class="fade f3"><text x="34" y="332" class="label">Big triangle: 30. Small triangle: 6. Difference: 24.</text></g>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" role="img" aria-label="2017 AMC 8 problem 2 animated pie chart showing Brenda's 30 percent equals 36 votes">
+
+<style>
+  svg{font-family:Arial,Helvetica,sans-serif} .line{stroke:#111;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.thin{stroke:#111;stroke-width:2;fill:none}.label{font-size:18px;fill:#111}.small{font-size:14px;fill:#111}.shade{fill:#93a8c9;opacity:.45}.accent{stroke:#f59e0b;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}.pulse{animation:pulse 1.8s ease-in-out infinite}.draw{stroke-dasharray:700;stroke-dashoffset:700;animation:draw 2.5s ease forwards}.fade{opacity:0;animation:fade 1s ease forwards}.f2{animation-delay:.8s}.f3{animation-delay:1.6s}.f4{animation-delay:2.4s}@keyframes draw{to{stroke-dashoffset:0}}@keyframes fade{to{opacity:1}}@keyframes pulse{0%,100%{opacity:.25}50%{opacity:.85}}
+</style>
+
+<rect width="520" height="360" fill="white"/>
+<text x="24" y="34" class="label">Brenda's slice is 30% of all votes.</text>
+<g transform="translate(210 190)">
+  <circle r="115" fill="#f8fafc" stroke="#111" stroke-width="3"/>
+  <path d="M0,-115 A115,115 0 0,1 35.54,109.37 L0,0 Z" fill="#64748b" opacity=".75"/>
+  <path d="M35.54,109.37 A115,115 0 0,1 -115,0 L0,0 Z" fill="#fef3c7" opacity=".9" class="pulse"/>
+  <path d="M-115,0 A115,115 0 0,1 0,-115 L0,0 Z" fill="#dbeafe" opacity=".9"/>
+  <line x1="0" y1="0" x2="0" y2="-115" class="thin"/><line x1="0" y1="0" x2="35.54" y2="109.37" class="thin"/><line x1="0" y1="0" x2="-115" y2="0" class="thin"/>
+  <text x="39" y="5" class="label">Alicia</text><text x="55" y="30" class="label">45%</text>
+  <text x="-93" y="-33" class="label">Colby</text><text x="-78" y="-9" class="label">25%</text>
+  <text x="-78" y="61" class="label">Brenda</text><text x="-67" y="86" class="label">30%</text>
+</g>
+<g class="fade f2"><text x="335" y="148" class="label">30% → 36 votes</text><text x="335" y="185" class="label">10% → 12 votes</text><text x="335" y="222" class="label">100% → 120 votes</text></g>
+<text x="335" y="275" class="label fade f3">Answer: 120</text>
+</svg>
