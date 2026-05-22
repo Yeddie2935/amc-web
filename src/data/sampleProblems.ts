@@ -33206,6 +33206,2111 @@ const amc2014Problems: Problem[] = [
   }
 ];
 
+const amc2015Problems: Problem[] = [
+  {
+    "id": "amc8-2015-01",
+    "title": "2015 AMC 8 Problem 1: Room Carpet Area",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 1,
+    "category": "Geometry",
+    "subcategory": "Area and unit conversion",
+    "difficulty": 1,
+    "statement": "Onkon wants to cover his room's floor with his favorite red carpet. How many square yards of red carpet are required to cover a rectangular floor that is 12 feet long and 9 feet wide? (There are 3 feet in a yard.)",
+    "choices": [
+      {
+        "label": "A",
+        "text": "12"
+      },
+      {
+        "label": "B",
+        "text": "36"
+      },
+      {
+        "label": "C",
+        "text": "108"
+      },
+      {
+        "label": "D",
+        "text": "324"
+      },
+      {
+        "label": "E",
+        "text": "972"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "12 square yards",
+    "solutionSteps": [
+      {
+        "title": "Find the area in square feet",
+        "body": "The rectangular floor has area 12 × 9 = 108 square feet.",
+        "equation": "12×9=108"
+      },
+      {
+        "title": "Convert to square yards",
+        "body": "One square yard is 3 feet by 3 feet, or 9 square feet.",
+        "equation": "108÷9=12"
+      },
+      {
+        "title": "Conclude",
+        "body": "The room needs 12 square yards of carpet."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Circle answer choice A."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "geometry",
+      "area and unit conversion",
+      "area",
+      "unit conversion"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2015-02",
+    "title": "2015 AMC 8 Problem 2: Shaded Octagon Fraction",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 2,
+    "category": "Geometry",
+    "subcategory": "Area fractions",
+    "difficulty": 2,
+    "statement": "Point O is the center of regular octagon ABCDEFGH, and X is the midpoint of side AB. What fraction of the area of the octagon is shaded?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "11/32"
+      },
+      {
+        "label": "B",
+        "text": "3/8"
+      },
+      {
+        "label": "C",
+        "text": "13/32"
+      },
+      {
+        "label": "D",
+        "text": "7/16"
+      },
+      {
+        "label": "E",
+        "text": "15/32"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "7/16",
+    "solutionSteps": [
+      {
+        "title": "Split the octagon",
+        "body": "Connecting the center to all vertices splits the regular octagon into 8 congruent triangles."
+      },
+      {
+        "title": "Count shaded pieces",
+        "body": "The shaded region contains 3 full center triangles plus half of a fourth triangle.",
+        "equation": "3·(1/8)+1/16"
+      },
+      {
+        "title": "Simplify",
+        "body": "The shaded fraction is 3/8 + 1/16 = 7/16."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "geometry",
+      "area fractions",
+      "octagon",
+      "fraction"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2015/problem-02-octagon.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2015-03",
+    "title": "2015 AMC 8 Problem 3: Race to the Pool",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 3,
+    "category": "Algebra",
+    "subcategory": "Rates",
+    "difficulty": 1,
+    "statement": "Jack and Jill are going swimming at a pool that is one mile from their house. They leave home simultaneously. Jill rides her bicycle to the pool at 10 miles per hour. Jack walks to the pool at 4 miles per hour. How many minutes before Jack does Jill arrive?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5"
+      },
+      {
+        "label": "B",
+        "text": "6"
+      },
+      {
+        "label": "C",
+        "text": "8"
+      },
+      {
+        "label": "D",
+        "text": "9"
+      },
+      {
+        "label": "E",
+        "text": "10"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "9 minutes",
+    "solutionSteps": [
+      {
+        "title": "Find Jill's time",
+        "body": "Jill rides 1 mile at 10 miles per hour, so her time is 1/10 hour, or 6 minutes."
+      },
+      {
+        "title": "Find Jack's time",
+        "body": "Jack walks 1 mile at 4 miles per hour, so his time is 1/4 hour, or 15 minutes."
+      },
+      {
+        "title": "Subtract",
+        "body": "Jill arrives 15 − 6 = 9 minutes before Jack.",
+        "equation": "15-6=9"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "algebra",
+      "rates",
+      "rates",
+      "time"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2015-04",
+    "title": "2015 AMC 8 Problem 4: Chess Team Photo",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 4,
+    "category": "Counting & Probability",
+    "subcategory": "Permutations",
+    "difficulty": 1,
+    "statement": "The Centerville Middle School chess team consists of two boys and three girls. A photographer wants them to sit in a row with a boy at each end and the three girls in the middle. How many such arrangements are possible?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2"
+      },
+      {
+        "label": "B",
+        "text": "4"
+      },
+      {
+        "label": "C",
+        "text": "5"
+      },
+      {
+        "label": "D",
+        "text": "6"
+      },
+      {
+        "label": "E",
+        "text": "12"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "12",
+    "solutionSteps": [
+      {
+        "title": "Arrange the boys",
+        "body": "The two boys can be placed on the two ends in 2! = 2 ways."
+      },
+      {
+        "title": "Arrange the girls",
+        "body": "The three girls can be arranged in the middle in 3! = 6 ways."
+      },
+      {
+        "title": "Multiply",
+        "body": "There are 2 × 6 = 12 arrangements."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Circle answer choice E."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "counting & probability",
+      "permutations",
+      "permutations"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2015-05",
+    "title": "2015 AMC 8 Problem 5: Basketball Statistic Change",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 5,
+    "category": "Statistics",
+    "subcategory": "Mean median mode range",
+    "difficulty": 2,
+    "statement": "Billy's basketball team scored 42, 47, 53, 53, 58, 58, 58, 61, 64, 65, and 73 points over the first 11 games. If his team scores 40 in the 12th game, which statistic will show an increase?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "range"
+      },
+      {
+        "label": "B",
+        "text": "median"
+      },
+      {
+        "label": "C",
+        "text": "mean"
+      },
+      {
+        "label": "D",
+        "text": "mode"
+      },
+      {
+        "label": "E",
+        "text": "mid-range"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "range",
+    "solutionSteps": [
+      {
+        "title": "Check the range before",
+        "body": "Before the 12th game, the range is 73 − 42 = 31."
+      },
+      {
+        "title": "Check the range after",
+        "body": "A score of 40 becomes the new minimum, so the range is 73 − 40 = 33."
+      },
+      {
+        "title": "Conclude",
+        "body": "The range increases, so the answer is A."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Circle answer choice A."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "statistics",
+      "mean median mode range",
+      "statistics",
+      "range"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2015-06",
+    "title": "2015 AMC 8 Problem 6: Isosceles Triangle Area",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 6,
+    "category": "Geometry",
+    "subcategory": "Triangle area",
+    "difficulty": 3,
+    "statement": "In triangle ABC, AB = BC = 29, and AC = 42. What is the area of triangle ABC?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "100"
+      },
+      {
+        "label": "B",
+        "text": "420"
+      },
+      {
+        "label": "C",
+        "text": "500"
+      },
+      {
+        "label": "D",
+        "text": "609"
+      },
+      {
+        "label": "E",
+        "text": "701"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "420",
+    "solutionSteps": [
+      {
+        "title": "Use symmetry",
+        "body": "The altitude from B to AC bisects AC, giving two segments of length 21."
+      },
+      {
+        "title": "Find the height",
+        "body": "Use a right triangle with hypotenuse 29 and leg 21. The height is √(29² − 21²) = 20."
+      },
+      {
+        "title": "Find the area",
+        "body": "Area = 1/2 × 42 × 20 = 420.",
+        "equation": "½×42×20=420"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "geometry",
+      "triangle area",
+      "triangle",
+      "pythagorean theorem"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2015-07",
+    "title": "2015 AMC 8 Problem 7: Even Product from Chips",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 7,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 1,
+    "statement": "Each of two boxes contains three chips numbered 1, 2, and 3. A chip is drawn randomly from each box and the numbers on the two chips are multiplied. What is the probability that their product is even?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/9"
+      },
+      {
+        "label": "B",
+        "text": "2/9"
+      },
+      {
+        "label": "C",
+        "text": "4/9"
+      },
+      {
+        "label": "D",
+        "text": "1/2"
+      },
+      {
+        "label": "E",
+        "text": "5/9"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "5/9",
+    "solutionSteps": [
+      {
+        "title": "Count all outcomes",
+        "body": "There are 3 × 3 = 9 equally likely ordered outcomes."
+      },
+      {
+        "title": "Count even products",
+        "body": "A product is even exactly when at least one chip is 2. The even outcomes are (1,2), (2,1), (2,2), (2,3), and (3,2)."
+      },
+      {
+        "title": "Write the probability",
+        "body": "There are 5 favorable outcomes out of 9, so the probability is 5/9."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice E.",
+        "visualHint": "Circle answer choice E."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "counting & probability",
+      "probability",
+      "probability",
+      "even odd"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2015-08",
+    "title": "2015 AMC 8 Problem 8: Triangle Perimeter Bound",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 8,
+    "category": "Geometry",
+    "subcategory": "Triangle inequality",
+    "difficulty": 2,
+    "statement": "What is the smallest whole number larger than the perimeter of any triangle with a side of length 5 and a side of length 19?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "24"
+      },
+      {
+        "label": "B",
+        "text": "29"
+      },
+      {
+        "label": "C",
+        "text": "43"
+      },
+      {
+        "label": "D",
+        "text": "48"
+      },
+      {
+        "label": "E",
+        "text": "57"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "48",
+    "solutionSteps": [
+      {
+        "title": "Bound the third side",
+        "body": "By the triangle inequality, the third side s must satisfy s < 5 + 19 = 24."
+      },
+      {
+        "title": "Bound the perimeter",
+        "body": "The perimeter is s + 5 + 19, so it must be less than 48."
+      },
+      {
+        "title": "Conclude",
+        "body": "The smallest whole number larger than any possible perimeter is 48."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "geometry",
+      "triangle inequality",
+      "triangle inequality"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2015-09",
+    "title": "2015 AMC 8 Problem 9: Odd Widgets Sum",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 9,
+    "category": "Algebra",
+    "subcategory": "Arithmetic sequences",
+    "difficulty": 2,
+    "statement": "On her first day of work, Janabel sold 1 widget. On day two, she sold 3 widgets. On day three, she sold 5 widgets, and on each succeeding day, she sold two more widgets than on the previous day. How many widgets in total had Janabel sold after working 20 days?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "39"
+      },
+      {
+        "label": "B",
+        "text": "40"
+      },
+      {
+        "label": "C",
+        "text": "210"
+      },
+      {
+        "label": "D",
+        "text": "400"
+      },
+      {
+        "label": "E",
+        "text": "401"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "400",
+    "solutionSteps": [
+      {
+        "title": "Recognize odd numbers",
+        "body": "The daily totals are the first 20 positive odd numbers: 1, 3, 5, ..., 39."
+      },
+      {
+        "title": "Use the sum formula",
+        "body": "The sum of the first n odd numbers is n²."
+      },
+      {
+        "title": "Compute",
+        "body": "For n = 20, the total is 20² = 400."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "algebra",
+      "arithmetic sequences",
+      "sequences",
+      "sums"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2015-10",
+    "title": "2015 AMC 8 Problem 10: Four Distinct Digits",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 10,
+    "category": "Counting & Probability",
+    "subcategory": "Counting digits",
+    "difficulty": 2,
+    "statement": "How many integers between 1000 and 9999 have four distinct digits?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3024"
+      },
+      {
+        "label": "B",
+        "text": "4536"
+      },
+      {
+        "label": "C",
+        "text": "5040"
+      },
+      {
+        "label": "D",
+        "text": "6480"
+      },
+      {
+        "label": "E",
+        "text": "6561"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "4536",
+    "solutionSteps": [
+      {
+        "title": "Choose the first digit",
+        "body": "The thousands digit cannot be 0, so there are 9 choices."
+      },
+      {
+        "title": "Choose the remaining digits",
+        "body": "After the first digit, there are 9 choices for the second digit, then 8, then 7."
+      },
+      {
+        "title": "Multiply",
+        "body": "There are 9 × 9 × 8 × 7 = 4536 such integers."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "counting & probability",
+      "counting digits",
+      "counting",
+      "digits"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2015-11",
+    "title": "2015 AMC 8 Problem 11: Mathland License Plate",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 11,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 2,
+    "statement": "In Mathland, all automobile license plates have four symbols. The first must be a vowel, the second and third must be two different letters among the 21 non-vowels, and the fourth must be a digit. If the symbols are chosen at random subject to these conditions, what is the probability that the plate will read AMC8?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/22050"
+      },
+      {
+        "label": "B",
+        "text": "1/21000"
+      },
+      {
+        "label": "C",
+        "text": "1/10500"
+      },
+      {
+        "label": "D",
+        "text": "1/2100"
+      },
+      {
+        "label": "E",
+        "text": "1/1050"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "1/21000",
+    "solutionSteps": [
+      {
+        "title": "Count possible plates",
+        "body": "There are 5 choices for the vowel, 21 choices for the first non-vowel, 20 choices for the second non-vowel, and 10 choices for the digit."
+      },
+      {
+        "title": "Multiply",
+        "body": "The total number of possible plates is 5 × 21 × 20 × 10 = 21000."
+      },
+      {
+        "title": "Use one favorable outcome",
+        "body": "Only one plate is AMC8, so the probability is 1/21000."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "counting & probability",
+      "probability",
+      "probability",
+      "counting"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2015-12",
+    "title": "2015 AMC 8 Problem 12: Parallel Edges of a Cube",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 12,
+    "category": "Geometry",
+    "subcategory": "Solid geometry",
+    "difficulty": 2,
+    "statement": "How many pairs of parallel edges, such as AB and GH or EH and FG, does a cube have?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6"
+      },
+      {
+        "label": "B",
+        "text": "12"
+      },
+      {
+        "label": "C",
+        "text": "18"
+      },
+      {
+        "label": "D",
+        "text": "24"
+      },
+      {
+        "label": "E",
+        "text": "36"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "18",
+    "solutionSteps": [
+      {
+        "title": "Group by direction",
+        "body": "A cube has 12 edges in 3 groups of 4 mutually parallel edges."
+      },
+      {
+        "title": "Count pairs in one group",
+        "body": "In a group of 4 parallel edges, there are C(4,2) = 6 pairs."
+      },
+      {
+        "title": "Multiply by directions",
+        "body": "There are 3 directions, so the total is 3 × 6 = 18 pairs."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "geometry",
+      "solid geometry",
+      "cube",
+      "parallel lines"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2015/problem-12-cube.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2015-13",
+    "title": "2015 AMC 8 Problem 13: Remove Two for Mean Six",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 13,
+    "category": "Statistics",
+    "subcategory": "Mean and subsets",
+    "difficulty": 3,
+    "statement": "How many subsets of two elements can be removed from the set {1,2,3,4,5,6,7,8,9,10,11} so that the mean of the remaining numbers is 6?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "5"
+      },
+      {
+        "label": "E",
+        "text": "6"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "Find the target sum",
+        "body": "After removing two numbers, 9 numbers remain with mean 6, so their sum must be 9 × 6 = 54."
+      },
+      {
+        "title": "Find the removed sum",
+        "body": "The original set sums to 66, so the removed pair must sum to 66 − 54 = 12."
+      },
+      {
+        "title": "Count pairs",
+        "body": "The pairs are {1,11}, {2,10}, {3,9}, {4,8}, and {5,7}, giving 5 subsets."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "statistics",
+      "mean and subsets",
+      "mean",
+      "sets"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2015-14",
+    "title": "2015 AMC 8 Problem 14: Four Consecutive Odd Integers",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 14,
+    "category": "Number Theory",
+    "subcategory": "Parity and expressions",
+    "difficulty": 3,
+    "statement": "Which of the following integers cannot be written as the sum of four consecutive odd integers?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "16"
+      },
+      {
+        "label": "B",
+        "text": "40"
+      },
+      {
+        "label": "C",
+        "text": "72"
+      },
+      {
+        "label": "D",
+        "text": "100"
+      },
+      {
+        "label": "E",
+        "text": "200"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "100",
+    "solutionSteps": [
+      {
+        "title": "Write the sum",
+        "body": "Four consecutive odd integers can be written as n, n+2, n+4, and n+6 where n is odd."
+      },
+      {
+        "title": "Simplify",
+        "body": "Their sum is 4n + 12 = 4(n+3). Since n is odd, n+3 is even, so the sum is a multiple of 8."
+      },
+      {
+        "title": "Check choices",
+        "body": "100 is not divisible by 8, so it cannot be written this way."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "number theory",
+      "parity and expressions",
+      "odd integers",
+      "divisibility"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2015-15",
+    "title": "2015 AMC 8 Problem 15: School Referendum",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 15,
+    "category": "Counting & Probability",
+    "subcategory": "Inclusion-exclusion",
+    "difficulty": 3,
+    "statement": "At Euler Middle School, 198 students voted on two issues in a school referendum. 149 voted in favor of the first issue and 119 voted in favor of the second issue. If exactly 29 students voted against both issues, how many students voted in favor of both issues?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "49"
+      },
+      {
+        "label": "B",
+        "text": "70"
+      },
+      {
+        "label": "C",
+        "text": "79"
+      },
+      {
+        "label": "D",
+        "text": "99"
+      },
+      {
+        "label": "E",
+        "text": "149"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "99",
+    "solutionSteps": [
+      {
+        "title": "Find students for at least one issue",
+        "body": "Since 29 voted against both, 198 − 29 = 169 students voted for at least one issue."
+      },
+      {
+        "title": "Apply inclusion-exclusion",
+        "body": "149 + 119 − both = 169."
+      },
+      {
+        "title": "Solve",
+        "body": "Both = 149 + 119 − 169 = 99."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "counting & probability",
+      "inclusion-exclusion",
+      "inclusion-exclusion",
+      "sets"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2015-16",
+    "title": "2015 AMC 8 Problem 16: Mentoring Buddies",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 16,
+    "category": "Algebra",
+    "subcategory": "Ratios",
+    "difficulty": 4,
+    "statement": "In a middle-school mentoring program, some sixth graders are paired with ninth graders as buddies. No ninth grader is assigned more than one sixth-grade buddy. If 1/3 of all ninth graders are paired with 2/5 of all sixth graders, what fraction of the total number of sixth and ninth graders have a buddy?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2/15"
+      },
+      {
+        "label": "B",
+        "text": "4/11"
+      },
+      {
+        "label": "C",
+        "text": "11/30"
+      },
+      {
+        "label": "D",
+        "text": "3/8"
+      },
+      {
+        "label": "E",
+        "text": "11/15"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "4/11",
+    "solutionSteps": [
+      {
+        "title": "Relate the group sizes",
+        "body": "Let s be the number of sixth graders and n be the number of ninth graders. The paired counts are equal, so n/3 = 2s/5."
+      },
+      {
+        "title": "Solve the ratio",
+        "body": "From n/3 = 2s/5, we get n = 6s/5."
+      },
+      {
+        "title": "Find the buddy fraction",
+        "body": "The paired students are n/3 + 2s/5 = 4s/5, while the total students are n+s = 11s/5. The fraction is (4s/5)/(11s/5)=4/11."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "algebra",
+      "ratios",
+      "ratios",
+      "fractions"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2015-17",
+    "title": "2015 AMC 8 Problem 17: Rush Hour Drive",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 17,
+    "category": "Algebra",
+    "subcategory": "Rates",
+    "difficulty": 3,
+    "statement": "Jeremy's father drives him to school in rush hour traffic in 20 minutes. One day there is no traffic, so his father can drive him 18 miles per hour faster and gets him to school in 12 minutes. How far in miles is it to school?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "6"
+      },
+      {
+        "label": "C",
+        "text": "8"
+      },
+      {
+        "label": "D",
+        "text": "9"
+      },
+      {
+        "label": "E",
+        "text": "12"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "9",
+    "solutionSteps": [
+      {
+        "title": "Use times in hours",
+        "body": "20 minutes is 1/3 hour and 12 minutes is 1/5 hour."
+      },
+      {
+        "title": "Set equal distances",
+        "body": "If the usual speed is v, then distance d satisfies d = v/3 and d = (v+18)/5."
+      },
+      {
+        "title": "Solve",
+        "body": "Equating gives v/3 = (v+18)/5, so v = 27 and d = 27/3 = 9 miles."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "algebra",
+      "rates",
+      "rates"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2015-18",
+    "title": "2015 AMC 8 Problem 18: Arithmetic Sequence Grid",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 18,
+    "category": "Algebra",
+    "subcategory": "Arithmetic sequences",
+    "difficulty": 3,
+    "statement": "Each row and each column in a 5 by 5 array is an arithmetic sequence with five terms. The top-left entry is 1, the top-right entry is 25, the bottom-left entry is 17, the bottom-right entry is 81, and the center square is labeled X. What is X?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "21"
+      },
+      {
+        "label": "B",
+        "text": "31"
+      },
+      {
+        "label": "C",
+        "text": "36"
+      },
+      {
+        "label": "D",
+        "text": "40"
+      },
+      {
+        "label": "E",
+        "text": "42"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "31",
+    "solutionSteps": [
+      {
+        "title": "Find the top middle",
+        "body": "In an arithmetic sequence, the middle term is the average of the first and last terms. The top middle is (1+25)/2 = 13."
+      },
+      {
+        "title": "Find the bottom middle",
+        "body": "The bottom middle is (17+81)/2 = 49."
+      },
+      {
+        "title": "Find the center",
+        "body": "The center is the middle of the middle column, so X = (13+49)/2 = 31."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "algebra",
+      "arithmetic sequences",
+      "arithmetic sequence",
+      "grid"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2015/problem-18-arithmetic-grid.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2015-19",
+    "title": "2015 AMC 8 Problem 19: Triangle on a Grid",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 19,
+    "category": "Geometry",
+    "subcategory": "Coordinate geometry",
+    "difficulty": 3,
+    "statement": "A triangle with vertices A=(1,3), B=(5,1), and C=(4,4) is plotted on a 6 by 5 grid. What fraction of the grid is covered by the triangle?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/6"
+      },
+      {
+        "label": "B",
+        "text": "1/5"
+      },
+      {
+        "label": "C",
+        "text": "1/4"
+      },
+      {
+        "label": "D",
+        "text": "1/3"
+      },
+      {
+        "label": "E",
+        "text": "1/2"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "1/6",
+    "solutionSteps": [
+      {
+        "title": "Find the triangle area",
+        "body": "Using the coordinate area formula, the area of triangle ABC is 5 square units."
+      },
+      {
+        "title": "Find the grid area",
+        "body": "The 6 by 5 grid has area 30 square units."
+      },
+      {
+        "title": "Form the fraction",
+        "body": "The fraction covered is 5/30 = 1/6."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice A.",
+        "visualHint": "Circle answer choice A."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "geometry",
+      "coordinate geometry",
+      "coordinate geometry",
+      "area"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2015/problem-19-coordinate-triangle.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2015-20",
+    "title": "2015 AMC 8 Problem 20: Sock Prices",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 20,
+    "category": "Algebra",
+    "subcategory": "Systems of equations",
+    "difficulty": 4,
+    "statement": "Ralph bought 12 pairs of socks for a total of $24. Some socks cost $1 a pair, some cost $3 a pair, and some cost $4 a pair. If he bought at least one pair of each type, how many pairs of $1 socks did Ralph buy?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "5"
+      },
+      {
+        "label": "C",
+        "text": "6"
+      },
+      {
+        "label": "D",
+        "text": "7"
+      },
+      {
+        "label": "E",
+        "text": "8"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "7",
+    "solutionSteps": [
+      {
+        "title": "Set up equations",
+        "body": "Let x, y, and z be the numbers of $1, $3, and $4 socks. Then x+y+z=12 and x+3y+4z=24."
+      },
+      {
+        "title": "Subtract",
+        "body": "Subtracting the first equation from the second gives 2y+3z=12."
+      },
+      {
+        "title": "Use positive integers",
+        "body": "With y,z at least 1, the solution is y=3 and z=2. Thus x=12−3−2=7."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "algebra",
+      "systems of equations",
+      "systems",
+      "integer solutions"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2015-21",
+    "title": "2015 AMC 8 Problem 21: Equiangular Hexagon Construction",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 21,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 5,
+    "statement": "In the figure, hexagon ABCDEF is equiangular, ABJI and FEHG are squares with areas 18 and 32 respectively, triangle JBK is equilateral, and FE = BC. What is the area of triangle KBC?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6√2"
+      },
+      {
+        "label": "B",
+        "text": "9"
+      },
+      {
+        "label": "C",
+        "text": "12"
+      },
+      {
+        "label": "D",
+        "text": "9√2"
+      },
+      {
+        "label": "E",
+        "text": "32"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "12",
+    "solutionSteps": [
+      {
+        "title": "Find two side lengths",
+        "body": "FE is a side of a square with area 32, so FE=4√2. Since FE=BC, BC=4√2. Also JB is a side of a square with area 18, so JB=3√2."
+      },
+      {
+        "title": "Use the equilateral triangle",
+        "body": "Since triangle JBK is equilateral, BK=JB=3√2."
+      },
+      {
+        "title": "Find the area",
+        "body": "Angle KBC is a right angle, so triangle KBC has legs 3√2 and 4√2. Its area is (3√2·4√2)/2=12."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "geometry",
+      "area",
+      "geometry",
+      "area"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2015/problem-21-hexagon-construction.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2015-22",
+    "title": "2015 AMC 8 Problem 22: Rows of Students",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 22,
+    "category": "Number Theory",
+    "subcategory": "Factors",
+    "difficulty": 4,
+    "statement": "On June 1, a group of students stands in rows with 15 students in each row. On June 2, the same group is in one long row. On June 3, just one student is in each row. On June 4, the group stands with 6 students in each row. This continues through June 12 with a different number of students per row each day, but on June 13 they cannot find a new way. What is the smallest possible number of students?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "21"
+      },
+      {
+        "label": "B",
+        "text": "30"
+      },
+      {
+        "label": "C",
+        "text": "60"
+      },
+      {
+        "label": "D",
+        "text": "90"
+      },
+      {
+        "label": "E",
+        "text": "1080"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "60",
+    "solutionSteps": [
+      {
+        "title": "Interpret arrangements",
+        "body": "A different number of students per row corresponds to a different divisor of the total number of students."
+      },
+      {
+        "title": "Use the clues",
+        "body": "The total must have exactly 12 divisors and be divisible by 15 and 6."
+      },
+      {
+        "title": "Find the smallest",
+        "body": "60 has divisors 1,2,3,4,5,6,10,12,15,20,30,60, so it works and is the smallest choice."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "number theory",
+      "factors",
+      "divisors",
+      "factors"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2015-23",
+    "title": "2015 AMC 8 Problem 23: Cups and Consecutive Sums",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 23,
+    "category": "Number Theory",
+    "subcategory": "Logic",
+    "difficulty": 5,
+    "statement": "Tom has twelve slips labeled 2, 2, 2, 2.5, 2.5, 3, 3, 3, 3, 3.5, 4, and 4.5. He wants to put them into cups A, B, C, D, E so that the sums in the cups are consecutive integers increasing from A to E. If a 2 goes into cup E and a 3 goes into cup B, then the slip with 3.5 must go into what cup?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "A"
+      },
+      {
+        "label": "B",
+        "text": "B"
+      },
+      {
+        "label": "C",
+        "text": "C"
+      },
+      {
+        "label": "D",
+        "text": "D"
+      },
+      {
+        "label": "E",
+        "text": "E"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "D",
+    "solutionSteps": [
+      {
+        "title": "Find the target sums",
+        "body": "The slips sum to 35, so the five consecutive cup sums average 7. The sums must be 5, 6, 7, 8, and 9."
+      },
+      {
+        "title": "Use the given slips",
+        "body": "Cup E already has 2 and must sum to 9. Cup B already has 3 and must sum to 6."
+      },
+      {
+        "title": "Eliminate positions",
+        "body": "The 3.5 slip cannot fit cups A, B, C, or E under the remaining sums. Therefore it must go in cup D."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice D.",
+        "visualHint": "Circle answer choice D."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "number theory",
+      "logic",
+      "logic",
+      "casework"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2015-24",
+    "title": "2015 AMC 8 Problem 24: Baseball Division Schedule",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 24,
+    "category": "Algebra",
+    "subcategory": "Linear equations",
+    "difficulty": 4,
+    "statement": "A baseball league consists of two four-team divisions. Each team plays every other team in its division N games and every team in the other division M games, with N > 2M and M > 4. Each team plays a 76-game schedule. How many games does a team play within its own division?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "36"
+      },
+      {
+        "label": "B",
+        "text": "48"
+      },
+      {
+        "label": "C",
+        "text": "54"
+      },
+      {
+        "label": "D",
+        "text": "60"
+      },
+      {
+        "label": "E",
+        "text": "72"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "48",
+    "solutionSteps": [
+      {
+        "title": "Write the schedule equation",
+        "body": "Each team has 3 division opponents and 4 non-division opponents, so 3N + 4M = 76."
+      },
+      {
+        "title": "Test possible M",
+        "body": "Since M > 4, try M = 5, 6, 7, ... . The first value giving an integer N and satisfying N > 2M is M = 7."
+      },
+      {
+        "title": "Compute division games",
+        "body": "When M=7, 3N = 76 − 28 = 48, so a team plays 48 games within its own division."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice B.",
+        "visualHint": "Circle answer choice B."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "algebra",
+      "linear equations",
+      "linear equations",
+      "sports schedule"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2015-25",
+    "title": "2015 AMC 8 Problem 25: Largest Square After Corner Cuts",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2015,
+    "problemNumber": 25,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 5,
+    "statement": "One-inch squares are cut from the corners of a 5-inch square. What is the area in square inches of the largest square that can be fitted into the remaining space?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "9"
+      },
+      {
+        "label": "B",
+        "text": "12 1/2"
+      },
+      {
+        "label": "C",
+        "text": "15"
+      },
+      {
+        "label": "D",
+        "text": "15 1/2"
+      },
+      {
+        "label": "E",
+        "text": "17"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "15",
+    "solutionSteps": [
+      {
+        "title": "Start with the big square",
+        "body": "The original 5 by 5 square has area 25. Four corner unit squares are removed."
+      },
+      {
+        "title": "Account for the remaining gaps",
+        "body": "The largest tilted square leaves the four cut-out unit squares plus four pairs of right triangles. Those triangles have total area 6."
+      },
+      {
+        "title": "Subtract",
+        "body": "The largest square has area 25 − 4 − 6 = 15."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Understand the problem",
+        "narration": "Identify the key information and what the question is asking.",
+        "visualHint": "Highlight the important quantities and target value."
+      },
+      {
+        "title": "Work step by step",
+        "narration": "Use the main arithmetic, counting, geometry, or probability idea to compute the answer.",
+        "visualHint": "Animate the core calculation or diagram relationship."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "Match the result to choice C.",
+        "visualHint": "Circle answer choice C."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2015",
+      "geometry",
+      "area",
+      "area",
+      "rotated square"
+    ],
+    "sourceName": "2015 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2015/problem-25-corner-cuts.svg"
+    ],
+    "needsDiagram": true
+  }
+];
+
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
@@ -33222,6 +35327,7 @@ export const sampleProblems: Problem[] = [
   ...amc2012Problems,
   ...amc2013Problems,
   ...amc2014Problems,
+  ...amc2015Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems };
