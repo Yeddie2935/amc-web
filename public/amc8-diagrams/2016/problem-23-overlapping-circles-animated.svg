@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" role="img" aria-label="Two overlapping congruent circles and angle CED">
+<style>.circle{fill:none;stroke:#111;stroke-width:3}.line{stroke:#111;stroke-width:3}.tri{fill:#93c5fd;fill-opacity:.15;stroke:#2563eb;stroke-width:3;opacity:0;animation:tri 5.5s infinite}.angle{fill:none;stroke:#ef4444;stroke-width:6;stroke-linecap:round;opacity:0;animation:angle 5.5s infinite}.label{font:24px Georgia,serif;fill:#111}.eq{font:20px system-ui,sans-serif;font-weight:700;fill:#1d4ed8;opacity:0;animation:eq 5.5s infinite}@keyframes tri{0%,20%{opacity:0}30%,55%{opacity:1}80%,100%{opacity:.2}}@keyframes angle{0%,45%{opacity:0}55%,90%{opacity:1}100%{opacity:0}}@keyframes eq{0%,55%{opacity:0}65%,95%{opacity:1}100%{opacity:0}}</style>
+<circle cx="210" cy="190" r="110" class="circle"/><circle cx="310" cy="190" r="110" class="circle"/>
+<line x1="100" y1="190" x2="420" y2="190" class="line"/>
+<polygon points="210,190 310,190 260,103.4" class="tri"/>
+<line x1="100" y1="190" x2="260" y2="103.4" class="line"/><line x1="420" y1="190" x2="260" y2="103.4" class="line"/>
+<path d="M238 146 A54 54 0 0 1 282 146" class="angle"/><path d="M146 186 A100 100 0 0 1 232 116" class="angle"/><path d="M288 116 A100 100 0 0 1 374 186" class="angle"/>
+<text x="198" y="216" class="label">A</text><text x="304" y="216" class="label">B</text><text x="88" y="216" class="label">C</text><text x="423" y="216" class="label">D</text><text x="253" y="93" class="label">E</text>
+<text x="145" y="330" class="eq">∠CED = 30° + 60° + 30° = 120°</text>
+</svg>

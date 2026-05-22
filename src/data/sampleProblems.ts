@@ -35311,6 +35311,2226 @@ const amc2015Problems: Problem[] = [
 ];
 
 
+const amc2016Problems: Problem[] = [
+  {
+    "id": "amc8-2016-01",
+    "title": "2016 AMC 8 Problem 1: Longest Tennis Match Minutes",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 1,
+    "category": "Other",
+    "subcategory": "Unit conversion",
+    "difficulty": 1,
+    "statement": "The longest professional tennis match ever played lasted a total of 11 hours and 5 minutes. How many minutes was this?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "605"
+      },
+      {
+        "label": "B",
+        "text": "655"
+      },
+      {
+        "label": "C",
+        "text": "665"
+      },
+      {
+        "label": "D",
+        "text": "1005"
+      },
+      {
+        "label": "E",
+        "text": "1105"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "665 minutes",
+    "solutionSteps": [
+      {
+        "title": "Convert the hours",
+        "body": "Each hour has 60 minutes, so convert 11 hours into minutes.",
+        "equation": "11 × 60 = 660"
+      },
+      {
+        "title": "Add the extra minutes",
+        "body": "The match also lasted 5 additional minutes.",
+        "equation": "660 + 5 = 665"
+      },
+      {
+        "title": "Choose the answer",
+        "body": "The total time was 665 minutes, so the answer is C."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Split the time",
+        "narration": "Separate 11 hours and 5 minutes into two parts.",
+        "visualHint": "Show two tiles: 11 hours and 5 minutes."
+      },
+      {
+        "title": "Convert hours",
+        "narration": "Change 11 hours into 660 minutes.",
+        "visualHint": "Animate 11 × 60 turning into 660."
+      },
+      {
+        "title": "Add minutes",
+        "narration": "Add the extra 5 minutes.",
+        "visualHint": "Animate 660 + 5 = 665 and circle choice C."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "C",
+        "expression": "11 × 60 + 5 = 665"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "conversion",
+      "time",
+      "arithmetic"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-02",
+    "title": "2016 AMC 8 Problem 2: Triangle in a Rectangle",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 2,
+    "category": "Geometry",
+    "subcategory": "Area of triangles",
+    "difficulty": 1,
+    "statement": "In rectangle ABCD, AB = 6 and AD = 8. Point M is the midpoint of AD. What is the area of triangle AMC?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "12"
+      },
+      {
+        "label": "B",
+        "text": "15"
+      },
+      {
+        "label": "C",
+        "text": "18"
+      },
+      {
+        "label": "D",
+        "text": "20"
+      },
+      {
+        "label": "E",
+        "text": "24"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "12",
+    "solutionSteps": [
+      {
+        "title": "Find AM",
+        "body": "Since M is the midpoint of AD and AD = 8, segment AM is 4.",
+        "equation": "AM = 8 ÷ 2 = 4"
+      },
+      {
+        "title": "Use base and height",
+        "body": "Use AM as the base and the horizontal distance from C to line AM as the height. That height is the width of the rectangle, 6.",
+        "equation": "A = (1/2)bh"
+      },
+      {
+        "title": "Compute",
+        "body": "The area of triangle AMC is 12.",
+        "equation": "(1/2)(4)(6) = 12"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Mark the midpoint",
+        "narration": "Show M halfway up side AD, so AM is 4.",
+        "visualHint": "The left side AD is split into two equal segments of length 4."
+      },
+      {
+        "title": "Choose base and height",
+        "narration": "Use AM as the base and the rectangle width as the height.",
+        "visualHint": "Highlight AM in one color and the perpendicular horizontal height 6 in another."
+      },
+      {
+        "title": "Calculate area",
+        "narration": "Apply one-half times base times height.",
+        "visualHint": "Animate 1/2 × 4 × 6 = 12, then circle A."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "base": 4,
+        "height": 6,
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "geometry",
+      "area",
+      "rectangle",
+      "triangle"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2016/problem-02-rectangle-triangle-animated.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2016-03",
+    "title": "2016 AMC 8 Problem 3: Missing Exam Score",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 3,
+    "category": "Algebra",
+    "subcategory": "Averages",
+    "difficulty": 1,
+    "statement": "Four students take an exam. Three of their scores are 70, 80, and 90. If the average of their four scores is 70, then what is the remaining score?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "40"
+      },
+      {
+        "label": "B",
+        "text": "50"
+      },
+      {
+        "label": "C",
+        "text": "55"
+      },
+      {
+        "label": "D",
+        "text": "60"
+      },
+      {
+        "label": "E",
+        "text": "70"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "40",
+    "solutionSteps": [
+      {
+        "title": "Find the required total",
+        "body": "Four scores with average 70 must have total 280.",
+        "equation": "4 × 70 = 280"
+      },
+      {
+        "title": "Add known scores",
+        "body": "The three known scores total 240.",
+        "equation": "70 + 80 + 90 = 240"
+      },
+      {
+        "title": "Subtract",
+        "body": "The missing score is 280 − 240 = 40.",
+        "equation": "280 − 240 = 40"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Set the target",
+        "narration": "Four scores averaging 70 need a total of 280.",
+        "visualHint": "Show four empty score boxes summing to 280."
+      },
+      {
+        "title": "Fill known scores",
+        "narration": "Put 70, 80, and 90 into three boxes.",
+        "visualHint": "The known boxes add to 240."
+      },
+      {
+        "title": "Find the missing score",
+        "narration": "Subtract the known total from the required total.",
+        "visualHint": "Animate 280 − 240 = 40 and circle A."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "total": 280,
+        "known": 240,
+        "missing": 40,
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "algebra",
+      "averages"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-04",
+    "title": "2016 AMC 8 Problem 4: Cheenu Per Mile",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 4,
+    "category": "Algebra",
+    "subcategory": "Rates",
+    "difficulty": 1,
+    "statement": "When Cheenu was a boy, he could run 15 miles in 3 hours and 30 minutes. As an old man, he can now walk 10 miles in 4 hours. How many minutes longer does it take for him to walk a mile now compared to when he was a boy?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6"
+      },
+      {
+        "label": "B",
+        "text": "10"
+      },
+      {
+        "label": "C",
+        "text": "15"
+      },
+      {
+        "label": "D",
+        "text": "18"
+      },
+      {
+        "label": "E",
+        "text": "30"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "10 minutes",
+    "solutionSteps": [
+      {
+        "title": "Boyhood pace",
+        "body": "3 hours 30 minutes is 210 minutes, so 15 miles took 210 minutes.",
+        "equation": "210 ÷ 15 = 14"
+      },
+      {
+        "title": "Current pace",
+        "body": "4 hours is 240 minutes, so 10 miles now takes 240 minutes.",
+        "equation": "240 ÷ 10 = 24"
+      },
+      {
+        "title": "Compare",
+        "body": "The current pace is 10 minutes per mile longer.",
+        "equation": "24 − 14 = 10"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Convert both times",
+        "narration": "Change 3 h 30 min to 210 min and 4 h to 240 min.",
+        "visualHint": "Two rate cards appear: boy and old man."
+      },
+      {
+        "title": "Find minutes per mile",
+        "narration": "Divide each total time by miles traveled.",
+        "visualHint": "Show 210/15 = 14 and 240/10 = 24."
+      },
+      {
+        "title": "Subtract paces",
+        "narration": "Compare 24 minutes per mile to 14 minutes per mile.",
+        "visualHint": "Animate 24 − 14 = 10 and circle B."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "boyPace": 14,
+        "oldPace": 24,
+        "difference": 10,
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "rates",
+      "unit rate",
+      "arithmetic"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-05",
+    "title": "2016 AMC 8 Problem 5: Two Remainders",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 5,
+    "category": "Number Theory",
+    "subcategory": "Modular arithmetic",
+    "difficulty": 2,
+    "statement": "The number N is a two-digit number. When N is divided by 9, the remainder is 1. When N is divided by 10, the remainder is 3. What is the remainder when N is divided by 11?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "0"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "4"
+      },
+      {
+        "label": "D",
+        "text": "5"
+      },
+      {
+        "label": "E",
+        "text": "7"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "7",
+    "solutionSteps": [
+      {
+        "title": "Use the remainder mod 10",
+        "body": "A remainder of 3 when divided by 10 means the number ends in 3."
+      },
+      {
+        "title": "Use the remainder mod 9",
+        "body": "If N leaves remainder 1 when divided by 9, then N − 1 is a multiple of 9. The two-digit number ending in 3 that works is 73.",
+        "equation": "73 − 1 = 72 = 9 × 8"
+      },
+      {
+        "title": "Divide by 11",
+        "body": "The largest multiple of 11 below 73 is 66, so the remainder is 7.",
+        "equation": "73 − 66 = 7"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Use the last digit",
+        "narration": "The mod 10 condition says N must end in 3.",
+        "visualHint": "Show candidates 13, 23, 33, ..., 93."
+      },
+      {
+        "title": "Check mod 9",
+        "narration": "Find the candidate whose value minus 1 is divisible by 9.",
+        "visualHint": "Highlight 73 because 72 = 9 × 8."
+      },
+      {
+        "title": "Take mod 11",
+        "narration": "Subtract the nearby multiple 66.",
+        "visualHint": "Animate 73 − 66 = 7 and circle E."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "candidate": 73,
+        "modulus": 11,
+        "remainder": 7,
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "remainders",
+      "modular arithmetic"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-06",
+    "title": "2016 AMC 8 Problem 6: Median Name Length",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 6,
+    "category": "Algebra",
+    "subcategory": "Statistics and graphs",
+    "difficulty": 1,
+    "statement": "The bar graph represents the length, in letters, of the names of 19 people. What is the median length of these names?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3"
+      },
+      {
+        "label": "B",
+        "text": "4"
+      },
+      {
+        "label": "C",
+        "text": "5"
+      },
+      {
+        "label": "D",
+        "text": "6"
+      },
+      {
+        "label": "E",
+        "text": "7"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Locate the median position",
+        "body": "With 19 names, the median is the 10th value when the lengths are listed in order.",
+        "equation": "(19 + 1) ÷ 2 = 10"
+      },
+      {
+        "title": "Count through the graph",
+        "body": "There are 7 names of length 3. The next 3 names have length 4."
+      },
+      {
+        "title": "Conclude",
+        "body": "The 10th name falls in the length-4 group, so the median length is 4."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Find the middle item",
+        "narration": "For 19 values, the median is the 10th value.",
+        "visualHint": "Show a counter moving to position 10."
+      },
+      {
+        "title": "Count the bars",
+        "narration": "Count 7 names of length 3, then continue into the length-4 bar.",
+        "visualHint": "Animated dots fill the 3-letter bar and then the 4-letter bar."
+      },
+      {
+        "title": "Stop at the 10th name",
+        "narration": "The 10th value lands in the length 4 bar.",
+        "visualHint": "Highlight the 4 bar and circle choice B."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "medianPosition": 10,
+        "frequencies": [
+          7,
+          3,
+          1,
+          4,
+          4
+        ],
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "statistics",
+      "median",
+      "bar graph"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2016/problem-06-name-length-bar-animated.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2016-07",
+    "title": "2016 AMC 8 Problem 7: Not a Perfect Square",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 7,
+    "category": "Number Theory",
+    "subcategory": "Perfect squares",
+    "difficulty": 2,
+    "statement": "Which of the following numbers is not a perfect square?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1^2016"
+      },
+      {
+        "label": "B",
+        "text": "2^2017"
+      },
+      {
+        "label": "C",
+        "text": "3^2018"
+      },
+      {
+        "label": "D",
+        "text": "4^2019"
+      },
+      {
+        "label": "E",
+        "text": "5^2020"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "2^2017",
+    "solutionSteps": [
+      {
+        "title": "Recall square powers",
+        "body": "A number a^n is certainly a perfect square when the exponent n is even. Also, if the base is already a square, an odd exponent can still be square."
+      },
+      {
+        "title": "Check the choices",
+        "body": "1^2016, 3^2018, and 5^2020 have even exponents. Also 4^2019 is square because 4 is already 2^2.",
+        "equation": "4^2019 = (2^2)^2019 = 2^4038"
+      },
+      {
+        "title": "Identify the exception",
+        "body": "The exponent 2017 is odd and the base 2 is not a square, so 2^2017 is not a perfect square."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Look for even exponents",
+        "narration": "Even exponents make powers into squares.",
+        "visualHint": "Stamp choices A, C, and E as square."
+      },
+      {
+        "title": "Check the base 4",
+        "narration": "The base 4 is itself a square.",
+        "visualHint": "Animate 4^2019 = (2^2)^2019 = 2^4038."
+      },
+      {
+        "title": "Find the only non-square",
+        "narration": "2^2017 has odd exponent and non-square base.",
+        "visualHint": "Circle choice B."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B",
+        "reason": "odd exponent with non-square base"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "perfect squares",
+      "exponents"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-08",
+    "title": "2016 AMC 8 Problem 8: Alternating Sum",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 8,
+    "category": "Algebra",
+    "subcategory": "Series and patterns",
+    "difficulty": 2,
+    "statement": "Find the value of 100 − 98 + 96 − 94 + 92 − 90 + ⋯ + 8 − 6 + 4 − 2.",
+    "choices": [
+      {
+        "label": "A",
+        "text": "20"
+      },
+      {
+        "label": "B",
+        "text": "40"
+      },
+      {
+        "label": "C",
+        "text": "50"
+      },
+      {
+        "label": "D",
+        "text": "80"
+      },
+      {
+        "label": "E",
+        "text": "100"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "50",
+    "solutionSteps": [
+      {
+        "title": "Group pairs",
+        "body": "Pair each subtraction: (100 − 98), (96 − 94), and so on.",
+        "equation": "(100 − 98) + (96 − 94) + ⋯ + (4 − 2)"
+      },
+      {
+        "title": "Evaluate each pair",
+        "body": "Each pair equals 2."
+      },
+      {
+        "title": "Count pairs",
+        "body": "There are 50 even numbers from 2 to 100, so there are 25 pairs.",
+        "equation": "25 × 2 = 50"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Group the expression",
+        "narration": "Put parentheses around each subtracting pair.",
+        "visualHint": "Animated brackets wrap (100−98), (96−94), etc."
+      },
+      {
+        "title": "Simplify each pair",
+        "narration": "Every pair becomes 2.",
+        "visualHint": "Each bracket collapses to a 2."
+      },
+      {
+        "title": "Count and multiply",
+        "narration": "There are 25 pairs, each worth 2.",
+        "visualHint": "Animate 25 × 2 = 50 and circle C."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "pairs": 25,
+        "pairValue": 2,
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "series",
+      "patterns",
+      "arithmetic"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-09",
+    "title": "2016 AMC 8 Problem 9: Prime Divisors of 2016",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 9,
+    "category": "Number Theory",
+    "subcategory": "Prime factorization",
+    "difficulty": 2,
+    "statement": "What is the sum of the distinct prime integer divisors of 2016?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "9"
+      },
+      {
+        "label": "B",
+        "text": "12"
+      },
+      {
+        "label": "C",
+        "text": "16"
+      },
+      {
+        "label": "D",
+        "text": "49"
+      },
+      {
+        "label": "E",
+        "text": "63"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "12",
+    "solutionSteps": [
+      {
+        "title": "Factor 2016",
+        "body": "Prime factorize 2016.",
+        "equation": "2016 = 2^5 × 3^2 × 7"
+      },
+      {
+        "title": "Keep distinct primes",
+        "body": "The distinct prime divisors are 2, 3, and 7."
+      },
+      {
+        "title": "Add them",
+        "body": "Their sum is 12.",
+        "equation": "2 + 3 + 7 = 12"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Factor the number",
+        "narration": "Break 2016 into prime powers.",
+        "visualHint": "Show 2016 splitting into 2^5, 3^2, and 7."
+      },
+      {
+        "title": "Ignore repeats",
+        "narration": "Keep each prime only once.",
+        "visualHint": "Highlight 2, 3, and 7."
+      },
+      {
+        "title": "Add distinct primes",
+        "narration": "Add the highlighted primes.",
+        "visualHint": "Animate 2 + 3 + 7 = 12 and circle B."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "B",
+        "factors": [
+          2,
+          3,
+          7
+        ]
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "prime factorization",
+      "divisors"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-10",
+    "title": "2016 AMC 8 Problem 10: Custom Operation",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 10,
+    "category": "Algebra",
+    "subcategory": "Functions and operations",
+    "difficulty": 2,
+    "statement": "Suppose that a ∗ b means 3a − b. What is the value of x if 2 ∗ (5 ∗ x) = 1?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/10"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "10/3"
+      },
+      {
+        "label": "D",
+        "text": "10"
+      },
+      {
+        "label": "E",
+        "text": "14"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "10",
+    "solutionSteps": [
+      {
+        "title": "Evaluate inside first",
+        "body": "By the definition, 5 ∗ x = 3(5) − x = 15 − x.",
+        "equation": "5 ∗ x = 15 − x"
+      },
+      {
+        "title": "Apply the outer operation",
+        "body": "Now 2 ∗ (15 − x) = 3(2) − (15 − x).",
+        "equation": "6 − 15 + x = x − 9"
+      },
+      {
+        "title": "Solve",
+        "body": "Set this equal to 1 and solve.",
+        "equation": "x − 9 = 1 → x = 10"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Decode the symbol",
+        "narration": "Replace a ∗ b with 3a − b.",
+        "visualHint": "A rule card appears: a ∗ b = 3a − b."
+      },
+      {
+        "title": "Simplify the inside",
+        "narration": "Compute 5 ∗ x first.",
+        "visualHint": "Animate 5 ∗ x → 15 − x."
+      },
+      {
+        "title": "Solve the equation",
+        "narration": "Use the outer operation and solve for x.",
+        "visualHint": "Animate x − 9 = 1, then x = 10 and circle D."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "D",
+        "x": 10
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "custom operation",
+      "algebra"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-11",
+    "title": "2016 AMC 8 Problem 11: Digit Reversal Sum",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 11,
+    "category": "Number Theory",
+    "subcategory": "Digits",
+    "difficulty": 2,
+    "statement": "Determine how many two-digit numbers satisfy the following property: when the number is added to the number obtained by reversing its digits, the sum is 132.",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5"
+      },
+      {
+        "label": "B",
+        "text": "7"
+      },
+      {
+        "label": "C",
+        "text": "9"
+      },
+      {
+        "label": "D",
+        "text": "11"
+      },
+      {
+        "label": "E",
+        "text": "12"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "7",
+    "solutionSteps": [
+      {
+        "title": "Represent the number",
+        "body": "Let the original number be 10a + b. The reversed number is 10b + a."
+      },
+      {
+        "title": "Add them",
+        "body": "Their sum is 11a + 11b = 11(a + b).",
+        "equation": "11(a + b) = 132"
+      },
+      {
+        "title": "Count digit pairs",
+        "body": "So a + b = 12. The valid pairs are (3,9), (4,8), (5,7), (6,6), (7,5), (8,4), and (9,3). There are 7 numbers."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Write digits as variables",
+        "narration": "Use a for the tens digit and b for the units digit.",
+        "visualHint": "Show 10a+b and reversed 10b+a."
+      },
+      {
+        "title": "Add original and reverse",
+        "narration": "Combine the two expressions.",
+        "visualHint": "Animate (10a+b)+(10b+a)=11(a+b)."
+      },
+      {
+        "title": "Count valid pairs",
+        "narration": "Solve a+b=12 and list the seven digit pairs.",
+        "visualHint": "The seven pairs appear one by one, then choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "target": 132,
+        "pairs": 7,
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "digits",
+      "number theory"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-12",
+    "title": "2016 AMC 8 Problem 12: Field Trip Fraction",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 12,
+    "category": "Algebra",
+    "subcategory": "Ratios and fractions",
+    "difficulty": 2,
+    "statement": "Jefferson Middle School has the same number of boys and girls. Three-fourths of the girls and two-thirds of the boys went on a field trip. What fraction of the students on the field trip were girls?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/2"
+      },
+      {
+        "label": "B",
+        "text": "9/17"
+      },
+      {
+        "label": "C",
+        "text": "7/13"
+      },
+      {
+        "label": "D",
+        "text": "2/3"
+      },
+      {
+        "label": "E",
+        "text": "14/15"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "9/17",
+    "solutionSteps": [
+      {
+        "title": "Use equal groups",
+        "body": "Let there be 12 boys and 12 girls to avoid fractions."
+      },
+      {
+        "title": "Count trip students",
+        "body": "Three-fourths of 12 girls is 9 girls. Two-thirds of 12 boys is 8 boys.",
+        "equation": "9 + 8 = 17"
+      },
+      {
+        "title": "Form the fraction",
+        "body": "Of the 17 students on the trip, 9 were girls.",
+        "equation": "9/17"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Choose easy totals",
+        "narration": "Use 12 boys and 12 girls so the fractions work nicely.",
+        "visualHint": "Show two equal blocks of 12."
+      },
+      {
+        "title": "Apply the fractions",
+        "narration": "Mark 9 girls and 8 boys as going.",
+        "visualHint": "Highlight 3/4 of the girl block and 2/3 of the boy block."
+      },
+      {
+        "title": "Make the ratio",
+        "narration": "There are 9 girls out of 17 trip students.",
+        "visualHint": "Animate 9/(9+8)=9/17 and circle B."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "girlsTrip": 9,
+        "boysTrip": 8,
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "fractions",
+      "ratio"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-13",
+    "title": "2016 AMC 8 Problem 13: Product Zero Probability",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 13,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 2,
+    "statement": "Two different numbers are randomly selected from the set {−2, −1, 0, 3, 4, 5} and multiplied together. What is the probability that the product is 0?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1/6"
+      },
+      {
+        "label": "B",
+        "text": "1/5"
+      },
+      {
+        "label": "C",
+        "text": "1/4"
+      },
+      {
+        "label": "D",
+        "text": "1/3"
+      },
+      {
+        "label": "E",
+        "text": "1/2"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "1/3",
+    "solutionSteps": [
+      {
+        "title": "Identify the condition",
+        "body": "The product is 0 exactly when one of the selected numbers is 0."
+      },
+      {
+        "title": "Count favorable pairs",
+        "body": "Pair 0 with any of the other 5 numbers, so there are 5 favorable pairs."
+      },
+      {
+        "title": "Count all pairs",
+        "body": "There are C(6,2)=15 total ways to choose two different numbers.",
+        "equation": "5/15 = 1/3"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Look for zero",
+        "narration": "A product becomes zero only if one selected number is 0.",
+        "visualHint": "Highlight the 0 in the set."
+      },
+      {
+        "title": "Pair zero with others",
+        "narration": "Zero can pair with any of the other five numbers.",
+        "visualHint": "Draw five arcs from 0 to the other numbers."
+      },
+      {
+        "title": "Divide by all pairs",
+        "narration": "There are 15 total pairs.",
+        "visualHint": "Animate 5/15 = 1/3 and circle D."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "favorable": 5,
+        "total": 15,
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "probability",
+      "combinations"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-14",
+    "title": "2016 AMC 8 Problem 14: Karl’s Gas Trip",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 14,
+    "category": "Algebra",
+    "subcategory": "Rates and unit conversion",
+    "difficulty": 2,
+    "statement": "Karl's car uses a gallon of gas every 35 miles, and his gas tank holds 14 gallons when it is full. One day, Karl started with a full tank of gas, drove 350 miles, bought 8 gallons of gas, and continued driving to his destination. When he arrived, his gas tank was half full. How many miles did Karl drive that day?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "525"
+      },
+      {
+        "label": "B",
+        "text": "560"
+      },
+      {
+        "label": "C",
+        "text": "595"
+      },
+      {
+        "label": "D",
+        "text": "665"
+      },
+      {
+        "label": "E",
+        "text": "735"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "525 miles",
+    "solutionSteps": [
+      {
+        "title": "First leg gas used",
+        "body": "At 35 miles per gallon, driving 350 miles uses 10 gallons.",
+        "equation": "350 ÷ 35 = 10"
+      },
+      {
+        "title": "Track the tank",
+        "body": "Starting from 14 gallons, Karl has 4 gallons left, then buys 8 gallons, so he has 12 gallons."
+      },
+      {
+        "title": "Second leg",
+        "body": "He arrives with 7 gallons, so he used 5 gallons on the second leg.",
+        "equation": "5 × 35 = 175"
+      },
+      {
+        "title": "Total distance",
+        "body": "The total distance is 350 + 175 = 525 miles."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Use gallons per mile",
+        "narration": "Convert the first 350 miles into 10 gallons used.",
+        "visualHint": "A fuel gauge drops from 14 to 4."
+      },
+      {
+        "title": "Add gas",
+        "narration": "Karl buys 8 gallons.",
+        "visualHint": "Fuel gauge rises from 4 to 12."
+      },
+      {
+        "title": "Use final fuel level",
+        "narration": "Half of 14 is 7, so the second leg used 5 gallons.",
+        "visualHint": "Show 12 − 7 = 5."
+      },
+      {
+        "title": "Convert back to miles",
+        "narration": "Five gallons covers 175 miles, making 525 total.",
+        "visualHint": "Animate 350 + 175 = 525 and circle A."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "firstMiles": 350,
+        "secondMiles": 175,
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "rates",
+      "gas mileage"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-15",
+    "title": "2016 AMC 8 Problem 15: Largest Power of 2",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 15,
+    "category": "Number Theory",
+    "subcategory": "Factoring",
+    "difficulty": 3,
+    "statement": "What is the largest power of 2 that is a divisor of 13^4 − 11^4?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "8"
+      },
+      {
+        "label": "B",
+        "text": "16"
+      },
+      {
+        "label": "C",
+        "text": "32"
+      },
+      {
+        "label": "D",
+        "text": "64"
+      },
+      {
+        "label": "E",
+        "text": "128"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "32",
+    "solutionSteps": [
+      {
+        "title": "Use difference of squares",
+        "body": "Rewrite the expression as a product.",
+        "equation": "13^4 − 11^4 = (13^2 + 11^2)(13^2 − 11^2)"
+      },
+      {
+        "title": "Factor again",
+        "body": "The second factor is also a difference of squares.",
+        "equation": "13^2 − 11^2 = (13+11)(13−11) = 24 × 2"
+      },
+      {
+        "title": "Count powers of 2",
+        "body": "The other factor 13^2+11^2 = 290 contributes one factor of 2. Altogether 290 × 24 × 2 has 2^5 as the largest power of 2.",
+        "equation": "2^5 = 32"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Factor once",
+        "narration": "Apply a^2−b^2 to 13^4−11^4.",
+        "visualHint": "Show the expression splitting into two factors."
+      },
+      {
+        "title": "Factor the difference",
+        "narration": "Break 13^2−11^2 into 24 × 2.",
+        "visualHint": "Highlight 13+11 and 13−11."
+      },
+      {
+        "title": "Count twos",
+        "narration": "Track every factor of 2 in the product.",
+        "visualHint": "Five glowing 2s collect into 2^5 = 32; circle C."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "power": 5,
+        "value": 32,
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "factorization",
+      "powers of 2"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-16",
+    "title": "2016 AMC 8 Problem 16: Annie Passes Bonnie",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 16,
+    "category": "Algebra",
+    "subcategory": "Relative speed",
+    "difficulty": 2,
+    "statement": "Annie and Bonnie are running laps around a 400-meter oval track. They started together, but Annie has pulled ahead, because she runs 25% faster than Bonnie. How many laps will Annie have run when she first passes Bonnie?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1 1/4"
+      },
+      {
+        "label": "B",
+        "text": "3 1/3"
+      },
+      {
+        "label": "C",
+        "text": "4"
+      },
+      {
+        "label": "D",
+        "text": "5"
+      },
+      {
+        "label": "E",
+        "text": "25"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "5 laps",
+    "solutionSteps": [
+      {
+        "title": "Compare speeds",
+        "body": "Annie runs 25% faster, so for each lap Bonnie runs, Annie runs 1.25 laps."
+      },
+      {
+        "title": "Find the gain per Bonnie lap",
+        "body": "Annie gains 0.25 lap per Bonnie lap."
+      },
+      {
+        "title": "Gain one full lap",
+        "body": "To pass Bonnie, Annie must gain 1 full lap, which takes 4 Bonnie laps.",
+        "equation": "1 ÷ 0.25 = 4"
+      },
+      {
+        "title": "Count Annie’s laps",
+        "body": "In that time Annie runs 1.25 × 4 = 5 laps."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the relative gain",
+        "narration": "Each Bonnie lap gives Annie a quarter-lap gain.",
+        "visualHint": "A track diagram shows Annie gaining 1/4 lap."
+      },
+      {
+        "title": "Accumulate quarters",
+        "narration": "Four quarter-lap gains make one full lap.",
+        "visualHint": "Four quarter segments fill a complete loop."
+      },
+      {
+        "title": "Compute Annie’s distance",
+        "narration": "During Bonnie’s 4 laps, Annie runs 5 laps.",
+        "visualHint": "Animate 4 × 1.25 = 5 and circle D."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "gainPerLap": 0.25,
+        "bonnieLaps": 4,
+        "annieLaps": 5,
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "relative speed",
+      "rates"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-17",
+    "title": "2016 AMC 8 Problem 17: ATM Passwords",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 17,
+    "category": "Counting & Probability",
+    "subcategory": "Counting with restrictions",
+    "difficulty": 2,
+    "statement": "An ATM password at Fred's Bank is composed of four digits from 0 to 9, with repeated digits allowable. If no password may begin with the sequence 9, 1, 1, then how many passwords are possible?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "30"
+      },
+      {
+        "label": "B",
+        "text": "7290"
+      },
+      {
+        "label": "C",
+        "text": "9000"
+      },
+      {
+        "label": "D",
+        "text": "9990"
+      },
+      {
+        "label": "E",
+        "text": "9999"
+      }
+    ],
+    "answer": "D",
+    "shortAnswer": "9990",
+    "solutionSteps": [
+      {
+        "title": "Count all passwords",
+        "body": "With 10 choices for each of 4 digits, there are 10,000 possible passwords.",
+        "equation": "10^4 = 10000"
+      },
+      {
+        "title": "Count forbidden passwords",
+        "body": "The first three digits cannot be 911. If they are 911, the last digit can be anything, so 10 passwords are forbidden."
+      },
+      {
+        "title": "Subtract",
+        "body": "The number allowed is 10,000 − 10 = 9,990.",
+        "equation": "10000 − 10 = 9990"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Start with all passwords",
+        "narration": "Four digit slots each have 10 choices.",
+        "visualHint": "Show 10 × 10 × 10 × 10 = 10000."
+      },
+      {
+        "title": "Remove forbidden starts",
+        "narration": "Passwords beginning 911 are not allowed.",
+        "visualHint": "Show 9110 through 9119 fading out."
+      },
+      {
+        "title": "Subtract forbidden cases",
+        "narration": "Remove 10 bad passwords.",
+        "visualHint": "Animate 10000 − 10 = 9990 and circle D."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "total": 10000,
+        "forbidden": 10,
+        "answer": "D"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "counting",
+      "restrictions"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-18",
+    "title": "2016 AMC 8 Problem 18: Sprint Races",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 18,
+    "category": "Counting & Probability",
+    "subcategory": "Elimination counting",
+    "difficulty": 2,
+    "statement": "In an All-Area track meet, 216 sprinters enter a 100-meter dash competition. The track has 6 lanes, so only 6 sprinters can compete at a time. At the end of each race, the five non-winners are eliminated, and the winner will compete again in a later race. How many races are needed to determine the champion sprinter?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "36"
+      },
+      {
+        "label": "B",
+        "text": "42"
+      },
+      {
+        "label": "C",
+        "text": "43"
+      },
+      {
+        "label": "D",
+        "text": "60"
+      },
+      {
+        "label": "E",
+        "text": "72"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "43 races",
+    "solutionSteps": [
+      {
+        "title": "Use eliminations",
+        "body": "Each race eliminates exactly 5 sprinters."
+      },
+      {
+        "title": "Find how many must be eliminated",
+        "body": "To leave 1 champion from 216 sprinters, 215 sprinters must be eliminated.",
+        "equation": "216 − 1 = 215"
+      },
+      {
+        "title": "Divide by eliminations per race",
+        "body": "Since each race eliminates 5, the total number of races is 43.",
+        "equation": "215 ÷ 5 = 43"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Track eliminations",
+        "narration": "Every race has one winner and five eliminated runners.",
+        "visualHint": "A six-lane race shows five runners fading out."
+      },
+      {
+        "title": "Need one champion",
+        "narration": "Starting with 216, eliminate 215 runners.",
+        "visualHint": "A counter changes from 216 competitors to 1 champion."
+      },
+      {
+        "title": "Compute races",
+        "narration": "Divide eliminated runners by 5 per race.",
+        "visualHint": "Animate 215 ÷ 5 = 43 and circle C."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "competitors": 216,
+        "eliminatedPerRace": 5,
+        "races": 43,
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "elimination",
+      "counting"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-19",
+    "title": "2016 AMC 8 Problem 19: Consecutive Even Sum",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 19,
+    "category": "Algebra",
+    "subcategory": "Arithmetic sequences",
+    "difficulty": 3,
+    "statement": "The sum of 25 consecutive even integers is 10,000. What is the largest of these 25 consecutive integers?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "360"
+      },
+      {
+        "label": "B",
+        "text": "388"
+      },
+      {
+        "label": "C",
+        "text": "412"
+      },
+      {
+        "label": "D",
+        "text": "416"
+      },
+      {
+        "label": "E",
+        "text": "424"
+      }
+    ],
+    "answer": "E",
+    "shortAnswer": "424",
+    "solutionSteps": [
+      {
+        "title": "Use the middle term",
+        "body": "For 25 consecutive even integers, the average is the 13th, or middle, integer.",
+        "equation": "10000 ÷ 25 = 400"
+      },
+      {
+        "title": "Move to the largest term",
+        "body": "From the 13th term to the 25th term is 12 steps. Each step increases by 2."
+      },
+      {
+        "title": "Compute",
+        "body": "The largest term is 400 + 12×2 = 424.",
+        "equation": "400 + 24 = 424"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Find the average",
+        "narration": "The middle of 25 equally spaced numbers is the average.",
+        "visualHint": "Show 25 boxes with the center box highlighted."
+      },
+      {
+        "title": "Place the middle value",
+        "narration": "The center number is 10000/25 = 400.",
+        "visualHint": "Put 400 into the 13th box."
+      },
+      {
+        "title": "Walk to the end",
+        "narration": "Move 12 even-number steps of +2.",
+        "visualHint": "Animate 400 + 24 = 424 and circle E."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "middle": 400,
+        "steps": 12,
+        "stepSize": 2,
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "arithmetic sequence",
+      "averages"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-20",
+    "title": "2016 AMC 8 Problem 20: Least Possible LCM",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 20,
+    "category": "Number Theory",
+    "subcategory": "Least common multiple",
+    "difficulty": 3,
+    "statement": "The least common multiple of a and b is 12, and the least common multiple of b and c is 15. What is the least possible value of the least common multiple of a and c?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "20"
+      },
+      {
+        "label": "B",
+        "text": "30"
+      },
+      {
+        "label": "C",
+        "text": "60"
+      },
+      {
+        "label": "D",
+        "text": "120"
+      },
+      {
+        "label": "E",
+        "text": "180"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "20",
+    "solutionSteps": [
+      {
+        "title": "Choose b to share factors",
+        "body": "To minimize the LCM of a and c, choose b to contain the common factor of 12 and 15. The greatest common factor is 3."
+      },
+      {
+        "title": "Find small a and c",
+        "body": "With b = 3, the least a that makes lcm(a,3)=12 is 4. The least c that makes lcm(3,c)=15 is 5."
+      },
+      {
+        "title": "Take lcm of a and c",
+        "body": "The least possible lcm(a,c) is lcm(4,5)=20."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Compare the two LCMs",
+        "narration": "The two LCMs are 12 and 15.",
+        "visualHint": "Show prime factors 12 = 2^2×3 and 15 = 3×5."
+      },
+      {
+        "title": "Share the common factor",
+        "narration": "Let b carry the common factor 3.",
+        "visualHint": "Move the factor 3 into the b box."
+      },
+      {
+        "title": "Minimize a and c",
+        "narration": "Use a=4 and c=5.",
+        "visualHint": "Show lcm(4,3)=12 and lcm(3,5)=15."
+      },
+      {
+        "title": "Compute final LCM",
+        "narration": "Now lcm(4,5)=20.",
+        "visualHint": "Circle choice A."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "a": 4,
+        "b": 3,
+        "c": 5,
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "lcm",
+      "gcf"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-21",
+    "title": "2016 AMC 8 Problem 21: Red Chips First",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 21,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 3,
+    "statement": "A top hat contains 3 red chips and 2 green chips. Chips are drawn randomly, one at a time without replacement, until all 3 of the reds are drawn or until both green chips are drawn. What is the probability that the 3 reds are drawn?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3/10"
+      },
+      {
+        "label": "B",
+        "text": "2/5"
+      },
+      {
+        "label": "C",
+        "text": "1/2"
+      },
+      {
+        "label": "D",
+        "text": "3/5"
+      },
+      {
+        "label": "E",
+        "text": "7/10"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "2/5",
+    "solutionSteps": [
+      {
+        "title": "Think of a random order",
+        "body": "Imagine all 5 chips are randomly ordered. The event that ends last determines which color was completed second."
+      },
+      {
+        "title": "When do reds finish first?",
+        "body": "All 3 reds are drawn before both greens exactly when the last chip in the full order is green."
+      },
+      {
+        "title": "Use the last position",
+        "body": "There are 2 green chips out of 5 total chips, so the chance the last chip is green is 2/5."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Line up all chips",
+        "narration": "Instead of drawing one by one, arrange the five chips in a random row.",
+        "visualHint": "Five face-down chip circles appear."
+      },
+      {
+        "title": "Focus on the last chip",
+        "narration": "If the last chip is green, then all reds appeared before the second green.",
+        "visualHint": "The last chip flips green and the first three reds are highlighted."
+      },
+      {
+        "title": "Compute probability",
+        "narration": "Two of the five chips are green, so the last chip is green with probability 2/5.",
+        "visualHint": "Animate 2/5 and circle B."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "green": 2,
+        "total": 5,
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "probability",
+      "without replacement"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-22",
+    "title": "2016 AMC 8 Problem 22: Bat Wings Area",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 22,
+    "category": "Geometry",
+    "subcategory": "Area decomposition",
+    "difficulty": 4,
+    "statement": "Rectangle DEFA is a 3 × 4 rectangle with DC = CB = BA = 1. What is the area of the “bat wings” shaded region?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2"
+      },
+      {
+        "label": "B",
+        "text": "2 1/2"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "3 1/2"
+      },
+      {
+        "label": "E",
+        "text": "4"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "3",
+    "solutionSteps": [
+      {
+        "title": "Use a larger trapezoid",
+        "body": "The shaded bat wings lie inside trapezoid CBFE. Its parallel bases are 1 and 3 and its height is 4.",
+        "equation": "Area(CBFE) = ((1+3)/2)×4 = 8"
+      },
+      {
+        "title": "Subtract the two white triangles",
+        "body": "The two central white triangles are similar. Their areas are 1/2 and 9/2."
+      },
+      {
+        "title": "Subtract",
+        "body": "The shaded area is 8 − 1/2 − 9/2 = 3.",
+        "equation": "8 − 1/2 − 9/2 = 3"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Outline the trapezoid",
+        "narration": "Group the wings plus the white middle into trapezoid CBFE.",
+        "visualHint": "The animated SVG highlights the trapezoid boundary."
+      },
+      {
+        "title": "Remove white triangles",
+        "narration": "Identify the two unshaded similar triangles inside it.",
+        "visualHint": "White triangles pulse and labels 1/2 and 9/2 appear."
+      },
+      {
+        "title": "Subtract to get wings",
+        "narration": "Subtract the white areas from 8.",
+        "visualHint": "Equation 8 − 1/2 − 9/2 = 3 appears while the black wings remain."
+      },
+      {
+        "title": "Choose the answer",
+        "narration": "The bat wings area is 3.",
+        "visualHint": "Circle choice C."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "trapezoidArea": 8,
+        "smallTriangle": 0.5,
+        "largeTriangle": 4.5,
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "geometry",
+      "area decomposition",
+      "similar triangles"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2016/problem-22-bat-wings-animated.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2016-23",
+    "title": "2016 AMC 8 Problem 23: Overlapping Congruent Circles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 23,
+    "category": "Geometry",
+    "subcategory": "Circle geometry and angles",
+    "difficulty": 4,
+    "statement": "Two congruent circles centered at points A and B each pass through the other circle’s center. The line containing both A and B is extended to intersect the circles at points C and D. The circles intersect at two points, one of which is E. What is the degree measure of ∠CED?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "90"
+      },
+      {
+        "label": "B",
+        "text": "105"
+      },
+      {
+        "label": "C",
+        "text": "120"
+      },
+      {
+        "label": "D",
+        "text": "135"
+      },
+      {
+        "label": "E",
+        "text": "150"
+      }
+    ],
+    "answer": "C",
+    "shortAnswer": "120°",
+    "solutionSteps": [
+      {
+        "title": "Find an equilateral triangle",
+        "body": "Since each circle passes through the other center, EA = EB = AB, so triangle EAB is equilateral.",
+        "equation": "∠AEB = 60°"
+      },
+      {
+        "title": "Find side angles",
+        "body": "Because C, A, B, D lie on a line and the relevant triangles are isosceles, ∠AEC = 30° and ∠BED = 30°."
+      },
+      {
+        "title": "Add the parts",
+        "body": "Angle CED is made from 30°, 60°, and 30°.",
+        "equation": "30° + 60° + 30° = 120°"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Draw the two circles",
+        "narration": "Show two congruent circles with centers A and B passing through each other.",
+        "visualHint": "The two circles fade in with common intersection E."
+      },
+      {
+        "title": "Highlight equilateral triangle",
+        "narration": "Triangle EAB has three equal sides.",
+        "visualHint": "Segments EA, EB, and AB glow; label each angle 60°."
+      },
+      {
+        "title": "Add side angles",
+        "narration": "Use the straight line and isosceles triangles to get 30° on each side.",
+        "visualHint": "Angles AEC and BED appear as 30°."
+      },
+      {
+        "title": "Sum the angle",
+        "narration": "Angle CED is 30° + 60° + 30°.",
+        "visualHint": "The three angle arcs merge into 120°, and choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "angleParts": [
+          30,
+          60,
+          30
+        ],
+        "answer": "C"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "circles",
+      "angles",
+      "equilateral triangle"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2016/problem-23-overlapping-circles-animated.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2016-24",
+    "title": "2016 AMC 8 Problem 24: Five-Digit Divisibility",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 24,
+    "category": "Number Theory",
+    "subcategory": "Divisibility and digits",
+    "difficulty": 4,
+    "statement": "The digits 1, 2, 3, 4, and 5 are each used once to write a five-digit number PQRST. The three-digit number PQR is divisible by 4, the three-digit number QRS is divisible by 5, and the three-digit number RST is divisible by 3. What is P?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "4"
+      },
+      {
+        "label": "E",
+        "text": "5"
+      }
+    ],
+    "answer": "A",
+    "shortAnswer": "1",
+    "solutionSteps": [
+      {
+        "title": "Use divisibility by 5",
+        "body": "Since QRS is divisible by 5 and the digits are 1 through 5, the last digit S must be 5."
+      },
+      {
+        "title": "Use divisibility by 4",
+        "body": "PQR is divisible by 4, so the last two digits QR must form a multiple of 4. Testing remaining digits leads to R = 4 and Q = 2."
+      },
+      {
+        "title": "Use divisibility by 3",
+        "body": "RST must be divisible by 3. With R=4 and S=5, we need 4+5+T divisible by 3, so T=3."
+      },
+      {
+        "title": "Finish",
+        "body": "The only remaining digit for P is 1."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Start with divisibility by 5",
+        "narration": "QRS must end in 5.",
+        "visualHint": "Place 5 in the S slot."
+      },
+      {
+        "title": "Use divisibility by 4",
+        "narration": "PQR must have QR divisible by 4.",
+        "visualHint": "Test QR choices and keep QR = 24."
+      },
+      {
+        "title": "Use divisibility by 3",
+        "narration": "RST = 453 has digit sum 12, divisible by 3.",
+        "visualHint": "Place T = 3."
+      },
+      {
+        "title": "Fill the last digit",
+        "narration": "The only unused digit is 1, so P = 1.",
+        "visualHint": "Circle choice A."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "P": 1,
+        "Q": 2,
+        "R": 4,
+        "S": 5,
+        "T": 3,
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "digits",
+      "divisibility"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2016-25",
+    "title": "2016 AMC 8 Problem 25: Semicircle in Triangle",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2016,
+    "problemNumber": 25,
+    "category": "Geometry",
+    "subcategory": "Similarity and area",
+    "difficulty": 5,
+    "statement": "A semicircle is inscribed in an isosceles triangle with base 16 and height 15 so that the diameter of the semicircle is contained in the base of the triangle as shown. What is the radius of the semicircle?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4√3"
+      },
+      {
+        "label": "B",
+        "text": "120/17"
+      },
+      {
+        "label": "C",
+        "text": "10"
+      },
+      {
+        "label": "D",
+        "text": "17√2/2"
+      },
+      {
+        "label": "E",
+        "text": "17√3/2"
+      }
+    ],
+    "answer": "B",
+    "shortAnswer": "120/17",
+    "solutionSteps": [
+      {
+        "title": "Split the isosceles triangle",
+        "body": "Drop the altitude from the top vertex. This creates two congruent right triangles with legs 8 and 15."
+      },
+      {
+        "title": "Find the slanted side",
+        "body": "The right triangle is an 8-15-17 triangle, so the slanted side has length 17.",
+        "equation": "8^2 + 15^2 = 17^2"
+      },
+      {
+        "title": "Use area another way",
+        "body": "One right half has area 60. Using the slanted side as the base, its height is the radius r of the semicircle.",
+        "equation": "(1/2)(17)r = 60"
+      },
+      {
+        "title": "Solve for r",
+        "body": "Solving gives r = 120/17."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Drop the altitude",
+        "narration": "Split the isosceles triangle into two 8-15-17 right triangles.",
+        "visualHint": "The altitude line animates downward and labels 8, 15, and 17 appear."
+      },
+      {
+        "title": "Relate radius to height",
+        "narration": "The semicircle radius is the perpendicular distance to the slanted side in the right half.",
+        "visualHint": "A radius segment grows from the semicircle to the side."
+      },
+      {
+        "title": "Equate areas",
+        "narration": "The right triangle area is 60, also equal to (1/2)(17)r.",
+        "visualHint": "Show 60 = 17r/2."
+      },
+      {
+        "title": "Solve",
+        "narration": "Solve r = 120/17 and choose B.",
+        "visualHint": "The fraction 120/17 appears and choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "base": 17,
+        "area": 60,
+        "radius": "120/17",
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2016",
+      "geometry",
+      "semicircle",
+      "right triangles",
+      "area"
+    ],
+    "sourceName": "2016 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2016/problem-25-semicircle-triangle-animated.svg"
+    ],
+    "needsDiagram": true
+  }
+];
+
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
@@ -35328,6 +37548,7 @@ export const sampleProblems: Problem[] = [
   ...amc2013Problems,
   ...amc2014Problems,
   ...amc2015Problems,
+  ...amc2016Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems, amc2016Problems };

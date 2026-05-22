@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 420" role="img" aria-label="Bar graph of name lengths with median highlighted">
+<style>.axis{stroke:#111;stroke-width:4}.grid{stroke:#94a3b8;stroke-width:1.5}.bar{fill:#111}.bar4{fill:#111;animation:barPulse 2.8s infinite}.median{fill:#f59e0b;opacity:0;animation:show 5s infinite}.label{font:20px system-ui,sans-serif;fill:#111}.title{font:24px system-ui,sans-serif;font-weight:700;fill:#0f172a}.eq{font:22px system-ui,sans-serif;fill:#1d4ed8;font-weight:700;opacity:0;animation:show 5s infinite}@keyframes barPulse{0%,100%{fill:#111}45%,75%{fill:#2563eb}}@keyframes show{0%,35%{opacity:0}50%,90%{opacity:1}100%{opacity:0}}</style>
+<text x="50" y="35" class="title">Median is the 10th name</text>
+<line x1="70" y1="340" x2="560" y2="340" class="axis"/><line x1="70" y1="60" x2="70" y2="340" class="axis"/>
+<g class="grid"><line x1="70" y1="300" x2="560" y2="300"/><line x1="70" y1="260" x2="560" y2="260"/><line x1="70" y1="220" x2="560" y2="220"/><line x1="70" y1="180" x2="560" y2="180"/><line x1="70" y1="140" x2="560" y2="140"/><line x1="70" y1="100" x2="560" y2="100"/><line x1="70" y1="60" x2="560" y2="60"/></g>
+<rect x="105" y="60" width="55" height="280" class="bar"/><rect x="215" y="220" width="55" height="120" class="bar4"/><rect x="325" y="300" width="55" height="40" class="bar"/><rect x="435" y="180" width="55" height="160" class="bar"/><rect x="520" y="180" width="55" height="160" class="bar"/>
+<rect x="215" y="220" width="55" height="120" class="median"/>
+<text x="125" y="370" class="label">3</text><text x="235" y="370" class="label">4</text><text x="345" y="370" class="label">5</text><text x="455" y="370" class="label">6</text><text x="540" y="370" class="label">7</text>
+<text x="20" y="65" class="label">7</text><text x="20" y="225" class="label">3</text><text x="20" y="345" class="label">0</text>
+<text x="165" y="405" class="eq">7 names of length 3, then names 8–10 have length 4</text>
+</svg>

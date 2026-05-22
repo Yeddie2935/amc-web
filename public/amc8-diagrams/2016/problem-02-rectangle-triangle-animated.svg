@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 520" role="img" aria-label="Rectangle ABCD with triangle AMC highlighted">
+<style>
+  .edge{fill:none;stroke:#111;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.thin{fill:none;stroke:#111;stroke-width:3}.tri{fill:#93c5fd;fill-opacity:.22;stroke:#2563eb;stroke-width:0}.base{stroke:#ef4444;stroke-width:7;stroke-linecap:round;animation:pulse 2.4s infinite}.height{stroke:#22c55e;stroke-width:7;stroke-linecap:round;stroke-dasharray:8 9;animation:dash 2.4s infinite}.label{font:28px Georgia,serif;fill:#111}.note{font:22px system-ui,sans-serif;fill:#0f172a}.eq{font:24px system-ui,sans-serif;fill:#1d4ed8;font-weight:700;opacity:0;animation:fade 6s infinite}@keyframes pulse{0%,100%{opacity:.35}45%,70%{opacity:1}}@keyframes dash{to{stroke-dashoffset:-34}}@keyframes fade{0%,45%{opacity:0}55%,90%{opacity:1}100%{opacity:0}}
+</style>
+<rect x="100" y="80" width="200" height="320" class="edge"/>
+<polygon points="100,240 300,80 100,400" class="tri"/>
+<line x1="100" y1="240" x2="300" y2="80" class="thin"/><line x1="100" y1="400" x2="300" y2="80" class="thin"/>
+<line x1="100" y1="240" x2="100" y2="400" class="base"/><line x1="100" y1="240" x2="300" y2="240" class="height"/>
+<text x="75" y="414" class="label">A</text><text x="308" y="414" class="label">B</text><text x="308" y="80" class="label">C</text><text x="75" y="80" class="label">D</text><text x="64" y="250" class="label">M</text>
+<text x="60" y="325" class="note">AM = 4</text><text x="180" y="230" class="note">height = 6</text><text x="100" y="455" class="eq">Area = ½ · 4 · 6 = 12</text>
+</svg>
