@@ -5,14 +5,10 @@
 </style>
 
 <rect width="560" height="380" fill="white"/>
-<text x="24" y="34" class="label">Split the triangle area using the same height r.</text>
 <g transform="translate(80 310)">
   <path d="M0,0 L360,0 L360,-150 Z" fill="#f8fafc" stroke="#111" stroke-width="3"/>
   <path d="M180,0 A90,90 0 0,1 360,0" fill="none" stroke="#111" stroke-width="3"/>
-  <line x1="270" y1="0" x2="270" y2="-100" class="accent draw"/>
-  <line x1="0" y1="0" x2="270" y2="-100" class="thin fade f2"/>
-  <text x="-20" y="8" class="label">A</text><text x="372" y="8" class="label">C</text><text x="372" y="-153" class="label">B</text><text x="278" y="-48" class="label">r</text>
-  <text x="165" y="23" class="label">12</text><text x="375" y="-70" class="label">5</text><text x="175" y="-74" class="label fade f2">AB = 13</text>
+  <text x="-20" y="8" class="label">A</text><text x="372" y="8" class="label">C</text><text x="372" y="-153" class="label">B</text>
+  <text x="165" y="23" class="label">12</text><text x="375" y="-70" class="label">5</text>
 </g>
-<g class="fade f3"><text x="36" y="350" class="label">30 = ½(5)r + ½(13)r = 9r, so r = 10/3.</text></g>
 </svg>

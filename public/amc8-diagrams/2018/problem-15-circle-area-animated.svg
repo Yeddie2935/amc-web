@@ -19,15 +19,11 @@
 </style>
 
 
-<rect width="520" height="340" fill="white"/>
-<text x="24" y="32" class="title">Two small circles equal half the big circle</text>
-<g transform="translate(135,60)">
+<rect width="520" height="300" fill="white"/>
+<g transform="translate(135,30)">
   <circle cx="125" cy="120" r="115" fill="#93c5fd" stroke="#111827" stroke-width="3"/>
-  <circle cx="75" cy="120" r="55" fill="white" stroke="#111827" stroke-width="3" class="pop"/>
-  <circle cx="175" cy="120" r="55" fill="white" stroke="#111827" stroke-width="3" class="pop"/>
-  <path d="M10 120 A115 115 0 0 1 240 120 A115 115 0 0 1 10 120" fill="none" stroke="#2563eb" stroke-width="4" class="pulse"/>
+  <circle cx="75" cy="120" r="55" fill="white" stroke="#111827" stroke-width="3"/>
+  <circle cx="175" cy="120" r="55" fill="white" stroke="#111827" stroke-width="3"/>
 </g>
-<text x="55" y="285" class="label">Each small radius is half the large radius.</text>
-<text x="55" y="312" class="title">Combined small area = shaded area = 1</text>
 
 </svg>

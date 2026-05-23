@@ -19,18 +19,16 @@
 </style>
 
 
-<rect width="520" height="370" fill="white"/>
-<text x="24" y="32" class="title">Cube cross-section is a rhombus</text>
-<g transform="translate(130,70)">
+<rect width="520" height="320" fill="white"/>
+<g transform="translate(130,30)">
   <polygon points="60,40 210,40 270,100 120,100" fill="#f9fafb" stroke="#111827" stroke-width="2"/>
   <polygon points="120,100 270,100 270,250 120,250" fill="#f9fafb" stroke="#111827" stroke-width="2"/>
   <polygon points="60,40 120,100 120,250 60,190" fill="#f9fafb" stroke="#111827" stroke-width="2"/>
   <line x1="210" y1="40" x2="270" y2="100" class="thin"/><line x1="210" y1="40" x2="210" y2="190" class="thin"/><line x1="210" y1="190" x2="270" y2="250" class="thin"/>
-  <polygon points="165,40 270,100 165,250 60,190" class="shade pulse"/>
-  <line x1="165" y1="40" x2="165" y2="250" stroke="#ef4444" stroke-width="3" stroke-dasharray="6 5"/>
-  <line x1="60" y1="190" x2="270" y2="100" stroke="#ef4444" stroke-width="3" stroke-dasharray="6 5"/>
-  <text x="158" y="30" class="label">E</text><text x="277" y="105" class="label">I</text><text x="158" y="270" class="label">C</text><text x="42" y="195" class="label">J</text>
+  <circle cx="165" cy="40" r="4" fill="#111827"/><text x="158" y="30" class="label">E</text>
+  <circle cx="270" cy="100" r="4" fill="#111827"/><text x="277" y="105" class="label">I</text>
+  <circle cx="165" cy="250" r="4" fill="#111827"/><text x="158" y="270" class="label">C</text>
+  <circle cx="60" cy="190" r="4" fill="#111827"/><text x="42" y="195" class="label">J</text>
 </g>
-<text x="56" y="330" class="label">Area = ½·s√3·s√2 = s²√6/2, so R² = 3/2.</text>
 
 </svg>

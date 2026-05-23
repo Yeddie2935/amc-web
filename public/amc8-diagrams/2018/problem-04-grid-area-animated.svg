@@ -20,19 +20,12 @@
 
 
 <rect width="520" height="360" fill="white"/>
-<text x="24" y="32" class="title">Count area on the 1×1 grid</text>
-<g transform="translate(90,55)">
+<g transform="translate(120,30)">
   <g>
     <line x1="0" y1="0" x2="0" y2="280" class="grid"/><line x1="40" y1="0" x2="40" y2="280" class="grid"/><line x1="80" y1="0" x2="80" y2="280" class="grid"/><line x1="120" y1="0" x2="120" y2="280" class="grid"/><line x1="160" y1="0" x2="160" y2="280" class="grid"/><line x1="200" y1="0" x2="200" y2="280" class="grid"/><line x1="240" y1="0" x2="240" y2="280" class="grid"/>
     <line x1="0" y1="0" x2="280" y2="0" class="grid"/><line x1="0" y1="40" x2="280" y2="40" class="grid"/><line x1="0" y1="80" x2="280" y2="80" class="grid"/><line x1="0" y1="120" x2="280" y2="120" class="grid"/><line x1="0" y1="160" x2="280" y2="160" class="grid"/><line x1="0" y1="200" x2="280" y2="200" class="grid"/><line x1="0" y1="240" x2="280" y2="240" class="grid"/>
   </g>
   <polygon points="120,40 160,80 200,80 240,120 200,160 200,200 160,240 120,200 80,200 40,160 80,120 80,80" fill="#fef3c7" stroke="#111827" stroke-width="4" class="draw"/>
-  <rect x="80" y="80" width="120" height="120" fill="#bfdbfe" opacity="0.25" class="fade"/>
-  <text x="100" y="145" class="label">3×3 = 9</text>
 </g>
-<text x="350" y="118" class="label">8 half-squares</text>
-<text x="350" y="145" class="label">= 4 full squares</text>
-<text x="350" y="188" class="title">9 + 4 = 13</text>
-<text x="350" y="218" class="small">Answer C</text>
 
 </svg>

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { Problem } from "../../types/amc";
 import type { ProblemAttempt, ProblemProgress } from "../../types/progress";
 import { getProblemSourceLabel } from "../../lib/problemUtils";
@@ -26,6 +26,14 @@ export function ProblemWorkspace({
   const [visibleHintCount, setVisibleHintCount] = useState(0);
   const [showSolution, setShowSolution] = useState(false);
   const [showAnimation, setShowAnimation] = useState(false);
+
+  useEffect(() => {
+    setSelectedAnswer("");
+    setAttemptResult(null);
+    setVisibleHintCount(0);
+    setShowSolution(false);
+    setShowAnimation(false);
+  }, [problem.id]);
 
   const isBookmarked = progress.bookmarkedIds.includes(problem.id);
   const hints = useMemo(

@@ -19,15 +19,12 @@
 </style>
 
 
-<rect width="520" height="350" fill="white"/>
-<text x="24" y="32" class="title">Triangles using an octagon side</text>
-<g transform="translate(185,60)">
+<rect width="520" height="240" fill="white"/>
+<g transform="translate(185,30)">
   <polygon points="75,0 135,25 160,85 135,145 75,170 15,145 -10,85 15,25" fill="#d1d5db" stroke="#111827" stroke-width="3"/>
-  <line x1="75" y1="0" x2="135" y2="25" stroke="#ef4444" stroke-width="6" class="pulse"/>
-  <circle cx="75" cy="0" r="5" fill="#111827"/><circle cx="135" cy="25" r="5" fill="#111827"/>
-  <circle cx="160" cy="85" r="5" fill="#2563eb"/><circle cx="135" cy="145" r="5" fill="#2563eb"/><circle cx="75" cy="170" r="5" fill="#2563eb"/><circle cx="15" cy="145" r="5" fill="#2563eb"/>
-  <text x="-70" y="225" class="label">Fix a side: 4 choices for the third vertex.</text>
+  <circle cx="75" cy="0" r="4" fill="#111827"/><circle cx="135" cy="25" r="4" fill="#111827"/>
+  <circle cx="160" cy="85" r="4" fill="#111827"/><circle cx="135" cy="145" r="4" fill="#111827"/><circle cx="75" cy="170" r="4" fill="#111827"/><circle cx="15" cy="145" r="4" fill="#111827"/>
+  <circle cx="-10" cy="85" r="4" fill="#111827"/><circle cx="15" cy="25" r="4" fill="#111827"/>
 </g>
-<text x="90" y="315" class="title">(8·4 + 8) / 56 = 5/7</text>
 
 </svg>

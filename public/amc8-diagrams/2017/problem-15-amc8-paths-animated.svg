@@ -5,13 +5,10 @@
 </style>
 
 <rect width="520" height="430" fill="white"/>
-<text x="24" y="32" class="label">Start at A. Count choices step by step.</text>
 <g transform="translate(260 220)" text-anchor="middle">
   <text x="0" y="0" font-size="34" fill="#111">A</text>
-  <g class="fade f1"><text x="0" y="-70" font-size="30">M</text><text x="70" y="0" font-size="30">M</text><text x="0" y="70" font-size="30">M</text><text x="-70" y="0" font-size="30">M</text></g>
-  <g class="fade f2" fill="#111"><text x="-70" y="-70" font-size="28">C</text><text x="70" y="-70" font-size="28">C</text><text x="140" y="0" font-size="28">C</text><text x="70" y="70" font-size="28">C</text><text x="0" y="140" font-size="28">C</text><text x="-70" y="70" font-size="28">C</text><text x="-140" y="0" font-size="28">C</text><text x="0" y="-140" font-size="28">C</text></g>
-  <g class="fade f3" fill="#111"><text x="-140" y="-140" font-size="28">8</text><text x="0" y="-210" font-size="28">8</text><text x="140" y="-140" font-size="28">8</text><text x="210" y="0" font-size="28">8</text><text x="140" y="140" font-size="28">8</text><text x="0" y="210" font-size="28">8</text><text x="-140" y="140" font-size="28">8</text><text x="-210" y="0" font-size="28">8</text></g>
-  <path d="M0,-5 L0,-70 L70,-70 L140,-140" class="accent draw"/>
+  <g><text x="0" y="-70" font-size="30">M</text><text x="70" y="0" font-size="30">M</text><text x="0" y="70" font-size="30">M</text><text x="-70" y="0" font-size="30">M</text></g>
+  <g fill="#111"><text x="-70" y="-70" font-size="28">C</text><text x="70" y="-70" font-size="28">C</text><text x="140" y="0" font-size="28">C</text><text x="70" y="70" font-size="28">C</text><text x="0" y="140" font-size="28">C</text><text x="-70" y="70" font-size="28">C</text><text x="-140" y="0" font-size="28">C</text><text x="0" y="-140" font-size="28">C</text></g>
+  <g fill="#111"><text x="-140" y="-140" font-size="28">8</text><text x="0" y="-210" font-size="28">8</text><text x="140" y="-140" font-size="28">8</text><text x="210" y="0" font-size="28">8</text><text x="140" y="140" font-size="28">8</text><text x="0" y="210" font-size="28">8</text><text x="-140" y="140" font-size="28">8</text><text x="-210" y="0" font-size="28">8</text></g>
 </g>
-<g class="fade f4"><text x="42" y="380" class="label">Choices multiply: 4 × 3 × 2 = 24 paths</text></g>
 </svg>

@@ -5,14 +5,11 @@
 </style>
 
 <rect width="520" height="360" fill="white"/>
-<text x="24" y="34" class="label">Equal perimeters force BD = 2 and CD = 3.</text>
 <g transform="translate(82 302)">
   <polygon points="0,0 320,0 0,-240" fill="#f8fafc" stroke="#111" stroke-width="3"/>
-  <line x1="192" y1="-96" x2="0" y2="0" class="line draw"/>
-  <circle cx="192" cy="-96" r="6" fill="#f59e0b" class="pulse"/>
+  <line x1="192" y1="-96" x2="0" y2="0" class="line"/>
+  <circle cx="192" cy="-96" r="5" fill="#111"/>
   <text x="-22" y="8" class="label">A</text><text x="333" y="8" class="label">B</text><text x="-25" y="-245" class="label">C</text><text x="202" y="-98" class="label">D</text>
   <text x="-36" y="-115" class="label">3</text><text x="155" y="22" class="label">4</text><text x="170" y="-185" class="label">5</text>
-  <text x="248" y="-45" class="label fade f2">BD = 2</text><text x="89" y="-158" class="label fade f2">CD = 3</text>
 </g>
-<g class="fade f3"><text x="34" y="332" class="label">Area(ABD) = (BD/BC)·Area(ABC) = (2/5)·6 = 12/5</text></g>
 </svg>
