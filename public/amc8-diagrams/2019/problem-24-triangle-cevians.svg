@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 380" width="420" height="380" role="img" aria-label="Triangle ABC with A at top, B at bottom-left, C at bottom-right; point D on AC with AD:DC = 1:2; E is midpoint of BD; F is intersection of line AE with side BC">
+  <rect width="420" height="380" fill="white"/>
+
+  <!-- A at top, B bottom-left, C bottom-right -->
+  <!-- A=(210,30), B=(40,340), C=(380,340) -->
+  <!-- D on AC with AD:DC=1:2: D = A + (1/3)(C-A) = (210+56.7, 30+103.3) ≈ (267,133) -->
+  <!-- E = midpoint of BD = ((40+267)/2, (340+133)/2) = (153.5, 236.5) -->
+  <!-- Line AE: from A(210,30) through E(153.5,236.5), find where it hits BC (y=340) -->
+  <!-- Direction: (153.5-210, 236.5-30) = (-56.5, 206.5). At y=340: t = (340-30)/206.5 = 1.501 -->
+  <!-- x = 210 + 1.501*(-56.5) = 210 - 84.8 = 125.2 -->
+  <!-- F ≈ (125, 340) -->
+
+  <g fill="none" stroke="#111" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Triangle ABC -->
+    <polygon points="210,30 40,340 380,340"/>
+    <!-- Segment BD -->
+    <line x1="40" y1="340" x2="267" y2="133"/>
+    <!-- Segment AE extended to F -->
+    <line x1="210" y1="30" x2="125" y2="340"/>
+  </g>
+
+  <!-- Vertex dots -->
+  <g fill="#111">
+    <circle cx="210" cy="30" r="3"/>
+    <circle cx="40" cy="340" r="3"/>
+    <circle cx="380" cy="340" r="3"/>
+    <circle cx="267" cy="133" r="3"/>
+    <circle cx="153" cy="237" r="3"/>
+    <circle cx="125" cy="340" r="3"/>
+  </g>
+
+  <!-- Labels -->
+  <g font-family="Georgia, serif" font-size="22" fill="#111">
+    <text x="210" y="22" text-anchor="middle">A</text>
+    <text x="24" y="356" text-anchor="end">B</text>
+    <text x="394" y="356">C</text>
+    <text x="280" y="128">D</text>
+    <text x="140" y="232" text-anchor="end">E</text>
+    <text x="125" y="366" text-anchor="middle">F</text>
+  </g>
+</svg>

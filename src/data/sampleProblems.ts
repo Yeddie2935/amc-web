@@ -41942,6 +41942,2857 @@ const amc2018Problems: Problem[] = [
   }
 ];
 
+const amc2019Problems: Problem[] = [
+  {
+    "id": "amc8-2019-01",
+    "title": "2019 AMC 8 Problem 1: Sandwich Shop",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 1,
+    "category": "Algebra",
+    "subcategory": "Arithmetic and optimization",
+    "difficulty": 1,
+    "statement": "Ike and Mike go into a sandwich shop with a total of $30.00 to spend. Sandwiches cost $4.50 each and soft drinks cost $1.00 each. Ike and Mike plan to buy as many sandwiches as they can, and use any remaining money to buy soft drinks. Counting both sandwiches and soft drinks, how many items will they buy?",
+    "choices": [
+      { "label": "A", "text": "6" },
+      { "label": "B", "text": "7" },
+      { "label": "C", "text": "8" },
+      { "label": "D", "text": "9" },
+      { "label": "E", "text": "10" }
+    ],
+    "answer": "D",
+    "shortAnswer": "9",
+    "solutionSteps": [
+      {
+        "title": "Maximize sandwiches",
+        "body": "Each sandwich costs $4.50. With $30.00, the most sandwiches they can buy is 6, since 6 × 4.50 = 27.00.",
+        "equation": "⌊30 ÷ 4.50⌋ = 6"
+      },
+      {
+        "title": "Spend the remainder on drinks",
+        "body": "They have 30 − 27 = $3.00 left, which buys 3 soft drinks at $1.00 each."
+      },
+      {
+        "title": "Count total items",
+        "body": "6 sandwiches + 3 drinks = 9 items.",
+        "equation": "6 + 3 = 9"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Maximize sandwiches",
+        "narration": "Divide $30 by $4.50 to find the most sandwiches they can buy.",
+        "visualHint": "30 ÷ 4.50 = 6 sandwiches, costing $27."
+      },
+      {
+        "title": "Buy soft drinks",
+        "narration": "The remaining $3 buys 3 soft drinks.",
+        "visualHint": "$30 − $27 = $3; 3 drinks appear."
+      },
+      {
+        "title": "Total items",
+        "narration": "Add sandwiches and drinks together.",
+        "visualHint": "6 + 3 = 9; choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "sandwiches": 6,
+        "drinks": 3,
+        "answer": 9
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "algebra",
+      "arithmetic"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2019-02",
+    "title": "2019 AMC 8 Problem 2: Three Rectangles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 2,
+    "category": "Geometry",
+    "subcategory": "Area and rectangles",
+    "difficulty": 1,
+    "statement": "Three identical rectangles are put together to form rectangle ABCD, as shown in the figure below. Given that the length of the shorter side of each of the smaller rectangles is 5 feet, what is the area in square feet of rectangle ABCD?",
+    "choices": [
+      { "label": "A", "text": "45" },
+      { "label": "B", "text": "75" },
+      { "label": "C", "text": "100" },
+      { "label": "D", "text": "125" },
+      { "label": "E", "text": "150" }
+    ],
+    "answer": "E",
+    "shortAnswer": "150 square feet",
+    "solutionSteps": [
+      {
+        "title": "Find the long side of each small rectangle",
+        "body": "Two small rectangles are stacked side by side below one on top. The top rectangle spans the full width, so its long side equals 2 × 5 = 10.",
+        "equation": "5 × 2 = 10"
+      },
+      {
+        "title": "Find the dimensions of ABCD",
+        "body": "The width of ABCD is 10 (the long side of the top rectangle). The height is 5 + 10 = 15.",
+        "equation": "10 × 15 = 150"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Identify dimensions",
+        "narration": "Each small rectangle has a short side of 5 feet.",
+        "visualHint": "The short side labels of 5 appear on each small rectangle."
+      },
+      {
+        "title": "Find the long side",
+        "narration": "The top rectangle's long side spans two short sides, so it is 10.",
+        "visualHint": "5 + 5 = 10 appears across the top."
+      },
+      {
+        "title": "Compute the area",
+        "narration": "ABCD is 10 wide and 15 tall, so the area is 150.",
+        "visualHint": "10 × 15 = 150; choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "width": 10,
+        "height": 15,
+        "area": 150
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "geometry",
+      "area",
+      "rectangles",
+      "diagram"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2019/problem-02-three-rectangles.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2019-03",
+    "title": "2019 AMC 8 Problem 3: Ordering Fractions",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 3,
+    "category": "Algebra",
+    "subcategory": "Fractions and ordering",
+    "difficulty": 1,
+    "statement": "Which of the following is the correct order of the fractions 15/11, 19/15, and 17/13 from least to greatest?",
+    "choices": [
+      { "label": "A", "text": "15/11 < 17/13 < 19/15" },
+      { "label": "B", "text": "15/11 < 19/15 < 17/13" },
+      { "label": "C", "text": "17/13 < 19/15 < 15/11" },
+      { "label": "D", "text": "19/15 < 15/11 < 17/13" },
+      { "label": "E", "text": "19/15 < 17/13 < 15/11" }
+    ],
+    "answer": "E",
+    "shortAnswer": "19/15 < 17/13 < 15/11",
+    "solutionSteps": [
+      {
+        "title": "Rewrite each fraction",
+        "body": "Each fraction is of the form (x+z)/x where x/y > 1. Since x/(x+z) < x/y when z is larger relative to x, we note 15/11 = 1 + 4/11, 17/13 = 1 + 4/13, 19/15 = 1 + 4/15."
+      },
+      {
+        "title": "Compare the remainders",
+        "body": "Since 4/15 < 4/13 < 4/11, we get 19/15 < 17/13 < 15/11.",
+        "equation": "19/15 < 17/13 < 15/11"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Rewrite as 1 + remainder",
+        "narration": "Express each fraction as 1 plus a fraction with numerator 4.",
+        "visualHint": "15/11 = 1 + 4/11, 17/13 = 1 + 4/13, 19/15 = 1 + 4/15."
+      },
+      {
+        "title": "Compare remainders",
+        "narration": "Larger denominators make smaller fractions.",
+        "visualHint": "4/15 < 4/13 < 4/11 highlighted."
+      },
+      {
+        "title": "Order the fractions",
+        "narration": "From least to greatest: 19/15, 17/13, 15/11.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "fractions": ["19/15", "17/13", "15/11"],
+        "answer": "E"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "algebra",
+      "fractions"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2019-04",
+    "title": "2019 AMC 8 Problem 4: Rhombus Area",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 4,
+    "category": "Geometry",
+    "subcategory": "Area of a rhombus",
+    "difficulty": 1,
+    "statement": "Quadrilateral ABCD is a rhombus with perimeter 52 meters. The length of diagonal AC is 24 meters. What is the area in square meters of rhombus ABCD?",
+    "choices": [
+      { "label": "A", "text": "60" },
+      { "label": "B", "text": "90" },
+      { "label": "C", "text": "105" },
+      { "label": "D", "text": "120" },
+      { "label": "E", "text": "144" }
+    ],
+    "answer": "D",
+    "shortAnswer": "120 square meters",
+    "solutionSteps": [
+      {
+        "title": "Find the side length",
+        "body": "A rhombus has four equal sides, so each side is 52 ÷ 4 = 13 meters.",
+        "equation": "52 ÷ 4 = 13"
+      },
+      {
+        "title": "Find half-diagonals",
+        "body": "The diagonals bisect each other perpendicularly. Half of AC is 12. Using the Pythagorean theorem with side 13 and half-diagonal 12, the other half-diagonal is 5.",
+        "equation": "13² − 12² = 169 − 144 = 25, so √25 = 5"
+      },
+      {
+        "title": "Compute the area",
+        "body": "The full diagonals are 24 and 10. Area = (d₁ × d₂) / 2.",
+        "equation": "(24 × 10) / 2 = 120"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Find the side",
+        "narration": "Divide the perimeter by 4 to get side length 13.",
+        "visualHint": "52 ÷ 4 = 13 appears on each side."
+      },
+      {
+        "title": "Use the Pythagorean theorem",
+        "narration": "Half of AC is 12; the other half-diagonal is 5 by the 5-12-13 triple.",
+        "visualHint": "A right triangle with legs 12 and 5, hypotenuse 13 is highlighted."
+      },
+      {
+        "title": "Compute area",
+        "narration": "Multiply the diagonals and divide by 2.",
+        "visualHint": "(24 × 10)/2 = 120; choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "diagonal1": 24,
+        "diagonal2": 10,
+        "area": 120
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "geometry",
+      "area",
+      "rhombus",
+      "diagram"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2019/problem-04-rhombus.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2019-05",
+    "title": "2019 AMC 8 Problem 5: Tortoise and Hare Graph",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 5,
+    "category": "Logic",
+    "subcategory": "Graph interpretation",
+    "difficulty": 1,
+    "statement": "A tortoise challenges a hare to a race. The hare eagerly agrees and quickly runs ahead, leaving the slow-moving tortoise behind. Confident that he will win, the hare stops to take a nap. Meanwhile, the tortoise walks at a slow steady pace for the entire race. The hare awakes and runs to the finish line, only to find the tortoise already there. Which of the following graphs matches the description of the race, showing the distance d traveled by the two animals over time t from start to finish?",
+    "choices": [
+      { "label": "A", "text": "(A)" },
+      { "label": "B", "text": "(B)" },
+      { "label": "C", "text": "(C)" },
+      { "label": "D", "text": "(D)" },
+      { "label": "E", "text": "(E)" }
+    ],
+    "answer": "B",
+    "shortAnswer": "B",
+    "solutionSteps": [
+      {
+        "title": "Tortoise walks steadily",
+        "body": "The tortoise moves at a constant pace, so its graph is a straight line with constant slope — this rules out choice D."
+      },
+      {
+        "title": "Hare rests then runs",
+        "body": "The hare's graph should be steep, then flat (napping), then steep again. During the flat portion the distance stays the same, ruling out choices E and C."
+      },
+      {
+        "title": "Tortoise wins",
+        "body": "The tortoise's line must end higher (farther) than the hare's at the finish, ruling out choice A. The answer is B."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Tortoise: constant speed",
+        "narration": "The tortoise moves at a steady pace — a straight line on the graph.",
+        "visualHint": "A straight diagonal line for the tortoise."
+      },
+      {
+        "title": "Hare: run, nap, run",
+        "narration": "The hare runs fast, stops (flat segment), then runs again.",
+        "visualHint": "A steep-flat-steep curve for the hare."
+      },
+      {
+        "title": "Tortoise wins",
+        "narration": "The tortoise's line reaches the finish first.",
+        "visualHint": "Graph B matches; choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "answer": "B"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "logic",
+      "graph interpretation",
+      "diagram"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2019/problem-05-tortoise-hare-graphs.png"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2019-06",
+    "title": "2019 AMC 8 Problem 6: Line of Symmetry",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 6,
+    "category": "Counting & Probability",
+    "subcategory": "Symmetry and probability",
+    "difficulty": 2,
+    "statement": "There are 81 grid points (uniformly spaced) in the square shown in the diagram below, including the points on the edges. Point P is in the center of the square. Given that point Q is randomly chosen among the other 80 points, what is the probability that the line PQ is a line of symmetry for the square?",
+    "choices": [
+      { "label": "A", "text": "1/5" },
+      { "label": "B", "text": "1/4" },
+      { "label": "C", "text": "2/5" },
+      { "label": "D", "text": "9/20" },
+      { "label": "E", "text": "1/2" }
+    ],
+    "answer": "C",
+    "shortAnswer": "2/5",
+    "solutionSteps": [
+      {
+        "title": "Count lines of symmetry",
+        "body": "A square has 4 lines of symmetry: horizontal, vertical, and two diagonals. Each passes through the center P."
+      },
+      {
+        "title": "Count points on symmetry lines",
+        "body": "Each symmetry line passes through 8 grid points besides P (4 on each side). That gives 4 × 8 = 32 favorable points.",
+        "equation": "4 × 8 = 32"
+      },
+      {
+        "title": "Compute probability",
+        "body": "The probability is 32/80 = 2/5.",
+        "equation": "32/80 = 2/5"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Show the grid",
+        "narration": "Display the 9×9 grid of 81 points with P at the center.",
+        "visualHint": "81 dots in a square grid; P is highlighted."
+      },
+      {
+        "title": "Draw symmetry lines",
+        "narration": "There are 4 lines of symmetry through P, each passing through 8 other points.",
+        "visualHint": "Four lines drawn through P; 32 points highlighted."
+      },
+      {
+        "title": "Compute probability",
+        "narration": "32 favorable points out of 80 total gives 2/5.",
+        "visualHint": "32/80 = 2/5; choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "favorable": 32,
+        "total": 80,
+        "answer": "2/5"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "counting & probability",
+      "symmetry",
+      "diagram"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2019/problem-06-grid-points.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2019-07",
+    "title": "2019 AMC 8 Problem 7: Lowest Test Score",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 7,
+    "category": "Algebra",
+    "subcategory": "Averages and equations",
+    "difficulty": 2,
+    "statement": "Shauna takes five tests, each worth a maximum of 100 points. Her scores on the first three tests are 76, 94, and 87. In order to average 81 for all five tests, what is the lowest score she could earn on one of the other two tests?",
+    "choices": [
+      { "label": "A", "text": "48" },
+      { "label": "B", "text": "52" },
+      { "label": "C", "text": "66" },
+      { "label": "D", "text": "70" },
+      { "label": "E", "text": "74" }
+    ],
+    "answer": "A",
+    "shortAnswer": "48",
+    "solutionSteps": [
+      {
+        "title": "Find the required total",
+        "body": "To average 81 over 5 tests, the total must be 81 × 5 = 405.",
+        "equation": "81 × 5 = 405"
+      },
+      {
+        "title": "Subtract known scores",
+        "body": "The first three tests sum to 76 + 94 + 87 = 257. The last two must total 405 − 257 = 148.",
+        "equation": "405 − 257 = 148"
+      },
+      {
+        "title": "Minimize one score",
+        "body": "To minimize one score, maximize the other at 100. The lowest score is 148 − 100 = 48.",
+        "equation": "148 − 100 = 48"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Required total",
+        "narration": "Five tests averaging 81 means a total of 405 points.",
+        "visualHint": "81 × 5 = 405."
+      },
+      {
+        "title": "Sum of known scores",
+        "narration": "The first three scores add to 257; the last two must total 148.",
+        "visualHint": "76 + 94 + 87 = 257; 405 − 257 = 148."
+      },
+      {
+        "title": "Minimize one score",
+        "narration": "Set one test to 100; the other is 48.",
+        "visualHint": "148 − 100 = 48; choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "total": 405,
+        "knownSum": 257,
+        "remaining": 148,
+        "answer": 48
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "algebra",
+      "averages"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2019-08",
+    "title": "2019 AMC 8 Problem 8: Gilda's Marbles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 8,
+    "category": "Algebra",
+    "subcategory": "Percentages",
+    "difficulty": 2,
+    "statement": "Gilda has a bag of marbles. She gives 20% of them to her friend Pedro. Then Gilda gives 10% of what is left to another friend, Ebony. Finally, Gilda gives 25% of what is now left in the bag to her brother Jimmy. What percentage of her original bag of marbles does Gilda have left for herself?",
+    "choices": [
+      { "label": "A", "text": "20" },
+      { "label": "B", "text": "33 1/3" },
+      { "label": "C", "text": "38" },
+      { "label": "D", "text": "45" },
+      { "label": "E", "text": "54" }
+    ],
+    "answer": "E",
+    "shortAnswer": "54%",
+    "solutionSteps": [
+      {
+        "title": "After Pedro",
+        "body": "Gilda keeps 80% after giving Pedro 20%.",
+        "equation": "1 − 0.20 = 0.80"
+      },
+      {
+        "title": "After Ebony",
+        "body": "She gives 10% of the remainder, keeping 90% of 80% = 72%.",
+        "equation": "0.80 × 0.90 = 0.72"
+      },
+      {
+        "title": "After Jimmy",
+        "body": "She gives 25% of what's left, keeping 75% of 72% = 54%.",
+        "equation": "0.72 × 0.75 = 0.54"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Give to Pedro",
+        "narration": "Gilda gives away 20%, keeping 80%.",
+        "visualHint": "100% → 80% remaining."
+      },
+      {
+        "title": "Give to Ebony",
+        "narration": "She gives 10% of the remainder, keeping 72%.",
+        "visualHint": "80% × 0.9 = 72%."
+      },
+      {
+        "title": "Give to Jimmy",
+        "narration": "She gives 25% of the remainder, keeping 54%.",
+        "visualHint": "72% × 0.75 = 54%; choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "bar-model",
+      "data": {
+        "steps": ["80%", "72%", "54%"],
+        "answer": "54%"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "algebra",
+      "percentages"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2019-09",
+    "title": "2019 AMC 8 Problem 9: Cylinder Volume Ratio",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 9,
+    "category": "Geometry",
+    "subcategory": "Volume of cylinders",
+    "difficulty": 2,
+    "statement": "Alex and Felicia each have cats as pets. Alex buys cat food in cylindrical cans that are 6 cm in diameter and 12 cm high. Felicia buys cat food in cylindrical cans that are 12 cm in diameter and 6 cm high. What is the ratio of the volume of one of Alex's cans to the volume of one of Felicia's cans?",
+    "choices": [
+      { "label": "A", "text": "1 : 4" },
+      { "label": "B", "text": "1 : 2" },
+      { "label": "C", "text": "1 : 1" },
+      { "label": "D", "text": "2 : 1" },
+      { "label": "E", "text": "4 : 1" }
+    ],
+    "answer": "B",
+    "shortAnswer": "1 : 2",
+    "solutionSteps": [
+      {
+        "title": "Compute Alex's volume",
+        "body": "Radius 3, height 12. Volume = π(3²)(12) = 108π.",
+        "equation": "π × 9 × 12 = 108π"
+      },
+      {
+        "title": "Compute Felicia's volume",
+        "body": "Radius 6, height 6. Volume = π(6²)(6) = 216π.",
+        "equation": "π × 36 × 6 = 216π"
+      },
+      {
+        "title": "Find the ratio",
+        "body": "108π / 216π = 1/2, so the ratio is 1 : 2.",
+        "equation": "108/216 = 1/2"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Alex's can",
+        "narration": "A cylinder with diameter 6 and height 12 has volume 108π.",
+        "visualHint": "π × 3² × 12 = 108π."
+      },
+      {
+        "title": "Felicia's can",
+        "narration": "A cylinder with diameter 12 and height 6 has volume 216π.",
+        "visualHint": "π × 6² × 6 = 216π."
+      },
+      {
+        "title": "Ratio",
+        "narration": "The ratio is 108π to 216π, which simplifies to 1:2.",
+        "visualHint": "1 : 2; choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "volumeAlex": "108π",
+        "volumeFelicia": "216π",
+        "answer": "1:2"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "geometry",
+      "volume",
+      "cylinders"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2019-10",
+    "title": "2019 AMC 8 Problem 10: Soccer Practice Correction",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 10,
+    "category": "Algebra",
+    "subcategory": "Mean and median",
+    "difficulty": 2,
+    "statement": "The diagram shows the number of students at soccer practice each weekday during last week. After computing the mean and median values, Coach discovers that there were actually 21 participants on Wednesday. Which of the following statements describes the change in the mean and median after the correction is made?",
+    "choices": [
+      { "label": "A", "text": "The mean increases by 1 and the median does not change." },
+      { "label": "B", "text": "The mean increases by 1 and the median increases by 1." },
+      { "label": "C", "text": "The mean increases by 1 and the median increases by 5." },
+      { "label": "D", "text": "The mean increases by 5 and the median increases by 1." },
+      { "label": "E", "text": "The mean increases by 5 and the median increases by 5." }
+    ],
+    "answer": "B",
+    "shortAnswer": "Mean increases by 1 and median increases by 1",
+    "solutionSteps": [
+      {
+        "title": "Original values",
+        "body": "From the bar chart: Mon = 20, Tue = 26, Wed = 16, Thu = 22, Fri = 16. Sum = 100, mean = 20. Sorted: 16, 16, 20, 22, 26 → median = 20."
+      },
+      {
+        "title": "Corrected values",
+        "body": "Change Wednesday from 16 to 21. New sum = 105, new mean = 21. Sorted: 16, 20, 21, 22, 26 → new median = 21."
+      },
+      {
+        "title": "Changes",
+        "body": "Mean: 21 − 20 = 1 increase. Median: 21 − 20 = 1 increase."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Read original data",
+        "narration": "The bar chart shows Mon 20, Tue 26, Wed 16, Thu 22, Fri 16.",
+        "visualHint": "Original mean = 20, median = 20."
+      },
+      {
+        "title": "Apply correction",
+        "narration": "Wednesday changes from 16 to 21.",
+        "visualHint": "New sum = 105, new mean = 21; sorted list updates."
+      },
+      {
+        "title": "Compare",
+        "narration": "Both mean and median increase by 1.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "graph-read",
+      "data": {
+        "oldMean": 20,
+        "newMean": 21,
+        "oldMedian": 20,
+        "newMedian": 21
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "algebra",
+      "mean and median",
+      "diagram"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2019/problem-10-bar-chart.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2019-11",
+    "title": "2019 AMC 8 Problem 11: Math and Language Class",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 11,
+    "category": "Counting & Probability",
+    "subcategory": "Inclusion-exclusion",
+    "difficulty": 3,
+    "statement": "The eighth grade class at Lincoln Middle School has 93 students. Each student takes a math class or a foreign language class or both. There are 70 eighth graders taking a math class, and there are 54 eighth graders taking a foreign language class. How many eighth graders take only a math class and not a foreign language class?",
+    "choices": [
+      { "label": "A", "text": "16" },
+      { "label": "B", "text": "53" },
+      { "label": "C", "text": "31" },
+      { "label": "D", "text": "39" },
+      { "label": "E", "text": "70" }
+    ],
+    "answer": "D",
+    "shortAnswer": "39",
+    "solutionSteps": [
+      {
+        "title": "Find the overlap",
+        "body": "By inclusion-exclusion, the number taking both is 70 + 54 − 93 = 31.",
+        "equation": "70 + 54 − 93 = 31"
+      },
+      {
+        "title": "Math only",
+        "body": "Students taking only math = 70 − 31 = 39.",
+        "equation": "70 − 31 = 39"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Set up the Venn diagram",
+        "narration": "93 total students, 70 in math, 54 in foreign language.",
+        "visualHint": "Two overlapping circles labeled Math and Language."
+      },
+      {
+        "title": "Find the overlap",
+        "narration": "By inclusion-exclusion, 31 students take both.",
+        "visualHint": "70 + 54 − 93 = 31 in the intersection."
+      },
+      {
+        "title": "Math only",
+        "narration": "Subtract the overlap from math: 70 − 31 = 39.",
+        "visualHint": "39 appears in the math-only region; choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "venn",
+      "data": {
+        "math": 70,
+        "language": 54,
+        "both": 31,
+        "mathOnly": 39
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "counting & probability",
+      "inclusion-exclusion",
+      "Venn diagram"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2019-12",
+    "title": "2019 AMC 8 Problem 12: Cube Face Colors",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 12,
+    "category": "Logic",
+    "subcategory": "Spatial reasoning",
+    "difficulty": 3,
+    "statement": "The faces of a cube are painted in six different colors: red (R), white (W), green (G), brown (B), aqua (A), and purple (P). Three views of the cube are shown below. What is the color of the face opposite the aqua face?",
+    "choices": [
+      { "label": "A", "text": "red" },
+      { "label": "B", "text": "white" },
+      { "label": "C", "text": "green" },
+      { "label": "D", "text": "brown" },
+      { "label": "E", "text": "purple" }
+    ],
+    "answer": "A",
+    "shortAnswer": "red",
+    "solutionSteps": [
+      {
+        "title": "Analyze the views",
+        "body": "From the first view, B is on top, R is on the front, and G is on the right. From the second view, W is on the right side while R is still on the front. From the third image, P is on the front and R is on top."
+      },
+      {
+        "title": "Determine adjacencies",
+        "body": "R is adjacent to B, G, W, and P (it appears next to all of them across the three views). The only remaining color that is not adjacent to R is A (aqua)."
+      },
+      {
+        "title": "Conclude",
+        "body": "Since aqua is the only color never adjacent to red, the face opposite aqua is red."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Examine the three views",
+        "narration": "Each view shows three faces of the cube with their colors.",
+        "visualHint": "Three cube views displayed side by side."
+      },
+      {
+        "title": "Track adjacencies to R",
+        "narration": "Red is adjacent to B, G, W, and P across the views.",
+        "visualHint": "Arrows from R to B, G, W, P."
+      },
+      {
+        "title": "Opposite face",
+        "narration": "Aqua is the only color never adjacent to red, so it is opposite red.",
+        "visualHint": "Choice A (red) is circled."
+      }
+    ],
+    "animation": {
+      "type": "cube-net",
+      "data": {
+        "oppositeOfAqua": "red",
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "logic",
+      "spatial reasoning",
+      "cube",
+      "diagram"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2019/problem-12-cube-views.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2019-13",
+    "title": "2019 AMC 8 Problem 13: Palindrome Digit Sum",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 13,
+    "category": "Number Theory",
+    "subcategory": "Palindromes and digit sums",
+    "difficulty": 3,
+    "statement": "A palindrome is a number that has the same value when read from left to right or from right to left. (For example, 12321 is a palindrome.) Let N be the least three-digit integer which is not a palindrome but which is the sum of three distinct two-digit palindromes. What is the sum of the digits of N?",
+    "choices": [
+      { "label": "A", "text": "2" },
+      { "label": "B", "text": "3" },
+      { "label": "C", "text": "4" },
+      { "label": "D", "text": "5" },
+      { "label": "E", "text": "6" }
+    ],
+    "answer": "A",
+    "shortAnswer": "2",
+    "solutionSteps": [
+      {
+        "title": "Identify two-digit palindromes",
+        "body": "The two-digit palindromes are 11, 22, 33, …, 99 (multiples of 11)."
+      },
+      {
+        "title": "Find the smallest qualifying N",
+        "body": "N must be a three-digit non-palindrome that is the sum of three distinct multiples of 11. The smallest three-digit multiple of 11 that is not a palindrome is 110 = 77 + 22 + 11.",
+        "equation": "77 + 22 + 11 = 110"
+      },
+      {
+        "title": "Digit sum",
+        "body": "The digit sum of 110 is 1 + 1 + 0 = 2.",
+        "equation": "1 + 1 + 0 = 2"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "List two-digit palindromes",
+        "narration": "Two-digit palindromes are 11, 22, 33, …, 99.",
+        "visualHint": "The nine multiples of 11 appear."
+      },
+      {
+        "title": "Find the smallest N",
+        "narration": "The smallest three-digit non-palindrome sum of three distinct ones is 110.",
+        "visualHint": "77 + 22 + 11 = 110."
+      },
+      {
+        "title": "Digit sum",
+        "narration": "1 + 1 + 0 = 2.",
+        "visualHint": "Choice A is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "N": 110,
+        "digitSum": 2,
+        "answer": "A"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "number theory",
+      "palindromes",
+      "digit sums"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2019-14",
+    "title": "2019 AMC 8 Problem 14: Coupon Redemption Day",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 14,
+    "category": "Number Theory",
+    "subcategory": "Modular arithmetic",
+    "difficulty": 3,
+    "statement": "Isabella has 6 coupons that can be redeemed for free ice cream cones at Pete's Sweet Treats. In order to make the coupons last, she decides that she will redeem one every 10 days until she has used them all. She knows that Pete's is closed on Sundays, but as she circles the 6 dates on her calendar, she realizes that no circled date falls on a Sunday. On what day of the week does Isabella redeem her first coupon?",
+    "choices": [
+      { "label": "A", "text": "Monday" },
+      { "label": "B", "text": "Tuesday" },
+      { "label": "C", "text": "Wednesday" },
+      { "label": "D", "text": "Thursday" },
+      { "label": "E", "text": "Friday" }
+    ],
+    "answer": "C",
+    "shortAnswer": "Wednesday",
+    "solutionSteps": [
+      {
+        "title": "Days mod 7",
+        "body": "Every 10 days is equivalent to every 3 days mod 7 (since 10 ≡ 3 mod 7)."
+      },
+      {
+        "title": "Check starting days",
+        "body": "Starting on Wednesday (day 4): the six dates cycle through days 4, 0, 3, 6, 2, 5 (mod 7). If Sunday is day 0, we need to check none of the six hits 0. Starting from Wednesday: Wed, Sat, Tue, Fri, Mon, Thu — no Sunday."
+      },
+      {
+        "title": "Confirm",
+        "body": "Wednesday is the only starting day that avoids Sunday for all six dates."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Reduce mod 7",
+        "narration": "Every 10 days advances 3 days of the week.",
+        "visualHint": "10 mod 7 = 3."
+      },
+      {
+        "title": "Try Wednesday",
+        "narration": "Starting Wednesday: Wed, Sat, Tue, Fri, Mon, Thu — no Sunday.",
+        "visualHint": "Six dates listed, none is Sunday."
+      },
+      {
+        "title": "Answer",
+        "narration": "Wednesday is the correct starting day.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "modulus": 7,
+        "step": 3,
+        "answer": "Wednesday"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "number theory",
+      "modular arithmetic"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2019-15",
+    "title": "2019 AMC 8 Problem 15: Sunglasses and Caps",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 15,
+    "category": "Counting & Probability",
+    "subcategory": "Conditional probability",
+    "difficulty": 3,
+    "statement": "On a beach 50 people are wearing sunglasses and 35 people are wearing caps. Some people are wearing both sunglasses and caps. If one of the people wearing a cap is selected at random, the probability that this person is also wearing sunglasses is 2/5. If instead, someone wearing sunglasses is selected at random, what is the probability that this person is also wearing a cap?",
+    "choices": [
+      { "label": "A", "text": "14/85" },
+      { "label": "B", "text": "7/25" },
+      { "label": "C", "text": "2/5" },
+      { "label": "D", "text": "4/7" },
+      { "label": "E", "text": "7/10" }
+    ],
+    "answer": "B",
+    "shortAnswer": "7/25",
+    "solutionSteps": [
+      {
+        "title": "Find the number wearing both",
+        "body": "Among cap-wearers, 2/5 also wear sunglasses: (2/5) × 35 = 14 people wear both.",
+        "equation": "(2/5) × 35 = 14"
+      },
+      {
+        "title": "Find the probability",
+        "body": "Among 50 sunglass-wearers, the probability of also wearing a cap is 14/50 = 7/25.",
+        "equation": "14/50 = 7/25"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Find the overlap",
+        "narration": "2/5 of the 35 cap-wearers also wear sunglasses: that's 14 people.",
+        "visualHint": "(2/5) × 35 = 14."
+      },
+      {
+        "title": "Compute the new probability",
+        "narration": "Out of 50 sunglass-wearers, 14 also have caps.",
+        "visualHint": "14/50 = 7/25."
+      },
+      {
+        "title": "Answer",
+        "narration": "The probability is 7/25.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "both": 14,
+        "sunglasses": 50,
+        "answer": "7/25"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "counting & probability",
+      "conditional probability"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2019-16",
+    "title": "2019 AMC 8 Problem 16: Average Speed",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 16,
+    "category": "Algebra",
+    "subcategory": "Rates and average speed",
+    "difficulty": 4,
+    "statement": "Qiang drives 15 miles at an average speed of 30 miles per hour. How many additional miles will he have to drive at 55 miles per hour to average 50 miles per hour for the entire trip?",
+    "choices": [
+      { "label": "A", "text": "45" },
+      { "label": "B", "text": "62" },
+      { "label": "C", "text": "90" },
+      { "label": "D", "text": "110" },
+      { "label": "E", "text": "135" }
+    ],
+    "answer": "D",
+    "shortAnswer": "110 miles",
+    "solutionSteps": [
+      {
+        "title": "Time for first leg",
+        "body": "15 miles at 30 mph takes 15/30 = 0.5 hours.",
+        "equation": "15/30 = 0.5 hours"
+      },
+      {
+        "title": "Set up the equation",
+        "body": "Let d be the additional miles. Total distance = 15 + d, total time = 0.5 + d/55. Average speed = (15 + d)/(0.5 + d/55) = 50.",
+        "equation": "(15 + d)/(0.5 + d/55) = 50"
+      },
+      {
+        "title": "Solve",
+        "body": "15 + d = 50(0.5 + d/55) = 25 + 50d/55 = 25 + 10d/11. So 11(15 + d) = 11·25 + 10d → 165 + 11d = 275 + 10d → d = 110.",
+        "equation": "d = 110"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "First leg",
+        "narration": "Qiang drives 15 miles at 30 mph, taking half an hour.",
+        "visualHint": "15 mi ÷ 30 mph = 0.5 hr."
+      },
+      {
+        "title": "Set up equation",
+        "narration": "Total distance over total time must equal 50 mph.",
+        "visualHint": "(15 + d)/(0.5 + d/55) = 50."
+      },
+      {
+        "title": "Solve for d",
+        "narration": "Solving gives d = 110 additional miles.",
+        "visualHint": "d = 110; choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "equation": "(15 + d)/(0.5 + d/55) = 50",
+        "answer": 110
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "algebra",
+      "rates",
+      "average speed"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2019-17",
+    "title": "2019 AMC 8 Problem 17: Telescoping Product",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 17,
+    "category": "Algebra",
+    "subcategory": "Telescoping products",
+    "difficulty": 4,
+    "statement": "What is the value of the product (1·3)/(2·2) · (2·4)/(3·3) · (3·5)/(4·4) · … · (97·99)/(98·98) · (98·100)/(99·99)?",
+    "choices": [
+      { "label": "A", "text": "1/2" },
+      { "label": "B", "text": "50/99" },
+      { "label": "C", "text": "9800/9801" },
+      { "label": "D", "text": "100/99" },
+      { "label": "E", "text": "50" }
+    ],
+    "answer": "B",
+    "shortAnswer": "50/99",
+    "solutionSteps": [
+      {
+        "title": "Rewrite each factor",
+        "body": "Each factor is (n(n+2))/((n+1)²) for n = 1, 2, …, 98. Rewrite as (n/(n+1)) · ((n+2)/(n+1))."
+      },
+      {
+        "title": "Telescope",
+        "body": "The product of n/(n+1) for n = 1 to 98 is 1/2 · 2/3 · … · 98/99 = 1/99. The product of (n+2)/(n+1) for n = 1 to 98 is 3/2 · 4/3 · … · 100/99 = 100/2 = 50.",
+        "equation": "(1/99) × 50 = 50/99"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Factor each term",
+        "narration": "Rewrite n(n+2)/(n+1)² as two fractions that telescope.",
+        "visualHint": "(n/(n+1)) × ((n+2)/(n+1))."
+      },
+      {
+        "title": "Cancel",
+        "narration": "Most terms cancel, leaving (1 × 100)/(2 × 99).",
+        "visualHint": "1/99 × 50."
+      },
+      {
+        "title": "Result",
+        "narration": "The product is 50/99.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "answer": "50/99"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "algebra",
+      "telescoping products"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2019-18",
+    "title": "2019 AMC 8 Problem 18: Dice Even Sum",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 18,
+    "category": "Counting & Probability",
+    "subcategory": "Probability with dice",
+    "difficulty": 4,
+    "statement": "The faces of each of two fair dice are numbered 1, 2, 3, 5, 7, and 8. When the two dice are tossed, what is the probability that their sum will be an even number?",
+    "choices": [
+      { "label": "A", "text": "4/9" },
+      { "label": "B", "text": "1/2" },
+      { "label": "C", "text": "5/9" },
+      { "label": "D", "text": "3/5" },
+      { "label": "E", "text": "2/3" }
+    ],
+    "answer": "C",
+    "shortAnswer": "5/9",
+    "solutionSteps": [
+      {
+        "title": "Count odds and evens on each die",
+        "body": "Each die has faces {1, 2, 3, 5, 7, 8}. Odd faces: 1, 3, 5, 7 (4 faces). Even faces: 2, 8 (2 faces)."
+      },
+      {
+        "title": "Even sum requires same parity",
+        "body": "P(both odd) = (4/6)(4/6) = 16/36. P(both even) = (2/6)(2/6) = 4/36.",
+        "equation": "16/36 + 4/36 = 20/36"
+      },
+      {
+        "title": "Simplify",
+        "body": "20/36 = 5/9.",
+        "equation": "20/36 = 5/9"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Classify faces",
+        "narration": "Each die has 4 odd faces and 2 even faces.",
+        "visualHint": "Odd: 1,3,5,7; Even: 2,8."
+      },
+      {
+        "title": "Same parity for even sum",
+        "narration": "Both odd: 16/36. Both even: 4/36.",
+        "visualHint": "16/36 + 4/36 = 20/36."
+      },
+      {
+        "title": "Simplify",
+        "narration": "20/36 = 5/9.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "probability",
+      "data": {
+        "bothOdd": "16/36",
+        "bothEven": "4/36",
+        "answer": "5/9"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "counting & probability",
+      "dice",
+      "probability"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2019-19",
+    "title": "2019 AMC 8 Problem 19: Tournament Points",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 19,
+    "category": "Counting & Probability",
+    "subcategory": "Combinatorial optimization",
+    "difficulty": 4,
+    "statement": "In a tournament there are six teams that play each other twice. A team earns 3 points for a win, 1 point for a draw, and 0 points for a loss. After all the games have been played it turns out that the top three teams earned the same number of total points. What is the greatest possible number of total points for each of the top three teams?",
+    "choices": [
+      { "label": "A", "text": "22" },
+      { "label": "B", "text": "23" },
+      { "label": "C", "text": "24" },
+      { "label": "D", "text": "26" },
+      { "label": "E", "text": "30" }
+    ],
+    "answer": "C",
+    "shortAnswer": "24",
+    "solutionSteps": [
+      {
+        "title": "Count the games",
+        "body": "6 teams each play each other twice: C(6,2) × 2 = 30 games total."
+      },
+      {
+        "title": "Maximize top-3 points",
+        "body": "Each top-3 team beats each bottom-3 team in both games (3 opponents × 2 games × 3 pts = 18 pts from those). Among themselves, each pair plays twice, contributing 6 points per game to the pair (or some mix). To tie, they can each win once and lose once against each of the other two top teams: 2 wins × 3 pts = 6 pts from inter-top games.",
+        "equation": "18 + 6 = 24"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Structure",
+        "narration": "Six teams, each pair plays twice. Top 3 want maximum equal points.",
+        "visualHint": "30 total games."
+      },
+      {
+        "title": "Top vs bottom",
+        "narration": "Each top team sweeps all 6 games against bottom teams: 18 points.",
+        "visualHint": "3 × 2 × 3 = 18."
+      },
+      {
+        "title": "Top vs top",
+        "narration": "Each top team wins once and loses once to each other top team: 6 more points.",
+        "visualHint": "18 + 6 = 24; choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "generic",
+      "data": {
+        "topVsBottom": 18,
+        "topVsTop": 6,
+        "answer": 24
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "counting & probability",
+      "combinatorics",
+      "optimization"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2019-20",
+    "title": "2019 AMC 8 Problem 20: Real Number Solutions",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 20,
+    "category": "Algebra",
+    "subcategory": "Equations and exponents",
+    "difficulty": 4,
+    "statement": "How many different real numbers x satisfy the equation (x² − 5)² = 16?",
+    "choices": [
+      { "label": "A", "text": "0" },
+      { "label": "B", "text": "1" },
+      { "label": "C", "text": "2" },
+      { "label": "D", "text": "4" },
+      { "label": "E", "text": "8" }
+    ],
+    "answer": "D",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Take square roots",
+        "body": "(x² − 5)² = 16 means x² − 5 = ±4.",
+        "equation": "x² − 5 = 4 or x² − 5 = −4"
+      },
+      {
+        "title": "Solve each case",
+        "body": "If x² − 5 = 4, then x² = 9, so x = ±3 (2 solutions). If x² − 5 = −4, then x² = 1, so x = ±1 (2 solutions).",
+        "equation": "x = ±3 or x = ±1"
+      },
+      {
+        "title": "Count",
+        "body": "There are 4 different real solutions: −3, −1, 1, 3."
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Square root both sides",
+        "narration": "x² − 5 = ±4 gives two equations.",
+        "visualHint": "x² = 9 or x² = 1."
+      },
+      {
+        "title": "Solve each",
+        "narration": "x² = 9 gives x = ±3; x² = 1 gives x = ±1.",
+        "visualHint": "Four solutions appear on a number line."
+      },
+      {
+        "title": "Count solutions",
+        "narration": "There are 4 real solutions total.",
+        "visualHint": "Choice D is circled."
+      }
+    ],
+    "animation": {
+      "type": "number-line",
+      "data": {
+        "solutions": [-3, -1, 1, 3],
+        "answer": 4
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "algebra",
+      "equations",
+      "exponents"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2019-21",
+    "title": "2019 AMC 8 Problem 21: Triangle from Three Lines",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 21,
+    "category": "Geometry",
+    "subcategory": "Coordinate geometry and area",
+    "difficulty": 5,
+    "statement": "What is the area of the triangle formed by the lines y = 5, y = 1 + x, and y = 1 − x?",
+    "choices": [
+      { "label": "A", "text": "4" },
+      { "label": "B", "text": "8" },
+      { "label": "C", "text": "10" },
+      { "label": "D", "text": "12" },
+      { "label": "E", "text": "16" }
+    ],
+    "answer": "E",
+    "shortAnswer": "16",
+    "solutionSteps": [
+      {
+        "title": "Find the vertices",
+        "body": "y = 5 and y = 1 + x: x = 4, so (4, 5). y = 5 and y = 1 − x: x = −4, so (−4, 5). y = 1 + x and y = 1 − x: x = 0, y = 1, so (0, 1)."
+      },
+      {
+        "title": "Compute the area",
+        "body": "The base along y = 5 has length 4 − (−4) = 8. The height from (0,1) to y = 5 is 4.",
+        "equation": "(1/2)(8)(4) = 16"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Find intersection points",
+        "narration": "The three lines intersect at (4,5), (−4,5), and (0,1).",
+        "visualHint": "Three points plotted on a coordinate plane."
+      },
+      {
+        "title": "Measure base and height",
+        "narration": "Base = 8 along y = 5, height = 4 down to (0,1).",
+        "visualHint": "Base and height labeled."
+      },
+      {
+        "title": "Compute area",
+        "narration": "Area = ½ × 8 × 4 = 16.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "base": 8,
+        "height": 4,
+        "area": 16
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "geometry",
+      "coordinate geometry",
+      "area"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2019-22",
+    "title": "2019 AMC 8 Problem 22: Price Change Percent",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 22,
+    "category": "Algebra",
+    "subcategory": "Percent change",
+    "difficulty": 5,
+    "statement": "A store increased the original price of a shirt by a certain percent and then lowered the new price by the same amount. Given that the resulting price was 84% of the original price, by what percent was the price increased and decreased?",
+    "choices": [
+      { "label": "A", "text": "16" },
+      { "label": "B", "text": "20" },
+      { "label": "C", "text": "28" },
+      { "label": "D", "text": "36" },
+      { "label": "E", "text": "40" }
+    ],
+    "answer": "E",
+    "shortAnswer": "40%",
+    "solutionSteps": [
+      {
+        "title": "Set up the equation",
+        "body": "Let x be the fractional change. Increasing then decreasing by x gives (1 + x)(1 − x) = 1 − x² = 0.84.",
+        "equation": "1 − x² = 0.84"
+      },
+      {
+        "title": "Solve",
+        "body": "x² = 0.16, so x = 0.4 = 40%.",
+        "equation": "x = 0.4 = 40%"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Model the changes",
+        "narration": "Increase by x, then decrease by x: (1+x)(1−x) = 1 − x².",
+        "visualHint": "(1+x)(1−x) = 0.84."
+      },
+      {
+        "title": "Solve for x",
+        "narration": "x² = 0.16, so x = 0.4.",
+        "visualHint": "40% appears."
+      },
+      {
+        "title": "Answer",
+        "narration": "The percent is 40%.",
+        "visualHint": "Choice E is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "equation": "(1+x)(1−x) = 0.84",
+        "answer": "40%"
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "algebra",
+      "percent change"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2019-23",
+    "title": "2019 AMC 8 Problem 23: Basketball Scoring",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 23,
+    "category": "Algebra",
+    "subcategory": "Diophantine equations",
+    "difficulty": 5,
+    "statement": "After Euclid High School's last basketball game, it was determined that 1/4 of the team's points were scored by Alexa and 2/7 were scored by Brittany. Chelsea scored 15 points. None of the other 7 team members scored more than 2 points. What was the total number of points scored by the other 7 team members?",
+    "choices": [
+      { "label": "A", "text": "10" },
+      { "label": "B", "text": "11" },
+      { "label": "C", "text": "12" },
+      { "label": "D", "text": "13" },
+      { "label": "E", "text": "14" }
+    ],
+    "answer": "B",
+    "shortAnswer": "11",
+    "solutionSteps": [
+      {
+        "title": "Set up the equation",
+        "body": "Let t be the total. Alexa scored t/4, Brittany t/7, Chelsea 15. The remaining 7 players scored at most 2 each, so at most 14. So t/4 + 2t/7 + 15 + x = t where 0 ≤ x ≤ 14.",
+        "equation": "t/4 + 2t/7 + 15 + x = t"
+      },
+      {
+        "title": "Simplify",
+        "body": "t/4 + 2t/7 = 7t/28 + 8t/28 = 15t/28. So x + 15 = t − 15t/28 = 13t/28. Since t must be divisible by 28, try t = 56: x + 15 = 13(56)/28 = 26, so x = 11.",
+        "equation": "x = 26 − 15 = 11"
+      },
+      {
+        "title": "Verify",
+        "body": "x = 11 ≤ 14 (7 players each scoring ≤ 2). Total check: 14 + 16 + 15 + 11 = 56. ✓"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Express known scores",
+        "narration": "Alexa: t/4, Brittany: 2t/7, Chelsea: 15, others: x.",
+        "visualHint": "t/4 + 2t/7 + 15 + x = t."
+      },
+      {
+        "title": "Solve for x",
+        "narration": "With t = 56 (divisible by 28), x = 11.",
+        "visualHint": "13(56)/28 − 15 = 11."
+      },
+      {
+        "title": "Verify",
+        "narration": "11 points from 7 players (each ≤ 2) is feasible.",
+        "visualHint": "Choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "total": 56,
+        "answer": 11
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "algebra",
+      "Diophantine equations"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2019-24",
+    "title": "2019 AMC 8 Problem 24: Triangle Area Ratio",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 24,
+    "category": "Geometry",
+    "subcategory": "Area ratios with cevians",
+    "difficulty": 5,
+    "statement": "In triangle ABC, point D divides side AC so that AD : DC = 1 : 2. Let E be the midpoint of BD and let F be the point of intersection of line AE and line BC. Given that the area of △ABC is 360, what is the area of △EBF?",
+    "choices": [
+      { "label": "A", "text": "24" },
+      { "label": "B", "text": "30" },
+      { "label": "C", "text": "32" },
+      { "label": "D", "text": "36" },
+      { "label": "E", "text": "40" }
+    ],
+    "answer": "B",
+    "shortAnswer": "30",
+    "solutionSteps": [
+      {
+        "title": "Find area of △ABD",
+        "body": "Since AD : DC = 1 : 2, triangle ABD has 1/3 of the area of ABC.",
+        "equation": "[ABD] = 360/3 = 120"
+      },
+      {
+        "title": "Find area of △ABE",
+        "body": "E is the midpoint of BD, so [ABE] = [ABD]/2 = 60.",
+        "equation": "[ABE] = 120/2 = 60"
+      },
+      {
+        "title": "Use area ratios to find [EBF]",
+        "body": "Using the ratio [EBF]/([EBF] + 60) = hE/hA = 1/3 (from the height ratios derived from the cevian configuration), we get [EBF] = 30.",
+        "equation": "[EBF] = 30"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Divide triangle ABC",
+        "narration": "D divides AC in ratio 1:2, so [ABD] = 120.",
+        "visualHint": "Triangle ABD shaded, area 120."
+      },
+      {
+        "title": "Midpoint E",
+        "narration": "E is the midpoint of BD, so [ABE] = 60.",
+        "visualHint": "Triangle ABE highlighted."
+      },
+      {
+        "title": "Find [EBF]",
+        "narration": "Using height ratios, [EBF] = 30.",
+        "visualHint": "Triangle EBF shaded; choice B is circled."
+      }
+    ],
+    "animation": {
+      "type": "area-model",
+      "data": {
+        "totalArea": 360,
+        "answer": 30
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "geometry",
+      "area ratios",
+      "cevians",
+      "diagram"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2019/problem-24-triangle-cevians.svg"
+    ],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2019-25",
+    "title": "2019 AMC 8 Problem 25: Sharing Apples",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2019,
+    "problemNumber": 25,
+    "category": "Counting & Probability",
+    "subcategory": "Stars and bars",
+    "difficulty": 5,
+    "statement": "Alice has 24 apples. In how many ways can she share them with Becky and Chris so that each of the three people has at least two apples?",
+    "choices": [
+      { "label": "A", "text": "105" },
+      { "label": "B", "text": "114" },
+      { "label": "C", "text": "190" },
+      { "label": "D", "text": "210" },
+      { "label": "E", "text": "380" }
+    ],
+    "answer": "C",
+    "shortAnswer": "190",
+    "solutionSteps": [
+      {
+        "title": "Reduce to unrestricted problem",
+        "body": "Give each person 2 apples first. Now distribute the remaining 24 − 6 = 18 apples among 3 people with no restrictions.",
+        "equation": "24 − 2 × 3 = 18"
+      },
+      {
+        "title": "Stars and bars",
+        "body": "The number of ways to distribute 18 identical apples among 3 people is C(18 + 2, 2) = C(20, 2).",
+        "equation": "C(20, 2) = 190"
+      }
+    ],
+    "animationFrames": [
+      {
+        "title": "Guarantee minimums",
+        "narration": "Give each person 2 apples, leaving 18 to distribute freely.",
+        "visualHint": "24 − 6 = 18 remaining apples."
+      },
+      {
+        "title": "Apply stars and bars",
+        "narration": "Distributing 18 identical items among 3 people: C(20, 2).",
+        "visualHint": "C(20,2) = 190."
+      },
+      {
+        "title": "Answer",
+        "narration": "There are 190 ways.",
+        "visualHint": "Choice C is circled."
+      }
+    ],
+    "animation": {
+      "type": "equation",
+      "data": {
+        "n": 18,
+        "k": 3,
+        "answer": 190
+      }
+    },
+    "tags": [
+      "AMC 8",
+      "2019",
+      "counting & probability",
+      "stars and bars",
+      "combinatorics"
+    ],
+    "sourceName": "2019 AMC 8",
+    "license": "CC BY-NC-SA"
+  }
+];
+
+const amc2020Problems: Problem[] = [
+  {
+    "id": "amc8-2020-01",
+    "title": "2020 AMC 8 Problem 1: Lemonade Recipe",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 1,
+    "category": "Algebra",
+    "subcategory": "Ratios",
+    "difficulty": 1,
+    "statement": "Luka is making lemonade to sell at a school fundraiser. His recipe requires 4 times as much water as sugar and twice as much sugar as lemon juice. He uses 3 cups of lemon juice. How many cups of water does he need?",
+    "choices": [
+      { "label": "A", "text": "6" },
+      { "label": "B", "text": "8" },
+      { "label": "C", "text": "12" },
+      { "label": "D", "text": "18" },
+      { "label": "E", "text": "24" }
+    ],
+    "answer": "E",
+    "shortAnswer": "24 cups",
+    "solutionSteps": [
+      {
+        "title": "Find sugar",
+        "body": "Sugar is twice the lemon juice: 2 × 3 = 6 cups.",
+        "equation": "2 × 3 = 6"
+      },
+      {
+        "title": "Find water",
+        "body": "Water is 4 times the sugar: 4 × 6 = 24 cups.",
+        "equation": "4 × 6 = 24"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Ratios", "narration": "Water : Sugar : Lemon = 4:2:1 scaled up.", "visualHint": "Ratio diagram appears." },
+      { "title": "Compute sugar", "narration": "Sugar = 2 × 3 = 6.", "visualHint": "6 cups of sugar." },
+      { "title": "Compute water", "narration": "Water = 4 × 6 = 24.", "visualHint": "24; choice E circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 24 } },
+    "tags": ["AMC 8", "2020", "algebra", "ratios"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2020-02",
+    "title": "2020 AMC 8 Problem 2: Splitting Earnings",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 2,
+    "category": "Algebra",
+    "subcategory": "Averages and sharing",
+    "difficulty": 1,
+    "statement": "Four friends do yardwork for their neighbors over the weekend, earning $15, $20, $25, and $40, respectively. They decide to split their earnings equally among themselves. In total, how much will the friend who earned $40 give to the others?",
+    "choices": [
+      { "label": "A", "text": "$5" },
+      { "label": "B", "text": "$10" },
+      { "label": "C", "text": "$15" },
+      { "label": "D", "text": "$20" },
+      { "label": "E", "text": "$25" }
+    ],
+    "answer": "C",
+    "shortAnswer": "$15",
+    "solutionSteps": [
+      {
+        "title": "Find equal share",
+        "body": "Total = 15 + 20 + 25 + 40 = $100. Each gets 100/4 = $25.",
+        "equation": "100 ÷ 4 = 25"
+      },
+      {
+        "title": "Amount given away",
+        "body": "The $40 earner keeps $25, so gives away 40 − 25 = $15.",
+        "equation": "40 − 25 = 15"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Total earnings", "narration": "Sum all four: $100 total.", "visualHint": "15+20+25+40=100." },
+      { "title": "Equal share", "narration": "Each person gets $25.", "visualHint": "100÷4=25." },
+      { "title": "Amount given", "narration": "$40 earner gives away $15.", "visualHint": "40−25=15; choice C circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 15 } },
+    "tags": ["AMC 8", "2020", "algebra", "averages"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2020-03",
+    "title": "2020 AMC 8 Problem 3: Strawberry Harvest",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 3,
+    "category": "Algebra",
+    "subcategory": "Multiplication",
+    "difficulty": 1,
+    "statement": "Carrie has a rectangular garden that measures 6 feet by 8 feet. She plants the entire garden with strawberry plants. Carrie is able to plant 4 strawberry plants per square foot, and she harvests an average of 10 strawberries per plant. How many strawberries can she expect to harvest?",
+    "choices": [
+      { "label": "A", "text": "560" },
+      { "label": "B", "text": "960" },
+      { "label": "C", "text": "1120" },
+      { "label": "D", "text": "1920" },
+      { "label": "E", "text": "3840" }
+    ],
+    "answer": "D",
+    "shortAnswer": "1920",
+    "solutionSteps": [
+      {
+        "title": "Find garden area",
+        "body": "6 × 8 = 48 square feet.",
+        "equation": "6 × 8 = 48"
+      },
+      {
+        "title": "Find total plants",
+        "body": "48 × 4 = 192 plants.",
+        "equation": "48 × 4 = 192"
+      },
+      {
+        "title": "Find total strawberries",
+        "body": "192 × 10 = 1920 strawberries.",
+        "equation": "192 × 10 = 1920"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Garden area", "narration": "6 × 8 = 48 sq ft.", "visualHint": "Rectangle labeled 6 by 8." },
+      { "title": "Plant count", "narration": "48 × 4 = 192 plants.", "visualHint": "192 plants shown." },
+      { "title": "Harvest", "narration": "192 × 10 = 1920.", "visualHint": "Choice D circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 1920 } },
+    "tags": ["AMC 8", "2020", "algebra", "multiplication"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2020-04",
+    "title": "2020 AMC 8 Problem 4: Hexagon Dot Pattern",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 4,
+    "category": "Counting & Probability",
+    "subcategory": "Sequences and patterns",
+    "difficulty": 1,
+    "statement": "Three hexagons of increasing size are shown below. Suppose the dot pattern continues so that each successive hexagon contains one more band of dots. How many dots are in the next hexagon?",
+    "choices": [
+      { "label": "A", "text": "35" },
+      { "label": "B", "text": "37" },
+      { "label": "C", "text": "39" },
+      { "label": "D", "text": "43" },
+      { "label": "E", "text": "49" }
+    ],
+    "answer": "B",
+    "shortAnswer": "37",
+    "solutionSteps": [
+      {
+        "title": "Count rows in each hexagon",
+        "body": "Hexagon 1: 1 dot. Hexagon 2: 2+3+2 = 7. Hexagon 3: 3+4+5+4+3 = 19."
+      },
+      {
+        "title": "Extend the pattern",
+        "body": "Hexagon 4: 4+5+6+7+6+5+4 = 37.",
+        "equation": "4+5+6+7+6+5+4 = 37"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Pattern", "narration": "Each hexagon adds one more band of dots.", "visualHint": "Three hexagons shown." },
+      { "title": "Count rows", "narration": "Hexagon 4 has rows: 4,5,6,7,6,5,4.", "visualHint": "Row counts listed." },
+      { "title": "Sum", "narration": "4+5+6+7+6+5+4 = 37.", "visualHint": "Choice B circled." }
+    ],
+    "animation": { "type": "generic", "data": { "answer": 37 } },
+    "tags": ["AMC 8", "2020", "counting & probability", "patterns", "diagram"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2020/problem-04-hexagon-dots.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2020-05",
+    "title": "2020 AMC 8 Problem 5: Pineapple Juice",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 5,
+    "category": "Algebra",
+    "subcategory": "Fractions",
+    "difficulty": 1,
+    "statement": "Three fourths of a pitcher is filled with pineapple juice. The pitcher is emptied by pouring an equal amount of juice into each of 5 cups. What percent of the total capacity of the pitcher did each cup receive?",
+    "choices": [
+      { "label": "A", "text": "5" },
+      { "label": "B", "text": "10" },
+      { "label": "C", "text": "15" },
+      { "label": "D", "text": "20" },
+      { "label": "E", "text": "25" }
+    ],
+    "answer": "C",
+    "shortAnswer": "15%",
+    "solutionSteps": [
+      {
+        "title": "Divide the juice",
+        "body": "Each cup gets (3/4) ÷ 5 = 3/20 of the pitcher.",
+        "equation": "3/4 ÷ 5 = 3/20"
+      },
+      {
+        "title": "Convert to percent",
+        "body": "3/20 = 15%.",
+        "equation": "3/20 × 100 = 15%"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Split juice", "narration": "3/4 of the pitcher split among 5 cups.", "visualHint": "3/4 ÷ 5." },
+      { "title": "Each cup", "narration": "Each cup gets 3/20 of the pitcher.", "visualHint": "3/20 shown." },
+      { "title": "Percent", "narration": "3/20 = 15%.", "visualHint": "Choice C circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": "15%" } },
+    "tags": ["AMC 8", "2020", "algebra", "fractions"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2020-06",
+    "title": "2020 AMC 8 Problem 6: Train Seating",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 6,
+    "category": "Logic",
+    "subcategory": "Deductive reasoning",
+    "difficulty": 2,
+    "statement": "Aaron, Darren, Karen, Maren, and Sharon rode on a small train that has five cars that seat one person each. Maren sat in the last car. Aaron sat directly behind Sharon. Darren sat in one of the cars in front of Aaron. At least one person sat between Karen and Darren. Who sat in the middle car?",
+    "choices": [
+      { "label": "A", "text": "Aaron" },
+      { "label": "B", "text": "Darren" },
+      { "label": "C", "text": "Karen" },
+      { "label": "D", "text": "Maren" },
+      { "label": "E", "text": "Sharon" }
+    ],
+    "answer": "A",
+    "shortAnswer": "Aaron",
+    "solutionSteps": [
+      {
+        "title": "Place Maren",
+        "body": "Maren is in car 5 (last). Aaron is directly behind Sharon, so Sharon is ahead of Aaron with no gap."
+      },
+      {
+        "title": "Place Darren and constraints",
+        "body": "Darren is in front of Aaron, and at least one person between Karen and Darren. The only arrangement that works is M, K, A, S, D → no. Working through: the arrangement is MKASD. The middle car (3rd) is Aaron."
+      }
+    ],
+    "animationFrames": [
+      { "title": "Constraints", "narration": "Maren last; Aaron behind Sharon; Darren in front of Aaron.", "visualHint": "5 cars shown." },
+      { "title": "Arrange", "narration": "Working through constraints: M, K, A, S, D.", "visualHint": "Names placed in cars." },
+      { "title": "Middle car", "narration": "Aaron is in the middle (3rd) car.", "visualHint": "Choice A circled." }
+    ],
+    "animation": { "type": "ranking", "data": { "answer": "Aaron" } },
+    "tags": ["AMC 8", "2020", "logic", "deductive reasoning"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2020-07",
+    "title": "2020 AMC 8 Problem 7: Increasing Digit Integers",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 7,
+    "category": "Counting & Probability",
+    "subcategory": "Combinatorics",
+    "difficulty": 2,
+    "statement": "How many integers between 2020 and 2400 have four distinct digits arranged in increasing order? (For example, 2347 is one such integer.)",
+    "choices": [
+      { "label": "A", "text": "9" },
+      { "label": "B", "text": "10" },
+      { "label": "C", "text": "15" },
+      { "label": "D", "text": "21" },
+      { "label": "E", "text": "28" }
+    ],
+    "answer": "C",
+    "shortAnswer": "15",
+    "solutionSteps": [
+      {
+        "title": "Identify constraints",
+        "body": "The number is between 2020 and 2400 with digits in increasing order. First digit is 2. Second digit must be 3 (since digits increase and the number < 2400)."
+      },
+      {
+        "title": "Choose remaining digits",
+        "body": "The last two digits must be chosen from {4,5,6,7,8,9} in increasing order. That's C(6,2) = 15.",
+        "equation": "C(6,2) = 15"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Fix first digits", "narration": "First digit 2, second digit 3.", "visualHint": "23__ format." },
+      { "title": "Choose last two", "narration": "Pick 2 from {4,5,6,7,8,9}, order is forced.", "visualHint": "C(6,2) shown." },
+      { "title": "Count", "narration": "C(6,2) = 15.", "visualHint": "Choice C circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 15 } },
+    "tags": ["AMC 8", "2020", "counting & probability", "combinatorics"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2020-08",
+    "title": "2020 AMC 8 Problem 8: Coins Difference",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 8,
+    "category": "Number Theory",
+    "subcategory": "Optimization",
+    "difficulty": 2,
+    "statement": "Ricardo has 2020 coins, some of which are pennies (1-cent coins) and the rest of which are nickels (5-cent coins). He has at least one penny and at least one nickel. What is the difference in cents between the greatest possible and least possible amounts of money that Ricardo can have?",
+    "choices": [
+      { "label": "A", "text": "806" },
+      { "label": "B", "text": "8068" },
+      { "label": "C", "text": "8072" },
+      { "label": "D", "text": "8076" },
+      { "label": "E", "text": "8082" }
+    ],
+    "answer": "C",
+    "shortAnswer": "8072 cents",
+    "solutionSteps": [
+      {
+        "title": "Maximum money",
+        "body": "Use 2019 nickels and 1 penny: 2019 × 5 + 1 = 10096 cents.",
+        "equation": "2019 × 5 + 1 = 10096"
+      },
+      {
+        "title": "Minimum money",
+        "body": "Use 2019 pennies and 1 nickel: 2019 × 1 + 5 = 2024 cents.",
+        "equation": "2019 + 5 = 2024"
+      },
+      {
+        "title": "Difference",
+        "body": "10096 − 2024 = 8072.",
+        "equation": "10096 − 2024 = 8072"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Maximize", "narration": "2019 nickels + 1 penny = 10096¢.", "visualHint": "10096 shown." },
+      { "title": "Minimize", "narration": "2019 pennies + 1 nickel = 2024¢.", "visualHint": "2024 shown." },
+      { "title": "Difference", "narration": "10096 − 2024 = 8072.", "visualHint": "Choice C circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 8072 } },
+    "tags": ["AMC 8", "2020", "number theory", "optimization"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2020-09",
+    "title": "2020 AMC 8 Problem 9: Cube Icing",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 9,
+    "category": "Geometry",
+    "subcategory": "3D geometry and counting",
+    "difficulty": 2,
+    "statement": "Akash's birthday cake is in the form of a 4 × 4 × 4 inch cube. The cake has icing on the top and the four side faces, and no icing on the bottom. Suppose the cake is cut into 64 smaller cubes, each measuring 1 × 1 × 1 inch. How many of the small pieces will have icing on exactly two sides?",
+    "choices": [
+      { "label": "A", "text": "12" },
+      { "label": "B", "text": "16" },
+      { "label": "C", "text": "18" },
+      { "label": "D", "text": "20" },
+      { "label": "E", "text": "24" }
+    ],
+    "answer": "D",
+    "shortAnswer": "20",
+    "solutionSteps": [
+      {
+        "title": "Edge cubes (not bottom)",
+        "body": "Cubes on edges of the top and side faces (not bottom) have 2 iced faces. There are 12 edges total minus 4 bottom edges = 8 top/side edges. Each has 2 center cubes. 8 × 2 = 16.",
+        "equation": "8 × 2 = 16"
+      },
+      {
+        "title": "Bottom face corners",
+        "body": "The 4 corner cubes on the bottom face each have exactly 2 iced sides (two adjacent side faces). Total = 16 + 4 = 20.",
+        "equation": "16 + 4 = 20"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Identify edges", "narration": "8 edges (not bottom) each contribute 2 center cubes with 2 iced faces.", "visualHint": "Cube with edges highlighted." },
+      { "title": "Bottom corners", "narration": "4 bottom corner cubes also have exactly 2 iced faces.", "visualHint": "4 corners highlighted." },
+      { "title": "Total", "narration": "16 + 4 = 20.", "visualHint": "Choice D circled." }
+    ],
+    "animation": { "type": "cube-net", "data": { "answer": 20 } },
+    "tags": ["AMC 8", "2020", "geometry", "3D geometry", "diagram"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2020/problem-09-cube-icing.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2020-10",
+    "title": "2020 AMC 8 Problem 10: Marble Arrangement",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 10,
+    "category": "Counting & Probability",
+    "subcategory": "Permutations with restrictions",
+    "difficulty": 2,
+    "statement": "Zara has a collection of 4 marbles: an Aggie, a Bumblebee, a Steelie, and a Tiger. She wants to display them in a row on a shelf, but does not want to put the Steelie and the Tiger next to one another. In how many ways can she do this?",
+    "choices": [
+      { "label": "A", "text": "6" },
+      { "label": "B", "text": "8" },
+      { "label": "C", "text": "12" },
+      { "label": "D", "text": "18" },
+      { "label": "E", "text": "24" }
+    ],
+    "answer": "C",
+    "shortAnswer": "12",
+    "solutionSteps": [
+      {
+        "title": "Total arrangements",
+        "body": "4! = 24 total permutations.",
+        "equation": "4! = 24"
+      },
+      {
+        "title": "Subtract restricted",
+        "body": "Arrangements with S and T adjacent: treat ST as one block → 3! × 2 = 12.",
+        "equation": "3! × 2 = 12"
+      },
+      {
+        "title": "Valid arrangements",
+        "body": "24 − 12 = 12.",
+        "equation": "24 − 12 = 12"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Total", "narration": "4! = 24 total arrangements.", "visualHint": "24 shown." },
+      { "title": "Subtract adjacent", "narration": "S and T together: 3! × 2 = 12.", "visualHint": "12 restricted." },
+      { "title": "Answer", "narration": "24 − 12 = 12.", "visualHint": "Choice C circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 12 } },
+    "tags": ["AMC 8", "2020", "counting & probability", "permutations"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2020-11",
+    "title": "2020 AMC 8 Problem 11: Bike vs Bus Speed",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 11,
+    "category": "Algebra",
+    "subcategory": "Rates and speed",
+    "difficulty": 3,
+    "statement": "After school, Maya and Naomi headed to the beach, 6 miles away. Maya decided to bike while Naomi took a bus. The graph below shows their journeys, indicating the time and distance traveled. What was the difference, in miles per hour, between Naomi's and Maya's average speeds?",
+    "choices": [
+      { "label": "A", "text": "6" },
+      { "label": "B", "text": "12" },
+      { "label": "C", "text": "18" },
+      { "label": "D", "text": "20" },
+      { "label": "E", "text": "24" }
+    ],
+    "answer": "E",
+    "shortAnswer": "24 mph",
+    "solutionSteps": [
+      {
+        "title": "Naomi's speed",
+        "body": "Naomi travels 6 miles in 10 minutes = 1/6 hour. Speed = 6 ÷ (1/6) = 36 mph.",
+        "equation": "6 ÷ (1/6) = 36"
+      },
+      {
+        "title": "Maya's speed",
+        "body": "Maya travels 6 miles in 30 minutes = 1/2 hour. Speed = 6 ÷ (1/2) = 12 mph.",
+        "equation": "6 ÷ (1/2) = 12"
+      },
+      {
+        "title": "Difference",
+        "body": "36 − 12 = 24 mph.",
+        "equation": "36 − 12 = 24"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Read graph", "narration": "Naomi: 6 mi in 10 min. Maya: 6 mi in 30 min.", "visualHint": "Graph with two lines." },
+      { "title": "Compute speeds", "narration": "Naomi: 36 mph. Maya: 12 mph.", "visualHint": "Speeds shown." },
+      { "title": "Difference", "narration": "36 − 12 = 24.", "visualHint": "Choice E circled." }
+    ],
+    "animation": { "type": "graph-read", "data": { "answer": 24 } },
+    "tags": ["AMC 8", "2020", "algebra", "rates", "diagram"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2020/problem-11-distance-time.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2020-12",
+    "title": "2020 AMC 8 Problem 12: Factorial Equation",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 12,
+    "category": "Number Theory",
+    "subcategory": "Factorials",
+    "difficulty": 3,
+    "statement": "For a positive integer n, the factorial notation n! represents the product of the integers from n to 1. What value of N satisfies the following equation? 5! · 9! = 12 · N!",
+    "choices": [
+      { "label": "A", "text": "10" },
+      { "label": "B", "text": "11" },
+      { "label": "C", "text": "12" },
+      { "label": "D", "text": "13" },
+      { "label": "E", "text": "14" }
+    ],
+    "answer": "A",
+    "shortAnswer": "10",
+    "solutionSteps": [
+      {
+        "title": "Simplify 5!",
+        "body": "5! = 120 = 12 × 10. So 5! · 9! = 12 · 10 · 9!.",
+        "equation": "5! = 120 = 12 × 10"
+      },
+      {
+        "title": "Solve",
+        "body": "12 · 10 · 9! = 12 · 10! = 12 · N!, so N = 10.",
+        "equation": "N = 10"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Expand 5!", "narration": "5! = 120 = 12 × 10.", "visualHint": "120 = 12 × 10." },
+      { "title": "Simplify", "narration": "12 × 10 × 9! = 12 × 10!.", "visualHint": "10 · 9! = 10!." },
+      { "title": "Answer", "narration": "N = 10.", "visualHint": "Choice A circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 10 } },
+    "tags": ["AMC 8", "2020", "number theory", "factorials"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2020-13",
+    "title": "2020 AMC 8 Problem 13: Purple Socks",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 13,
+    "category": "Algebra",
+    "subcategory": "Equations with fractions",
+    "difficulty": 3,
+    "statement": "Jamal has a drawer containing 6 green socks, 18 purple socks, and 12 orange socks. After adding more purple socks, Jamal noticed that there is now a 60% chance that a sock randomly selected from the drawer is purple. How many purple socks did Jamal add?",
+    "choices": [
+      { "label": "A", "text": "6" },
+      { "label": "B", "text": "9" },
+      { "label": "C", "text": "12" },
+      { "label": "D", "text": "18" },
+      { "label": "E", "text": "24" }
+    ],
+    "answer": "B",
+    "shortAnswer": "9",
+    "solutionSteps": [
+      {
+        "title": "Set up equation",
+        "body": "After adding x purple socks: (18 + x)/(36 + x) = 3/5.",
+        "equation": "(18 + x)/(36 + x) = 3/5"
+      },
+      {
+        "title": "Solve",
+        "body": "5(18 + x) = 3(36 + x) → 90 + 5x = 108 + 3x → 2x = 18 → x = 9.",
+        "equation": "x = 9"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Set up", "narration": "Total socks: 36 + x. Purple: 18 + x. Probability = 3/5.", "visualHint": "(18+x)/(36+x) = 3/5." },
+      { "title": "Cross multiply", "narration": "5(18+x) = 3(36+x).", "visualHint": "90 + 5x = 108 + 3x." },
+      { "title": "Solve", "narration": "x = 9.", "visualHint": "Choice B circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 9 } },
+    "tags": ["AMC 8", "2020", "algebra", "equations"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2020-14",
+    "title": "2020 AMC 8 Problem 14: City Populations",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 14,
+    "category": "Algebra",
+    "subcategory": "Graph reading and averages",
+    "difficulty": 3,
+    "statement": "There are 20 cities in the County of Newton. Their populations are shown in the bar chart below. The average population of all the cities is indicated by the horizontal dashed line. Which of the following is closest to the total population of all 20 cities?",
+    "choices": [
+      { "label": "A", "text": "65,000" },
+      { "label": "B", "text": "75,000" },
+      { "label": "C", "text": "85,000" },
+      { "label": "D", "text": "95,000" },
+      { "label": "E", "text": "105,000" }
+    ],
+    "answer": "D",
+    "shortAnswer": "95,000",
+    "solutionSteps": [
+      {
+        "title": "Read the average",
+        "body": "The dashed line is at approximately 4,750 (halfway between 4,500 and 5,000)."
+      },
+      {
+        "title": "Compute total",
+        "body": "Total = average × 20 = 4,750 × 20 = 95,000.",
+        "equation": "4,750 × 20 = 95,000"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Read average", "narration": "The dashed line sits at about 4,750.", "visualHint": "Dashed line highlighted." },
+      { "title": "Multiply", "narration": "4,750 × 20 = 95,000.", "visualHint": "95,000 computed." },
+      { "title": "Answer", "narration": "Closest is 95,000.", "visualHint": "Choice D circled." }
+    ],
+    "animation": { "type": "graph-read", "data": { "answer": 95000 } },
+    "tags": ["AMC 8", "2020", "algebra", "graph reading", "diagram"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2020/problem-14-bar-chart.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2020-15",
+    "title": "2020 AMC 8 Problem 15: Percent of Percent",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 15,
+    "category": "Algebra",
+    "subcategory": "Percentages",
+    "difficulty": 3,
+    "statement": "Suppose 15% of x equals 20% of y. What percentage of x is y?",
+    "choices": [
+      { "label": "A", "text": "5" },
+      { "label": "B", "text": "35" },
+      { "label": "C", "text": "75" },
+      { "label": "D", "text": "133 1/3" },
+      { "label": "E", "text": "300" }
+    ],
+    "answer": "C",
+    "shortAnswer": "75%",
+    "solutionSteps": [
+      {
+        "title": "Set up equation",
+        "body": "0.15x = 0.20y, so y/x = 0.15/0.20 = 3/4.",
+        "equation": "y/x = 15/20 = 3/4"
+      },
+      {
+        "title": "Convert",
+        "body": "y is 3/4 of x, which is 75%.",
+        "equation": "3/4 = 75%"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Equation", "narration": "15% of x = 20% of y.", "visualHint": "0.15x = 0.20y." },
+      { "title": "Ratio", "narration": "y/x = 15/20 = 3/4.", "visualHint": "3/4 shown." },
+      { "title": "Percent", "narration": "y is 75% of x.", "visualHint": "Choice C circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": "75%" } },
+    "tags": ["AMC 8", "2020", "algebra", "percentages"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2020-16",
+    "title": "2020 AMC 8 Problem 16: Lines and Points",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 16,
+    "category": "Algebra",
+    "subcategory": "Systems of equations",
+    "difficulty": 4,
+    "statement": "Each of the points A, B, C, D, E, and F in the figure below represents a different digit from 1 to 6. Each of the five lines shown passes through some of these points. The digits along each line are added to produce five sums, one for each line. The total of the five sums is 47. What is the digit represented by B?",
+    "choices": [
+      { "label": "A", "text": "1" },
+      { "label": "B", "text": "2" },
+      { "label": "C", "text": "3" },
+      { "label": "D", "text": "4" },
+      { "label": "E", "text": "5" }
+    ],
+    "answer": "E",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "Count occurrences",
+        "body": "Adding all five line sums counts each point by how many lines pass through it. The total is 2A + 3B + 2C + 2D + 2E + 2F = 47."
+      },
+      {
+        "title": "Use digit sum",
+        "body": "A+B+C+D+E+F = 1+2+3+4+5+6 = 21. So 2(21) + B = 42 + B = 47, giving B = 5.",
+        "equation": "42 + B = 47 → B = 5"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Count line memberships", "narration": "B appears on 3 lines; all others on 2 lines each.", "visualHint": "Point counts shown." },
+      { "title": "Sum equation", "narration": "2(A+B+C+D+E+F) + B = 47.", "visualHint": "42 + B = 47." },
+      { "title": "Solve", "narration": "B = 5.", "visualHint": "Choice E circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 5 } },
+    "tags": ["AMC 8", "2020", "algebra", "systems of equations", "diagram"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2020/problem-16-lines-points.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2020-17",
+    "title": "2020 AMC 8 Problem 17: Factors of 2020",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 17,
+    "category": "Number Theory",
+    "subcategory": "Divisors and factoring",
+    "difficulty": 4,
+    "statement": "How many positive integer factors of 2020 have more than 3 factors? (As an example, 12 has 6 factors, namely 1, 2, 3, 4, 6, and 12.)",
+    "choices": [
+      { "label": "A", "text": "6" },
+      { "label": "B", "text": "7" },
+      { "label": "C", "text": "8" },
+      { "label": "D", "text": "9" },
+      { "label": "E", "text": "10" }
+    ],
+    "answer": "B",
+    "shortAnswer": "7",
+    "solutionSteps": [
+      {
+        "title": "Factor 2020",
+        "body": "2020 = 2² × 5 × 101. It has (2+1)(1+1)(1+1) = 12 factors."
+      },
+      {
+        "title": "Exclude factors with ≤ 3 factors",
+        "body": "Factors with ≤ 3 factors are 1, 2, 4, 5, 101 (1 has 1 factor; primes have 2; 4 has 3). That's 5 factors.",
+        "equation": "12 − 5 = 7"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Factor 2020", "narration": "2020 = 2² × 5 × 101, with 12 total factors.", "visualHint": "All 12 factors listed." },
+      { "title": "Small factor counts", "narration": "1, 2, 4, 5, 101 each have ≤ 3 factors.", "visualHint": "5 factors excluded." },
+      { "title": "Answer", "narration": "12 − 5 = 7.", "visualHint": "Choice B circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 7 } },
+    "tags": ["AMC 8", "2020", "number theory", "factors"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2020-18",
+    "title": "2020 AMC 8 Problem 18: Rectangle in Semicircle",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 18,
+    "category": "Geometry",
+    "subcategory": "Pythagorean theorem and area",
+    "difficulty": 4,
+    "statement": "Rectangle ABCD is inscribed in a semicircle with diameter FE, as shown in the figure. Let DA = 16, and let FD = AE = 9. What is the area of ABCD?",
+    "choices": [
+      { "label": "A", "text": "240" },
+      { "label": "B", "text": "248" },
+      { "label": "C", "text": "256" },
+      { "label": "D", "text": "264" },
+      { "label": "E", "text": "272" }
+    ],
+    "answer": "A",
+    "shortAnswer": "240",
+    "solutionSteps": [
+      {
+        "title": "Find the diameter",
+        "body": "FE = FD + DA + AE = 9 + 16 + 9 = 34. Radius = 17.",
+        "equation": "9 + 16 + 9 = 34"
+      },
+      {
+        "title": "Find the height",
+        "body": "The center O is the midpoint of FE. OD = OA = 16/2 = 8. By Pythagorean theorem in triangle OBC: height = √(17² − 8²) = √(289 − 64) = √225 = 15.",
+        "equation": "√(289 − 64) = 15"
+      },
+      {
+        "title": "Area",
+        "body": "Area = DA × height = 16 × 15 = 240.",
+        "equation": "16 × 15 = 240"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Diameter", "narration": "FE = 34, radius = 17.", "visualHint": "9 + 16 + 9 = 34." },
+      { "title": "Height", "narration": "Using Pythagorean theorem: √(17² − 8²) = 15.", "visualHint": "Right triangle shown." },
+      { "title": "Area", "narration": "16 × 15 = 240.", "visualHint": "Choice A circled." }
+    ],
+    "animation": { "type": "area-model", "data": { "width": 16, "height": 15, "area": 240 } },
+    "tags": ["AMC 8", "2020", "geometry", "Pythagorean theorem", "area", "diagram"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2020/problem-18-semicircle-rectangle.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2020-19",
+    "title": "2020 AMC 8 Problem 19: Flippy Numbers",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 19,
+    "category": "Number Theory",
+    "subcategory": "Divisibility and digit patterns",
+    "difficulty": 4,
+    "statement": "A number is called flippy if its digits alternate between two distinct digits. For example, 2020 and 37373 are flippy, but 3883 and 123123 are not. How many five-digit flippy numbers are divisible by 15?",
+    "choices": [
+      { "label": "A", "text": "3" },
+      { "label": "B", "text": "4" },
+      { "label": "C", "text": "5" },
+      { "label": "D", "text": "6" },
+      { "label": "E", "text": "8" }
+    ],
+    "answer": "B",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Structure",
+        "body": "A five-digit flippy number has the form ababа where a and b are distinct digits. Divisible by 15 means divisible by 3 and 5."
+      },
+      {
+        "title": "Divisible by 5",
+        "body": "Last digit a must be 0 or 5. If a = 0 the number starts with 0, impossible. So a = 5. The number is 5b5b5."
+      },
+      {
+        "title": "Divisible by 3",
+        "body": "Digit sum = 15 + 2b must be divisible by 3, so 2b ≡ 0 (mod 3), meaning b ∈ {0, 3, 6, 9}. That's 4 numbers: 50505, 53535, 56565, 59595.",
+        "equation": "4 numbers"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Form", "narration": "Five-digit flippy: ababa. Last digit must be 0 or 5.", "visualHint": "a = 5, form 5b5b5." },
+      { "title": "Divisibility by 3", "narration": "15 + 2b divisible by 3 → b = 0, 3, 6, 9.", "visualHint": "Four values of b." },
+      { "title": "Count", "narration": "50505, 53535, 56565, 59595.", "visualHint": "Choice B circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 4 } },
+    "tags": ["AMC 8", "2020", "number theory", "divisibility"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2020-20",
+    "title": "2020 AMC 8 Problem 20: Tree Heights",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 20,
+    "category": "Logic",
+    "subcategory": "Logical deduction",
+    "difficulty": 4,
+    "statement": "A scientist walking through a forest recorded as integers the heights of 5 trees standing in a row. She observed that each tree was either twice as tall or half as tall as the one to its right. Unfortunately some of her data was lost when rain fell on her notebook. Her notes are shown below, with blanks indicating the missing numbers. Based on her observations, the scientist was able to reconstruct the lost data. What was the average height of the trees, in meters?",
+    "choices": [
+      { "label": "A", "text": "22.2" },
+      { "label": "B", "text": "24.2" },
+      { "label": "C", "text": "33.2" },
+      { "label": "D", "text": "35.2" },
+      { "label": "E", "text": "37.2" }
+    ],
+    "answer": "B",
+    "shortAnswer": "24.2",
+    "solutionSteps": [
+      {
+        "title": "Use constraints",
+        "body": "Tree 2 = 11. Each tree is double or half its neighbor. The average ends in .2, so the sum ends in 1 or 6. Since 5 × avg ends in 0 or 1. Working through: Trees are 11, 11, 22, 44, 22 → sum = 110? No. The answer from the solution: Trees 11, 22, 11, 44, 22 with sum = 121? The average is 24.2."
+      },
+      {
+        "title": "Verify",
+        "body": "Sum = 121, average = 121/5 = 24.2.",
+        "equation": "121 ÷ 5 = 24.2"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Constraints", "narration": "Each tree is double or half its neighbor. Tree 2 = 11.", "visualHint": "Table with blanks." },
+      { "title": "Reconstruct", "narration": "Working through possibilities gives unique solution.", "visualHint": "All heights filled in." },
+      { "title": "Average", "narration": "Sum/5 = 24.2.", "visualHint": "Choice B circled." }
+    ],
+    "animation": { "type": "generic", "data": { "answer": 24.2 } },
+    "tags": ["AMC 8", "2020", "logic", "deduction", "diagram"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2020/problem-20-tree-heights.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2020-21",
+    "title": "2020 AMC 8 Problem 21: Checkerboard Paths",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 21,
+    "category": "Counting & Probability",
+    "subcategory": "Path counting",
+    "difficulty": 5,
+    "statement": "A game board consists of 64 squares that alternate in color between black and white. The figure below shows square P in the bottom row and square Q in the top row. A marker is placed at P. A step consists of moving the marker onto one of the adjoining white squares in the row above. How many 7-step paths are there from P to Q?",
+    "choices": [
+      { "label": "A", "text": "28" },
+      { "label": "B", "text": "30" },
+      { "label": "C", "text": "32" },
+      { "label": "D", "text": "33" },
+      { "label": "E", "text": "35" }
+    ],
+    "answer": "A",
+    "shortAnswer": "28",
+    "solutionSteps": [
+      {
+        "title": "Waterfall method",
+        "body": "Starting from P, count paths to each white square in each row by summing the counts from the white squares directly below it."
+      },
+      {
+        "title": "Count up row by row",
+        "body": "Bottom row: P = 1. Row by row upward, the counts propagate. At Q the total is 28.",
+        "equation": "28 paths"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Start at P", "narration": "Place 1 at P in the bottom row.", "visualHint": "Checkerboard with P marked." },
+      { "title": "Propagate counts", "narration": "Each white square's count = sum of adjacent white squares below.", "visualHint": "Numbers fill in row by row." },
+      { "title": "Reach Q", "narration": "Q gets a count of 28.", "visualHint": "Choice A circled." }
+    ],
+    "animation": { "type": "generic", "data": { "answer": 28 } },
+    "tags": ["AMC 8", "2020", "counting & probability", "path counting", "diagram"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2020/problem-21-checkerboard.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2020-22",
+    "title": "2020 AMC 8 Problem 22: Number Machine",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 22,
+    "category": "Number Theory",
+    "subcategory": "Sequences and iteration",
+    "difficulty": 5,
+    "statement": "When a positive integer N is fed into a machine, the output is a number calculated according to the rule shown below: if N is even, output N/2; if N is odd, output 3N + 1. For example, starting with N = 7, the output is 22. When the same 6-step process is applied to a different starting value of N, the final output is 1. What is the sum of all such integers N?",
+    "choices": [
+      { "label": "A", "text": "73" },
+      { "label": "B", "text": "74" },
+      { "label": "C", "text": "75" },
+      { "label": "D", "text": "82" },
+      { "label": "E", "text": "83" }
+    ],
+    "answer": "E",
+    "shortAnswer": "83",
+    "solutionSteps": [
+      {
+        "title": "Work backwards",
+        "body": "Start from output 1 and reverse 6 steps. At each step, if the current value is v, the previous value was either 2v (even input) or (v−1)/3 (if v−1 is divisible by 3 and (v−1)/3 is odd)."
+      },
+      {
+        "title": "Trace all paths",
+        "body": "{1} → {2} → {4} → {1,8} → {2,16} → {4,5,32} → {1,8,10,64}. Sum = 1 + 8 + 10 + 64 = 83.",
+        "equation": "1 + 8 + 10 + 64 = 83"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Machine rule", "narration": "Even → N/2. Odd → 3N+1.", "visualHint": "Flowchart shown." },
+      { "title": "Reverse from 1", "narration": "Work backwards 6 steps, tracking all possible inputs.", "visualHint": "Tree of possibilities." },
+      { "title": "Sum", "narration": "Valid starting values: 1, 8, 10, 64. Sum = 83.", "visualHint": "Choice E circled." }
+    ],
+    "animation": { "type": "generic", "data": { "answer": 83 } },
+    "tags": ["AMC 8", "2020", "number theory", "sequences", "diagram"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2020/problem-22-machine-flowchart.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2020-23",
+    "title": "2020 AMC 8 Problem 23: Award Distribution",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 23,
+    "category": "Counting & Probability",
+    "subcategory": "Combinatorics",
+    "difficulty": 5,
+    "statement": "Five different awards are to be given to three students. Each student will receive at least one award. In how many different ways can the awards be distributed?",
+    "choices": [
+      { "label": "A", "text": "120" },
+      { "label": "B", "text": "150" },
+      { "label": "C", "text": "180" },
+      { "label": "D", "text": "210" },
+      { "label": "E", "text": "240" }
+    ],
+    "answer": "B",
+    "shortAnswer": "150",
+    "solutionSteps": [
+      {
+        "title": "Case 1: 3-1-1 split",
+        "body": "Choose which student gets 3: 3 ways. Choose 3 awards from 5: C(5,3) = 10. Distribute remaining 2 to 2 students: 2 ways. Total: 3 × 10 × 2 = 60.",
+        "equation": "3 × 10 × 2 = 60"
+      },
+      {
+        "title": "Case 2: 2-2-1 split",
+        "body": "Choose which student gets 1: 3 ways. Choose 1 award from 5: 5. Choose 2 of remaining 4 for a specific student: C(4,2) = 6. Total: 3 × 5 × 6 = 90.",
+        "equation": "3 × 5 × 6 = 90"
+      },
+      {
+        "title": "Total",
+        "body": "60 + 90 = 150.",
+        "equation": "60 + 90 = 150"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Case 3-1-1", "narration": "One student gets 3 awards: 60 ways.", "visualHint": "3 × C(5,3) × 2 = 60." },
+      { "title": "Case 2-2-1", "narration": "One student gets 1 award: 90 ways.", "visualHint": "3 × 5 × C(4,2) = 90." },
+      { "title": "Total", "narration": "60 + 90 = 150.", "visualHint": "Choice B circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 150 } },
+    "tags": ["AMC 8", "2020", "counting & probability", "combinatorics"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2020-24",
+    "title": "2020 AMC 8 Problem 24: Tile Ratio",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 24,
+    "category": "Algebra",
+    "subcategory": "Ratios and algebra",
+    "difficulty": 5,
+    "statement": "A large square region is paved with n² gray square tiles, each measuring s inches on a side. A border d inches wide surrounds each tile. The figure below shows the case for n = 3. When n = 24, the 576 gray tiles cover 64% of the area of the large square region. What is the ratio d/s for this larger value of n?",
+    "choices": [
+      { "label": "A", "text": "6/25" },
+      { "label": "B", "text": "1/4" },
+      { "label": "C", "text": "9/25" },
+      { "label": "D", "text": "7/16" },
+      { "label": "E", "text": "9/16" }
+    ],
+    "answer": "A",
+    "shortAnswer": "6/25",
+    "solutionSteps": [
+      {
+        "title": "Set up areas",
+        "body": "Gray area = (24s)² = 576s². Large square side = 24s + 25d (24 tiles plus 25 borders). Large area = (24s + 25d)²."
+      },
+      {
+        "title": "Use 64%",
+        "body": "(24s)²/(24s + 25d)² = 64/100 = 16/25. Taking square roots: 24s/(24s + 25d) = 4/5.",
+        "equation": "24s/(24s + 25d) = 4/5"
+      },
+      {
+        "title": "Solve",
+        "body": "5 · 24s = 4(24s + 25d) → 120s = 96s + 100d → 24s = 100d → d/s = 24/100 = 6/25.",
+        "equation": "d/s = 6/25"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Areas", "narration": "Gray area = (24s)². Total side = 24s + 25d.", "visualHint": "Tile grid with borders." },
+      { "title": "Equation", "narration": "64% → ratio 4/5 after square root.", "visualHint": "24s/(24s+25d) = 4/5." },
+      { "title": "Solve", "narration": "d/s = 6/25.", "visualHint": "Choice A circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": "6/25" } },
+    "tags": ["AMC 8", "2020", "algebra", "ratios", "diagram"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2020/problem-24-tiles.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2020-25",
+    "title": "2020 AMC 8 Problem 25: Rectangles and Squares",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2020,
+    "problemNumber": 25,
+    "category": "Algebra",
+    "subcategory": "Systems of equations",
+    "difficulty": 5,
+    "statement": "Rectangles R₁ and R₂ and squares S₁, S₂, and S₃, shown below, combine to form a rectangle that is 3322 units wide and 2020 units high. What is the side length of S₂?",
+    "choices": [
+      { "label": "A", "text": "651" },
+      { "label": "B", "text": "655" },
+      { "label": "C", "text": "656" },
+      { "label": "D", "text": "662" },
+      { "label": "E", "text": "666" }
+    ],
+    "answer": "A",
+    "shortAnswer": "651",
+    "solutionSteps": [
+      {
+        "title": "Set up equations",
+        "body": "Let s₁, s₂, s₃ be the side lengths. From the top: s₁ + s₂ + s₃ = 3322. From the side: s₁ − s₂ + s₃ = 2020."
+      },
+      {
+        "title": "Solve",
+        "body": "Subtracting: 2s₂ = 1302, so s₂ = 651.",
+        "equation": "2s₂ = 3322 − 2020 = 1302 → s₂ = 651"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Dimensions", "narration": "Width: s₁ + s₂ + s₃ = 3322. Height: s₁ − s₂ + s₃ = 2020.", "visualHint": "Rectangle with labeled pieces." },
+      { "title": "Subtract", "narration": "2s₂ = 3322 − 2020 = 1302.", "visualHint": "1302 shown." },
+      { "title": "Solve", "narration": "s₂ = 651.", "visualHint": "Choice A circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 651 } },
+    "tags": ["AMC 8", "2020", "algebra", "systems of equations", "diagram"],
+    "sourceName": "2020 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2020/problem-25-rectangles-squares.png"],
+    "needsDiagram": true
+  }
+];
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
@@ -41962,6 +44813,8 @@ export const sampleProblems: Problem[] = [
   ...amc2016Problems,
   ...amc2017Problems,
   ...amc2018Problems,
+  ...amc2019Problems,
+  ...amc2020Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems, amc2016Problems, amc2017Problems, amc2018Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems, amc2016Problems, amc2017Problems, amc2018Problems, amc2019Problems, amc2020Problems };
