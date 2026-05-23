@@ -1,15 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 420" role="img" aria-label="2017 AMC 8 problem 25 animated rhombus with two circular sectors removed">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" role="img" aria-label="Figure with apex U at top, S left and T right at middle (US equals UT equals 2 with angle TUS equals 60 degrees), and R at the bottom; arcs from S to R and from T to R each curve inward as one-sixth of a circle of radius 2">
+  <rect width="520" height="300" fill="white"/>
 
-<style>
-  svg{font-family:Arial,Helvetica,sans-serif} .line{stroke:#111;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.thin{stroke:#111;stroke-width:2;fill:none}.label{font-size:18px;fill:#111}.small{font-size:14px;fill:#111}.shade{fill:#93a8c9;opacity:.45}.accent{stroke:#f59e0b;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}.pulse{animation:pulse 1.8s ease-in-out infinite}.draw{stroke-dasharray:700;stroke-dashoffset:700;animation:draw 2.5s ease forwards}.fade{opacity:0;animation:fade 1s ease forwards}.f2{animation-delay:.8s}.f3{animation-delay:1.6s}.f4{animation-delay:2.4s}@keyframes draw{to{stroke-dashoffset:0}}@keyframes fade{to{opacity:1}}@keyframes pulse{0%,100%{opacity:.25}50%{opacity:.85}}
-</style>
+  <!-- Boundary: U -> S (straight) -> R (concave arc) -> T (concave arc) -> U -->
+  <path d="M 260,40 L 200,144 A 120,120 0 0,1 260,248 A 120,120 0 0,1 320,144 Z"
+        fill="none" stroke="#111" stroke-width="3" stroke-linejoin="round"/>
 
-<rect width="540" height="420" fill="white"/>
-<g transform="translate(270 215)">
-  <polygon points="0,-150 130,75 0,155 -130,75" fill="#dbeafe" opacity=".55" stroke="#111" stroke-width="3"/>
-  <path d="M-130,75 Q0,15 130,75" fill="none" stroke="#111" stroke-width="3"/>
-  <path d="M-130,75 Q0,130 130,75" fill="none" stroke="#111" stroke-width="3"/>
-  <text x="-8" y="-162" class="label">U</text><text x="-154" y="82" class="label">S</text><text x="139" y="82" class="label">T</text><text x="-8" y="184" class="label">R</text>
-  <text x="-77" y="-44" class="label">2</text><text x="68" y="-44" class="label">2</text><text x="-28" y="-92" class="label">60°</text>
-</g>
+  <!-- Vertex dots -->
+  <g fill="#111">
+    <circle cx="260" cy="40"  r="3"/>
+    <circle cx="200" cy="144" r="3"/>
+    <circle cx="260" cy="248" r="3"/>
+    <circle cx="320" cy="144" r="3"/>
+  </g>
+
+  <!-- Vertex labels -->
+  <g font-family="Georgia, serif" font-size="22" fill="#111">
+    <text x="252" y="32"  text-anchor="end">U</text>
+    <text x="188" y="150" text-anchor="end">S</text>
+    <text x="332" y="150">T</text>
+    <text x="252" y="270" text-anchor="end">R</text>
+  </g>
 </svg>

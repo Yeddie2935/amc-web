@@ -1,34 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" role="img" aria-label="problem-24-cube-cross-section-animated.svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 360" role="img" aria-label="Cube ABCDEFGH drawn in 3D oblique view with body diagonal CE and shaded cross-section rhombus EJCI; J and I are midpoints of edges FB and HD">
+  <rect width="460" height="360" fill="white"/>
 
-<style>
-  .label{font-family:Inter,Arial,sans-serif;font-size:14px;fill:#111827}
-  .small{font-family:Inter,Arial,sans-serif;font-size:11px;fill:#374151}
-  .title{font-family:Inter,Arial,sans-serif;font-size:16px;font-weight:700;fill:#111827}
-  .line{stroke:#111827;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
-  .thin{stroke:#6b7280;stroke-width:1.5;fill:none}
-  .grid{stroke:#d1d5db;stroke-width:1}
-  .shade{fill:#93c5fd;fill-opacity:.35;stroke:#2563eb;stroke-width:2}
-  .pulse{animation:pulse 1.6s ease-in-out infinite alternate;transform-origin:center}
-  .draw{stroke-dasharray:900;stroke-dashoffset:900;animation:draw 2.4s ease forwards}
-  .fade{animation:fade 2s ease-in-out infinite alternate}
-  .pop{animation:pop 1.5s ease-in-out infinite alternate;transform-origin:center}
-  @keyframes draw{to{stroke-dashoffset:0}}
-  @keyframes fade{from{opacity:.25}to{opacity:1}}
-  @keyframes pulse{from{opacity:.35;stroke-width:2}to{opacity:.95;stroke-width:4}}
-  @keyframes pop{from{transform:scale(.96);opacity:.65}to{transform:scale(1.04);opacity:1}}
-</style>
+  <!-- Shaded rhombus EJCI (cross-section) -->
+  <polygon points="272,51 86,170 188,310 374,191" fill="#d1d5db" stroke="none"/>
 
+  <!-- Hidden cube edges (dashed): edges to back-bottom vertex A -->
+  <g stroke="#111" stroke-width="1.8" fill="none" stroke-dasharray="5 4">
+    <line x1="272" y1="51"  x2="265" y2="219"/>  <!-- E - A -->
+    <line x1="265" y1="219" x2="83"  y2="254"/>  <!-- A - B -->
+    <line x1="265" y1="219" x2="370" y2="275"/>  <!-- A - D -->
+  </g>
 
-<rect width="520" height="320" fill="white"/>
-<g transform="translate(130,30)">
-  <polygon points="60,40 210,40 270,100 120,100" fill="#f9fafb" stroke="#111827" stroke-width="2"/>
-  <polygon points="120,100 270,100 270,250 120,250" fill="#f9fafb" stroke="#111827" stroke-width="2"/>
-  <polygon points="60,40 120,100 120,250 60,190" fill="#f9fafb" stroke="#111827" stroke-width="2"/>
-  <line x1="210" y1="40" x2="270" y2="100" class="thin"/><line x1="210" y1="40" x2="210" y2="190" class="thin"/><line x1="210" y1="190" x2="270" y2="250" class="thin"/>
-  <circle cx="165" cy="40" r="4" fill="#111827"/><text x="158" y="30" class="label">E</text>
-  <circle cx="270" cy="100" r="4" fill="#111827"/><text x="277" y="105" class="label">I</text>
-  <circle cx="165" cy="250" r="4" fill="#111827"/><text x="158" y="270" class="label">C</text>
-  <circle cx="60" cy="190" r="4" fill="#111827"/><text x="42" y="195" class="label">J</text>
-</g>
+  <!-- Visible cube edges (solid) -->
+  <g stroke="#111" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="272" y1="51"  x2="90"  y2="86"/>   <!-- E - F -->
+    <line x1="272" y1="51"  x2="377" y2="107"/>  <!-- E - H -->
+    <line x1="90"  y1="86"  x2="195" y2="142"/>  <!-- F - G -->
+    <line x1="195" y1="142" x2="377" y2="107"/>  <!-- G - H -->
+    <line x1="90"  y1="86"  x2="83"  y2="254"/>  <!-- F - B (through J) -->
+    <line x1="377" y1="107" x2="370" y2="275"/>  <!-- H - D (through I) -->
+    <line x1="195" y1="142" x2="188" y2="310"/>  <!-- G - C -->
+    <line x1="83"  y1="254" x2="188" y2="310"/>  <!-- B - C -->
+    <line x1="188" y1="310" x2="370" y2="275"/>  <!-- C - D -->
+  </g>
 
+  <!-- Rhombus outline drawn on top of cube edges -->
+  <polygon points="272,51 86,170 188,310 374,191"
+           fill="none" stroke="#111" stroke-width="2.2" stroke-linejoin="round"/>
+
+  <!-- Vertex dots -->
+  <g fill="#111">
+    <circle cx="272" cy="51"  r="3.5"/>
+    <circle cx="90"  cy="86"  r="3.5"/>
+    <circle cx="195" cy="142" r="3.5"/>
+    <circle cx="377" cy="107" r="3.5"/>
+    <circle cx="86"  cy="170" r="3.5"/>
+    <circle cx="265" cy="219" r="3.5"/>
+    <circle cx="374" cy="191" r="3.5"/>
+    <circle cx="83"  cy="254" r="3.5"/>
+    <circle cx="370" cy="275" r="3.5"/>
+    <circle cx="188" cy="310" r="3.5"/>
+  </g>
+
+  <!-- Labels -->
+  <g font-family="Georgia, serif" font-size="20" fill="#111">
+    <text x="282" y="44">E</text>
+    <text x="78"  y="78"  text-anchor="end">F</text>
+    <text x="180" y="138" text-anchor="end">G</text>
+    <text x="387" y="100">H</text>
+    <text x="76"  y="166" text-anchor="end">J</text>
+    <text x="252" y="225" text-anchor="end">A</text>
+    <text x="384" y="188">I</text>
+    <text x="73"  y="250" text-anchor="end">B</text>
+    <text x="380" y="272">D</text>
+    <text x="178" y="334" text-anchor="end">C</text>
+  </g>
 </svg>
