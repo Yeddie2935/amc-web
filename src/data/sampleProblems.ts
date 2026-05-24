@@ -44793,6 +44793,1181 @@ const amc2020Problems: Problem[] = [
   }
 ];
 
+const amc2022Problems: Problem[] = [
+  {
+    "id": "amc8-2022-01",
+    "title": "2022 AMC 8 Problem 1: Multiplication Logo",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 1,
+    "category": "Geometry",
+    "subcategory": "Area on a grid",
+    "difficulty": 1,
+    "statement": "The Math Team designed a logo shaped like a multiplication symbol, shown below on a grid of 1-inch squares. What is the area of the logo in square inches?",
+    "choices": [
+      { "label": "A", "text": "10" },
+      { "label": "B", "text": "12" },
+      { "label": "C", "text": "13" },
+      { "label": "D", "text": "14" },
+      { "label": "E", "text": "15" }
+    ],
+    "answer": "A",
+    "shortAnswer": "10",
+    "solutionSteps": [
+      {
+        "title": "Count full squares",
+        "body": "There are 4 whole squares inside the logo, contributing 4 square inches.",
+        "equation": "4 × 1 = 4"
+      },
+      {
+        "title": "Count half squares",
+        "body": "There are 12 half-squares along the diagonal edges. Each pair makes one full square: 12 ÷ 2 = 6 square inches.",
+        "equation": "12 ÷ 2 = 6"
+      },
+      {
+        "title": "Add the areas",
+        "body": "Total area = 4 + 6 = 10 square inches.",
+        "equation": "4 + 6 = 10"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "The logo is a multiplication symbol on a grid of 1-inch squares.", "visualHint": "Grid with logo highlighted." },
+      { "title": "Solve", "narration": "Count 4 full squares and 12 half squares (= 6 full).", "visualHint": "Full and half squares colored differently." },
+      { "title": "Check", "narration": "4 + 6 = 10. The answer is (A).", "visualHint": "Total 10; choice A circled." }
+    ],
+    "animation": { "type": "area-model", "data": { "fullSquares": 4, "halfSquares": 12, "total": 10 } },
+    "tags": ["AMC 8", "2022", "geometry", "area on a grid"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2022/problem-01-multiplication-logo.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2022-02",
+    "title": "2022 AMC 8 Problem 2: Diamond Operation",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 2,
+    "category": "Algebra",
+    "subcategory": "Custom operations",
+    "difficulty": 1,
+    "statement": "Consider these two operations: a ◆ b = a² − b² and a ★ b = (a − b)². What is the output of (5 ◆ 3) ★ 6?",
+    "choices": [
+      { "label": "A", "text": "−20" },
+      { "label": "B", "text": "4" },
+      { "label": "C", "text": "16" },
+      { "label": "D", "text": "100" },
+      { "label": "E", "text": "220" }
+    ],
+    "answer": "D",
+    "shortAnswer": "100",
+    "solutionSteps": [
+      {
+        "title": "Compute 5 ◆ 3",
+        "body": "5 ◆ 3 = 5² − 3² = 25 − 9 = 16.",
+        "equation": "25 − 9 = 16"
+      },
+      {
+        "title": "Compute 16 ★ 6",
+        "body": "16 ★ 6 = (16 − 6)² = 10² = 100.",
+        "equation": "(16 − 6)² = 100"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Two custom operations: ◆ gives a² − b², ★ gives (a − b)².", "visualHint": "Definitions shown." },
+      { "title": "Solve", "narration": "First 5 ◆ 3 = 16, then 16 ★ 6 = 100.", "visualHint": "Step-by-step computation." },
+      { "title": "Check", "narration": "The answer is (D) 100.", "visualHint": "100; choice D circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 100 } },
+    "tags": ["AMC 8", "2022", "algebra", "custom operations"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2022-03",
+    "title": "2022 AMC 8 Problem 3: Product of Three Integers",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 3,
+    "category": "Number Theory",
+    "subcategory": "Divisors and factoring",
+    "difficulty": 1,
+    "statement": "When three positive integers a, b, and c are multiplied together, their product is 100. Suppose a < b < c. In how many ways can the numbers be chosen?",
+    "choices": [
+      { "label": "A", "text": "0" },
+      { "label": "B", "text": "1" },
+      { "label": "C", "text": "2" },
+      { "label": "D", "text": "3" },
+      { "label": "E", "text": "4" }
+    ],
+    "answer": "E",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "List divisors of 100",
+        "body": "The positive divisors of 100 are 1, 2, 4, 5, 10, 20, 25, 50, 100.",
+        "equation": "100 = 2² × 5²"
+      },
+      {
+        "title": "Find valid triples",
+        "body": "With a < b < c: (1, 2, 50), (1, 4, 25), (1, 5, 20), (2, 5, 10). That gives 4 ways.",
+        "equation": "4 triples"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Find triples a < b < c with a × b × c = 100.", "visualHint": "abc = 100 displayed." },
+      { "title": "Solve", "narration": "Try each largest factor c and factor 100/c.", "visualHint": "Four valid triples listed." },
+      { "title": "Check", "narration": "There are 4 ways. The answer is (E).", "visualHint": "4; choice E circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 4 } },
+    "tags": ["AMC 8", "2022", "number theory", "divisors"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2022-04",
+    "title": "2022 AMC 8 Problem 4: Letter M Reflections",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 4,
+    "category": "Geometry",
+    "subcategory": "Reflections",
+    "difficulty": 1,
+    "statement": "The letter M in the figure below is first reflected over the line q and then reflected over the line p. What is the resulting image?",
+    "choices": [
+      { "label": "A", "text": "M rotated with legs pointing right" },
+      { "label": "B", "text": "M rotated with legs pointing left" },
+      { "label": "C", "text": "M upright and normal" },
+      { "label": "D", "text": "W (M upside down)" },
+      { "label": "E", "text": "M rotated 180° (upside down and backwards)" }
+    ],
+    "answer": "E",
+    "shortAnswer": "E",
+    "solutionSteps": [
+      {
+        "title": "Reflect over q",
+        "body": "Line q goes through the origin at roughly 45°. Reflecting M over q flips it diagonally.",
+        "equation": ""
+      },
+      {
+        "title": "Reflect over p",
+        "body": "Line p is horizontal. Reflecting the result over p flips it vertically, giving the final image: M rotated 180°.",
+        "equation": ""
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "M is reflected first over line q, then over line p.", "visualHint": "M with two intersecting lines." },
+      { "title": "Solve", "narration": "Two reflections across intersecting lines produce a rotation by twice the angle between them.", "visualHint": "Intermediate and final positions shown." },
+      { "title": "Check", "narration": "The result is answer choice (E).", "visualHint": "Choice E circled." }
+    ],
+    "animation": { "type": "generic", "data": { "answer": "E" } },
+    "tags": ["AMC 8", "2022", "geometry", "reflections"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2022/problem-04-letter-m-reflection.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2022-05",
+    "title": "2022 AMC 8 Problem 5: Birthday Ages",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 5,
+    "category": "Algebra",
+    "subcategory": "Age problems",
+    "difficulty": 1,
+    "statement": "Anna and Bella are celebrating their birthdays together. Five years ago, when Bella turned 6 years old, she received a newborn kitten as a birthday present. Today the sum of the ages of the two children and the kitten is 30 years. How many years older than Bella is Anna?",
+    "choices": [
+      { "label": "A", "text": "1" },
+      { "label": "B", "text": "2" },
+      { "label": "C", "text": "3" },
+      { "label": "D", "text": "4" },
+      { "label": "E", "text": "5" }
+    ],
+    "answer": "C",
+    "shortAnswer": "3 years",
+    "solutionSteps": [
+      {
+        "title": "Find current ages",
+        "body": "Five years ago Bella was 6, so today Bella is 11. The kitten was newborn, so the kitten is 5.",
+        "equation": "Bella = 11, kitten = 5"
+      },
+      {
+        "title": "Find Anna's age",
+        "body": "Anna + 11 + 5 = 30, so Anna = 14.",
+        "equation": "30 − 11 − 5 = 14"
+      },
+      {
+        "title": "Find the difference",
+        "body": "Anna is 14 − 11 = 3 years older than Bella.",
+        "equation": "14 − 11 = 3"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Bella is now 11, kitten is 5, sum of all three ages is 30.", "visualHint": "Ages listed." },
+      { "title": "Solve", "narration": "Anna = 30 − 11 − 5 = 14.", "visualHint": "Subtraction shown." },
+      { "title": "Check", "narration": "14 − 11 = 3. The answer is (C).", "visualHint": "3; choice C circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 3 } },
+    "tags": ["AMC 8", "2022", "algebra", "age problems"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2022-06",
+    "title": "2022 AMC 8 Problem 6: Equally Spaced Integers",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 6,
+    "category": "Algebra",
+    "subcategory": "Linear equations",
+    "difficulty": 2,
+    "statement": "Three positive integers are equally spaced on a number line. The middle number is 15, and the largest number is 4 times the smallest number. What is the smallest of these three numbers?",
+    "choices": [
+      { "label": "A", "text": "4" },
+      { "label": "B", "text": "5" },
+      { "label": "C", "text": "6" },
+      { "label": "D", "text": "7" },
+      { "label": "E", "text": "8" }
+    ],
+    "answer": "C",
+    "shortAnswer": "6",
+    "solutionSteps": [
+      {
+        "title": "Set up equation",
+        "body": "Let the smallest be x. The largest is 4x. Since they are equally spaced with middle 15, the middle is the average: (x + 4x)/2 = 15.",
+        "equation": "5x/2 = 15"
+      },
+      {
+        "title": "Solve",
+        "body": "5x = 30, so x = 6.",
+        "equation": "x = 6"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Three equally spaced integers: x, 15, 4x.", "visualHint": "Number line with three points." },
+      { "title": "Solve", "narration": "Since they're equally spaced, 15 is the average: 5x = 30, x = 6.", "visualHint": "Equation solved." },
+      { "title": "Check", "narration": "6, 15, 24: equally spaced (difference 9) and 24 = 4 × 6. Answer is (C).", "visualHint": "6; choice C circled." }
+    ],
+    "animation": { "type": "number-line", "data": { "points": [6, 15, 24] } },
+    "tags": ["AMC 8", "2022", "algebra", "linear equations"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2022-07",
+    "title": "2022 AMC 8 Problem 7: Download Speed",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 7,
+    "category": "Algebra",
+    "subcategory": "Unit conversion",
+    "difficulty": 2,
+    "statement": "When the World Wide Web first became popular in the 1990s, download speeds reached a maximum of about 56 kilobits per second. Approximately how many minutes would the download of a 4.2-megabyte song have taken at that speed? (Note that there are 8000 kilobits in a megabyte.)",
+    "choices": [
+      { "label": "A", "text": "0.6" },
+      { "label": "B", "text": "10" },
+      { "label": "C", "text": "1800" },
+      { "label": "D", "text": "7200" },
+      { "label": "E", "text": "36000" }
+    ],
+    "answer": "B",
+    "shortAnswer": "10 minutes",
+    "solutionSteps": [
+      {
+        "title": "Convert to kilobits",
+        "body": "4.2 megabytes = 4.2 × 8000 = 33,600 kilobits.",
+        "equation": "4.2 × 8000 = 33600"
+      },
+      {
+        "title": "Find seconds",
+        "body": "33,600 ÷ 56 = 600 seconds.",
+        "equation": "33600 ÷ 56 = 600"
+      },
+      {
+        "title": "Convert to minutes",
+        "body": "600 ÷ 60 = 10 minutes.",
+        "equation": "600 ÷ 60 = 10"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "4.2 MB song at 56 kbps. 1 MB = 8000 kilobits.", "visualHint": "Conversion factors shown." },
+      { "title": "Solve", "narration": "33600 kilobits ÷ 56 kbps = 600 seconds = 10 minutes.", "visualHint": "Step-by-step division." },
+      { "title": "Check", "narration": "The answer is (B) 10.", "visualHint": "10; choice B circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 10 } },
+    "tags": ["AMC 8", "2022", "algebra", "unit conversion"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2022-08",
+    "title": "2022 AMC 8 Problem 8: Telescoping Product",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 8,
+    "category": "Algebra",
+    "subcategory": "Telescoping products",
+    "difficulty": 2,
+    "statement": "What is the value of (1/3) · (2/4) · (3/5) · ⋯ · (18/20) · (19/21) · (20/22)?",
+    "choices": [
+      { "label": "A", "text": "1/462" },
+      { "label": "B", "text": "1/231" },
+      { "label": "C", "text": "1/132" },
+      { "label": "D", "text": "2/213" },
+      { "label": "E", "text": "1/22" }
+    ],
+    "answer": "B",
+    "shortAnswer": "1/231",
+    "solutionSteps": [
+      {
+        "title": "Identify cancellation",
+        "body": "The numerators run from 1 to 20 and the denominators from 3 to 22. Common factors from 3 to 20 cancel.",
+        "equation": "Numerator: 1·2·3·⋯·20, Denominator: 3·4·5·⋯·22"
+      },
+      {
+        "title": "Simplify",
+        "body": "After cancellation: (1 · 2) / (21 · 22) = 2/462 = 1/231.",
+        "equation": "1·2 / (21·22) = 2/462 = 1/231"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Product of fractions k/(k+2) for k = 1 to 20.", "visualHint": "Fractions listed." },
+      { "title": "Solve", "narration": "Factors 3 through 20 cancel, leaving 1·2 in numerator and 21·22 in denominator.", "visualHint": "Cancellation shown." },
+      { "title": "Check", "narration": "2/462 = 1/231. The answer is (B).", "visualHint": "1/231; choice B circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": "1/231" } },
+    "tags": ["AMC 8", "2022", "algebra", "telescoping products"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2022-09",
+    "title": "2022 AMC 8 Problem 9: Cooling Water",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 9,
+    "category": "Algebra",
+    "subcategory": "Exponential decay",
+    "difficulty": 2,
+    "statement": "A cup of boiling water (212°F) is placed to cool in a room whose temperature remains constant at 68°F. Suppose the difference between the water temperature and the room temperature is halved every 5 minutes. What is the water temperature, in degrees Fahrenheit, after 15 minutes?",
+    "choices": [
+      { "label": "A", "text": "77" },
+      { "label": "B", "text": "86" },
+      { "label": "C", "text": "92" },
+      { "label": "D", "text": "98" },
+      { "label": "E", "text": "104" }
+    ],
+    "answer": "B",
+    "shortAnswer": "86°F",
+    "solutionSteps": [
+      {
+        "title": "Initial difference",
+        "body": "212 − 68 = 144°F difference.",
+        "equation": "212 − 68 = 144"
+      },
+      {
+        "title": "Halve three times",
+        "body": "After 5 min: 72. After 10 min: 36. After 15 min: 18.",
+        "equation": "144 → 72 → 36 → 18"
+      },
+      {
+        "title": "Find temperature",
+        "body": "Water temp = 68 + 18 = 86°F.",
+        "equation": "68 + 18 = 86"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Boiling water at 212°F in a 68°F room. Difference halves every 5 minutes.", "visualHint": "Temperature gap shown." },
+      { "title": "Solve", "narration": "After 15 min (3 halvings): 144 → 72 → 36 → 18.", "visualHint": "Halvings shown." },
+      { "title": "Check", "narration": "68 + 18 = 86°F. The answer is (B).", "visualHint": "86; choice B circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 86 } },
+    "tags": ["AMC 8", "2022", "algebra", "exponential decay"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2022-10",
+    "title": "2022 AMC 8 Problem 10: Ling's Hike",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 10,
+    "category": "Algebra",
+    "subcategory": "Distance-time graphs",
+    "difficulty": 2,
+    "statement": "One sunny day, Ling decided to take a hike in the mountains. She left her house at 8 AM, drove at a constant speed of 45 miles per hour, and arrived at the hiking trail at 10 AM. After hiking for 3 hours, Ling drove home at a constant speed of 60 miles per hour. Which of the following graphs best illustrates the distance between Ling's car and her house over the course of her trip?",
+    "choices": [
+      { "label": "A", "text": "Graph A" },
+      { "label": "B", "text": "Graph B" },
+      { "label": "C", "text": "Graph C" },
+      { "label": "D", "text": "Graph D" },
+      { "label": "E", "text": "Graph E" }
+    ],
+    "answer": "E",
+    "shortAnswer": "E",
+    "solutionSteps": [
+      {
+        "title": "Calculate distance",
+        "body": "She drove 2 hours at 45 mph, so 2 × 45 = 90 miles.",
+        "equation": "2 × 45 = 90"
+      },
+      {
+        "title": "Determine graph shape",
+        "body": "Distance increases linearly to 90 miles (8–10 AM), stays at 90 for 3 hours (10 AM–1 PM), then decreases faster (60 mph > 45 mph) back to 0. Return takes 90/60 = 1.5 hours.",
+        "equation": "90 ÷ 60 = 1.5 hours"
+      },
+      {
+        "title": "Match to graph",
+        "body": "Graph E shows: linear increase, flat portion for hiking, then steeper decrease. This matches.",
+        "equation": ""
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Ling drives 90 miles, hikes 3 hours, drives back faster at 60 mph.", "visualHint": "Timeline of events." },
+      { "title": "Solve", "narration": "The return slope must be steeper than the outgoing slope.", "visualHint": "Slopes compared." },
+      { "title": "Check", "narration": "Only graph E has the correct shape. The answer is (E).", "visualHint": "Choice E circled." }
+    ],
+    "animation": { "type": "graph-read", "data": { "answer": "E" } },
+    "tags": ["AMC 8", "2022", "algebra", "distance-time graphs"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2022/problem-10-distance-graphs.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2022-11",
+    "title": "2022 AMC 8 Problem 11: Henry's Pasta",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 11,
+    "category": "Algebra",
+    "subcategory": "Linear equations",
+    "difficulty": 3,
+    "statement": "Henry the donkey has a very long piece of pasta. He takes a number of bites of pasta, each time eating 3 inches of pasta from the middle of one piece. In the end, he has 10 pieces of pasta whose total length is 17 inches. How long, in inches, was the piece of pasta he started with?",
+    "choices": [
+      { "label": "A", "text": "34" },
+      { "label": "B", "text": "38" },
+      { "label": "C", "text": "41" },
+      { "label": "D", "text": "44" },
+      { "label": "E", "text": "47" }
+    ],
+    "answer": "D",
+    "shortAnswer": "44 inches",
+    "solutionSteps": [
+      {
+        "title": "Count bites",
+        "body": "Each bite splits one piece into two, so n bites produce n + 1 pieces. With 10 pieces, he took 9 bites.",
+        "equation": "9 + 1 = 10"
+      },
+      {
+        "title": "Calculate total eaten",
+        "body": "9 bites × 3 inches each = 27 inches eaten.",
+        "equation": "9 × 3 = 27"
+      },
+      {
+        "title": "Find original length",
+        "body": "Original = remaining + eaten = 17 + 27 = 44 inches.",
+        "equation": "17 + 27 = 44"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Each bite removes 3 inches and creates one extra piece.", "visualHint": "Pasta being bitten." },
+      { "title": "Solve", "narration": "9 bites for 10 pieces; total eaten = 27 inches; original = 17 + 27 = 44.", "visualHint": "Calculation shown." },
+      { "title": "Check", "narration": "44 inches. The answer is (D).", "visualHint": "44; choice D circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 44 } },
+    "tags": ["AMC 8", "2022", "algebra", "linear equations"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2022-12",
+    "title": "2022 AMC 8 Problem 12: Spinner Perfect Square",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 12,
+    "category": "Counting & Probability",
+    "subcategory": "Probability with outcomes",
+    "difficulty": 3,
+    "statement": "The arrows on the two spinners shown below are spun. Let the number N equal 10 times the number on Spinner A, added to the number on Spinner B. What is the probability that N is a perfect square number?",
+    "choices": [
+      { "label": "A", "text": "1/16" },
+      { "label": "B", "text": "1/8" },
+      { "label": "C", "text": "1/4" },
+      { "label": "D", "text": "3/8" },
+      { "label": "E", "text": "1/2" }
+    ],
+    "answer": "B",
+    "shortAnswer": "1/8",
+    "solutionSteps": [
+      {
+        "title": "Count total outcomes",
+        "body": "Spinner A has 4 values (5, 6, 7, 8) and Spinner B has 4 values (1, 2, 3, 4). Total = 4 × 4 = 16.",
+        "equation": "4 × 4 = 16"
+      },
+      {
+        "title": "Find perfect squares",
+        "body": "N = 10a + b. Two-digit perfect squares from spinners: 64 (a=6, b=4) and 81 (a=8, b=1). That gives 2 successes.",
+        "equation": "64 = 8², 81 = 9²"
+      },
+      {
+        "title": "Calculate probability",
+        "body": "Probability = 2/16 = 1/8.",
+        "equation": "2/16 = 1/8"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "N = 10 × (Spinner A) + (Spinner B). Find probability N is a perfect square.", "visualHint": "Two spinners shown." },
+      { "title": "Solve", "narration": "16 total outcomes; perfect squares are 64 and 81: 2 favorable.", "visualHint": "Grid of outcomes with squares highlighted." },
+      { "title": "Check", "narration": "2/16 = 1/8. The answer is (B).", "visualHint": "1/8; choice B circled." }
+    ],
+    "animation": { "type": "probability", "data": { "favorable": 2, "total": 16 } },
+    "tags": ["AMC 8", "2022", "counting & probability", "probability"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2022/problem-12-spinners.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2022-13",
+    "title": "2022 AMC 8 Problem 13: Blank in the Sentence",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 13,
+    "category": "Algebra",
+    "subcategory": "Integer constraints",
+    "difficulty": 3,
+    "statement": "How many positive integers can fill the blank in the sentence below? \"One positive integer is ____ more than twice another, and the sum of the two numbers is 28.\"",
+    "choices": [
+      { "label": "A", "text": "6" },
+      { "label": "B", "text": "7" },
+      { "label": "C", "text": "8" },
+      { "label": "D", "text": "9" },
+      { "label": "E", "text": "10" }
+    ],
+    "answer": "D",
+    "shortAnswer": "9",
+    "solutionSteps": [
+      {
+        "title": "Set up equations",
+        "body": "Let the two numbers be m and n with m > n. Then m = 2n + d and m + n = 28.",
+        "equation": "m = 2n + d, m + n = 28"
+      },
+      {
+        "title": "Solve for d",
+        "body": "Substituting: 2n + d + n = 28, so 3n + d = 28, giving d = 28 − 3n. Need d ≥ 1 and n ≥ 1.",
+        "equation": "d = 28 − 3n"
+      },
+      {
+        "title": "Count valid values",
+        "body": "n = 1, 2, ..., 9 each gives a positive d. So there are 9 possible values.",
+        "equation": "n ∈ {1, 2, ..., 9}"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "m = 2n + d, m + n = 28. Find how many positive d work.", "visualHint": "Equations displayed." },
+      { "title": "Solve", "narration": "d = 28 − 3n. For n = 1 to 9, d is positive.", "visualHint": "Values of n and d listed." },
+      { "title": "Check", "narration": "9 values work. The answer is (D).", "visualHint": "9; choice D circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 9 } },
+    "tags": ["AMC 8", "2022", "algebra", "integer constraints"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2022-14",
+    "title": "2022 AMC 8 Problem 14: BEEKEEPER Rearrangement",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 14,
+    "category": "Counting & Probability",
+    "subcategory": "Permutations with restrictions",
+    "difficulty": 3,
+    "statement": "In how many ways can the letters in BEEKEEPER be rearranged so that two or more Es do not appear together?",
+    "choices": [
+      { "label": "A", "text": "1" },
+      { "label": "B", "text": "4" },
+      { "label": "C", "text": "12" },
+      { "label": "D", "text": "24" },
+      { "label": "E", "text": "120" }
+    ],
+    "answer": "D",
+    "shortAnswer": "24",
+    "solutionSteps": [
+      {
+        "title": "Identify the letters",
+        "body": "BEEKEEPER has 5 Es and 4 non-E letters: B, K, P, R.",
+        "equation": "5 E's + B, K, P, R"
+      },
+      {
+        "title": "Place Es to separate them",
+        "body": "To prevent adjacent Es, place them in a pattern: E_E_E_E_E. The 4 blanks must be filled by B, K, P, R.",
+        "equation": "_ E _ E _ E _ E _ E _"
+      },
+      {
+        "title": "Count arrangements",
+        "body": "The 4 non-E letters can go in the 4 required slots in 4! = 24 ways.",
+        "equation": "4! = 24"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "BEEKEEPER has 5 E's. No two E's can be adjacent.", "visualHint": "Letters displayed." },
+      { "title": "Solve", "narration": "Pattern must be E_E_E_E_E with B, K, P, R in the gaps. 4! = 24.", "visualHint": "Pattern shown." },
+      { "title": "Check", "narration": "24 ways. The answer is (D).", "visualHint": "24; choice D circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 24 } },
+    "tags": ["AMC 8", "2022", "counting & probability", "permutations"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2022-15",
+    "title": "2022 AMC 8 Problem 15: Black Pepper Price",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 15,
+    "category": "Algebra",
+    "subcategory": "Rates and ratios",
+    "difficulty": 3,
+    "statement": "Laszlo went online to shop for black pepper and found thirty different black pepper options varying in weight and price, shown in the scatter plot below. In ounces, what is the weight of the pepper that offers the lowest price per ounce?",
+    "choices": [
+      { "label": "A", "text": "1" },
+      { "label": "B", "text": "2" },
+      { "label": "C", "text": "3" },
+      { "label": "D", "text": "4" },
+      { "label": "E", "text": "5" }
+    ],
+    "answer": "C",
+    "shortAnswer": "3 ounces",
+    "solutionSteps": [
+      {
+        "title": "Understand price per ounce",
+        "body": "Price per ounce = price ÷ weight. On the scatter plot, this is the slope from the origin to each point. The lowest slope gives the best deal.",
+        "equation": "price per ounce = price/weight"
+      },
+      {
+        "title": "Find the best point",
+        "body": "The point at approximately (3, 2.5) gives the lowest price-per-ounce ratio among integer-weight points.",
+        "equation": "≈ 2.5/3 ≈ $0.83/oz"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Scatter plot of price vs weight. Find the point with lowest price/weight ratio.", "visualHint": "Scatter plot shown." },
+      { "title": "Solve", "narration": "Draw lines from origin to each integer-weight point. The shallowest line wins.", "visualHint": "Lines drawn from origin." },
+      { "title": "Check", "narration": "The 3-ounce pepper at ~$2.50 has the lowest price per ounce. Answer is (C).", "visualHint": "3; choice C circled." }
+    ],
+    "animation": { "type": "graph-read", "data": { "answer": 3 } },
+    "tags": ["AMC 8", "2022", "algebra", "rates and ratios"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2022/problem-15-scatter-plot.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2022-16",
+    "title": "2022 AMC 8 Problem 16: Four Number Averages",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 16,
+    "category": "Algebra",
+    "subcategory": "Averages",
+    "difficulty": 4,
+    "statement": "Four numbers are written in a row. The average of the first two is 21, the average of the middle two is 26, and the average of the last two is 30. What is the average of the first and last of the numbers?",
+    "choices": [
+      { "label": "A", "text": "24" },
+      { "label": "B", "text": "25" },
+      { "label": "C", "text": "26" },
+      { "label": "D", "text": "27" },
+      { "label": "E", "text": "28" }
+    ],
+    "answer": "B",
+    "shortAnswer": "25",
+    "solutionSteps": [
+      {
+        "title": "Convert to sums",
+        "body": "First two sum to 42, middle two sum to 52, last two sum to 60.",
+        "equation": "a+b=42, b+c=52, c+d=60"
+      },
+      {
+        "title": "Find total and first+last",
+        "body": "Sum of all four = (a+b) + (c+d) = 42 + 60 = 102. Sum of first and last = 102 − 52 = 50.",
+        "equation": "a + d = 102 − 52 = 50"
+      },
+      {
+        "title": "Find average",
+        "body": "Average of first and last = 50 ÷ 2 = 25.",
+        "equation": "50 ÷ 2 = 25"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Three overlapping pairs with known averages: 21, 26, 30.", "visualHint": "Four numbers with brackets." },
+      { "title": "Solve", "narration": "Sums: 42, 52, 60. Total = 42 + 60 = 102. First + last = 102 − 52 = 50.", "visualHint": "Algebra shown." },
+      { "title": "Check", "narration": "Average = 50/2 = 25. The answer is (B).", "visualHint": "25; choice B circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 25 } },
+    "tags": ["AMC 8", "2022", "algebra", "averages"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2022-17",
+    "title": "2022 AMC 8 Problem 17: Double Factorial Sum",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 17,
+    "category": "Number Theory",
+    "subcategory": "Units digit",
+    "difficulty": 4,
+    "statement": "If n is an even positive integer, the double factorial notation n!! represents the product of all the even integers from 2 to n. For example, 8!! = 2 · 4 · 6 · 8. What is the units digit of the following sum? 2!! + 4!! + 6!! + ⋯ + 2018!! + 2020!! + 2022!!",
+    "choices": [
+      { "label": "A", "text": "0" },
+      { "label": "B", "text": "2" },
+      { "label": "C", "text": "4" },
+      { "label": "D", "text": "6" },
+      { "label": "E", "text": "8" }
+    ],
+    "answer": "B",
+    "shortAnswer": "2",
+    "solutionSteps": [
+      {
+        "title": "Find when units digit becomes 0",
+        "body": "Once n ≥ 10, n!! contains a factor of 10 (from 2 × 4 × 6 × 8 × 10), so the units digit is 0.",
+        "equation": "10!! = 2·4·6·8·10 → units digit 0"
+      },
+      {
+        "title": "Compute small terms",
+        "body": "2!! = 2, 4!! = 8, 6!! = 48, 8!! = 384. Sum of units digits: 2 + 8 + 8 + 4 = 22.",
+        "equation": "2 + 8 + 48 + 384"
+      },
+      {
+        "title": "Find final units digit",
+        "body": "Units digit of 22 is 2.",
+        "equation": "units digit = 2"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Sum of n!! for even n from 2 to 2022. Need units digit.", "visualHint": "Sum displayed." },
+      { "title": "Solve", "narration": "For n ≥ 10, n!! ends in 0. Only 2!!+4!!+6!!+8!! contribute: units 2+8+8+4 = 22.", "visualHint": "Small terms computed." },
+      { "title": "Check", "narration": "Units digit is 2. The answer is (B).", "visualHint": "2; choice B circled." }
+    ],
+    "animation": { "type": "equation", "data": { "answer": 2 } },
+    "tags": ["AMC 8", "2022", "number theory", "units digit"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2022-18",
+    "title": "2022 AMC 8 Problem 18: Rectangle from Midpoints",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 18,
+    "category": "Geometry",
+    "subcategory": "Coordinate geometry",
+    "difficulty": 4,
+    "statement": "The midpoints of the four sides of a rectangle are (−3, 0), (2, 0), (5, 4), and (0, 4). What is the area of the rectangle?",
+    "choices": [
+      { "label": "A", "text": "20" },
+      { "label": "B", "text": "25" },
+      { "label": "C", "text": "40" },
+      { "label": "D", "text": "50" },
+      { "label": "E", "text": "80" }
+    ],
+    "answer": "C",
+    "shortAnswer": "40",
+    "solutionSteps": [
+      {
+        "title": "Recognize the rhombus",
+        "body": "The midpoints of a rectangle form a rhombus whose area is half the rectangle's area. The diagonals of this rhombus equal the sides of the rectangle.",
+        "equation": ""
+      },
+      {
+        "title": "Find diagonal lengths",
+        "body": "Diagonal 1: from (−3,0) to (5,4) has length √(64+16) = √80 = 4√5. Diagonal 2: from (2,0) to (0,4) has length √(4+16) = √20 = 2√5.",
+        "equation": "AC = 4√5, BD = 2√5"
+      },
+      {
+        "title": "Compute rectangle area",
+        "body": "The rectangle dimensions are 4√5 and 2√5, so area = 4√5 × 2√5 = 40.",
+        "equation": "4√5 × 2√5 = 40"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Four midpoints form a rhombus. Its diagonals are the rectangle's sides.", "visualHint": "Points plotted." },
+      { "title": "Solve", "narration": "Diagonals: 4√5 and 2√5. Rectangle area = 4√5 × 2√5 = 40.", "visualHint": "Distance formula shown." },
+      { "title": "Check", "narration": "Area = 40. The answer is (C).", "visualHint": "40; choice C circled." }
+    ],
+    "animation": { "type": "area-model", "data": { "answer": 40 } },
+    "tags": ["AMC 8", "2022", "geometry", "coordinate geometry"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2022-19",
+    "title": "2022 AMC 8 Problem 19: Regraded Test Scores",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 19,
+    "category": "Algebra",
+    "subcategory": "Median",
+    "difficulty": 4,
+    "statement": "Mr. Ramos gave a test to his class of 20 students. The dot plot below shows the distribution of test scores. Later Mr. Ramos discovered that there was a scoring error on one of the questions. He regraded the tests, awarding some of the students 5 extra points, which increased the median test score to 85. What is the minimum number of students who received extra points? (Note that the median test score equals the average of the 2 scores in the middle if the 20 test scores are arranged in increasing order.)",
+    "choices": [
+      { "label": "A", "text": "2" },
+      { "label": "B", "text": "3" },
+      { "label": "C", "text": "4" },
+      { "label": "D", "text": "5" },
+      { "label": "E", "text": "6" }
+    ],
+    "answer": "C",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Read the dot plot",
+        "body": "From the dot plot: 65(1), 70(1), 75(2), 80(4), 85(4), 90(3), 95(1), 100(1). There are 13 students at or below 80, and only 5 at or above 90.",
+        "equation": ""
+      },
+      {
+        "title": "Find current median",
+        "body": "With 20 students, the median is the average of the 10th and 11th scores. Currently the 10th and 11th scores are both 80, so the median is 80.",
+        "equation": ""
+      },
+      {
+        "title": "Determine minimum regrading",
+        "body": "To raise the median to 85, we need the 10th score ≥ 85. Currently 8 students score below 80. The 9th through 12th students score 80. We need to boost 4 of them to 85 so the 10th score becomes 85.",
+        "equation": "minimum = 4"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "20 students, adding 5 points to some to raise median to 85.", "visualHint": "Dot plot shown." },
+      { "title": "Solve", "narration": "Need 10th and 11th scores to average 85. Must boost 4 students from 80 to 85.", "visualHint": "Students shifted on dot plot." },
+      { "title": "Check", "narration": "Minimum is 4. The answer is (C).", "visualHint": "4; choice C circled." }
+    ],
+    "animation": { "type": "bar-model", "data": { "answer": 4 } },
+    "tags": ["AMC 8", "2022", "algebra", "median"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2022/problem-19-dot-plot.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2022-20",
+    "title": "2022 AMC 8 Problem 20: Magic Grid",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 20,
+    "category": "Algebra",
+    "subcategory": "Systems of equations",
+    "difficulty": 4,
+    "statement": "The grid below is to be filled with integers in such a way that the sum of the numbers in each row and the sum of the numbers in each column are the same. Four numbers are missing. The number x in the lower left corner is larger than the other three missing numbers. What is the smallest possible value of x?",
+    "choices": [
+      { "label": "A", "text": "−1" },
+      { "label": "B", "text": "5" },
+      { "label": "C", "text": "6" },
+      { "label": "D", "text": "8" },
+      { "label": "E", "text": "9" }
+    ],
+    "answer": "D",
+    "shortAnswer": "8",
+    "solutionSteps": [
+      {
+        "title": "Set up the grid",
+        "body": "The grid has: Row 1: −2, 9, 5; Row 2: ?, ?, −1; Row 3: x, ?, 8. All row sums and column sums must be equal.",
+        "equation": "Row 1 sum = −2 + 9 + 5 = 12"
+      },
+      {
+        "title": "Find missing values",
+        "body": "Let y be the lower middle value. Column 1: −2 + a + x = 12, Column 3: 5 + (−1) + 8 = 12. Row 3: x + y + 8 = 12, so y = 4 − x. Column 2: 9 + b + y = 12.",
+        "equation": "Common sum = 12"
+      },
+      {
+        "title": "Apply constraint x > others",
+        "body": "From the equations: a = 14 − x, b = x − 1, y = 4 − x. Need x > 14 − x, x > x − 1, x > 4 − x. The binding constraint is x > 14 − x, so x > 7. Smallest integer is x = 8.",
+        "equation": "x > 7 → x = 8"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "3×3 grid with equal row/column sums. Known: −2, 9, 5, −1, 8, x.", "visualHint": "Grid displayed." },
+      { "title": "Solve", "narration": "Row 1 sums to 12. Express unknowns in terms of x. x must exceed all three others: x > 7.", "visualHint": "Inequalities shown." },
+      { "title": "Check", "narration": "Smallest x = 8. The answer is (D).", "visualHint": "8; choice D circled." }
+    ],
+    "animation": { "type": "generic", "data": { "answer": 8 } },
+    "tags": ["AMC 8", "2022", "algebra", "systems of equations"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2022/problem-20-magic-grid.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2022-21",
+    "title": "2022 AMC 8 Problem 21: Simpson's Paradox",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 21,
+    "category": "Counting & Probability",
+    "subcategory": "Inequalities and fractions",
+    "difficulty": 5,
+    "statement": "Steph scored 15 baskets out of 20 attempts in the first half of a game, and 10 baskets out of 10 attempts in the second half. Candace took 12 attempts in the first half and 18 attempts in the second. In each half, Steph scored a higher percentage of baskets than Candace. Surprisingly they ended with the same overall percentage of baskets scored. How many more baskets did Candace score in the second half than in the first?",
+    "choices": [
+      { "label": "A", "text": "7" },
+      { "label": "B", "text": "8" },
+      { "label": "C", "text": "9" },
+      { "label": "D", "text": "10" },
+      { "label": "E", "text": "11" }
+    ],
+    "answer": "C",
+    "shortAnswer": "9",
+    "solutionSteps": [
+      {
+        "title": "Set up equations",
+        "body": "Let x = Candace's first-half baskets, y = second-half baskets. Same total attempts: 12 + 18 = 30 = 20 + 10. Same overall percentage: x + y = 15 + 10 = 25.",
+        "equation": "x + y = 25"
+      },
+      {
+        "title": "Apply percentage constraints",
+        "body": "First half: x/12 < 15/20 = 3/4, so x < 9. Second half: y/18 < 10/10 = 1, so y < 18. With x + y = 25: x ≤ 8 and y ≥ 17.",
+        "equation": "x < 9, y < 18"
+      },
+      {
+        "title": "Find the answer",
+        "body": "The only solution is x = 8, y = 17. Difference = 17 − 8 = 9.",
+        "equation": "17 − 8 = 9"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Simpson's paradox: Steph beats Candace in each half but ties overall.", "visualHint": "Table of attempts and baskets." },
+      { "title": "Solve", "narration": "x + y = 25, x < 9, y < 18. Only solution: (8, 17).", "visualHint": "Constraints narrowed." },
+      { "title": "Check", "narration": "17 − 8 = 9. The answer is (C).", "visualHint": "9; choice C circled." }
+    ],
+    "animation": { "type": "bar-model", "data": { "answer": 9 } },
+    "tags": ["AMC 8", "2022", "counting & probability", "inequalities"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2022/problem-21-basketball-table.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2022-22",
+    "title": "2022 AMC 8 Problem 22: Bus and Zia",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 22,
+    "category": "Logic",
+    "subcategory": "Scheduling and simulation",
+    "difficulty": 5,
+    "statement": "A bus takes 2 minutes to drive from one stop to the next, and waits 1 minute at each stop to let passengers board. Zia takes 5 minutes to walk from one bus stop to the next. As Zia reaches a bus stop, if the bus is at the previous stop or has already left the previous stop, then she will wait for the bus. Otherwise she will start walking toward the next stop. Suppose the bus and Zia start at the same time toward the library, with the bus 3 stops behind. After how many minutes will Zia board the bus?",
+    "choices": [
+      { "label": "A", "text": "17" },
+      { "label": "B", "text": "19" },
+      { "label": "C", "text": "20" },
+      { "label": "D", "text": "21" },
+      { "label": "E", "text": "23" }
+    ],
+    "answer": "A",
+    "shortAnswer": "17 minutes",
+    "solutionSteps": [
+      {
+        "title": "Track positions",
+        "body": "Bus moves one stop every 3 minutes (2 min driving + 1 min waiting). Zia walks one stop every 5 minutes. Bus starts 3 stops behind.",
+        "equation": "Bus: 3 min/stop, Zia: 5 min/stop"
+      },
+      {
+        "title": "Simulate 5-minute intervals",
+        "body": "At t=5: Bus at stop 2 (waiting), Zia at stop 4. At t=10: Bus between stops 3 and 4, Zia at stop 5. At t=15: Bus at stop 5 (leaving), Zia at stop 6. Zia sees bus at previous stop, so she waits.",
+        "equation": ""
+      },
+      {
+        "title": "Find boarding time",
+        "body": "Zia waits at stop 6. Bus arrives at stop 6 at t = 17. Total: 17 minutes.",
+        "equation": "15 + 2 = 17"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Bus goes 1 stop every 3 min, Zia walks 1 stop every 5 min, bus starts 3 stops back.", "visualHint": "Number line with bus and Zia." },
+      { "title": "Solve", "narration": "Simulate: at t=15, Zia waits at stop 6 because bus is at stop 5. Bus arrives at 17.", "visualHint": "Table of positions." },
+      { "title": "Check", "narration": "17 minutes. The answer is (A).", "visualHint": "17; choice A circled." }
+    ],
+    "animation": { "type": "number-line", "data": { "answer": 17 } },
+    "tags": ["AMC 8", "2022", "logic", "scheduling"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2022/problem-22-bus-stops.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2022-23",
+    "title": "2022 AMC 8 Problem 23: Triangle and Circle Grid",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 23,
+    "category": "Counting & Probability",
+    "subcategory": "Inclusion-exclusion",
+    "difficulty": 5,
+    "statement": "A △ or ○ is placed in each of the nine squares in a 3-by-3 grid. Shown below is a sample configuration with three △s in a line. How many configurations will have three △s in a line and three ○s in a line?",
+    "choices": [
+      { "label": "A", "text": "39" },
+      { "label": "B", "text": "42" },
+      { "label": "C", "text": "78" },
+      { "label": "D", "text": "84" },
+      { "label": "E", "text": "96" }
+    ],
+    "answer": "D",
+    "shortAnswer": "84",
+    "solutionSteps": [
+      {
+        "title": "Count by columns",
+        "body": "Consider cases where identical symbols fill a column. There are 3 ways to choose a column of all △s and 2 ways for a column of all ○s (from remaining). The third column can be filled in 2³ = 8 ways.",
+        "equation": "3 × 2 × 8 = 48"
+      },
+      {
+        "title": "Subtract overcounting",
+        "body": "We overcounted cases with all 3 columns uniform (one symbol per column). There are 2 × 3 = 6 such cases.",
+        "equation": "48 − 6 = 42"
+      },
+      {
+        "title": "Double for rows",
+        "body": "The same count applies for rows. By symmetry, double the answer: 42 × 2 = 84.",
+        "equation": "42 × 2 = 84"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "3×3 grid with △ and ○. Need three-in-a-line for both symbols.", "visualHint": "Sample grid shown." },
+      { "title": "Solve", "narration": "Columns: 3×2×8 − 6 = 42. By symmetry for rows, double to 84.", "visualHint": "Counting illustrated." },
+      { "title": "Check", "narration": "84 configurations. The answer is (D).", "visualHint": "84; choice D circled." }
+    ],
+    "animation": { "type": "generic", "data": { "answer": 84 } },
+    "tags": ["AMC 8", "2022", "counting & probability", "inclusion-exclusion"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2022/problem-23-triangle-circle-grid.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2022-24",
+    "title": "2022 AMC 8 Problem 24: Triangular Prism Net",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 24,
+    "category": "Geometry",
+    "subcategory": "3D geometry and nets",
+    "difficulty": 5,
+    "statement": "The figure below shows a polygon ABCDEFGH, consisting of rectangles and right triangles. When cut out and folded on the dotted lines, the polygon forms a triangular prism. Suppose that AH = EF = 8 and GH = 14. What is the volume of the prism?",
+    "choices": [
+      { "label": "A", "text": "112" },
+      { "label": "B", "text": "128" },
+      { "label": "C", "text": "192" },
+      { "label": "D", "text": "240" },
+      { "label": "E", "text": "288" }
+    ],
+    "answer": "C",
+    "shortAnswer": "192",
+    "solutionSteps": [
+      {
+        "title": "Identify edges from folding",
+        "body": "When folded: AB goes on BC, AH goes on CI, and EF goes on FG. So BJ = CI = 8 and FG = BC = 8. Also HJ = 8 (parallel to FG).",
+        "equation": "BJ = CI = FG = BC = 8"
+      },
+      {
+        "title": "Find triangle dimensions",
+        "body": "GH = 14, HJ = 8, so JG = 14 − 8 = 6. Triangle BJG has legs BJ = 8 and JG = 6.",
+        "equation": "JG = 14 − 8 = 6"
+      },
+      {
+        "title": "Compute volume",
+        "body": "Area of triangle BJG = (8 × 6)/2 = 24. Height of prism = FG = 8. Volume = 24 × 8 = 192.",
+        "equation": "24 × 8 = 192"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Polygon folds into a triangular prism. AH = EF = 8, GH = 14.", "visualHint": "Net with labeled edges." },
+      { "title": "Solve", "narration": "Triangle base has legs 8 and 6, area = 24. Prism height = 8. V = 192.", "visualHint": "Prism assembled." },
+      { "title": "Check", "narration": "Volume = 192. The answer is (C).", "visualHint": "192; choice C circled." }
+    ],
+    "animation": { "type": "cube-net", "data": { "answer": 192 } },
+    "tags": ["AMC 8", "2022", "geometry", "3D geometry"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2022/problem-24-triangular-prism-net.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2022-25",
+    "title": "2022 AMC 8 Problem 25: Cricket on Leaves",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2022,
+    "problemNumber": 25,
+    "category": "Counting & Probability",
+    "subcategory": "Markov chains",
+    "difficulty": 5,
+    "statement": "A cricket randomly hops between 4 leaves, on each turn hopping to one of the other 3 leaves with equal probability. After 4 hops what is the probability that the cricket has returned to the leaf where it started?",
+    "choices": [
+      { "label": "A", "text": "2/9" },
+      { "label": "B", "text": "19/80" },
+      { "label": "C", "text": "20/81" },
+      { "label": "D", "text": "1/4" },
+      { "label": "E", "text": "7/27" }
+    ],
+    "answer": "E",
+    "shortAnswer": "7/27",
+    "solutionSteps": [
+      {
+        "title": "Define states",
+        "body": "Let A be the starting leaf and B be the group of 3 other leaves. From A, the cricket always goes to B (probability 1). From B, it goes to A with probability 1/3 or stays in B with probability 2/3.",
+        "equation": "P(A→B) = 1, P(B→A) = 1/3"
+      },
+      {
+        "title": "Case 1: A→B→A→B→A",
+        "body": "Probability = 1 · (1/3) · 1 · (1/3) = 1/9.",
+        "equation": "1/9"
+      },
+      {
+        "title": "Case 2: A→B→B→B→A",
+        "body": "Probability = 1 · (2/3) · (2/3) · (1/3) = 4/27.",
+        "equation": "4/27"
+      },
+      {
+        "title": "Total probability",
+        "body": "1/9 + 4/27 = 3/27 + 4/27 = 7/27.",
+        "equation": "1/9 + 4/27 = 7/27"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Cricket on 4 leaves, hops randomly. After 4 hops, find P(return to start).", "visualHint": "4 leaves shown." },
+      { "title": "Solve", "narration": "Two paths back: ABABA (1/9) and ABBBA (4/27). Total = 7/27.", "visualHint": "Tree diagram of paths." },
+      { "title": "Check", "narration": "7/27. The answer is (E).", "visualHint": "7/27; choice E circled." }
+    ],
+    "animation": { "type": "probability", "data": { "answer": "7/27" } },
+    "tags": ["AMC 8", "2022", "counting & probability", "markov chains"],
+    "sourceName": "2022 AMC 8",
+    "license": "CC BY-NC-SA"
+  }
+];
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
@@ -44815,6 +45990,7 @@ export const sampleProblems: Problem[] = [
   ...amc2018Problems,
   ...amc2019Problems,
   ...amc2020Problems,
+  ...amc2022Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems, amc2016Problems, amc2017Problems, amc2018Problems, amc2019Problems, amc2020Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems, amc2016Problems, amc2017Problems, amc2018Problems, amc2019Problems, amc2020Problems, amc2022Problems };
