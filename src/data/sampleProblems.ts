@@ -45967,6 +45967,1211 @@ const amc2022Problems: Problem[] = [
     "license": "CC BY-NC-SA"
   }
 ];
+const amc2023Problems: Problem[] = [
+  {
+    "id": "amc8-2023-01",
+    "title": "2023 AMC 8 Problem 1: Order of Operations",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 1,
+    "category": "Algebra",
+    "subcategory": "Order of operations",
+    "difficulty": 1,
+    "statement": "What is the value of (8 × 4 + 2) − (8 + 4 × 2)?",
+    "choices": [
+      { "label": "A", "text": "0" },
+      { "label": "B", "text": "6" },
+      { "label": "C", "text": "10" },
+      { "label": "D", "text": "18" },
+      { "label": "E", "text": "24" }
+    ],
+    "answer": "D",
+    "shortAnswer": "18",
+    "solutionSteps": [
+      {
+        "title": "Evaluate the first expression",
+        "body": "Apply order of operations: multiply first, then add.",
+        "equation": "8 × 4 + 2 = 32 + 2 = 34"
+      },
+      {
+        "title": "Evaluate the second expression",
+        "body": "Again, multiply first, then add.",
+        "equation": "8 + 4 × 2 = 8 + 8 = 16"
+      },
+      {
+        "title": "Subtract",
+        "body": "Find the difference.",
+        "equation": "34 − 16 = 18"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "We need to evaluate (8×4+2) − (8+4×2) using order of operations.", "visualHint": "Expression displayed with parentheses." },
+      { "title": "Solve", "narration": "First part: 8×4+2 = 34. Second part: 8+4×2 = 16. Difference: 34−16 = 18.", "visualHint": "Both parts computed step by step." },
+      { "title": "Check", "narration": "The answer is 18, choice (D).", "visualHint": "Final answer 18 highlighted." }
+    ],
+    "animation": { "type": "equation", "data": { "left": "34", "right": "16", "result": "18" } },
+    "tags": ["AMC 8", "2023", "algebra", "order of operations"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2023-02",
+    "title": "2023 AMC 8 Problem 2: Paper Folding and Cutting",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 2,
+    "category": "Geometry",
+    "subcategory": "Spatial reasoning",
+    "difficulty": 1,
+    "statement": "A square piece of paper is folded twice into four equal quarters, as shown below, then cut along the dashed line. When unfolded, the paper will match which of the following figures?",
+    "choices": [
+      { "label": "A", "text": "(see diagram)" },
+      { "label": "B", "text": "(see diagram)" },
+      { "label": "C", "text": "(see diagram)" },
+      { "label": "D", "text": "(see diagram)" },
+      { "label": "E", "text": "(see diagram)" }
+    ],
+    "answer": "E",
+    "shortAnswer": "E",
+    "solutionSteps": [
+      {
+        "title": "Understand the fold",
+        "body": "The paper is folded twice to form four equal quarters. A triangular cut is made along the dashed line at a corner.",
+        "equation": ""
+      },
+      {
+        "title": "Unfold",
+        "body": "Since the cut is at a corner of the folded paper, unfolding reveals that the cut repeats symmetrically in all four quarters, creating a diamond (rhombus) shape in the center.",
+        "equation": ""
+      },
+      {
+        "title": "Match the answer",
+        "body": "The resulting shape is a square with a diamond-shaped hole in the center, matching choice (E).",
+        "equation": ""
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "A square is folded twice, then a corner is cut along the dashed line.", "visualHint": "Folding sequence shown." },
+      { "title": "Solve", "narration": "Unfolding reveals the cut appears in all four quarters, forming a diamond shape.", "visualHint": "Paper unfolding with symmetric cuts." },
+      { "title": "Check", "narration": "The result is a diamond hole in the center — answer (E).", "visualHint": "Choice E highlighted." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2023", "geometry", "spatial reasoning", "paper folding"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2023/problem-02-paper-folding.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2023-03",
+    "title": "2023 AMC 8 Problem 3: Wind Chill",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 3,
+    "category": "Algebra",
+    "subcategory": "Linear expressions",
+    "difficulty": 1,
+    "statement": "Wind chill is a measure of how cold people feel when exposed to wind outside. A good estimate for wind chill in °F can be found using this formula: Wind chill = 36 − (0.7 × wind speed), where the wind speed is measured in miles per hour. Suppose the wind speed is 18 miles per hour. Which of the following is closest to the wind chill?",
+    "choices": [
+      { "label": "A", "text": "18" },
+      { "label": "B", "text": "23" },
+      { "label": "C", "text": "25" },
+      { "label": "D", "text": "31" },
+      { "label": "E", "text": "35" }
+    ],
+    "answer": "B",
+    "shortAnswer": "23",
+    "solutionSteps": [
+      {
+        "title": "Substitute the wind speed",
+        "body": "Plug in 18 for the wind speed.",
+        "equation": "Wind chill = 36 − (0.7 × 18)"
+      },
+      {
+        "title": "Multiply",
+        "body": "Compute 0.7 × 18.",
+        "equation": "0.7 × 18 = 12.6"
+      },
+      {
+        "title": "Subtract",
+        "body": "Compute the wind chill.",
+        "equation": "36 − 12.6 = 23.4 ≈ 23"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Use the formula: Wind chill = 36 − 0.7 × wind speed, with wind speed = 18 mph.", "visualHint": "Formula displayed." },
+      { "title": "Solve", "narration": "0.7 × 18 = 12.6. Then 36 − 12.6 = 23.4, closest to 23.", "visualHint": "Step-by-step computation." },
+      { "title": "Check", "narration": "23.4 is closest to 23. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "equation", "data": { "formula": "36 − 0.7 × 18 = 23.4", "result": "23" } },
+    "tags": ["AMC 8", "2023", "algebra", "linear expressions", "estimation"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2023-04",
+    "title": "2023 AMC 8 Problem 4: Spiral Grid Primes",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 4,
+    "category": "Number Theory",
+    "subcategory": "Prime numbers",
+    "difficulty": 1,
+    "statement": "A number is written in each square in the grid shown below, following this pattern: the first 7 numbers are 1, 2, 3, 4, 5, 6, 7, forming an inward spiral. The pattern continues until all 49 squares are filled, spiraling outward. The four corner squares of the grid are 1, 7, 43, and 49. Which of the following is the number of corner values that are prime?",
+    "choices": [
+      { "label": "A", "text": "0" },
+      { "label": "B", "text": "1" },
+      { "label": "C", "text": "2" },
+      { "label": "D", "text": "3" },
+      { "label": "E", "text": "4" }
+    ],
+    "answer": "D",
+    "shortAnswer": "3",
+    "solutionSteps": [
+      {
+        "title": "Identify the corner values",
+        "body": "From the spiral grid, the four corners contain 1, 7, 43, and 49.",
+        "equation": ""
+      },
+      {
+        "title": "Check each for primality",
+        "body": "1 is not prime. 7 is prime. 43 is prime. 49 = 7 × 7, not prime.",
+        "equation": ""
+      },
+      {
+        "title": "Count the primes",
+        "body": "From the diagram, the four corner values are 1, 7, 43, and 49. Check: 1 is not prime; 7 is prime; 43 is prime; 49 = 7 × 7 is not prime. Three of the four corner values are prime.",
+        "equation": "3 primes"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "A 7×7 grid is filled with numbers 1–49 in a spiral pattern. We need to find how many corner values are prime.", "visualHint": "Spiral grid shown." },
+      { "title": "Solve", "narration": "Identify the four corner numbers and test each for primality.", "visualHint": "Corners highlighted and tested." },
+      { "title": "Check", "narration": "Three of the four corners are prime. The answer is (D).", "visualHint": "Prime corners marked." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2023", "number theory", "prime numbers", "patterns"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2023/problem-04-spiral-grid.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2023-05",
+    "title": "2023 AMC 8 Problem 5: Fish in a Lake",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 5,
+    "category": "Algebra",
+    "subcategory": "Ratios and proportions",
+    "difficulty": 1,
+    "statement": "A lake contains 250 trout, along with a variety of other fish. When a marine biologist catches and releases a sample of 180 fish from the lake, 30 are identified as trout. Assume that the ratio of trout to the total number of fish is the same in both the sample and the lake. How many fish are there in the lake?",
+    "choices": [
+      { "label": "A", "text": "1250" },
+      { "label": "B", "text": "1500" },
+      { "label": "C", "text": "1750" },
+      { "label": "D", "text": "1800" },
+      { "label": "E", "text": "2000" }
+    ],
+    "answer": "B",
+    "shortAnswer": "1500",
+    "solutionSteps": [
+      {
+        "title": "Set up the proportion",
+        "body": "The ratio of trout in the sample equals the ratio of trout in the lake.",
+        "equation": "30/180 = 250/N"
+      },
+      {
+        "title": "Simplify the sample ratio",
+        "body": "30 out of 180 fish are trout, which simplifies to 1/6.",
+        "equation": "30/180 = 1/6"
+      },
+      {
+        "title": "Solve for N",
+        "body": "Since trout make up 1/6 of all fish and there are 250 trout, the total is 250 × 6 = 1500.",
+        "equation": "N = 250 × 6 = 1500"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "250 trout in the lake. In a sample of 180 fish, 30 are trout. Find total fish.", "visualHint": "Lake with fish." },
+      { "title": "Solve", "narration": "30/180 = 1/6 of fish are trout. So 250 trout = 1/6 of total. Total = 1500.", "visualHint": "Proportion equation." },
+      { "title": "Check", "narration": "250/1500 = 1/6 = 30/180. The answer is (B) 1500.", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "equation", "data": { "proportion": "30/180 = 250/N", "result": "1500" } },
+    "tags": ["AMC 8", "2023", "algebra", "ratios", "proportions"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2023-06",
+    "title": "2023 AMC 8 Problem 6: Exponent Expression",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 6,
+    "category": "Number Theory",
+    "subcategory": "Exponents",
+    "difficulty": 2,
+    "statement": "The digits 2, 0, 2, and 3 are placed in the expression □^□ × □^□ to make the greatest possible value. What is that value?",
+    "choices": [
+      { "label": "A", "text": "0" },
+      { "label": "B", "text": "8" },
+      { "label": "C", "text": "9" },
+      { "label": "D", "text": "16" },
+      { "label": "E", "text": "81" }
+    ],
+    "answer": "C",
+    "shortAnswer": "9",
+    "solutionSteps": [
+      {
+        "title": "Consider the constraint",
+        "body": "One digit is 0, so any base with exponent 0 gives 1, and 0 raised to any positive power gives 0. We want to maximize the product.",
+        "equation": ""
+      },
+      {
+        "title": "Try placing 0 as an exponent",
+        "body": "If 0 is an exponent, that factor becomes 1. We then maximize the other factor using digits 2, 2, 3. Best: 3² × 2⁰ = 9 × 1 = 9, or 2³ × 2⁰ = 8 × 1 = 8.",
+        "equation": "3² × 2⁰ = 9"
+      },
+      {
+        "title": "Verify no better option",
+        "body": "If 0 is a base: 0² × 2³ = 0 or 0³ × 2² = 0. Placing 0 as a base always gives 0. So 3² × 2⁰ = 9 is optimal.",
+        "equation": "Maximum = 9"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Place digits 2, 0, 2, 3 in □^□ × □^□ to maximize the value.", "visualHint": "Expression with boxes." },
+      { "title": "Solve", "narration": "Place 0 as an exponent: 3² × 2⁰ = 9 × 1 = 9. This is the maximum.", "visualHint": "Best arrangement shown." },
+      { "title": "Check", "narration": "The answer is 9, choice (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "equation", "data": { "expression": "3² × 2⁰ = 9", "result": "9" } },
+    "tags": ["AMC 8", "2023", "number theory", "exponents", "optimization"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2023/problem-06-exponent-boxes.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2023-07",
+    "title": "2023 AMC 8 Problem 7: Rectangle and Two Lines",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 7,
+    "category": "Geometry",
+    "subcategory": "Coordinate geometry",
+    "difficulty": 2,
+    "statement": "A rectangle, with sides parallel to the x-axis and y-axis, has opposite vertices located at (15, 3) and (16, 5). A line is drawn through points A(0, 0) and B(3, 1). Another line is drawn through points C(0, 10) and D(2, 9). How many points on the rectangle lie on at least one of the two lines?",
+    "choices": [
+      { "label": "A", "text": "0" },
+      { "label": "B", "text": "1" },
+      { "label": "C", "text": "2" },
+      { "label": "D", "text": "3" },
+      { "label": "E", "text": "4" }
+    ],
+    "answer": "B",
+    "shortAnswer": "1",
+    "solutionSteps": [
+      {
+        "title": "Find line AB",
+        "body": "Line through (0,0) and (3,1) has slope 1/3.",
+        "equation": "y = x/3"
+      },
+      {
+        "title": "Find line CD",
+        "body": "Line through (0,10) and (2,9) has slope −1/2.",
+        "equation": "y = 10 − x/2"
+      },
+      {
+        "title": "Check intersections with the rectangle",
+        "body": "The rectangle has corners (15,3), (16,3), (16,5), (15,5). For line AB: at x=15, y=5 — this is the corner (15,5). At x=16, y=16/3 ≈ 5.33, outside. For line CD: at x=15, y=2.5, outside. At x=16, y=2, outside. So exactly 1 point.",
+        "equation": "1 intersection point"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "A rectangle from (15,3) to (16,5) and two lines: y=x/3 and y=10−x/2.", "visualHint": "Coordinate plane with rectangle and lines." },
+      { "title": "Solve", "narration": "Check where each line meets the rectangle. Line AB passes through (15,5). Line CD misses the rectangle.", "visualHint": "Intersection point highlighted." },
+      { "title": "Check", "narration": "Only 1 point on the rectangle lies on a line. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "graph-read", "data": {} },
+    "tags": ["AMC 8", "2023", "geometry", "coordinate geometry", "lines"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2023/problem-07-coordinate-plane.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2023-08",
+    "title": "2023 AMC 8 Problem 8: Ping Pong Tournament",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 8,
+    "category": "Logic",
+    "subcategory": "Deduction",
+    "difficulty": 2,
+    "statement": "Lola, Lolo, Tiya, and Tiyo participated in a ping pong tournament. Each player competed against each of the other three players exactly twice. Shown below are the win-loss records for the players. The numbers 1 and 0 represent a win or loss, respectively. For example, Lola won five matches and lost the fourth match. What was Tiyo's win-loss record?",
+    "choices": [
+      { "label": "A", "text": "000101" },
+      { "label": "B", "text": "001001" },
+      { "label": "C", "text": "010000" },
+      { "label": "D", "text": "010101" },
+      { "label": "E", "text": "011000" }
+    ],
+    "answer": "A",
+    "shortAnswer": "000101",
+    "solutionSteps": [
+      {
+        "title": "Count total wins",
+        "body": "With 4 players each playing 6 matches, there are 12 total matches, so 12 wins total.",
+        "equation": "Total wins = 12"
+      },
+      {
+        "title": "Count known wins",
+        "body": "Lola: 5 wins. Lolo: 3 wins. Tiya: 2 wins. Total known: 10.",
+        "equation": "5 + 3 + 2 = 10"
+      },
+      {
+        "title": "Determine Tiyo's wins",
+        "body": "Tiyo must have 12 − 10 = 2 wins. Checking which 6-digit string has exactly two 1s and matches the constraints: 000101.",
+        "equation": "Tiyo: 000101"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Four players, each plays the other 3 twice. We know 3 records and need to find Tiyo's.", "visualHint": "Win-loss table shown." },
+      { "title": "Solve", "narration": "Total wins = 12. Known wins = 10. Tiyo has 2 wins. Only 000101 fits.", "visualHint": "Counting wins per column." },
+      { "title": "Check", "narration": "Tiyo's record is 000101. The answer is (A).", "visualHint": "Answer A circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2023", "logic", "deduction", "tournament"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2023/problem-08-pingpong-table.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2023-09",
+    "title": "2023 AMC 8 Problem 9: Skiing Elevation",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 9,
+    "category": "Algebra",
+    "subcategory": "Graph reading",
+    "difficulty": 2,
+    "statement": "Malaika is skiing on a mountain. The graph below shows her elevation, in meters, above the base of the mountain as she skis along a trail. In total, how many seconds does she spend at an elevation between 4 and 7 meters?",
+    "choices": [
+      { "label": "A", "text": "6" },
+      { "label": "B", "text": "8" },
+      { "label": "C", "text": "10" },
+      { "label": "D", "text": "12" },
+      { "label": "E", "text": "14" }
+    ],
+    "answer": "B",
+    "shortAnswer": "8",
+    "solutionSteps": [
+      {
+        "title": "Read the graph",
+        "body": "Identify the time intervals where the elevation is between 4 and 7 meters.",
+        "equation": ""
+      },
+      {
+        "title": "Find the intervals",
+        "body": "The curve is between 4 and 7 meters from about t=2 to t=4 seconds (descending) and from about t=8 to t=14 seconds (ascending then descending).",
+        "equation": "2 + 6 = 8 seconds"
+      },
+      {
+        "title": "Total time",
+        "body": "The total time spent between 4 and 7 meters is 8 seconds.",
+        "equation": "Total = 8 seconds"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Read the graph to find when elevation is between 4 and 7 meters.", "visualHint": "Graph with horizontal lines at y=4 and y=7." },
+      { "title": "Solve", "narration": "The curve is in the 4–7m band for about 8 seconds total.", "visualHint": "Shaded region between y=4 and y=7." },
+      { "title": "Check", "narration": "Total time = 8 seconds. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "graph-read", "data": {} },
+    "tags": ["AMC 8", "2023", "algebra", "graph reading"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2023/problem-09-elevation-graph.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2023-10",
+    "title": "2023 AMC 8 Problem 10: Sharing a Pie",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 10,
+    "category": "Algebra",
+    "subcategory": "Fractions",
+    "difficulty": 2,
+    "statement": "Harold made a plum pie to take on a picnic. He was able to eat only 1/4 of the pie, and he left the rest for his friends. A moose came by and ate 1/3 of what Harold left behind. After that, a porcupine ate 1/3 of what the moose left behind. How much of the original pie still remained after the porcupine left?",
+    "choices": [
+      { "label": "A", "text": "1/12" },
+      { "label": "B", "text": "1/6" },
+      { "label": "C", "text": "1/4" },
+      { "label": "D", "text": "1/3" },
+      { "label": "E", "text": "5/12" }
+    ],
+    "answer": "D",
+    "shortAnswer": "1/3",
+    "solutionSteps": [
+      {
+        "title": "Harold eats 1/4",
+        "body": "After Harold eats 1/4 of the pie, 3/4 remains.",
+        "equation": "1 − 1/4 = 3/4"
+      },
+      {
+        "title": "Moose eats 1/3 of what's left",
+        "body": "The moose eats 1/3 of 3/4 = 1/4. Remaining: 3/4 − 1/4 = 1/2.",
+        "equation": "3/4 − 1/4 = 1/2"
+      },
+      {
+        "title": "Porcupine eats 1/3 of what's left",
+        "body": "The porcupine eats 1/3 of 1/2 = 1/6. Remaining: 1/2 − 1/6 = 1/3.",
+        "equation": "1/2 − 1/6 = 1/3"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Harold eats 1/4, moose eats 1/3 of remainder, porcupine eats 1/3 of remainder.", "visualHint": "Pie diagram." },
+      { "title": "Solve", "narration": "3/4 remains → 1/2 remains → 1/3 remains.", "visualHint": "Sequential fractions shown." },
+      { "title": "Check", "narration": "1/3 of the original pie is left. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "bar-model", "data": { "steps": 3, "final": "1/3" } },
+    "tags": ["AMC 8", "2023", "algebra", "fractions"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2023-11",
+    "title": "2023 AMC 8 Problem 11: Perseverance Rover",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 11,
+    "category": "Algebra",
+    "subcategory": "Estimation and unit conversion",
+    "difficulty": 2,
+    "statement": "NASA's Perseverance Rover was launched on July 30, 2020. After traveling 292,526,838 miles, it landed on Mars in Jezero Crater about 6.5 months later. Which of the following is closest to the Rover's average interplanetary speed in miles per hour?",
+    "choices": [
+      { "label": "A", "text": "6,000" },
+      { "label": "B", "text": "12,000" },
+      { "label": "C", "text": "60,000" },
+      { "label": "D", "text": "120,000" },
+      { "label": "E", "text": "600,000" }
+    ],
+    "answer": "C",
+    "shortAnswer": "60,000",
+    "solutionSteps": [
+      {
+        "title": "Estimate total hours",
+        "body": "6.5 months ≈ 6.5 × 30 × 24 hours.",
+        "equation": "6.5 × 30 × 24 ≈ 4,680 hours"
+      },
+      {
+        "title": "Compute speed",
+        "body": "Divide distance by time.",
+        "equation": "292,526,838 ÷ 4,680 ≈ 62,500 mph"
+      },
+      {
+        "title": "Match to choices",
+        "body": "62,500 is closest to 60,000.",
+        "equation": "≈ 60,000 mph"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "The rover traveled ~293 million miles in 6.5 months. Find speed in mph.", "visualHint": "Distance and time shown." },
+      { "title": "Solve", "narration": "6.5 months ≈ 4,680 hours. 293,000,000 ÷ 4,680 ≈ 62,500 mph.", "visualHint": "Division computation." },
+      { "title": "Check", "narration": "Closest to 60,000 mph. The answer is (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "equation", "data": { "distance": "292526838", "time": "4680", "speed": "62500" } },
+    "tags": ["AMC 8", "2023", "algebra", "estimation", "unit conversion"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2023-12",
+    "title": "2023 AMC 8 Problem 12: Nested Circles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 12,
+    "category": "Geometry",
+    "subcategory": "Circles and area",
+    "difficulty": 2,
+    "statement": "The figure below shows a large white circle with a number of smaller white and shaded circles in its interior. What fraction of the interior of the large white circle is shaded?",
+    "choices": [
+      { "label": "A", "text": "1/4" },
+      { "label": "B", "text": "11/36" },
+      { "label": "C", "text": "1/3" },
+      { "label": "D", "text": "19/36" },
+      { "label": "E", "text": "5/9" }
+    ],
+    "answer": "B",
+    "shortAnswer": "11/36",
+    "solutionSteps": [
+      {
+        "title": "Identify the circles",
+        "body": "The large circle has radius 3. Inside it are circles of radii 2 and 1 (shaded and white), plus smaller circles of radius 1.",
+        "equation": ""
+      },
+      {
+        "title": "Compute areas",
+        "body": "Total area = 9π. The shaded area consists of parts of the inner circles. Carefully adding and subtracting overlapping regions gives the shaded fraction.",
+        "equation": "Shaded = 11π/4"
+      },
+      {
+        "title": "Find the fraction",
+        "body": "Fraction shaded = (11π/4) / (9π) = 11/36.",
+        "equation": "11/36"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "A large circle contains smaller shaded and white circles. Find the shaded fraction.", "visualHint": "Nested circles diagram." },
+      { "title": "Solve", "narration": "Compute areas of each region and add up the shaded parts.", "visualHint": "Regions labeled with areas." },
+      { "title": "Check", "narration": "The shaded fraction is 11/36. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "area-model", "data": { "total": "9π", "shaded": "11π/4", "fraction": "11/36" } },
+    "tags": ["AMC 8", "2023", "geometry", "circles", "area"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2023/problem-12-nested-circles.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2023-13",
+    "title": "2023 AMC 8 Problem 13: Bicycle Race Stations",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 13,
+    "category": "Algebra",
+    "subcategory": "Linear equations",
+    "difficulty": 3,
+    "statement": "Along the route of a bicycle race, 7 water stations are evenly spaced between the start and finish lines, as shown in the figure below. There are also 2 repair stations evenly spaced between the start and finish lines. The 3rd water station is located 2 miles after the 1st repair station. How long is the race in miles?",
+    "choices": [
+      { "label": "A", "text": "8" },
+      { "label": "B", "text": "16" },
+      { "label": "C", "text": "24" },
+      { "label": "D", "text": "48" },
+      { "label": "E", "text": "96" }
+    ],
+    "answer": "D",
+    "shortAnswer": "48",
+    "solutionSteps": [
+      {
+        "title": "Set up variables",
+        "body": "Let d be the total race distance. Water stations divide the route into 8 equal parts, each d/8 miles. Repair stations divide it into 3 equal parts, each d/3 miles.",
+        "equation": ""
+      },
+      {
+        "title": "Write the equation",
+        "body": "The 3rd water station is at 3d/8. The 1st repair station is at d/3. The difference is 2 miles.",
+        "equation": "3d/8 − d/3 = 2"
+      },
+      {
+        "title": "Solve",
+        "body": "Find common denominator: 9d/24 − 8d/24 = d/24 = 2.",
+        "equation": "d = 48"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "7 water stations (8 intervals) and 2 repair stations (3 intervals). 3rd water is 2 miles past 1st repair.", "visualHint": "Race route with stations." },
+      { "title": "Solve", "narration": "3d/8 − d/3 = 2 → d/24 = 2 → d = 48.", "visualHint": "Equation solved step by step." },
+      { "title": "Check", "narration": "The race is 48 miles. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "number-line", "data": { "total": 48, "waterInterval": 6, "repairInterval": 16 } },
+    "tags": ["AMC 8", "2023", "algebra", "linear equations", "spacing"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2023/problem-13-race-route.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2023-14",
+    "title": "2023 AMC 8 Problem 14: Stamp Postage",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 14,
+    "category": "Number Theory",
+    "subcategory": "Optimization",
+    "difficulty": 3,
+    "statement": "Nicolas is planning to send a package to his friend Anton, who is a stamp collector. To pay for the postage, Nicolas would like to cover the package with a large number of stamps. Suppose he has a collection of 5-cent, 10-cent, and 25-cent stamps, with exactly 20 of each type. What is the greatest number of stamps Nicolas can use to make exactly $7.10 in postage? (Note: The amount $7.10 corresponds to 7 dollars and 10 cents. One dollar is worth 100 cents.)",
+    "choices": [
+      { "label": "A", "text": "45" },
+      { "label": "B", "text": "46" },
+      { "label": "C", "text": "51" },
+      { "label": "D", "text": "54" },
+      { "label": "E", "text": "55" }
+    ],
+    "answer": "E",
+    "shortAnswer": "55",
+    "solutionSteps": [
+      {
+        "title": "Maximize stamp count",
+        "body": "To use the most stamps, use as many small-value stamps as possible. Use all 20 nickels (100¢) and all 20 dimes (200¢) = 300¢ from 40 stamps.",
+        "equation": "40 stamps = 300¢"
+      },
+      {
+        "title": "Remaining amount",
+        "body": "Need 710 − 300 = 410¢ more from 25-cent stamps and possibly swapping.",
+        "equation": "410 ÷ 25 = 16.4 (not exact)"
+      },
+      {
+        "title": "Adjust with swaps",
+        "body": "We need 5a + 10b + 25c = 710 with a, b, c ≤ 20, maximizing a + b + c. Trying c = 17 quarters (425¢): 5a + 10b = 285, so a + 2b = 57. With b = 19: a = 19. Total = 19 + 19 + 17 = 55. Check: 95 + 190 + 425 = 710. ✓",
+        "equation": "55 stamps"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Maximize stamp count to total $7.10 using 5¢, 10¢, and 25¢ stamps (20 each).", "visualHint": "Stamp denominations shown." },
+      { "title": "Solve", "narration": "Use as many small stamps as possible. Optimal: 38 small stamps + 17 quarters = 55 stamps.", "visualHint": "Stamp counts computed." },
+      { "title": "Check", "narration": "55 stamps total $7.10. The answer is (E).", "visualHint": "Answer E circled." }
+    ],
+    "animation": { "type": "equation", "data": { "total": "710", "stamps": "55" } },
+    "tags": ["AMC 8", "2023", "number theory", "optimization", "money"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2023-15",
+    "title": "2023 AMC 8 Problem 15: Walking Detour",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 15,
+    "category": "Algebra",
+    "subcategory": "Rate and speed",
+    "difficulty": 3,
+    "statement": "Viswam walks half a mile to get to school each day. His route consists of 10 city blocks of equal length and he takes 1 minute to walk each block. Today, after walking 5 blocks, Viswam discovers he has to make a detour, walking 3 blocks of equal length instead of 1 block to reach the next corner. From the time he starts his detour, at what speed, in mph, must he walk in order to get to school at his usual time?",
+    "choices": [
+      { "label": "A", "text": "4" },
+      { "label": "B", "text": "4.2" },
+      { "label": "C", "text": "4.5" },
+      { "label": "D", "text": "4.8" },
+      { "label": "E", "text": "5" }
+    ],
+    "answer": "B",
+    "shortAnswer": "4.2",
+    "solutionSteps": [
+      {
+        "title": "Find normal speed",
+        "body": "Viswam walks 10 blocks (0.5 mile) in 10 minutes: 0.5 mile / (10/60 hr) = 3 mph. Each block is 0.05 miles.",
+        "equation": "Normal speed = 3 mph"
+      },
+      {
+        "title": "Analyze the detour",
+        "body": "After 5 blocks (5 min), he has 5 min left. The detour adds 2 extra blocks, so he must walk 7 blocks in 5 minutes. Each block = 1/20 mile, so 7 blocks = 7/20 mile.",
+        "equation": "Distance remaining = 7/20 mile in 5 min"
+      },
+      {
+        "title": "Compute required speed",
+        "body": "7 blocks × (1/20 mile per block) = 7/20 mile. Time = 5 min = 1/12 hr. Speed = (7/20) / (1/12) = 84/20 = 4.2 mph.",
+        "equation": "Speed = 4.2 mph"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Viswam walks 10 blocks in 10 min. After 5 blocks, detour adds 2 blocks. Find required speed.", "visualHint": "Block path with detour." },
+      { "title": "Solve", "narration": "7 blocks remain in 5 min. 7/20 mile in 1/12 hour = 4.2 mph.", "visualHint": "Speed calculation." },
+      { "title": "Check", "narration": "Required speed is 4.2 mph. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "equation", "data": { "distance": "7/20", "time": "1/12", "speed": "4.2" } },
+    "tags": ["AMC 8", "2023", "algebra", "rate", "speed"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2023/problem-15-block-path.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2023-16",
+    "title": "2023 AMC 8 Problem 16: PQR Table Pattern",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 16,
+    "category": "Counting & Probability",
+    "subcategory": "Patterns",
+    "difficulty": 3,
+    "statement": "The letters P, Q, and R are entered into a 20 × 20 table according to the pattern shown below. How many P's, Q's, and R's will appear in the completed table?",
+    "choices": [
+      { "label": "A", "text": "132 Ps, 134 Qs, 134 Rs" },
+      { "label": "B", "text": "133 Ps, 133 Qs, 134 Rs" },
+      { "label": "C", "text": "133 Ps, 134 Qs, 133 Rs" },
+      { "label": "D", "text": "134 Ps, 132 Qs, 134 Rs" },
+      { "label": "E", "text": "134 Ps, 133 Qs, 133 Rs" }
+    ],
+    "answer": "C",
+    "shortAnswer": "133 Ps, 134 Qs, 133 Rs",
+    "solutionSteps": [
+      {
+        "title": "Identify the pattern period",
+        "body": "In the repeating pattern, a 5×5 block contains 8 P's, 9 Q's, and 8 R's.",
+        "equation": ""
+      },
+      {
+        "title": "Scale to 20×20",
+        "body": "A 20×20 grid consists of 16 copies of the 5×5 block. But since 20 ≡ 2 (mod 3), we need to count using modular arithmetic.",
+        "equation": ""
+      },
+      {
+        "title": "Count precisely",
+        "body": "In any n×n grid with n ≡ 2 (mod 3), there are n², n²+1, and n² letters of P, Q, R respectively. For n=20: total = 400, giving 133 Ps, 134 Qs, 133 Rs.",
+        "equation": "133 + 134 + 133 = 400"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "P, Q, R fill a 20×20 table in a repeating pattern. Count each letter.", "visualHint": "Pattern table shown." },
+      { "title": "Solve", "narration": "The pattern repeats with period 3. For a 20×20 grid: 133 Ps, 134 Qs, 133 Rs.", "visualHint": "Counting by pattern blocks." },
+      { "title": "Check", "narration": "133 + 134 + 133 = 400 = 20². The answer is (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2023", "counting", "patterns", "modular arithmetic"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2023/problem-16-pqr-table.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2023-17",
+    "title": "2023 AMC 8 Problem 17: Octahedron Net",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 17,
+    "category": "Geometry",
+    "subcategory": "3D geometry and nets",
+    "difficulty": 3,
+    "statement": "A regular octahedron has eight equilateral triangle faces with four faces meeting at each vertex. Jun will make the regular octahedron shown on the right by folding the piece of paper shown on the left. Which numbered face will end up to the right of Q?",
+    "choices": [
+      { "label": "A", "text": "1" },
+      { "label": "B", "text": "2" },
+      { "label": "C", "text": "3" },
+      { "label": "D", "text": "4" },
+      { "label": "E", "text": "5" }
+    ],
+    "answer": "A",
+    "shortAnswer": "1",
+    "solutionSteps": [
+      {
+        "title": "Study the net",
+        "body": "The net shows 8 triangular faces numbered 1–7 and Q. Identify which edges will meet when folded.",
+        "equation": ""
+      },
+      {
+        "title": "Trace the folding",
+        "body": "When folded into an octahedron, face Q is on one side. The face to its right shares an edge with Q and is determined by the net layout.",
+        "equation": ""
+      },
+      {
+        "title": "Identify the answer",
+        "body": "Face 1 ends up to the right of Q.",
+        "equation": "Face 1"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "A flat net folds into a regular octahedron. Find which face is to the right of Q.", "visualHint": "Net and octahedron shown." },
+      { "title": "Solve", "narration": "Trace which edges connect when folded. Face 1 shares the right edge with Q.", "visualHint": "Folding animation." },
+      { "title": "Check", "narration": "Face 1 is to the right of Q. The answer is (A).", "visualHint": "Answer A circled." }
+    ],
+    "animation": { "type": "cube-net", "data": {} },
+    "tags": ["AMC 8", "2023", "geometry", "3D geometry", "nets", "octahedron"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2023/problem-17-octahedron-net.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2023-18",
+    "title": "2023 AMC 8 Problem 18: Greta Grasshopper",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 18,
+    "category": "Number Theory",
+    "subcategory": "Number theory and optimization",
+    "difficulty": 3,
+    "statement": "Greta Grasshopper sits on a long line of lily pads in a pond. From any lily pad, Greta can jump 5 pads to the right or 3 pads to the left. What is the fewest number of jumps Greta must make to reach the lily pad located 2023 pads to the right of her starting position?",
+    "choices": [
+      { "label": "A", "text": "405" },
+      { "label": "B", "text": "407" },
+      { "label": "C", "text": "409" },
+      { "label": "D", "text": "411" },
+      { "label": "E", "text": "413" }
+    ],
+    "answer": "D",
+    "shortAnswer": "411",
+    "solutionSteps": [
+      {
+        "title": "Set up the equation",
+        "body": "Let x = number of right jumps (+5) and y = number of left jumps (−3). We need 5x − 3y = 2023 and minimize x + y.",
+        "equation": "5x − 3y = 2023"
+      },
+      {
+        "title": "Make 2023 divisible by 5",
+        "body": "We need 2023 + 3y to be divisible by 5. The smallest y making this work is y = 4, since 2023 + 12 = 2035 and 2035/5 = 407.",
+        "equation": "x = 407, y = 4"
+      },
+      {
+        "title": "Total jumps",
+        "body": "Minimum jumps = 407 + 4 = 411.",
+        "equation": "411 jumps"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Jump +5 right or −3 left. Reach pad 2023 in fewest jumps.", "visualHint": "Number line with jumps." },
+      { "title": "Solve", "narration": "5(407) − 3(4) = 2035 − 12 = 2023. Total jumps = 411.", "visualHint": "Equation solution." },
+      { "title": "Check", "narration": "411 jumps: 407 right and 4 left. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "number-line", "data": { "rightJumps": 407, "leftJumps": 4, "target": 2023 } },
+    "tags": ["AMC 8", "2023", "number theory", "optimization", "Diophantine"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2023-19",
+    "title": "2023 AMC 8 Problem 19: Triangle Trapezoids",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 19,
+    "category": "Geometry",
+    "subcategory": "Similar triangles and area ratios",
+    "difficulty": 4,
+    "statement": "An equilateral triangle is placed inside a larger equilateral triangle so that the region between them can be divided into three congruent trapezoids, as shown below. The side length of the inner triangle is 2/3 the side length of the larger triangle. What is the ratio of the area of one trapezoid to the area of the inner triangle?",
+    "choices": [
+      { "label": "A", "text": "1 : 3" },
+      { "label": "B", "text": "3 : 8" },
+      { "label": "C", "text": "5 : 12" },
+      { "label": "D", "text": "7 : 16" },
+      { "label": "E", "text": "4 : 9" }
+    ],
+    "answer": "C",
+    "shortAnswer": "5 : 12",
+    "solutionSteps": [
+      {
+        "title": "Find the area ratio",
+        "body": "If the outer side is s, the inner side is 2s/3. The area ratio of outer to inner is (3/2)² = 9/4.",
+        "equation": "A_outer/A_inner = 9/4"
+      },
+      {
+        "title": "Find the region between",
+        "body": "The area between the triangles is 9/4 − 1 = 5/4 times the inner area.",
+        "equation": "A_between = (5/4) × A_inner"
+      },
+      {
+        "title": "Area of one trapezoid",
+        "body": "Three congruent trapezoids make up the between-region. Each has area (5/4)/3 = 5/12 of the inner triangle.",
+        "equation": "Ratio = 5 : 12"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Inner triangle has side 2/3 of outer. Region between is split into 3 trapezoids.", "visualHint": "Nested triangles with trapezoids." },
+      { "title": "Solve", "narration": "Area ratio = (3/2)² = 9/4. Between-region = 5/4. Each trapezoid = 5/12 of inner.", "visualHint": "Area calculations." },
+      { "title": "Check", "narration": "Ratio is 5:12. The answer is (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "area-model", "data": { "outerRatio": "9/4", "innerArea": "1", "trapezoidArea": "5/12" } },
+    "tags": ["AMC 8", "2023", "geometry", "similar triangles", "area ratios"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2023/problem-19-triangle-trapezoids.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2023-20",
+    "title": "2023 AMC 8 Problem 20: Doubling the Range",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 20,
+    "category": "Algebra",
+    "subcategory": "Statistics",
+    "difficulty": 4,
+    "statement": "Two integers are inserted into the list 3, 3, 8, 11, 28 to double its range. The mode and median remain unchanged. What is the maximum possible sum of the two additional numbers?",
+    "choices": [
+      { "label": "A", "text": "56" },
+      { "label": "B", "text": "57" },
+      { "label": "C", "text": "58" },
+      { "label": "D", "text": "60" },
+      { "label": "E", "text": "61" }
+    ],
+    "answer": "D",
+    "shortAnswer": "60",
+    "solutionSteps": [
+      {
+        "title": "Find current range",
+        "body": "Range = 28 − 3 = 25. Double the range = 50.",
+        "equation": "New range = 50"
+      },
+      {
+        "title": "Determine constraints",
+        "body": "Mode stays 3 (so don't add another 8 or change 3's frequency). Median of 7 numbers should be 8 (currently middle of 5 is 8). To maximize the sum, make one number large. The new max must be 3 + 50 = 53.",
+        "equation": "New maximum = 53"
+      },
+      {
+        "title": "Find optimal pair",
+        "body": "Need the other number to keep median = 8 and mode = 3. The other should be ≤ 8 but not 3 (to keep mode). Using 7: sum = 7 + 53 = 60.",
+        "equation": "Maximum sum = 60"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Insert 2 integers into {3,3,8,11,28}. Double range, keep mode and median.", "visualHint": "List with constraints." },
+      { "title": "Solve", "narration": "New range = 50, so max = 53. Other number = 7 to keep median at 8. Sum = 60.", "visualHint": "Values computed." },
+      { "title": "Check", "narration": "7 and 53 give sum 60, satisfying all conditions. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "number-line", "data": { "original": [3,3,8,11,28], "added": [7,53] } },
+    "tags": ["AMC 8", "2023", "algebra", "statistics", "range", "mode", "median"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2023-21",
+    "title": "2023 AMC 8 Problem 21: Dividing Cards into Groups",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 21,
+    "category": "Counting & Probability",
+    "subcategory": "Combinatorics",
+    "difficulty": 4,
+    "statement": "Alina writes the numbers 1, 2, …, 9 on separate cards, one number per card. She wishes to divide the cards into 3 groups of 3 cards so that the sum of the numbers in each group will be the same. In how many ways can this be done?",
+    "choices": [
+      { "label": "A", "text": "0" },
+      { "label": "B", "text": "1" },
+      { "label": "C", "text": "2" },
+      { "label": "D", "text": "3" },
+      { "label": "E", "text": "4" }
+    ],
+    "answer": "C",
+    "shortAnswer": "2",
+    "solutionSteps": [
+      {
+        "title": "Find the required group sum",
+        "body": "Total = 1+2+…+9 = 45. Each group must sum to 45/3 = 15.",
+        "equation": "Group sum = 15"
+      },
+      {
+        "title": "Find valid partitions",
+        "body": "The group containing 5 must sum to 15 with two other numbers. The possibilities with 5: {1,5,9}, {2,5,8}, {3,5,7}, {4,5,6}. For each choice, check if the remaining 6 numbers can form two groups of 15.",
+        "equation": ""
+      },
+      {
+        "title": "Count arrangements",
+        "body": "With {1,5,9}: remaining {2,3,4,6,7,8} → {3,4,8} and {2,6,7}. With {3,5,7}: remaining {1,2,4,6,8,9} → {1,6,8} and {2,4,9}. The other two choices for the 5-group don't yield valid partitions. So there are 2 ways.",
+        "equation": "2 ways"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Divide cards 1–9 into three groups of 3 with equal sums of 15.", "visualHint": "Cards 1-9 displayed." },
+      { "title": "Solve", "narration": "Systematically find partitions: {1,5,9},{3,4,8},{2,6,7} and {3,5,7},{1,6,8},{2,4,9}.", "visualHint": "Two valid groupings shown." },
+      { "title": "Check", "narration": "Exactly 2 ways. The answer is (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2023", "counting", "combinatorics", "partitions"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2023-22",
+    "title": "2023 AMC 8 Problem 22: Product Sequence",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 22,
+    "category": "Algebra",
+    "subcategory": "Sequences and exponents",
+    "difficulty": 4,
+    "statement": "In a sequence of positive integers, each term after the second is the product of the previous two terms. The sixth term is 4000. What is the first term?",
+    "choices": [
+      { "label": "A", "text": "1" },
+      { "label": "B", "text": "2" },
+      { "label": "C", "text": "4" },
+      { "label": "D", "text": "5" },
+      { "label": "E", "text": "10" }
+    ],
+    "answer": "D",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "Express terms in terms of A and B",
+        "body": "Let the first two terms be A and B. Then: a₃ = AB, a₄ = AB², a₅ = A²B³, a₆ = A³B⁵.",
+        "equation": "a₆ = A³B⁵ = 4000"
+      },
+      {
+        "title": "Factor 4000",
+        "body": "4000 = 2⁵ × 5³.",
+        "equation": "4000 = 2⁵ × 5³"
+      },
+      {
+        "title": "Solve",
+        "body": "Comparing A³B⁵ = 2⁵ × 5³: if A = 5 and B = 2, then 5³ × 2⁵ = 125 × 32 = 4000. ✓",
+        "equation": "A = 5, B = 2"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Each term is the product of the previous two. The 6th term is 4000. Find the 1st.", "visualHint": "Sequence structure shown." },
+      { "title": "Solve", "narration": "a₆ = A³B⁵. Since 4000 = 5³ × 2⁵, A = 5 and B = 2.", "visualHint": "Factoring and matching." },
+      { "title": "Check", "narration": "5, 2, 10, 20, 200, 4000. ✓ The answer is (D).", "visualHint": "Sequence verified." }
+    ],
+    "animation": { "type": "equation", "data": { "a1": "5", "a2": "2", "a6": "4000" } },
+    "tags": ["AMC 8", "2023", "algebra", "sequences", "exponents"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2023-23",
+    "title": "2023 AMC 8 Problem 23: Tile Grid Probability",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 23,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 5,
+    "statement": "Each square in a 3 × 3 grid is randomly filled with one of the 4 gray and white tiles shown on the right. What is the probability that the tiling will contain a large gray diamond in one of the smaller 2 × 2 grids? Below is an example of such a tiling.",
+    "choices": [
+      { "label": "A", "text": "1/1024" },
+      { "label": "B", "text": "1/256" },
+      { "label": "C", "text": "1/64" },
+      { "label": "D", "text": "1/16" },
+      { "label": "E", "text": "1/4" }
+    ],
+    "answer": "C",
+    "shortAnswer": "1/64",
+    "solutionSteps": [
+      {
+        "title": "Count 2×2 sub-grids",
+        "body": "In a 3×3 grid, there are 4 possible 2×2 sub-grids (top-left, top-right, bottom-left, bottom-right).",
+        "equation": "4 sub-grids"
+      },
+      {
+        "title": "Probability for each sub-grid",
+        "body": "Each of the 4 tiles in a 2×2 must be the correct orientation to form a diamond. Each tile has 1 correct choice out of 4. But the 5 remaining squares can be anything.",
+        "equation": "P(one sub-grid) = (1/4)⁴ for each"
+      },
+      {
+        "title": "Use inclusion-exclusion",
+        "body": "The 4 cases don't overlap (a diamond in one 2×2 sub-grid is independent of others sharing some tiles). Total: 4 × (1/4)⁴ × 4⁵ / 4⁹ ... Actually: P = 4 × 4⁵ / 4⁹ = 4/4⁴ = 1/64.",
+        "equation": "P = 1/64"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Fill a 3×3 grid with 4 tile types. Find probability of a gray diamond in some 2×2 sub-grid.", "visualHint": "Grid and tile types shown." },
+      { "title": "Solve", "narration": "4 sub-grids, each needs specific tiles. P = 4 × (1/4)⁴ × 4⁵ / 4⁹ = 1/64.", "visualHint": "Probability calculation." },
+      { "title": "Check", "narration": "The probability is 1/64. The answer is (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "probability", "data": { "favorable": 4, "total": 256, "probability": "1/64" } },
+    "tags": ["AMC 8", "2023", "counting", "probability", "geometric probability"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2023/problem-23-tile-grid.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2023-24",
+    "title": "2023 AMC 8 Problem 24: Isosceles Triangle Shading",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 24,
+    "category": "Geometry",
+    "subcategory": "Similar triangles",
+    "difficulty": 5,
+    "statement": "Isosceles △ABC has equal side lengths AB and BC. In the figure below, segments are drawn parallel to AC so that the shaded portions of △ABC have the same area. The heights of the two unshaded portions are 11 and 5 units, respectively. What is the height h of △ABC? (Diagram not drawn to scale.)",
+    "choices": [
+      { "label": "A", "text": "14.6" },
+      { "label": "B", "text": "14.8" },
+      { "label": "C", "text": "15" },
+      { "label": "D", "text": "15.2" },
+      { "label": "E", "text": "15.4" }
+    ],
+    "answer": "A",
+    "shortAnswer": "14.6",
+    "solutionSteps": [
+      {
+        "title": "Set up similar triangles",
+        "body": "The unshaded top triangle has height 11, and the unshaded bottom strip has height 5. The shaded regions have equal area.",
+        "equation": ""
+      },
+      {
+        "title": "Use area relationships",
+        "body": "The top unshaded triangle has area proportional to (11/h)² × [ABC]. The bottom unshaded region relates to the bottom strip of height 5. Setting the two shaded areas equal gives the equation.",
+        "equation": "1 − (11/h)² = ((h−5)/h)²"
+      },
+      {
+        "title": "Solve the equation",
+        "body": "Expanding: 1 − 121/h² = (h−5)²/h². So h² − 121 = h² − 10h + 25. This gives 10h = 146, so h = 14.6.",
+        "equation": "h = 14.6"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Isosceles triangle with parallel cuts creating equal shaded areas. Unshaded heights are 11 and 5.", "visualHint": "Triangle with shaded bands." },
+      { "title": "Solve", "narration": "Set up equation: 1 − (11/h)² = ((h−5)/h)². Solve: 10h = 146, h = 14.6.", "visualHint": "Equation solved." },
+      { "title": "Check", "narration": "h = 14.6. The answer is (A).", "visualHint": "Answer A circled." }
+    ],
+    "animation": { "type": "area-model", "data": { "height": "14.6", "topUnshaded": "11", "bottomUnshaded": "5" } },
+    "tags": ["AMC 8", "2023", "geometry", "similar triangles", "area"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2023/problem-24-isosceles-triangles.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2023-25",
+    "title": "2023 AMC 8 Problem 25: Equally Spaced Integers",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2023,
+    "problemNumber": 25,
+    "category": "Number Theory",
+    "subcategory": "Arithmetic sequences and inequalities",
+    "difficulty": 5,
+    "statement": "Fifteen integers a₁, a₂, a₃, …, a₁₅ are arranged in order on a number line. The integers are equally spaced and have the property that 1 ≤ a₁ ≤ 10, 13 ≤ a₂ ≤ 20, and 241 ≤ a₁₅ ≤ 250. What is the sum of the digits of a₁₄?",
+    "choices": [
+      { "label": "A", "text": "8" },
+      { "label": "B", "text": "9" },
+      { "label": "C", "text": "10" },
+      { "label": "D", "text": "11" },
+      { "label": "E", "text": "12" }
+    ],
+    "answer": "A",
+    "shortAnswer": "8",
+    "solutionSteps": [
+      {
+        "title": "Set up the arithmetic sequence",
+        "body": "Let a₁ = a and common difference = d. Then a₂ = a + d and a₁₅ = a + 14d.",
+        "equation": ""
+      },
+      {
+        "title": "Use the constraints",
+        "body": "From a₂ − a₁: d = a₂ − a₁, with 13 ≤ a+d ≤ 20 and 1 ≤ a ≤ 10. Also 241 ≤ a+14d ≤ 250. From a₁₅ − a₂ = 13d, we get 221 ≤ 13d ≤ 237, so 17 ≤ d ≤ 18.2, meaning d = 17 or 18.",
+        "equation": "d = 17"
+      },
+      {
+        "title": "Determine a and find a₁₄",
+        "body": "If d = 17: a₁₅ = a + 238. For 241 ≤ a + 238 ≤ 250: 3 ≤ a ≤ 12. Combined with 1 ≤ a ≤ 10: 3 ≤ a ≤ 10. Check a₂: a + 17 must be 13–20, so a ≤ 3. Thus a = 3. a₁₄ = 3 + 13(17) = 3 + 221 = 224. Digit sum = 2+2+4 = 8.",
+        "equation": "a₁₄ = 224, digit sum = 8"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "15 equally spaced integers with constraints on a₁, a₂, and a₁₅. Find digit sum of a₁₄.", "visualHint": "Number line with constraints." },
+      { "title": "Solve", "narration": "d = 17, a = 3. a₁₄ = 3 + 13×17 = 224. Digit sum = 8.", "visualHint": "Computation shown." },
+      { "title": "Check", "narration": "Sum of digits of 224 is 8. The answer is (A).", "visualHint": "Answer A circled." }
+    ],
+    "animation": { "type": "number-line", "data": { "a1": 3, "d": 17, "a14": 224 } },
+    "tags": ["AMC 8", "2023", "number theory", "arithmetic sequences", "inequalities"],
+    "sourceName": "2023 AMC 8",
+    "license": "CC BY-NC-SA"
+  }
+];
 
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
@@ -45991,6 +47196,7 @@ export const sampleProblems: Problem[] = [
   ...amc2019Problems,
   ...amc2020Problems,
   ...amc2022Problems,
+  ...amc2023Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems, amc2016Problems, amc2017Problems, amc2018Problems, amc2019Problems, amc2020Problems, amc2022Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems, amc2016Problems, amc2017Problems, amc2018Problems, amc2019Problems, amc2020Problems, amc2022Problems, amc2023Problems };
