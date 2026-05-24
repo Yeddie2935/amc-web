@@ -41393,7 +41393,7 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "logic",
+      "type": "generic",
       "data": {
         "totalBottomRows": 16,
         "winningRows": 8

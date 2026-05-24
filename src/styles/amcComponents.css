@@ -395,6 +395,7 @@ a {
 }
 
 .fmj-choice-list {
+  list-style: none;
   display: grid;
   gap: 8px;
   margin: 18px 0;

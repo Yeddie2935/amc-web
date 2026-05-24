@@ -37,13 +37,13 @@ export function ProblemStatement({ problem }: ProblemStatementProps) {
       )}
 
       {problem.choices && (
-        <ol className="fmj-choice-list">
+        <ul className="fmj-choice-list">
           {problem.choices.map((choice) => (
             <li key={choice.label}>
               <strong>{choice.label}.</strong> {choice.text}
             </li>
           ))}
-        </ol>
+        </ul>
       )}
     </article>
   );
