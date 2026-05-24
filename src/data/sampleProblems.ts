@@ -44939,11 +44939,11 @@ const amc2022Problems: Problem[] = [
     "difficulty": 1,
     "statement": "The letter M in the figure below is first reflected over the line q and then reflected over the line p. What is the resulting image?",
     "choices": [
-      { "label": "A", "text": "M rotated with legs pointing right" },
-      { "label": "B", "text": "M rotated with legs pointing left" },
-      { "label": "C", "text": "M upright and normal" },
-      { "label": "D", "text": "W (M upside down)" },
-      { "label": "E", "text": "M rotated 180° (upside down and backwards)" }
+      { "label": "A", "text": "(see diagram)" },
+      { "label": "B", "text": "(see diagram)" },
+      { "label": "C", "text": "(see diagram)" },
+      { "label": "D", "text": "(see diagram)" },
+      { "label": "E", "text": "(see diagram)" }
     ],
     "answer": "E",
     "shortAnswer": "E",
