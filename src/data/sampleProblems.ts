@@ -48293,6 +48293,1143 @@ const amc2024Problems: Problem[] = [
   }
 ];
 
+const amc2025Problems: Problem[] = [
+  {
+    "id": "amc8-2025-01",
+    "title": "2025 AMC 8 Problem 1: Star Quilting Pattern",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 1,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 1,
+    "statement": "The eight-pointed star, shown in the figure below, is a popular quilting pattern. What percent of the entire 4 × 4 grid is covered by the star?",
+    "choices": [
+      { "label": "A", "text": "40" },
+      { "label": "B", "text": "50" },
+      { "label": "C", "text": "60" },
+      { "label": "D", "text": "75" },
+      { "label": "E", "text": "80" }
+    ],
+    "answer": "B",
+    "shortAnswer": "50",
+    "solutionSteps": [
+      {
+        "title": "Count the shaded half-triangles",
+        "body": "The star is made up of 8 half-square triangles around the edges plus 4 full squares in the center.",
+        "equation": ""
+      },
+      {
+        "title": "Compute total shaded area",
+        "body": "8 half-squares equal 4 full squares. Adding the 4 center squares gives 8 full squares out of 16 total.",
+        "equation": "8 / 16 = 1/2 = 50%"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "We need to find what percent of a 4 × 4 grid is covered by an eight-pointed star.", "visualHint": "Star on grid shown." },
+      { "title": "Solve", "narration": "Count 8 half-square triangles (= 4 squares) plus 4 center squares = 8 out of 16 squares.", "visualHint": "Shaded regions highlighted." },
+      { "title": "Check", "narration": "8/16 = 50%. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "area-model", "data": {} },
+    "tags": ["AMC 8", "2025", "geometry", "area"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2025/problem-01-star-grid.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2025-02",
+    "title": "2025 AMC 8 Problem 2: Egyptian Hieroglyphs",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 2,
+    "category": "Number Theory",
+    "subcategory": "Place value",
+    "difficulty": 1,
+    "statement": "The table below shows the ancient Egyptian hieroglyphs that were used to represent different numbers. For example, the number 32 was represented by three heel bones and two strokes. What number is represented by the following combination of hieroglyphs shown in the figure?",
+    "choices": [
+      { "label": "A", "text": "1,423" },
+      { "label": "B", "text": "10,423" },
+      { "label": "C", "text": "14,023" },
+      { "label": "D", "text": "14,203" },
+      { "label": "E", "text": "14,230" }
+    ],
+    "answer": "B",
+    "shortAnswer": "10,423",
+    "solutionSteps": [
+      {
+        "title": "Identify each hieroglyph's value",
+        "body": "The first hieroglyph is a finger (10,000). The next 4 are coils (100 each). The next 2 are heel bones (10 each). The last 3 are strokes (1 each).",
+        "equation": ""
+      },
+      {
+        "title": "Add up the values",
+        "body": "10,000 + 4 × 100 + 2 × 10 + 3 × 1 = 10,000 + 400 + 20 + 3.",
+        "equation": "10,000 + 400 + 20 + 3 = 10,423"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Decode the Egyptian hieroglyphs using the table of values.", "visualHint": "Hieroglyph table shown." },
+      { "title": "Solve", "narration": "1 finger = 10,000; 4 coils = 400; 2 heels = 20; 3 strokes = 3. Total = 10,423.", "visualHint": "Values added up." },
+      { "title": "Check", "narration": "The number is 10,423. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2025", "number theory", "place value"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2025/problem-02-hieroglyphs.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2025-03",
+    "title": "2025 AMC 8 Problem 3: Buffalo Shuffle-o",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 3,
+    "category": "Algebra",
+    "subcategory": "Division",
+    "difficulty": 1,
+    "statement": "Buffalo Shuffle-o is a card game in which all the cards are distributed evenly among all players at the start of the game. When Annika and 3 of her friends play Buffalo Shuffle-o, each player is dealt 15 cards. Suppose 2 more friends join the next game. How many cards will be dealt to each player?",
+    "choices": [
+      { "label": "A", "text": "8" },
+      { "label": "B", "text": "9" },
+      { "label": "C", "text": "10" },
+      { "label": "D", "text": "11" },
+      { "label": "E", "text": "12" }
+    ],
+    "answer": "C",
+    "shortAnswer": "10",
+    "solutionSteps": [
+      {
+        "title": "Find the total number of cards",
+        "body": "Annika and 3 friends = 4 players. Each gets 15 cards, so total = 4 × 15 = 60 cards.",
+        "equation": "4 × 15 = 60"
+      },
+      {
+        "title": "Divide among new number of players",
+        "body": "2 more friends join, making 6 players total. 60 ÷ 6 = 10 cards each.",
+        "equation": "60 ÷ 6 = 10"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "4 players each get 15 cards. 2 more players join. How many cards each?", "visualHint": "Cards being dealt." },
+      { "title": "Solve", "narration": "Total cards = 60. New player count = 6. Each gets 60 ÷ 6 = 10.", "visualHint": "Division shown." },
+      { "title": "Check", "narration": "Each player gets 10 cards. The answer is (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2025", "algebra", "division"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2025-04",
+    "title": "2025 AMC 8 Problem 4: Counting Backward",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 4,
+    "category": "Algebra",
+    "subcategory": "Arithmetic sequences",
+    "difficulty": 1,
+    "statement": "Lucius is counting backward by 7s. His first three numbers are 100, 93, and 86. What is his 10th number?",
+    "choices": [
+      { "label": "A", "text": "30" },
+      { "label": "B", "text": "37" },
+      { "label": "C", "text": "42" },
+      { "label": "D", "text": "44" },
+      { "label": "E", "text": "47" }
+    ],
+    "answer": "B",
+    "shortAnswer": "37",
+    "solutionSteps": [
+      {
+        "title": "Write the formula",
+        "body": "The nth number in this sequence is 100 − 7(n − 1).",
+        "equation": "a_n = 100 − 7(n − 1)"
+      },
+      {
+        "title": "Find the 10th number",
+        "body": "Substitute n = 10: 100 − 7 × 9 = 100 − 63 = 37.",
+        "equation": "100 − 63 = 37"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Starting at 100, subtract 7 each time. Find the 10th term.", "visualHint": "Sequence shown." },
+      { "title": "Solve", "narration": "10th term = 100 − 7 × 9 = 100 − 63 = 37.", "visualHint": "Calculation shown." },
+      { "title": "Check", "narration": "The 10th number is 37. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2025", "algebra", "arithmetic sequences"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2025-05",
+    "title": "2025 AMC 8 Problem 5: Delivery Truck Route",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 5,
+    "category": "Geometry",
+    "subcategory": "Shortest paths",
+    "difficulty": 1,
+    "statement": "Betty drives a truck to deliver packages in a neighborhood whose street map is shown below. Betty starts at the factory (labeled F) and drives to location A, then B, then C, before returning to F. What is the shortest distance, in blocks, she can drive to complete the route?",
+    "choices": [
+      { "label": "A", "text": "20" },
+      { "label": "B", "text": "23" },
+      { "label": "C", "text": "24" },
+      { "label": "D", "text": "26" },
+      { "label": "E", "text": "28" }
+    ],
+    "answer": "C",
+    "shortAnswer": "24",
+    "solutionSteps": [
+      {
+        "title": "Find shortest path for each segment",
+        "body": "Each shortest path between two points follows the edges of the grid. Count the minimum Manhattan distances for F→A, A→B, B→C, and C→F.",
+        "equation": ""
+      },
+      {
+        "title": "Add segment distances",
+        "body": "The total shortest route F→A→B→C→F is 24 blocks.",
+        "equation": "Total = 24 blocks"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Betty must visit A, B, C in order starting and ending at F on a street grid.", "visualHint": "Grid with labeled points." },
+      { "title": "Solve", "narration": "Find shortest Manhattan distance for each leg. Total = 24 blocks.", "visualHint": "Path traced on grid." },
+      { "title": "Check", "narration": "The shortest distance is 24 blocks. The answer is (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2025", "geometry", "shortest paths"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2025/problem-05-street-grid.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2025-06",
+    "title": "2025 AMC 8 Problem 6: Erase a Number",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 6,
+    "category": "Number Theory",
+    "subcategory": "Divisibility",
+    "difficulty": 2,
+    "statement": "Sekou writes the numbers 15, 16, 17, 18, 19. After he erases one of his numbers, the sum of the remaining four numbers is a multiple of 4. Which number did he erase?",
+    "choices": [
+      { "label": "A", "text": "15" },
+      { "label": "B", "text": "16" },
+      { "label": "C", "text": "17" },
+      { "label": "D", "text": "18" },
+      { "label": "E", "text": "19" }
+    ],
+    "answer": "C",
+    "shortAnswer": "17",
+    "solutionSteps": [
+      {
+        "title": "Find the total sum",
+        "body": "15 + 16 + 17 + 18 + 19 = 85.",
+        "equation": "85"
+      },
+      {
+        "title": "Determine which number to remove",
+        "body": "85 mod 4 = 1. We need to remove a number that is 1 mod 4. Since 17 mod 4 = 1, erasing 17 leaves 85 − 17 = 68, which is divisible by 4.",
+        "equation": "85 − 17 = 68 = 4 × 17"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Remove one number from {15, 16, 17, 18, 19} so the remaining sum is a multiple of 4.", "visualHint": "Numbers listed." },
+      { "title": "Solve", "narration": "Total = 85. 85 mod 4 = 1. Remove 17 (since 17 mod 4 = 1). Remaining sum = 68.", "visualHint": "Modular arithmetic shown." },
+      { "title": "Check", "narration": "68 ÷ 4 = 17. The answer is (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2025", "number theory", "divisibility"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2025-07",
+    "title": "2025 AMC 8 Problem 7: Exam Scores",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 7,
+    "category": "Logic",
+    "subcategory": "Data interpretation",
+    "difficulty": 2,
+    "statement": "On the most recent exam in Prof. Xochi's class, 5 students earned a score of at least 95%, 13 students earned a score of at least 90%, 27 students earned a score of at least 85%, and 50 students earned a score of at least 80%. How many students earned a score of at least 80% and less than 90%?",
+    "choices": [
+      { "label": "A", "text": "8" },
+      { "label": "B", "text": "14" },
+      { "label": "C", "text": "22" },
+      { "label": "D", "text": "37" },
+      { "label": "E", "text": "45" }
+    ],
+    "answer": "D",
+    "shortAnswer": "37",
+    "solutionSteps": [
+      {
+        "title": "Identify the relevant groups",
+        "body": "50 students scored at least 80%. 13 students scored at least 90%. The students who scored between 80% and 90% are those in the first group but not the second.",
+        "equation": ""
+      },
+      {
+        "title": "Subtract",
+        "body": "50 − 13 = 37 students scored at least 80% and less than 90%.",
+        "equation": "50 − 13 = 37"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Find how many students scored between 80% (inclusive) and 90% (exclusive).", "visualHint": "Score ranges shown." },
+      { "title": "Solve", "narration": "At least 80% = 50 students. At least 90% = 13 students. Difference = 37.", "visualHint": "Subtraction shown." },
+      { "title": "Check", "narration": "37 students scored in the 80–90% range. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "bar-model", "data": {} },
+    "tags": ["AMC 8", "2025", "logic", "data interpretation"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2025-08",
+    "title": "2025 AMC 8 Problem 8: Cube Net",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 8,
+    "category": "Geometry",
+    "subcategory": "3D geometry",
+    "difficulty": 2,
+    "statement": "Isaiah cuts open a cardboard cube along some of its edges to form the flat shape shown on the right, which has an area of 18 square centimeters. What is the volume of the cube in cubic centimeters?",
+    "choices": [
+      { "label": "A", "text": "3√3" },
+      { "label": "B", "text": "6" },
+      { "label": "C", "text": "9" },
+      { "label": "D", "text": "6√3" },
+      { "label": "E", "text": "9√3" }
+    ],
+    "answer": "A",
+    "shortAnswer": "3√3",
+    "solutionSteps": [
+      {
+        "title": "Find the area of one face",
+        "body": "A cube has 6 faces. The net has area 18 cm², so each face has area 18 ÷ 6 = 3 cm².",
+        "equation": "18 ÷ 6 = 3"
+      },
+      {
+        "title": "Find the side length and volume",
+        "body": "Side length = √3. Volume = (√3)³ = 3√3 cubic centimeters.",
+        "equation": "(√3)³ = 3√3"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "A cube is unfolded into a net with total area 18 cm². Find the cube's volume.", "visualHint": "Cube and net shown." },
+      { "title": "Solve", "narration": "Each face = 3 cm². Side = √3. Volume = (√3)³ = 3√3.", "visualHint": "Calculation shown." },
+      { "title": "Check", "narration": "The volume is 3√3 cm³. The answer is (A).", "visualHint": "Answer A circled." }
+    ],
+    "animation": { "type": "cube-net", "data": {} },
+    "tags": ["AMC 8", "2025", "geometry", "3D geometry", "volume"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2025/problem-08-cube-net.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2025-09",
+    "title": "2025 AMC 8 Problem 9: Clock Averages",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 9,
+    "category": "Number Theory",
+    "subcategory": "Averages",
+    "difficulty": 2,
+    "statement": "Ningli looks at the 6 pairs of numbers directly across from each other on a clock. She takes the average of each pair of numbers. What is the average of the resulting 6 numbers?",
+    "choices": [
+      { "label": "A", "text": "5" },
+      { "label": "B", "text": "6.5" },
+      { "label": "C", "text": "8" },
+      { "label": "D", "text": "9.5" },
+      { "label": "E", "text": "12" }
+    ],
+    "answer": "B",
+    "shortAnswer": "6.5",
+    "solutionSteps": [
+      {
+        "title": "Recognize the shortcut",
+        "body": "The average of the 6 pair-averages equals the average of all 12 clock numbers.",
+        "equation": ""
+      },
+      {
+        "title": "Compute the average",
+        "body": "Sum of 1 through 12 is 78. Average = 78 ÷ 12 = 6.5.",
+        "equation": "78 ÷ 12 = 6.5"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Average the 6 opposite pairs on a clock (1&7, 2&8, etc.), then average those results.", "visualHint": "Clock with pairs marked." },
+      { "title": "Solve", "narration": "Average of pair-averages = average of all 12 numbers = 78/12 = 6.5.", "visualHint": "Sum and division shown." },
+      { "title": "Check", "narration": "The average is 6.5. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "clock-angle", "data": {} },
+    "tags": ["AMC 8", "2025", "number theory", "averages"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2025/problem-09-clock.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2025-10",
+    "title": "2025 AMC 8 Problem 10: Overlapping Rectangles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 10,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 2,
+    "statement": "In the figure below, ABCD is a rectangle with sides of length AB = 5 inches and AD = 3 inches. Rectangle ABCD is rotated 90° clockwise around the midpoint of side DC to give a second rectangle. What is the total area, in square inches, covered by the two overlapping rectangles?",
+    "choices": [
+      { "label": "A", "text": "21" },
+      { "label": "B", "text": "22.25" },
+      { "label": "C", "text": "23" },
+      { "label": "D", "text": "23.75" },
+      { "label": "E", "text": "25" }
+    ],
+    "answer": "D",
+    "shortAnswer": "23.75",
+    "solutionSteps": [
+      {
+        "title": "Find the overlap",
+        "body": "The rotation is around the midpoint of DC. The overlap region is a square with side length 2.5 (half of DC = 5).",
+        "equation": "Overlap = 2.5² = 6.25"
+      },
+      {
+        "title": "Compute total area",
+        "body": "Total covered = 2 × (area of rectangle) − overlap = 2 × 15 − 6.25 = 23.75.",
+        "equation": "30 − 6.25 = 23.75"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "A 5 × 3 rectangle is rotated 90° around the midpoint of one side. Find total covered area.", "visualHint": "Two overlapping rectangles." },
+      { "title": "Solve", "narration": "Each rectangle has area 15. Overlap is a 2.5 × 2.5 square = 6.25. Total = 30 − 6.25 = 23.75.", "visualHint": "Areas computed." },
+      { "title": "Check", "narration": "The total area is 23.75 square inches. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "area-model", "data": {} },
+    "tags": ["AMC 8", "2025", "geometry", "area", "rotation"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2025/problem-10-rectangles.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2025-11",
+    "title": "2025 AMC 8 Problem 11: Tetromino Tiling",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 11,
+    "category": "Logic",
+    "subcategory": "Spatial reasoning",
+    "difficulty": 3,
+    "statement": "A tetromino consists of four squares connected along their edges. There are five possible tetromino shapes, I, O, L, T, and S, shown below, which can be rotated or flipped over. Three tetrominoes are used to completely cover a 3 × 4 rectangle. At least one of the tiles is an S tile. What are the other two tiles?",
+    "choices": [
+      { "label": "A", "text": "I and L" },
+      { "label": "B", "text": "I and T" },
+      { "label": "C", "text": "L and L" },
+      { "label": "D", "text": "L and S" },
+      { "label": "E", "text": "O and T" }
+    ],
+    "answer": "C",
+    "shortAnswer": "L and L",
+    "solutionSteps": [
+      {
+        "title": "Consider S piece placements",
+        "body": "The 3 × 4 rectangle has 12 squares. Three tetrominoes of 4 squares each fill it exactly. Place the S piece in each valid position and check which other pieces complete the rectangle.",
+        "equation": ""
+      },
+      {
+        "title": "Find the valid tiling",
+        "body": "In every valid placement of the S piece, the remaining 8 squares can only be filled by two L-shaped tetrominoes.",
+        "equation": ""
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Tile a 3 × 4 rectangle with 3 tetrominoes, at least one being an S piece.", "visualHint": "Tetromino shapes shown." },
+      { "title": "Solve", "narration": "Try placing S in valid positions. The remaining space always requires two L pieces.", "visualHint": "Tiling demonstrated." },
+      { "title": "Check", "narration": "The other two tiles are L and L. The answer is (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2025", "logic", "spatial reasoning", "tiling"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2025/problem-11-tetrominoes.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2025-12",
+    "title": "2025 AMC 8 Problem 12: Largest Circle in Cross",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 12,
+    "category": "Geometry",
+    "subcategory": "Circles",
+    "difficulty": 3,
+    "statement": "The region shown below consists of 24 squares, each with side length 1 centimeter. What is the area, in square centimeters, of the largest circle that can fit inside the region, possibly touching the boundaries?",
+    "choices": [
+      { "label": "A", "text": "3π" },
+      { "label": "B", "text": "4π" },
+      { "label": "C", "text": "5π" },
+      { "label": "D", "text": "6π" },
+      { "label": "E", "text": "8π" }
+    ],
+    "answer": "C",
+    "shortAnswer": "5π",
+    "solutionSteps": [
+      {
+        "title": "Find the circle's center and radius",
+        "body": "The largest circle is centered in the middle of the cross-shaped region. It is tangent to the 8 concave corners of the cross.",
+        "equation": ""
+      },
+      {
+        "title": "Compute the radius using the Pythagorean theorem",
+        "body": "The distance from the center to one of the concave corners is √(2² + 1²) = √5. So the radius is √5.",
+        "equation": "r = √(4 + 1) = √5"
+      },
+      {
+        "title": "Find the area",
+        "body": "Area = πr² = π(√5)² = 5π.",
+        "equation": "π × 5 = 5π"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Find the largest circle that fits inside a cross-shaped region of 24 unit squares.", "visualHint": "Cross region shown." },
+      { "title": "Solve", "narration": "Center the circle in the cross. Distance to nearest concave corner = √(2² + 1²) = √5. Area = 5π.", "visualHint": "Circle inscribed in cross." },
+      { "title": "Check", "narration": "The area is 5π cm². The answer is (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "area-model", "data": {} },
+    "tags": ["AMC 8", "2025", "geometry", "circles", "Pythagorean theorem"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2025/problem-12-cross-region.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2025-13",
+    "title": "2025 AMC 8 Problem 13: Remainder Histogram",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 13,
+    "category": "Number Theory",
+    "subcategory": "Remainders",
+    "difficulty": 3,
+    "statement": "Each of the even numbers 2, 4, 6, …, 50 is divided by 7. The remainders are recorded. Which histogram displays the number of times each remainder occurs?",
+    "choices": [
+      { "label": "A", "text": "A" },
+      { "label": "B", "text": "B" },
+      { "label": "C", "text": "C" },
+      { "label": "D", "text": "D" },
+      { "label": "E", "text": "E" }
+    ],
+    "answer": "A",
+    "shortAnswer": "A",
+    "solutionSteps": [
+      {
+        "title": "Find the repeating pattern of remainders",
+        "body": "The remainders of 2, 4, 6, 8, 10, 12, 14 mod 7 are 2, 4, 6, 1, 3, 5, 0. This pattern repeats every 7 even numbers.",
+        "equation": ""
+      },
+      {
+        "title": "Count remainders for all 25 even numbers",
+        "body": "Three full cycles cover 2 through 42 (21 numbers). The remaining 4 numbers (44, 46, 48, 50) give remainders 2, 4, 6, 1. So counts for remainders 0–6 are: 3, 4, 4, 3, 4, 3, 4.",
+        "equation": "3 + 4 + 4 + 3 + 4 + 3 + 4 = 25"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Divide even numbers 2–50 by 7 and record remainders. Find the matching histogram.", "visualHint": "Histogram choices shown." },
+      { "title": "Solve", "narration": "Remainders cycle as 2,4,6,1,3,5,0. After 3 full cycles + 4 extras, counts are 3,4,4,3,4,3,4.", "visualHint": "Remainder counting." },
+      { "title": "Check", "narration": "Histogram (A) matches the pattern. The answer is (A).", "visualHint": "Answer A circled." }
+    ],
+    "animation": { "type": "graph-read", "data": {} },
+    "tags": ["AMC 8", "2025", "number theory", "remainders", "modular arithmetic"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2025/problem-13-histograms.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2025-14",
+    "title": "2025 AMC 8 Problem 14: Mean Twice the Median",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 14,
+    "category": "Algebra",
+    "subcategory": "Statistics",
+    "difficulty": 3,
+    "statement": "A number N is inserted into the list 2, 6, 7, 7, 28. The mean is now twice as great as the median. What is N?",
+    "choices": [
+      { "label": "A", "text": "7" },
+      { "label": "B", "text": "14" },
+      { "label": "C", "text": "20" },
+      { "label": "D", "text": "28" },
+      { "label": "E", "text": "34" }
+    ],
+    "answer": "E",
+    "shortAnswer": "34",
+    "solutionSteps": [
+      {
+        "title": "Find the median",
+        "body": "The list has 6 numbers after inserting N. For the median to be 7, N must be at least 7 (so the middle two values are both 7). The median is 7.",
+        "equation": "Median = 7"
+      },
+      {
+        "title": "Set up the equation",
+        "body": "Mean = 2 × 7 = 14. Sum of all 6 numbers = 6 × 14 = 84. Current sum = 2 + 6 + 7 + 7 + 28 = 50. So N = 84 − 50 = 34.",
+        "equation": "N = 84 − 50 = 34"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Insert N into {2, 6, 7, 7, 28} so the mean equals twice the median.", "visualHint": "List shown." },
+      { "title": "Solve", "narration": "Median = 7, so mean = 14. Total = 84. Current sum = 50. N = 34.", "visualHint": "Equation solved." },
+      { "title": "Check", "narration": "N = 34. The answer is (E).", "visualHint": "Answer E circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2025", "algebra", "statistics", "mean", "median"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2025-15",
+    "title": "2025 AMC 8 Problem 15: Grid Fold",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 15,
+    "category": "Counting & Probability",
+    "subcategory": "Combinatorics",
+    "difficulty": 3,
+    "statement": "Kei draws a 6-by-6 grid. He colors 13 of the unit squares silver and the remaining squares gold. Kei then folds the grid in half vertically, forming pairs of overlapping unit squares. Let m and M equal the least and greatest possible number of gold-on-gold pairs, respectively. What is the value of m + M?",
+    "choices": [
+      { "label": "A", "text": "12" },
+      { "label": "B", "text": "14" },
+      { "label": "C", "text": "16" },
+      { "label": "D", "text": "18" },
+      { "label": "E", "text": "20" }
+    ],
+    "answer": "C",
+    "shortAnswer": "16",
+    "solutionSteps": [
+      {
+        "title": "Count total pairs",
+        "body": "Folding a 6 × 6 grid in half vertically creates 6 × 3 = 18 overlapping pairs.",
+        "equation": "18 pairs"
+      },
+      {
+        "title": "Find minimum gold-on-gold (m)",
+        "body": "To minimize gold-gold pairs, spread 13 silver squares across different pairs. Each silver square removes one pair from gold-gold. m = 18 − 13 = 5.",
+        "equation": "m = 18 − 13 = 5"
+      },
+      {
+        "title": "Find maximum gold-on-gold (M)",
+        "body": "To maximize gold-gold pairs, pair up silver squares. ⌈13/2⌉ = 7 pairs contain silver. M = 18 − 7 = 11.",
+        "equation": "M = 18 − 7 = 11"
+      },
+      {
+        "title": "Add",
+        "body": "m + M = 5 + 11 = 16.",
+        "equation": "5 + 11 = 16"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "A 6×6 grid has 13 silver and 23 gold squares. Fold vertically to create 18 pairs. Find min + max gold-gold pairs.", "visualHint": "Grid folding." },
+      { "title": "Solve", "narration": "Min: spread silvers → m = 5. Max: pair silvers → M = 11. Sum = 16.", "visualHint": "Two arrangements shown." },
+      { "title": "Check", "narration": "m + M = 16. The answer is (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2025", "counting", "combinatorics"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2025/problem-15-fold-grid.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2025-16",
+    "title": "2025 AMC 8 Problem 16: No Two Differ by Ten",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 16,
+    "category": "Number Theory",
+    "subcategory": "Number properties",
+    "difficulty": 4,
+    "statement": "Five distinct integers from 1 to 10 are chosen, and five distinct integers from 11 to 20 are chosen. No two numbers differ by exactly 10. What is the sum of the ten chosen numbers?",
+    "choices": [
+      { "label": "A", "text": "95" },
+      { "label": "B", "text": "100" },
+      { "label": "C", "text": "105" },
+      { "label": "D", "text": "110" },
+      { "label": "E", "text": "115" }
+    ],
+    "answer": "C",
+    "shortAnswer": "105",
+    "solutionSteps": [
+      {
+        "title": "Pair up the numbers",
+        "body": "Each number k from 1–10 is paired with k + 10 from 11–20. The constraint says we pick exactly one from each pair.",
+        "equation": ""
+      },
+      {
+        "title": "Compute the forced sum",
+        "body": "For each pair, we pick either k or k + 10. We need 5 from each group, so for 5 pairs we pick k, and for 5 pairs we pick k + 10. Sum = (sum of all k from 1–10) + 5 × 10 = 55 + 50 = 105.",
+        "equation": "55 + 50 = 105"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Choose 5 numbers from 1–10 and 5 from 11–20, no two differing by 10.", "visualHint": "Paired numbers shown." },
+      { "title": "Solve", "narration": "From each pair (k, k+10), pick one from each group. Sum always = 55 + 50 = 105.", "visualHint": "Pairing shown." },
+      { "title": "Check", "narration": "The sum is always 105. The answer is (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2025", "number theory", "number properties"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2025-17",
+    "title": "2025 AMC 8 Problem 17: Markovia",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 17,
+    "category": "Algebra",
+    "subcategory": "Systems of equations",
+    "difficulty": 4,
+    "statement": "In the land of Markovia, there are three cities: A, B, and C. There are 100 people who live in A, 120 who live in B, and 160 who live in C. Everyone works in one of the three cities, and a person may work in the same city where they live. In the figure below, an arrow pointing from one city to another is labeled with the fraction of people living in the first city who work in the second city. (For example, 1/4 of the people who live in A work in B.) How many people work in A?",
+    "choices": [
+      { "label": "A", "text": "55" },
+      { "label": "B", "text": "60" },
+      { "label": "C", "text": "85" },
+      { "label": "D", "text": "115" },
+      { "label": "E", "text": "160" }
+    ],
+    "answer": "D",
+    "shortAnswer": "115",
+    "solutionSteps": [
+      {
+        "title": "Find people from A who work in A",
+        "body": "1/4 of A's residents work in B, 1/5 work in C. So 1 − 1/4 − 1/5 = 11/20 work in A. That's 100 × 11/20 = 55 people.",
+        "equation": "100 × 11/20 = 55"
+      },
+      {
+        "title": "Find people from B and C who work in A",
+        "body": "1/3 of B's 120 residents work in A: 40 people. 1/8 of C's 160 residents work in A: 20 people.",
+        "equation": "120/3 = 40, 160/8 = 20"
+      },
+      {
+        "title": "Total working in A",
+        "body": "55 + 40 + 20 = 115.",
+        "equation": "55 + 40 + 20 = 115"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Three cities with given populations and work-migration fractions. Find total workers in city A.", "visualHint": "Directed graph shown." },
+      { "title": "Solve", "narration": "From A: 55. From B: 40. From C: 20. Total = 115.", "visualHint": "Fractions computed." },
+      { "title": "Check", "narration": "115 people work in A. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2025", "algebra", "fractions", "systems"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2025/problem-17-markovia.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2025-18",
+    "title": "2025 AMC 8 Problem 18: Inscribed Square Circles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 18,
+    "category": "Geometry",
+    "subcategory": "Circles and area",
+    "difficulty": 4,
+    "statement": "The circle shown below on the left has a radius of 1 unit. The region between the circle and the inscribed square is shaded. In the circle shown on the right, one quarter of the region between the circle and the inscribed square is shaded. The shaded regions in the two circles have the same area. What is the radius R, in units, of the circle on the right?",
+    "choices": [
+      { "label": "A", "text": "√2" },
+      { "label": "B", "text": "2" },
+      { "label": "C", "text": "2√2" },
+      { "label": "D", "text": "4" },
+      { "label": "E", "text": "4√2" }
+    ],
+    "answer": "B",
+    "shortAnswer": "2",
+    "solutionSteps": [
+      {
+        "title": "Find the left shaded area",
+        "body": "Left circle: radius 1. Inscribed square has diagonal 2, so side = √2 and area = 2. Shaded area = π(1²) − 2 = π − 2.",
+        "equation": "π − 2"
+      },
+      {
+        "title": "Find the right shaded area in terms of R",
+        "body": "Right circle: radius R. Inscribed square area = 2R². One quarter of the region between circle and square: (πR² − 2R²)/4 = R²(π − 2)/4.",
+        "equation": "R²(π − 2)/4"
+      },
+      {
+        "title": "Set equal and solve",
+        "body": "π − 2 = R²(π − 2)/4. Dividing both sides by (π − 2): 1 = R²/4, so R² = 4 and R = 2.",
+        "equation": "R = 2"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Two circles with inscribed squares. Left is fully shaded between circle and square; right is 1/4 shaded. Equal areas.", "visualHint": "Two circles shown." },
+      { "title": "Solve", "narration": "Left area = π − 2. Right area = R²(π − 2)/4. Setting equal: R² = 4, R = 2.", "visualHint": "Equation solved." },
+      { "title": "Check", "narration": "R = 2. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "area-model", "data": {} },
+    "tags": ["AMC 8", "2025", "geometry", "circles", "area"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2025/problem-18-circles.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2025-19",
+    "title": "2025 AMC 8 Problem 19: Two Cars Meeting",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 19,
+    "category": "Algebra",
+    "subcategory": "Rate problems",
+    "difficulty": 4,
+    "statement": "Two towns, A and B, are connected by a straight road that is 15 miles long. Travelling from city A to town B, the speed limit changes every 5 miles: from 25 to 40 to 20 miles per hour (mph). Two cars, one at town A and one at town B, start moving toward each other at the same time. They drive at exactly the speed limit in each portion of the road. How far from town A, in miles, will the two cars meet?",
+    "choices": [
+      { "label": "A", "text": "7.75" },
+      { "label": "B", "text": "8" },
+      { "label": "C", "text": "8.25" },
+      { "label": "D", "text": "8.5" },
+      { "label": "E", "text": "8.75" }
+    ],
+    "answer": "D",
+    "shortAnswer": "8.5",
+    "solutionSteps": [
+      {
+        "title": "Track car from A",
+        "body": "Car A travels first 5 miles at 25 mph, taking 12 minutes. Then enters the 40 mph zone.",
+        "equation": "5/25 = 1/5 hr = 12 min"
+      },
+      {
+        "title": "Track car from B",
+        "body": "Car B travels from B at 20 mph (the zone nearest B). First 5 miles takes 15 minutes. At 12 min, car B has gone 4 miles (at mile 11). At 15 min, car B reaches mile 10.",
+        "equation": "5/20 = 1/4 hr = 15 min"
+      },
+      {
+        "title": "Both in the middle zone",
+        "body": "At t = 15 min, car A is at mile 7 (traveled 2 more miles at 40 mph in 3 min). Car B is at mile 10. They're 3 miles apart, both at 40 mph, closing at 80 mph. Time to meet: 3/80 hr = 2.25 min.",
+        "equation": "Car A: 7 + 40 × (3/80) = 7 + 1.5 = 8.5"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "15-mile road with speed zones 25/40/20 mph. Two cars start from opposite ends. Where do they meet?", "visualHint": "Road with zones shown." },
+      { "title": "Solve", "narration": "Track both cars. They meet in the middle zone after car A travels 8.5 miles from A.", "visualHint": "Cars approaching shown." },
+      { "title": "Check", "narration": "They meet 8.5 miles from A. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "number-line", "data": {} },
+    "tags": ["AMC 8", "2025", "algebra", "rate problems", "distance"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2025/problem-19-road.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2025-20",
+    "title": "2025 AMC 8 Problem 20: Cheese Sharing",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 20,
+    "category": "Algebra",
+    "subcategory": "Geometric series",
+    "difficulty": 4,
+    "statement": "Sarika, Dev, and Rajiv are sharing a large block of cheese. They take turns cutting off half of what remains and eating it: first Sarika eats half of the cheese, then Dev eats half of the remaining half, then Rajiv eats half of what remains, then back to Sarika, and so on. They stop when the cheese is too small to see. About what fraction of the original block of cheese does Sarika eat in total?",
+    "choices": [
+      { "label": "A", "text": "4/7" },
+      { "label": "B", "text": "3/5" },
+      { "label": "C", "text": "2/3" },
+      { "label": "D", "text": "3/4" },
+      { "label": "E", "text": "7/8" }
+    ],
+    "answer": "A",
+    "shortAnswer": "4/7",
+    "solutionSteps": [
+      {
+        "title": "List Sarika's portions",
+        "body": "Sarika eats on turns 1, 4, 7, 10, … She eats 1/2, 1/16, 1/128, … Each term is 1/8 of the previous.",
+        "equation": "1/2 + 1/16 + 1/128 + …"
+      },
+      {
+        "title": "Sum the geometric series",
+        "body": "This is a geometric series with first term 1/2 and ratio 1/8. Sum = (1/2)/(1 − 1/8) = (1/2)/(7/8) = 4/7.",
+        "equation": "(1/2) × (8/7) = 4/7"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Three people take turns eating half the remaining cheese. Find Sarika's total fraction.", "visualHint": "Cheese portions shown." },
+      { "title": "Solve", "narration": "Sarika eats 1/2 + 1/16 + 1/128 + … = (1/2)/(1 − 1/8) = 4/7.", "visualHint": "Geometric series." },
+      { "title": "Check", "narration": "Sarika eats 4/7 of the cheese. The answer is (A).", "visualHint": "Answer A circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2025", "algebra", "geometric series", "fractions"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2025-21",
+    "title": "2025 AMC 8 Problem 21: Konigsberg Pods",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 21,
+    "category": "Logic",
+    "subcategory": "Graph coloring",
+    "difficulty": 5,
+    "statement": "The Konigsberg School has assigned grades 1 through 7 to pods A through G, one grade per pod. Some of the pods are connected by walkways, as shown in the figure below. The school noticed that each pair of connected pods has been assigned grades differing by 1 or more grade levels. (For example, grades 1 and 2 will not be in pods directly connected by a walkway.) What is the sum of the grade levels assigned to pods C, E, and F?",
+    "choices": [
+      { "label": "A", "text": "12" },
+      { "label": "B", "text": "13" },
+      { "label": "C", "text": "14" },
+      { "label": "D", "text": "15" },
+      { "label": "E", "text": "16" }
+    ],
+    "answer": "A",
+    "shortAnswer": "12",
+    "solutionSteps": [
+      {
+        "title": "Identify high-degree pods",
+        "body": "Pods C and F are each connected to 5 other pods (degree 5). They must receive grades 1 and 7 (the extreme values), since they must differ from the most other pods.",
+        "equation": ""
+      },
+      {
+        "title": "Assign remaining grades",
+        "body": "D is the only pod not adjacent to F, so D gets grade 2. G is not adjacent to C, so G gets grade 6. E must get grade 4. A and B get grades 3 and 5.",
+        "equation": ""
+      },
+      {
+        "title": "Compute the sum",
+        "body": "C + E + F = 1 + 4 + 7 = 12.",
+        "equation": "1 + 4 + 7 = 12"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Assign grades 1–7 to pods A–G so connected pods differ by more than 1. Find sum of C, E, F.", "visualHint": "Graph of pods shown." },
+      { "title": "Solve", "narration": "C and F have degree 5 → grades 1 and 7. E gets 4. Sum = 1 + 4 + 7 = 12.", "visualHint": "Grade assignment shown." },
+      { "title": "Check", "narration": "C + E + F = 12. The answer is (A).", "visualHint": "Answer A circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2025", "logic", "graph coloring"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2025/problem-21-pods.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2025-22",
+    "title": "2025 AMC 8 Problem 22: Coat Hooks",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 22,
+    "category": "Counting & Probability",
+    "subcategory": "Divisibility",
+    "difficulty": 5,
+    "statement": "A classroom has a row of 35 coat hooks. Paulina likes coats to be equally spaced, so that there is the same number of empty hooks before the first coat and after the last coat, and between every coat and the next one. Suppose there is at least 1 coat and at least 1 empty hook. How many different numbers of coats can satisfy Paulina's pattern?",
+    "choices": [
+      { "label": "A", "text": "2" },
+      { "label": "B", "text": "4" },
+      { "label": "C", "text": "5" },
+      { "label": "D", "text": "7" },
+      { "label": "E", "text": "9" }
+    ],
+    "answer": "D",
+    "shortAnswer": "7",
+    "solutionSteps": [
+      {
+        "title": "Set up the divisibility condition",
+        "body": "With n coats, there are n + 1 equal gaps. The 35 − n empty hooks must be divisible by n + 1. Since 35 − n = 36 − (n + 1), we need (n + 1) | 36.",
+        "equation": "(n + 1) | 36"
+      },
+      {
+        "title": "Find valid values of n",
+        "body": "Divisors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. So n + 1 can be 2, 3, 4, 6, 9, 12, 18 (excluding 1 since n ≥ 1, and 36 since we need at least 1 empty hook). This gives n = 1, 2, 3, 5, 8, 11, 17.",
+        "equation": "7 values"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "35 hooks, coats equally spaced with equal gaps at ends. At least 1 coat, at least 1 empty. How many valid coat counts?", "visualHint": "Hooks shown." },
+      { "title": "Solve", "narration": "Need (n+1) | 36. Valid n: 1, 2, 3, 5, 8, 11, 17 — that's 7 values.", "visualHint": "Divisors listed." },
+      { "title": "Check", "narration": "There are 7 valid numbers of coats. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2025", "counting", "divisibility"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2025/problem-22-hooks.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2025-23",
+    "title": "2025 AMC 8 Problem 23: Four-Digit Number Properties",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 23,
+    "category": "Number Theory",
+    "subcategory": "Prime factorization",
+    "difficulty": 5,
+    "statement": "How many four-digit numbers have all three of the following properties? (I) The tens and ones digit are both 9. (II) The number is 1 less than a perfect square. (III) The number is the product of exactly two prime numbers.",
+    "choices": [
+      { "label": "A", "text": "0" },
+      { "label": "B", "text": "1" },
+      { "label": "C", "text": "2" },
+      { "label": "D", "text": "3" },
+      { "label": "E", "text": "4" }
+    ],
+    "answer": "B",
+    "shortAnswer": "1",
+    "solutionSteps": [
+      {
+        "title": "Find candidates from conditions (I) and (II)",
+        "body": "Numbers ending in 99 that are n² − 1: since n² ends in 00, n ends in 0. Four-digit candidates: 40² − 1 = 1599, 50² − 1 = 2499, 60² − 1 = 3599, 70² − 1 = 4899, 80² − 1 = 6399, 90² − 1 = 8099.",
+        "equation": "n² − 1 = (n−1)(n+1)"
+      },
+      {
+        "title": "Check condition (III)",
+        "body": "n² − 1 = (n−1)(n+1) must be a product of exactly two primes. Check each: 39 × 41 (39 = 3 × 13, no), 49 × 51 (49 = 7², no), 59 × 61 (both prime, yes!), 69 × 71 (69 = 3 × 23, no), 79 × 81 (81 = 3⁴, no), 89 × 91 (91 = 7 × 13, no).",
+        "equation": "3599 = 59 × 61"
+      },
+      {
+        "title": "Count",
+        "body": "Only 3599 = 59 × 61 satisfies all three conditions.",
+        "equation": "1 number"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Find four-digit numbers ending in 99, one less than a perfect square, and a product of two primes.", "visualHint": "Conditions listed." },
+      { "title": "Solve", "narration": "Candidates: n² − 1 = (n−1)(n+1) for n = 40,50,…,90. Only 59 × 61 = 3599 has both factors prime.", "visualHint": "Factor check shown." },
+      { "title": "Check", "narration": "Only 1 number works: 3599. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2025", "number theory", "prime factorization", "perfect squares"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2025-24",
+    "title": "2025 AMC 8 Problem 24: Isosceles Trapezoid",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 24,
+    "category": "Geometry",
+    "subcategory": "Trapezoids",
+    "difficulty": 5,
+    "statement": "In trapezoid ABCD, angles B and C measure 60° and AB = DC. The side lengths are all positive integers, and the perimeter of ABCD is 30 units. How many non-congruent trapezoids satisfy all of these conditions?",
+    "choices": [
+      { "label": "A", "text": "0" },
+      { "label": "B", "text": "1" },
+      { "label": "C", "text": "2" },
+      { "label": "D", "text": "3" },
+      { "label": "E", "text": "4" }
+    ],
+    "answer": "E",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Set up variables",
+        "body": "Let a be the shorter base (AD) and b the longer base (BC). The legs equal b − a (from the 30-60-90 triangles formed by dropping perpendiculars). Perimeter = a + b + 2(b − a) = 3b − a = 30.",
+        "equation": "3b − a = 30"
+      },
+      {
+        "title": "Find constraints",
+        "body": "a = 3b − 30. Need a ≥ 1 (so b ≥ 31/3 → b ≥ 11), legs b − a = 30 − 2b > 0 (so b < 15), and all positive integers.",
+        "equation": "11 ≤ b ≤ 14"
+      },
+      {
+        "title": "Count solutions",
+        "body": "b = 11: (a, legs) = (3, 8). b = 12: (6, 6). b = 13: (9, 4). b = 14: (12, 2). Four valid trapezoids.",
+        "equation": "4 trapezoids"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Isosceles trapezoid with 60° base angles, integer sides, perimeter 30. Count non-congruent trapezoids.", "visualHint": "Trapezoid shown." },
+      { "title": "Solve", "narration": "3b − a = 30 with b from 11 to 14 gives 4 solutions: (3,11), (6,12), (9,13), (12,14).", "visualHint": "Solutions listed." },
+      { "title": "Check", "narration": "There are 4 non-congruent trapezoids. The answer is (E).", "visualHint": "Answer E circled." }
+    ],
+    "animation": { "type": "area-model", "data": {} },
+    "tags": ["AMC 8", "2025", "geometry", "trapezoids", "counting"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2025/problem-24-trapezoid.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2025-25",
+    "title": "2025 AMC 8 Problem 25: Diamond Grid Paths",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2025,
+    "problemNumber": 25,
+    "category": "Counting & Probability",
+    "subcategory": "Combinatorics",
+    "difficulty": 5,
+    "statement": "Makayla finds all the possible ways to draw a path in a 5 × 5 diamond-shaped grid. Each path starts at the bottom of the grid and ends at the top, always moving one unit northeast or northwest. She computes the area of the region between each path and the right side of the grid. Two examples are shown in the figures below. What is the sum of the areas determined by all possible paths?",
+    "choices": [
+      { "label": "A", "text": "2520" },
+      { "label": "B", "text": "3150" },
+      { "label": "C", "text": "3840" },
+      { "label": "D", "text": "4730" },
+      { "label": "E", "text": "5050" }
+    ],
+    "answer": "B",
+    "shortAnswer": "3150",
+    "solutionSteps": [
+      {
+        "title": "Count total paths",
+        "body": "Each path makes 10 steps: 5 northeast and 5 northwest. Total paths = C(10, 5) = 252.",
+        "equation": "C(10, 5) = 252"
+      },
+      {
+        "title": "Use symmetry to pair paths",
+        "body": "For every path with area A, there is a \"sister\" path (reflected over the diagonal) with area 25 − A. Each pair of paths has combined area 25.",
+        "equation": ""
+      },
+      {
+        "title": "Compute total area",
+        "body": "There are 252/2 = 126 pairs, each summing to 25. Total = 126 × 25 = 3150.",
+        "equation": "126 × 25 = 3150"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Find the sum of right-side areas for all paths through a 5 × 5 diamond grid.", "visualHint": "Diamond grid with example paths." },
+      { "title": "Solve", "narration": "252 paths, paired by reflection. Each pair sums to 25. Total = 126 × 25 = 3150.", "visualHint": "Pairing shown." },
+      { "title": "Check", "narration": "The sum of all areas is 3150. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2025", "counting", "combinatorics", "symmetry"],
+    "sourceName": "2025 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2025/problem-25-diamond-paths.png"],
+    "needsDiagram": true
+  }
+];
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
@@ -48318,6 +49455,7 @@ export const sampleProblems: Problem[] = [
   ...amc2022Problems,
   ...amc2023Problems,
   ...amc2024Problems,
+  ...amc2025Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems, amc2016Problems, amc2017Problems, amc2018Problems, amc2019Problems, amc2020Problems, amc2022Problems, amc2023Problems, amc2024Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems, amc2016Problems, amc2017Problems, amc2018Problems, amc2019Problems, amc2020Problems, amc2022Problems, amc2023Problems, amc2024Problems, amc2025Problems };
