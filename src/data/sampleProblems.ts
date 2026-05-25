@@ -47172,6 +47172,1126 @@ const amc2023Problems: Problem[] = [
     "license": "CC BY-NC-SA"
   }
 ];
+const amc2024Problems: Problem[] = [
+  {
+    "id": "amc8-2024-01",
+    "title": "2024 AMC 8 Problem 1: Unit Digit Subtraction",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 1,
+    "category": "Number Theory",
+    "subcategory": "Unit digits",
+    "difficulty": 1,
+    "statement": "What is the ones digit of 222,222 − 22,222 − 2,222 − 222 − 22 − 2?",
+    "choices": [
+      { "label": "A", "text": "0" },
+      { "label": "B", "text": "2" },
+      { "label": "C", "text": "4" },
+      { "label": "D", "text": "8" },
+      { "label": "E", "text": "10" }
+    ],
+    "answer": "B",
+    "shortAnswer": "2",
+    "solutionSteps": [
+      {
+        "title": "Find the ones digits",
+        "body": "The ones digit of 222,222 is 2. The ones digits of all the subtracted numbers are also 2. We subtract five 2s from 2.",
+        "equation": ""
+      },
+      {
+        "title": "Compute the ones digit of the sum being subtracted",
+        "body": "The sum of the ones digits being subtracted: 2 + 2 + 2 + 2 + 2 = 10, which has ones digit 0.",
+        "equation": "5 × 2 = 10"
+      },
+      {
+        "title": "Subtract",
+        "body": "The ones digit of the result is 2 − 0 = 2.",
+        "equation": "Ones digit = 2"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Find the ones digit of 222,222 minus five numbers that all end in 2.", "visualHint": "Expression shown." },
+      { "title": "Solve", "narration": "Sum of subtracted ones digits: 5 × 2 = 10 (ones digit 0). Result ones digit: 2 − 0 = 2.", "visualHint": "Ones digit computation." },
+      { "title": "Check", "narration": "The ones digit is 2. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2024", "number theory", "unit digits"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2024-02",
+    "title": "2024 AMC 8 Problem 2: Fraction Sum",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 2,
+    "category": "Algebra",
+    "subcategory": "Fractions and decimals",
+    "difficulty": 1,
+    "statement": "What is the value of this expression in decimal form? 44/11 + 110/44 + 44/1100",
+    "choices": [
+      { "label": "A", "text": "6.4" },
+      { "label": "B", "text": "6.504" },
+      { "label": "C", "text": "6.54" },
+      { "label": "D", "text": "6.9" },
+      { "label": "E", "text": "6.94" }
+    ],
+    "answer": "C",
+    "shortAnswer": "6.54",
+    "solutionSteps": [
+      {
+        "title": "Simplify each fraction",
+        "body": "44/11 = 4. 110/44 = 5/2 = 2.5. 44/1100 = 1/25 = 0.04.",
+        "equation": "4 + 2.5 + 0.04"
+      },
+      {
+        "title": "Add",
+        "body": "4 + 2.5 + 0.04 = 6.54.",
+        "equation": "6.54"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Simplify and add three fractions: 44/11 + 110/44 + 44/1100.", "visualHint": "Fractions displayed." },
+      { "title": "Solve", "narration": "44/11 = 4, 110/44 = 2.5, 44/1100 = 0.04. Sum = 6.54.", "visualHint": "Step-by-step simplification." },
+      { "title": "Check", "narration": "The answer is 6.54, choice (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2024", "algebra", "fractions", "decimals"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2024-03",
+    "title": "2024 AMC 8 Problem 3: Overlapping Squares",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 3,
+    "category": "Geometry",
+    "subcategory": "Area",
+    "difficulty": 1,
+    "statement": "Four squares of side length 4, 7, 9, and 10 are arranged in increasing size order so that their left edges and bottom edges align. The squares alternate in color white-gray-white-gray, respectively, as shown in the figure. What is the area of the visible gray region in square units?",
+    "choices": [
+      { "label": "A", "text": "42" },
+      { "label": "B", "text": "45" },
+      { "label": "C", "text": "49" },
+      { "label": "D", "text": "50" },
+      { "label": "E", "text": "52" }
+    ],
+    "answer": "E",
+    "shortAnswer": "52",
+    "solutionSteps": [
+      {
+        "title": "Identify the gray squares",
+        "body": "The gray squares have side lengths 7 and 10. The white squares have side lengths 4 and 9.",
+        "equation": ""
+      },
+      {
+        "title": "Compute visible gray area",
+        "body": "The visible gray is the area of gray squares minus the parts covered by white squares on top. Visible = 10² − 9² + 7² − 4².",
+        "equation": "100 − 81 + 49 − 16 = 52"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Four nested squares alternate white-gray. Find visible gray area.", "visualHint": "Nested squares diagram." },
+      { "title": "Solve", "narration": "Visible gray = 10² − 9² + 7² − 4² = 100 − 81 + 49 − 16 = 52.", "visualHint": "Area subtraction shown." },
+      { "title": "Check", "narration": "The answer is 52, choice (E).", "visualHint": "Answer E circled." }
+    ],
+    "animation": { "type": "area-model", "data": {} },
+    "tags": ["AMC 8", "2024", "geometry", "area", "squares"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2024/problem-03-squares.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2024-04",
+    "title": "2024 AMC 8 Problem 4: Missing Number",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 4,
+    "category": "Number Theory",
+    "subcategory": "Perfect squares",
+    "difficulty": 1,
+    "statement": "When Yunji added all the integers from 1 to 9, she mistakenly left out a number. Her incorrect sum turned out to be a square number. What number did Yunji leave out?",
+    "choices": [
+      { "label": "A", "text": "5" },
+      { "label": "B", "text": "6" },
+      { "label": "C", "text": "7" },
+      { "label": "D", "text": "8" },
+      { "label": "E", "text": "9" }
+    ],
+    "answer": "E",
+    "shortAnswer": "9",
+    "solutionSteps": [
+      {
+        "title": "Find the correct sum",
+        "body": "1 + 2 + 3 + ... + 9 = 45.",
+        "equation": "Sum = 45"
+      },
+      {
+        "title": "Find which number to remove",
+        "body": "We need 45 − n to be a perfect square. 45 − 9 = 36 = 6². None of the other choices give a perfect square.",
+        "equation": "45 − 9 = 36 = 6²"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Sum of 1 to 9 is 45. Remove one number to get a perfect square.", "visualHint": "Numbers 1-9 displayed." },
+      { "title": "Solve", "narration": "45 − 9 = 36 = 6². The number left out is 9.", "visualHint": "Subtraction shown." },
+      { "title": "Check", "narration": "The answer is 9, choice (E).", "visualHint": "Answer E circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2024", "number theory", "perfect squares"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2024-05",
+    "title": "2024 AMC 8 Problem 5: Dice Product and Sum",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 5,
+    "category": "Number Theory",
+    "subcategory": "Divisibility",
+    "difficulty": 1,
+    "statement": "Aaliyah rolls two standard 6-sided dice. She notices that the product of the two numbers rolled is a multiple of 6. Which of the following integers cannot be the sum of the two numbers?",
+    "choices": [
+      { "label": "A", "text": "5" },
+      { "label": "B", "text": "6" },
+      { "label": "C", "text": "7" },
+      { "label": "D", "text": "8" },
+      { "label": "E", "text": "9" }
+    ],
+    "answer": "B",
+    "shortAnswer": "6",
+    "solutionSteps": [
+      {
+        "title": "List pairs with product divisible by 6",
+        "body": "The product must be divisible by both 2 and 3. The valid pairs (a,b) where ab is a multiple of 6 include: (1,6), (2,3), (2,6), (3,2), (3,4), (3,6), (4,3), (4,6), (5,6), (6,1), (6,2), (6,3), (6,4), (6,5), (6,6).",
+        "equation": ""
+      },
+      {
+        "title": "Check each sum",
+        "body": "(A) 5 = 2+3. (C) 7 = 1+6. (D) 8 = 2+6. (E) 9 = 3+6. For sum 6: possible pairs are (1,5),(2,4),(3,3). Products: 5, 8, 9 — none divisible by 6.",
+        "equation": "Sum of 6 is impossible"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Two dice, product is a multiple of 6. Which sum is impossible?", "visualHint": "Dice shown." },
+      { "title": "Solve", "narration": "Check each choice. For sum 6: pairs (1,5), (2,4), (3,3) have products 5, 8, 9 — none divisible by 6.", "visualHint": "Pairs checked." },
+      { "title": "Check", "narration": "Sum 6 cannot occur. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2024", "number theory", "divisibility", "dice"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2024-06",
+    "title": "2024 AMC 8 Problem 6: Ice Rink Paths",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 6,
+    "category": "Geometry",
+    "subcategory": "Spatial reasoning",
+    "difficulty": 2,
+    "statement": "Sergai skated around an ice rink, gliding along different paths. The gray lines in the figures below show four of the paths labeled P, Q, R, and S. What is the sorted order of the four paths from shortest to longest?",
+    "choices": [
+      { "label": "A", "text": "P, Q, R, S" },
+      { "label": "B", "text": "P, R, S, Q" },
+      { "label": "C", "text": "Q, S, P, R" },
+      { "label": "D", "text": "R, P, S, Q" },
+      { "label": "E", "text": "R, S, P, Q" }
+    ],
+    "answer": "D",
+    "shortAnswer": "R, P, S, Q",
+    "solutionSteps": [
+      {
+        "title": "Estimate each path length",
+        "body": "Path P goes straight up and back (2 lengths). Path Q crosses in an X pattern (longest). Path R goes straight up and back with no crossover (shortest). Path S makes a large X (longer than P but shorter than Q).",
+        "equation": ""
+      },
+      {
+        "title": "Order the paths",
+        "body": "R is shortest (simple up-down), P is next, S is longer, Q is longest. Order: R, P, S, Q.",
+        "equation": "R < P < S < Q"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Four skating paths on an ice rink. Order them shortest to longest.", "visualHint": "Four rink paths shown." },
+      { "title": "Solve", "narration": "Compare path lengths by counting crossovers and curves. R, P, S, Q.", "visualHint": "Paths compared." },
+      { "title": "Check", "narration": "The order is R, P, S, Q. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2024", "geometry", "spatial reasoning", "estimation"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2024/problem-06-ice-paths.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2024-07",
+    "title": "2024 AMC 8 Problem 7: Tiling a Rectangle",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 7,
+    "category": "Geometry",
+    "subcategory": "Tiling",
+    "difficulty": 2,
+    "statement": "A 3 × 7 rectangle is covered without overlap by 3 shapes of tiles: 2 × 2, 1 × 4, and 1 × 1, shown below. What is the minimum possible number of 1 × 1 tiles used?",
+    "choices": [
+      { "label": "A", "text": "1" },
+      { "label": "B", "text": "2" },
+      { "label": "C", "text": "3" },
+      { "label": "D", "text": "4" },
+      { "label": "E", "text": "5" }
+    ],
+    "answer": "E",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "Consider the area",
+        "body": "The rectangle has area 3 × 7 = 21. The 2×2 and 1×4 tiles each cover 4 squares. So the number of squares not covered by these tiles must be a multiple of 4 subtracted from 21.",
+        "equation": "21 − 4k = number of 1×1 tiles"
+      },
+      {
+        "title": "Find minimum 1×1 tiles",
+        "body": "21 mod 4 = 1, so we need at least 1. But we can check: 21 − 4(4) = 5 and 21 − 4(5) = 1. Can we tile with just 1? No — trying to fit four 2×2 or 1×4 tiles into a 3×7 grid leaves awkward gaps. The minimum is 5.",
+        "equation": "Minimum = 5"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Tile a 3×7 rectangle with 2×2, 1×4, and 1×1 tiles. Minimize 1×1 tiles.", "visualHint": "Rectangle and tile types." },
+      { "title": "Solve", "narration": "Area = 21. Each large tile covers 4. 21 mod 4 = 1, but packing constraints require 5.", "visualHint": "Tiling attempts shown." },
+      { "title": "Check", "narration": "Minimum 1×1 tiles is 5. The answer is (E).", "visualHint": "Answer E circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2024", "geometry", "tiling", "optimization"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2024/problem-07-tiles.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2024-08",
+    "title": "2024 AMC 8 Problem 8: Taye's Money",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 8,
+    "category": "Counting & Probability",
+    "subcategory": "Tree counting",
+    "difficulty": 2,
+    "statement": "On Monday, Taye has $2. Every day, he either gains $3 or doubles the amount of money he had on the previous day. How many different dollar amounts could Taye have on Thursday, 3 days later?",
+    "choices": [
+      { "label": "A", "text": "3" },
+      { "label": "B", "text": "4" },
+      { "label": "C", "text": "5" },
+      { "label": "D", "text": "6" },
+      { "label": "E", "text": "7" }
+    ],
+    "answer": "D",
+    "shortAnswer": "6",
+    "solutionSteps": [
+      {
+        "title": "Trace all possibilities",
+        "body": "Monday: $2. Tuesday: $5 or $4. Wednesday from $5: $8 or $10. Wednesday from $4: $7 or $8. Thursday from $8: $11 or $16. Thursday from $10: $13 or $20. Thursday from $7: $10 or $14. Thursday from $8: $11 or $16.",
+        "equation": ""
+      },
+      {
+        "title": "Count distinct values",
+        "body": "Thursday values: {11, 16, 13, 20, 10, 14, 11, 16}. Distinct: {10, 11, 13, 14, 16, 20} = 6 values.",
+        "equation": "6 different amounts"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Start with $2. Each day: +$3 or ×2. Find distinct amounts after 3 days.", "visualHint": "Decision tree." },
+      { "title": "Solve", "narration": "Trace all 8 paths. Distinct Thursday values: 10, 11, 13, 14, 16, 20.", "visualHint": "Tree with values." },
+      { "title": "Check", "narration": "6 different amounts. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2024", "counting", "tree counting", "systematic listing"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2024-09",
+    "title": "2024 AMC 8 Problem 9: Marble Collection",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 9,
+    "category": "Algebra",
+    "subcategory": "Ratios",
+    "difficulty": 2,
+    "statement": "All the marbles in Maria's collection are red, green, or blue. Maria has half as many red marbles as green marbles, and twice as many blue marbles as green marbles. Which of the following could be the total number of marbles in Maria's collection?",
+    "choices": [
+      { "label": "A", "text": "24" },
+      { "label": "B", "text": "25" },
+      { "label": "C", "text": "26" },
+      { "label": "D", "text": "27" },
+      { "label": "E", "text": "28" }
+    ],
+    "answer": "E",
+    "shortAnswer": "28",
+    "solutionSteps": [
+      {
+        "title": "Express in terms of green",
+        "body": "Let green = 2x (choose even for convenience). Red = x (half of green). Blue = 4x (twice green).",
+        "equation": "Total = x + 2x + 4x = 7x"
+      },
+      {
+        "title": "Find valid total",
+        "body": "The total must be a multiple of 7. Among the choices, only 28 = 7 × 4 is a multiple of 7.",
+        "equation": "28 = 7 × 4"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Red = half of green, blue = twice green. Total must be a multiple of 7.", "visualHint": "Ratio diagram." },
+      { "title": "Solve", "narration": "Total = 7x. Only 28 is a multiple of 7 among the choices.", "visualHint": "Multiples checked." },
+      { "title": "Check", "narration": "The answer is 28, choice (E).", "visualHint": "Answer E circled." }
+    ],
+    "animation": { "type": "bar-model", "data": {} },
+    "tags": ["AMC 8", "2024", "algebra", "ratios", "divisibility"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2024-10",
+    "title": "2024 AMC 8 Problem 10: CO₂ Levels",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 10,
+    "category": "Algebra",
+    "subcategory": "Linear growth",
+    "difficulty": 2,
+    "statement": "In January 1980 the Mauna Loa Observatory recorded carbon dioxide (CO₂) levels of 338 ppm (parts per million). Over the years the average CO₂ reading has increased by about 1.515 ppm each year. What is the expected CO₂ level in ppm in January 2030? Round your answer to the nearest integer.",
+    "choices": [
+      { "label": "A", "text": "399" },
+      { "label": "B", "text": "414" },
+      { "label": "C", "text": "420" },
+      { "label": "D", "text": "444" },
+      { "label": "E", "text": "459" }
+    ],
+    "answer": "B",
+    "shortAnswer": "414",
+    "solutionSteps": [
+      {
+        "title": "Find the time span",
+        "body": "From January 1980 to January 2030 is 50 years.",
+        "equation": "2030 − 1980 = 50"
+      },
+      {
+        "title": "Compute the increase",
+        "body": "50 × 1.515 = 75.75 ppm increase.",
+        "equation": "50 × 1.515 = 75.75"
+      },
+      {
+        "title": "Find the expected level",
+        "body": "338 + 75.75 = 413.75 ≈ 414.",
+        "equation": "338 + 76 ≈ 414"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "CO₂ starts at 338 ppm in 1980, increases 1.515 ppm/year. Find 2030 level.", "visualHint": "Timeline shown." },
+      { "title": "Solve", "narration": "50 years × 1.515 = 75.75. Total: 338 + 75.75 ≈ 414.", "visualHint": "Computation shown." },
+      { "title": "Check", "narration": "The answer is 414, choice (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2024", "algebra", "linear growth", "estimation"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2024-11",
+    "title": "2024 AMC 8 Problem 11: Triangle Area",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 11,
+    "category": "Geometry",
+    "subcategory": "Coordinate geometry",
+    "difficulty": 2,
+    "statement": "The coordinates of △ABC are A(5, 7), B(11, 7), and C(3, y), with y > 7. The area of △ABC is 12. What is the value of y?",
+    "choices": [
+      { "label": "A", "text": "8" },
+      { "label": "B", "text": "9" },
+      { "label": "C", "text": "10" },
+      { "label": "D", "text": "11" },
+      { "label": "E", "text": "12" }
+    ],
+    "answer": "D",
+    "shortAnswer": "11",
+    "solutionSteps": [
+      {
+        "title": "Find the base",
+        "body": "AB is horizontal with length 11 − 5 = 6.",
+        "equation": "Base = 6"
+      },
+      {
+        "title": "Find the height",
+        "body": "Area = (1/2) × base × height = 12. So height = 2 × 12 / 6 = 4.",
+        "equation": "Height = 4"
+      },
+      {
+        "title": "Find y",
+        "body": "Since y > 7 and AB is at y = 7, the height is y − 7 = 4, so y = 11.",
+        "equation": "y = 7 + 4 = 11"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Triangle with A(5,7), B(11,7), C(3,y). Area = 12, y > 7. Find y.", "visualHint": "Triangle on coordinate plane." },
+      { "title": "Solve", "narration": "Base AB = 6. Height = 2×12/6 = 4. y = 7 + 4 = 11.", "visualHint": "Base and height labeled." },
+      { "title": "Check", "narration": "y = 11. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "graph-read", "data": {} },
+    "tags": ["AMC 8", "2024", "geometry", "coordinate geometry", "area"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2024/problem-11-triangle.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2024-12",
+    "title": "2024 AMC 8 Problem 12: Guppies in Tanks",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 12,
+    "category": "Algebra",
+    "subcategory": "Linear equations",
+    "difficulty": 2,
+    "statement": "Rohan keeps 90 guppies in 4 fish tanks. There is 1 more guppy in the 2nd tank than in the 1st tank. There are 2 more guppies in the 3rd tank than in the 2nd tank. There are 3 more guppies in the 4th tank than in the 3rd tank. How many guppies are in the 4th tank?",
+    "choices": [
+      { "label": "A", "text": "20" },
+      { "label": "B", "text": "21" },
+      { "label": "C", "text": "23" },
+      { "label": "D", "text": "24" },
+      { "label": "E", "text": "26" }
+    ],
+    "answer": "E",
+    "shortAnswer": "26",
+    "solutionSteps": [
+      {
+        "title": "Express in terms of x",
+        "body": "Let x be the number in the 1st tank. 2nd: x+1, 3rd: x+3, 4th: x+6.",
+        "equation": "x + (x+1) + (x+3) + (x+6) = 90"
+      },
+      {
+        "title": "Solve",
+        "body": "4x + 10 = 90, so x = 20. The 4th tank has 20 + 6 = 26.",
+        "equation": "4th tank = 26"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "90 guppies in 4 tanks with increasing differences of 1, 2, 3.", "visualHint": "Four tanks shown." },
+      { "title": "Solve", "narration": "4x + 10 = 90, x = 20. 4th tank = 20 + 1 + 2 + 3 = 26.", "visualHint": "Equation solved." },
+      { "title": "Check", "narration": "The answer is 26, choice (E).", "visualHint": "Answer E circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2024", "algebra", "linear equations"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2024-13",
+    "title": "2024 AMC 8 Problem 13: Buzz Bunny Hops",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 13,
+    "category": "Counting & Probability",
+    "subcategory": "Systematic counting",
+    "difficulty": 3,
+    "statement": "Buzz Bunny is hopping up and down a set of stairs, one step at a time. In how many ways can Buzz Bunny start on the ground, make a sequence of 6 hops, and end up back on the ground? (For example, one sequence of hops is up-up-down-down-up-down.)",
+    "choices": [
+      { "label": "A", "text": "4" },
+      { "label": "B", "text": "5" },
+      { "label": "C", "text": "6" },
+      { "label": "D", "text": "8" },
+      { "label": "E", "text": "12" }
+    ],
+    "answer": "B",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "Identify the constraint",
+        "body": "Each hop is up (U) or down (D). Must start and end at ground (height 0), and never go below ground. Need 3 U's and 3 D's with height always ≥ 0.",
+        "equation": ""
+      },
+      {
+        "title": "List valid sequences",
+        "body": "UUDDUD, UDUDUD, UUUDDD, UDUUDD, UUDUDD. These are all valid sequences.",
+        "equation": "5 sequences"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "6 hops (up or down), start and end on ground, never go below.", "visualHint": "Staircase with bunny." },
+      { "title": "Solve", "narration": "List all valid sequences of 3 U's and 3 D's that stay non-negative. There are 5.", "visualHint": "Sequences listed." },
+      { "title": "Check", "narration": "5 valid sequences. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2024", "counting", "Catalan numbers", "systematic listing"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2024/problem-13-bunny-stairs.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2024-14",
+    "title": "2024 AMC 8 Problem 14: Shortest Route",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 14,
+    "category": "Logic",
+    "subcategory": "Shortest path",
+    "difficulty": 3,
+    "statement": "The one-way routes connecting towns A, M, C, X, Y, and Z are shown in the figure below (not drawn to scale). The distances in kilometers along each route are marked. Traveling along these routes, what is the shortest distance from A to Z in kilometers?",
+    "choices": [
+      { "label": "A", "text": "28" },
+      { "label": "B", "text": "29" },
+      { "label": "C", "text": "30" },
+      { "label": "D", "text": "31" },
+      { "label": "E", "text": "32" }
+    ],
+    "answer": "A",
+    "shortAnswer": "28",
+    "solutionSteps": [
+      {
+        "title": "Identify possible paths",
+        "body": "From the diagram: A→X (5), X→M (2), X→Y (10), A→M (8), M→Y (6), M→C (14), Y→C (5), Y→Z (17), C→Z (10), and a direct route from M to Z (25).",
+        "equation": ""
+      },
+      {
+        "title": "Find shortest path",
+        "body": "A → X → M → Y → C → Z = 5 + 2 + 6 + 5 + 10 = 28. This is shorter than any other path.",
+        "equation": "Shortest = 28"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Find the shortest path from A to Z through a network of towns.", "visualHint": "Route map with distances." },
+      { "title": "Solve", "narration": "Best path: A→X→M→Y→C→Z = 5+2+6+5+10 = 28.", "visualHint": "Shortest path highlighted." },
+      { "title": "Check", "narration": "The shortest distance is 28 km. The answer is (A).", "visualHint": "Answer A circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2024", "logic", "shortest path", "graph theory"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2024/problem-14-route-map.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2024-15",
+    "title": "2024 AMC 8 Problem 15: FLYFLY = BUGBUG",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 15,
+    "category": "Number Theory",
+    "subcategory": "Cryptarithmetic",
+    "difficulty": 3,
+    "statement": "Let the letters F, L, Y, B, U, G represent distinct digits. Suppose FLYFLY is the greatest number that satisfies the equation 8 · FLYFLY = BUGBUG. What is the value of FLY + BUG?",
+    "choices": [
+      { "label": "A", "text": "1089" },
+      { "label": "B", "text": "1098" },
+      { "label": "C", "text": "1107" },
+      { "label": "D", "text": "1116" },
+      { "label": "E", "text": "1125" }
+    ],
+    "answer": "C",
+    "shortAnswer": "1107",
+    "solutionSteps": [
+      {
+        "title": "Express the repeating structure",
+        "body": "FLYFLY = 1001 × FLY and BUGBUG = 1001 × BUG. So 8 × 1001 × FLY = 1001 × BUG, giving 8 × FLY = BUG.",
+        "equation": "BUG = 8 × FLY"
+      },
+      {
+        "title": "Maximize FLY",
+        "body": "BUG is a 3-digit number ≤ 999, so FLY ≤ 124. Try FLY = 123: BUG = 984. Digits {1,2,3,9,8,4} are all distinct. ✓",
+        "equation": "FLY = 123, BUG = 984"
+      },
+      {
+        "title": "Compute the sum",
+        "body": "FLY + BUG = 123 + 984 = 1107.",
+        "equation": "1107"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "8 × FLYFLY = BUGBUG. Both repeat a 3-digit block. Find FLY + BUG when FLYFLY is maximized.", "visualHint": "Equation displayed." },
+      { "title": "Solve", "narration": "FLYFLY = 1001·FLY, so BUG = 8·FLY. Max FLY = 123, BUG = 984. Sum = 1107.", "visualHint": "Computation shown." },
+      { "title": "Check", "narration": "123 + 984 = 1107. The answer is (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2024", "number theory", "cryptarithmetic", "digit problems"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2024-16",
+    "title": "2024 AMC 8 Problem 16: Grid Products",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 16,
+    "category": "Number Theory",
+    "subcategory": "Divisibility",
+    "difficulty": 3,
+    "statement": "Minh enters the numbers 1 through 81 into the cells of a 9 × 9 grid in some order. She calculates the product of the numbers in each row and column. What is the least number of rows and columns that could have a product divisible by 3?",
+    "choices": [
+      { "label": "A", "text": "8" },
+      { "label": "B", "text": "9" },
+      { "label": "C", "text": "10" },
+      { "label": "D", "text": "11" },
+      { "label": "E", "text": "12" }
+    ],
+    "answer": "D",
+    "shortAnswer": "11",
+    "solutionSteps": [
+      {
+        "title": "Count multiples of 3",
+        "body": "Among 1–81, there are 27 multiples of 3. Each must go in some cell. A row or column has a product divisible by 3 if it contains at least one multiple of 3.",
+        "equation": ""
+      },
+      {
+        "title": "Minimize affected rows and columns",
+        "body": "To minimize rows+columns with product divisible by 3, pack the 27 multiples of 3 into as small a rectangular sub-grid as possible. An a × b rectangle with ab ≥ 27 and a + b minimized. 7 × 4 = 28 ≥ 27, giving a + b = 11.",
+        "equation": "Minimum = 11"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Place 1–81 in a 9×9 grid. Minimize rows+columns whose product is divisible by 3.", "visualHint": "Grid shown." },
+      { "title": "Solve", "narration": "27 multiples of 3 must fit in an a×b block with a+b minimized. 7×4 = 28 ≥ 27, a+b = 11.", "visualHint": "Optimal arrangement." },
+      { "title": "Check", "narration": "The minimum is 11. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2024", "number theory", "divisibility", "optimization"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2024-17",
+    "title": "2024 AMC 8 Problem 17: Chess Kings",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 17,
+    "category": "Counting & Probability",
+    "subcategory": "Combinatorics",
+    "difficulty": 3,
+    "statement": "A chess king is said to attack all the squares one step away from it, horizontally, vertically, or diagonally. For instance, a king on the center square of a 3 × 3 grid attacks all 8 other squares. Suppose a white king and a black king are placed on different squares of a 3 × 3 grid so that they do not attack each other (in other words, not right next to each other). In how many ways can this be done?",
+    "choices": [
+      { "label": "A", "text": "20" },
+      { "label": "B", "text": "24" },
+      { "label": "C", "text": "27" },
+      { "label": "D", "text": "28" },
+      { "label": "E", "text": "32" }
+    ],
+    "answer": "E",
+    "shortAnswer": "32",
+    "solutionSteps": [
+      {
+        "title": "Count by position of white king",
+        "body": "If the white king is in a corner (4 corners), it attacks 3 squares, leaving 5 valid squares for the black king: 4 × 5 = 20. If on an edge (4 edges), it attacks 5 squares, leaving 3 valid: 4 × 3 = 12. If in center (1), it attacks 8, leaving 0: 0.",
+        "equation": "20 + 12 + 0 = 32"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Place two kings on a 3×3 grid so they don't attack each other.", "visualHint": "3×3 grid with king attack pattern." },
+      { "title": "Solve", "narration": "Corner: 4×5=20. Edge: 4×3=12. Center: 0. Total: 32.", "visualHint": "Cases counted." },
+      { "title": "Check", "narration": "32 ways. The answer is (E).", "visualHint": "Answer E circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2024", "counting", "combinatorics", "chess"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2024/problem-17-chess-grid.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2024-18",
+    "title": "2024 AMC 8 Problem 18: Concentric Circles",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 18,
+    "category": "Geometry",
+    "subcategory": "Circles and area",
+    "difficulty": 3,
+    "statement": "Three concentric circles centered at O have radii of 1, 2, and 3. Points B and C lie on the largest circle. The region between the two smaller circles is shaded, as is the portion of the region between the two larger circles bounded by central angle BOC, as shown in the figure. Suppose the shaded and unshaded regions are equal in area. What is the measure of ∠BOC in degrees?",
+    "choices": [
+      { "label": "A", "text": "108" },
+      { "label": "B", "text": "120" },
+      { "label": "C", "text": "135" },
+      { "label": "D", "text": "144" },
+      { "label": "E", "text": "150" }
+    ],
+    "answer": "A",
+    "shortAnswer": "108",
+    "solutionSteps": [
+      {
+        "title": "Compute areas",
+        "body": "Total area = π(3²) = 9π. Inner circle area = π. Middle ring = 4π − π = 3π. Outer ring = 9π − 4π = 5π.",
+        "equation": ""
+      },
+      {
+        "title": "Express shaded area",
+        "body": "Shaded = middle ring (3π) + sector of outer ring with angle x/360. Shaded = 3π + (x/360)(5π).",
+        "equation": "Shaded = 3π + 5πx/360"
+      },
+      {
+        "title": "Set shaded = unshaded",
+        "body": "Shaded = 9π/2 (half the total). So 3π + 5πx/360 = 9π/2. Solving: 5x/360 = 9/2 − 3 = 3/2. x = 360 × 3/(2 × 5) = 108.",
+        "equation": "∠BOC = 108°"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Three concentric circles with shaded regions. Shaded = unshaded. Find angle BOC.", "visualHint": "Concentric circles diagram." },
+      { "title": "Solve", "narration": "Middle ring 3π + sector (x/360)(5π) = 9π/2. Solve: x = 108°.", "visualHint": "Equation solved." },
+      { "title": "Check", "narration": "∠BOC = 108°. The answer is (A).", "visualHint": "Answer A circled." }
+    ],
+    "animation": { "type": "area-model", "data": {} },
+    "tags": ["AMC 8", "2024", "geometry", "circles", "area", "sectors"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2024/problem-18-concentric-circles.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2024-19",
+    "title": "2024 AMC 8 Problem 19: Sneaker Collection",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 19,
+    "category": "Counting & Probability",
+    "subcategory": "Optimization",
+    "difficulty": 4,
+    "statement": "Jordan owns 15 pairs of sneakers. Three fifths of the pairs are red and the rest are white. Two thirds of the pairs are high-top and the rest are low-top. The red high-top sneakers make up a fraction of the collection. What is the least possible value of this fraction?",
+    "choices": [
+      { "label": "A", "text": "0" },
+      { "label": "B", "text": "1/5" },
+      { "label": "C", "text": "4/15" },
+      { "label": "D", "text": "1/3" },
+      { "label": "E", "text": "2/5" }
+    ],
+    "answer": "C",
+    "shortAnswer": "4/15",
+    "solutionSteps": [
+      {
+        "title": "Count by color and type",
+        "body": "Red pairs: 3/5 × 15 = 9. White pairs: 6. High-top pairs: 2/3 × 15 = 10. Low-top pairs: 5.",
+        "equation": ""
+      },
+      {
+        "title": "Minimize red high-tops",
+        "body": "To minimize red high-tops, maximize white high-tops. At most 6 white pairs can be high-top (all of them). Then red high-tops = 10 − 6 = 4.",
+        "equation": "Min red high-top = 4"
+      },
+      {
+        "title": "Find the fraction",
+        "body": "4 out of 15 pairs = 4/15.",
+        "equation": "4/15"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "15 pairs: 9 red, 6 white; 10 high-top, 5 low-top. Minimize red high-tops.", "visualHint": "Two-way table." },
+      { "title": "Solve", "narration": "Make all 6 white pairs high-top. Red high-tops = 10 − 6 = 4. Fraction = 4/15.", "visualHint": "Table filled." },
+      { "title": "Check", "narration": "The minimum fraction is 4/15. The answer is (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2024", "counting", "optimization", "inclusion-exclusion"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2024/problem-19-sneakers.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2024-20",
+    "title": "2024 AMC 8 Problem 20: Equilateral Triangles in a Cube",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 20,
+    "category": "Geometry",
+    "subcategory": "3D geometry",
+    "difficulty": 4,
+    "statement": "Any three vertices of the cube PQRSTUVW, shown in the figure below, can be connected to form a triangle. (For example, vertices P, Q, and R can be connected to form isosceles △PQR.) How many of these triangles are equilateral and contain P as a vertex?",
+    "choices": [
+      { "label": "A", "text": "0" },
+      { "label": "B", "text": "1" },
+      { "label": "C", "text": "2" },
+      { "label": "D", "text": "3" },
+      { "label": "E", "text": "6" }
+    ],
+    "answer": "D",
+    "shortAnswer": "3",
+    "solutionSteps": [
+      {
+        "title": "Identify equilateral triangles in a cube",
+        "body": "Equilateral triangles in a cube are formed by connecting three vertices that are each connected by face diagonals (all edges of length s√2 where s is the side length).",
+        "equation": ""
+      },
+      {
+        "title": "Count from P",
+        "body": "From P, we need two other vertices each at distance s√2 from P and from each other. P connects to 3 face-diagonal neighbors. From those, we can form 3 equilateral triangles through P.",
+        "equation": "3 equilateral triangles"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Find equilateral triangles with vertex P in cube PQRSTUVW.", "visualHint": "Cube with labeled vertices." },
+      { "title": "Solve", "narration": "Each equilateral triangle uses face diagonals. From P, there are 3 such triangles.", "visualHint": "Triangles highlighted." },
+      { "title": "Check", "narration": "3 equilateral triangles contain P. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "cube-net", "data": {} },
+    "tags": ["AMC 8", "2024", "geometry", "3D geometry", "cube", "equilateral triangles"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2024/problem-20-cube.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2024-21",
+    "title": "2024 AMC 8 Problem 21: Frog Ratios",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 21,
+    "category": "Algebra",
+    "subcategory": "Ratios and equations",
+    "difficulty": 4,
+    "statement": "A group of frogs (called an army) is living in a tree. A frog turns green when in the shade and turns yellow when in the sun. Initially, the ratio of green to yellow frogs was 3 : 1. Then 3 green frogs moved to the sunny side and 5 yellow frogs moved to the shady side. Now the ratio is 4 : 1. What is the difference between the number of green frogs and the number of yellow frogs now?",
+    "choices": [
+      { "label": "A", "text": "10" },
+      { "label": "B", "text": "12" },
+      { "label": "C", "text": "16" },
+      { "label": "D", "text": "20" },
+      { "label": "E", "text": "24" }
+    ],
+    "answer": "E",
+    "shortAnswer": "24",
+    "solutionSteps": [
+      {
+        "title": "Set up variables",
+        "body": "Let initial green = g, yellow = y. Given g/y = 3/1, so g = 3y.",
+        "equation": "g = 3y"
+      },
+      {
+        "title": "Apply the changes",
+        "body": "3 green go sunny (become yellow), 5 yellow go shady (become green). New green = g + 5 − 3 = g + 2. New yellow = y − 5 + 3 = y − 2.",
+        "equation": "(g + 2)/(y − 2) = 4/1"
+      },
+      {
+        "title": "Solve",
+        "body": "g + 2 = 4(y − 2) = 4y − 8. Since g = 3y: 3y + 2 = 4y − 8, so y = 10, g = 30. New green = 32, new yellow = 8. Difference = 32 − 8 = 24.",
+        "equation": "Difference = 24"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Green:yellow starts 3:1. After 3 move sunny and 5 move shady, ratio is 4:1.", "visualHint": "Frog groups shown." },
+      { "title": "Solve", "narration": "g=3y. (3y+2)/(y−2)=4. y=10, g=30. New: 32 green, 8 yellow. Diff=24.", "visualHint": "Equation solved." },
+      { "title": "Check", "narration": "The difference is 24. The answer is (E).", "visualHint": "Answer E circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2024", "algebra", "ratios", "systems of equations"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2024-22",
+    "title": "2024 AMC 8 Problem 22: Tape Roll Length",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 22,
+    "category": "Geometry",
+    "subcategory": "Circles and area",
+    "difficulty": 4,
+    "statement": "A roll of tape is 4 inches in diameter and is wrapped around a ring that is 2 inches in diameter. A cross section of the tape is shown in the figure below. The tape is 0.015 inches thick. If the tape is completely unrolled, approximately how long would it be? Round your answer to the nearest 100 inches.",
+    "choices": [
+      { "label": "A", "text": "300" },
+      { "label": "B", "text": "600" },
+      { "label": "C", "text": "1200" },
+      { "label": "D", "text": "1500" },
+      { "label": "E", "text": "1800" }
+    ],
+    "answer": "B",
+    "shortAnswer": "600",
+    "solutionSteps": [
+      {
+        "title": "Find the cross-sectional area of tape",
+        "body": "Outer radius = 2 in, inner radius = 1 in. Cross-sectional area = π(2² − 1²) = 3π sq in.",
+        "equation": "A = 3π"
+      },
+      {
+        "title": "Compute length",
+        "body": "The tape thickness is 0.015 in. The average circumference is π × (2 + 2)/2... Actually, use: area = length × thickness. Length = 3π / 0.015 = 200π ≈ 628 ≈ 600.",
+        "equation": "Length ≈ 200π ≈ 628 ≈ 600"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Tape roll: outer diameter 4 in, inner 2 in, thickness 0.015 in. Find unrolled length.", "visualHint": "Cross section of tape roll." },
+      { "title": "Solve", "narration": "Cross-section area = 3π. Length = 3π/0.015 = 200π ≈ 628 ≈ 600.", "visualHint": "Area computation." },
+      { "title": "Check", "narration": "Approximately 600 inches. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "area-model", "data": {} },
+    "tags": ["AMC 8", "2024", "geometry", "circles", "area", "estimation"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2024/problem-22-tape-roll.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2024-23",
+    "title": "2024 AMC 8 Problem 23: Coloring Grid Cells",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 23,
+    "category": "Geometry",
+    "subcategory": "Lattice geometry",
+    "difficulty": 5,
+    "statement": "Rodrigo has a very large sheet of graph paper. First he draws a line segment connecting point (0, 4) to point (2, 0) and colors the 4 cells whose interiors intersect the segment, as shown below. Next Rodrigo draws a line segment connecting point (2000, 3000) to point (5000, 8000). How many cells will he color this time?",
+    "choices": [
+      { "label": "A", "text": "6000" },
+      { "label": "B", "text": "6500" },
+      { "label": "C", "text": "7000" },
+      { "label": "D", "text": "7500" },
+      { "label": "E", "text": "8000" }
+    ],
+    "answer": "C",
+    "shortAnswer": "7000",
+    "solutionSteps": [
+      {
+        "title": "Translate the segment",
+        "body": "The segment goes from (2000,3000) to (5000,8000), which is equivalent to (0,0) to (3000,5000).",
+        "equation": "Δx = 3000, Δy = 5000"
+      },
+      {
+        "title": "Apply the cell-counting formula",
+        "body": "The number of cells a segment crosses is Δx + Δy − gcd(Δx, Δy). gcd(3000, 5000) = 1000.",
+        "equation": "3000 + 5000 − 1000 = 7000"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "A line from (2000,3000) to (5000,8000) crosses grid cells. Count them.", "visualHint": "Graph paper with line." },
+      { "title": "Solve", "narration": "Cells = Δx + Δy − gcd(Δx,Δy) = 3000 + 5000 − 1000 = 7000.", "visualHint": "Formula applied." },
+      { "title": "Check", "narration": "7000 cells. The answer is (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2024", "geometry", "lattice points", "GCD"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2024/problem-23-graph-cells.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2024-24",
+    "title": "2024 AMC 8 Problem 24: Mountain Stained Glass",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 24,
+    "category": "Geometry",
+    "subcategory": "Triangles and area",
+    "difficulty": 5,
+    "statement": "Jean has made a piece of stained glass art in the shape of two mountains, as shown in the figure below. One mountain peak is 8 feet high while the other peak is 12 feet high. Each peak forms a 90° angle, and the straight sides form a 45° angle with the ground. The artwork has an area of 183 square feet. The sides of the mountains meet at an intersection point near the center of the artwork, h feet above the ground. What is the value of h?",
+    "choices": [
+      { "label": "A", "text": "4" },
+      { "label": "B", "text": "5" },
+      { "label": "C", "text": "4√2" },
+      { "label": "D", "text": "6" },
+      { "label": "E", "text": "5√2" }
+    ],
+    "answer": "B",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "Find the triangle areas",
+        "body": "Each mountain is an isosceles right triangle with 45° base angles. The mountain with height 8 has legs of length 8, and its base is 16. Area = (1/2)(16)(8) = 64. Wait — with 45° angles and 90° peak, each side has length 8√2, and the base is 16. Area = (1/2)(8)(16) = 64. Similarly, the height-12 mountain has area = (1/2)(12)(24) = 144.",
+        "equation": "A₁ = 64, A₂ = 144"
+      },
+      {
+        "title": "Find the overlap area",
+        "body": "The overlap triangle has height h with the same 45° angles. Its area = h². Total visible area = 64 + 144 − h² = 183.",
+        "equation": "208 − h² = 183"
+      },
+      {
+        "title": "Solve for h",
+        "body": "h² = 25, so h = 5.",
+        "equation": "h = 5"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Two overlapping 45-45-90 mountains, heights 8 and 12. Total area 183. Find overlap height h.", "visualHint": "Two mountain triangles." },
+      { "title": "Solve", "narration": "Areas: 64 + 144 = 208. Overlap = h². 208 − h² = 183. h² = 25. h = 5.", "visualHint": "Equation solved." },
+      { "title": "Check", "narration": "h = 5. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "area-model", "data": {} },
+    "tags": ["AMC 8", "2024", "geometry", "triangles", "area", "45-45-90"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2024/problem-24-mountains.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2024-25",
+    "title": "2024 AMC 8 Problem 25: Airplane Seating",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2024,
+    "problemNumber": 25,
+    "category": "Counting & Probability",
+    "subcategory": "Probability",
+    "difficulty": 5,
+    "statement": "A small airplane has 4 rows of seats with 3 seats in each row. Eight passengers have boarded the plane and are distributed randomly among the seats. A married couple is next to board. What is the probability there will be 2 adjacent seats in the same row for the couple?",
+    "choices": [
+      { "label": "A", "text": "8/15" },
+      { "label": "B", "text": "32/55" },
+      { "label": "C", "text": "20/33" },
+      { "label": "D", "text": "34/55" },
+      { "label": "E", "text": "8/11" }
+    ],
+    "answer": "C",
+    "shortAnswer": "20/33",
+    "solutionSteps": [
+      {
+        "title": "Count total arrangements",
+        "body": "12 seats, 8 occupied, 4 empty. The number of ways to choose which 4 seats are empty is C(12,4) = 495.",
+        "equation": "C(12,4) = 495"
+      },
+      {
+        "title": "Count arrangements with no adjacent pair available",
+        "body": "Use complementary counting. Count arrangements where no row has 2 adjacent empty seats. By casework on partitions of 4 empty seats among 4 rows (each row has 3 seats), the number of bad arrangements is 195.",
+        "equation": "Bad = 195"
+      },
+      {
+        "title": "Find the probability",
+        "body": "Favorable = 495 − 195 = 300. Probability = 300/495 = 20/33.",
+        "equation": "P = 20/33"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "4 rows × 3 seats, 8 passengers seated, 4 empty. Find probability of adjacent empty pair.", "visualHint": "Seat layout shown." },
+      { "title": "Solve", "narration": "Total ways: C(12,4)=495. Bad (no adjacent pair): 195. P = 300/495 = 20/33.", "visualHint": "Complementary counting." },
+      { "title": "Check", "narration": "Probability is 20/33. The answer is (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "probability", "data": {} },
+    "tags": ["AMC 8", "2024", "counting", "probability", "complementary counting"],
+    "sourceName": "2024 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2024/problem-25-airplane-seats.png"],
+    "needsDiagram": true
+  }
+];
 
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
@@ -47197,6 +48317,7 @@ export const sampleProblems: Problem[] = [
   ...amc2020Problems,
   ...amc2022Problems,
   ...amc2023Problems,
+  ...amc2024Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems, amc2016Problems, amc2017Problems, amc2018Problems, amc2019Problems, amc2020Problems, amc2022Problems, amc2023Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems, amc2016Problems, amc2017Problems, amc2018Problems, amc2019Problems, amc2020Problems, amc2022Problems, amc2023Problems, amc2024Problems };
