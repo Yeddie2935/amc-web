@@ -49430,6 +49430,1089 @@ const amc2025Problems: Problem[] = [
   }
 ];
 
+const amc2026Problems: Problem[] = [
+  {
+    "id": "amc8-2026-01",
+    "title": "2026 AMC 8 Problem 1: Expression Evaluation",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 1,
+    "category": "Algebra",
+    "subcategory": "Arithmetic expressions",
+    "difficulty": 1,
+    "statement": "What is the value of the following expression?\n1 + 2 − 3 + 4 + 5 − 6 + 7 + 8 − 9 + 10 + 11 − 12",
+    "choices": [
+      { "label": "A", "text": "18" },
+      { "label": "B", "text": "21" },
+      { "label": "C", "text": "24" },
+      { "label": "D", "text": "27" },
+      { "label": "E", "text": "30" }
+    ],
+    "answer": "A",
+    "shortAnswer": "18",
+    "solutionSteps": [
+      {
+        "title": "Group terms in threes",
+        "body": "Group the expression into sets of three consecutive terms: (1 + 2 − 3) + (4 + 5 − 6) + (7 + 8 − 9) + (10 + 11 − 12).",
+        "equation": ""
+      },
+      {
+        "title": "Evaluate each group",
+        "body": "Each group simplifies to: 0 + 3 + 6 + 9 = 18.",
+        "equation": "0 + 3 + 6 + 9 = 18"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "We need to evaluate a 12-term alternating expression with additions and subtractions.", "visualHint": "Expression displayed." },
+      { "title": "Solve", "narration": "Group into threes: (1+2−3) + (4+5−6) + (7+8−9) + (10+11−12) = 0 + 3 + 6 + 9 = 18.", "visualHint": "Groups highlighted." },
+      { "title": "Check", "narration": "The value is 18. The answer is (A).", "visualHint": "Answer A circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2026", "algebra", "arithmetic"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2026-02",
+    "title": "2026 AMC 8 Problem 2: Bordered Number Array",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 2,
+    "category": "Number Theory",
+    "subcategory": "Counting and sums",
+    "difficulty": 1,
+    "statement": "In the array shown below, three 3s are surrounded by 2s, which are in turn surrounded by a border of 1s. What is the sum of the numbers in the array?\n\n1 1 1 1 1 1 1\n1 2 2 2 2 2 1\n1 2 3 3 3 2 1\n1 2 2 2 2 2 1\n1 1 1 1 1 1 1",
+    "choices": [
+      { "label": "A", "text": "49" },
+      { "label": "B", "text": "51" },
+      { "label": "C", "text": "53" },
+      { "label": "D", "text": "55" },
+      { "label": "E", "text": "57" }
+    ],
+    "answer": "C",
+    "shortAnswer": "53",
+    "solutionSteps": [
+      {
+        "title": "Count each layer",
+        "body": "The array is 5 rows by 7 columns. Sum each row: Row 1 = 7, Row 2 = 1+2+2+2+2+2+1 = 12, Row 3 = 1+2+3+3+3+2+1 = 15.",
+        "equation": ""
+      },
+      {
+        "title": "Use symmetry",
+        "body": "By symmetry, the total = 7 + 12 + 15 + 12 + 7 = 53.",
+        "equation": "7 + 12 + 15 + 12 + 7 = 53"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "A 5×7 array has three 3s in the center, surrounded by 2s, surrounded by 1s.", "visualHint": "Array shown." },
+      { "title": "Solve", "narration": "Sum each row: 7 + 12 + 15 + 12 + 7 = 53.", "visualHint": "Row sums highlighted." },
+      { "title": "Check", "narration": "The total sum is 53. The answer is (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2026", "number theory", "counting"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2026-03",
+    "title": "2026 AMC 8 Problem 3: Wire Shapes",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 3,
+    "category": "Geometry",
+    "subcategory": "Perimeter",
+    "difficulty": 1,
+    "statement": "Haruki has a piece of wire that is 24 centimeters long. He wants to bend it to form each of the following shapes, one at a time:\n\nA regular hexagon with side length 5 cm.\nA square with area 36 cm².\nA right triangle whose legs are 6 and 8 cm long.\n\nWhich of the shapes can Haruki make?",
+    "choices": [
+      { "label": "A", "text": "Triangle only" },
+      { "label": "B", "text": "Hexagon and square only" },
+      { "label": "C", "text": "Hexagon and triangle only" },
+      { "label": "D", "text": "Square and triangle only" },
+      { "label": "E", "text": "Hexagon, square, and triangle" }
+    ],
+    "answer": "D",
+    "shortAnswer": "Square and triangle only",
+    "solutionSteps": [
+      {
+        "title": "Check each shape's perimeter",
+        "body": "Hexagon: 6 × 5 = 30 cm (too long). Square with area 36: side = 6, perimeter = 4 × 6 = 24 cm (works). Right triangle with legs 6 and 8: hypotenuse = 10, perimeter = 6 + 8 + 10 = 24 cm (works).",
+        "equation": ""
+      },
+      {
+        "title": "Conclusion",
+        "body": "Only the square and triangle can be made with 24 cm of wire.",
+        "equation": ""
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Check which shapes have perimeter exactly 24 cm.", "visualHint": "Three shapes shown." },
+      { "title": "Solve", "narration": "Hexagon perimeter = 30 (no). Square perimeter = 24 (yes). Triangle perimeter = 24 (yes).", "visualHint": "Perimeters calculated." },
+      { "title": "Check", "narration": "Square and triangle both work. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2026", "geometry", "perimeter"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2026-04",
+    "title": "2026 AMC 8 Problem 4: Savings Percent Change",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 4,
+    "category": "Algebra",
+    "subcategory": "Percent change",
+    "difficulty": 1,
+    "statement": "Brynn's savings decreased by 20% in July, then increased by 50% in August. Brynn's savings are now what percent of the original amount?",
+    "choices": [
+      { "label": "A", "text": "80" },
+      { "label": "B", "text": "90" },
+      { "label": "C", "text": "100" },
+      { "label": "D", "text": "110" },
+      { "label": "E", "text": "120" }
+    ],
+    "answer": "E",
+    "shortAnswer": "120%",
+    "solutionSteps": [
+      {
+        "title": "Apply percent changes",
+        "body": "Let the original amount be x. After a 20% decrease: 0.8x. After a 50% increase: 0.8x × 1.5 = 1.2x.",
+        "equation": "0.8 × 1.5 = 1.2"
+      },
+      {
+        "title": "Convert to percent",
+        "body": "1.2x is 120% of the original amount.",
+        "equation": ""
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Savings decrease 20%, then increase 50%. Find the final percent of original.", "visualHint": "Bar diagram of savings." },
+      { "title": "Solve", "narration": "0.8 × 1.5 = 1.2, so savings are 120% of original.", "visualHint": "Multiplication shown." },
+      { "title": "Check", "narration": "120% of original. The answer is (E).", "visualHint": "Answer E circled." }
+    ],
+    "animation": { "type": "bar-model", "data": {} },
+    "tags": ["AMC 8", "2026", "algebra", "percent change"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2026-05",
+    "title": "2026 AMC 8 Problem 5: Road Trip Lunch Break",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 5,
+    "category": "Algebra",
+    "subcategory": "Rate and time",
+    "difficulty": 1,
+    "statement": "Casey went on a road trip that covered 100 miles, stopping only for a lunch break along the way. The trip took 3 hours in total and her average speed while driving was 40 miles per hour. In minutes, how long was the lunch break?",
+    "choices": [
+      { "label": "A", "text": "15" },
+      { "label": "B", "text": "30" },
+      { "label": "C", "text": "40" },
+      { "label": "D", "text": "45" },
+      { "label": "E", "text": "60" }
+    ],
+    "answer": "B",
+    "shortAnswer": "30 minutes",
+    "solutionSteps": [
+      {
+        "title": "Find driving time",
+        "body": "Driving time = distance ÷ speed = 100 ÷ 40 = 2.5 hours.",
+        "equation": "100 ÷ 40 = 2.5 hours"
+      },
+      {
+        "title": "Find lunch break",
+        "body": "Lunch break = total time − driving time = 3 − 2.5 = 0.5 hours = 30 minutes.",
+        "equation": "3 − 2.5 = 0.5 hours = 30 min"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "100 miles at 40 mph average, 3 hours total. Find the lunch break duration.", "visualHint": "Timeline of trip." },
+      { "title": "Solve", "narration": "Driving time = 100/40 = 2.5 hours. Break = 3 − 2.5 = 0.5 hours = 30 min.", "visualHint": "Calculation shown." },
+      { "title": "Check", "narration": "The lunch break was 30 minutes. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2026", "algebra", "rate and time"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2026-06",
+    "title": "2026 AMC 8 Problem 6: Blackberry Field",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 6,
+    "category": "Geometry",
+    "subcategory": "Area and fractions",
+    "difficulty": 2,
+    "statement": "Peter lives near a rectangular field that is filled with blackberry bushes. The field is 10 meters long and 8 meters wide, and Peter can reach any blackberries that are within 1 meter of an edge of the field. The portion of the field he can reach is shaded in the figure below. What fraction of the area of the field can Peter reach?",
+    "choices": [
+      { "label": "A", "text": "1/6" },
+      { "label": "B", "text": "1/4" },
+      { "label": "C", "text": "1/3" },
+      { "label": "D", "text": "3/8" },
+      { "label": "E", "text": "2/5" }
+    ],
+    "answer": "E",
+    "shortAnswer": "2/5",
+    "solutionSteps": [
+      {
+        "title": "Find reachable area",
+        "body": "Total area = 10 × 8 = 80. The unreachable interior is (10 − 2) × (8 − 2) = 8 × 6 = 48.",
+        "equation": "80 − 48 = 32"
+      },
+      {
+        "title": "Compute fraction",
+        "body": "Reachable fraction = 32/80 = 2/5.",
+        "equation": "32/80 = 2/5"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "A 10 × 8 field. Peter can reach 1 meter in from each edge. Find the reachable fraction.", "visualHint": "Rectangle with shaded border." },
+      { "title": "Solve", "narration": "Unreachable area = 8 × 6 = 48. Reachable = 80 − 48 = 32. Fraction = 32/80 = 2/5.", "visualHint": "Areas labeled." },
+      { "title": "Check", "narration": "The reachable fraction is 2/5. The answer is (E).", "visualHint": "Answer E circled." }
+    ],
+    "animation": { "type": "area-model", "data": {} },
+    "tags": ["AMC 8", "2026", "geometry", "area"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2026/problem-06-blackberry-field.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2026-07",
+    "title": "2026 AMC 8 Problem 7: Electric Bike Range",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 7,
+    "category": "Algebra",
+    "subcategory": "Fractions and proportions",
+    "difficulty": 2,
+    "statement": "Mika would like to estimate how far she can ride a new model of electric bike on a fully charged battery. She completed two trips totaling 40 miles. The first trip used 1/2 of the total battery power, while the second trip used 3/10 of the total battery power. How many miles can this electric bike go on a fully charged battery?",
+    "choices": [
+      { "label": "A", "text": "45" },
+      { "label": "B", "text": "48" },
+      { "label": "C", "text": "50" },
+      { "label": "D", "text": "52" },
+      { "label": "E", "text": "55" }
+    ],
+    "answer": "C",
+    "shortAnswer": "50 miles",
+    "solutionSteps": [
+      {
+        "title": "Find total battery used",
+        "body": "Total battery used = 1/2 + 3/10 = 5/10 + 3/10 = 8/10 = 4/5.",
+        "equation": "1/2 + 3/10 = 4/5"
+      },
+      {
+        "title": "Find full range",
+        "body": "40 miles used 4/5 of the battery, so full range = 40 ÷ (4/5) = 40 × 5/4 = 50 miles.",
+        "equation": "40 × 5/4 = 50"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Two trips total 40 miles, using 1/2 + 3/10 = 4/5 of the battery.", "visualHint": "Battery gauge shown." },
+      { "title": "Solve", "narration": "4/5 of battery = 40 miles, so full battery = 40 × 5/4 = 50 miles.", "visualHint": "Proportion shown." },
+      { "title": "Check", "narration": "Full range is 50 miles. The answer is (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "bar-model", "data": {} },
+    "tags": ["AMC 8", "2026", "algebra", "fractions"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2026-08",
+    "title": "2026 AMC 8 Problem 8: Poll Fewest People",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 8,
+    "category": "Number Theory",
+    "subcategory": "Fractions and divisibility",
+    "difficulty": 2,
+    "statement": "A poll asked a number of people if they liked solving mathematics problems. Exactly 74% answered \"yes.\" What is the fewest possible number of people who could have been asked the question?",
+    "choices": [
+      { "label": "A", "text": "10" },
+      { "label": "B", "text": "20" },
+      { "label": "C", "text": "25" },
+      { "label": "D", "text": "50" },
+      { "label": "E", "text": "100" }
+    ],
+    "answer": "D",
+    "shortAnswer": "50",
+    "solutionSteps": [
+      {
+        "title": "Set up the fraction",
+        "body": "74% = 74/100 = 37/50. We need the number of people n such that 74% of n is a whole number.",
+        "equation": "74/100 = 37/50"
+      },
+      {
+        "title": "Find minimum n",
+        "body": "37/50 is in lowest terms (37 is prime). So n must be a multiple of 50. The smallest is 50.",
+        "equation": "n = 50"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "74% answered yes. Find the fewest people that makes this exact.", "visualHint": "Fraction shown." },
+      { "title": "Solve", "narration": "74% = 37/50, already in lowest terms. Minimum n = 50.", "visualHint": "Simplification shown." },
+      { "title": "Check", "narration": "50 × 0.74 = 37, a whole number. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2026", "number theory", "fractions"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2026-09",
+    "title": "2026 AMC 8 Problem 9: Nested Square Roots",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 9,
+    "category": "Algebra",
+    "subcategory": "Radicals",
+    "difficulty": 2,
+    "statement": "What is the value of the expression √(16√81) / √(81√16)?",
+    "choices": [
+      { "label": "A", "text": "4/9" },
+      { "label": "B", "text": "2/3" },
+      { "label": "C", "text": "1" },
+      { "label": "D", "text": "3/2" },
+      { "label": "E", "text": "9/4" }
+    ],
+    "answer": "B",
+    "shortAnswer": "2/3",
+    "solutionSteps": [
+      {
+        "title": "Simplify the numerator",
+        "body": "√81 = 9, so 16 × 9 = 144. √144 = 12.",
+        "equation": "√(16 × 9) = √144 = 12"
+      },
+      {
+        "title": "Simplify the denominator",
+        "body": "√16 = 4, so 81 × 4 = 324. √324 = 18.",
+        "equation": "√(81 × 4) = √324 = 18"
+      },
+      {
+        "title": "Divide",
+        "body": "12/18 = 2/3.",
+        "equation": "12/18 = 2/3"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Evaluate √(16√81) / √(81√16) by simplifying inner roots first.", "visualHint": "Expression shown." },
+      { "title": "Solve", "narration": "Numerator: √(16 × 9) = 12. Denominator: √(81 × 4) = 18. Result: 12/18 = 2/3.", "visualHint": "Step-by-step." },
+      { "title": "Check", "narration": "The value is 2/3. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2026", "algebra", "radicals"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2026-10",
+    "title": "2026 AMC 8 Problem 10: Runner Finish Order",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 10,
+    "category": "Logic",
+    "subcategory": "Ordering and deduction",
+    "difficulty": 2,
+    "statement": "Five runners completed the grueling Xmarathon: Luke, Melina, Nico, Olympia, and Pedro. Nico finished 11 minutes behind Pedro. Olympia finished 2 minutes ahead of Melina, but 3 minutes behind Pedro. Olympia finished 6 minutes ahead of Luke. Which runner finished fourth?",
+    "choices": [
+      { "label": "A", "text": "Luke" },
+      { "label": "B", "text": "Melina" },
+      { "label": "C", "text": "Nico" },
+      { "label": "D", "text": "Olympia" },
+      { "label": "E", "text": "Pedro" }
+    ],
+    "answer": "A",
+    "shortAnswer": "Luke",
+    "solutionSteps": [
+      {
+        "title": "Set up time differences",
+        "body": "Let Olympia's time be O. Then Pedro = O − 3, Melina = O + 2, Luke = O + 6, and Nico = Pedro + 11 = O + 8.",
+        "equation": ""
+      },
+      {
+        "title": "Order by finish time",
+        "body": "Pedro (O−3), Olympia (O), Melina (O+2), Luke (O+6), Nico (O+8). Luke finished fourth.",
+        "equation": ""
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Five runners with given time differences. Find who finished fourth.", "visualHint": "Runners listed." },
+      { "title": "Solve", "narration": "Order: Pedro, Olympia, Melina, Luke, Nico. Luke is 4th.", "visualHint": "Timeline shown." },
+      { "title": "Check", "narration": "Luke finished fourth. The answer is (A).", "visualHint": "Answer A circled." }
+    ],
+    "animation": { "type": "ranking", "data": {} },
+    "tags": ["AMC 8", "2026", "logic", "ordering"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2026-11",
+    "title": "2026 AMC 8 Problem 11: Fibonacci Spiral Curve",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 11,
+    "category": "Geometry",
+    "subcategory": "Arc length",
+    "difficulty": 3,
+    "statement": "Squares of side length 1, 1, 2, 3, and 5 are arranged to form the rectangle shown below. A curve is drawn by inscribing a quarter circle in each square and joining the quarter circles in order, from shortest to longest. What is the length of the curve?",
+    "choices": [
+      { "label": "A", "text": "4π" },
+      { "label": "B", "text": "6π" },
+      { "label": "C", "text": "13π/2" },
+      { "label": "D", "text": "8π" },
+      { "label": "E", "text": "10π" }
+    ],
+    "answer": "B",
+    "shortAnswer": "6π",
+    "solutionSteps": [
+      {
+        "title": "Find each arc length",
+        "body": "Each quarter circle has arc length (1/4)(2πr) = πr/2. The radii are 1, 1, 2, 3, and 5.",
+        "equation": ""
+      },
+      {
+        "title": "Sum the arcs",
+        "body": "Total = π/2 × (1 + 1 + 2 + 3 + 5) = π/2 × 12 = 6π.",
+        "equation": "π/2 × 12 = 6π"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Five squares with Fibonacci side lengths. Quarter circles inscribed in each. Find total curve length.", "visualHint": "Fibonacci rectangle with spiral." },
+      { "title": "Solve", "narration": "Each quarter arc = πr/2. Total = π/2(1+1+2+3+5) = 6π.", "visualHint": "Arcs highlighted." },
+      { "title": "Check", "narration": "The curve length is 6π. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "area-model", "data": {} },
+    "tags": ["AMC 8", "2026", "geometry", "arc length", "fibonacci"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2026/problem-11-fibonacci-spiral.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2026-12",
+    "title": "2026 AMC 8 Problem 12: Digit Circle Sums",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 12,
+    "category": "Logic",
+    "subcategory": "Constraint satisfaction",
+    "difficulty": 3,
+    "statement": "In the figure below, each circle will be filled with a digit from 1 to 6. Each digit must appear exactly once. The sum of the digits in neighboring circles is shown in the box between them. What digit must be placed in the top circle?",
+    "choices": [
+      { "label": "A", "text": "2" },
+      { "label": "B", "text": "3" },
+      { "label": "C", "text": "4" },
+      { "label": "D", "text": "5" },
+      { "label": "E", "text": "6" }
+    ],
+    "answer": "D",
+    "shortAnswer": "5",
+    "solutionSteps": [
+      {
+        "title": "Analyze parity constraints",
+        "body": "The sums of neighboring pairs constrain which digits can go where. The given sums are 9, 6, 10, 4, 8, and 5.",
+        "equation": ""
+      },
+      {
+        "title": "Use casework",
+        "body": "By testing possible assignments using the sum constraints and the requirement that digits 1–6 each appear once, the top circle must be 5.",
+        "equation": ""
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Place digits 1–6 in circles so neighboring sums match the given values.", "visualHint": "Triangle of circles with sum boxes." },
+      { "title": "Solve", "narration": "Using parity and casework on possible digit placements, the top circle must be 5.", "visualHint": "Digits placed." },
+      { "title": "Check", "narration": "The top digit is 5. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2026", "logic", "constraint satisfaction"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2026/problem-12-digit-circles.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2026-13",
+    "title": "2026 AMC 8 Problem 13: Shaded Square on Shifted Tiling",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 13,
+    "category": "Geometry",
+    "subcategory": "Coordinate geometry",
+    "difficulty": 3,
+    "statement": "The figure below shows a tiling of 1 × 1 unit squares. Each row of unit squares is shifted horizontally by half a unit relative to the row above it. A shaded square is drawn on top of the tiling. Each vertex of the shaded square is a vertex of one of the unit squares. In square units, what is the area of the shaded square?",
+    "choices": [
+      { "label": "A", "text": "10" },
+      { "label": "B", "text": "21/2" },
+      { "label": "C", "text": "32/3" },
+      { "label": "D", "text": "11" },
+      { "label": "E", "text": "34/3" }
+    ],
+    "answer": "A",
+    "shortAnswer": "10",
+    "solutionSteps": [
+      {
+        "title": "Use coordinate geometry",
+        "body": "Place one vertex at A = (0, 0). The adjacent vertex B is at (1, 3) on the shifted grid.",
+        "equation": ""
+      },
+      {
+        "title": "Compute the area",
+        "body": "Side length = √(1² + 3²) = √10. Area = (√10)² = 10.",
+        "equation": "√(1 + 9) = √10, area = 10"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "A tilted square on a half-shifted grid. Each vertex sits on a grid point.", "visualHint": "Shifted tiling with square." },
+      { "title": "Solve", "narration": "Adjacent vertices differ by (1, 3). Side = √10. Area = 10.", "visualHint": "Coordinates labeled." },
+      { "title": "Check", "narration": "The area is 10 square units. The answer is (A).", "visualHint": "Answer A circled." }
+    ],
+    "animation": { "type": "area-model", "data": {} },
+    "tags": ["AMC 8", "2026", "geometry", "coordinate geometry"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2026/problem-13-shaded-square-tiling.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2026-14",
+    "title": "2026 AMC 8 Problem 14: Equally Spaced Integers",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 14,
+    "category": "Algebra",
+    "subcategory": "Arithmetic sequences",
+    "difficulty": 3,
+    "statement": "Jami picked three equally spaced integers on the number line. The sum of the first and the second numbers is 40, while the sum of the second and third numbers is 60. What is the sum of all three numbers?",
+    "choices": [
+      { "label": "A", "text": "70" },
+      { "label": "B", "text": "75" },
+      { "label": "C", "text": "80" },
+      { "label": "D", "text": "85" },
+      { "label": "E", "text": "90" }
+    ],
+    "answer": "B",
+    "shortAnswer": "75",
+    "solutionSteps": [
+      {
+        "title": "Set up equations",
+        "body": "Let the three numbers be a − d, a, a + d. Then (a − d) + a = 2a − d = 40 and a + (a + d) = 2a + d = 60.",
+        "equation": ""
+      },
+      {
+        "title": "Solve for the sum",
+        "body": "Adding the two equations: 4a = 100, so a = 25. The sum = 3a = 75.",
+        "equation": "3 × 25 = 75"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Three equally spaced integers with pairwise sums 40 and 60.", "visualHint": "Number line with three points." },
+      { "title": "Solve", "narration": "Middle number a = 25. Sum = 3a = 75.", "visualHint": "Equations shown." },
+      { "title": "Check", "narration": "The sum is 75. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "number-line", "data": {} },
+    "tags": ["AMC 8", "2026", "algebra", "arithmetic sequences"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2026-15",
+    "title": "2026 AMC 8 Problem 15: Hiding Gray Faces",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 15,
+    "category": "Geometry",
+    "subcategory": "Spatial reasoning",
+    "difficulty": 3,
+    "statement": "Elijah has a large collection of identical wooden cubes which are white on 4 faces and gray on 2 faces that share an edge. He glues some cubes together face-to-face. The figure below shows 2 cubes being glued together, leaving 3 gray faces visible. What is the fewest number of cubes that he could glue together to ensure that no gray faces are visible, no matter how he rotates the figure?",
+    "choices": [
+      { "label": "A", "text": "4" },
+      { "label": "B", "text": "6" },
+      { "label": "C", "text": "8" },
+      { "label": "D", "text": "9" },
+      { "label": "E", "text": "27" }
+    ],
+    "answer": "A",
+    "shortAnswer": "4",
+    "solutionSteps": [
+      {
+        "title": "Understand the constraint",
+        "body": "Each cube has 2 adjacent gray faces. When gluing cubes face-to-face, we need every gray face to be either glued to another cube or hidden.",
+        "equation": ""
+      },
+      {
+        "title": "Find minimum configuration",
+        "body": "By arranging 4 cubes in a 2 × 2 square block, each gray edge pair can be oriented inward. This is the minimum.",
+        "equation": ""
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Cubes have 2 adjacent gray faces. Glue cubes so no gray is visible.", "visualHint": "Cube with gray faces shown." },
+      { "title": "Solve", "narration": "A 2×2 block of 4 cubes hides all gray faces by orienting them inward.", "visualHint": "4-cube arrangement." },
+      { "title": "Check", "narration": "4 cubes suffice. The answer is (A).", "visualHint": "Answer A circled." }
+    ],
+    "animation": { "type": "cube-net", "data": {} },
+    "tags": ["AMC 8", "2026", "geometry", "spatial reasoning"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2026/problem-15-wooden-cubes.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2026-16",
+    "title": "2026 AMC 8 Problem 16: Even-Digit Integers Divisible by 4",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 16,
+    "category": "Number Theory",
+    "subcategory": "Divisibility",
+    "difficulty": 4,
+    "statement": "Consider all positive four-digit integers consisting of only even digits. What fraction of these integers are divisible by 4?",
+    "choices": [
+      { "label": "A", "text": "1/4" },
+      { "label": "B", "text": "2/5" },
+      { "label": "C", "text": "1/2" },
+      { "label": "D", "text": "3/5" },
+      { "label": "E", "text": "3/4" }
+    ],
+    "answer": "D",
+    "shortAnswer": "3/5",
+    "solutionSteps": [
+      {
+        "title": "Identify the key divisibility rule",
+        "body": "A number is divisible by 4 if its last two digits form a number divisible by 4. Since all digits must be even (0, 2, 4, 6, 8), the first two digits don't affect divisibility by 4.",
+        "equation": ""
+      },
+      {
+        "title": "Check the ones digit",
+        "body": "Since the tens digit is always even, divisibility by 4 depends only on the ones digit. Of the 5 even digits {0, 2, 4, 6, 8}, exactly 3 (namely 0, 4, 8) make the last two digits divisible by 4.",
+        "equation": "3/5"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Four-digit numbers with only even digits. What fraction are divisible by 4?", "visualHint": "Even digits listed." },
+      { "title": "Solve", "narration": "Divisibility by 4 depends on last two digits. With an even tens digit, only the ones digit matters: 0, 4, 8 work out of 5 choices.", "visualHint": "Ones digits tested." },
+      { "title": "Check", "narration": "3 out of 5 ones digits work. Fraction = 3/5. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2026", "number theory", "divisibility"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2026-17",
+    "title": "2026 AMC 8 Problem 17: Student Rearrangement",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 17,
+    "category": "Counting & Probability",
+    "subcategory": "Permutations with restrictions",
+    "difficulty": 4,
+    "statement": "Four students are seated in a row. They chat with the people sitting next to them, then rearrange themselves so that they are no longer seated next to any of the same people. How many rearrangements are possible?",
+    "choices": [
+      { "label": "A", "text": "2" },
+      { "label": "B", "text": "4" },
+      { "label": "C", "text": "9" },
+      { "label": "D", "text": "12" },
+      { "label": "E", "text": "24" }
+    ],
+    "answer": "A",
+    "shortAnswer": "2",
+    "solutionSteps": [
+      {
+        "title": "Set up the problem",
+        "body": "Label the students A, B, C, D in original order. In the new arrangement, A cannot be next to B, B cannot be next to C, and C cannot be next to D.",
+        "equation": ""
+      },
+      {
+        "title": "Enumerate valid permutations",
+        "body": "By systematic casework through all 24 permutations, only 2 satisfy all the constraints.",
+        "equation": ""
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "4 students in a row must rearrange so no one sits next to any former neighbor.", "visualHint": "Original seating ABCD." },
+      { "title": "Solve", "narration": "Check all permutations: A not next to B, B not next to C, C not next to D. Only 2 work.", "visualHint": "Valid arrangements shown." },
+      { "title": "Check", "narration": "2 rearrangements are possible. The answer is (A).", "visualHint": "Answer A circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2026", "counting", "permutations"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2026/problem-17-student-rearrangement.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2026-18",
+    "title": "2026 AMC 8 Problem 18: Consecutive Odd Integer Sums",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 18,
+    "category": "Number Theory",
+    "subcategory": "Number representation",
+    "difficulty": 4,
+    "statement": "In how many ways can 60 be written as the sum of two or more consecutive odd positive integers that are arranged in increasing order?",
+    "choices": [
+      { "label": "A", "text": "1" },
+      { "label": "B", "text": "2" },
+      { "label": "C", "text": "3" },
+      { "label": "D", "text": "4" },
+      { "label": "E", "text": "5" }
+    ],
+    "answer": "B",
+    "shortAnswer": "2",
+    "solutionSteps": [
+      {
+        "title": "Express the sum algebraically",
+        "body": "The sum of n consecutive odd integers starting from a is a + (a+2) + ⋯ + (a+2(n−1)) = an + n(n−1) = n(a+n−1). So n(a+n−1) = 60.",
+        "equation": "n(a + n − 1) = 60"
+      },
+      {
+        "title": "Find valid solutions",
+        "body": "We need n ≥ 2, a odd and positive. Since a is odd and 60 is even, n must be even. Testing: n=2 gives a=29 (valid); n=6 gives a=5 (valid). No other even n works.",
+        "equation": ""
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Write 60 as a sum of 2+ consecutive odd positive integers.", "visualHint": "Number line with odd integers." },
+      { "title": "Solve", "narration": "n(a+n−1)=60, n≥2, a odd. Solutions: (a,n) = (29,2) and (5,6). Two ways.", "visualHint": "Solutions listed." },
+      { "title": "Check", "narration": "29+31=60 and 5+7+9+11+13+15=60. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "number-line", "data": {} },
+    "tags": ["AMC 8", "2026", "number theory", "consecutive sums"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2026-19",
+    "title": "2026 AMC 8 Problem 19: Miguel and Luna",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 19,
+    "category": "Algebra",
+    "subcategory": "Rate problems",
+    "difficulty": 4,
+    "statement": "Miguel is walking with his dog, Luna. When they reach the entrance to a park, Miguel throws a ball straight ahead and continues to walk at a steady pace. Luna sprints toward the ball, which stops by a tree. As soon as the dog reaches the ball, she brings it back to Miguel. Luna runs 5 times faster than Miguel walks. What fraction of the distance between the entrance and the tree does Miguel cover by the time Luna brings him the ball?",
+    "choices": [
+      { "label": "A", "text": "1/6" },
+      { "label": "B", "text": "1/5" },
+      { "label": "C", "text": "1/4" },
+      { "label": "D", "text": "1/3" },
+      { "label": "E", "text": "2/5" }
+    ],
+    "answer": "D",
+    "shortAnswer": "1/3",
+    "solutionSteps": [
+      {
+        "title": "Set up variables",
+        "body": "Let Miguel's speed be v and the distance to the tree be d. Luna's speed is 5v. Let x be the distance Miguel walks during the entire event.",
+        "equation": ""
+      },
+      {
+        "title": "Use total distance",
+        "body": "Luna runs d to the tree and then (d − x) back to Miguel, so Luna runs d + (d − x) = 2d − x. Since Luna runs 5x in the same time Miguel walks x: 5x = 2d − x, giving 6x = 2d, so x = d/3.",
+        "equation": "6x = 2d → x = d/3"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Miguel walks, Luna runs 5× faster to tree and back. Find what fraction of d Miguel covers.", "visualHint": "Path diagram." },
+      { "title": "Solve", "narration": "Luna's distance = d + (d−x) = 5x. So 6x = 2d, x = d/3.", "visualHint": "Equation shown." },
+      { "title": "Check", "narration": "Miguel covers 1/3 of the distance. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2026", "algebra", "rate problems"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2026/problem-19-miguel-luna-paths.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2026-20",
+    "title": "2026 AMC 8 Problem 20: Coin Stack Arrangements",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 20,
+    "category": "Counting & Probability",
+    "subcategory": "Combinatorics",
+    "difficulty": 4,
+    "statement": "The land of Catania uses gold coins and silver coins. Gold coins are 1 mm thick and silver coins are 3 mm thick. In how many ways can Taylor make a stack of coins that is 8 mm tall, assuming order matters?",
+    "choices": [
+      { "label": "A", "text": "3" },
+      { "label": "B", "text": "7" },
+      { "label": "C", "text": "10" },
+      { "label": "D", "text": "13" },
+      { "label": "E", "text": "16" }
+    ],
+    "answer": "D",
+    "shortAnswer": "13",
+    "solutionSteps": [
+      {
+        "title": "Find valid coin combinations",
+        "body": "If G gold and S silver coins: G + 3S = 8. Solutions: (G,S) = (8,0), (5,1), (2,2).",
+        "equation": ""
+      },
+      {
+        "title": "Count arrangements for each",
+        "body": "(8,0): 1 arrangement. (5,1): C(6,1) = 6 arrangements. (2,2): C(4,2) = 6 arrangements. Total = 1 + 6 + 6 = 13.",
+        "equation": "1 + 6 + 6 = 13"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Gold (1mm) and silver (3mm) coins. How many ordered stacks make 8mm?", "visualHint": "Coin stacks shown." },
+      { "title": "Solve", "narration": "Three cases: (8,0)→1, (5,1)→6, (2,2)→6. Total = 13.", "visualHint": "Cases enumerated." },
+      { "title": "Check", "narration": "13 arrangements total. The answer is (D).", "visualHint": "Answer D circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2026", "counting", "combinatorics"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2026-21",
+    "title": "2026 AMC 8 Problem 21: Spider on a Star Web",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 21,
+    "category": "Counting & Probability",
+    "subcategory": "Probability and random walks",
+    "difficulty": 5,
+    "statement": "Charlotte the spider is walking along a web shaped like a 5-pointed star, shown in the figure below. The web has 5 outer points and 5 inner points. Each time Charlotte reaches a point, she randomly chooses a neighboring point and moves to that point. Charlotte starts at one of the outer points and makes 3 moves (re-visiting points is allowed). What is the probability she is now at one of the outer points of the star?",
+    "choices": [
+      { "label": "A", "text": "1/5" },
+      { "label": "B", "text": "1/4" },
+      { "label": "C", "text": "2/5" },
+      { "label": "D", "text": "1/2" },
+      { "label": "E", "text": "3/5" }
+    ],
+    "answer": "B",
+    "shortAnswer": "1/4",
+    "solutionSteps": [
+      {
+        "title": "Analyze the moves",
+        "body": "From an outer point, Charlotte must move to one of 2 neighboring inner points. From an inner point, she can move to 2 outer or 2 inner points (4 choices).",
+        "equation": ""
+      },
+      {
+        "title": "Count favorable outcomes",
+        "body": "Move 1: outer → inner (2 choices). Move 2: inner → any (4 choices). Move 3: depends on position (4 choices). Total paths = 2 × 4 × 4 = 32. Favorable (ending on outer) = 8. Probability = 8/32 = 1/4.",
+        "equation": "8/32 = 1/4"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Spider on a 5-pointed star web. 3 random moves from an outer point. Find P(ending on outer).", "visualHint": "Star web shown." },
+      { "title": "Solve", "narration": "32 total paths, 8 end on outer points. P = 8/32 = 1/4.", "visualHint": "Tree diagram." },
+      { "title": "Check", "narration": "Probability is 1/4. The answer is (B).", "visualHint": "Answer B circled." }
+    ],
+    "animation": { "type": "probability", "data": {} },
+    "tags": ["AMC 8", "2026", "counting", "probability", "random walk"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2026/problem-21-spider-star-web.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2026-22",
+    "title": "2026 AMC 8 Problem 22: Median of Medians",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 22,
+    "category": "Number Theory",
+    "subcategory": "Medians and optimization",
+    "difficulty": 5,
+    "statement": "The integers from 1 through 25 are arbitrarily separated into five groups of 5 numbers each. The median of each group is identified. Let M equal the median of the five medians. What is the least possible value of M?",
+    "choices": [
+      { "label": "A", "text": "9" },
+      { "label": "B", "text": "10" },
+      { "label": "C", "text": "12" },
+      { "label": "D", "text": "13" },
+      { "label": "E", "text": "14" }
+    ],
+    "answer": "A",
+    "shortAnswer": "9",
+    "solutionSteps": [
+      {
+        "title": "Find a lower bound",
+        "body": "If a group has median m, then 3 of its 5 numbers are ≤ m. For M to be the median of 5 medians, at least 3 medians must be ≤ M. That means at least 3 × 3 = 9 numbers are ≤ M.",
+        "equation": ""
+      },
+      {
+        "title": "Achieve M = 9",
+        "body": "Since at least 9 numbers must be ≤ M, we need M ≥ 9. We can construct groups achieving M = 9, so the minimum is 9.",
+        "equation": ""
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Split 1–25 into five groups of 5. Find the minimum possible median of the group medians.", "visualHint": "Numbers partitioned." },
+      { "title": "Solve", "narration": "3 groups must have median ≤ M, each needing 3 numbers ≤ M. So 9 ≤ M. Achievable with M = 9.", "visualHint": "Lower bound argument." },
+      { "title": "Check", "narration": "Minimum M = 9. The answer is (A).", "visualHint": "Answer A circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2026", "number theory", "medians", "optimization"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2026-23",
+    "title": "2026 AMC 8 Problem 23: Elastic Band Around Coins",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 23,
+    "category": "Geometry",
+    "subcategory": "Circles and perimeter",
+    "difficulty": 5,
+    "statement": "Lakshmi has 5 round coins of diameter 4 centimeters. She arranges the coins in 2 rows on a table top, as shown below, and wraps an elastic band tightly around them. In centimeters, what will be the length of the band?",
+    "choices": [
+      { "label": "A", "text": "2π + 20" },
+      { "label": "B", "text": "5π/2 + 20" },
+      { "label": "C", "text": "4π + 20" },
+      { "label": "D", "text": "9π/2 + 20" },
+      { "label": "E", "text": "5π + 20" }
+    ],
+    "answer": "C",
+    "shortAnswer": "4π + 20",
+    "solutionSteps": [
+      {
+        "title": "Find the straight portions",
+        "body": "The band touches each coin along an arc and has straight segments between coins. By drawing perpendicular lines, the total straight length is 20 cm.",
+        "equation": ""
+      },
+      {
+        "title": "Find the curved portions",
+        "body": "The curved portions of the band around the coins sum to the circumference of one full coin: π × 4 = 4π.",
+        "equation": "4π + 20"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "5 coins of diameter 4 in 2 rows (3 bottom, 2 top). Elastic band wraps tightly.", "visualHint": "Coin arrangement shown." },
+      { "title": "Solve", "narration": "Straight portions = 20 cm. Curved portions = one full circumference = 4π. Total = 4π + 20.", "visualHint": "Band segments labeled." },
+      { "title": "Check", "narration": "Band length = 4π + 20. The answer is (C).", "visualHint": "Answer C circled." }
+    ],
+    "animation": { "type": "area-model", "data": {} },
+    "tags": ["AMC 8", "2026", "geometry", "circles", "perimeter"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2026/problem-23-coins-elastic-band.png"],
+    "needsDiagram": true
+  },
+  {
+    "id": "amc8-2026-24",
+    "title": "2026 AMC 8 Problem 24: Superfactorial Factors of 7",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 24,
+    "category": "Number Theory",
+    "subcategory": "Prime factorization",
+    "difficulty": 5,
+    "statement": "The notation n! (\"n factorial\") is defined as the product of the first n positive integers. (For example, 3! = 1 × 2 × 3 = 6.) Define the superfactorial of a positive integer n to be the product of the factorials of the first n integers. (For example, the superfactorial of 3 is 1! × 2! × 3! = 12.) How many factors of 7 appear in the prime factorization of the superfactorial of 51?",
+    "choices": [
+      { "label": "A", "text": "147" },
+      { "label": "B", "text": "150" },
+      { "label": "C", "text": "156" },
+      { "label": "D", "text": "168" },
+      { "label": "E", "text": "171" }
+    ],
+    "answer": "E",
+    "shortAnswer": "171",
+    "solutionSteps": [
+      {
+        "title": "Count factors of 7 in each factorial",
+        "body": "The superfactorial of 51 is 1! × 2! × ⋯ × 51!. For k!, the number of factors of 7 is ⌊k/7⌋ + ⌊k/49⌋. Group factorials by their 7-count.",
+        "equation": ""
+      },
+      {
+        "title": "Sum by ranges",
+        "body": "7!–13!: each has 1 factor of 7 → 7 × 1 = 7. 14!–20!: 2 each → 14. 21!–27!: 3 each → 21. 28!–34!: 4 each → 28. 35!–41!: 5 each → 35. 42!–48!: 6 each → 42. 49!–51!: 8 each → 24.",
+        "equation": "7 + 14 + 21 + 28 + 35 + 42 + 24 = 171"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Find the total number of 7s in the prime factorization of 1! × 2! × ⋯ × 51!.", "visualHint": "Factorials listed." },
+      { "title": "Solve", "narration": "Group by 7-count: 7+14+21+28+35+42+24 = 171.", "visualHint": "Ranges summed." },
+      { "title": "Check", "narration": "171 factors of 7. The answer is (E).", "visualHint": "Answer E circled." }
+    ],
+    "animation": { "type": "equation", "data": {} },
+    "tags": ["AMC 8", "2026", "number theory", "prime factorization", "factorial"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA"
+  },
+  {
+    "id": "amc8-2026-25",
+    "title": "2026 AMC 8 Problem 25: Equiangular Hexagons in Triangle",
+    "sourceType": "AMC",
+    "contest": "AMC 8",
+    "year": 2026,
+    "problemNumber": 25,
+    "category": "Counting & Probability",
+    "subcategory": "Combinatorics and geometry",
+    "difficulty": 5,
+    "statement": "In an equiangular hexagon, all interior angles measure 120°. An example of such a hexagon with side lengths 2, 3, 1, 3, 2, and 2 is shown below, inscribed in equilateral triangle ABC. Consider all equiangular hexagons with positive integer side lengths that can be inscribed in △ABC, with all six vertices on the sides of the triangle. What is the total number of such hexagons? Hexagons that differ only by a rotation or a reflection are considered the same.",
+    "choices": [
+      { "label": "A", "text": "4" },
+      { "label": "B", "text": "5" },
+      { "label": "C", "text": "6" },
+      { "label": "D", "text": "7" },
+      { "label": "E", "text": "8" }
+    ],
+    "answer": "E",
+    "shortAnswer": "8",
+    "solutionSteps": [
+      {
+        "title": "Model the side lengths",
+        "body": "Let the side lengths of the hexagon be a, b, c, d, e, f in order. For it to inscribe in the equilateral triangle, each side must be 1, 2, or 3, and specific adjacency rules apply.",
+        "equation": ""
+      },
+      {
+        "title": "Use recursion to count strings",
+        "body": "Every 2 can be followed by a 2 or 3. Every 3 must be followed by 1 or 2. Every 1 must be followed by 3. Count strings of length 6 satisfying these rules, accounting for rotation/reflection symmetry.",
+        "equation": ""
+      },
+      {
+        "title": "Compute the total",
+        "body": "Using recursion on strings ending in 1, 2, or 3: a₆ = 1, b₆ = 6, c₆ = 1. Total = 1 + 6 + 1 = 8.",
+        "equation": "1 + 6 + 1 = 8"
+      }
+    ],
+    "animationFrames": [
+      { "title": "Understand", "narration": "Count equiangular hexagons with integer sides inscribed in an equilateral triangle, up to symmetry.", "visualHint": "Hexagon in triangle." },
+      { "title": "Solve", "narration": "Model as length-6 strings with adjacency rules. Recursive counting gives 8.", "visualHint": "Recursion table." },
+      { "title": "Check", "narration": "8 non-congruent hexagons. The answer is (E).", "visualHint": "Answer E circled." }
+    ],
+    "animation": { "type": "generic", "data": {} },
+    "tags": ["AMC 8", "2026", "counting", "combinatorics", "geometry"],
+    "sourceName": "2026 AMC 8",
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2026/problem-25-hexagon-in-triangle.png"],
+    "needsDiagram": true
+  }
+];
+
 export const sampleProblems: Problem[] = [
   ...legacySampleProblems,
   ...amc2001Problems,
@@ -49456,6 +50539,7 @@ export const sampleProblems: Problem[] = [
   ...amc2023Problems,
   ...amc2024Problems,
   ...amc2025Problems,
+  ...amc2026Problems,
 ];
 
-export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems, amc2016Problems, amc2017Problems, amc2018Problems, amc2019Problems, amc2020Problems, amc2022Problems, amc2023Problems, amc2024Problems, amc2025Problems };
+export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems, amc2016Problems, amc2017Problems, amc2018Problems, amc2019Problems, amc2020Problems, amc2022Problems, amc2023Problems, amc2024Problems, amc2025Problems, amc2026Problems };
