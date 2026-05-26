@@ -16,7 +16,7 @@ export function ProblemStatement({ problem }: ProblemStatementProps) {
 
       <h2>{problem.title}</h2>
 
-      {problem.needsDiagram && (
+      {problem.needsDiagram && (!problem.imageUrls || problem.imageUrls.length === 0) && (
         <p className="fmj-diagram-note">
           This problem may rely on a diagram. The final site should use a clean
           recreated diagram instead of a scanned PDF page.
