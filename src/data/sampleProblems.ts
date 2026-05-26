@@ -2323,7 +2323,9 @@ const legacySampleProblems: Problem[] = [
       "percent"
     ],
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 2000 AMC 8 PDF",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2000/problem-04-at-home-work-graph.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-2000-05",
@@ -2479,7 +2481,9 @@ const legacySampleProblems: Problem[] = [
       "subtraction"
     ],
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 2000 AMC 8 PDF",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2000/problem-06-shaded-l-region.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-2000-07",
@@ -2637,7 +2641,9 @@ const legacySampleProblems: Problem[] = [
       "subtraction"
     ],
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 2000 AMC 8 PDF",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2000/problem-08-hidden-dice-dots.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-2000-09",
@@ -2714,7 +2720,9 @@ const legacySampleProblems: Problem[] = [
       "logic"
     ],
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 2000 AMC 8 PDF",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2000/problem-09-cross-number-powers.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-2000-10",
@@ -2949,7 +2957,9 @@ const legacySampleProblems: Problem[] = [
       "patterns"
     ],
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 2000 AMC 8 PDF",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2000/problem-12-smallest-blocks.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-2000-13",
@@ -3029,7 +3039,9 @@ const legacySampleProblems: Problem[] = [
       "angle bisector"
     ],
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 2000 AMC 8 PDF",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2000/problem-13-angle-bisector-isosceles.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-2000-14",
@@ -3184,7 +3196,9 @@ const legacySampleProblems: Problem[] = [
       "midpoints"
     ],
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 2000 AMC 8 PDF",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2000/problem-15-nested-equilateral-triangles.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-2000-16",
@@ -3422,7 +3436,9 @@ const legacySampleProblems: Problem[] = [
       "spatial reasoning"
     ],
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 2000 AMC 8 PDF",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2000/problem-18-geoboard-quadrilaterals.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-2000-19",
@@ -3500,7 +3516,9 @@ const legacySampleProblems: Problem[] = [
       "arcs"
     ],
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 2000 AMC 8 PDF",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2000/problem-19-three-circular-arcs.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-2000-20",
@@ -3737,7 +3755,9 @@ const legacySampleProblems: Problem[] = [
       "percent"
     ],
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 2000 AMC 8 PDF",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2000/problem-22-cube-surface-area.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-2000-23",
@@ -3895,7 +3915,9 @@ const legacySampleProblems: Problem[] = [
       "star figure"
     ],
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 2000 AMC 8 PDF",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2000/problem-24-star-figure-angles.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-2000-25",
@@ -3973,7 +3995,9 @@ const legacySampleProblems: Problem[] = [
       "midpoints"
     ],
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 2000 AMC 8 PDF",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2000/problem-25-rectangle-midpoints.png"],
+    "needsDiagram": true
   }
 ];
 
