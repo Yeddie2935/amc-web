@@ -8822,7 +8822,7 @@ const amc2003Problems: Problem[] = [
     "sourceName": "2003 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2003/problem-06-squares-triangle.svg"
+      "/amc8-diagrams/2003/problem-06-squares-triangle.png"
     ],
     "needsDiagram": true
   },
@@ -8990,7 +8990,7 @@ const amc2003Problems: Problem[] = [
     "sourceName": "2003 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2003/problem-08-10-cookie-shapes.svg"
+      "/amc8-diagrams/2003/problem-08-10-cookie-shapes.png"
     ],
     "needsDiagram": true
   },
@@ -9076,7 +9076,7 @@ const amc2003Problems: Problem[] = [
     "sourceName": "2003 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2003/problem-08-10-cookie-shapes.svg"
+      "/amc8-diagrams/2003/problem-08-10-cookie-shapes.png"
     ],
     "needsDiagram": true
   },
@@ -9162,7 +9162,7 @@ const amc2003Problems: Problem[] = [
     "sourceName": "2003 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2003/problem-08-10-cookie-shapes.svg"
+      "/amc8-diagrams/2003/problem-08-10-cookie-shapes.png"
     ],
     "needsDiagram": true
   },
@@ -9412,7 +9412,7 @@ const amc2003Problems: Problem[] = [
     "sourceName": "2003 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2003/problem-13-cubes.svg"
+      "/amc8-diagrams/2003/problem-13-cubes.png"
     ],
     "needsDiagram": true
   },
@@ -9497,7 +9497,7 @@ const amc2003Problems: Problem[] = [
     "sourceName": "2003 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2003/problem-14-cryptarithm.svg"
+      "/amc8-diagrams/2003/problem-14-cryptarithm.png"
     ],
     "needsDiagram": true
   },
@@ -9582,7 +9582,7 @@ const amc2003Problems: Problem[] = [
     "sourceName": "2003 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2003/problem-15-front-side.svg"
+      "/amc8-diagrams/2003/problem-15-front-side.png"
     ],
     "needsDiagram": true
   },
@@ -9833,7 +9833,7 @@ const amc2003Problems: Problem[] = [
     "sourceName": "2003 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2003/problem-18-friendship-graph.svg"
+      "/amc8-diagrams/2003/problem-18-friendship-graph.png"
     ],
     "needsDiagram": true
   },
@@ -10083,7 +10083,7 @@ const amc2003Problems: Problem[] = [
     "sourceName": "2003 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2003/problem-21-trapezoid.svg"
+      "/amc8-diagrams/2003/problem-21-trapezoid.png"
     ],
     "needsDiagram": true
   },
@@ -10168,7 +10168,7 @@ const amc2003Problems: Problem[] = [
     "sourceName": "2003 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2003/problem-22-shaded-regions.svg"
+      "/amc8-diagrams/2003/problem-22-shaded-regions.png"
     ],
     "needsDiagram": true
   },
@@ -10253,7 +10253,7 @@ const amc2003Problems: Problem[] = [
     "sourceName": "2003 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2003/problem-23-cat-mouse-pattern.svg"
+      "/amc8-diagrams/2003/problem-23-cat-mouse-pattern.png"
     ],
     "needsDiagram": true
   },
@@ -10338,7 +10338,7 @@ const amc2003Problems: Problem[] = [
     "sourceName": "2003 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2003/problem-24-ship-distance-graphs.svg"
+      "/amc8-diagrams/2003/problem-24-ship-distance-graphs.png"
     ],
     "needsDiagram": true
   },
@@ -10424,7 +10424,7 @@ const amc2003Problems: Problem[] = [
     "sourceName": "2003 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2003/problem-25-folded-triangle.svg"
+      "/amc8-diagrams/2003/problem-25-folded-triangle.png"
     ],
     "needsDiagram": true
   }
