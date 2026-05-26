@@ -11576,7 +11576,7 @@ const amc2004Problems: Problem[] = [
     "sourceName": "2004 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2004/problem-14-geoboard.svg"
+      "/amc8-diagrams/2004/problem-14-geoboard.png"
     ],
     "needsDiagram": true
   },
@@ -11661,7 +11661,7 @@ const amc2004Problems: Problem[] = [
     "sourceName": "2004 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2004/problem-15-hex-tiles.svg"
+      "/amc8-diagrams/2004/problem-15-hex-tiles.png"
     ],
     "needsDiagram": true
   },
@@ -12155,7 +12155,7 @@ const amc2004Problems: Problem[] = [
     "sourceName": "2004 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2004/problem-21-spinners.svg"
+      "/amc8-diagrams/2004/problem-21-spinners.png"
     ],
     "needsDiagram": true
   },
@@ -12321,7 +12321,7 @@ const amc2004Problems: Problem[] = [
     "sourceName": "2004 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2004/problem-23-distance-graphs.svg"
+      "/amc8-diagrams/2004/problem-23-distance-graphs.png"
     ],
     "needsDiagram": true
   },
@@ -12407,7 +12407,7 @@ const amc2004Problems: Problem[] = [
     "sourceName": "2004 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2004/problem-24-parallelogram.svg"
+      "/amc8-diagrams/2004/problem-24-parallelogram.png"
     ],
     "needsDiagram": true
   },
@@ -12492,7 +12492,7 @@ const amc2004Problems: Problem[] = [
     "sourceName": "2004 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2004/problem-25-overlapping-squares.svg"
+      "/amc8-diagrams/2004/problem-25-overlapping-squares.png"
     ],
     "needsDiagram": true
   }
