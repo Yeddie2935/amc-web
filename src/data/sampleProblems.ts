@@ -4956,7 +4956,7 @@ const amc2001Problems: Problem[] = [
     "sourceName": "2001 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2001/problem-11-coordinate-trapezoid.svg"
+      "/amc8-diagrams/2001/problem-11-coordinate-trapezoid.png"
     ],
     "needsDiagram": true
   },
@@ -5391,7 +5391,7 @@ const amc2001Problems: Problem[] = [
     "sourceName": "2001 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2001/problem-16-folding.svg"
+      "/amc8-diagrams/2001/problem-16-folding.png"
     ],
     "needsDiagram": true
   },
@@ -5480,7 +5480,7 @@ const amc2001Problems: Problem[] = [
     "sourceName": "2001 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2001/problem-17-millionaire-table.svg"
+      "/amc8-diagrams/2001/problem-17-millionaire-table.png"
     ],
     "needsDiagram": true
   },
@@ -5998,7 +5998,7 @@ const amc2001Problems: Problem[] = [
     "sourceName": "2001 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2001/problem-23-midpoints.svg"
+      "/amc8-diagrams/2001/problem-23-midpoints.png"
     ],
     "needsDiagram": true
   },
@@ -6088,7 +6088,7 @@ const amc2001Problems: Problem[] = [
     "sourceName": "2001 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2001/problem-24-folded-triangles.svg"
+      "/amc8-diagrams/2001/problem-24-folded-triangles.png"
     ],
     "needsDiagram": true
   },
