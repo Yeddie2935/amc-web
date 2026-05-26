@@ -17658,7 +17658,7 @@ const amc2007Problems: Problem[] = [
     "sourceName": "2007 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2007/problem-12-hexagram.svg"
+      "/amc8-diagrams/2007/problem-12-hexagram.png"
     ],
     "needsDiagram": true
   },
@@ -17746,7 +17746,7 @@ const amc2007Problems: Problem[] = [
     "sourceName": "2007 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2007/problem-13-venn.svg"
+      "/amc8-diagrams/2007/problem-13-venn.png"
     ],
     "needsDiagram": true
   },
@@ -18002,7 +18002,7 @@ const amc2007Problems: Problem[] = [
     "sourceName": "2007 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2007/problem-16-circle-graph-options.svg"
+      "/amc8-diagrams/2007/problem-16-circle-graph-options.png"
     ],
     "needsDiagram": true
   },
@@ -18590,7 +18590,7 @@ const amc2007Problems: Problem[] = [
     "sourceName": "2007 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2007/problem-23-pinwheel-grid.svg"
+      "/amc8-diagrams/2007/problem-23-pinwheel-grid.png"
     ],
     "needsDiagram": true
   },
@@ -18759,7 +18759,7 @@ const amc2007Problems: Problem[] = [
     "sourceName": "2007 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2007/problem-25-dartboard.svg"
+      "/amc8-diagrams/2007/problem-25-dartboard.png"
     ],
     "needsDiagram": true
   }
