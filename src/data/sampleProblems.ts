@@ -21221,7 +21221,7 @@ const amc2009Problems: Problem[] = [
     "sourceName": "2009 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2009/problem-04-polyomino-pieces.svg"
+      "/amc8-diagrams/2009/problem-04-polyomino-pieces.png"
     ],
     "needsDiagram": true
   },
@@ -21478,7 +21478,7 @@ const amc2009Problems: Problem[] = [
     "sourceName": "2009 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2009/problem-07-road-triangle.svg"
+      "/amc8-diagrams/2009/problem-07-road-triangle.png"
     ],
     "needsDiagram": true
   },
@@ -21648,7 +21648,7 @@ const amc2009Problems: Problem[] = [
     "sourceName": "2009 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2009/problem-09-polygon-chain.svg"
+      "/amc8-diagrams/2009/problem-09-polygon-chain.png"
     ],
     "needsDiagram": true
   },
@@ -21737,7 +21737,7 @@ const amc2009Problems: Problem[] = [
     "sourceName": "2009 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2009/problem-10-checkerboard.svg"
+      "/amc8-diagrams/2009/problem-10-checkerboard.png"
     ],
     "needsDiagram": true
   },
@@ -21907,7 +21907,7 @@ const amc2009Problems: Problem[] = [
     "sourceName": "2009 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2009/problem-12-spinners.svg"
+      "/amc8-diagrams/2009/problem-12-spinners.png"
     ],
     "needsDiagram": true
   },
@@ -22409,7 +22409,7 @@ const amc2009Problems: Problem[] = [
     "sourceName": "2009 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2009/problem-18-tiled-floor.svg"
+      "/amc8-diagrams/2009/problem-18-tiled-floor.png"
     ],
     "needsDiagram": true
   },
@@ -22918,7 +22918,7 @@ const amc2009Problems: Problem[] = [
     "sourceName": "2009 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2009/problem-24-cryptarithm.svg"
+      "/amc8-diagrams/2009/problem-24-cryptarithm.png"
     ],
     "needsDiagram": true
   },
@@ -23005,7 +23005,7 @@ const amc2009Problems: Problem[] = [
     "sourceName": "2009 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2009/problem-25-cut-cube.svg"
+      "/amc8-diagrams/2009/problem-25-cut-cube.png"
     ],
     "needsDiagram": true
   }
