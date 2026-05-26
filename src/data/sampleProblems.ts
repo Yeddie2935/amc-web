@@ -12746,7 +12746,7 @@ const amc2005Problems: Problem[] = [
     "sourceName": "2005 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2005/problem-03-symmetry-grid.svg"
+      "/amc8-diagrams/2005/problem-03-symmetry-grid.png"
     ],
     "needsDiagram": true
   },
@@ -13242,7 +13242,7 @@ const amc2005Problems: Problem[] = [
     "sourceName": "2005 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2005/problem-09-quadrilateral.svg"
+      "/amc8-diagrams/2005/problem-09-quadrilateral.png"
     ],
     "needsDiagram": true
   },
@@ -13575,7 +13575,7 @@ const amc2005Problems: Problem[] = [
     "sourceName": "2005 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2005/problem-13-l-shaped-polygon.svg"
+      "/amc8-diagrams/2005/problem-13-l-shaped-polygon.png"
     ],
     "needsDiagram": true
   },
@@ -13903,7 +13903,7 @@ const amc2005Problems: Problem[] = [
     "sourceName": "2005 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2005/problem-17-distance-time-graph.svg"
+      "/amc8-diagrams/2005/problem-17-distance-time-graph.png"
     ],
     "needsDiagram": true
   },
@@ -14070,7 +14070,7 @@ const amc2005Problems: Problem[] = [
     "sourceName": "2005 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2005/problem-19-trapezoid.svg"
+      "/amc8-diagrams/2005/problem-19-trapezoid.png"
     ],
     "needsDiagram": true
   },
@@ -14236,7 +14236,7 @@ const amc2005Problems: Problem[] = [
     "sourceName": "2005 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2005/problem-21-six-dots.svg"
+      "/amc8-diagrams/2005/problem-21-six-dots.png"
     ],
     "needsDiagram": true
   },
@@ -14402,7 +14402,7 @@ const amc2005Problems: Problem[] = [
     "sourceName": "2005 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2005/problem-23-semicircle-triangle.svg"
+      "/amc8-diagrams/2005/problem-23-semicircle-triangle.png"
     ],
     "needsDiagram": true
   },
@@ -14568,7 +14568,7 @@ const amc2005Problems: Problem[] = [
     "sourceName": "2005 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2005/problem-25-square-circle.svg"
+      "/amc8-diagrams/2005/problem-25-square-circle.png"
     ],
     "needsDiagram": true
   }
