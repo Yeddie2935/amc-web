@@ -7472,7 +7472,7 @@ const amc2002Problems: Problem[] = [
     "sourceName": "2002 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2002/problem-15-polygons.svg"
+      "/amc8-diagrams/2002/problem-15-polygons.png"
     ],
     "needsDiagram": true
   },
@@ -7559,7 +7559,7 @@ const amc2002Problems: Problem[] = [
     "sourceName": "2002 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2002/problem-16-right-isosceles-triangles.svg"
+      "/amc8-diagrams/2002/problem-16-right-isosceles-triangles.png"
     ],
     "needsDiagram": true
   },
@@ -8067,7 +8067,7 @@ const amc2002Problems: Problem[] = [
     "sourceName": "2002 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2002/problem-22-cubes.svg"
+      "/amc8-diagrams/2002/problem-22-cubes.png"
     ],
     "needsDiagram": true
   },
@@ -8153,7 +8153,7 @@ const amc2002Problems: Problem[] = [
     "sourceName": "2002 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2002/problem-23-tiled-floor.svg"
+      "/amc8-diagrams/2002/problem-23-tiled-floor.png"
     ],
     "needsDiagram": true
   },
