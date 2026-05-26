@@ -160,7 +160,9 @@ const legacySampleProblems: Problem[] = [
       "angles"
     ],
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/1999/problem-02-clock-angle.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-1999-03",
@@ -317,7 +319,9 @@ const legacySampleProblems: Problem[] = [
       "estimation"
     ],
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/1999/problem-04-biker-distance-graph.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-1999-05",
@@ -629,7 +633,9 @@ const legacySampleProblems: Problem[] = [
       "spatial reasoning"
     ],
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/1999/problem-08-cube-net.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-1999-09",
@@ -709,7 +715,9 @@ const legacySampleProblems: Problem[] = [
       "overlap"
     ],
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/1999/problem-09-overlapping-flower-beds.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-1999-10",
@@ -871,7 +879,9 @@ const legacySampleProblems: Problem[] = [
         "casework"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "CC BY-NC-SA"
+      "license": "CC BY-NC-SA",
+      "imageUrls": ["/amc8-diagrams/1999/problem-11-equal-cross-sums.png"],
+      "needsDiagram": true
     },
     {
       "id": "amc8-1999-12",
@@ -1108,7 +1118,9 @@ const legacySampleProblems: Problem[] = [
         "perimeter"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "CC BY-NC-SA"
+      "license": "CC BY-NC-SA",
+      "imageUrls": ["/amc8-diagrams/1999/problem-14-isosceles-trapezoid.png"],
+      "needsDiagram": true
     },
     {
       "id": "amc8-1999-15",
@@ -1584,7 +1596,9 @@ const legacySampleProblems: Problem[] = [
         "stack map"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "CC BY-NC-SA"
+      "license": "CC BY-NC-SA",
+      "imageUrls": ["/amc8-diagrams/1999/problem-20-stack-map.png"],
+      "needsDiagram": true
     },
     {
       "id": "amc8-1999-21",
@@ -1666,7 +1680,9 @@ const legacySampleProblems: Problem[] = [
         "star"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "CC BY-NC-SA"
+      "license": "CC BY-NC-SA",
+      "imageUrls": ["/amc8-diagrams/1999/problem-21-star-angle.png"],
+      "needsDiagram": true
     },
     {
       "id": "amc8-1999-22",
@@ -1830,7 +1846,9 @@ const legacySampleProblems: Problem[] = [
         "coordinate geometry"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "CC BY-NC-SA"
+      "license": "CC BY-NC-SA",
+      "imageUrls": ["/amc8-diagrams/1999/problem-23-equal-areas-square.png"],
+      "needsDiagram": true
     },
     {
       "id": "amc8-1999-24",
@@ -1994,7 +2012,9 @@ const legacySampleProblems: Problem[] = [
         "similarity"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "CC BY-NC-SA"
+      "license": "CC BY-NC-SA",
+      "imageUrls": ["/amc8-diagrams/1999/problem-25-shaded-midpoint-triangles.png"],
+      "needsDiagram": true
     },
 {
     "id": "amc8-2000-01",
