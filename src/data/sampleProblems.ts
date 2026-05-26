@@ -19098,7 +19098,7 @@ const amc2008Problems: Problem[] = [
     "sourceName": "2008 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2008/problem-04-equilateral-trapezoids.svg"
+      "/amc8-diagrams/2008/problem-04-equilateral-trapezoids.png"
     ],
     "needsDiagram": true
   },
@@ -19270,7 +19270,7 @@ const amc2008Problems: Problem[] = [
     "sourceName": "2008 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2008/problem-06-gray-white-squares.svg"
+      "/amc8-diagrams/2008/problem-06-gray-white-squares.png"
     ],
     "needsDiagram": true
   },
@@ -19443,7 +19443,7 @@ const amc2008Problems: Problem[] = [
     "sourceName": "2008 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2008/problem-08-candy-bar-graph.svg"
+      "/amc8-diagrams/2008/problem-08-candy-bar-graph.png"
     ],
     "needsDiagram": true
   },
@@ -20116,7 +20116,7 @@ const amc2008Problems: Problem[] = [
     "sourceName": "2008 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2008/problem-16-seven-cubes.svg"
+      "/amc8-diagrams/2008/problem-16-seven-cubes.png"
     ],
     "needsDiagram": true
   },
@@ -20284,7 +20284,7 @@ const amc2008Problems: Problem[] = [
     "sourceName": "2008 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2008/problem-18-aardvark-path.svg"
+      "/amc8-diagrams/2008/problem-18-aardvark-path.png"
     ],
     "needsDiagram": true
   },
@@ -20541,7 +20541,7 @@ const amc2008Problems: Problem[] = [
     "sourceName": "2008 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2008/problem-21-cylinder-wedge.svg"
+      "/amc8-diagrams/2008/problem-21-cylinder-wedge.png"
     ],
     "needsDiagram": true
   },

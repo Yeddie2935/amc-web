@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" width="360" height="260">
-  <rect width="100%" height="100%" fill="white"/>
-  <line x1="55" y1="30" x2="55" y2="210" stroke="#111" stroke-width="2"/>
-  <line x1="55" y1="210" x2="320" y2="210" stroke="#111" stroke-width="2"/>
-  <g stroke="#ccc" stroke-width="1"><line x1="55" y1="150" x2="320" y2="150"/><line x1="55" y1="90" x2="320" y2="90"/><line x1="55" y1="30" x2="320" y2="30"/></g>
-  <text x="28" y="213" font-size="14">0</text><text x="20" y="153" font-size="14">40</text><text x="20" y="93" font-size="14">80</text><text x="14" y="33" font-size="14">120</text>
-  <rect x="80" y="60" width="38" height="150" fill="#555"/><rect x="145" y="120" width="38" height="90" fill="#555"/><rect x="210" y="150" width="38" height="60" fill="#555"/><rect x="275" y="30" width="38" height="180" fill="#555"/>
-  <text x="99" y="232" text-anchor="middle" font-size="16">Jan</text><text x="164" y="232" text-anchor="middle" font-size="16">Feb</text><text x="229" y="232" text-anchor="middle" font-size="16">Mar</text><text x="294" y="232" text-anchor="middle" font-size="16">Apr</text>
-</svg>
