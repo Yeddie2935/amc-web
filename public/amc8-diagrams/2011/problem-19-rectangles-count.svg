@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="420" height="300" viewBox="0 0 420 300">
-  <rect width="100%" height="100%" fill="white"/>
-  <g stroke="black" stroke-width="2.5" fill="none">
-    <rect x="150" y="30" width="150" height="130"/>
-    <rect x="40" y="110" width="180" height="55"/>
-    <rect x="230" y="70" width="65" height="190"/>
-  </g>
-  <text x="80" y="285" font-size="16">Overlapping rectangles create 11 rectangles total.</text>
-</svg>

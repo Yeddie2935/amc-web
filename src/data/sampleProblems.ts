@@ -25262,7 +25262,7 @@ const amc2011Problems: Problem[] = [
     "sourceName": "2011 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2011/problem-03-black-border-pattern.svg"
+      "/amc8-diagrams/2011/problem-03-black-border-pattern.png"
     ],
     "needsDiagram": true
   },
@@ -25590,7 +25590,7 @@ const amc2011Problems: Problem[] = [
     "sourceName": "2011 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2011/problem-07-bolded-squares.svg"
+      "/amc8-diagrams/2011/problem-07-bolded-squares.png"
     ],
     "needsDiagram": true
   },
@@ -25752,7 +25752,7 @@ const amc2011Problems: Problem[] = [
     "sourceName": "2011 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2011/problem-09-bike-ride-graph.svg"
+      "/amc8-diagrams/2011/problem-09-bike-ride-graph.png"
     ],
     "needsDiagram": true
   },
@@ -25918,7 +25918,7 @@ const amc2011Problems: Problem[] = [
     "sourceName": "2011 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2011/problem-11-study-bar-graph.svg"
+      "/amc8-diagrams/2011/problem-11-study-bar-graph.png"
     ],
     "needsDiagram": true
   },
@@ -26084,7 +26084,7 @@ const amc2011Problems: Problem[] = [
     "sourceName": "2011 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2011/problem-13-overlap-squares.svg"
+      "/amc8-diagrams/2011/problem-13-overlap-squares.png"
     ],
     "needsDiagram": true
   },
@@ -26578,7 +26578,7 @@ const amc2011Problems: Problem[] = [
     "sourceName": "2011 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2011/problem-19-rectangles-count.svg"
+      "/amc8-diagrams/2011/problem-19-rectangles-count.png"
     ],
     "needsDiagram": true
   },
@@ -26665,7 +26665,7 @@ const amc2011Problems: Problem[] = [
     "sourceName": "2011 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2011/problem-20-trapezoid.svg"
+      "/amc8-diagrams/2011/problem-20-trapezoid.png"
     ],
     "needsDiagram": true
   },
@@ -27086,7 +27086,7 @@ const amc2011Problems: Problem[] = [
     "sourceName": "2011 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2011/problem-25-circle-square-ratio.svg"
+      "/amc8-diagrams/2011/problem-25-circle-square-ratio.png"
     ],
     "needsDiagram": true
   }
