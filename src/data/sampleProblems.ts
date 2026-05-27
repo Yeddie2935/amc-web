@@ -35520,7 +35520,7 @@ const amc2016Problems: Problem[] = [
     "sourceName": "2016 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2016/problem-02-rectangle-triangle-animated.svg"
+      "/amc8-diagrams/2016/problem-02-rectangle-triangle-animated.png"
     ],
     "needsDiagram": true
   },
@@ -35876,7 +35876,7 @@ const amc2016Problems: Problem[] = [
     "sourceName": "2016 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2016/problem-06-name-length-bar-animated.svg"
+      "/amc8-diagrams/2016/problem-06-name-length-bar-animated.png"
     ],
     "needsDiagram": true
   },
@@ -37265,7 +37265,7 @@ const amc2016Problems: Problem[] = [
     "sourceName": "2016 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2016/problem-22-bat-wings-animated.svg"
+      "/amc8-diagrams/2016/problem-22-bat-wings-animated.png"
     ],
     "needsDiagram": true
   },
@@ -37362,10 +37362,7 @@ const amc2016Problems: Problem[] = [
     ],
     "sourceName": "2016 AMC 8",
     "license": "CC BY-NC-SA",
-    "imageUrls": [
-      "/amc8-diagrams/2016/problem-23-overlapping-circles-animated.svg"
-    ],
-    "needsDiagram": true
+    "needsDiagram": false
   },
   {
     "id": "amc8-2016-24",
@@ -37559,7 +37556,7 @@ const amc2016Problems: Problem[] = [
     "sourceName": "2016 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2016/problem-25-semicircle-triangle-animated.svg"
+      "/amc8-diagrams/2016/problem-25-semicircle-triangle-animated.png"
     ],
     "needsDiagram": true
   }

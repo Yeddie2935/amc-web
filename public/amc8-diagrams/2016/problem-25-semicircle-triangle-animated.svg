@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 400" role="img" aria-label="Semicircle inscribed in isosceles triangle with base 16 and height 15">
-<style>.edge{fill:none;stroke:#111;stroke-width:4;stroke-linejoin:round}.semi{fill:none;stroke:#111;stroke-width:4}.alt{fill:none;stroke:#111;stroke-width:2;stroke-dasharray:6 6}.label{font:24px Georgia,serif;fill:#111}</style>
-<polygon points="80,360 240,60 400,360" class="edge"/>
-<path d="M104 360 A136 136 0 0 1 376 360" class="semi"/>
-<line x1="240" y1="60" x2="240" y2="360" class="alt"/>
-<text x="63" y="386" class="label">A</text><text x="404" y="386" class="label">B</text><text x="232" y="50" class="label">C</text><text x="248" y="220" class="label">15</text><text x="150" y="385" class="label">8</text>
-</svg>

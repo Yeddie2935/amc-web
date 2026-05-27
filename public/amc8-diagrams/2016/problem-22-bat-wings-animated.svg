@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 480" role="img" aria-label="Bat wings shaded area in 3 by 4 rectangle">
-<style>.edge{fill:none;stroke:#111;stroke-width:4}.wing{fill:#111}.label{font:26px Georgia,serif;fill:#111}</style>
-<rect x="70" y="70" width="210" height="360" class="edge"/>
-<polygon points="140,70 190,215 70,430" class="wing"/><polygon points="210,70 190,215 280,430" class="wing"/>
-<text x="50" y="62" class="label">D</text><text x="133" y="62" class="label">C</text><text x="203" y="62" class="label">B</text><text x="282" y="62" class="label">A</text><text x="52" y="458" class="label">E</text><text x="280" y="458" class="label">F</text>
-<text x="98" y="52" class="label">1</text><text x="168" y="52" class="label">1</text><text x="238" y="52" class="label">1</text><text x="292" y="255" class="label">4</text>
-</svg>

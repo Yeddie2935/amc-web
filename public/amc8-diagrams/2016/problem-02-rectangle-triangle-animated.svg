@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 480" role="img" aria-label="Rectangle ABCD with point M on side AD">
-<style>
-  .edge{fill:none;stroke:#111;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.thin{fill:none;stroke:#111;stroke-width:3}.label{font:28px Georgia,serif;fill:#111}
-</style>
-<rect x="100" y="80" width="200" height="320" class="edge"/>
-<line x1="100" y1="240" x2="300" y2="80" class="thin"/><line x1="100" y1="400" x2="300" y2="80" class="thin"/>
-<circle cx="100" cy="240" r="5" fill="#111"/>
-<text x="75" y="414" class="label">A</text><text x="308" y="414" class="label">B</text><text x="308" y="80" class="label">C</text><text x="75" y="80" class="label">D</text><text x="64" y="250" class="label">M</text>
-</svg>

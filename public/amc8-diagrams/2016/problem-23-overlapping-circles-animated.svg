@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 340" role="img" aria-label="Two overlapping congruent circles and angle CED">
-<style>.circle{fill:none;stroke:#111;stroke-width:3}.line{stroke:#111;stroke-width:3}.label{font:24px Georgia,serif;fill:#111}</style>
-<circle cx="210" cy="190" r="110" class="circle"/><circle cx="310" cy="190" r="110" class="circle"/>
-<line x1="100" y1="190" x2="420" y2="190" class="line"/>
-<line x1="100" y1="190" x2="260" y2="103.4" class="line"/><line x1="420" y1="190" x2="260" y2="103.4" class="line"/>
-<text x="198" y="216" class="label">A</text><text x="304" y="216" class="label">B</text><text x="88" y="216" class="label">C</text><text x="423" y="216" class="label">D</text><text x="253" y="93" class="label">E</text>
-</svg>
