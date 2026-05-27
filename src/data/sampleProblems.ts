@@ -48385,7 +48385,7 @@ const amc2025Problems: Problem[] = [
     "category": "Number Theory",
     "subcategory": "Place value",
     "difficulty": 1,
-    "statement": "The table below shows the ancient Egyptian hieroglyphs that were used to represent different numbers. For example, the number 32 was represented by three heel bones and two strokes. What number is represented by the following combination of hieroglyphs shown in the figure?",
+    "statement": "See below.",
     "choices": [
       { "label": "A", "text": "1,423" },
       { "label": "B", "text": "10,423" },
