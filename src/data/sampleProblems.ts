@@ -31917,7 +31917,7 @@ const amc2014Problems: Problem[] = [
     "sourceName": "2014 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2014/problem-09-triangle-angle.svg"
+      "/amc8-diagrams/2014/problem-09-triangle-angle.png"
     ],
     "needsDiagram": true
   },
@@ -32079,10 +32079,7 @@ const amc2014Problems: Problem[] = [
     ],
     "sourceName": "2014 AMC 8",
     "license": "CC BY-NC-SA",
-    "imageUrls": [
-      "/amc8-diagrams/2014/problem-11-grid-paths.svg"
-    ],
-    "needsDiagram": true
+    "needsDiagram": false
   },
   {
     "id": "amc8-2014-12",
@@ -32414,7 +32411,7 @@ const amc2014Problems: Problem[] = [
     "sourceName": "2014 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2014/problem-15-circle-arcs.svg"
+      "/amc8-diagrams/2014/problem-15-circle-arcs.png"
     ],
     "needsDiagram": true
   },
@@ -32825,7 +32822,7 @@ const amc2014Problems: Problem[] = [
     "sourceName": "2014 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2014/problem-20-rectangle-circles.svg"
+      "/amc8-diagrams/2014/problem-20-rectangle-circles.png"
     ],
     "needsDiagram": true
   },
@@ -33238,7 +33235,7 @@ const amc2014Problems: Problem[] = [
     "sourceName": "2014 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2014/problem-25-highway-semicircles.svg"
+      "/amc8-diagrams/2014/problem-25-highway-semicircles.png"
     ],
     "needsDiagram": true
   }
