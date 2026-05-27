@@ -29620,7 +29620,7 @@ const amc2013Problems: Problem[] = [
     "sourceName": "2013 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2013/problem-06-product-pyramid.svg"
+      "/amc8-diagrams/2013/problem-06-product-pyramid.png"
     ],
     "needsDiagram": true
   },
@@ -30597,7 +30597,7 @@ const amc2013Problems: Problem[] = [
     "sourceName": "2013 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2013/problem-18-rectangular-fort.svg"
+      "/amc8-diagrams/2013/problem-18-rectangular-fort.png"
     ],
     "needsDiagram": true
   },
@@ -30762,10 +30762,7 @@ const amc2013Problems: Problem[] = [
     ],
     "sourceName": "2013 AMC 8",
     "license": "CC BY-NC-SA",
-    "imageUrls": [
-      "/amc8-diagrams/2013/problem-20-semicircle-rectangle.svg"
-    ],
-    "needsDiagram": true
+    "needsDiagram": false
   },
   {
     "id": "amc8-2013-21",
@@ -30847,10 +30844,7 @@ const amc2013Problems: Problem[] = [
     ],
     "sourceName": "2013 AMC 8",
     "license": "CC BY-NC-SA",
-    "imageUrls": [
-      "/amc8-diagrams/2013/problem-21-city-park-routes.svg"
-    ],
-    "needsDiagram": true
+    "needsDiagram": false
   },
   {
     "id": "amc8-2013-22",
@@ -30933,7 +30927,7 @@ const amc2013Problems: Problem[] = [
     "sourceName": "2013 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2013/problem-22-toothpick-grid.svg"
+      "/amc8-diagrams/2013/problem-22-toothpick-grid.png"
     ],
     "needsDiagram": true
   },
@@ -31018,7 +31012,7 @@ const amc2013Problems: Problem[] = [
     "sourceName": "2013 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2013/problem-23-semicircles-triangle.svg"
+      "/amc8-diagrams/2013/problem-23-semicircles-triangle.png"
     ],
     "needsDiagram": true
   },
@@ -31103,7 +31097,7 @@ const amc2013Problems: Problem[] = [
     "sourceName": "2013 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2013/problem-24-three-squares-pentagon.svg"
+      "/amc8-diagrams/2013/problem-24-three-squares-pentagon.png"
     ],
     "needsDiagram": true
   },
@@ -31188,7 +31182,7 @@ const amc2013Problems: Problem[] = [
     "sourceName": "2013 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2013/problem-25-rolling-ball-track.svg"
+      "/amc8-diagrams/2013/problem-25-rolling-ball-track.png"
     ],
     "needsDiagram": true
   }

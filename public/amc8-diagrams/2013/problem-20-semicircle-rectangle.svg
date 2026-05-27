@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 240" role="img" aria-label="1 by 2 rectangle inscribed in a semicircle">
-  <rect width="420" height="240" fill="white"/>
-  <path d="M70 190 A140 140 0 0 1 350 190" fill="none" stroke="black" stroke-width="3"/>
-  <line x1="60" y1="190" x2="360" y2="190" stroke="black" stroke-width="3"/>
-  <rect x="140" y="90" width="140" height="70" fill="#f7f7f7" stroke="black" stroke-width="3"/>
-  <line x1="210" y1="190" x2="280" y2="90" stroke="#777" stroke-width="2" stroke-dasharray="6 5"/>
-  <text x="210" y="155" font-family="Georgia,serif" font-size="20" text-anchor="middle">2</text>
-  <text x="286" y="130" font-family="Georgia,serif" font-size="20">1</text>
-</svg>
