@@ -42255,7 +42255,7 @@ const amc2019Problems: Problem[] = [
     "sourceName": "2019 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2019/problem-04-rhombus.svg"
+      "/amc8-diagrams/2019/problem-04-rhombus.png"
     ],
     "needsDiagram": true
   },
@@ -42689,7 +42689,7 @@ const amc2019Problems: Problem[] = [
     "sourceName": "2019 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2019/problem-10-bar-chart.svg"
+      "/amc8-diagrams/2019/problem-10-bar-chart.png"
     ],
     "needsDiagram": true
   },
@@ -42830,7 +42830,7 @@ const amc2019Problems: Problem[] = [
     "sourceName": "2019 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2019/problem-12-cube-views.svg"
+      "/amc8-diagrams/2019/problem-12-cube-views.png"
     ],
     "needsDiagram": true
   },
@@ -43120,7 +43120,7 @@ const amc2019Problems: Problem[] = [
     "category": "Algebra",
     "subcategory": "Telescoping products",
     "difficulty": 4,
-    "statement": "What is the value of the product (1·3)/(2·2) · (2·4)/(3·3) · (3·5)/(4·4) · … · (97·99)/(98·98) · (98·100)/(99·99)?",
+    "statement": "What is the value of the product",
     "choices": [
       { "label": "A", "text": "1/2" },
       { "label": "B", "text": "50/99" },
@@ -43171,7 +43171,11 @@ const amc2019Problems: Problem[] = [
       "telescoping products"
     ],
     "sourceName": "2019 AMC 8",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2019/problem-17-products.png"
+    ],
+    "needsDiagram": true
   },
   {
     "id": "amc8-2019-18",
@@ -43652,7 +43656,7 @@ const amc2019Problems: Problem[] = [
     "sourceName": "2019 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2019/problem-24-triangle-cevians.svg"
+      "/amc8-diagrams/2019/problem-24-triangle-cevians.png"
     ],
     "needsDiagram": true
   },
