@@ -47705,7 +47705,7 @@ const amc2024Problems: Problem[] = [
     "category": "Algebra",
     "subcategory": "Linear equations",
     "difficulty": 2,
-    "statement": "Rohan keeps 90 guppies in 4 fish tanks. There is 1 more guppy in the 2nd tank than in the 1st tank. There are 2 more guppies in the 3rd tank than in the 2nd tank. There are 3 more guppies in the 4th tank than in the 3rd tank. How many guppies are in the 4th tank?",
+    "statement": "Rohan keeps 90 guppies in 4 fish tanks.\n• There is 1 more guppy in the 2nd tank than in the 1st tank.\n• There are 2 more guppies in the 3rd tank than in the 2nd tank.\n• There are 3 more guppies in the 4th tank than in the 3rd tank.\nHow many guppies are in the 4th tank?",
     "choices": [
       { "label": "A", "text": "20" },
       { "label": "B", "text": "21" },
@@ -47835,7 +47835,7 @@ const amc2024Problems: Problem[] = [
     "category": "Number Theory",
     "subcategory": "Cryptarithmetic",
     "difficulty": 3,
-    "statement": "Let the letters F, L, Y, B, U, G represent distinct digits. Suppose FLYFLY is the greatest number that satisfies the equation 8 · FLYFLY = BUGBUG. What is the value of FLY + BUG?",
+    "statement": "See below.",
     "choices": [
       { "label": "A", "text": "1089" },
       { "label": "B", "text": "1098" },
@@ -47870,7 +47870,9 @@ const amc2024Problems: Problem[] = [
     "animation": { "type": "equation", "data": {} },
     "tags": ["AMC 8", "2024", "number theory", "cryptarithmetic", "digit problems"],
     "sourceName": "2024 AMC 8",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2024/problem-15-flybug.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-2024-16",
