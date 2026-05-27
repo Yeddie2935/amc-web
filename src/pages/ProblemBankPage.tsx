@@ -9,8 +9,13 @@ import { SiteFooter } from "../components/layout/SiteFooter";
 import { AdvancedProblemFilters } from "../components/problem/AdvancedProblemFilters";
 import { CompactProblemList } from "../components/problem/CompactProblemList";
 import { ProblemWorkspace } from "../components/problem/ProblemWorkspace";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 export function ProblemBankPage() {
+  usePageMeta(
+    "AMC 8 Problem Bank (600+ Problems) — Fun Math Journey",
+    "Search and filter 600+ AMC 8 problems by skill, difficulty, and year. Full step-by-step solutions included."
+  );
   const progressApi = useLocalProgress(sampleProblems);
   const [filters, setFilters] = useState(DEFAULT_FILTERS);
   const [selectedProblem, setSelectedProblem] = useState<Problem>(sampleProblems[0]);

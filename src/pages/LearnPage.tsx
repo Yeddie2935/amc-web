@@ -5,10 +5,15 @@ import { SKILL_LANES } from "../lib/skills";
 import { getDifficultyDescription } from "../lib/problemUtils";
 import { SiteHeader } from "../components/layout/SiteHeader";
 import { SiteFooter } from "../components/layout/SiteFooter";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 const DIFFICULTY_LEVELS: DifficultyLevel[] = [1, 2, 3, 4, 5];
 
 export function LearnPage() {
+  usePageMeta(
+    "Learn AMC 8 Math — Fun Math Journey",
+    "Explore AMC 8 topics by skill and difficulty. Guided lessons in algebra, geometry, number theory, counting and probability, and more."
+  );
   return (
     <>
       <SiteHeader currentPage="learn" />

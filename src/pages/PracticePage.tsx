@@ -7,6 +7,7 @@ import { SiteFooter } from "../components/layout/SiteFooter";
 import { PracticeLauncher } from "../components/practice/PracticeLauncher";
 import { ProblemWorkspace } from "../components/problem/ProblemWorkspace";
 import { buildPracticeSession } from "../lib/buildPracticeSession";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 function normalizeSkill(value: string | null) {
   if (!value) return null;
@@ -99,6 +100,10 @@ function getSkillTitle(skill: string | null) {
 }
 
 export function PracticePage() {
+  usePageMeta(
+    "Practice AMC 8 Problems — Fun Math Journey",
+    "Practice AMC 8 math problems one at a time with progress tracking. Filter by skill and difficulty across algebra, geometry, number theory, and more."
+  );
   const urlParams = new URLSearchParams(window.location.search);
 
   // Supports both URL styles:

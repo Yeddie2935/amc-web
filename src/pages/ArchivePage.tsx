@@ -7,8 +7,13 @@ import { SiteHeader } from "../components/layout/SiteHeader";
 import { SiteFooter } from "../components/layout/SiteFooter";
 import { CompactProblemList } from "../components/problem/CompactProblemList";
 import { ProblemWorkspace } from "../components/problem/ProblemWorkspace";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 export function ArchivePage() {
+  usePageMeta(
+    "AMC 8 Archive — Fun Math Journey",
+    "Browse all AMC 8 competition problems by year. Step-by-step explanations for every problem."
+  );
   const progressApi = useLocalProgress(sampleProblems);
   const years = [...getAvailableYears(sampleProblems)].reverse();
   const [selectedYear, setSelectedYear] = useState(years[0] ?? 1999);

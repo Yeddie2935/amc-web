@@ -2,8 +2,13 @@ import { SiteHeader } from "../components/layout/SiteHeader";
 import { SiteFooter } from "../components/layout/SiteFooter";
 import { AttributionNotice } from "../components/attribution/AttributionNotice";
 import { Button } from "../components/common/Button";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 export function HomePage() {
+  usePageMeta(
+    "Fun Math Journey — AMC 8 Problem Explanations",
+    "Free AMC 8 prep with 600+ problems across 5 difficulty levels. Learn, practice, and track your progress in algebra, geometry, number theory, and more."
+  );
   return (
     <>
       <SiteHeader currentPage="home" />

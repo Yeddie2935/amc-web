@@ -3,8 +3,13 @@ import { summarizeByCategory } from "../lib/problemUtils";
 import { useLocalProgress } from "../hooks/useLocalProgress";
 import { SiteHeader } from "../components/layout/SiteHeader";
 import { SiteFooter } from "../components/layout/SiteFooter";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 export function DashboardPage() {
+  usePageMeta(
+    "My Progress — Fun Math Journey",
+    "Track your AMC 8 practice progress. See solved problems, missed problems, and performance by skill category."
+  );
   const { progress, stats, resetProgress } = useLocalProgress(sampleProblems);
   const byCategory = summarizeByCategory(sampleProblems);
 
