@@ -24361,7 +24361,7 @@ const amc2010Problems: Problem[] = [
     "sourceName": "2010 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2010/problem-17-octagon-bisector.svg"
+      "/amc8-diagrams/2010/problem-17-octagon-bisector.png"
     ],
     "needsDiagram": true
   },
@@ -24527,7 +24527,7 @@ const amc2010Problems: Problem[] = [
     "sourceName": "2010 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2010/problem-19-concentric-circles.svg"
+      "/amc8-diagrams/2010/problem-19-concentric-circles.png"
     ],
     "needsDiagram": true
   },
@@ -24855,7 +24855,7 @@ const amc2010Problems: Problem[] = [
     "sourceName": "2010 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2010/problem-23-semicircles-coordinate.svg"
+      "/amc8-diagrams/2010/problem-23-semicircles-coordinate.png"
     ],
     "needsDiagram": true
   },
