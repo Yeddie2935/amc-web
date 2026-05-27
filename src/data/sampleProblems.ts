@@ -33411,7 +33411,7 @@ const amc2015Problems: Problem[] = [
     "sourceName": "2015 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2015/problem-02-octagon.svg"
+      "/amc8-diagrams/2015/problem-02-octagon.png"
     ],
     "needsDiagram": true
   },
@@ -34833,7 +34833,7 @@ const amc2015Problems: Problem[] = [
     "sourceName": "2015 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2015/problem-19-coordinate-triangle.svg"
+      "/amc8-diagrams/2015/problem-19-coordinate-triangle.png"
     ],
     "needsDiagram": true
   },
@@ -35003,7 +35003,7 @@ const amc2015Problems: Problem[] = [
     "sourceName": "2015 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2015/problem-21-hexagon-construction.svg"
+      "/amc8-diagrams/2015/problem-21-hexagon-construction.png"
     ],
     "needsDiagram": true
   },
@@ -35339,7 +35339,7 @@ const amc2015Problems: Problem[] = [
     "sourceName": "2015 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2015/problem-25-corner-cuts.svg"
+      "/amc8-diagrams/2015/problem-25-corner-cuts.png"
     ],
     "needsDiagram": true
   }
