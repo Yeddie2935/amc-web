@@ -38494,10 +38494,7 @@ const amc2017Problems: Problem[] = [
     ],
     "sourceName": "2017 AMC 8",
     "license": "CC BY-NC-SA",
-    "imageUrls": [
-      "/amc8-diagrams/2017/problem-11-diagonal-tiles-animated.svg"
-    ],
-    "needsDiagram": true
+    "needsDiagram": false
   },
   {
     "id": "amc8-2017-12",
@@ -38845,7 +38842,7 @@ const amc2017Problems: Problem[] = [
     "sourceName": "2017 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2017/problem-15-amc8-paths-animated.svg"
+      "/amc8-diagrams/2017/problem-15-amc8-paths-animated.png"
     ],
     "needsDiagram": true
   },
@@ -38946,7 +38943,7 @@ const amc2017Problems: Problem[] = [
     "sourceName": "2017 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2017/problem-16-triangle-split-animated.svg"
+      "/amc8-diagrams/2017/problem-16-triangle-split-animated.png"
     ],
     "needsDiagram": true
   },
@@ -39127,7 +39124,7 @@ const amc2017Problems: Problem[] = [
     "sourceName": "2017 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2017/problem-18-nonconvex-quadrilateral-animated.svg"
+      "/amc8-diagrams/2017/problem-18-nonconvex-quadrilateral-animated.png"
     ],
     "needsDiagram": true
   },
@@ -39502,7 +39499,7 @@ const amc2017Problems: Problem[] = [
     "sourceName": "2017 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2017/problem-22-inscribed-semicircle-animated.svg"
+      "/amc8-diagrams/2017/problem-22-inscribed-semicircle-animated.png"
     ],
     "needsDiagram": true
   },
@@ -39799,7 +39796,7 @@ const amc2017Problems: Problem[] = [
     "sourceName": "2017 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2017/problem-25-curved-region-animated.svg"
+      "/amc8-diagrams/2017/problem-25-curved-region-animated.png"
     ],
     "needsDiagram": true
   }
