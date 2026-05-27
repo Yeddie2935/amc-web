@@ -44890,7 +44890,7 @@ const amc2022Problems: Problem[] = [
     "category": "Algebra",
     "subcategory": "Custom operations",
     "difficulty": 1,
-    "statement": "Consider these two operations: a ◆ b = a² − b² and a ★ b = (a − b)². What is the output of (5 ◆ 3) ★ 6?",
+    "statement": "Consider these two operations:\na ◆ b = a² − b²\na ★ b = (a − b)²\nWhat is the output of (5 ◆ 3) ★ 6?",
     "choices": [
       { "label": "A", "text": "−20" },
       { "label": "B", "text": "4" },
@@ -45154,7 +45154,7 @@ const amc2022Problems: Problem[] = [
     "category": "Algebra",
     "subcategory": "Telescoping products",
     "difficulty": 2,
-    "statement": "What is the value of (1/3) · (2/4) · (3/5) · ⋯ · (18/20) · (19/21) · (20/22)?",
+    "statement": "What is the value of",
     "choices": [
       { "label": "A", "text": "1/462" },
       { "label": "B", "text": "1/231" },
@@ -45184,7 +45184,9 @@ const amc2022Problems: Problem[] = [
     "animation": { "type": "equation", "data": { "answer": "1/231" } },
     "tags": ["AMC 8", "2022", "algebra", "telescoping products"],
     "sourceName": "2022 AMC 8",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2022/problem-08-product-value.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-2022-09",
@@ -45435,7 +45437,7 @@ const amc2022Problems: Problem[] = [
     "category": "Counting & Probability",
     "subcategory": "Permutations with restrictions",
     "difficulty": 3,
-    "statement": "In how many ways can the letters in BEEKEEPER be rearranged so that two or more Es do not appear together?",
+    "statement": "In how many ways can the letters in **BEEKEEPER** be rearranged so that two or more Es do not appear together?",
     "choices": [
       { "label": "A", "text": "1" },
       { "label": "B", "text": "4" },
@@ -45573,7 +45575,7 @@ const amc2022Problems: Problem[] = [
     "category": "Number Theory",
     "subcategory": "Units digit",
     "difficulty": 4,
-    "statement": "If n is an even positive integer, the double factorial notation n!! represents the product of all the even integers from 2 to n. For example, 8!! = 2 · 4 · 6 · 8. What is the units digit of the following sum? 2!! + 4!! + 6!! + ⋯ + 2018!! + 2020!! + 2022!!",
+    "statement": "If n is an even positive integer, the double factorial notation n!! represents the product of all the even integers from 2 to n. For example, 8!! = 2 · 4 · 6 · 8. What is the units digit of the following sum?\n2!! + 4!! + 6!! + ⋯ + 2018!! + 2020!! + 2022!!",
     "choices": [
       { "label": "A", "text": "0" },
       { "label": "B", "text": "2" },
@@ -46001,7 +46003,9 @@ const amc2022Problems: Problem[] = [
     "animation": { "type": "probability", "data": { "answer": "7/27" } },
     "tags": ["AMC 8", "2022", "counting & probability", "markov chains"],
     "sourceName": "2022 AMC 8",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2022/problem-25-cricket.png"],
+    "needsDiagram": true
   }
 ];
 const amc2023Problems: Problem[] = [
