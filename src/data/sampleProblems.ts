@@ -49520,7 +49520,7 @@ const amc2026Problems: Problem[] = [
     "category": "Number Theory",
     "subcategory": "Counting and sums",
     "difficulty": 1,
-    "statement": "In the array shown below, three 3s are surrounded by 2s, which are in turn surrounded by a border of 1s. What is the sum of the numbers in the array?\n\n1 1 1 1 1 1 1\n1 2 2 2 2 2 1\n1 2 3 3 3 2 1\n1 2 2 2 2 2 1\n1 1 1 1 1 1 1",
+    "statement": "In the array shown below, three 3s are surrounded by 2s, which are in turn surrounded by a border of 1s. What is the sum of the numbers in the array?",
     "choices": [
       { "label": "A", "text": "49" },
       { "label": "B", "text": "51" },
@@ -49550,7 +49550,9 @@ const amc2026Problems: Problem[] = [
     "animation": { "type": "generic", "data": {} },
     "tags": ["AMC 8", "2026", "number theory", "counting"],
     "sourceName": "2026 AMC 8",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2026/problem-02-number-array.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-2026-03",
@@ -49816,7 +49818,7 @@ const amc2026Problems: Problem[] = [
     "category": "Algebra",
     "subcategory": "Radicals",
     "difficulty": 2,
-    "statement": "What is the value of the expression √(16√81) / √(81√16)?",
+    "statement": "What is the value of the expression shown below?",
     "choices": [
       { "label": "A", "text": "4/9" },
       { "label": "B", "text": "2/3" },
@@ -49851,7 +49853,9 @@ const amc2026Problems: Problem[] = [
     "animation": { "type": "equation", "data": {} },
     "tags": ["AMC 8", "2026", "algebra", "radicals"],
     "sourceName": "2026 AMC 8",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2026/problem-09-expression.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-2026-10",
