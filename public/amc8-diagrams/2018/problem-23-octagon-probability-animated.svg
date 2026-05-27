@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 280" role="img" aria-label="Regular octagon with eight equal sides, drawn in the flat-top orientation">
-  <rect width="520" height="280" fill="white"/>
-  <polygon
-    points="330,40 260,40 210,90 210,160 260,210 330,210 380,160 380,90"
-    fill="#9aa0a6"
-    stroke="#111827"
-    stroke-width="3"
-    stroke-linejoin="round"/>
-</svg>

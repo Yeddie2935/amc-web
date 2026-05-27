@@ -39961,7 +39961,11 @@ const amc2018Problems: Problem[] = [
       "fractions and products"
     ],
     "sourceName": "2018 AMC 8",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": [
+      "/amc8-diagrams/2018/problem-02-product-animated.png"
+    ],
+    "needsDiagram": true
   },
   {
     "id": "amc8-2018-03",
@@ -40137,7 +40141,7 @@ const amc2018Problems: Problem[] = [
     "sourceName": "2018 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2018/problem-04-grid-area-animated.svg"
+      "/amc8-diagrams/2018/problem-04-grid-area-animated.png"
     ],
     "needsDiagram": true
   },
@@ -40483,7 +40487,7 @@ const amc2018Problems: Problem[] = [
     "sourceName": "2018 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2018/problem-08-bar-mean-animated.svg"
+      "/amc8-diagrams/2018/problem-08-bar-mean-animated.png"
     ],
     "needsDiagram": true
   },
@@ -40745,7 +40749,7 @@ const amc2018Problems: Problem[] = [
     "sourceName": "2018 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2018/problem-11-seating-adjacency-animated.svg"
+      "/amc8-diagrams/2018/problem-11-seating-adjacency-animated.png"
     ],
     "needsDiagram": true
   },
@@ -41093,7 +41097,7 @@ const amc2018Problems: Problem[] = [
     "sourceName": "2018 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2018/problem-15-circle-area-animated.svg"
+      "/amc8-diagrams/2018/problem-15-circle-area-animated.png"
     ],
     "needsDiagram": true
   },
@@ -41437,7 +41441,7 @@ const amc2018Problems: Problem[] = [
     "sourceName": "2018 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2018/problem-19-sign-pyramid-animated.svg"
+      "/amc8-diagrams/2018/problem-19-sign-pyramid-animated.png"
     ],
     "needsDiagram": true
   },
@@ -41524,7 +41528,7 @@ const amc2018Problems: Problem[] = [
     "sourceName": "2018 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2018/problem-20-triangle-ratio-animated.svg"
+      "/amc8-diagrams/2018/problem-20-triangle-ratio-animated.png"
     ],
     "needsDiagram": true
   },
@@ -41702,7 +41706,7 @@ const amc2018Problems: Problem[] = [
     "sourceName": "2018 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2018/problem-22-square-area-animated.svg"
+      "/amc8-diagrams/2018/problem-22-square-area-animated.png"
     ],
     "needsDiagram": true
   },
@@ -41792,7 +41796,7 @@ const amc2018Problems: Problem[] = [
     "sourceName": "2018 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2018/problem-23-octagon-probability-animated.svg"
+      "/amc8-diagrams/2018/problem-23-octagon-probability-animated.png"
     ],
     "needsDiagram": true
   },
@@ -41881,7 +41885,7 @@ const amc2018Problems: Problem[] = [
     "sourceName": "2018 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2018/problem-24-cube-cross-section-animated.svg"
+      "/amc8-diagrams/2018/problem-24-cube-cross-section-animated.png"
     ],
     "needsDiagram": true
   },
