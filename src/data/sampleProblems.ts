@@ -39893,7 +39893,7 @@ const amc2018Problems: Problem[] = [
     "category": "Algebra",
     "subcategory": "Fractions and products",
     "difficulty": 2,
-    "statement": "What is the value of (1+1/1)(1+1/2)(1+1/3)(1+1/4)(1+1/5)(1+1/6)?",
+    "statement": "What is the value of ?",
     "choices": [
       {
         "label": "A",
