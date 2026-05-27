@@ -27492,7 +27492,7 @@ const amc2012Problems: Problem[] = [
     "sourceName": "2012 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2012/problem-05-step-polygon.svg"
+      "/amc8-diagrams/2012/problem-05-step-polygon.png"
     ],
     "needsDiagram": true
   },
@@ -29038,7 +29038,7 @@ const amc2012Problems: Problem[] = [
     "sourceName": "2012 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2012/problem-24-star-arcs.svg"
+      "/amc8-diagrams/2012/problem-24-star-arcs.png"
     ],
     "needsDiagram": true
   },
@@ -29123,7 +29123,7 @@ const amc2012Problems: Problem[] = [
     "sourceName": "2012 AMC 8",
     "license": "CC BY-NC-SA",
     "imageUrls": [
-      "/amc8-diagrams/2012/problem-25-inscribed-square.svg"
+      "/amc8-diagrams/2012/problem-25-inscribed-square.png"
     ],
     "needsDiagram": true
   }
