@@ -44657,7 +44657,7 @@ const amc2020Problems: Problem[] = [
     "category": "Number Theory",
     "subcategory": "Sequences and iteration",
     "difficulty": 5,
-    "statement": "When a positive integer N is fed into a machine, the output is a number calculated according to the rule shown below: if N is even, output N/2; if N is odd, output 3N + 1. For example, starting with N = 7, the output is 22. When the same 6-step process is applied to a different starting value of N, the final output is 1. What is the sum of all such integers N?",
+    "statement": "See below:",
     "choices": [
       { "label": "A", "text": "73" },
       { "label": "B", "text": "74" },
