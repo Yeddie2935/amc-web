@@ -123,3 +123,8 @@ Google can crawl JavaScript SPAs but it is slower and less reliable. Options:
 - Add a blog or "Tips" page with original content targeting keywords like "AMC 8 preparation" and "AMC 8 algebra problems"
 - Get backlinks from math communities (Art of Problem Solving forums, Reddit r/mathcompetitions)
 - Submit the site to Google Search Console and monitor crawl coverage and click-through rates
+
+#### Requires manual action
+
+1. **Google Search Console** — go to [search.google.com/search-console](https://search.google.com/search-console), add `mathinking.org`, verify ownership (DNS TXT record or HTML file), then submit `https://mathinking.org/sitemap.xml`
+2. **Backlinks** — post in [Art of Problem Solving forums](https://artofproblemsolving.com/community) and Reddit's [r/mathcompetitions](https://reddit.com/r/mathcompetitions) with a link to the tips page — content-first posts ("here's a study guide") perform much better than plain self-promotion

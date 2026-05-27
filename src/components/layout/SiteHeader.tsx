@@ -1,5 +1,5 @@
 interface SiteHeaderProps {
-  currentPage?: "home" | "learn" | "practice" | "archive" | "dashboard" | "problems" | "license";
+  currentPage?: "home" | "learn" | "practice" | "archive" | "dashboard" | "problems" | "license" | "tips";
 }
 
 export function SiteHeader({ currentPage = "home" }: SiteHeaderProps) {
@@ -25,6 +25,9 @@ export function SiteHeader({ currentPage = "home" }: SiteHeaderProps) {
         </a>
         <a className={currentPage === "dashboard" ? "active" : ""} href="/dashboard">
           Dashboard
+        </a>
+        <a className={currentPage === "tips" ? "active" : ""} href="/tips">
+          Study Tips
         </a>
         <a className={currentPage === "license" ? "active" : ""} href="/license">
           Attribution

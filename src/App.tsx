@@ -5,6 +5,7 @@ import { ArchivePage } from "./pages/ArchivePage";
 import { DashboardPage } from "./pages/DashboardPage";
 import { ProblemBankPage } from "./pages/ProblemBankPage";
 import { LicensePage } from "./pages/LicensePage";
+import { TipsPage } from "./pages/TipsPage";
 import "./styles/amcComponents.css";
 import "./styles/amcDiagramPatch.css";
 import "./styles/fmjAnimations.css";
@@ -20,6 +21,7 @@ function App() {
   if (path.startsWith("/dashboard")) return <DashboardPage />;
   if (path.startsWith("/problems")) return <ProblemBankPage />;
   if (path.startsWith("/license")) return <LicensePage />;
+  if (path.startsWith("/tips")) return <TipsPage />;
 
   return <HomePage />;
 }
