@@ -46111,7 +46111,7 @@ const amc2023Problems: Problem[] = [
     "category": "Algebra",
     "subcategory": "Linear expressions",
     "difficulty": 1,
-    "statement": "Wind chill is a measure of how cold people feel when exposed to wind outside. A good estimate for wind chill in °F can be found using this formula: Wind chill = 36 − (0.7 × wind speed), where the wind speed is measured in miles per hour. Suppose the wind speed is 18 miles per hour. Which of the following is closest to the wind chill?",
+    "statement": "See below.",
     "choices": [
       { "label": "A", "text": "18" },
       { "label": "B", "text": "23" },
@@ -46146,7 +46146,9 @@ const amc2023Problems: Problem[] = [
     "animation": { "type": "equation", "data": { "formula": "36 − 0.7 × 18 = 23.4", "result": "23" } },
     "tags": ["AMC 8", "2023", "algebra", "linear expressions", "estimation"],
     "sourceName": "2023 AMC 8",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "imageUrls": ["/amc8-diagrams/2023/problem-03-wind-chill.png"],
+    "needsDiagram": true
   },
   {
     "id": "amc8-2023-04",
@@ -47073,7 +47075,7 @@ const amc2023Problems: Problem[] = [
     "category": "Counting & Probability",
     "subcategory": "Probability",
     "difficulty": 5,
-    "statement": "Each square in a 3 × 3 grid is randomly filled with one of the 4 gray and white tiles shown on the right. What is the probability that the tiling will contain a large gray diamond in one of the smaller 2 × 2 grids? Below is an example of such a tiling.",
+    "statement": "See below:",
     "choices": [
       { "label": "A", "text": "1/1024" },
       { "label": "B", "text": "1/256" },
@@ -47171,7 +47173,7 @@ const amc2023Problems: Problem[] = [
     "category": "Number Theory",
     "subcategory": "Arithmetic sequences and inequalities",
     "difficulty": 5,
-    "statement": "Fifteen integers a₁, a₂, a₃, …, a₁₅ are arranged in order on a number line. The integers are equally spaced and have the property that 1 ≤ a₁ ≤ 10, 13 ≤ a₂ ≤ 20, and 241 ≤ a₁₅ ≤ 250. What is the sum of the digits of a₁₄?",
+    "statement": "Fifteen integers a₁, a₂, a₃, …, a₁₅ are arranged in order on a number line. The integers are equally spaced and have the property that\n1 ≤ a₁ ≤ 10,\n13 ≤ a₂ ≤ 20, and\n241 ≤ a₁₅ ≤ 250.\nWhat is the sum of the digits of a₁₄?",
     "choices": [
       { "label": "A", "text": "8" },
       { "label": "B", "text": "9" },
