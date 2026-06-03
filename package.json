@@ -14,6 +14,7 @@
     "@vitejs/plugin-react": "latest",
     "framer-motion": "latest",
     "lucide-react": "latest",
+    "motion": "^12.40.0",
     "react": "latest",
     "react-dom": "latest",
     "recharts": "latest",

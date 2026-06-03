@@ -23,8 +23,10 @@ export type AnimationTemplateType =
   | "venn"
   | "graph-read"
   | "probability"
+  | "counting"
   | "ranking"
   | "cube-net"
+  | "solid-3d"
   | "generic";
 
 export interface AnswerChoice {

@@ -4935,7 +4935,7 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "generic",
       "data": {
         "A": "(3,2)",
         "B": "(3,-2)",
@@ -7284,7 +7284,7 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "cube-net",
+      "type": "solid-3d",
       "data": {
         "scale": 2,
         "factor": 8
@@ -8052,7 +8052,7 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "cube-net",
+      "type": "solid-3d",
       "data": {
         "equation": "6×6-5×2=26"
       }
@@ -9398,7 +9398,7 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "cube-net",
+      "type": "solid-3d",
       "data": {
         "answer": "B"
       }
@@ -9568,7 +9568,7 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "cube-net",
+      "type": "solid-3d",
       "data": {
         "answer": "B"
       }
@@ -16033,8 +16033,9 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "cube-net",
+      "type": "solid-3d",
       "data": {
+        "n": 3,
         "answer": "D"
       }
     },
@@ -16794,7 +16795,7 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "bar-model",
       "data": {
         "answer": "E"
       }
@@ -19428,7 +19429,7 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "bar-model",
       "data": {
         "answer": "D"
       }
@@ -20101,7 +20102,7 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "cube-net",
+      "type": "solid-3d",
       "data": {
         "answer": "D"
       }
@@ -22736,9 +22737,12 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "counting",
       "data": {
-        "answer": "D"
+        "slots": 3,
+        "choices": 9,
+        "adjustment": -1,
+        "answer": "728"
       }
     },
     "tags": [
@@ -22990,7 +22994,7 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "cube-net",
+      "type": "solid-3d",
       "data": {
         "answer": "E"
       }
@@ -25902,7 +25906,7 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "bar-model",
       "data": {
         "answer": "A"
       }
@@ -30583,7 +30587,7 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "cube-net",
+      "type": "solid-3d",
       "data": {
         "answer": "B"
       }
@@ -32725,8 +32729,9 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "cube-net",
+      "type": "solid-3d",
       "data": {
+        "n": 3,
         "answer": "A"
       }
     },
@@ -34063,9 +34068,10 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "counting",
       "data": {
-        "answer": "B"
+        "choicesPerSlot": [9, 9, 8, 7],
+        "answer": "4536"
       }
     },
     "tags": [
@@ -34146,9 +34152,10 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "counting",
       "data": {
-        "answer": "B"
+        "choicesPerSlot": [5, 21, 20, 10],
+        "answer": "1/21000"
       }
     },
     "tags": [
@@ -35853,7 +35860,7 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "bar-model",
       "data": {
         "medianPosition": 10,
         "frequencies": [
@@ -36813,11 +36820,12 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "counting",
       "data": {
-        "total": 10000,
-        "forbidden": 10,
-        "answer": "D"
+        "slots": 4,
+        "choices": 10,
+        "adjustment": -10,
+        "answer": "9990"
       }
     },
     "tags": [
@@ -37718,7 +37726,7 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "generic",
       "data": {
         "percent": 30,
         "votes": 36,
@@ -40471,7 +40479,7 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "bar-model",
       "data": {
         "weightedTotal": 109,
         "students": 25,
@@ -40823,7 +40831,7 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "clock-angle",
+      "type": "generic",
       "data": {
         "carMinutes": 35,
         "realMinutes": 30,
@@ -41869,7 +41877,7 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "cube-net",
+      "type": "solid-3d",
       "data": {
         "diagonal1": "s√3",
         "diagonal2": "s√2",
@@ -42813,7 +42821,7 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "cube-net",
+      "type": "solid-3d",
       "data": {
         "oppositeOfAqua": "red",
         "answer": "A"
@@ -44111,7 +44119,7 @@ const amc2020Problems: Problem[] = [
       { "title": "Bottom corners", "narration": "4 bottom corner cubes also have exactly 2 iced faces.", "visualHint": "4 corners highlighted." },
       { "title": "Total", "narration": "16 + 4 = 20.", "visualHint": "Choice D circled." }
     ],
-    "animation": { "type": "cube-net", "data": { "answer": 20 } },
+    "animation": { "type": "solid-3d", "data": { "n": 4, "answer": 20 } },
     "tags": ["AMC 8", "2020", "geometry", "3D geometry", "diagram"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA",
@@ -44334,7 +44342,7 @@ const amc2020Problems: Problem[] = [
       { "title": "Multiply", "narration": "4,750 × 20 = 95,000.", "visualHint": "95,000 computed." },
       { "title": "Answer", "narration": "Closest is 95,000.", "visualHint": "Choice D circled." }
     ],
-    "animation": { "type": "graph-read", "data": { "answer": 95000 } },
+    "animation": { "type": "bar-model", "data": { "answer": 95000 } },
     "tags": ["AMC 8", "2020", "algebra", "graph reading", "diagram"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA",
@@ -45946,7 +45954,7 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "Triangle base has legs 8 and 6, area = 24. Prism height = 8. V = 192.", "visualHint": "Prism assembled." },
       { "title": "Check", "narration": "Volume = 192. The answer is (C).", "visualHint": "192; choice C circled." }
     ],
-    "animation": { "type": "cube-net", "data": { "answer": 192 } },
+    "animation": { "type": "generic", "data": { "answer": 192 } },
     "tags": ["AMC 8", "2022", "geometry", "3D geometry"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA",
@@ -46341,7 +46349,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "Check where each line meets the rectangle. Line AB passes through (15,5). Line CD misses the rectangle.", "visualHint": "Intersection point highlighted." },
       { "title": "Check", "narration": "Only 1 point on the rectangle lies on a line. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "graph-read", "data": {} },
+    "animation": { "type": "generic", "data": {} },
     "tags": ["AMC 8", "2023", "geometry", "coordinate geometry", "lines"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA",
@@ -46825,7 +46833,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "Trace which edges connect when folded. Face 1 shares the right edge with Q.", "visualHint": "Folding animation." },
       { "title": "Check", "narration": "Face 1 is to the right of Q. The answer is (A).", "visualHint": "Answer A circled." }
     ],
-    "animation": { "type": "cube-net", "data": {} },
+    "animation": { "type": "generic", "data": {} },
     "tags": ["AMC 8", "2023", "geometry", "3D geometry", "nets", "octahedron"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA",
@@ -47694,7 +47702,7 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "Base AB = 6. Height = 2×12/6 = 4. y = 7 + 4 = 11.", "visualHint": "Base and height labeled." },
       { "title": "Check", "narration": "y = 11. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "graph-read", "data": {} },
+    "animation": { "type": "generic", "data": {} },
     "tags": ["AMC 8", "2024", "geometry", "coordinate geometry", "area"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA",
@@ -48096,7 +48104,7 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "Each equilateral triangle uses face diagonals. From P, there are 3 such triangles.", "visualHint": "Triangles highlighted." },
       { "title": "Check", "narration": "3 equilateral triangles contain P. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "cube-net", "data": {} },
+    "animation": { "type": "solid-3d", "data": {} },
     "tags": ["AMC 8", "2024", "geometry", "3D geometry", "cube", "equilateral triangles"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA",
@@ -48901,7 +48909,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "Remainders cycle as 2,4,6,1,3,5,0. After 3 full cycles + 4 extras, counts are 3,4,4,3,4,3,4.", "visualHint": "Remainder counting." },
       { "title": "Check", "narration": "Histogram (A) matches the pattern. The answer is (A).", "visualHint": "Answer A circled." }
     ],
-    "animation": { "type": "graph-read", "data": {} },
+    "animation": { "type": "bar-model", "data": {} },
     "tags": ["AMC 8", "2025", "number theory", "remainders", "modular arithmetic"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA",
@@ -50118,7 +50126,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "A 2×2 block of 4 cubes hides all gray faces by orienting them inward.", "visualHint": "4-cube arrangement." },
       { "title": "Check", "narration": "4 cubes suffice. The answer is (A).", "visualHint": "Answer A circled." }
     ],
-    "animation": { "type": "cube-net", "data": {} },
+    "animation": { "type": "solid-3d", "data": {} },
     "tags": ["AMC 8", "2026", "geometry", "spatial reasoning"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA",
