@@ -7,82 +7,9 @@ import { SiteFooter } from "../components/layout/SiteFooter";
 import { PracticeLauncher } from "../components/practice/PracticeLauncher";
 import { ProblemWorkspace } from "../components/problem/ProblemWorkspace";
 import { buildPracticeSession } from "../lib/buildPracticeSession";
+import { filterProblemsBySkill } from "../lib/problemFilters";
+import { normalizeSkillId } from "../lib/skills";
 import { usePageMeta } from "../hooks/usePageMeta";
-
-function normalizeSkill(value: string | null) {
-  if (!value) return null;
-
-  const loose = value.toLowerCase().trim();
-  const normalized = loose.replace(/\s+/g, "-");
-
-  const aliases: Record<string, string> = {
-    algebra: "algebra",
-    geometry: "geometry",
-    "number-theory": "number-theory",
-    numbertheory: "number-theory",
-    "counting-probability": "counting-probability",
-    "counting-&-probability": "counting-probability",
-    "counting-and-probability": "counting-probability",
-    counting: "counting-probability",
-    probability: "counting-probability",
-    logic: "logic",
-    other: "other",
-  };
-
-  if (aliases[normalized]) return aliases[normalized];
-
-  if (loose.includes("algebra")) return "algebra";
-  if (loose.includes("geometry")) return "geometry";
-  if (loose.includes("number")) return "number-theory";
-  if (loose.includes("counting")) return "counting-probability";
-  if (loose.includes("probability")) return "counting-probability";
-  if (loose.includes("logic")) return "logic";
-  if (loose.includes("other")) return "other";
-
-  return normalized;
-}
-
-function textToSkill(value: unknown) {
-  if (typeof value !== "string") return null;
-
-  const loose = value.toLowerCase().trim();
-
-  if (loose.includes("algebra")) return "algebra";
-  if (loose.includes("geometry")) return "geometry";
-  if (loose.includes("number")) return "number-theory";
-  if (loose.includes("counting")) return "counting-probability";
-  if (loose.includes("probability")) return "counting-probability";
-  if (loose.includes("logic")) return "logic";
-  if (loose.includes("other")) return "other";
-
-  return normalizeSkill(value);
-}
-
-function problemMatchesSkill(problem: Problem, selectedSkill: string | null) {
-  if (!selectedSkill) return true;
-
-  const rawProblem = problem as Problem & {
-    skill?: string;
-    skills?: string[];
-    category?: string;
-    categories?: string[];
-    topic?: string;
-    topics?: string[];
-    tags?: string[];
-  };
-
-  const possibleValues = [
-    rawProblem.skill,
-    rawProblem.category,
-    rawProblem.topic,
-    ...(rawProblem.skills ?? []),
-    ...(rawProblem.categories ?? []),
-    ...(rawProblem.topics ?? []),
-    ...(rawProblem.tags ?? []),
-  ];
-
-  return possibleValues.some((value) => textToSkill(value) === selectedSkill);
-}
 
 function getSkillTitle(skill: string | null) {
   if (!skill) return "Start a focused session.";
@@ -109,7 +36,7 @@ export function PracticePage() {
   // Supports both URL styles:
   // /practice?skill=algebra
   // /practice?category=Algebra
-  const selectedSkill = normalizeSkill(
+  const selectedSkill = normalizeSkillId(
     urlParams.get("skill") ?? urlParams.get("category")
   );
 
@@ -125,10 +52,7 @@ export function PracticePage() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const skillProblems = useMemo(
-    () =>
-      sampleProblems.filter((problem) =>
-        problemMatchesSkill(problem, selectedSkill)
-      ),
+    () => filterProblemsBySkill(sampleProblems, selectedSkill),
     [selectedSkill]
   );
 
