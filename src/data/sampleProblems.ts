@@ -49607,7 +49607,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "Hexagon perimeter = 30 (no). Square perimeter = 24 (yes). Triangle perimeter = 24 (yes).", "visualHint": "Perimeters calculated." },
       { "title": "Check", "narration": "Square and triangle both work. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "budget-check", "data": { "target": 24, "unit": "cm", "names": ["Hexagon", "Square", "Right triangle"], "formulas": ["6 × 5", "4 × 6", "6 + 8 + 10"], "values": [30, 24, 24] } },
     "tags": ["AMC 8", "2026", "geometry", "perimeter"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA"
@@ -49649,7 +49649,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "0.8 × 1.5 = 1.2, so savings are 120% of original.", "visualHint": "Multiplication shown." },
       { "title": "Check", "narration": "120% of original. The answer is (E).", "visualHint": "Answer E circled." }
     ],
-    "animation": { "type": "bar-model", "data": {} },
+    "animation": { "type": "percent-bar", "data": { "start": 100, "unit": "%", "startLabel": "Original", "steps": ["−20%", "+50%"], "factors": [0.8, 1.5] } },
     "tags": ["AMC 8", "2026", "algebra", "percent change"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA"

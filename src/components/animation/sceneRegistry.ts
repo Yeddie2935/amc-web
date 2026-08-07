@@ -6,6 +6,8 @@ import { Solid3DScene } from "./scenes/Solid3DScene";
 import { EquationScene } from "./scenes/EquationScene";
 import { GroupedSumScene } from "./scenes/GroupedSumScene";
 import { NumberGridScene } from "./scenes/NumberGridScene";
+import { BudgetCheckScene } from "./scenes/BudgetCheckScene";
+import { PercentBarScene } from "./scenes/PercentBarScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -35,6 +37,12 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "number-grid" && Array.isArray(data.rows) && data.rows.length > 0) {
     return NumberGridScene;
+  }
+  if (type === "budget-check" && Array.isArray(data.names) && data.names.length > 0) {
+    return BudgetCheckScene;
+  }
+  if (type === "percent-bar" && Array.isArray(data.factors) && data.factors.length > 0) {
+    return PercentBarScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

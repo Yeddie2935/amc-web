@@ -26,6 +26,8 @@ export type AnimationTemplateType =
   | "counting"
   | "grouped-sum"
   | "number-grid"
+  | "budget-check"
+  | "percent-bar"
   | "ranking"
   | "cube-net"
   | "solid-3d"
