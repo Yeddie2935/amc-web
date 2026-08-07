@@ -49521,7 +49521,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "Group into threes: (1+2−3) + (4+5−6) + (7+8−9) + (10+11−12) = 0 + 3 + 6 + 9 = 18.", "visualHint": "Groups highlighted." },
       { "title": "Check", "narration": "The value is 18. The answer is (A).", "visualHint": "Answer A circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": { "type": "grouped-sum", "data": { "terms": [1, 2, -3, 4, 5, -6, 7, 8, -9, 10, 11, -12], "groupSize": 3 } },
     "tags": ["AMC 8", "2026", "algebra", "arithmetic"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA"
@@ -49563,7 +49563,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "Sum each row: 7 + 12 + 15 + 12 + 7 = 53.", "visualHint": "Row sums highlighted." },
       { "title": "Check", "narration": "The total sum is 53. The answer is (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "number-grid", "data": { "rows": ["1,1,1,1,1,1,1", "1,2,2,2,2,2,1", "1,2,3,3,3,2,1", "1,2,2,2,2,2,1", "1,1,1,1,1,1,1"] } },
     "tags": ["AMC 8", "2026", "number theory", "counting"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA",

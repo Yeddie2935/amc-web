@@ -24,6 +24,8 @@ export type AnimationTemplateType =
   | "graph-read"
   | "probability"
   | "counting"
+  | "grouped-sum"
+  | "number-grid"
   | "ranking"
   | "cube-net"
   | "solid-3d"

@@ -4,6 +4,8 @@ import { ClockAngleScene } from "./scenes/ClockAngleScene";
 import { DigitSlotsScene } from "./scenes/DigitSlotsScene";
 import { Solid3DScene } from "./scenes/Solid3DScene";
 import { EquationScene } from "./scenes/EquationScene";
+import { GroupedSumScene } from "./scenes/GroupedSumScene";
+import { NumberGridScene } from "./scenes/NumberGridScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -27,6 +29,12 @@ export function resolveScene(problem: Problem): AnimatedScene {
   // scene would invent one. Mis-tagged "clock" problems fall to the walkthrough.
   if (type === "clock-angle" && /\d{1,2}:\d{2}/.test(`${problem.title} ${problem.statement}`)) {
     return ClockAngleScene;
+  }
+  if (type === "grouped-sum" && Array.isArray(data.terms) && data.terms.length > 0) {
+    return GroupedSumScene;
+  }
+  if (type === "number-grid" && Array.isArray(data.rows) && data.rows.length > 0) {
+    return NumberGridScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
