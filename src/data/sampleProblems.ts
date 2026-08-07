@@ -49866,7 +49866,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "Numerator: √(16 × 9) = 12. Denominator: √(81 × 4) = 18. Result: 12/18 = 2/3.", "visualHint": "Step-by-step." },
       { "title": "Check", "narration": "The value is 2/3. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": { "type": "radical-fraction", "data": { "numChain": ["√(16·√81)", "√(16·9)", "√144", "12"], "denChain": ["√(81·√16)", "√(81·4)", "√324", "18"] } },
     "tags": ["AMC 8", "2026", "algebra", "radicals"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA",
@@ -49910,7 +49910,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "Order: Pedro, Olympia, Melina, Luke, Nico. Luke is 4th.", "visualHint": "Timeline shown." },
       { "title": "Check", "narration": "Luke finished fourth. The answer is (A).", "visualHint": "Answer A circled." }
     ],
-    "animation": { "type": "ranking", "data": {} },
+    "animation": { "type": "ranking", "data": { "names": ["Luke", "Melina", "Nico", "Olympia", "Pedro"], "values": [6, 2, 8, 0, -3], "base": "O", "unit": "min", "lowerIsBetter": true, "highlightRank": 4, "icon": "🏃" } },
     "tags": ["AMC 8", "2026", "logic", "ordering"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA"

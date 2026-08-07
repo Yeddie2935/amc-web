@@ -32,6 +32,7 @@ export type AnimationTemplateType =
   | "border-area"
   | "battery"
   | "fraction-reduce"
+  | "radical-fraction"
   | "ranking"
   | "cube-net"
   | "solid-3d"

@@ -12,6 +12,8 @@ import { TimelineScene } from "./scenes/TimelineScene";
 import { BorderAreaScene } from "./scenes/BorderAreaScene";
 import { BatteryScene } from "./scenes/BatteryScene";
 import { FractionReduceScene } from "./scenes/FractionReduceScene";
+import { RadicalFractionScene } from "./scenes/RadicalFractionScene";
+import { RankingScene } from "./scenes/RankingScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -59,6 +61,12 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "fraction-reduce" && num(data.den ?? 0) > 0) {
     return FractionReduceScene;
+  }
+  if (type === "radical-fraction" && Array.isArray(data.numChain) && Array.isArray(data.denChain)) {
+    return RadicalFractionScene;
+  }
+  if (type === "ranking" && Array.isArray(data.names) && data.names.length > 0 && Array.isArray(data.values)) {
+    return RankingScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
