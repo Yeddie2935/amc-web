@@ -8,6 +8,10 @@ import { GroupedSumScene } from "./scenes/GroupedSumScene";
 import { NumberGridScene } from "./scenes/NumberGridScene";
 import { BudgetCheckScene } from "./scenes/BudgetCheckScene";
 import { PercentBarScene } from "./scenes/PercentBarScene";
+import { TimelineScene } from "./scenes/TimelineScene";
+import { BorderAreaScene } from "./scenes/BorderAreaScene";
+import { BatteryScene } from "./scenes/BatteryScene";
+import { FractionReduceScene } from "./scenes/FractionReduceScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -43,6 +47,18 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "percent-bar" && Array.isArray(data.factors) && data.factors.length > 0) {
     return PercentBarScene;
+  }
+  if (type === "timeline" && Array.isArray(data.segValues) && data.segValues.length > 0) {
+    return TimelineScene;
+  }
+  if (type === "border-area" && num(data.outerW ?? 0) > 0 && num(data.outerH ?? 0) > 0) {
+    return BorderAreaScene;
+  }
+  if (type === "battery" && Array.isArray(data.segNums) && data.segNums.length > 0) {
+    return BatteryScene;
+  }
+  if (type === "fraction-reduce" && num(data.den ?? 0) > 0) {
+    return FractionReduceScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

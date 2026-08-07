@@ -49691,7 +49691,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "Driving time = 100/40 = 2.5 hours. Break = 3 − 2.5 = 0.5 hours = 30 min.", "visualHint": "Calculation shown." },
       { "title": "Check", "narration": "The lunch break was 30 minutes. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": { "type": "timeline", "data": { "total": 3, "unit": "h", "segLabels": ["Driving", "Lunch break"], "segValues": [2.5, 0.5], "segIcons": ["🚗", "🍔"], "segSub": ["", "30 min"], "highlightIndex": 1 } },
     "tags": ["AMC 8", "2026", "algebra", "rate and time"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA"
@@ -49733,7 +49733,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "Unreachable area = 8 × 6 = 48. Reachable = 80 − 48 = 32. Fraction = 32/80 = 2/5.", "visualHint": "Areas labeled." },
       { "title": "Check", "narration": "The reachable fraction is 2/5. The answer is (E).", "visualHint": "Answer E circled." }
     ],
-    "animation": { "type": "area-model", "data": {} },
+    "animation": { "type": "border-area", "data": { "outerW": 10, "outerH": 8, "border": 1, "unit": "m", "icon": "🫐" } },
     "tags": ["AMC 8", "2026", "geometry", "area"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA",
@@ -49777,7 +49777,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "4/5 of battery = 40 miles, so full battery = 40 × 5/4 = 50 miles.", "visualHint": "Proportion shown." },
       { "title": "Check", "narration": "Full range is 50 miles. The answer is (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "bar-model", "data": {} },
+    "animation": { "type": "battery", "data": { "amount": 40, "unit": "mi", "denom": 10, "segLabels": ["Trip 1", "Trip 2"], "segFracs": ["1/2", "3/10"], "segNums": [5, 3] } },
     "tags": ["AMC 8", "2026", "algebra", "fractions"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA"
@@ -49819,7 +49819,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "74% = 37/50, already in lowest terms. Minimum n = 50.", "visualHint": "Simplification shown." },
       { "title": "Check", "narration": "50 × 0.74 = 37, a whole number. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "fraction-reduce", "data": { "num": 74, "den": 100, "unit": "%", "showGrid": true, "gridLabel": "said yes" } },
     "tags": ["AMC 8", "2026", "number theory", "fractions"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA"
