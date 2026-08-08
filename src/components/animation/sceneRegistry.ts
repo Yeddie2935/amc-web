@@ -24,6 +24,11 @@ import { AdjacencyRearrangeScene } from "./scenes/AdjacencyRearrangeScene";
 import { ConsecutiveSumScene } from "./scenes/ConsecutiveSumScene";
 import { RoundTripChaseScene } from "./scenes/RoundTripChaseScene";
 import { CoinStackScene } from "./scenes/CoinStackScene";
+import { MarkovWalkScene } from "./scenes/MarkovWalkScene";
+import { MedianOfMediansScene } from "./scenes/MedianOfMediansScene";
+import { ElasticBandScene } from "./scenes/ElasticBandScene";
+import { StaircaseSumScene } from "./scenes/StaircaseSumScene";
+import { CornerCutHexagonScene } from "./scenes/CornerCutHexagonScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -107,6 +112,21 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "coin-stack" && Array.isArray(data.cases) && data.cases.length > 0) {
     return CoinStackScene;
+  }
+  if (type === "markov-walk" && Array.isArray(data.transition) && data.transition.length > 0) {
+    return MarkovWalkScene;
+  }
+  if (type === "median-of-medians" && Array.isArray(data.groups) && data.groups.length > 0) {
+    return MedianOfMediansScene;
+  }
+  if (type === "elastic-band" && Array.isArray(data.coins) && data.coins.length > 0) {
+    return ElasticBandScene;
+  }
+  if (type === "staircase-sum" && num(data.prime ?? 0) > 1 && num(data.nMax ?? 0) > 0) {
+    return StaircaseSumScene;
+  }
+  if (type === "corner-cut-hexagon" && num(data.side ?? 0) > 1) {
+    return CornerCutHexagonScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

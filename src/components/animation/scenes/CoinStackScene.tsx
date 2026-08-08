@@ -87,7 +87,7 @@ export function CoinStackScene({ problem, step, totalSteps }: AnimatedSceneProps
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, width: "100%", padding: "8px 4px" }}>
-      <svg viewBox={`0 0 ${vw} 168`} width="100%" style={{ maxWidth: 480 }}>
+      <svg viewBox={`0 0 ${vw} 178`} width="100%" style={{ maxWidth: 480 }}>
         {/* target height line */}
         <line x1="14" y1={targetY} x2={vw - 14} y2={targetY} stroke="#16a34a" strokeWidth="1.5" strokeDasharray="5 4" />
         <text x={vw - 12} y={targetY - 5} textAnchor="end" fontSize="11" fontWeight="700" fill="#16a34a" fontFamily={numberFont}>
@@ -115,6 +115,8 @@ export function CoinStackScene({ problem, step, totalSteps }: AnimatedSceneProps
             .map((p, i) => (c.counts[i] > 0 ? `${c.counts[i]}${p.short}` : null))
             .filter(Boolean)
             .join(" + ");
+          const nz = c.counts.filter((cnt) => cnt > 0);
+          const formula = c.orderings === 1 ? "1 way" : `${c.nCoins}!/(${nz.map((cnt) => `${cnt}!`).join("·")})=${c.orderings}`;
 
           return (
             <g key={ci}>
@@ -148,6 +150,10 @@ export function CoinStackScene({ problem, step, totalSteps }: AnimatedSceneProps
                     <text x={cx} y={baseline + 38} textAnchor="middle" fontSize="12" fontWeight="800" fill="#4338ca" fontFamily={numberFont}>
                       {c.orderings} way{c.orderings === 1 ? "" : "s"}
                     </text>
+                    {/* derivation, aligned under this case */}
+                    <text x={cx} y={baseline + 58} textAnchor="middle" fontSize="9" fontWeight="700" fill="#64748b" fontFamily={numberFont}>
+                      {formula}
+                    </text>
                   </motion.g>
                 )}
               </AnimatePresence>
@@ -155,28 +161,6 @@ export function CoinStackScene({ problem, step, totalSteps }: AnimatedSceneProps
           );
         })}
       </svg>
-
-      {/* per-case ordering formulas */}
-      <AnimatePresence>
-        {showOrderings && (
-          <motion.div
-            key="formulas"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12, fontFamily: numberFont, fontSize: 12.5, color: "#64748b" }}
-          >
-            {cases.map((c, ci) => {
-              const nz = c.counts.filter((n) => n > 0);
-              const label = c.orderings === 1 ? "1 way" : `${c.nCoins}! / (${nz.map((n) => `${n}!`).join(" · ")}) = ${c.orderings}`;
-              return (
-                <span key={ci} style={{ fontWeight: 700, color: "#4338ca" }}>
-                  {label}
-                </span>
-              );
-            })}
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* total */}
       <AnimatePresence>

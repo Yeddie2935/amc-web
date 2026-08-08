@@ -50374,22 +50374,32 @@ const amc2026Problems: Problem[] = [
     "shortAnswer": "1/4",
     "solutionSteps": [
       {
-        "title": "Analyze the moves",
-        "body": "From an outer point, Charlotte must move to one of 2 neighboring inner points. From an inner point, she can move to 2 outer or 2 inner points (4 choices).",
+        "title": "Two kinds of points",
+        "body": "By symmetry, track only whether Charlotte is on an Outer tip or an Inner point. An outer tip's 2 neighbors are both inner, so she always steps inward. An inner point has 4 neighbors — 2 outer and 2 inner — so she goes outward or stays inward with probability 1/2 each.",
         "equation": ""
       },
       {
-        "title": "Count favorable outcomes",
-        "body": "Move 1: outer → inner (2 choices). Move 2: inner → any (4 choices). Move 3: depends on position (4 choices). Total paths = 2 × 4 × 4 = 32. Favorable (ending on outer) = 8. Probability = 8/32 = 1/4.",
-        "equation": "8/32 = 1/4"
+        "title": "After move 1",
+        "body": "She starts on an outer tip, so her first step is forced inward. Now she is certainly on an inner point: P(outer) = 0, P(inner) = 1.",
+        "equation": ""
+      },
+      {
+        "title": "After move 2",
+        "body": "From an inner point she reaches an outer tip with probability 1/2 and another inner point with probability 1/2. So P(outer) = 1/2 and P(inner) = 1/2.",
+        "equation": ""
+      },
+      {
+        "title": "After move 3",
+        "body": "To end on an outer tip she must be on an inner point before this move (probability 1/2) and then step outward (probability 1/2). P(outer) = 1/2 × 0 + 1/2 × 1/2 = 1/4.",
+        "equation": "P(outer) = 1/2 · 1/2 = 1/4"
       }
     ],
     "animationFrames": [
       { "title": "Understand", "narration": "Spider on a 5-pointed star web. 3 random moves from an outer point. Find P(ending on outer).", "visualHint": "Star web shown." },
-      { "title": "Solve", "narration": "32 total paths, 8 end on outer points. P = 8/32 = 1/4.", "visualHint": "Tree diagram." },
+      { "title": "Solve", "narration": "Track Outer vs Inner: 1 → (0,1) → (1/2,1/2) → (1/4,3/4).", "visualHint": "Probability bars." },
       { "title": "Check", "narration": "Probability is 1/4. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "probability", "data": {} },
+    "animation": { "type": "markov-walk", "data": { "states": ["Outer", "Inner"], "transition": [["0", "1"], ["1/2", "1/2"]], "startIndex": 0, "target": 0, "moves": 3, "shape": "pentagram" } },
     "tags": ["AMC 8", "2026", "counting", "probability", "random walk"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA",
@@ -50418,14 +50428,19 @@ const amc2026Problems: Problem[] = [
     "shortAnswer": "9",
     "solutionSteps": [
       {
-        "title": "Find a lower bound",
-        "body": "If a group has median m, then 3 of its 5 numbers are ≤ m. For M to be the median of 5 medians, at least 3 medians must be ≤ M. That means at least 3 × 3 = 9 numbers are ≤ M.",
+        "title": "Lower bound: M ≥ 9",
+        "body": "In a group of 5, three numbers are ≤ its median. For M to be the median of the five medians, at least three groups must have median ≤ M. Those three groups contribute 3 × 3 = 9 distinct numbers that are ≤ M, so M ≥ 9.",
+        "equation": "3 × 3 = 9 ⇒ M ≥ 9"
+      },
+      {
+        "title": "Construct groups reaching M = 9",
+        "body": "Pair small numbers with the largest ones to keep three medians small: {1,2,3,24,25}, {4,5,6,22,23}, {7,8,9,20,21}, {10,11,12,13,14}, {15,16,17,18,19}. Exactly the 9 numbers 1–9 land in the three small-median groups.",
         "equation": ""
       },
       {
-        "title": "Achieve M = 9",
-        "body": "Since at least 9 numbers must be ≤ M, we need M ≥ 9. We can construct groups achieving M = 9, so the minimum is 9.",
-        "equation": ""
+        "title": "Take the median of the medians",
+        "body": "The five medians are 3, 6, 9, 12, 17. Sorted, the middle one is 9, so M = 9 — matching the bound. The least possible value is 9.",
+        "equation": "median(3, 6, 9, 12, 17) = 9"
       }
     ],
     "animationFrames": [
@@ -50433,7 +50448,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "3 groups must have median ≤ M, each needing 3 numbers ≤ M. So 9 ≤ M. Achievable with M = 9.", "visualHint": "Lower bound argument." },
       { "title": "Check", "narration": "Minimum M = 9. The answer is (A).", "visualHint": "Answer A circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "median-of-medians", "data": { "groups": [[1, 2, 3, 24, 25], [4, 5, 6, 22, 23], [7, 8, 9, 20, 21], [10, 11, 12, 13, 14], [15, 16, 17, 18, 19]], "M": 9 } },
     "tags": ["AMC 8", "2026", "number theory", "medians", "optimization"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA"
@@ -50460,13 +50475,18 @@ const amc2026Problems: Problem[] = [
     "shortAnswer": "4π + 20",
     "solutionSteps": [
       {
-        "title": "Find the straight portions",
-        "body": "The band touches each coin along an arc and has straight segments between coins. By drawing perpendicular lines, the total straight length is 20 cm.",
+        "title": "Split the band into straights and arcs",
+        "body": "The elastic band is made of straight segments that run between the coins and curved arcs that hug the outer coins. Find each part separately.",
         "equation": ""
       },
       {
-        "title": "Find the curved portions",
-        "body": "The curved portions of the band around the coins sum to the circumference of one full coin: π × 4 = 4π.",
+        "title": "Straight parts total 20 cm",
+        "body": "Each straight segment is a common tangent between two touching coins, so its length equals the distance between their centers. Connecting the outer centers gives edges 4, 4, 4, and 8: 4 + 4 + 4 + 8 = 20 cm.",
+        "equation": "4 + 4 + 4 + 8 = 20"
+      },
+      {
+        "title": "Arcs make one full circle",
+        "body": "Traveling once around, the arcs turn through a total of 360°, so together they form exactly one coin's circumference: 2π × 2 = 4π. The band length is 4π + 20 cm.",
         "equation": "4π + 20"
       }
     ],
@@ -50475,7 +50495,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "Straight portions = 20 cm. Curved portions = one full circumference = 4π. Total = 4π + 20.", "visualHint": "Band segments labeled." },
       { "title": "Check", "narration": "Band length = 4π + 20. The answer is (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "area-model", "data": {} },
+    "animation": { "type": "elastic-band", "data": { "radius": 2, "unit": "cm", "coins": [[0, 0], [4, 0], [8, 0], [2, 3.4641016], [6, 3.4641016]], "hull": [0, 3, 4, 2] } },
     "tags": ["AMC 8", "2026", "geometry", "circles", "perimeter"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA",
@@ -50504,13 +50524,18 @@ const amc2026Problems: Problem[] = [
     "shortAnswer": "171",
     "solutionSteps": [
       {
-        "title": "Count factors of 7 in each factorial",
-        "body": "The superfactorial of 51 is 1! × 2! × ⋯ × 51!. For k!, the number of factors of 7 is ⌊k/7⌋ + ⌊k/49⌋. Group factorials by their 7-count.",
+        "title": "Count the 7s in one factorial",
+        "body": "The superfactorial of 51 is 1! × 2! × ⋯ × 51!. By Legendre's formula, k! contains ⌊k/7⌋ + ⌊k/49⌋ factors of 7. The second term only kicks in once k reaches 49 = 7².",
+        "equation": "v₇(k!) = ⌊k/7⌋ + ⌊k/49⌋"
+      },
+      {
+        "title": "Build the staircase for k = 1…51",
+        "body": "As k grows, the 7-count climbs by 1 at each multiple of 7 (7, 14, 21, …), giving equal-height blocks of width 7. At k = 49 it jumps by 2 — from 6 up to 8 — because both ⌊k/7⌋ and ⌊k/49⌋ increase there.",
         "equation": ""
       },
       {
-        "title": "Sum by ranges",
-        "body": "7!–13!: each has 1 factor of 7 → 7 × 1 = 7. 14!–20!: 2 each → 14. 21!–27!: 3 each → 21. 28!–34!: 4 each → 28. 35!–41!: 5 each → 35. 42!–48!: 6 each → 42. 49!–51!: 8 each → 24.",
+        "title": "Sum the blocks",
+        "body": "Add each block's width × height: 7×1 + 7×2 + 7×3 + 7×4 + 7×5 + 7×6 + 3×8 = 7 + 14 + 21 + 28 + 35 + 42 + 24 = 171.",
         "equation": "7 + 14 + 21 + 28 + 35 + 42 + 24 = 171"
       }
     ],
@@ -50519,7 +50544,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "Group by 7-count: 7+14+21+28+35+42+24 = 171.", "visualHint": "Ranges summed." },
       { "title": "Check", "narration": "171 factors of 7. The answer is (E).", "visualHint": "Answer E circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": { "type": "staircase-sum", "data": { "prime": 7, "nMax": 51, "unit": "factors of 7" } },
     "tags": ["AMC 8", "2026", "number theory", "prime factorization", "factorial"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA"
@@ -50546,27 +50571,27 @@ const amc2026Problems: Problem[] = [
     "shortAnswer": "8",
     "solutionSteps": [
       {
-        "title": "Model the side lengths",
-        "body": "Let the side lengths of the hexagon be a, b, c, d, e, f in order. For it to inscribe in the equilateral triangle, each side must be 1, 2, or 3, and specific adjacency rules apply.",
+        "title": "Inscribing = cutting three corners",
+        "body": "Triangle ABC has side 6 (each side reads 1 + 3 + 2 = 6 in the figure). Placing the hexagon cuts a small equilateral triangle off each corner. If the cuts at A, B, C are a, b, c, then the three hexagon sides lying on ABC are 6 − a − b, 6 − b − c, 6 − c − a, and the three slanted sides are a, b, c.",
         "equation": ""
       },
       {
-        "title": "Use recursion to count strings",
-        "body": "Every 2 can be followed by a 2 or 3. Every 3 must be followed by 1 or 2. Every 1 must be followed by 3. Count strings of length 6 satisfying these rules, accounting for rotation/reflection symmetry.",
-        "equation": ""
+        "title": "Every length is a positive integer",
+        "body": "Each cut a, b, c must be at least 1 (the six vertices lie strictly on the sides), and each flat 6 − a − b, 6 − b − c, 6 − c − a must be at least 1. So every pair of cuts adds to at most 5.",
+        "equation": "a+b ≤ 5,  b+c ≤ 5,  c+a ≤ 5"
       },
       {
-        "title": "Compute the total",
-        "body": "Using recursion on strings ending in 1, 2, or 3: a₆ = 1, b₆ = 6, c₆ = 1. Total = 1 + 6 + 1 = 8.",
-        "equation": "1 + 6 + 1 = 8"
+        "title": "Count the corner triples up to symmetry",
+        "body": "Rotations and reflections of the triangle permute a, b, c, so count unordered triples {a,b,c} with each pair ≤ 5: {1,1,1}, {1,1,2}, {1,1,3}, {1,1,4}, {1,2,2}, {1,2,3}, {2,2,2}, {2,2,3} — 8 hexagons in all.",
+        "equation": "total = 8"
       }
     ],
     "animationFrames": [
       { "title": "Understand", "narration": "Count equiangular hexagons with integer sides inscribed in an equilateral triangle, up to symmetry.", "visualHint": "Hexagon in triangle." },
-      { "title": "Solve", "narration": "Model as length-6 strings with adjacency rules. Recursive counting gives 8.", "visualHint": "Recursion table." },
+      { "title": "Solve", "narration": "Cut corners a,b,c off a side-6 triangle; need each pair ≤ 5. Eight triples work.", "visualHint": "Corner-cut gallery." },
       { "title": "Check", "narration": "8 non-congruent hexagons. The answer is (E).", "visualHint": "Answer E circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "corner-cut-hexagon", "data": { "side": 6, "example": [1, 2, 2] } },
     "tags": ["AMC 8", "2026", "counting", "combinatorics", "geometry"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA",

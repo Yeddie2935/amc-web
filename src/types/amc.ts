@@ -43,6 +43,11 @@ export type AnimationTemplateType =
   | "consecutive-sum"
   | "round-trip-chase"
   | "coin-stack"
+  | "markov-walk"
+  | "median-of-medians"
+  | "elastic-band"
+  | "staircase-sum"
+  | "corner-cut-hexagon"
   | "cube-net"
   | "solid-3d"
   | "generic";
