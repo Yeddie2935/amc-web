@@ -49952,7 +49952,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "Each quarter arc = πr/2. Total = π/2(1+1+2+3+5) = 6π.", "visualHint": "Arcs highlighted." },
       { "title": "Check", "narration": "The curve length is 6π. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "area-model", "data": {} },
+    "animation": { "type": "fibonacci-spiral", "data": { "radii": [1, 1, 2, 3, 5] } },
     "tags": ["AMC 8", "2026", "geometry", "arc length", "fibonacci"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA",
@@ -49996,7 +49996,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "Using parity and casework on possible digit placements, the top circle must be 5.", "visualHint": "Digits placed." },
       { "title": "Check", "narration": "The top digit is 5. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "circle-sum-graph", "data": { "xs": [180, 110, 50, 180, 310, 250], "ys": [40, 120, 200, 200, 200, 120], "digits": [5, 4, 6, 2, 3, 1], "edgeA": [0, 1, 2, 3, 4, 5], "edgeB": [1, 2, 3, 4, 5, 0], "edgeSums": [9, 10, 8, 5, 4, 6], "answerIndex": 0 } },
     "tags": ["AMC 8", "2026", "logic", "constraint satisfaction"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA",
@@ -50040,7 +50040,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "Adjacent vertices differ by (1, 3). Side = √10. Area = 10.", "visualHint": "Coordinates labeled." },
       { "title": "Check", "narration": "The area is 10 square units. The answer is (A).", "visualHint": "Answer A circled." }
     ],
-    "animation": { "type": "area-model", "data": {} },
+    "animation": { "type": "lattice-square", "data": { "gridW": 6, "gridH": 5, "ax": 1, "ay": 1, "dx": 1, "dy": 3, "brick": true } },
     "tags": ["AMC 8", "2026", "geometry", "coordinate geometry"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA",
@@ -50084,7 +50084,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "Middle number a = 25. Sum = 3a = 75.", "visualHint": "Equations shown." },
       { "title": "Check", "narration": "The sum is 75. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "number-line", "data": {} },
+    "animation": { "type": "number-line", "data": { "pairSums": [40, 60], "labels": ["a−d", "a", "a+d"] } },
     "tags": ["AMC 8", "2026", "algebra", "arithmetic sequences"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA"
@@ -50126,7 +50126,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "A 2×2 block of 4 cubes hides all gray faces by orienting them inward.", "visualHint": "4-cube arrangement." },
       { "title": "Check", "narration": "4 cubes suffice. The answer is (A).", "visualHint": "Answer A circled." }
     ],
-    "animation": { "type": "solid-3d", "data": {} },
+    "animation": { "type": "gray-cube", "data": { "cubes": 4 } },
     "tags": ["AMC 8", "2026", "geometry", "spatial reasoning"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA",

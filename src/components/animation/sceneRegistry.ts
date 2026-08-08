@@ -14,6 +14,11 @@ import { BatteryScene } from "./scenes/BatteryScene";
 import { FractionReduceScene } from "./scenes/FractionReduceScene";
 import { RadicalFractionScene } from "./scenes/RadicalFractionScene";
 import { RankingScene } from "./scenes/RankingScene";
+import { FibonacciSpiralScene } from "./scenes/FibonacciSpiralScene";
+import { CircleSumGraphScene } from "./scenes/CircleSumGraphScene";
+import { LatticeSquareScene } from "./scenes/LatticeSquareScene";
+import { NumberLineScene } from "./scenes/NumberLineScene";
+import { GrayCubeScene } from "./scenes/GrayCubeScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -67,6 +72,21 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "ranking" && Array.isArray(data.names) && data.names.length > 0 && Array.isArray(data.values)) {
     return RankingScene;
+  }
+  if (type === "fibonacci-spiral" && Array.isArray(data.radii) && data.radii.length > 0) {
+    return FibonacciSpiralScene;
+  }
+  if (type === "circle-sum-graph" && Array.isArray(data.xs) && data.xs.length > 0) {
+    return CircleSumGraphScene;
+  }
+  if (type === "lattice-square" && (num(data.dx ?? 0) !== 0 || num(data.dy ?? 0) !== 0)) {
+    return LatticeSquareScene;
+  }
+  if (type === "number-line" && Array.isArray(data.pairSums) && data.pairSums.length >= 2) {
+    return NumberLineScene;
+  }
+  if (type === "gray-cube" && num(data.cubes ?? 0) > 0) {
+    return GrayCubeScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
