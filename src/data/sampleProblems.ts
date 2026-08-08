@@ -50170,7 +50170,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "Divisibility by 4 depends on last two digits. With an even tens digit, only the ones digit matters: 0, 4, 8 work out of 5 choices.", "visualHint": "Ones digits tested." },
       { "title": "Check", "narration": "3 out of 5 ones digits work. Fraction = 3/5. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "fraction-count", "data": { "items": ["0", "2", "4", "6", "8"], "pass": [true, false, true, false, true], "itemLabel": "ones digit (tens is even)", "note": "÷4 depends on the last two digits; even tens ⇒ only the ones digit decides" } },
     "tags": ["AMC 8", "2026", "number theory", "divisibility"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA"
@@ -50212,7 +50212,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "Check all permutations: A not next to B, B not next to C, C not next to D. Only 2 work.", "visualHint": "Valid arrangements shown." },
       { "title": "Check", "narration": "2 rearrangements are possible. The answer is (A).", "visualHint": "Answer A circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "adjacency-rearrange", "data": { "items": ["A", "B", "C", "D"], "icons": ["🤠", "🤓", "🙂", "😎"], "forbidden": [["A", "B"], ["B", "C"], ["C", "D"]], "valid": [["C", "A", "D", "B"], ["B", "D", "A", "C"]] } },
     "tags": ["AMC 8", "2026", "counting", "permutations"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA",
@@ -50256,7 +50256,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "n(a+n−1)=60, n≥2, a odd. Solutions: (a,n) = (29,2) and (5,6). Two ways.", "visualHint": "Solutions listed." },
       { "title": "Check", "narration": "29+31=60 and 5+7+9+11+13+15=60. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "number-line", "data": {} },
+    "animation": { "type": "consecutive-sum", "data": { "total": 60, "formula": "n(a + n − 1) = 60", "note": "a is odd and 60 is even, so the count n must be even", "ways": [[29, 31], [5, 7, 9, 11, 13, 15]] } },
     "tags": ["AMC 8", "2026", "number theory", "consecutive sums"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA"
@@ -50298,7 +50298,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "Luna's distance = d + (d−x) = 5x. So 6x = 2d, x = d/3.", "visualHint": "Equation shown." },
       { "title": "Check", "narration": "Miguel covers 1/3 of the distance. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "round-trip-chase", "data": { "speedRatio": 5, "walkerName": "Miguel", "walkerIcon": "🚶", "runnerName": "Luna", "runnerIcon": "🐕", "startLabel": "Entrance", "endLabel": "Tree", "endIcon": "🌳" } },
     "tags": ["AMC 8", "2026", "algebra", "rate problems"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA",
@@ -50327,13 +50327,18 @@ const amc2026Problems: Problem[] = [
     "shortAnswer": "13",
     "solutionSteps": [
       {
-        "title": "Find valid coin combinations",
-        "body": "If G gold and S silver coins: G + 3S = 8. Solutions: (G,S) = (8,0), (5,1), (2,2).",
+        "title": "Find the coin combinations",
+        "body": "Let G gold coins (1 mm) and S silver coins (3 mm). The heights must add to 8: G + 3S = 8. The whole-number solutions are (G,S) = (8,0), (5,1), (2,2).",
+        "equation": "G + 3S = 8"
+      },
+      {
+        "title": "Count the orderings in each case",
+        "body": "Order matters, so count the distinct stacks in each case. (8,0): only 1 way. (5,1): C(6,1) = 6 ways. (2,2): C(4,2) = 6 ways.",
         "equation": ""
       },
       {
-        "title": "Count arrangements for each",
-        "body": "(8,0): 1 arrangement. (5,1): C(6,1) = 6 arrangements. (2,2): C(4,2) = 6 arrangements. Total = 1 + 6 + 6 = 13.",
+        "title": "Add up all the cases",
+        "body": "The three cases are disjoint, so add: 1 + 6 + 6 = 13 possible stacks.",
         "equation": "1 + 6 + 6 = 13"
       }
     ],
@@ -50342,7 +50347,7 @@ const amc2026Problems: Problem[] = [
       { "title": "Solve", "narration": "Three cases: (8,0)→1, (5,1)→6, (2,2)→6. Total = 13.", "visualHint": "Cases enumerated." },
       { "title": "Check", "narration": "13 arrangements total. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "coin-stack", "data": { "target": 8, "unit": "mm", "parts": [{ "name": "Gold", "short": "G", "size": 1, "color": "gold" }, { "name": "Silver", "short": "S", "size": 3, "color": "silver" }], "cases": [{ "counts": [8, 0] }, { "counts": [5, 1] }, { "counts": [2, 2] }] } },
     "tags": ["AMC 8", "2026", "counting", "combinatorics"],
     "sourceName": "2026 AMC 8",
     "license": "CC BY-NC-SA"

@@ -19,6 +19,11 @@ import { CircleSumGraphScene } from "./scenes/CircleSumGraphScene";
 import { LatticeSquareScene } from "./scenes/LatticeSquareScene";
 import { NumberLineScene } from "./scenes/NumberLineScene";
 import { GrayCubeScene } from "./scenes/GrayCubeScene";
+import { FractionCountScene } from "./scenes/FractionCountScene";
+import { AdjacencyRearrangeScene } from "./scenes/AdjacencyRearrangeScene";
+import { ConsecutiveSumScene } from "./scenes/ConsecutiveSumScene";
+import { RoundTripChaseScene } from "./scenes/RoundTripChaseScene";
+import { CoinStackScene } from "./scenes/CoinStackScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -87,6 +92,21 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "gray-cube" && num(data.cubes ?? 0) > 0) {
     return GrayCubeScene;
+  }
+  if (type === "fraction-count" && Array.isArray(data.items) && data.items.length > 0) {
+    return FractionCountScene;
+  }
+  if (type === "adjacency-rearrange" && Array.isArray(data.valid) && data.valid.length > 0) {
+    return AdjacencyRearrangeScene;
+  }
+  if (type === "consecutive-sum" && Array.isArray(data.ways) && data.ways.length > 0) {
+    return ConsecutiveSumScene;
+  }
+  if (type === "round-trip-chase" && num(data.speedRatio ?? 0) > 0) {
+    return RoundTripChaseScene;
+  }
+  if (type === "coin-stack" && Array.isArray(data.cases) && data.cases.length > 0) {
+    return CoinStackScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

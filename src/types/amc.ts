@@ -37,7 +37,12 @@ export type AnimationTemplateType =
   | "circle-sum-graph"
   | "lattice-square"
   | "gray-cube"
+  | "fraction-count"
   | "ranking"
+  | "adjacency-rearrange"
+  | "consecutive-sum"
+  | "round-trip-chase"
+  | "coin-stack"
   | "cube-net"
   | "solid-3d"
   | "generic";
