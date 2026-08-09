@@ -48369,14 +48369,24 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "50",
     "solutionSteps": [
       {
-        "title": "Count the shaded half-triangles",
-        "body": "The star is made up of 8 half-square triangles around the edges plus 4 full squares in the center.",
+        "title": "Break the star into pieces",
+        "body": "The 4 × 4 grid has 16 unit cells. The star is built from just two kinds of pieces: whole cells in the middle, and triangles that each fill exactly half of a cell. The four corner cells are empty.",
         "equation": ""
       },
       {
-        "title": "Compute total shaded area",
-        "body": "8 half-squares equal 4 full squares. Adding the 4 center squares gives 8 full squares out of 16 total.",
-        "equation": "8 / 16 = 1/2 = 50%"
+        "title": "The centre is 4 whole cells",
+        "body": "The 2 × 2 block in the middle of the grid is completely covered by the star, which accounts for 4 whole cells.",
+        "equation": ""
+      },
+      {
+        "title": "The 8 half-cells make 4 more",
+        "body": "Each of the 8 points is half of a cell. Sliding them together in pairs — each pair fits neatly into one of the empty corner cells — turns them into 4 whole cells.",
+        "equation": "8 × 1/2 = 4"
+      },
+      {
+        "title": "Add up and convert to a percent",
+        "body": "Altogether the star covers 4 + 4 = 8 of the 16 cells, which is half the grid.",
+        "equation": "8/16 = 1/2 = 50%"
       }
     ],
     "animationFrames": [
@@ -48384,7 +48394,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "Count 8 half-square triangles (= 4 squares) plus 4 center squares = 8 out of 16 squares.", "visualHint": "Shaded regions highlighted." },
       { "title": "Check", "narration": "8/16 = 50%. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "area-model", "data": {} },
+    "animation": { "type": "shaded-grid", "data": { "grid": 4, "squares": [[1, 1], [2, 1], [1, 2], [2, 2]], "triangles": [[[1, 4], [2, 4], [2, 3]], [[2, 4], [3, 4], [2, 3]], [[0, 3], [0, 2], [1, 2]], [[0, 1], [0, 2], [1, 2]], [[4, 3], [4, 2], [3, 2]], [[4, 1], [4, 2], [3, 2]], [[1, 0], [2, 0], [2, 1]], [[2, 0], [3, 0], [2, 1]]] } },
     "tags": ["AMC 8", "2025", "geometry", "area"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA",
@@ -48413,13 +48423,23 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "10,423",
     "solutionSteps": [
       {
-        "title": "Identify each hieroglyph's value",
-        "body": "The first hieroglyph is a finger (10,000). The next 4 are coils (100 each). The next 2 are heel bones (10 each). The last 3 are strokes (1 each).",
+        "title": "Look up each hieroglyph",
+        "body": "In this system the symbols simply add up — order does not matter. Reading the combination: one finger (10,000), then coils (100 each), then heel bones (10 each), then strokes (1 each).",
         "equation": ""
       },
       {
-        "title": "Add up the values",
-        "body": "10,000 + 4 × 100 + 2 × 10 + 3 × 1 = 10,000 + 400 + 20 + 3.",
+        "title": "Group the identical symbols",
+        "body": "Collect the repeats: 1 finger, 4 coils, 2 heel bones, and 3 strokes.",
+        "equation": ""
+      },
+      {
+        "title": "Multiply each group by its value",
+        "body": "1 × 10,000 = 10,000; 4 × 100 = 400; 2 × 10 = 20; 3 × 1 = 3.",
+        "equation": ""
+      },
+      {
+        "title": "Read off the place values",
+        "body": "There is no lotus, so the thousands place is empty and must be written as 0. The places hold 1, 0, 4, 2, 3, giving 10,000 + 400 + 20 + 3 = 10,423 — not 1,423.",
         "equation": "10,000 + 400 + 20 + 3 = 10,423"
       }
     ],
@@ -48428,7 +48448,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "1 finger = 10,000; 4 coils = 400; 2 heels = 20; 3 strokes = 3. Total = 10,423.", "visualHint": "Values added up." },
       { "title": "Check", "narration": "The number is 10,423. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": { "type": "additive-numeral", "data": { "groups": [{ "kind": "finger", "value": 10000, "count": 1 }, { "kind": "coil", "value": 100, "count": 4 }, { "kind": "heel", "value": 10, "count": 2 }, { "kind": "stroke", "value": 1, "count": 3 }] } },
     "tags": ["AMC 8", "2025", "number theory", "place value"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA",
@@ -48457,13 +48477,23 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "10",
     "solutionSteps": [
       {
-        "title": "Find the total number of cards",
-        "body": "Annika and 3 friends = 4 players. Each gets 15 cards, so total = 4 × 15 = 60 cards.",
+        "title": "Count the players in the first game",
+        "body": "Annika plus 3 friends is 4 players, and each of them is dealt 15 cards.",
+        "equation": ""
+      },
+      {
+        "title": "Find the size of the deck",
+        "body": "Every card is dealt out, so the deck holds 4 × 15 = 60 cards. This total never changes — it is the same deck in the next game.",
         "equation": "4 × 15 = 60"
       },
       {
-        "title": "Divide among new number of players",
-        "body": "2 more friends join, making 6 players total. 60 ÷ 6 = 10 cards each.",
+        "title": "Count the players in the next game",
+        "body": "2 more friends join the 4 who were already playing, making 6 players.",
+        "equation": "4 + 2 = 6"
+      },
+      {
+        "title": "Deal the same deck again",
+        "body": "The 60 cards are shared evenly among the 6 players, so each player gets 60 ÷ 6 = 10 cards. More players means a smaller share.",
         "equation": "60 ÷ 6 = 10"
       }
     ],
@@ -48472,7 +48502,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "Total cards = 60. New player count = 6. Each gets 60 ÷ 6 = 10.", "visualHint": "Division shown." },
       { "title": "Check", "narration": "Each player gets 10 cards. The answer is (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": { "type": "share-out", "data": { "unit": "cards", "rounds": [{ "players": 4, "per": 15 }, { "players": 6 }] } },
     "tags": ["AMC 8", "2025", "algebra", "division"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA"
@@ -48499,13 +48529,23 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "37",
     "solutionSteps": [
       {
-        "title": "Write the formula",
-        "body": "The nth number in this sequence is 100 − 7(n − 1).",
-        "equation": "a_n = 100 − 7(n − 1)"
+        "title": "See the pattern",
+        "body": "Lucius starts at 100 and each new number is 7 less than the one before: 100, 93, 86, … On a number line, counting backward means hopping 7 to the left each time.",
+        "equation": ""
       },
       {
-        "title": "Find the 10th number",
-        "body": "Substitute n = 10: 100 − 7 × 9 = 100 − 63 = 37.",
+        "title": "Count the hops, not the numbers",
+        "body": "The 1st number needs no hops, the 2nd needs 1 hop, the 3rd needs 2 hops. So the 10th number is only 10 − 1 = 9 hops from the start — this off-by-one is the trap.",
+        "equation": "hops = 10 − 1 = 9"
+      },
+      {
+        "title": "Find the total drop",
+        "body": "Nine hops of 7 each take away 9 × 7 = 63 altogether.",
+        "equation": "9 × 7 = 63"
+      },
+      {
+        "title": "Subtract from the start",
+        "body": "The 10th number is 100 − 63 = 37. (Stopping one hop early gives 44, which is the 9th number, not the 10th.)",
         "equation": "100 − 63 = 37"
       }
     ],
@@ -48514,7 +48554,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "10th term = 100 − 7 × 9 = 100 − 63 = 37.", "visualHint": "Calculation shown." },
       { "title": "Check", "narration": "The 10th number is 37. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": { "type": "arithmetic-hop", "data": { "start": 100, "step": -7, "n": 10, "given": 3 } },
     "tags": ["AMC 8", "2025", "algebra", "arithmetic sequences"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA"
@@ -48541,14 +48581,29 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "24",
     "solutionSteps": [
       {
-        "title": "Find shortest path for each segment",
-        "body": "Each shortest path between two points follows the edges of the grid. Count the minimum Manhattan distances for F→A, A→B, B→C, and C→F.",
+        "title": "How to measure a shortest leg",
+        "body": "The streets only run east-west and north-south, so any route between two corners costs (blocks across) + (blocks up or down). Every staircase path between the same two corners has that same length, so each leg's shortest distance is just that sum.",
         "equation": ""
       },
       {
-        "title": "Add segment distances",
-        "body": "The total shortest route F→A→B→C→F is 24 blocks.",
-        "equation": "Total = 24 blocks"
+        "title": "Leg 1: factory F to A",
+        "body": "A is 1 block east of F and 2 blocks south, so this leg takes 1 + 2 = 3 blocks.",
+        "equation": "1 + 2 = 3"
+      },
+      {
+        "title": "Leg 2: A to B",
+        "body": "B is 7 blocks west of A and 3 blocks south, so this leg takes 7 + 3 = 10 blocks.",
+        "equation": "7 + 3 = 10"
+      },
+      {
+        "title": "Leg 3: B to C",
+        "body": "C is 2 blocks east of B and 4 blocks north, so this leg takes 2 + 4 = 6 blocks.",
+        "equation": "2 + 4 = 6"
+      },
+      {
+        "title": "Leg 4: C back to F, then add up",
+        "body": "F is 4 blocks east of C and 1 block north, so the last leg takes 4 + 1 = 5 blocks. In total Betty drives 3 + 10 + 6 + 5 = 24 blocks.",
+        "equation": "3 + 10 + 6 + 5 = 24"
       }
     ],
     "animationFrames": [
@@ -48556,7 +48611,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "Find shortest Manhattan distance for each leg. Total = 24 blocks.", "visualHint": "Path traced on grid." },
       { "title": "Check", "narration": "The shortest distance is 24 blocks. The answer is (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "grid-route", "data": { "cols": 8, "rows": 6, "unit": "blocks", "closed": true, "stops": [{ "label": "F", "x": 6, "y": 5 }, { "label": "A", "x": 7, "y": 3 }, { "label": "B", "x": 0, "y": 0 }, { "label": "C", "x": 2, "y": 4 }] } },
     "tags": ["AMC 8", "2025", "geometry", "shortest paths"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA",
@@ -48585,13 +48640,23 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "17",
     "solutionSteps": [
       {
-        "title": "Find the total sum",
-        "body": "15 + 16 + 17 + 18 + 19 = 85.",
-        "equation": "85"
+        "title": "Split each number into fours plus a remainder",
+        "body": "Only the remainders matter for divisibility by 4. Here they are: 15 leaves 3, 16 leaves 0, 17 leaves 1, 18 leaves 2, and 19 leaves 3.",
+        "equation": ""
       },
       {
-        "title": "Determine which number to remove",
-        "body": "85 mod 4 = 1. We need to remove a number that is 1 mod 4. Since 17 mod 4 = 1, erasing 17 leaves 85 − 17 = 68, which is divisible by 4.",
+        "title": "The whole sum leaves remainder 1",
+        "body": "All five numbers add to 15 + 16 + 17 + 18 + 19 = 85, and 85 = 21 × 4 + 1. (The remainders alone give the same answer: 3 + 0 + 1 + 2 + 3 = 9, and 9 = 2 × 4 + 1.)",
+        "equation": "85 = 21 × 4 + 1"
+      },
+      {
+        "title": "Erase the number with that same remainder",
+        "body": "Taking away a number removes its remainder too, so to clear the leftover 1 we must erase a number that leaves remainder 1. Of the five, only 17 does.",
+        "equation": "17 = 4 × 4 + 1"
+      },
+      {
+        "title": "Check what is left",
+        "body": "Erasing 17 leaves 85 − 17 = 68, and 68 = 4 × 17, a multiple of 4.",
         "equation": "85 − 17 = 68 = 4 × 17"
       }
     ],
@@ -48600,7 +48665,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "Total = 85. 85 mod 4 = 1. Remove 17 (since 17 mod 4 = 1). Remaining sum = 68.", "visualHint": "Modular arithmetic shown." },
       { "title": "Check", "narration": "68 ÷ 4 = 17. The answer is (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": { "type": "remainder-blocks", "data": { "numbers": [15, 16, 17, 18, 19], "divisor": 4 } },
     "tags": ["AMC 8", "2025", "number theory", "divisibility"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA"
@@ -48627,13 +48692,23 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "37",
     "solutionSteps": [
       {
-        "title": "Identify the relevant groups",
-        "body": "50 students scored at least 80%. 13 students scored at least 90%. The students who scored between 80% and 90% are those in the first group but not the second.",
+        "title": "The groups are nested, not separate",
+        "body": "Every student who scored at least 90% also scored at least 85% and at least 80%, so the four counts overlap: the 50 students with at least 80% already include the 27, the 13 and the 5.",
         "equation": ""
       },
       {
-        "title": "Subtract",
-        "body": "50 − 13 = 37 students scored at least 80% and less than 90%.",
+        "title": "Split them into separate score bands",
+        "body": "Subtract each count from the one below it to get bands that do not overlap: 5 scored ≥95%, 13 − 5 = 8 scored 90–95%, 27 − 13 = 14 scored 85–90%, and 50 − 27 = 23 scored 80–85%.",
+        "equation": "5, 8, 14, 23"
+      },
+      {
+        "title": "Keep only the bands in range",
+        "body": "Scores of at least 80% but less than 90% cover the 80–85% band and the 85–90% band — the 90–95% and ≥95% bands are above the range.",
+        "equation": ""
+      },
+      {
+        "title": "Add them up",
+        "body": "23 + 14 = 37 students. The same answer comes straight from the two cutoffs that bound the range: 50 − 13 = 37, so the 27 and the 5 were never needed.",
         "equation": "50 − 13 = 37"
       }
     ],
@@ -48642,7 +48717,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "At least 80% = 50 students. At least 90% = 13 students. Difference = 37.", "visualHint": "Subtraction shown." },
       { "title": "Check", "narration": "37 students scored in the 80–90% range. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "bar-model", "data": {} },
+    "animation": { "type": "cumulative-bands", "data": { "unit": "students", "label": "%", "rangeLow": 80, "rangeHigh": 90, "cutoffs": [{ "atLeast": 95, "count": 5 }, { "atLeast": 90, "count": 13 }, { "atLeast": 85, "count": 27 }, { "atLeast": 80, "count": 50 }] } },
     "tags": ["AMC 8", "2025", "logic", "data interpretation"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA"
@@ -48669,13 +48744,23 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "3√3",
     "solutionSteps": [
       {
+        "title": "The net is the cube's surface",
+        "body": "Cutting the cube open rearranges its surface but does not change its area, so the flat shape is exactly the cube's 6 square faces laid out — and all 6 squares are the same size.",
+        "equation": ""
+      },
+      {
         "title": "Find the area of one face",
-        "body": "A cube has 6 faces. The net has area 18 cm², so each face has area 18 ÷ 6 = 3 cm².",
+        "body": "The whole net measures 18 cm², so each of the 6 faces has area 18 ÷ 6 = 3 cm².",
         "equation": "18 ÷ 6 = 3"
       },
       {
-        "title": "Find the side length and volume",
-        "body": "Side length = √3. Volume = (√3)³ = 3√3 cubic centimeters.",
+        "title": "Find the edge length",
+        "body": "Each face is a square of area 3, and a square's area is (side)², so the cube's edge is √3 cm.",
+        "equation": "s² = 3 → s = √3"
+      },
+      {
+        "title": "Cube the edge to get the volume",
+        "body": "Folding the net back up gives a cube of edge √3, so its volume is (√3)³ = 3√3 cubic centimeters.",
         "equation": "(√3)³ = 3√3"
       }
     ],
@@ -48684,7 +48769,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "Each face = 3 cm². Side = √3. Volume = (√3)³ = 3√3.", "visualHint": "Calculation shown." },
       { "title": "Check", "narration": "The volume is 3√3 cm³. The answer is (A).", "visualHint": "Answer A circled." }
     ],
-    "animation": { "type": "cube-net", "data": {} },
+    "animation": { "type": "cube-net", "data": { "totalArea": 18, "unit": "cm", "cells": [[0, 1], [1, 1], [2, 1], [3, 1], [3, 2], [1, 0]] } },
     "tags": ["AMC 8", "2025", "geometry", "3D geometry", "volume"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA",
@@ -48713,13 +48798,23 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "6.5",
     "solutionSteps": [
       {
-        "title": "Recognize the shortcut",
-        "body": "The average of the 6 pair-averages equals the average of all 12 clock numbers.",
+        "title": "Find the pairs across the dial",
+        "body": "Numbers directly opposite each other on a clock are 6 apart, because half of 12 is 6. So the pairs are 1 & 7, 2 & 8, 3 & 9, 4 & 10, 5 & 11, and 6 & 12.",
         "equation": ""
       },
       {
-        "title": "Compute the average",
-        "body": "Sum of 1 through 12 is 78. Average = 78 ÷ 12 = 6.5.",
+        "title": "Average each pair",
+        "body": "Each pair averages to the smaller number plus 3: 1 & 7 give 4, 2 & 8 give 5, and so on up to 6 & 12 giving 9. The six results are the consecutive numbers 4, 5, 6, 7, 8, 9.",
+        "equation": "4, 5, 6, 7, 8, 9"
+      },
+      {
+        "title": "Average those six numbers",
+        "body": "They add to 4 + 5 + 6 + 7 + 8 + 9 = 39, so their average is 39 ÷ 6 = 6.5.",
+        "equation": "39 ÷ 6 = 6.5"
+      },
+      {
+        "title": "Why it had to be the mean of the dial",
+        "body": "The six pairs use each of the numbers 1 through 12 exactly once, so averaging the pair-averages is the same as averaging all twelve numbers: 78 ÷ 12 = 6.5.",
         "equation": "78 ÷ 12 = 6.5"
       }
     ],
@@ -48728,7 +48823,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "Average of pair-averages = average of all 12 numbers = 78/12 = 6.5.", "visualHint": "Sum and division shown." },
       { "title": "Check", "narration": "The average is 6.5. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "clock-angle", "data": {} },
+    "animation": { "type": "clock-pairs", "data": { "n": 12, "example": [2, 8] } },
     "tags": ["AMC 8", "2025", "number theory", "averages"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA",
@@ -48757,14 +48852,24 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "23.75",
     "solutionSteps": [
       {
-        "title": "Find the overlap",
-        "body": "The rotation is around the midpoint of DC. The overlap region is a square with side length 2.5 (half of DC = 5).",
-        "equation": "Overlap = 2.5² = 6.25"
+        "title": "Area of one rectangle",
+        "body": "Each rectangle measures 5 by 3, so each covers 5 × 3 = 15 square inches. The rotated copy is the same rectangle moved, so it has the same area.",
+        "equation": "5 × 3 = 15"
       },
       {
-        "title": "Compute total area",
-        "body": "Total covered = 2 × (area of rectangle) − overlap = 2 × 15 − 6.25 = 23.75.",
-        "equation": "30 − 6.25 = 23.75"
+        "title": "Where the copy lands",
+        "body": "A quarter turn about the midpoint of DC swings the long side into the vertical direction. The copy is a 3-wide, 5-tall rectangle whose left edge runs up through that midpoint, so it juts to the right of C and well below DC.",
+        "equation": ""
+      },
+      {
+        "title": "The overlap is a 2.5 by 2.5 square",
+        "body": "Horizontally the two rectangles share the strip from the midpoint of DC across to C, which is half of 5, so 2.5 wide. Vertically they share 2.5 as well, because the copy reaches only 2.5 above DC. That gives an overlap of 2.5 × 2.5 = 6.25.",
+        "equation": "2.5 × 2.5 = 6.25"
+      },
+      {
+        "title": "Add the areas without double-counting",
+        "body": "Adding both rectangles counts the overlap twice, so subtract it once: 15 + 15 − 6.25 = 23.75 square inches.",
+        "equation": "15 + 15 − 6.25 = 23.75"
       }
     ],
     "animationFrames": [
@@ -48772,7 +48877,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "Each rectangle has area 15. Overlap is a 2.5 × 2.5 square = 6.25. Total = 30 − 6.25 = 23.75.", "visualHint": "Areas computed." },
       { "title": "Check", "narration": "The total area is 23.75 square inches. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "area-model", "data": {} },
+    "animation": { "type": "rotated-overlap", "data": { "w": 5, "h": 3, "pivotX": 2.5, "pivotY": 0, "unit": "in", "labels": ["A", "B", "C", "D"] } },
     "tags": ["AMC 8", "2025", "geometry", "area", "rotation"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA",

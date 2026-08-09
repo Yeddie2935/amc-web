@@ -29,6 +29,16 @@ import { MedianOfMediansScene } from "./scenes/MedianOfMediansScene";
 import { ElasticBandScene } from "./scenes/ElasticBandScene";
 import { StaircaseSumScene } from "./scenes/StaircaseSumScene";
 import { CornerCutHexagonScene } from "./scenes/CornerCutHexagonScene";
+import { ShadedGridScene } from "./scenes/ShadedGridScene";
+import { AdditiveNumeralScene } from "./scenes/AdditiveNumeralScene";
+import { ShareOutScene } from "./scenes/ShareOutScene";
+import { ArithmeticHopScene } from "./scenes/ArithmeticHopScene";
+import { GridRouteScene } from "./scenes/GridRouteScene";
+import { RemainderBlocksScene } from "./scenes/RemainderBlocksScene";
+import { CumulativeBandsScene } from "./scenes/CumulativeBandsScene";
+import { CubeNetScene } from "./scenes/CubeNetScene";
+import { ClockPairsScene } from "./scenes/ClockPairsScene";
+import { RotatedOverlapScene } from "./scenes/RotatedOverlapScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -127,6 +137,40 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "corner-cut-hexagon" && num(data.side ?? 0) > 1) {
     return CornerCutHexagonScene;
+  }
+  if (
+    type === "shaded-grid" &&
+    num(data.grid ?? 0) > 1 &&
+    (Array.isArray(data.squares) || Array.isArray(data.triangles))
+  ) {
+    return ShadedGridScene;
+  }
+  if (type === "additive-numeral" && Array.isArray(data.groups) && data.groups.length > 0) {
+    return AdditiveNumeralScene;
+  }
+  if (type === "share-out" && Array.isArray(data.rounds) && data.rounds.length > 1) {
+    return ShareOutScene;
+  }
+  if (type === "arithmetic-hop" && num(data.step ?? 0) !== 0 && num(data.n ?? 0) > 1) {
+    return ArithmeticHopScene;
+  }
+  if (type === "grid-route" && Array.isArray(data.stops) && data.stops.length > 1) {
+    return GridRouteScene;
+  }
+  if (type === "remainder-blocks" && Array.isArray(data.numbers) && data.numbers.length > 0 && num(data.divisor ?? 0) > 1) {
+    return RemainderBlocksScene;
+  }
+  if (type === "cumulative-bands" && Array.isArray(data.cutoffs) && data.cutoffs.length > 1) {
+    return CumulativeBandsScene;
+  }
+  if (type === "cube-net" && Array.isArray(data.cells) && data.cells.length > 0 && num(data.totalArea ?? 0) > 0) {
+    return CubeNetScene;
+  }
+  if (type === "clock-pairs" && num(data.n ?? 0) > 1) {
+    return ClockPairsScene;
+  }
+  if (type === "rotated-overlap" && num(data.w ?? 0) > 0 && num(data.h ?? 0) > 0) {
+    return RotatedOverlapScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
