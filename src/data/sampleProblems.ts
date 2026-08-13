@@ -48906,13 +48906,23 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "L and L",
     "solutionSteps": [
       {
-        "title": "Consider S piece placements",
-        "body": "The 3 × 4 rectangle has 12 squares. Three tetrominoes of 4 squares each fill it exactly. Place the S piece in each valid position and check which other pieces complete the rectangle.",
+        "title": "Check the counting first",
+        "body": "The 3 × 4 rectangle holds 12 unit squares and each tetromino covers 4, so three tiles fill it with nothing left over and nothing overlapping.",
+        "equation": "3 × 4 = 12"
+      },
+      {
+        "title": "Place the S tile",
+        "body": "An S tile has to be used. Put it in the rectangle — for example straddling the middle, covering two squares in one row and two in the next, shifted over by one.",
         "equation": ""
       },
       {
-        "title": "Find the valid tiling",
-        "body": "In every valid placement of the S piece, the remaining 8 squares can only be filled by two L-shaped tetrominoes.",
+        "title": "The first gap is an L",
+        "body": "The S tile leaves a staircase-shaped hole. Along one edge the free squares form three in a line with one square turning off the end — exactly an L tile, and no other tetromino fits there.",
+        "equation": ""
+      },
+      {
+        "title": "The last gap is another L",
+        "body": "The four squares still uncovered again make three in a line with one turning off the end, so the last tile is a second L. Checking every way of placing an S shows this is always what happens, so the other two tiles are L and L.",
         "equation": ""
       }
     ],
@@ -48921,7 +48931,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "Try placing S in valid positions. The remaining space always requires two L pieces.", "visualHint": "Tiling demonstrated." },
       { "title": "Check", "narration": "The other two tiles are L and L. The answer is (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "tetromino-tiling", "data": { "cols": 4, "rows": 3, "legend": ["I", "O", "L", "T", "S"], "pieces": [{ "type": "S", "cells": [[1, 1], [2, 1], [2, 2], [3, 2]] }, { "type": "L", "cells": [[0, 0], [0, 1], [0, 2], [1, 2]] }, { "type": "L", "cells": [[1, 0], [2, 0], [3, 0], [3, 1]] }] } },
     "tags": ["AMC 8", "2025", "logic", "spatial reasoning", "tiling"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA",
@@ -48950,19 +48960,24 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "5π",
     "solutionSteps": [
       {
-        "title": "Find the circle's center and radius",
-        "body": "The largest circle is centered in the middle of the cross-shaped region. It is tangent to the 8 concave corners of the cross.",
+        "title": "Put the circle in the middle",
+        "body": "The region is built from rows of 2, 4, 6, 6, 4 and 2 squares, so it is symmetric left-to-right and top-to-bottom. The biggest circle is therefore centred at the middle of the region.",
         "equation": ""
       },
       {
-        "title": "Compute the radius using the Pythagorean theorem",
-        "body": "The distance from the center to one of the concave corners is √(2² + 1²) = √5. So the radius is √5.",
-        "equation": "r = √(4 + 1) = √5"
+        "title": "Grow it until something stops it",
+        "body": "Growing the circle from that centre, it does not reach the flat outer edges first — it is stopped by the inside corners where the rows step in and out.",
+        "equation": ""
+      },
+      {
+        "title": "Measure to a step corner",
+        "body": "From the centre, the nearest step corner is 2 squares across and 1 square up. By the Pythagorean theorem the distance is √(2² + 1²) = √5, so the radius is √5. By symmetry the circle touches 8 such corners at once.",
+        "equation": "r² = 2² + 1² = 5"
       },
       {
         "title": "Find the area",
-        "body": "Area = πr² = π(√5)² = 5π.",
-        "equation": "π × 5 = 5π"
+        "body": "The area is πr², and r² is already 5, so the area is 5π square centimetres — no need to work with √5 itself.",
+        "equation": "πr² = 5π"
       }
     ],
     "animationFrames": [
@@ -48970,7 +48985,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "Center the circle in the cross. Distance to nearest concave corner = √(2² + 1²) = √5. Area = 5π.", "visualHint": "Circle inscribed in cross." },
       { "title": "Check", "narration": "The area is 5π cm². The answer is (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "area-model", "data": {} },
+    "animation": { "type": "inscribed-circle", "data": { "unit": "cm", "centerX": 3, "centerY": 3, "cells": [[2, 0], [3, 0], [1, 1], [2, 1], [3, 1], [4, 1], [0, 2], [1, 2], [2, 2], [3, 2], [4, 2], [5, 2], [0, 3], [1, 3], [2, 3], [3, 3], [4, 3], [5, 3], [1, 4], [2, 4], [3, 4], [4, 4], [2, 5], [3, 5]] } },
     "tags": ["AMC 8", "2025", "geometry", "circles", "Pythagorean theorem"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA",
@@ -48999,14 +49014,24 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "A",
     "solutionSteps": [
       {
-        "title": "Find the repeating pattern of remainders",
-        "body": "The remainders of 2, 4, 6, 8, 10, 12, 14 mod 7 are 2, 4, 6, 1, 3, 5, 0. This pattern repeats every 7 even numbers.",
+        "title": "The remainders run in a cycle",
+        "body": "Dividing 2, 4, 6, 8, 10, 12, 14 by 7 leaves 2, 4, 6, 1, 3, 5, 0. Those are all seven possible remainders, each exactly once, and then the pattern starts over — because adding 14 to a number does not change its remainder mod 7.",
+        "equation": "2, 4, 6, 1, 3, 5, 0"
+      },
+      {
+        "title": "One cycle fills every bar equally",
+        "body": "So each complete run of 7 even numbers contributes exactly 1 to every remainder from 0 to 6. A whole cycle never favours any bar over another.",
         "equation": ""
       },
       {
-        "title": "Count remainders for all 25 even numbers",
-        "body": "Three full cycles cover 2 through 42 (21 numbers). The remaining 4 numbers (44, 46, 48, 50) give remainders 2, 4, 6, 1. So counts for remainders 0–6 are: 3, 4, 4, 3, 4, 3, 4.",
-        "equation": "3 + 4 + 4 + 3 + 4 + 3 + 4 = 25"
+        "title": "Three whole cycles use 21 of the numbers",
+        "body": "There are 25 even numbers from 2 to 50. Three complete cycles account for 3 × 7 = 21 of them (2 through 42), putting 3 in every bar.",
+        "equation": "25 = 3 × 7 + 4"
+      },
+      {
+        "title": "The leftover four break the tie",
+        "body": "Only 44, 46, 48 and 50 remain, and they restart the cycle with remainders 2, 4, 6, 1. Those four bars rise to 4 while the rest stay at 3, giving counts 3, 4, 4, 3, 4, 3, 4 — histogram (A).",
+        "equation": "3, 4, 4, 3, 4, 3, 4"
       }
     ],
     "animationFrames": [
@@ -49014,7 +49039,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "Remainders cycle as 2,4,6,1,3,5,0. After 3 full cycles + 4 extras, counts are 3,4,4,3,4,3,4.", "visualHint": "Remainder counting." },
       { "title": "Check", "narration": "Histogram (A) matches the pattern. The answer is (A).", "visualHint": "Answer A circled." }
     ],
-    "animation": { "type": "bar-model", "data": {} },
+    "animation": { "type": "remainder-histogram", "data": { "start": 2, "end": 50, "step": 2, "divisor": 7 } },
     "tags": ["AMC 8", "2025", "number theory", "remainders", "modular arithmetic"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA",
@@ -49043,13 +49068,23 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "34",
     "solutionSteps": [
       {
-        "title": "Find the median",
-        "body": "The list has 6 numbers after inserting N. For the median to be 7, N must be at least 7 (so the middle two values are both 7). The median is 7.",
-        "equation": "Median = 7"
+        "title": "Six numbers means a middle pair",
+        "body": "After inserting N the list holds 6 numbers, and the median of an even-length list is the average of the two middle ones once the list is in order.",
+        "equation": ""
       },
       {
-        "title": "Set up the equation",
-        "body": "Mean = 2 × 7 = 14. Sum of all 6 numbers = 6 × 14 = 84. Current sum = 2 + 6 + 7 + 7 + 28 = 50. So N = 84 − 50 = 34.",
+        "title": "The median is stuck at 7",
+        "body": "The sorted list starts 2, 6, 7, 7, 28. If N is 7 or larger it sits at or after the pair of 7s, so the two middle values are still 7 and 7 and the median is 7. (Trying N smaller than 7 leads to no valid answer, so this is the case that works.)",
+        "equation": "median = 7"
+      },
+      {
+        "title": "A fixed median fixes the total",
+        "body": "The mean must be twice the median, so the mean is 2 × 7 = 14. Six numbers averaging 14 must add to 6 × 14 = 84.",
+        "equation": "6 × 14 = 84"
+      },
+      {
+        "title": "Subtract what is already there",
+        "body": "The five original numbers add to 2 + 6 + 7 + 7 + 28 = 50, so N = 84 − 50 = 34. Since 34 is bigger than 7, it really does sit past the middle pair, which is what the argument assumed.",
         "equation": "N = 84 − 50 = 34"
       }
     ],
@@ -49058,7 +49093,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "Median = 7, so mean = 14. Total = 84. Current sum = 50. N = 34.", "visualHint": "Equation solved." },
       { "title": "Check", "narration": "N = 34. The answer is (E).", "visualHint": "Answer E circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": { "type": "mean-median", "data": { "base": [2, 6, 7, 7, 28], "multiplier": 2, "label": "N" } },
     "tags": ["AMC 8", "2025", "algebra", "statistics", "mean", "median"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA"
@@ -49085,24 +49120,24 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "16",
     "solutionSteps": [
       {
-        "title": "Count total pairs",
-        "body": "Folding a 6 × 6 grid in half vertically creates 6 × 3 = 18 overlapping pairs.",
-        "equation": "18 pairs"
+        "title": "The fold makes 18 pairs",
+        "body": "Folding the 6 × 6 grid along the middle vertical line brings each of the 3 left-hand columns onto a right-hand column, so the 36 squares meet as 6 × 3 = 18 pairs. A pair is gold-on-gold exactly when neither of its two squares is silver.",
+        "equation": "6 × 3 = 18"
       },
       {
-        "title": "Find minimum gold-on-gold (m)",
-        "body": "To minimize gold-gold pairs, spread 13 silver squares across different pairs. Each silver square removes one pair from gold-gold. m = 18 − 13 = 5.",
+        "title": "Every silver square spoils its pair",
+        "body": "So counting gold-on-gold pairs is the same as counting the pairs no silver square lands in: gold-gold = 18 − (number of pairs holding at least one silver). Kei only chooses how the 13 silvers spread out.",
+        "equation": "gold-gold = 18 − spoiled"
+      },
+      {
+        "title": "Fewest: scatter the silvers",
+        "body": "Putting the 13 silvers in 13 different pairs spoils as many pairs as possible — 13 of the 18 — leaving m = 18 − 13 = 5 gold-on-gold pairs.",
         "equation": "m = 18 − 13 = 5"
       },
       {
-        "title": "Find maximum gold-on-gold (M)",
-        "body": "To maximize gold-gold pairs, pair up silver squares. ⌈13/2⌉ = 7 pairs contain silver. M = 18 − 7 = 11.",
-        "equation": "M = 18 − 7 = 11"
-      },
-      {
-        "title": "Add",
-        "body": "m + M = 5 + 11 = 16.",
-        "equation": "5 + 11 = 16"
+        "title": "Most: clump them two to a pair",
+        "body": "Doubling the silvers up wastes as few pairs as possible: 6 pairs take 2 silvers each and a 7th takes the last one, so only ⌈13/2⌉ = 7 pairs are spoiled and M = 18 − 7 = 11. Hence m + M = 5 + 11 = 16.",
+        "equation": "m + M = 5 + 11 = 16"
       }
     ],
     "animationFrames": [
@@ -49110,7 +49145,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "Min: spread silvers → m = 5. Max: pair silvers → M = 11. Sum = 16.", "visualHint": "Two arrangements shown." },
       { "title": "Check", "narration": "m + M = 16. The answer is (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "fold-pairs", "data": { "rows": 6, "cols": 6, "marked": 13 } },
     "tags": ["AMC 8", "2025", "counting", "combinatorics"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA",
@@ -49139,13 +49174,23 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "105",
     "solutionSteps": [
       {
-        "title": "Pair up the numbers",
-        "body": "Each number k from 1–10 is paired with k + 10 from 11–20. The constraint says we pick exactly one from each pair.",
+        "title": "Match each number with its partner",
+        "body": "Put every k from 1 to 10 with k + 10 from 11 to 20, giving the 10 pairs (1, 11), (2, 12), …, (10, 20). Two numbers differ by exactly 10 precisely when they are the two halves of one of these pairs.",
         "equation": ""
       },
       {
-        "title": "Compute the forced sum",
-        "body": "For each pair, we pick either k or k + 10. We need 5 from each group, so for 5 pairs we pick k, and for 5 pairs we pick k + 10. Sum = (sum of all k from 1–10) + 5 × 10 = 55 + 50 = 105.",
+        "title": "Exactly one number comes from each pair",
+        "body": "The rule bans taking both halves of a pair, so each pair supplies at most one of the chosen numbers. Ten numbers are chosen and there are only ten pairs, so every pair must supply exactly one.",
+        "equation": ""
+      },
+      {
+        "title": "Write the total as a base plus bonuses",
+        "body": "From a pair we take either k or k + 10, which is k plus a bonus of 10. Adding the k from all ten pairs gives 1 + 2 + ⋯ + 10 = 55, and each number taken from 11–20 adds a further 10.",
+        "equation": "1 + ⋯ + 10 = 55"
+      },
+      {
+        "title": "The bonus count is fixed, so the total is too",
+        "body": "Exactly 5 of the chosen numbers come from 11–20, so there are exactly 5 bonuses of 10. The total is 55 + 5 × 10 = 105 — the same for every legal choice, so no other information is needed.",
         "equation": "55 + 50 = 105"
       }
     ],
@@ -49154,7 +49199,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "From each pair (k, k+10), pick one from each group. Sum always = 55 + 50 = 105.", "visualHint": "Pairing shown." },
       { "title": "Check", "narration": "The sum is always 105. The answer is (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": { "type": "paired-choice", "data": { "n": 10, "gap": 10, "highCount": 5, "examples": [[1, 2, 3, 4, 5], [2, 4, 6, 8, 10]] } },
     "tags": ["AMC 8", "2025", "number theory", "number properties"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA"
@@ -49181,18 +49226,23 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "115",
     "solutionSteps": [
       {
-        "title": "Find people from A who work in A",
-        "body": "1/4 of A's residents work in B, 1/5 work in C. So 1 − 1/4 − 1/5 = 11/20 work in A. That's 100 × 11/20 = 55 people.",
-        "equation": "100 × 11/20 = 55"
+        "title": "Read the arrows out of each city",
+        "body": "An arrow from one city to another is labelled with the fraction of that city's residents who commute there. A city's own workers are the residents left over after every outgoing arrow has taken its share.",
+        "equation": ""
       },
       {
-        "title": "Find people from B and C who work in A",
-        "body": "1/3 of B's 120 residents work in A: 40 people. 1/8 of C's 160 residents work in A: 20 people.",
-        "equation": "120/3 = 40, 160/8 = 20"
+        "title": "How many of A's residents stay in A",
+        "body": "Of A's 100 residents, 1/4 × 100 = 25 go to B and 1/5 × 100 = 20 go to C. That leaves 100 − 25 − 20 = 55 working in A.",
+        "equation": "100 − 25 − 20 = 55"
       },
       {
-        "title": "Total working in A",
-        "body": "55 + 40 + 20 = 115.",
+        "title": "Who commutes into A",
+        "body": "From B, 1/3 of the 120 residents work in A, which is 40 people. From C, 1/8 of the 160 residents work in A, which is 20 people.",
+        "equation": "40 and 20"
+      },
+      {
+        "title": "Add the three groups",
+        "body": "The people working in A are the 55 who stayed plus the 40 from B and the 20 from C: 55 + 40 + 20 = 115.",
         "equation": "55 + 40 + 20 = 115"
       }
     ],
@@ -49201,7 +49251,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "From A: 55. From B: 40. From C: 20. Total = 115.", "visualHint": "Fractions computed." },
       { "title": "Check", "narration": "115 people work in A. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "flow-graph", "data": { "target": "A", "nodes": [{ "id": "A", "pop": 100 }, { "id": "B", "pop": 120 }, { "id": "C", "pop": 160 }], "edges": [{ "from": "A", "to": "B", "numer": 1, "den": 4 }, { "from": "A", "to": "C", "numer": 1, "den": 5 }, { "from": "B", "to": "A", "numer": 1, "den": 3 }, { "from": "B", "to": "C", "numer": 1, "den": 6 }, { "from": "C", "to": "A", "numer": 1, "den": 8 }, { "from": "C", "to": "B", "numer": 1, "den": 10 }] } },
     "tags": ["AMC 8", "2025", "algebra", "fractions", "systems"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA",
@@ -49230,19 +49280,24 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "2",
     "solutionSteps": [
       {
-        "title": "Find the left shaded area",
-        "body": "Left circle: radius 1. Inscribed square has diagonal 2, so side = √2 and area = 2. Shaded area = π(1²) − 2 = π − 2.",
-        "equation": "π − 2"
+        "title": "The leftover is four corner pieces",
+        "body": "A square inscribed in a circle of radius r has its diagonal equal to 2r, so its side is r√2 and its area is 2r². The region between circle and square is therefore πr² − 2r², split by the square's sides into four congruent corner pieces.",
+        "equation": "πr² − 2r²"
       },
       {
-        "title": "Find the right shaded area in terms of R",
-        "body": "Right circle: radius R. Inscribed square area = 2R². One quarter of the region between circle and square: (πR² − 2R²)/4 = R²(π − 2)/4.",
+        "title": "Shade the whole left leftover",
+        "body": "The left circle has r = 1, and all four of its corner pieces are shaded, so the shaded area there is π − 2.",
+        "equation": "π·1² − 2·1² = π − 2"
+      },
+      {
+        "title": "Shade one quarter on the right",
+        "body": "The right circle has radius R, so its whole leftover is R²(π − 2). Only one of its four corner pieces is shaded, giving R²(π − 2)/4.",
         "equation": "R²(π − 2)/4"
       },
       {
-        "title": "Set equal and solve",
-        "body": "π − 2 = R²(π − 2)/4. Dividing both sides by (π − 2): 1 = R²/4, so R² = 4 and R = 2.",
-        "equation": "R = 2"
+        "title": "Match the two shaded areas",
+        "body": "Setting them equal gives π − 2 = R²(π − 2)/4. The factor π − 2 is positive, so it cancels from both sides, leaving R² = 4 and R = 2.",
+        "equation": "R² = 4 → R = 2"
       }
     ],
     "animationFrames": [
@@ -49250,7 +49305,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "Left area = π − 2. Right area = R²(π − 2)/4. Setting equal: R² = 4, R = 2.", "visualHint": "Equation solved." },
       { "title": "Check", "narration": "R = 2. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "area-model", "data": {} },
+    "animation": { "type": "circle-square-shade", "data": { "r": 1, "leftShaded": 4, "rightShaded": 1 } },
     "tags": ["AMC 8", "2025", "geometry", "circles", "area"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA",
@@ -49279,19 +49334,24 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "8.5",
     "solutionSteps": [
       {
-        "title": "Track car from A",
-        "body": "Car A travels first 5 miles at 25 mph, taking 12 minutes. Then enters the 40 mph zone.",
-        "equation": "5/25 = 1/5 hr = 12 min"
+        "title": "Set both cars going",
+        "body": "The road is 15 miles long in three 5-mile zones: 25 mph next to A, then 40 mph, then 20 mph next to B. Each car obeys the limit of whichever zone it is in, so they do not move at a steady speed.",
+        "equation": ""
       },
       {
-        "title": "Track car from B",
-        "body": "Car B travels from B at 20 mph (the zone nearest B). First 5 miles takes 15 minutes. At 12 min, car B has gone 4 miles (at mile 11). At 15 min, car B reaches mile 10.",
-        "equation": "5/20 = 1/4 hr = 15 min"
+        "title": "After 0.2 hours the A-car leaves its zone",
+        "body": "The A-car covers its first 5 miles at 25 mph in 5 ÷ 25 = 0.2 hours. In that time the B-car, still at 20 mph, has come 0.2 × 20 = 4 miles, so it is 4 miles from B at the 11-mile mark.",
+        "equation": "5 ÷ 25 = 0.2 h"
       },
       {
-        "title": "Both in the middle zone",
-        "body": "At t = 15 min, car A is at mile 7 (traveled 2 more miles at 40 mph in 3 min). Car B is at mile 10. They're 3 miles apart, both at 40 mph, closing at 80 mph. Time to meet: 3/80 hr = 2.25 min.",
-        "equation": "Car A: 7 + 40 × (3/80) = 7 + 1.5 = 8.5"
+        "title": "After 0.25 hours the B-car leaves its zone",
+        "body": "The B-car needs 5 ÷ 20 = 0.25 hours for its first 5 miles, reaching the 10-mile mark. Meanwhile the A-car has been doing 40 mph since 0.2 hours, so it has added 40 × 0.05 = 2 miles and stands at 7. The gap is 10 − 7 = 3 miles.",
+        "equation": "10 − 7 = 3"
+      },
+      {
+        "title": "They close the last gap together",
+        "body": "Now both cars are in the 40 mph zone, so they approach each other at 40 + 40 = 80 mph and need 3 ÷ 80 = 0.0375 hours. The A-car adds 40 × 0.0375 = 1.5 miles, meeting the other car at 7 + 1.5 = 8.5 miles from A.",
+        "equation": "7 + 1.5 = 8.5"
       }
     ],
     "animationFrames": [
@@ -49299,7 +49359,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "Track both cars. They meet in the middle zone after car A travels 8.5 miles from A.", "visualHint": "Cars approaching shown." },
       { "title": "Check", "narration": "They meet 8.5 miles from A. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "number-line", "data": {} },
+    "animation": { "type": "speed-zone-meet", "data": { "unit": "mi", "zones": [{ "len": 5, "speed": 25 }, { "len": 5, "speed": 40 }, { "len": 5, "speed": 20 }] } },
     "tags": ["AMC 8", "2025", "algebra", "rate problems", "distance"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA",
@@ -49328,14 +49388,24 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "4/7",
     "solutionSteps": [
       {
-        "title": "List Sarika's portions",
-        "body": "Sarika eats on turns 1, 4, 7, 10, … She eats 1/2, 1/16, 1/128, … Each term is 1/8 of the previous.",
-        "equation": "1/2 + 1/16 + 1/128 + …"
+        "title": "Follow the first round",
+        "body": "Sarika eats half the block, so she gets 1/2 and half is left. Dev then eats half of that, taking 1/4, and Rajiv eats half of what is left, taking 1/8. After the three of them, 1/8 of the block remains.",
+        "equation": "1/2, 1/4, 1/8"
       },
       {
-        "title": "Sum the geometric series",
-        "body": "This is a geometric series with first term 1/2 and ratio 1/8. Sum = (1/2)/(1 − 1/8) = (1/2)/(7/8) = 4/7.",
-        "equation": "(1/2) × (8/7) = 4/7"
+        "title": "Every round is the same, just smaller",
+        "body": "The leftover 1/8 is now a fresh block, and the three take turns in the same order. So each round leaves exactly 1/8 of what the previous round started with.",
+        "equation": "each round leaves 1/8"
+      },
+      {
+        "title": "Collect Sarika's bites",
+        "body": "Sarika eats first in every round, so she takes half of each round's starting amount: 1/2, then 1/2 of 1/8 which is 1/16, then 1/128, and so on — a geometric series with ratio 1/8.",
+        "equation": "1/2 + 1/16 + 1/128 + ⋯"
+      },
+      {
+        "title": "Add the series",
+        "body": "A geometric series with first term 1/2 and ratio 1/8 sums to (1/2) ÷ (1 − 1/8) = (1/2) ÷ (7/8) = 4/7. So Sarika eats about 4/7 of the block.",
+        "equation": "(1/2)/(7/8) = 4/7"
       }
     ],
     "animationFrames": [
@@ -49343,7 +49413,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "Sarika eats 1/2 + 1/16 + 1/128 + … = (1/2)/(1 − 1/8) = 4/7.", "visualHint": "Geometric series." },
       { "title": "Check", "narration": "Sarika eats 4/7 of the cheese. The answer is (A).", "visualHint": "Answer A circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": { "type": "halving-share", "data": { "names": ["Sarika", "Dev", "Rajiv"], "num": 1, "den": 2, "bites": 12, "targetIndex": 0 } },
     "tags": ["AMC 8", "2025", "algebra", "geometric series", "fractions"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA"
@@ -49358,7 +49428,7 @@ const amc2025Problems: Problem[] = [
     "category": "Logic",
     "subcategory": "Graph coloring",
     "difficulty": 5,
-    "statement": "The Konigsberg School has assigned grades 1 through 7 to pods A through G, one grade per pod. Some of the pods are connected by walkways, as shown in the figure below. The school noticed that each pair of connected pods has been assigned grades differing by 1 or more grade levels. (For example, grades 1 and 2 will not be in pods directly connected by a walkway.) What is the sum of the grade levels assigned to pods C, E, and F?",
+    "statement": "The Konigsberg School has assigned grades 1 through 7 to pods A through G, one grade per pod. Some of the pods are connected by walkways, as shown in the figure below. The school noticed that each pair of connected pods has been assigned grades differing by more than 1 grade level. (For example, grades 1 and 2 will not be in pods directly connected by a walkway.) What is the sum of the grade levels assigned to pods C, E, and F?",
     "choices": [
       { "label": "A", "text": "12" },
       { "label": "B", "text": "13" },
@@ -49370,18 +49440,23 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "12",
     "solutionSteps": [
       {
-        "title": "Identify high-degree pods",
-        "body": "Pods C and F are each connected to 5 other pods (degree 5). They must receive grades 1 and 7 (the extreme values), since they must differ from the most other pods.",
+        "title": "Read the rule as a spacing rule",
+        "body": "Connected pods must get grades differing by more than 1, so two consecutive grades such as 3 and 4 can never sit at the ends of a walkway. A pod with many walkways is therefore very restricted: every neighbour must avoid the grade just above and just below it.",
         "equation": ""
       },
       {
-        "title": "Assign remaining grades",
-        "body": "D is the only pod not adjacent to F, so D gets grade 2. G is not adjacent to C, so G gets grade 6. E must get grade 4. A and B get grades 3 and 5.",
+        "title": "The two busiest pods take the extremes",
+        "body": "Counting walkways, C and F each have 5 — more than any other pod. A middle grade would rule out two neighbouring grades for all five of its neighbours, which cannot be arranged; the end grades 1 and 7 each rule out only one. So C and F take 1 and 7.",
+        "equation": "C, F = 1 and 7"
+      },
+      {
+        "title": "Fit the remaining grades",
+        "body": "With C = 1 and F = 7, the other pods fall into place: A = 5, B = 3, D = 6, E = 4, G = 2. Checking each walkway confirms every connected pair differs by at least 2.",
         "equation": ""
       },
       {
-        "title": "Compute the sum",
-        "body": "C + E + F = 1 + 4 + 7 = 12.",
+        "title": "Add the three asked for",
+        "body": "The pods in question hold C = 1, E = 4 and F = 7, so the sum is 1 + 4 + 7 = 12. (The mirror-image labelling swaps C and F but gives the same sum.)",
         "equation": "1 + 4 + 7 = 12"
       }
     ],
@@ -49390,7 +49465,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "C and F have degree 5 → grades 1 and 7. E gets 4. Sum = 1 + 4 + 7 = 12.", "visualHint": "Grade assignment shown." },
       { "title": "Check", "narration": "C + E + F = 12. The answer is (A).", "visualHint": "Answer A circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "graph-label", "data": { "minDiff": 2, "firstReveal": ["C", "F"], "askFor": ["C", "E", "F"], "solution": { "A": 5, "B": 3, "C": 1, "D": 6, "E": 4, "F": 7, "G": 2 }, "nodes": [{ "id": "A", "x": 88, "y": 32 }, { "id": "G", "x": 244, "y": 30 }, { "id": "B", "x": 132, "y": 96 }, { "id": "F", "x": 302, "y": 94 }, { "id": "C", "x": 30, "y": 162 }, { "id": "D", "x": 168, "y": 162 }, { "id": "E", "x": 268, "y": 202 }], "edges": [["A", "G"], ["A", "C"], ["A", "B"], ["A", "F"], ["G", "F"], ["B", "F"], ["B", "C"], ["C", "F"], ["C", "D"], ["C", "E"], ["D", "E"], ["E", "F"]] } },
     "tags": ["AMC 8", "2025", "logic", "graph coloring"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA",
@@ -49419,13 +49494,23 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "7",
     "solutionSteps": [
       {
-        "title": "Set up the divisibility condition",
-        "body": "With n coats, there are n + 1 equal gaps. The 35 − n empty hooks must be divisible by n + 1. Since 35 − n = 36 − (n + 1), we need (n + 1) | 36.",
-        "equation": "(n + 1) | 36"
+        "title": "Count the gaps, not just the coats",
+        "body": "If there are n coats, they create n + 1 gaps of empty hooks: one before the first coat, one after the last, and one between each neighbouring pair. Paulina wants all of these gaps to be the same size, say g hooks.",
+        "equation": ""
       },
       {
-        "title": "Find valid values of n",
-        "body": "Divisors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36. So n + 1 can be 2, 3, 4, 6, 9, 12, 18 (excluding 1 since n ≥ 1, and 36 since we need at least 1 empty hook). This gives n = 1, 2, 3, 5, 8, 11, 17.",
+        "title": "Write the row as an equation",
+        "body": "The 35 hooks are exactly the coats plus all the gaps, so n + (n + 1)g = 35, where n ≥ 1 and g ≥ 1.",
+        "equation": "n + (n + 1)g = 35"
+      },
+      {
+        "title": "Turn it into a factorisation",
+        "body": "Adding one hook to every gap would add n + 1 hooks and make the row (n + 1)(g + 1) long. Since 35 + 1 = 36, that means (n + 1)(g + 1) = 36, so n + 1 must be a divisor of 36.",
+        "equation": "(n + 1)(g + 1) = 36"
+      },
+      {
+        "title": "Keep the divisors that leave room",
+        "body": "We need g ≥ 1, so g + 1 ≥ 2 and therefore n + 1 ≤ 18. The divisors of 36 from 2 to 18 are 2, 3, 4, 6, 9, 12, 18, giving n = 1, 2, 3, 5, 8, 11, 17 — that is 7 possible numbers of coats.",
         "equation": "7 values"
       }
     ],
@@ -49434,7 +49519,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "Need (n+1) | 36. Valid n: 1, 2, 3, 5, 8, 11, 17 — that's 7 values.", "visualHint": "Divisors listed." },
       { "title": "Check", "narration": "There are 7 valid numbers of coats. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": { "type": "equal-spacing", "data": { "total": 35 } },
     "tags": ["AMC 8", "2025", "counting", "divisibility"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA",
@@ -49463,19 +49548,24 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "1",
     "solutionSteps": [
       {
-        "title": "Find candidates from conditions (I) and (II)",
-        "body": "Numbers ending in 99 that are n² − 1: since n² ends in 00, n ends in 0. Four-digit candidates: 40² − 1 = 1599, 50² − 1 = 2499, 60² − 1 = 3599, 70² − 1 = 4899, 80² − 1 = 6399, 90² − 1 = 8099.",
-        "equation": "n² − 1 = (n−1)(n+1)"
+        "title": "One less than a square always factors",
+        "body": "Condition (II) says the number is k² − 1 for some whole number k, and k² − 1 = (k − 1)(k + 1). So the number already comes pre-factored into two pieces.",
+        "equation": "k² − 1 = (k − 1)(k + 1)"
       },
       {
-        "title": "Check condition (III)",
-        "body": "n² − 1 = (n−1)(n+1) must be a product of exactly two primes. Check each: 39 × 41 (39 = 3 × 13, no), 49 × 51 (49 = 7², no), 59 × 61 (both prime, yes!), 69 × 71 (69 = 3 × 23, no), 79 × 81 (81 = 3⁴, no), 89 × 91 (91 = 7 × 13, no).",
+        "title": "Ending in 99 pins down k",
+        "body": "For k² − 1 to end in 99, k² must end in 00, so k must be a multiple of 10. Being a four-digit number means k² − 1 is between 1000 and 9999, which allows k = 40, 50, 60, 70, 80, 90 and 100 — giving the candidates 1599, 2499, 3599, 4899, 6399, 8099 and 9999.",
+        "equation": "k = 40, 50, …, 100"
+      },
+      {
+        "title": "Both factors have to be prime",
+        "body": "Condition (III) asks for a product of exactly two primes, and the factors are k − 1 and k + 1. Testing each: 39 = 3 × 13 and 41 is prime, so 1599 fails; 49 = 7² fails; 59 and 61 are both prime; 69 = 3 × 23 fails; 81, 91 = 7 × 13 and 99 all fail.",
+        "equation": ""
+      },
+      {
+        "title": "Only one survives",
+        "body": "The single candidate whose two factors are both prime is 3599 = 59 × 61, so exactly 1 four-digit number has all three properties.",
         "equation": "3599 = 59 × 61"
-      },
-      {
-        "title": "Count",
-        "body": "Only 3599 = 59 × 61 satisfies all three conditions.",
-        "equation": "1 number"
       }
     ],
     "animationFrames": [
@@ -49483,7 +49573,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "Candidates: n² − 1 = (n−1)(n+1) for n = 40,50,…,90. Only 59 × 61 = 3599 has both factors prime.", "visualHint": "Factor check shown." },
       { "title": "Check", "narration": "Only 1 number works: 3599. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": { "type": "candidate-sieve", "data": { "digits": 99, "minValue": 1000, "maxValue": 9999 } },
     "tags": ["AMC 8", "2025", "number theory", "prime factorization", "perfect squares"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA"
@@ -49510,19 +49600,24 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "4",
     "solutionSteps": [
       {
-        "title": "Set up variables",
-        "body": "Let a be the shorter base (AD) and b the longer base (BC). The legs equal b − a (from the 30-60-90 triangles formed by dropping perpendiculars). Perimeter = a + b + 2(b − a) = 3b − a = 30.",
-        "equation": "3b − a = 30"
+        "title": "Name the three side lengths",
+        "body": "The trapezoid is isosceles with AB = DC, so call each leg L, the shorter parallel side AD = a, and the longer parallel side BC = b. All three are positive integers.",
+        "equation": ""
       },
       {
-        "title": "Find constraints",
-        "body": "a = 3b − 30. Need a ≥ 1 (so b ≥ 31/3 → b ≥ 11), legs b − a = 30 − 2b > 0 (so b < 15), and all positive integers.",
-        "equation": "11 ≤ b ≤ 14"
+        "title": "Drop perpendiculars to compare the parallel sides",
+        "body": "Dropping a perpendicular from A and from D cuts a right triangle off each end. With a 60° base angle, each triangle has horizontal leg L·cos 60° = L/2, so the bottom is longer than the top by two of them: b = a + L.",
+        "equation": "b = a + L"
       },
       {
-        "title": "Count solutions",
-        "body": "b = 11: (a, legs) = (3, 8). b = 12: (6, 6). b = 13: (9, 4). b = 14: (12, 2). Four valid trapezoids.",
-        "equation": "4 trapezoids"
+        "title": "Write the perimeter in two unknowns",
+        "body": "The perimeter is a + b + 2L = a + (a + L) + 2L, so 2a + 3L = 30.",
+        "equation": "2a + 3L = 30"
+      },
+      {
+        "title": "Only even legs work",
+        "body": "From 2a = 30 − 3L the right side must be even, so L must be even. With a ≥ 1 this allows L = 2, 4, 6, 8, giving (a, b) = (12, 14), (9, 13), (6, 12) and (3, 11) — 4 non-congruent trapezoids.",
+        "equation": "L = 2, 4, 6, 8"
       }
     ],
     "animationFrames": [
@@ -49530,7 +49625,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "3b − a = 30 with b from 11 to 14 gives 4 solutions: (3,11), (6,12), (9,13), (12,14).", "visualHint": "Solutions listed." },
       { "title": "Check", "narration": "There are 4 non-congruent trapezoids. The answer is (E).", "visualHint": "Answer E circled." }
     ],
-    "animation": { "type": "area-model", "data": {} },
+    "animation": { "type": "trapezoid-family", "data": { "perimeter": 30, "angleDeg": 60 } },
     "tags": ["AMC 8", "2025", "geometry", "trapezoids", "counting"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA",
@@ -49559,18 +49654,23 @@ const amc2025Problems: Problem[] = [
     "shortAnswer": "3150",
     "solutionSteps": [
       {
-        "title": "Count total paths",
-        "body": "Each path makes 10 steps: 5 northeast and 5 northwest. Total paths = C(10, 5) = 252.",
+        "title": "Count the paths",
+        "body": "Going from the bottom corner to the top corner takes 10 unit steps, 5 of them northeast and 5 northwest, and the path is decided by which of the 10 steps are the northeast ones. That is C(10, 5) = 252 paths.",
         "equation": "C(10, 5) = 252"
       },
       {
-        "title": "Use symmetry to pair paths",
-        "body": "For every path with area A, there is a \"sister\" path (reflected over the diagonal) with area 25 − A. Each pair of paths has combined area 25.",
-        "equation": ""
+        "title": "Every path has a mirror image",
+        "body": "Reflecting the whole picture left-to-right turns any path into another valid path, and reflecting twice returns the original. So the 252 paths split into 126 mirror pairs, with no path being its own mirror.",
+        "equation": "252 ÷ 2 = 126 pairs"
       },
       {
-        "title": "Compute total area",
-        "body": "There are 252/2 = 126 pairs, each summing to 25. Total = 126 × 25 = 3150.",
+        "title": "A pair always covers the whole diamond",
+        "body": "The reflection swaps the two sides of the path, so the area to the right of a path equals the area to the left of its mirror. Adding a path's area to its mirror's area therefore gives the entire grid: 25 square units.",
+        "equation": "A + (25 − A) = 25"
+      },
+      {
+        "title": "Add up the pairs",
+        "body": "Each of the 126 pairs contributes 25, so the sum of the areas over all paths is 126 × 25 = 3150.",
         "equation": "126 × 25 = 3150"
       }
     ],
@@ -49579,7 +49679,7 @@ const amc2025Problems: Problem[] = [
       { "title": "Solve", "narration": "252 paths, paired by reflection. Each pair sums to 25. Total = 126 × 25 = 3150.", "visualHint": "Pairing shown." },
       { "title": "Check", "narration": "The sum of all areas is 3150. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "path-area-pairing", "data": { "n": 5, "example": [1, 2, 2, 3, 3] } },
     "tags": ["AMC 8", "2025", "counting", "combinatorics", "symmetry"],
     "sourceName": "2025 AMC 8",
     "license": "CC BY-NC-SA",

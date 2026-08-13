@@ -39,6 +39,21 @@ import { CumulativeBandsScene } from "./scenes/CumulativeBandsScene";
 import { CubeNetScene } from "./scenes/CubeNetScene";
 import { ClockPairsScene } from "./scenes/ClockPairsScene";
 import { RotatedOverlapScene } from "./scenes/RotatedOverlapScene";
+import { TetrominoTilingScene } from "./scenes/TetrominoTilingScene";
+import { InscribedCircleScene } from "./scenes/InscribedCircleScene";
+import { RemainderHistogramScene } from "./scenes/RemainderHistogramScene";
+import { MeanMedianScene } from "./scenes/MeanMedianScene";
+import { FoldPairsScene } from "./scenes/FoldPairsScene";
+import { PairedChoiceScene } from "./scenes/PairedChoiceScene";
+import { FlowGraphScene } from "./scenes/FlowGraphScene";
+import { CircleSquareShadeScene } from "./scenes/CircleSquareShadeScene";
+import { SpeedZoneMeetScene } from "./scenes/SpeedZoneMeetScene";
+import { HalvingShareScene } from "./scenes/HalvingShareScene";
+import { GraphLabelScene } from "./scenes/GraphLabelScene";
+import { EqualSpacingScene } from "./scenes/EqualSpacingScene";
+import { CandidateSieveScene } from "./scenes/CandidateSieveScene";
+import { TrapezoidFamilyScene } from "./scenes/TrapezoidFamilyScene";
+import { PathAreaPairingScene } from "./scenes/PathAreaPairingScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -171,6 +186,51 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "rotated-overlap" && num(data.w ?? 0) > 0 && num(data.h ?? 0) > 0) {
     return RotatedOverlapScene;
+  }
+  if (type === "tetromino-tiling" && Array.isArray(data.pieces) && data.pieces.length > 0) {
+    return TetrominoTilingScene;
+  }
+  if (type === "inscribed-circle" && Array.isArray(data.cells) && data.cells.length > 0) {
+    return InscribedCircleScene;
+  }
+  if (type === "remainder-histogram" && num(data.divisor ?? 0) > 1 && num(data.step ?? 0) > 0) {
+    return RemainderHistogramScene;
+  }
+  if (type === "mean-median" && Array.isArray(data.base) && data.base.length > 0 && num(data.multiplier ?? 0) > 0) {
+    return MeanMedianScene;
+  }
+  if (type === "fold-pairs" && num(data.rows ?? 0) > 0 && num(data.cols ?? 0) > 1) {
+    return FoldPairsScene;
+  }
+  if (type === "paired-choice" && num(data.n ?? 0) > 0 && Array.isArray(data.examples) && data.examples.length > 0) {
+    return PairedChoiceScene;
+  }
+  if (type === "flow-graph" && Array.isArray(data.nodes) && data.nodes.length > 0 && Array.isArray(data.edges)) {
+    return FlowGraphScene;
+  }
+  if (type === "circle-square-shade" && num(data.r ?? 0) > 0) {
+    return CircleSquareShadeScene;
+  }
+  if (type === "speed-zone-meet" && Array.isArray(data.zones) && data.zones.length > 0) {
+    return SpeedZoneMeetScene;
+  }
+  if (type === "halving-share" && Array.isArray(data.names) && data.names.length > 0) {
+    return HalvingShareScene;
+  }
+  if (type === "graph-label" && Array.isArray(data.nodes) && data.nodes.length > 0 && data.solution) {
+    return GraphLabelScene;
+  }
+  if (type === "equal-spacing" && num(data.total ?? 0) > 1) {
+    return EqualSpacingScene;
+  }
+  if (type === "candidate-sieve" && num(data.maxValue ?? 0) > 0) {
+    return CandidateSieveScene;
+  }
+  if (type === "trapezoid-family" && num(data.perimeter ?? 0) > 2) {
+    return TrapezoidFamilyScene;
+  }
+  if (type === "path-area-pairing" && num(data.n ?? 0) > 0 && Array.isArray(data.example)) {
+    return PathAreaPairingScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
