@@ -47246,19 +47246,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "2",
     "solutionSteps": [
       {
-        "title": "Find the ones digits",
-        "body": "The ones digit of 222,222 is 2. The ones digits of all the subtracted numbers are also 2. We subtract five 2s from 2.",
+        "title": "Only the ones column matters",
+        "body": "The ones digit of an answer depends only on the ones digits of the numbers going in, because every other column feeds tens and higher. So the six-digit numbers can be replaced by their last digits.",
         "equation": ""
       },
       {
-        "title": "Compute the ones digit of the sum being subtracted",
-        "body": "The sum of the ones digits being subtracted: 2 + 2 + 2 + 2 + 2 = 10, which has ones digit 0.",
+        "title": "Every number ends in 2",
+        "body": "All six numbers — 222,222 and the five being subtracted — end in 2. So the question becomes what 2 minus five 2s does in the ones place.",
+        "equation": ""
+      },
+      {
+        "title": "Add up what is taken away",
+        "body": "The five subtracted numbers total 22,222 + 2,222 + 222 + 22 + 2 = 24,690, and their ones digits add to 2 + 2 + 2 + 2 + 2 = 10. Either way the amount being subtracted ends in 0.",
         "equation": "5 × 2 = 10"
       },
       {
-        "title": "Subtract",
-        "body": "The ones digit of the result is 2 − 0 = 2.",
-        "equation": "Ones digit = 2"
+        "title": "Subtract in the ones place",
+        "body": "Taking away a number ending in 0 leaves the ones digit alone, so the answer ends in 2 − 0 = 2. Indeed 222,222 − 24,690 = 197,532.",
+        "equation": "ones digit = 2"
       }
     ],
     "animationFrames": [
@@ -47266,7 +47271,7 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "Sum of subtracted ones digits: 5 × 2 = 10 (ones digit 0). Result ones digit: 2 − 0 = 2.", "visualHint": "Ones digit computation." },
       { "title": "Check", "narration": "The ones digit is 2. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": { "type": "ones-digit-column", "data": { "first": 222222, "subtract": [22222, 2222, 222, 22, 2] } },
     "tags": ["AMC 8", "2024", "number theory", "unit digits"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA"
@@ -47293,14 +47298,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "6.54",
     "solutionSteps": [
       {
-        "title": "Simplify each fraction",
-        "body": "44/11 = 4. 110/44 = 5/2 = 2.5. 44/1100 = 1/25 = 0.04.",
-        "equation": "4 + 2.5 + 0.04"
+        "title": "Reduce each fraction first",
+        "body": "Cancel the common factor in each one before doing anything else: 44/11 divides by 11, 110/44 divides by 22, and 44/1100 divides by 44.",
+        "equation": ""
       },
       {
-        "title": "Add",
-        "body": "4 + 2.5 + 0.04 = 6.54.",
-        "equation": "6.54"
+        "title": "The reduced fractions",
+        "body": "44/11 = 4, 110/44 = 5/2, and 44/1100 = 1/25. These are much easier to turn into decimals than the originals.",
+        "equation": "4, 5/2, 1/25"
+      },
+      {
+        "title": "Write each as a decimal",
+        "body": "4 is already a whole number, 5/2 = 2.5, and 1/25 = 4/100 = 0.04.",
+        "equation": "4, 2.5, 0.04"
+      },
+      {
+        "title": "Add down the place-value columns",
+        "body": "Line the decimal points up: 4.00 + 2.50 + 0.04. The units give 4 + 2 = 6, the tenths give 5, and the hundredths give 4, with nothing to carry — so the total is 6.54.",
+        "equation": "4 + 2.5 + 0.04 = 6.54"
       }
     ],
     "animationFrames": [
@@ -47308,7 +47323,7 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "44/11 = 4, 110/44 = 2.5, 44/1100 = 0.04. Sum = 6.54.", "visualHint": "Step-by-step simplification." },
       { "title": "Check", "narration": "The answer is 6.54, choice (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": { "type": "fraction-decimal-sum", "data": { "fractions": [[44, 11], [110, 44], [44, 1100]] } },
     "tags": ["AMC 8", "2024", "algebra", "fractions", "decimals"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA"
@@ -47335,14 +47350,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "52",
     "solutionSteps": [
       {
-        "title": "Identify the gray squares",
-        "body": "The gray squares have side lengths 7 and 10. The white squares have side lengths 4 and 9.",
+        "title": "Picture the stacking order",
+        "body": "The squares share a bottom-left corner, so the biggest sits underneath and each smaller one lies on top of it. From the bottom up they go 10 (gray), 9 (white), 7 (gray), 4 (white).",
         "equation": ""
       },
       {
-        "title": "Compute visible gray area",
-        "body": "The visible gray is the area of gray squares minus the parts covered by white squares on top. Visible = 10² − 9² + 7² − 4².",
-        "equation": "100 − 81 + 49 − 16 = 52"
+        "title": "Each square only shows an L",
+        "body": "Because the next square down is placed in the same corner, every square is hidden except for an L-shaped band along its top and right. That band has area (its side)² − (next side)².",
+        "equation": "band = s² − (next s)²"
+      },
+      {
+        "title": "Measure the two gray bands",
+        "body": "The 10 square is covered by the 9 square, leaving 10² − 9² = 100 − 81 = 19. The 7 square is covered by the 4 square, leaving 7² − 4² = 49 − 16 = 33.",
+        "equation": "19 and 33"
+      },
+      {
+        "title": "Add the gray bands",
+        "body": "The visible gray is 19 + 33 = 52 square units. (As a check, the white bands are 81 − 49 = 32 and 16, and 19 + 32 + 33 + 16 = 100, the whole big square.)",
+        "equation": "19 + 33 = 52"
       }
     ],
     "animationFrames": [
@@ -47350,7 +47375,7 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "Visible gray = 10² − 9² + 7² − 4² = 100 − 81 + 49 − 16 = 52.", "visualHint": "Area subtraction shown." },
       { "title": "Check", "narration": "The answer is 52, choice (E).", "visualHint": "Answer E circled." }
     ],
-    "animation": { "type": "area-model", "data": {} },
+    "animation": { "type": "nested-squares", "data": { "target": "gray", "squares": [{ "side": 4, "color": "white" }, { "side": 7, "color": "gray" }, { "side": 9, "color": "white" }, { "side": 10, "color": "gray" }] } },
     "tags": ["AMC 8", "2024", "geometry", "area", "squares"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA",
@@ -47379,14 +47404,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "9",
     "solutionSteps": [
       {
-        "title": "Find the correct sum",
-        "body": "1 + 2 + 3 + ... + 9 = 45.",
-        "equation": "Sum = 45"
+        "title": "Start from the correct total",
+        "body": "Adding every integer from 1 to 9 gives 1 + 2 + ⋯ + 9 = 45. Yunji's answer is this total with exactly one of the numbers missing.",
+        "equation": "1 + ⋯ + 9 = 45"
       },
       {
-        "title": "Find which number to remove",
-        "body": "We need 45 − n to be a perfect square. 45 − 9 = 36 = 6². None of the other choices give a perfect square.",
-        "equation": "45 − 9 = 36 = 6²"
+        "title": "Her answer sits in a narrow range",
+        "body": "The number she skipped is between 1 and 9, so her sum is between 45 − 9 = 36 and 45 − 1 = 44. Whatever she got, it lies in that window.",
+        "equation": "36 to 44"
+      },
+      {
+        "title": "Only one square fits in the window",
+        "body": "The perfect squares around there are 5² = 25, 6² = 36 and 7² = 49. Of these only 36 lands between 36 and 44, so her incorrect sum must have been 36.",
+        "equation": "36 = 6²"
+      },
+      {
+        "title": "Work back to the missing number",
+        "body": "If the remaining numbers add to 36 and the full total is 45, the number she left out is 45 − 36 = 9.",
+        "equation": "45 − 36 = 9"
       }
     ],
     "animationFrames": [
@@ -47394,7 +47429,7 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "45 − 9 = 36 = 6². The number left out is 9.", "visualHint": "Subtraction shown." },
       { "title": "Check", "narration": "The answer is 9, choice (E).", "visualHint": "Answer E circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": { "type": "perfect-square-remove", "data": { "from": 1, "to": 9 } },
     "tags": ["AMC 8", "2024", "number theory", "perfect squares"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA"
@@ -47421,14 +47456,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "6",
     "solutionSteps": [
       {
-        "title": "List pairs with product divisible by 6",
-        "body": "The product must be divisible by both 2 and 3. The valid pairs (a,b) where ab is a multiple of 6 include: (1,6), (2,3), (2,6), (3,2), (3,4), (3,6), (4,3), (4,6), (5,6), (6,1), (6,2), (6,3), (6,4), (6,5), (6,6).",
-        "equation": ""
+        "title": "Put all 36 rolls in a table",
+        "body": "One die gives the row, the other the column, so the 6 × 6 table holds every roll. Write each roll's product in its cell.",
+        "equation": "6 × 6 = 36 rolls"
       },
       {
-        "title": "Check each sum",
-        "body": "(A) 5 = 2+3. (C) 7 = 1+6. (D) 8 = 2+6. (E) 9 = 3+6. For sum 6: possible pairs are (1,5),(2,4),(3,3). Products: 5, 8, 9 — none divisible by 6.",
-        "equation": "Sum of 6 is impossible"
+        "title": "Which products are multiples of 6",
+        "body": "A product is a multiple of 6 when it carries a factor 2 and a factor 3. That happens exactly when a 6 is rolled, or when a 3 is paired with a 2 or a 4. Shading those cells lights up 15 of the 36.",
+        "equation": "15 of the 36 rolls qualify"
+      },
+      {
+        "title": "Each sum is a diagonal",
+        "body": "Rolls with the same total lie along one diagonal of the table, so a sum is possible exactly when its diagonal touches a shaded cell. The diagonals for 5, 7, 8 and 9 all do: 2+3 = 5 (product 6), 1+6 = 7, 2+6 = 8, 3+6 = 9.",
+        "equation": "5, 7, 8, 9 each reach a shaded cell"
+      },
+      {
+        "title": "The diagonal for 6 misses them all",
+        "body": "The rolls totalling 6 are 1+5, 2+4, 3+3, 4+2 and 5+1, with products 5, 8, 9, 8 and 5. None is a multiple of 6 — no 6 was rolled, and the 3 is paired with another 3 — so this is the one diagonal with no shaded cell.",
+        "equation": "A sum of 6 is impossible"
       }
     ],
     "animationFrames": [
@@ -47436,7 +47481,7 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "Check each choice. For sum 6: pairs (1,5), (2,4), (3,3) have products 5, 8, 9 — none divisible by 6.", "visualHint": "Pairs checked." },
       { "title": "Check", "narration": "Sum 6 cannot occur. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "dice-sum-grid", "data": { "sides": 6, "multipleOf": 6, "candidates": [5, 6, 7, 8, 9] } },
     "tags": ["AMC 8", "2024", "number theory", "divisibility", "dice"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA"
@@ -47463,14 +47508,29 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "R, P, S, Q",
     "solutionSteps": [
       {
-        "title": "Estimate each path length",
-        "body": "Path P goes straight up and back (2 lengths). Path Q crosses in an X pattern (longest). Path R goes straight up and back with no crossover (shortest). Path S makes a large X (longer than P but shorter than Q).",
+        "title": "Every lap is two ends plus a middle",
+        "body": "All four figures are the same rink: a rectangle of length L capped with two semicircles of radius r. So each path is built from two independent choices — what it does at the curved ends, and how it crosses the middle. Compare the paths in pairs that differ in only one of those.",
         "equation": ""
       },
       {
-        "title": "Order the paths",
-        "body": "R is shortest (simple up-down), P is next, S is longer, Q is longest. Order: R, P, S, Q.",
-        "equation": "R < P < S < Q"
+        "title": "R cuts across the ends",
+        "body": "P and R both run straight up and down the two walls, so their middles are exactly the same. At each end P follows the curve while R cuts straight across it. A straight line is shorter than any curve joining the same two points, so R is shorter than P.",
+        "equation": "R < P"
+      },
+      {
+        "title": "S slants where P goes straight",
+        "body": "P and S both follow the full curve at each end, so their ends are exactly the same. Across the middle, P climbs L straight up a wall, while each of S's slants is the hypotenuse of a right triangle with legs L and the width 2r. A hypotenuse is longer than a leg, so P is shorter than S.",
+        "equation": "P < S"
+      },
+      {
+        "title": "Q crosses twice",
+        "body": "Q keeps the curved ends too, but crosses the middle twice. Each of its four slants still spans the full width 2r while climbing only L/2, so every slant is steeper. In general k crossings make the middle 2·√(L² + 4k²r²), which grows as k grows: k = 0 for P, k = 1 for S, k = 2 for Q.",
+        "equation": "S < Q"
+      },
+      {
+        "title": "Chain the comparisons",
+        "body": "Putting the three comparisons together gives R < P < S < Q. Notice that no lengths were ever computed — each step compared a straight line with a curve, or a hypotenuse with a leg, so the order holds for a rink of any proportions.",
+        "equation": "R, P, S, Q"
       }
     ],
     "animationFrames": [
@@ -47478,7 +47538,20 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "Compare path lengths by counting crossovers and curves. R, P, S, Q.", "visualHint": "Paths compared." },
       { "title": "Check", "narration": "The order is R, P, S, Q. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": {
+      "type": "rink-paths",
+      "data": {
+        "radius": 19,
+        "straight": 62,
+        "cutAngleDeg": 40,
+        "paths": [
+          { "label": "P", "ends": "arc", "crossings": 0 },
+          { "label": "Q", "ends": "arc", "crossings": 2 },
+          { "label": "R", "ends": "cut", "crossings": 0 },
+          { "label": "S", "ends": "arc", "crossings": 1 }
+        ]
+      }
+    },
     "tags": ["AMC 8", "2024", "geometry", "spatial reasoning", "estimation"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA",
@@ -47507,14 +47580,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "5",
     "solutionSteps": [
       {
-        "title": "Consider the area",
-        "body": "The rectangle has area 3 × 7 = 21. The 2×2 and 1×4 tiles each cover 4 squares. So the number of squares not covered by these tiles must be a multiple of 4 subtracted from 21.",
-        "equation": "21 − 4k = number of 1×1 tiles"
+        "title": "The 1×4 must lie flat",
+        "body": "The board is 3 × 7 = 21 squares. A 1×4 tile stood upright would need 4 rows, but there are only 3, so every 1×4 lies flat across a row. That leaves just two big tiles to work with: a 2×2 and a horizontal 1×4.",
+        "equation": "3 × 7 = 21 squares"
       },
       {
-        "title": "Find minimum 1×1 tiles",
-        "body": "21 mod 4 = 1, so we need at least 1. But we can check: 21 − 4(4) = 5 and 21 − 4(5) = 1. Can we tile with just 1? No — trying to fit four 2×2 or 1×4 tiles into a 3×7 grid leaves awkward gaps. The minimum is 5.",
-        "equation": "Minimum = 5"
+        "title": "Each row keeps an odd number of holes",
+        "body": "Look at any single row. A 2×2 puts 2 squares into each of the two rows it spans, and a flat 1×4 puts 4 squares into one row — always an even number. So the squares covered in a row is even, and since a row has 7 squares, the holes left in that row are odd, hence at least 1. With 3 rows, that is at least 3 holes altogether.",
+        "equation": "7 − even = odd ≥ 1 per row"
+      },
+      {
+        "title": "The area pins down the count",
+        "body": "Every big tile covers exactly 4 squares, so if k of them are used the holes number 21 − 4k. That means the hole count leaves remainder 1 on division by 4: it can only be 1, 5, 9, 13, 17 or 21. The previous step already ruled out 1, so the smallest possibility left is 5.",
+        "equation": "holes ≡ 21 ≡ 1 (mod 4), holes ≥ 3 ⇒ holes ≥ 5"
+      },
+      {
+        "title": "Five is reachable",
+        "body": "A bound only helps if it can be met. Two 2×2 tiles and two 1×4 tiles cover 16 squares with no overlap, leaving exactly 5 squares for 1×1 tiles — one in the top row, three in the middle, one in the bottom, each row odd just as the argument predicted. So the minimum is 5.",
+        "equation": "21 − 16 = 5"
       }
     ],
     "animationFrames": [
@@ -47522,7 +47605,20 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "Area = 21. Each large tile covers 4. 21 mod 4 = 1, but packing constraints require 5.", "visualHint": "Tiling attempts shown." },
       { "title": "Check", "narration": "Minimum 1×1 tiles is 5. The answer is (E).", "visualHint": "Answer E circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": {
+      "type": "tile-minimum",
+      "data": {
+        "cols": 7,
+        "rows": 3,
+        "shapes": [{ "w": 2, "h": 2 }, { "w": 4, "h": 1 }],
+        "solution": [
+          { "w": 2, "h": 2, "r": 0, "c": 0 },
+          { "w": 4, "h": 1, "r": 0, "c": 2 },
+          { "w": 2, "h": 2, "r": 1, "c": 5 },
+          { "w": 4, "h": 1, "r": 2, "c": 1 }
+        ]
+      }
+    },
     "tags": ["AMC 8", "2024", "geometry", "tiling", "optimization"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA",
@@ -47551,13 +47647,23 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "6",
     "solutionSteps": [
       {
-        "title": "Trace all possibilities",
-        "body": "Monday: $2. Tuesday: $5 or $4. Wednesday from $5: $8 or $10. Wednesday from $4: $7 or $8. Thursday from $8: $11 or $16. Thursday from $10: $13 or $20. Thursday from $7: $10 or $14. Thursday from $8: $11 or $16.",
-        "equation": ""
+        "title": "Two moves a day, three days",
+        "body": "Taye starts Monday with $2, and each of the next three days he either adds $3 or doubles. That is 2 × 2 × 2 = 8 possible sequences of moves — but the question asks for different *amounts*, and two different sequences can land on the same amount, so 8 is only an upper bound.",
+        "equation": "2³ = 8 sequences"
       },
       {
-        "title": "Count distinct values",
-        "body": "Thursday values: {11, 16, 13, 20, 10, 14, 11, 16}. Distinct: {10, 11, 13, 14, 16, 20} = 6 values.",
+        "title": "Tuesday: $4 or $5",
+        "body": "From $2, adding $3 gives $5 and doubling gives $4. Two moves, two different amounts — nothing has collided yet.",
+        "equation": "$2 → $4 or $5"
+      },
+      {
+        "title": "Wednesday: two branches meet",
+        "body": "From $4 comes $7 and $8; from $5 comes $8 and $10. Both branches reach $8, since 4 × 2 and 5 + 3 are both 8. So the four moves land on only three amounts: $7, $8, $10. This single collision is the whole problem.",
+        "equation": "4 × 2 = 5 + 3 = 8"
+      },
+      {
+        "title": "Thursday: count what is left",
+        "body": "The three Wednesday amounts branch to $7 → $10, $14; $8 → $11, $16; $10 → $13, $20 — all six different. So the answers are $10, $11, $13, $14, $16 and $20: 6 amounts. The eight sequences give only six values because the merged $8 was reached two ways, making $11 and $16 each arise twice.",
         "equation": "6 different amounts"
       }
     ],
@@ -47566,7 +47672,19 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "Trace all 8 paths. Distinct Thursday values: 10, 11, 13, 14, 16, 20.", "visualHint": "Tree with values." },
       { "title": "Check", "narration": "6 different amounts. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": {
+      "type": "branch-value-tree",
+      "data": {
+        "start": 2,
+        "days": 3,
+        "unit": "$",
+        "ops": [
+          { "label": "×2", "kind": "mul", "value": 2 },
+          { "label": "+3", "kind": "add", "value": 3 }
+        ],
+        "dayLabels": ["Mon", "Tue", "Wed", "Thu"]
+      }
+    },
     "tags": ["AMC 8", "2024", "counting", "tree counting", "systematic listing"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA"
@@ -47593,14 +47711,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "28",
     "solutionSteps": [
       {
-        "title": "Express in terms of green",
-        "body": "Let green = 2x (choose even for convenience). Red = x (half of green). Blue = 4x (twice green).",
-        "equation": "Total = x + 2x + 4x = 7x"
+        "title": "Everything is pinned to green",
+        "body": "Both other colours are described in terms of green: red is green ÷ 2, and blue is 2 × green. So once the number of green marbles is fixed, the whole collection is fixed.",
+        "equation": "red = green ÷ 2, blue = 2 × green"
       },
       {
-        "title": "Find valid total",
-        "body": "The total must be a multiple of 7. Among the choices, only 28 = 7 × 4 is a multiple of 7.",
-        "equation": "28 = 7 × 4"
+        "title": "Green cannot be odd",
+        "body": "Try green = 1. Then red would be half a marble, which is impossible — marbles come whole. Since red is green ÷ 2, the number of green marbles has to be even.",
+        "equation": "green = 1 ⇒ red = ½"
+      },
+      {
+        "title": "The smallest whole group is 7",
+        "body": "The smallest even choice is green = 2, giving red = 1 and blue = 4: a group of 1 + 2 + 4 = 7 marbles. Any larger collection is just this group repeated, because doubling green doubles red and blue too. So the total is always a whole number of these 7-marble groups.",
+        "equation": "1 + 2 + 4 = 7"
+      },
+      {
+        "title": "Only a multiple of 7 can work",
+        "body": "Test the choices: 24, 25, 26 and 27 each leave a remainder when split into groups of 7, but 28 = 4 × 7 splits exactly. That collection is 4 red, 8 green and 16 blue — and indeed 4 is half of 8, and 16 is twice 8.",
+        "equation": "28 = 4 × 7"
       }
     ],
     "animationFrames": [
@@ -47608,7 +47736,17 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "Total = 7x. Only 28 is a multiple of 7 among the choices.", "visualHint": "Multiples checked." },
       { "title": "Check", "narration": "The answer is 28, choice (E).", "visualHint": "Answer E circled." }
     ],
-    "animation": { "type": "bar-model", "data": {} },
+    "animation": {
+      "type": "ratio-unit",
+      "data": {
+        "unit": "marbles",
+        "items": [
+          { "label": "red", "numer": 1, "den": 2, "color": "#dc2626" },
+          { "label": "green", "numer": 1, "den": 1, "color": "#16a34a" },
+          { "label": "blue", "numer": 2, "den": 1, "color": "#2563eb" }
+        ]
+      }
+    },
     "tags": ["AMC 8", "2024", "algebra", "ratios", "divisibility"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA"
@@ -47635,19 +47773,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "414",
     "solutionSteps": [
       {
-        "title": "Find the time span",
-        "body": "From January 1980 to January 2030 is 50 years.",
+        "title": "Start from the 1980 reading",
+        "body": "The record begins at 338 ppm in January 1980. Because the level rises by the same amount every year, plotting it against time gives a straight line starting from that point — so the whole question is where that line has got to by 2030.",
+        "equation": "338 ppm in 1980"
+      },
+      {
+        "title": "Measure the run: 50 years",
+        "body": "January 1980 to January 2030 is 2030 − 1980 = 50 years. Note this counts the gaps between readings, not the readings themselves, so it is a plain subtraction.",
         "equation": "2030 − 1980 = 50"
       },
       {
-        "title": "Compute the increase",
-        "body": "50 × 1.515 = 75.75 ppm increase.",
+        "title": "Measure the rise: rate × years",
+        "body": "The line climbs 1.515 ppm for each of those years, so the total climb is 50 × 1.515 = 75.75 ppm. This is the rise of the slope triangle whose run is the 50 years.",
         "equation": "50 × 1.515 = 75.75"
       },
       {
-        "title": "Find the expected level",
-        "body": "338 + 75.75 = 413.75 ≈ 414.",
-        "equation": "338 + 76 ≈ 414"
+        "title": "Add the rise to the start",
+        "body": "The 2030 level is the starting height plus the climb: 338 + 75.75 = 413.75 ppm. Rounded to the nearest integer that is 414.",
+        "equation": "338 + 75.75 = 413.75 ≈ 414"
       }
     ],
     "animationFrames": [
@@ -47655,7 +47798,18 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "50 years × 1.515 = 75.75. Total: 338 + 75.75 ≈ 414.", "visualHint": "Computation shown." },
       { "title": "Check", "narration": "The answer is 414, choice (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": {
+      "type": "linear-trend",
+      "data": {
+        "startYear": 1980,
+        "startValue": 338,
+        "rate": 1.515,
+        "endYear": 2030,
+        "unit": "ppm",
+        "label": "CO₂ at Mauna Loa",
+        "icon": "🌋"
+      }
+    },
     "tags": ["AMC 8", "2024", "algebra", "linear growth", "estimation"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA"

@@ -54,6 +54,16 @@ import { EqualSpacingScene } from "./scenes/EqualSpacingScene";
 import { CandidateSieveScene } from "./scenes/CandidateSieveScene";
 import { TrapezoidFamilyScene } from "./scenes/TrapezoidFamilyScene";
 import { PathAreaPairingScene } from "./scenes/PathAreaPairingScene";
+import { OnesDigitColumnScene } from "./scenes/OnesDigitColumnScene";
+import { FractionDecimalSumScene } from "./scenes/FractionDecimalSumScene";
+import { NestedSquaresScene } from "./scenes/NestedSquaresScene";
+import { PerfectSquareRemoveScene } from "./scenes/PerfectSquareRemoveScene";
+import { DiceSumGridScene } from "./scenes/DiceSumGridScene";
+import { RinkPathsScene } from "./scenes/RinkPathsScene";
+import { TileMinimumScene } from "./scenes/TileMinimumScene";
+import { BranchValueTreeScene } from "./scenes/BranchValueTreeScene";
+import { RatioUnitScene } from "./scenes/RatioUnitScene";
+import { LinearTrendScene } from "./scenes/LinearTrendScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -231,6 +241,36 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "path-area-pairing" && num(data.n ?? 0) > 0 && Array.isArray(data.example)) {
     return PathAreaPairingScene;
+  }
+  if (type === "ones-digit-column" && num(data.first ?? 0) > 0 && Array.isArray(data.subtract) && data.subtract.length > 0) {
+    return OnesDigitColumnScene;
+  }
+  if (type === "fraction-decimal-sum" && Array.isArray(data.fractions) && data.fractions.length > 0) {
+    return FractionDecimalSumScene;
+  }
+  if (type === "nested-squares" && Array.isArray(data.squares) && data.squares.length > 1) {
+    return NestedSquaresScene;
+  }
+  if (type === "perfect-square-remove" && num(data.to ?? 0) > num(data.from ?? 0)) {
+    return PerfectSquareRemoveScene;
+  }
+  if (type === "dice-sum-grid" && num(data.sides ?? 0) > 1 && num(data.multipleOf ?? 0) > 1 && Array.isArray(data.candidates) && data.candidates.length > 0) {
+    return DiceSumGridScene;
+  }
+  if (type === "rink-paths" && num(data.radius ?? 0) > 0 && Array.isArray(data.paths) && data.paths.length > 1) {
+    return RinkPathsScene;
+  }
+  if (type === "tile-minimum" && num(data.cols ?? 0) > 0 && Array.isArray(data.solution) && data.solution.length > 0) {
+    return TileMinimumScene;
+  }
+  if (type === "branch-value-tree" && num(data.days ?? 0) > 0 && Array.isArray(data.ops) && data.ops.length > 1) {
+    return BranchValueTreeScene;
+  }
+  if (type === "ratio-unit" && Array.isArray(data.items) && data.items.length > 1) {
+    return RatioUnitScene;
+  }
+  if (type === "linear-trend" && num(data.endYear ?? 0) > num(data.startYear ?? 0) && num(data.rate ?? 0) !== 0) {
+    return LinearTrendScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
