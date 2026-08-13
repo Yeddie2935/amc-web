@@ -64,6 +64,11 @@ import { TileMinimumScene } from "./scenes/TileMinimumScene";
 import { BranchValueTreeScene } from "./scenes/BranchValueTreeScene";
 import { RatioUnitScene } from "./scenes/RatioUnitScene";
 import { LinearTrendScene } from "./scenes/LinearTrendScene";
+import { TriangleBaseHeightScene } from "./scenes/TriangleBaseHeightScene";
+import { LevelBarsScene } from "./scenes/LevelBarsScene";
+import { HopPathScene } from "./scenes/HopPathScene";
+import { ShortestRouteScene } from "./scenes/ShortestRouteScene";
+import { RepeatBlockScene } from "./scenes/RepeatBlockScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -271,6 +276,21 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "linear-trend" && num(data.endYear ?? 0) > num(data.startYear ?? 0) && num(data.rate ?? 0) !== 0) {
     return LinearTrendScene;
+  }
+  if (type === "triangle-base-height" && num(data.area ?? 0) > 0 && num(data.bx ?? 0) !== num(data.ax ?? 0)) {
+    return TriangleBaseHeightScene;
+  }
+  if (type === "level-bars" && num(data.total ?? 0) > 0 && Array.isArray(data.deltas) && data.deltas.length > 0) {
+    return LevelBarsScene;
+  }
+  if (type === "hop-path" && num(data.hops ?? 0) >= 2 && num(data.hops ?? 0) <= 14) {
+    return HopPathScene;
+  }
+  if (type === "shortest-route" && Array.isArray(data.nodes) && data.nodes.length > 1 && Array.isArray(data.edges) && data.edges.length > 0) {
+    return ShortestRouteScene;
+  }
+  if (type === "repeat-block" && num(data.multiplier ?? 0) > 0 && typeof data.left === "string" && typeof data.right === "string") {
+    return RepeatBlockScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

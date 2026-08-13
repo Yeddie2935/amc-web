@@ -82,6 +82,11 @@ export type AnimationTemplateType =
   | "branch-value-tree"
   | "ratio-unit"
   | "linear-trend"
+  | "triangle-base-height"
+  | "level-bars"
+  | "hop-path"
+  | "shortest-route"
+  | "repeat-block"
   | "cube-net"
   | "solid-3d"
   | "generic";

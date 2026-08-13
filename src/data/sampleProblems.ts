@@ -47836,18 +47836,23 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "11",
     "solutionSteps": [
       {
-        "title": "Find the base",
-        "body": "AB is horizontal with length 11 − 5 = 6.",
-        "equation": "Base = 6"
+        "title": "AB is horizontal, so use it as the base",
+        "body": "A and B share the same y-coordinate, 7, so segment AB is horizontal and its length is simply the difference of the x-coordinates: 11 − 5 = 6. Taking AB as the base makes the corresponding height a vertical distance, which is easy to read off.",
+        "equation": "base = 11 − 5 = 6"
       },
       {
-        "title": "Find the height",
-        "body": "Area = (1/2) × base × height = 12. So height = 2 × 12 / 6 = 4.",
-        "equation": "Height = 4"
+        "title": "Only C's height matters, not its x",
+        "body": "With AB fixed as the base, the area depends only on how far C is above the line through AB. Sliding C left or right along a horizontal line keeps the base and the height identical, so the area never changes. That is why the given x-coordinate 3 is not needed at all.",
+        "equation": "area = ½ × base × height"
       },
       {
-        "title": "Find y",
-        "body": "Since y > 7 and AB is at y = 7, the height is y − 7 = 4, so y = 11.",
+        "title": "Solve for the height",
+        "body": "So ½ × 6 × h = 12, giving h = 2 × 12 ÷ 6 = 4. Note that C is at x = 3, to the left of A, so the perpendicular from C meets the base *line* extended rather than the segment AB itself — the formula is unaffected.",
+        "equation": "½ × 6 × h = 12 ⇒ h = 4"
+      },
+      {
+        "title": "Turn the height into a coordinate",
+        "body": "The height is a distance above the line y = 7, not the coordinate itself. Since y > 7, C lies 4 units above that line, so y = 7 + 4 = 11.",
         "equation": "y = 7 + 4 = 11"
       }
     ],
@@ -47856,7 +47861,19 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "Base AB = 6. Height = 2×12/6 = 4. y = 7 + 4 = 11.", "visualHint": "Base and height labeled." },
       { "title": "Check", "narration": "y = 11. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": {
+      "type": "triangle-base-height",
+      "data": {
+        "ax": 5,
+        "ay": 7,
+        "bx": 11,
+        "cx": 3,
+        "area": 12,
+        "above": true,
+        "labels": ["A", "B", "C"],
+        "unknownName": "y"
+      }
+    },
     "tags": ["AMC 8", "2024", "geometry", "coordinate geometry", "area"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA",
@@ -47885,14 +47902,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "26",
     "solutionSteps": [
       {
-        "title": "Express in terms of x",
-        "body": "Let x be the number in the 1st tank. 2nd: x+1, 3rd: x+3, 4th: x+6.",
-        "equation": "x + (x+1) + (x+3) + (x+6) = 90"
+        "title": "Four tanks, each fuller than the last",
+        "body": "The three clues give step-by-step differences: +1 from the 1st tank to the 2nd, +2 from the 2nd to the 3rd, and +3 from the 3rd to the 4th. Together the four tanks hold 90 guppies.",
+        "equation": "90 guppies, steps of +1, +2, +3"
       },
       {
-        "title": "Solve",
-        "body": "4x + 10 = 90, so x = 20. The 4th tank has 20 + 6 = 26.",
-        "equation": "4th tank = 26"
+        "title": "Stack the steps into offsets",
+        "body": "Measure every tank against the 1st. The 2nd is 1 more; the 3rd is 1 + 2 = 3 more; the 4th is 1 + 2 + 3 = 6 more. The differences accumulate — the 4th tank is 6 above the 1st, not 3. Writing x for the 1st tank, the four are x, x+1, x+3, x+6.",
+        "equation": "offsets: 0, +1, +3, +6"
+      },
+      {
+        "title": "Lift out the extra and level them",
+        "body": "The offsets total 0 + 1 + 3 + 6 = 10 guppies of surplus. Take those out and the four tanks hold equal amounts: 90 − 10 = 80, so each base share is 80 ÷ 4 = 20. That is x = 20.",
+        "equation": "4x + 10 = 90 ⇒ x = 20"
+      },
+      {
+        "title": "Put each tank's surplus back",
+        "body": "Return each tank's own offset: 20, 21, 23 and 26, which do add to 90. The 4th tank holds 20 + 6 = 26 guppies.",
+        "equation": "4th tank = 20 + 6 = 26"
       }
     ],
     "animationFrames": [
@@ -47900,7 +47927,17 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "4x + 10 = 90, x = 20. 4th tank = 20 + 1 + 2 + 3 = 26.", "visualHint": "Equation solved." },
       { "title": "Check", "narration": "The answer is 26, choice (E).", "visualHint": "Answer E circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": {
+      "type": "level-bars",
+      "data": {
+        "total": 90,
+        "deltas": [1, 2, 3],
+        "labels": ["Tank 1", "Tank 2", "Tank 3", "Tank 4"],
+        "target": 3,
+        "unit": "guppies",
+        "icon": "🐠"
+      }
+    },
     "tags": ["AMC 8", "2024", "algebra", "linear equations"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA"
@@ -47927,14 +47964,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "5",
     "solutionSteps": [
       {
-        "title": "Identify the constraint",
-        "body": "Each hop is up (U) or down (D). Must start and end at ground (height 0), and never go below ground. Need 3 U's and 3 D's with height always ≥ 0.",
-        "equation": ""
+        "title": "Track Buzz's height",
+        "body": "Each hop is either up (U) or down (D), so a sequence of 6 hops is a string of 6 letters. What matters is the height after each hop: Buzz starts at 0, must finish at 0, and can never be below 0, since there are no stairs underground.",
+        "equation": "6 hops, each U or D"
       },
       {
-        "title": "List valid sequences",
-        "body": "UUDDUD, UDUDUD, UUUDDD, UDUUDD, UUDUDD. These are all valid sequences.",
-        "equation": "5 sequences"
+        "title": "The ups must match the downs",
+        "body": "Each U adds 1 and each D subtracts 1, so finishing back at 0 forces exactly 3 U's and 3 D's. That alone leaves 6C3 = 20 possible orders, so 20 is an upper bound — but it counts sequences that are still illegal.",
+        "equation": "3 U's, 3 D's ⇒ 20 orders"
+      },
+      {
+        "title": "Throw out the ones that go underground",
+        "body": "A sequence like DDDUUU has three U's and three D's and does end at 0, but its first hop already takes Buzz below the ground. Any sequence whose running height ever drops below 0 is impossible, and 15 of the 20 fail this way.",
+        "equation": "20 − 15 = 5"
+      },
+      {
+        "title": "The five that survive",
+        "body": "Checking each order, the ones that stay at or above the ground the whole way are UDUDUD, UDUUDD, UUDDUD, UUDUDD and UUUDDD. So there are 5 ways. (These are the paths counted by the 3rd Catalan number.)",
+        "equation": "5 ways"
       }
     ],
     "animationFrames": [
@@ -47942,7 +47989,7 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "List all valid sequences of 3 U's and 3 D's that stay non-negative. There are 5.", "visualHint": "Sequences listed." },
       { "title": "Check", "narration": "5 valid sequences. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "hop-path", "data": { "hops": 6, "icon": "🐰", "upLabel": "U", "downLabel": "D" } },
     "tags": ["AMC 8", "2024", "counting", "Catalan numbers", "systematic listing"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA",
@@ -47971,14 +48018,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "28",
     "solutionSteps": [
       {
-        "title": "Identify possible paths",
-        "body": "From the diagram: A→X (5), X→M (2), X→Y (10), A→M (8), M→Y (6), M→C (14), Y→C (5), Y→Z (17), C→Z (10), and a direct route from M to Z (25).",
+        "title": "Read the one-way map",
+        "body": "The roads are A→X (5), A→M (8), X→M (2), X→Y (10), M→Y (6), M→C (14), M→Z (25), Y→C (5), Y→Z (17) and C→Z (10). Every road is one way, so a route can never double back — there are 10 routes from A to Z in all.",
         "equation": ""
       },
       {
-        "title": "Find shortest path",
-        "body": "A → X → M → Y → C → Z = 5 + 2 + 6 + 5 + 10 = 28. This is shorter than any other path.",
-        "equation": "Shortest = 28"
+        "title": "Find the best distance to each town",
+        "body": "Work outward from A, keeping only the shortest distance found to each town. A is 0 and X is 5. For M, the direct road costs 8 but going A→X→M costs 5 + 2 = 7, so M is 7 — the detour beats the direct road. Then Y is 7 + 6 = 13 and C is 13 + 5 = 18.",
+        "equation": "A 0, X 5, M 7, Y 13, C 18"
+      },
+      {
+        "title": "Compare the three roads into Z",
+        "body": "Z can be reached from M, from Y or from C. Those give 7 + 25 = 32, 13 + 17 = 30 and 18 + 10 = 28. The long-looking route through C wins, because the direct road from M is expensive enough to waste everything it saves.",
+        "equation": "32, 30, 28 ⇒ 28"
+      },
+      {
+        "title": "Trace the winning route",
+        "body": "Following the best distances back gives A → X → M → Y → C → Z, that is 5 + 2 + 6 + 5 + 10 = 28 kilometers. Every one of the other answer choices is the length of some genuine route, so guessing from the picture is not safe.",
+        "equation": "5 + 2 + 6 + 5 + 10 = 28"
       }
     ],
     "animationFrames": [
@@ -47986,7 +48043,33 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "Best path: A→X→M→Y→C→Z = 5+2+6+5+10 = 28.", "visualHint": "Shortest path highlighted." },
       { "title": "Check", "narration": "The shortest distance is 28 km. The answer is (A).", "visualHint": "Answer A circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": {
+      "type": "shortest-route",
+      "data": {
+        "start": "A",
+        "end": "Z",
+        "nodes": [
+          { "id": "A", "x": 0.058, "y": 0.592 },
+          { "id": "X", "x": 0.205, "y": 0.143 },
+          { "id": "M", "x": 0.353, "y": 0.592 },
+          { "id": "Y", "x": 0.507, "y": 0.143 },
+          { "id": "C", "x": 0.644, "y": 0.592 },
+          { "id": "Z", "x": 0.938, "y": 0.592 }
+        ],
+        "edges": [
+          { "from": "A", "to": "X", "w": 5 },
+          { "from": "A", "to": "M", "w": 8 },
+          { "from": "X", "to": "M", "w": 2 },
+          { "from": "X", "to": "Y", "w": 10 },
+          { "from": "M", "to": "Y", "w": 6 },
+          { "from": "M", "to": "C", "w": 14 },
+          { "from": "M", "to": "Z", "w": 25, "bend": 60 },
+          { "from": "Y", "to": "C", "w": 5 },
+          { "from": "Y", "to": "Z", "w": 17 },
+          { "from": "C", "to": "Z", "w": 10 }
+        ]
+      }
+    },
     "tags": ["AMC 8", "2024", "logic", "shortest path", "graph theory"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA",
@@ -48003,7 +48086,7 @@ const amc2024Problems: Problem[] = [
     "category": "Number Theory",
     "subcategory": "Cryptarithmetic",
     "difficulty": 3,
-    "statement": "See below.",
+    "statement": "Let the letters F, L, Y, B, U, G represent distinct digits. Suppose FLYFLY is the GREATEST number that satisfies the equation\n8 · FLYFLY = BUGBUG.\nWhat is the value of FLY + BUG?",
     "choices": [
       { "label": "A", "text": "1089" },
       { "label": "B", "text": "1098" },
@@ -48015,19 +48098,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "1107",
     "solutionSteps": [
       {
-        "title": "Express the repeating structure",
-        "body": "FLYFLY = 1001 × FLY and BUGBUG = 1001 × BUG. So 8 × 1001 × FLY = 1001 × BUG, giving 8 × FLY = BUG.",
-        "equation": "BUG = 8 × FLY"
+        "title": "Both sides repeat a 3-digit block",
+        "body": "FLYFLY is the block FLY written twice, which means FLY × 1000 + FLY = 1001 × FLY. In the same way BUGBUG = 1001 × BUG. So the six-digit equation is really 8 × 1001 × FLY = 1001 × BUG.",
+        "equation": "FLYFLY = 1001 × FLY"
       },
       {
-        "title": "Maximize FLY",
-        "body": "BUG is a 3-digit number ≤ 999, so FLY ≤ 124. Try FLY = 123: BUG = 984. Digits {1,2,3,9,8,4} are all distinct. ✓",
-        "equation": "FLY = 123, BUG = 984"
+        "title": "Cancel the shared factor",
+        "body": "The factor 1001 appears on both sides, so it divides out and the whole problem shrinks to a three-digit multiplication: 8 × FLY = BUG. Making FLYFLY as large as possible is the same as making FLY as large as possible.",
+        "equation": "8 × FLY = BUG"
       },
       {
-        "title": "Compute the sum",
-        "body": "FLY + BUG = 123 + 984 = 1107.",
-        "equation": "1107"
+        "title": "Find the ceiling, then step down",
+        "body": "BUG has only three digits, so BUG ≤ 999 and therefore FLY ≤ 999 ÷ 8 = 124. Try the largest allowed value, FLY = 124: then BUG = 992, which uses 9 twice and 2 twice. Since the six letters must be distinct digits, 124 is out.",
+        "equation": "FLY ≤ 124, but 124 → 992 repeats"
+      },
+      {
+        "title": "The next value works",
+        "body": "FLY = 123 gives BUG = 8 × 123 = 984, and the digits 1, 2, 3, 9, 8, 4 are all different. Checking the original, 8 × 123123 = 984984. So FLY + BUG = 123 + 984 = 1107.",
+        "equation": "123 + 984 = 1107"
       }
     ],
     "animationFrames": [
@@ -48035,7 +48123,10 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "FLYFLY = 1001·FLY, so BUG = 8·FLY. Max FLY = 123, BUG = 984. Sum = 1107.", "visualHint": "Computation shown." },
       { "title": "Check", "narration": "123 + 984 = 1107. The answer is (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": {
+      "type": "repeat-block",
+      "data": { "multiplier": 8, "left": "FLY", "right": "BUG", "repeats": 2, "maximize": true }
+    },
     "tags": ["AMC 8", "2024", "number theory", "cryptarithmetic", "digit problems"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA",
