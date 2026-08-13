@@ -48155,14 +48155,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "11",
     "solutionSteps": [
       {
-        "title": "Count multiples of 3",
-        "body": "Among 1–81, there are 27 multiples of 3. Each must go in some cell. A row or column has a product divisible by 3 if it contains at least one multiple of 3.",
-        "equation": ""
+        "title": "Only the multiples of 3 matter",
+        "body": "A product is divisible by 3 exactly when one of its factors is, so a row or column counts precisely when it holds at least one multiple of 3. Among 1–81 there are 81 ÷ 3 = 27 such numbers, and the other 54 are irrelevant — the question is only about where those 27 go.",
+        "equation": "27 multiples of 3"
       },
       {
-        "title": "Minimize affected rows and columns",
-        "body": "To minimize rows+columns with product divisible by 3, pack the 27 multiples of 3 into as small a rectangular sub-grid as possible. An a × b rectangle with ab ≥ 27 and a + b minimized. 7 × 4 = 28 ≥ 27, giving a + b = 11.",
-        "equation": "Minimum = 11"
+        "title": "The obvious filling wastes rows",
+        "body": "Entering 1–81 in reading order puts the multiples of 3 in the 3rd, 6th and 9th columns. That is 3 full columns, so all 9 rows are hit as well: 9 + 3 = 12 lines. Scattering the 27 across many rows is exactly what we want to avoid.",
+        "equation": "9 + 3 = 12"
+      },
+      {
+        "title": "Why 10 is impossible",
+        "body": "Suppose the multiples of 3 touch r rows and c columns. Every one of them lies in that r × c block, so r · c ≥ 27. If r + c were only 10, the largest the block could be is 5 × 5 = 25 cells — two multiples would have nowhere to go. So r + c ≥ 11.",
+        "equation": "r · c ≥ 27 ⇒ r + c ≥ 11"
+      },
+      {
+        "title": "And 11 is achievable",
+        "body": "A 4 × 7 block holds 28 cells, one more than needed, so all 27 multiples of 3 fit inside it with room to spare. Every one of those 4 rows and 7 columns then contains a multiple, and no other line does, giving exactly 4 + 7 = 11. (A 5 × 6 block works just as well.)",
+        "equation": "4 + 7 = 11"
       }
     ],
     "animationFrames": [
@@ -48170,7 +48180,7 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "27 multiples of 3 must fit in an a×b block with a+b minimized. 7×4 = 28 ≥ 27, a+b = 11.", "visualHint": "Optimal arrangement." },
       { "title": "Check", "narration": "The minimum is 11. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "block-cover", "data": { "size": 9, "divisor": 3, "maxNumber": 81 } },
     "tags": ["AMC 8", "2024", "number theory", "divisibility", "optimization"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA"
@@ -48197,8 +48207,23 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "32",
     "solutionSteps": [
       {
-        "title": "Count by position of white king",
-        "body": "If the white king is in a corner (4 corners), it attacks 3 squares, leaving 5 valid squares for the black king: 4 × 5 = 20. If on an edge (4 edges), it attacks 5 squares, leaving 3 valid: 4 × 3 = 12. If in center (1), it attacks 8, leaving 0: 0.",
+        "title": "Fix the white king first",
+        "body": "Once the white king is placed, the black king may go on any square that is neither occupied nor attacked, so the answer is a sum over the white king's square. The two kings are different colours, so (white here, black there) and the swap are counted separately.",
+        "equation": "total = Σ (free squares)"
+      },
+      {
+        "title": "White in a corner: 5 squares left",
+        "body": "A corner square touches only 3 others. Removing those 3 and the corner itself from the 9 squares leaves 5 places for the black king. There are 4 corners, so this case gives 4 × 5 = 20.",
+        "equation": "4 × 5 = 20"
+      },
+      {
+        "title": "White on an edge: 3 squares left",
+        "body": "The middle square of a side touches 5 others. That leaves 9 − 1 − 5 = 3 squares for the black king, and there are 4 such edge squares: 4 × 3 = 12.",
+        "equation": "4 × 3 = 12"
+      },
+      {
+        "title": "White in the centre: none left",
+        "body": "The centre attacks all 8 remaining squares, so the black king has nowhere legal to stand — that case contributes 0. Adding up, 20 + 12 + 0 = 32.",
         "equation": "20 + 12 + 0 = 32"
       }
     ],
@@ -48207,7 +48232,7 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "Corner: 4×5=20. Edge: 4×3=12. Center: 0. Total: 32.", "visualHint": "Cases counted." },
       { "title": "Check", "narration": "32 ways. The answer is (E).", "visualHint": "Answer E circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "king-placement", "data": { "size": 3, "ordered": true } },
     "tags": ["AMC 8", "2024", "counting", "combinatorics", "chess"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA",
@@ -48236,19 +48261,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "108",
     "solutionSteps": [
       {
-        "title": "Compute areas",
-        "body": "Total area = π(3²) = 9π. Inner circle area = π. Middle ring = 4π − π = 3π. Outer ring = 9π − 4π = 5π.",
-        "equation": ""
+        "title": "Measure the three rings",
+        "body": "Each ring's area is a difference of squares: the inner disc is π(1²) = π, the middle ring is π(2² − 1²) = 3π, and the outer ring is π(3² − 2²) = 5π. So the rings measure π, 3π and 5π, and the whole disc is 9π.",
+        "equation": "π, 3π, 5π — total 9π"
       },
       {
-        "title": "Express shaded area",
-        "body": "Shaded = middle ring (3π) + sector of outer ring with angle x/360. Shaded = 3π + (x/360)(5π).",
-        "equation": "Shaded = 3π + 5πx/360"
+        "title": "See how much the sector must supply",
+        "body": "Shaded equal to unshaded means the shaded part is half of 9π, that is 4.5π. The middle ring is shaded whole and already contributes 3π, so the sector in the outer ring has to make up the remaining 4.5π − 3π = 1.5π.",
+        "equation": "4.5π − 3π = 1.5π"
       },
       {
-        "title": "Set shaded = unshaded",
-        "body": "Shaded = 9π/2 (half the total). So 3π + 5πx/360 = 9π/2. Solving: 5x/360 = 9/2 − 3 = 3/2. x = 360 × 3/(2 × 5) = 108.",
-        "equation": "∠BOC = 108°"
+        "title": "Turn that into a fraction of the ring",
+        "body": "The whole outer ring is 5π, and the sector needs to be 1.5π of it. A sector's area is proportional to its angle, so the sector is 1.5π ÷ 5π = 3/10 of that ring — and therefore 3/10 of a full turn.",
+        "equation": "1.5π ÷ 5π = 3/10"
+      },
+      {
+        "title": "Convert the fraction to degrees",
+        "body": "Three tenths of a full turn is (3/10) × 360° = 108°, so ∠BOC = 108°. Checking: 3π + (108/360)(5π) = 3π + 1.5π = 4.5π, exactly half of 9π.",
+        "equation": "(3/10) × 360° = 108°"
       }
     ],
     "animationFrames": [
@@ -48256,7 +48286,16 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "Middle ring 3π + sector (x/360)(5π) = 9π/2. Solve: x = 108°.", "visualHint": "Equation solved." },
       { "title": "Check", "narration": "∠BOC = 108°. The answer is (A).", "visualHint": "Answer A circled." }
     ],
-    "animation": { "type": "area-model", "data": {} },
+    "animation": {
+      "type": "concentric-sector",
+      "data": {
+        "radii": [1, 2, 3],
+        "fullShaded": [1],
+        "sectorRing": 2,
+        "targetFraction": 0.5,
+        "labels": ["B", "C"]
+      }
+    },
     "tags": ["AMC 8", "2024", "geometry", "circles", "area", "sectors"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA",
@@ -48285,18 +48324,23 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "4/15",
     "solutionSteps": [
       {
-        "title": "Count by color and type",
-        "body": "Red pairs: 3/5 × 15 = 9. White pairs: 6. High-top pairs: 2/3 × 15 = 10. Low-top pairs: 5.",
-        "equation": ""
+        "title": "Work out the four totals",
+        "body": "Of the 15 pairs, 3/5 × 15 = 9 are red, so 6 are white; and 2/3 × 15 = 10 are high-top, so 5 are low-top. Colour and style are two separate splits of the same 15 pairs, which is what a two-way table records.",
+        "equation": "red 9, white 6; high 10, low 5"
       },
       {
-        "title": "Minimize red high-tops",
-        "body": "To minimize red high-tops, maximize white high-tops. At most 6 white pairs can be high-top (all of them). Then red high-tops = 10 − 6 = 4.",
-        "equation": "Min red high-top = 4"
+        "title": "One cell fixes the whole table",
+        "body": "Call the number of red high-tops x. The rest of the table follows from the totals: red low-tops are 9 − x, white high-tops are 10 − x, and white low-tops are what is left, 15 − 9 − 10 + x = x − 4.",
+        "equation": "cells: x, 9 − x, 10 − x, x − 4"
       },
       {
-        "title": "Find the fraction",
-        "body": "4 out of 15 pairs = 4/15.",
+        "title": "Pushing x down breaks a cell",
+        "body": "Every cell counts real pairs, so none can be negative. The white low-top cell is x − 4, which goes negative as soon as x drops below 4 — x = 3 would need −1 pairs. Equivalently, there are only 5 low-top slots for 9 red pairs, so at least 4 reds must be high-top.",
+        "equation": "x − 4 ≥ 0 ⇒ x ≥ 4"
+      },
+      {
+        "title": "x = 4 is actually achievable",
+        "body": "Taking x = 4 gives 4 red high-tops, 5 red low-tops, 6 white high-tops and 0 white low-tops. Those add to 15 and match every total, so the arrangement is real and the least fraction is 4/15.",
         "equation": "4/15"
       }
     ],
@@ -48305,7 +48349,18 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "Make all 6 white pairs high-top. Red high-tops = 10 − 6 = 4. Fraction = 4/15.", "visualHint": "Table filled." },
       { "title": "Check", "narration": "The minimum fraction is 4/15. The answer is (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": {
+      "type": "two-way-table",
+      "data": {
+        "total": 15,
+        "rows": [
+          { "label": "red", "numer": 3, "den": 5, "color": "#ef4444" },
+          { "label": "white", "color": "#ffffff" }
+        ],
+        "cols": [{ "label": "high-top", "numer": 2, "den": 3 }, { "label": "low-top" }],
+        "minimize": true
+      }
+    },
     "tags": ["AMC 8", "2024", "counting", "optimization", "inclusion-exclusion"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA",
@@ -48334,14 +48389,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "3",
     "solutionSteps": [
       {
-        "title": "Identify equilateral triangles in a cube",
-        "body": "Equilateral triangles in a cube are formed by connecting three vertices that are each connected by face diagonals (all edges of length s√2 where s is the side length).",
-        "equation": ""
+        "title": "Only three distances exist in a cube",
+        "body": "Two vertices of a cube of side s are either an edge apart (s), a face diagonal apart (s√2), or opposite ends of a space diagonal (s√3). Measuring from P: Q, S and W are at s; V, R and T are at s√2; and only U is at s√3.",
+        "equation": "3 at s, 3 at s√2, 1 at s√3"
       },
       {
-        "title": "Count from P",
-        "body": "From P, we need two other vertices each at distance s√2 from P and from each other. P connects to 3 face-diagonal neighbors. From those, we can form 3 equilateral triangles through P.",
-        "equation": "3 equilateral triangles"
+        "title": "Rule out the other two lengths",
+        "body": "An equilateral triangle needs all three sides equal, so pick a length and see if it can close up. Sides of s fail: Q and W are both an edge from P, but QW is a face diagonal, so △PQW is only isosceles. Sides of s√3 fail too, because just one vertex is that far from P and a triangle needs two. So every side must be a face diagonal, s√2.",
+        "equation": "△PQW = s, s, s√2 ✗"
+      },
+      {
+        "title": "P's three face-diagonal neighbours",
+        "body": "The vertices a face diagonal from P are V, R and T. Checking them against each other, VR, VT and RT are all face diagonals as well. So all six distances among P, V, R and T equal s√2 — those four vertices form a regular tetrahedron sitting inside the cube.",
+        "equation": "PV = PR = PT = VR = VT = RT = s√2"
+      },
+      {
+        "title": "Count the faces that touch P",
+        "body": "Every face of that tetrahedron is an equilateral triangle, and it has four faces: PVR, PVT, PRT and VRT. Exactly three of them have P as a vertex, so the answer is 3.",
+        "equation": "PVR, PVT, PRT ⇒ 3"
       }
     ],
     "animationFrames": [
@@ -48349,7 +48414,22 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "Each equilateral triangle uses face diagonals. From P, there are 3 such triangles.", "visualHint": "Triangles highlighted." },
       { "title": "Check", "narration": "3 equilateral triangles contain P. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "solid-3d", "data": {} },
+    "animation": {
+      "type": "cube-triangle",
+      "data": {
+        "apex": "P",
+        "vertices": [
+          { "id": "P", "x": 0, "y": 1, "z": 0 },
+          { "id": "Q", "x": 1, "y": 1, "z": 0 },
+          { "id": "V", "x": 1, "y": 0, "z": 0 },
+          { "id": "W", "x": 0, "y": 0, "z": 0 },
+          { "id": "S", "x": 0, "y": 1, "z": 1 },
+          { "id": "R", "x": 1, "y": 1, "z": 1 },
+          { "id": "U", "x": 1, "y": 0, "z": 1 },
+          { "id": "T", "x": 0, "y": 0, "z": 1 }
+        ]
+      }
+    },
     "tags": ["AMC 8", "2024", "geometry", "3D geometry", "cube", "equilateral triangles"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA",
@@ -48378,19 +48458,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "24",
     "solutionSteps": [
       {
-        "title": "Set up variables",
-        "body": "Let initial green = g, yellow = y. Given g/y = 3/1, so g = 3y.",
-        "equation": "g = 3y"
+        "title": "Green is 3/4 of the army",
+        "body": "A ratio of 3 : 1 splits the army into 4 equal parts with 3 of them green, so green makes up 3/4 of all the frogs. Nothing yet says how many frogs there are — only what share is green.",
+        "equation": "green = 3/4 of the army"
       },
       {
-        "title": "Apply the changes",
-        "body": "3 green go sunny (become yellow), 5 yellow go shady (become green). New green = g + 5 − 3 = g + 2. New yellow = y − 5 + 3 = y − 2.",
-        "equation": "(g + 2)/(y − 2) = 4/1"
+        "title": "The army never changes size",
+        "body": "The frogs only change colour; none arrive and none leave. So 3 green turning yellow and 5 yellow turning green leaves the total untouched, and the net effect is 5 − 3 = 2 more green frogs.",
+        "equation": "net +2 green, total unchanged"
       },
       {
-        "title": "Solve",
-        "body": "g + 2 = 4(y − 2) = 4y − 8. Since g = 3y: 3y + 2 = 4y − 8, so y = 10, g = 30. New green = 32, new yellow = 8. Difference = 32 − 8 = 24.",
-        "equation": "Difference = 24"
+        "title": "A gain of 2 is a jump of 1/20",
+        "body": "Afterwards the ratio is 4 : 1, so green is 4/5 of the same army. The green share therefore rose from 3/4 to 4/5, a jump of 4/5 − 3/4 = 1/20. That sliver of the army is exactly the 2 extra green frogs, so 1/20 of the army is 2 frogs and the army is 2 × 20 = 40 frogs.",
+        "equation": "4/5 − 3/4 = 1/20 ⇒ total = 40"
+      },
+      {
+        "title": "Read off the new counts",
+        "body": "Green is now 4/5 of 40 = 32, and yellow is the remaining 8. (Checking backwards, before the move it was 30 and 10 — a 3 : 1 split.) The difference asked for is 32 − 8 = 24.",
+        "equation": "32 − 8 = 24"
       }
     ],
     "animationFrames": [
@@ -48398,7 +48483,19 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "g=3y. (3y+2)/(y−2)=4. y=10, g=30. New: 32 green, 8 yellow. Diff=24.", "visualHint": "Equation solved." },
       { "title": "Check", "narration": "The difference is 24. The answer is (E).", "visualHint": "Answer E circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": {
+      "type": "ratio-shift",
+      "data": {
+        "before": [3, 1],
+        "after": [4, 1],
+        "moves": [
+          { "from": 0, "to": 1, "count": 3 },
+          { "from": 1, "to": 0, "count": 5 }
+        ],
+        "labels": ["green", "yellow"],
+        "colors": ["#16a34a", "#eab308"]
+      }
+    },
     "tags": ["AMC 8", "2024", "algebra", "ratios", "systems of equations"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA"
@@ -48425,14 +48522,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "600",
     "solutionSteps": [
       {
-        "title": "Find the cross-sectional area of tape",
-        "body": "Outer radius = 2 in, inner radius = 1 in. Cross-sectional area = π(2² − 1²) = 3π sq in.",
-        "equation": "A = 3π"
+        "title": "Read the two radii",
+        "body": "The roll is 4 inches across and the ring inside it is 2 inches across, so the tape occupies the region between radius 1 and radius 2. The cross section of the tape is that ring.",
+        "equation": "R = 2 in, r = 1 in"
       },
       {
-        "title": "Compute length",
-        "body": "The tape thickness is 0.015 in. The average circumference is π × (2 + 2)/2... Actually, use: area = length × thickness. Length = 3π / 0.015 = 200π ≈ 628 ≈ 600.",
-        "equation": "Length ≈ 200π ≈ 628 ≈ 600"
+        "title": "Measure the ring",
+        "body": "The ring's area is the big disc minus the small one: π(2²) − π(1²) = π(4 − 1) = 3π ≈ 9.42 square inches. That is how much tape there is, seen end-on.",
+        "equation": "π(2² − 1²) = 3π"
+      },
+      {
+        "title": "Unrolling does not change the amount",
+        "body": "Winding the tape up neither creates nor destroys any of it, so the flat strip has exactly the same cross-sectional area as the ring. Laid out flat the strip is a long thin rectangle, and its area is simply its length times its thickness.",
+        "equation": "length × 0.015 = 3π"
+      },
+      {
+        "title": "Divide to get the length",
+        "body": "So length = 3π ÷ 0.015 = 200π ≈ 628.3 inches, which to the nearest 100 is 600. (As a check, the tape is (2 − 1) ÷ 0.015 ≈ 66.7 layers thick, and the average layer has circumference 2π(1.5) = 3π ≈ 9.42 inches; 66.7 × 9.42 ≈ 628 as well.)",
+        "equation": "3π ÷ 0.015 = 200π ≈ 628 → 600"
       }
     ],
     "animationFrames": [
@@ -48440,7 +48547,10 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "Cross-section area = 3π. Length = 3π/0.015 = 200π ≈ 628 ≈ 600.", "visualHint": "Area computation." },
       { "title": "Check", "narration": "Approximately 600 inches. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "area-model", "data": {} },
+    "animation": {
+      "type": "unroll-tape",
+      "data": { "outerDiameter": 4, "innerDiameter": 2, "thickness": 0.015, "unit": "in", "roundTo": 100 }
+    },
     "tags": ["AMC 8", "2024", "geometry", "circles", "area", "estimation"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA",
@@ -48469,14 +48579,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "7000",
     "solutionSteps": [
       {
-        "title": "Translate the segment",
-        "body": "The segment goes from (2000,3000) to (5000,8000), which is equivalent to (0,0) to (3000,5000).",
-        "equation": "Δx = 3000, Δy = 5000"
+        "title": "Look at the segment we are shown",
+        "body": "The first segment runs from (0, 4) to (2, 0) — across 2 and down 4 — and the figure colours 4 cells. Notice it passes exactly through the lattice point (1, 2), which is what makes the count 4 rather than 5.",
+        "equation": "across 2, down 4 → 4 cells"
       },
       {
-        "title": "Apply the cell-counting formula",
-        "body": "The number of cells a segment crosses is Δx + Δy − gcd(Δx, Δy). gcd(3000, 5000) = 1000.",
-        "equation": "3000 + 5000 − 1000 = 7000"
+        "title": "Count the cells by counting crossings",
+        "body": "The segment starts inside one cell and enters a new one every time it crosses a grid line: 1 vertical line and 3 horizontal lines here. But at (1, 2) it crosses a vertical and a horizontal line at the same instant, gaining only one cell instead of two, so one crossing must be discounted. That gives 1 + 1 + 3 − 1 = 4 cells, which is exactly Δx + Δy − gcd(Δx, Δy).",
+        "equation": "1 + 1 + 3 − 1 = 2 + 4 − 2 = 4"
+      },
+      {
+        "title": "The long segment repeats a small one",
+        "body": "From (2000, 3000) to (5000, 8000) is across 3000 and up 5000, and gcd(3000, 5000) = 1000. So the segment is 1000 identical copies of a step across 3 and up 5, laid end to end. That small step has no lattice point in its interior, so it crosses 3 + 5 − 1 = 7 cells.",
+        "equation": "gcd(3000, 5000) = 1000"
+      },
+      {
+        "title": "Multiply up",
+        "body": "Consecutive copies meet at a lattice point — a corner — so they share no coloured cell, and the counts simply add: 1000 × 7 = 7000 cells. The direct formula agrees: 3000 + 5000 − 1000 = 7000.",
+        "equation": "1000 × 7 = 7000"
       }
     ],
     "animationFrames": [
@@ -48484,7 +48604,14 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "Cells = Δx + Δy − gcd(Δx,Δy) = 3000 + 5000 − 1000 = 7000.", "visualHint": "Formula applied." },
       { "title": "Check", "narration": "7000 cells. The answer is (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "equation", "data": {} },
+    "animation": {
+      "type": "lattice-cross",
+      "data": {
+        "from": [2000, 3000],
+        "to": [5000, 8000],
+        "example": { "from": [0, 4], "to": [2, 0] }
+      }
+    },
     "tags": ["AMC 8", "2024", "geometry", "lattice points", "GCD"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA",
@@ -48513,19 +48640,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "5",
     "solutionSteps": [
       {
-        "title": "Find the triangle areas",
-        "body": "Each mountain is an isosceles right triangle with 45° base angles. The mountain with height 8 has legs of length 8, and its base is 16. Area = (1/2)(16)(8) = 64. Wait — with 45° angles and 90° peak, each side has length 8√2, and the base is 16. Area = (1/2)(8)(16) = 64. Similarly, the height-12 mountain has area = (1/2)(12)(24) = 144.",
-        "equation": "A₁ = 64, A₂ = 144"
+        "title": "Every slope is at 45°",
+        "body": "Each mountain is a triangle with a right angle at the peak and 45° at both feet. Dropping the height from the peak splits it into two 45-45-90 triangles, so the horizontal distance from the peak down to the ground equals the height on each side.",
+        "equation": "peaks 8 and 12, all slopes 45°"
       },
       {
-        "title": "Find the overlap area",
-        "body": "The overlap triangle has height h with the same 45° angles. Its area = h². Total visible area = 64 + 144 − h² = 183.",
-        "equation": "208 − h² = 183"
+        "title": "Such a mountain has area = height²",
+        "body": "Because each side runs out as far as it runs down, a mountain of height H has base 2H. Its area is ½ × 2H × H = H². So the two mountains have areas 8² = 64 and 12² = 144 — no square roots needed anywhere.",
+        "equation": "½ × 2H × H = H²"
       },
       {
-        "title": "Solve for h",
-        "body": "h² = 25, so h = 5.",
-        "equation": "h = 5"
+        "title": "The overlap is counted twice",
+        "body": "Adding the two mountains gives 64 + 144 = 208, but that counts the region where they overlap twice over. The artwork is only 183 square feet, so the overlap must be 208 − 183 = 25 square feet.",
+        "equation": "overlap = 208 − 183 = 25"
+      },
+      {
+        "title": "The overlap is a 45° mountain too",
+        "body": "Where the two slopes cross, the region below them is bounded by a 45° line on each side, so it is another mountain of this same kind — of height h. Its area is therefore h², giving h² = 25 and h = 5 feet.",
+        "equation": "h² = 25 ⇒ h = 5"
       }
     ],
     "animationFrames": [
@@ -48533,7 +48665,10 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "Areas: 64 + 144 = 208. Overlap = h². 208 − h² = 183. h² = 25. h = 5.", "visualHint": "Equation solved." },
       { "title": "Check", "narration": "h = 5. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "area-model", "data": {} },
+    "animation": {
+      "type": "mountain-overlap",
+      "data": { "heights": [8, 12], "totalArea": 183, "unit": "ft" }
+    },
     "tags": ["AMC 8", "2024", "geometry", "triangles", "area", "45-45-90"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA",
@@ -48562,19 +48697,24 @@ const amc2024Problems: Problem[] = [
     "shortAnswer": "20/33",
     "solutionSteps": [
       {
-        "title": "Count total arrangements",
-        "body": "12 seats, 8 occupied, 4 empty. The number of ways to choose which 4 seats are empty is C(12,4) = 495.",
+        "title": "What the couple needs",
+        "body": "There are 12 seats and 8 are taken, so 4 are free. The couple can sit together exactly when two of those free seats are side by side in the same row — so everything depends on how the 4 gaps are scattered.",
+        "equation": "12 seats, 8 taken, 4 free"
+      },
+      {
+        "title": "Count the seatings, then count the failures",
+        "body": "A seating is decided by which 4 of the 12 seats are empty, and there are C(12,4) = 495 such choices, all equally likely. It is easier to count the arrangements that *fail* — those where no row holds two adjacent empty seats — and subtract.",
         "equation": "C(12,4) = 495"
       },
       {
-        "title": "Count arrangements with no adjacent pair available",
-        "body": "Use complementary counting. Count arrangements where no row has 2 adjacent empty seats. By casework on partitions of 4 empty seats among 4 rows (each row has 3 seats), the number of bad arrangements is 195.",
-        "equation": "Bad = 195"
+        "title": "One row at a time",
+        "body": "Look at a single row of 3 seats. It can have no empty seat (1 way), exactly one empty seat (3 ways), or two empties only if they are the outer two (1 way) — the middle seat next to either end would make an adjacent pair. All three empty is impossible. So each row offers 1, 3, 1 ways for 0, 1, 2 empties, and never 3.",
+        "equation": "per row: 1, 3, 1, 0"
       },
       {
-        "title": "Find the probability",
-        "body": "Favorable = 495 − 195 = 300. Probability = 300/495 = 20/33.",
-        "equation": "P = 20/33"
+        "title": "Combine the rows and subtract",
+        "body": "Spread 4 empties over 4 rows using only those options. Two rows with 2 each: 6 arrangements × 1 × 1 = 6. One row with 2 and two rows with 1: 12 × 1 × 3 × 3 = 108. One in every row: 1 × 3⁴ = 81. That is 6 + 108 + 81 = 195 failures, so 495 − 195 = 300 seatings work and the probability is 300/495 = 20/33.",
+        "equation": "300/495 = 20/33"
       }
     ],
     "animationFrames": [
@@ -48582,7 +48722,10 @@ const amc2024Problems: Problem[] = [
       { "title": "Solve", "narration": "Total ways: C(12,4)=495. Bad (no adjacent pair): 195. P = 300/495 = 20/33.", "visualHint": "Complementary counting." },
       { "title": "Check", "narration": "Probability is 20/33. The answer is (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "probability", "data": {} },
+    "animation": {
+      "type": "seat-pair",
+      "data": { "rows": 4, "seatsPerRow": 3, "passengers": 8 }
+    },
     "tags": ["AMC 8", "2024", "counting", "probability", "complementary counting"],
     "sourceName": "2024 AMC 8",
     "license": "CC BY-NC-SA",

@@ -69,6 +69,16 @@ import { LevelBarsScene } from "./scenes/LevelBarsScene";
 import { HopPathScene } from "./scenes/HopPathScene";
 import { ShortestRouteScene } from "./scenes/ShortestRouteScene";
 import { RepeatBlockScene } from "./scenes/RepeatBlockScene";
+import { BlockCoverScene } from "./scenes/BlockCoverScene";
+import { KingPlacementScene } from "./scenes/KingPlacementScene";
+import { ConcentricSectorScene } from "./scenes/ConcentricSectorScene";
+import { TwoWayTableScene } from "./scenes/TwoWayTableScene";
+import { CubeTriangleScene } from "./scenes/CubeTriangleScene";
+import { RatioShiftScene } from "./scenes/RatioShiftScene";
+import { UnrollTapeScene } from "./scenes/UnrollTapeScene";
+import { LatticeCrossScene } from "./scenes/LatticeCrossScene";
+import { MountainOverlapScene } from "./scenes/MountainOverlapScene";
+import { SeatPairScene } from "./scenes/SeatPairScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -291,6 +301,36 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "repeat-block" && num(data.multiplier ?? 0) > 0 && typeof data.left === "string" && typeof data.right === "string") {
     return RepeatBlockScene;
+  }
+  if (type === "block-cover" && num(data.size ?? 0) > 1 && num(data.divisor ?? 0) > 1) {
+    return BlockCoverScene;
+  }
+  if (type === "king-placement" && num(data.size ?? 0) > 1) {
+    return KingPlacementScene;
+  }
+  if (type === "concentric-sector" && Array.isArray(data.radii) && data.radii.length > 1) {
+    return ConcentricSectorScene;
+  }
+  if (type === "two-way-table" && num(data.total ?? 0) > 0 && Array.isArray(data.rows) && Array.isArray(data.cols)) {
+    return TwoWayTableScene;
+  }
+  if (type === "cube-triangle" && Array.isArray(data.vertices) && data.vertices.length === 8 && typeof data.apex === "string") {
+    return CubeTriangleScene;
+  }
+  if (type === "ratio-shift" && Array.isArray(data.before) && Array.isArray(data.after) && Array.isArray(data.moves) && data.moves.length > 0) {
+    return RatioShiftScene;
+  }
+  if (type === "unroll-tape" && num(data.outerDiameter ?? 0) > num(data.innerDiameter ?? 0) && num(data.thickness ?? 0) > 0) {
+    return UnrollTapeScene;
+  }
+  if (type === "lattice-cross" && Array.isArray(data.from) && Array.isArray(data.to)) {
+    return LatticeCrossScene;
+  }
+  if (type === "mountain-overlap" && Array.isArray(data.heights) && data.heights.length > 1 && num(data.totalArea ?? 0) > 0) {
+    return MountainOverlapScene;
+  }
+  if (type === "seat-pair" && num(data.rows ?? 0) > 0 && num(data.seatsPerRow ?? 0) > 1) {
+    return SeatPairScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
