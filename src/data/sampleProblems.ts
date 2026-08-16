@@ -46039,18 +46039,23 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "18",
     "solutionSteps": [
       {
-        "title": "Evaluate the first expression",
-        "body": "Apply order of operations: multiply first, then add.",
+        "title": "Same digits, different grouping",
+        "body": "Both expressions use 8, 4, 2 in that order. The only difference is where the × sits — and since multiplication is done before addition, that position decides which pair gets multiplied.",
+        "equation": "(8 × 4 + 2) − (8 + 4 × 2)"
+      },
+      {
+        "title": "First expression: the × grabs 8 and 4",
+        "body": "Multiply the pair the × joins, then add the leftover 2.",
         "equation": "8 × 4 + 2 = 32 + 2 = 34"
       },
       {
-        "title": "Evaluate the second expression",
-        "body": "Again, multiply first, then add.",
+        "title": "Second expression: the × grabs 4 and 2",
+        "body": "The × has moved one place, so now the small pair is multiplied and the 8 is the leftover.",
         "equation": "8 + 4 × 2 = 8 + 8 = 16"
       },
       {
         "title": "Subtract",
-        "body": "Find the difference.",
+        "body": "Take the second value away from the first.",
         "equation": "34 − 16 = 18"
       }
     ],
@@ -46059,7 +46064,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "First part: 8×4+2 = 34. Second part: 8+4×2 = 16. Difference: 34−16 = 18.", "visualHint": "Both parts computed step by step." },
       { "title": "Check", "narration": "The answer is 18, choice (D).", "visualHint": "Final answer 18 highlighted." }
     ],
-    "animation": { "type": "equation", "data": { "left": "34", "right": "16", "result": "18" } },
+    "animation": { "type": "precedence-group", "data": { "expressions": ["8 × 4 + 2", "8 + 4 × 2"], "combine": "−" } },
     "tags": ["AMC 8", "2023", "algebra", "order of operations"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA"
@@ -46086,18 +46091,23 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "E",
     "solutionSteps": [
       {
-        "title": "Understand the fold",
-        "body": "The paper is folded twice to form four equal quarters. A triangular cut is made along the dashed line at a corner.",
+        "title": "Fold twice, and find the centre",
+        "body": "Two folds stack the sheet into four layers a quarter of the size. The corner of that packet where both fold lines meet is the centre of the original square — everything cut there ends up in the middle of the sheet.",
         "equation": ""
       },
       {
-        "title": "Unfold",
-        "body": "Since the cut is at a corner of the folded paper, unfolding reveals that the cut repeats symmetrically in all four quarters, creating a diamond (rhombus) shape in the center.",
+        "title": "One cut, four layers",
+        "body": "The dashed line snips that corner off. Because the scissors pass through all four layers at once, four identical right triangles are removed — one from each quarter.",
         "equation": ""
       },
       {
-        "title": "Match the answer",
-        "body": "The resulting shape is a square with a diamond-shaped hole in the center, matching choice (E).",
+        "title": "Undo one fold",
+        "body": "A fold line is a mirror, so opening one fold reflects the cut across it. Two triangles now sit back to back and the hole is a triangle — this is where choice (D) comes from, by stopping a fold too early.",
+        "equation": ""
+      },
+      {
+        "title": "Undo the other fold",
+        "body": "Opening the second fold mirrors those two again, so four equal right triangles meet at the centre of the sheet. Their union is a square standing on its corner — a diamond hole, choice (E).",
         "equation": ""
       }
     ],
@@ -46106,7 +46116,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "Unfolding reveals the cut appears in all four quarters, forming a diamond shape.", "visualHint": "Paper unfolding with symmetric cuts." },
       { "title": "Check", "narration": "The result is a diamond hole in the center — answer (E).", "visualHint": "Choice E highlighted." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "paper-fold-cut", "data": { "cutPoly": [0, 0, 0.48, 0, 0, 0.48] } },
     "tags": ["AMC 8", "2023", "geometry", "spatial reasoning", "paper folding"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA",
@@ -46123,7 +46133,7 @@ const amc2023Problems: Problem[] = [
     "category": "Algebra",
     "subcategory": "Linear expressions",
     "difficulty": 1,
-    "statement": "See below.",
+    "statement": "Wind chill is a measure of how cold people feel when exposed to wind outside. A good estimate for wind chill can be found using this calculation:\n\n(wind chill) = (air temperature) − 0.7 × (wind speed),\n\nwhere temperature is measured in degrees Fahrenheit (°F) and the wind speed is measured in miles per hour (mph). Suppose the air temperature is 36°F and the wind speed is 18 mph. Which of the following is closest to the approximate wind chill?",
     "choices": [
       { "label": "A", "text": "18" },
       { "label": "B", "text": "23" },
@@ -46135,19 +46145,24 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "23",
     "solutionSteps": [
       {
-        "title": "Substitute the wind speed",
-        "body": "Plug in 18 for the wind speed.",
-        "equation": "Wind chill = 36 − (0.7 × 18)"
+        "title": "Read the thermometer, then the wind",
+        "body": "The air temperature is 36°F. That is what the thermometer says — but the formula subtracts something for the wind, which is blowing at 18 mph.",
+        "equation": "wind chill = 36 − 0.7 × 18"
       },
       {
-        "title": "Multiply",
-        "body": "Compute 0.7 × 18.",
-        "equation": "0.7 × 18 = 12.6"
+        "title": "What one mph costs",
+        "body": "The 0.7 is the price of a single mile per hour of wind: each one takes 0.7°F off how cold it feels.",
+        "equation": "1 mph → 0.7°F colder"
       },
       {
-        "title": "Subtract",
-        "body": "Compute the wind chill.",
-        "equation": "36 − 12.6 = 23.4 ≈ 23"
+        "title": "All 18 of them",
+        "body": "Multiplying is just doing that 18 times over, so the wind removes 12.6°F in total.",
+        "equation": "18 × 0.7 = 12.6"
+      },
+      {
+        "title": "Land on the nearest choice",
+        "body": "Subtracting leaves 23.4°F. The question asks which choice is closest, so compare: 23 is 0.4 away and 25 is 1.6 away.",
+        "equation": "36 − 12.6 = 23.4 → 23"
       }
     ],
     "animationFrames": [
@@ -46155,7 +46170,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "0.7 × 18 = 12.6. Then 36 − 12.6 = 23.4, closest to 23.", "visualHint": "Step-by-step computation." },
       { "title": "Check", "narration": "23.4 is closest to 23. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "equation", "data": { "formula": "36 − 0.7 × 18 = 23.4", "result": "23" } },
+    "animation": { "type": "thermometer-drop", "data": { "base": 36, "rate": 0.7, "amount": 18, "unit": "°F", "amountUnit": "mph", "baseLabel": "air temperature", "amountLabel": "wind" } },
     "tags": ["AMC 8", "2023", "algebra", "linear expressions", "estimation"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA",
@@ -46172,7 +46187,7 @@ const amc2023Problems: Problem[] = [
     "category": "Number Theory",
     "subcategory": "Prime numbers",
     "difficulty": 1,
-    "statement": "A number is written in each square in the grid shown below, following this pattern: the first 7 numbers are 1, 2, 3, 4, 5, 6, 7, forming an inward spiral. The pattern continues until all 49 squares are filled, spiraling outward. The four corner squares of the grid are 1, 7, 43, and 49. Which of the following is the number of corner values that are prime?",
+    "statement": "The numbers from 1 to 49 are written in the squares of a 7 × 7 grid in a spiral pattern, beginning with 1 at the centre, then 2 to its right, and winding counterclockwise outward as shown. Which of the following is the number of shaded squares that contain a prime number?",
     "choices": [
       { "label": "A", "text": "0" },
       { "label": "B", "text": "1" },
@@ -46184,18 +46199,23 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "3",
     "solutionSteps": [
       {
-        "title": "Identify the corner values",
-        "body": "From the spiral grid, the four corners contain 1, 7, 43, and 49.",
-        "equation": ""
+        "title": "Fill the grid along the spiral",
+        "body": "Start with 1 in the middle and wind outward: right 1, up 1, left 2, down 2, right 3, up 3, and so on, each straight run one longer every half turn, until 49 lands in the bottom-right corner.",
+        "equation": "1 → 2 → 3 → … → 49"
       },
       {
-        "title": "Check each for primality",
-        "body": "1 is not prime. 7 is prime. 43 is prime. 49 = 7 × 7, not prime.",
-        "equation": ""
+        "title": "Read the shaded squares",
+        "body": "Only four squares are shaded, so only four numbers matter. The spiral puts 39, 19, 23 and 47 in them.",
+        "equation": "39, 19, 23, 47"
       },
       {
-        "title": "Count the primes",
-        "body": "From the diagram, the four corner values are 1, 7, 43, and 49. Check: 1 is not prime; 7 is prime; 43 is prime; 49 = 7 × 7 is not prime. Three of the four corner values are prime.",
+        "title": "Trial-divide each one",
+        "body": "A number is prime when nothing from 2 up to its square root divides it. 39 is caught at once by 3. For 19 and 23 it is enough to try 2 and 3, and for 47 to try 2, 3 and 5 — none of them divides.",
+        "equation": "39 = 3 × 13"
+      },
+      {
+        "title": "Count the survivors",
+        "body": "19, 23 and 47 are prime; 39 is not. Three of the four shaded squares hold a prime.",
         "equation": "3 primes"
       }
     ],
@@ -46204,7 +46224,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "Identify the four corner numbers and test each for primality.", "visualHint": "Corners highlighted and tested." },
       { "title": "Check", "narration": "Three of the four corners are prime. The answer is (D).", "visualHint": "Prime corners marked." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "spiral-grid", "data": { "size": 7, "marked": [2, 0, 3, 1, 5, 3, 6, 4] } },
     "tags": ["AMC 8", "2023", "number theory", "prime numbers", "patterns"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA",
@@ -46233,19 +46253,24 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "1500",
     "solutionSteps": [
       {
-        "title": "Set up the proportion",
-        "body": "The ratio of trout in the sample equals the ratio of trout in the lake.",
-        "equation": "30/180 = 250/N"
+        "title": "Look at the catch",
+        "body": "The net brings up 180 fish, and 30 of them are trout. That is the only measurement we have of how common trout are.",
+        "equation": "180 caught, 30 trout"
       },
       {
-        "title": "Simplify the sample ratio",
-        "body": "30 out of 180 fish are trout, which simplifies to 1/6.",
+        "title": "Sort the catch into groups",
+        "body": "Deal the 180 fish into 30 groups of 6 and put one trout in each. It comes out exactly even, so one fish in every six is a trout.",
         "equation": "30/180 = 1/6"
       },
       {
-        "title": "Solve for N",
-        "body": "Since trout make up 1/6 of all fish and there are 250 trout, the total is 250 × 6 = 1500.",
-        "equation": "N = 250 × 6 = 1500"
+        "title": "The lake follows the same recipe",
+        "body": "The problem says the lake has the same ratio, so the lake also splits into groups of 6 with one trout apiece. Each of the 250 trout heads its own group.",
+        "equation": "250 groups of 6"
+      },
+      {
+        "title": "Multiply out",
+        "body": "Six fish per group, 250 groups, so the lake holds 1500 fish. Checking: 250 out of 1500 is again 1/6.",
+        "equation": "6 × 250 = 1500"
       }
     ],
     "animationFrames": [
@@ -46253,7 +46278,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "30/180 = 1/6 of fish are trout. So 250 trout = 1/6 of total. Total = 1500.", "visualHint": "Proportion equation." },
       { "title": "Check", "narration": "250/1500 = 1/6 = 30/180. The answer is (B) 1500.", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "equation", "data": { "proportion": "30/180 = 250/N", "result": "1500" } },
+    "animation": { "type": "sample-ratio", "data": { "sampleTotal": 180, "sampleMarked": 30, "populationMarked": 250, "markedLabel": "trout", "unit": "fish" } },
     "tags": ["AMC 8", "2023", "algebra", "ratios", "proportions"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA"

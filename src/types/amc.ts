@@ -97,6 +97,11 @@ export type AnimationTemplateType =
   | "lattice-cross"
   | "mountain-overlap"
   | "seat-pair"
+  | "precedence-group"
+  | "paper-fold-cut"
+  | "thermometer-drop"
+  | "spiral-grid"
+  | "sample-ratio"
   | "cube-net"
   | "solid-3d"
   | "generic";

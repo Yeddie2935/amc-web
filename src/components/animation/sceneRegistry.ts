@@ -78,6 +78,11 @@ import { RatioShiftScene } from "./scenes/RatioShiftScene";
 import { UnrollTapeScene } from "./scenes/UnrollTapeScene";
 import { LatticeCrossScene } from "./scenes/LatticeCrossScene";
 import { MountainOverlapScene } from "./scenes/MountainOverlapScene";
+import { SampleRatioScene } from "./scenes/SampleRatioScene";
+import { SpiralGridScene } from "./scenes/SpiralGridScene";
+import { ThermometerDropScene } from "./scenes/ThermometerDropScene";
+import { PaperFoldCutScene } from "./scenes/PaperFoldCutScene";
+import { PrecedenceGroupScene } from "./scenes/PrecedenceGroupScene";
 import { SeatPairScene } from "./scenes/SeatPairScene";
 
 function num(value: unknown): number {
@@ -331,6 +336,28 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "seat-pair" && num(data.rows ?? 0) > 0 && num(data.seatsPerRow ?? 0) > 1) {
     return SeatPairScene;
+  }
+  if (type === "precedence-group" && Array.isArray(data.expressions) && data.expressions.length === 2) {
+    return PrecedenceGroupScene;
+  }
+  if (type === "paper-fold-cut" && Array.isArray(data.cutPoly) && data.cutPoly.length >= 6) {
+    return PaperFoldCutScene;
+  }
+  if (type === "thermometer-drop" && num(data.rate ?? 0) > 0 && num(data.amount ?? 0) > 0) {
+    return ThermometerDropScene;
+  }
+  if (type === "spiral-grid" && num(data.size ?? 0) >= 3 && Array.isArray(data.marked) && data.marked.length >= 2) {
+    return SpiralGridScene;
+  }
+  if (
+    type === "sample-ratio" &&
+    num(data.sampleMarked ?? 0) > 0 &&
+    num(data.sampleTotal ?? 0) > 0 &&
+    num(data.sampleTotal ?? 0) <= 240 &&
+    num(data.sampleTotal ?? 0) % num(data.sampleMarked ?? 1) === 0 &&
+    num(data.populationMarked ?? 0) > 0
+  ) {
+    return SampleRatioScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
