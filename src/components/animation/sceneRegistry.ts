@@ -78,6 +78,11 @@ import { RatioShiftScene } from "./scenes/RatioShiftScene";
 import { UnrollTapeScene } from "./scenes/UnrollTapeScene";
 import { LatticeCrossScene } from "./scenes/LatticeCrossScene";
 import { MountainOverlapScene } from "./scenes/MountainOverlapScene";
+import { PieBitesScene } from "./scenes/PieBitesScene";
+import { BandTimeScene } from "./scenes/BandTimeScene";
+import { TournamentGridScene } from "./scenes/TournamentGridScene";
+import { LineBoxHitScene } from "./scenes/LineBoxHitScene";
+import { PowerSlotsScene } from "./scenes/PowerSlotsScene";
 import { SampleRatioScene } from "./scenes/SampleRatioScene";
 import { SpiralGridScene } from "./scenes/SpiralGridScene";
 import { ThermometerDropScene } from "./scenes/ThermometerDropScene";
@@ -358,6 +363,21 @@ export function resolveScene(problem: Problem): AnimatedScene {
     num(data.populationMarked ?? 0) > 0
   ) {
     return SampleRatioScene;
+  }
+  if (type === "power-slots" && Array.isArray(data.digits) && data.digits.length >= 4 && data.digits.length % 2 === 0) {
+    return PowerSlotsScene;
+  }
+  if (type === "line-box-hit" && Array.isArray(data.rect) && data.rect.length === 4 && Array.isArray(data.lines) && data.lines.length > 0) {
+    return LineBoxHitScene;
+  }
+  if (type === "tournament-grid" && Array.isArray(data.rows) && data.rows.length >= 2 && data.rows.length % 2 === 0) {
+    return TournamentGridScene;
+  }
+  if (type === "band-time" && Array.isArray(data.points) && data.points.length >= 8 && num(data.high ?? 0) > num(data.low ?? 0)) {
+    return BandTimeScene;
+  }
+  if (type === "pie-bites" && Array.isArray(data.eaters) && data.eaters.length > 0) {
+    return PieBitesScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

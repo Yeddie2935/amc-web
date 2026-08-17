@@ -46305,19 +46305,24 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "9",
     "solutionSteps": [
       {
-        "title": "Consider the constraint",
-        "body": "One digit is 0, so any base with exponent 0 gives 1, and 0 raised to any positive power gives 0. We want to maximize the product.",
-        "equation": ""
+        "title": "Four digits, four slots",
+        "body": "The digits 2, 0, 2, and 3 can be dealt into the four boxes in 12 distinct ways (only 12 rather than 24, because the two 2s are interchangeable). The 0 is what decides everything.",
+        "equation": "□^□ × □^□"
       },
       {
-        "title": "Try placing 0 as an exponent",
-        "body": "If 0 is an exponent, that factor becomes 1. We then maximize the other factor using digits 2, 2, 3. Best: 3² × 2⁰ = 9 × 1 = 9, or 2³ × 2⁰ = 8 × 1 = 8.",
+        "title": "A 0 in a base kills the product",
+        "body": "If the 0 sits in a base, that factor is 0, and 0 times anything is 0 no matter how large the other factor grows. Six of the twelve arrangements do this, and all of them are worth 0.",
+        "equation": "0² × 2³ = 0 × 8 = 0"
+      },
+      {
+        "title": "A 0 in an exponent is free",
+        "body": "Move the 0 up instead. Any nonzero number to the power 0 is 1, so that factor becomes 1 and contributes nothing — the product is just the other power. One digit is spent holding the 0, and three are left to build that power.",
+        "equation": "2³ × 2⁰ = 8 × 1 = 8"
+      },
+      {
+        "title": "Pick the biggest power from what is left",
+        "body": "The three remaining digits can only make 3², 2³ or 2², worth 9, 8 and 4. So the best arrangement is 3² × 2⁰ = 9.",
         "equation": "3² × 2⁰ = 9"
-      },
-      {
-        "title": "Verify no better option",
-        "body": "If 0 is a base: 0² × 2³ = 0 or 0³ × 2² = 0. Placing 0 as a base always gives 0. So 3² × 2⁰ = 9 is optimal.",
-        "equation": "Maximum = 9"
       }
     ],
     "animationFrames": [
@@ -46325,7 +46330,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "Place 0 as an exponent: 3² × 2⁰ = 9 × 1 = 9. This is the maximum.", "visualHint": "Best arrangement shown." },
       { "title": "Check", "narration": "The answer is 9, choice (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "equation", "data": { "expression": "3² × 2⁰ = 9", "result": "9" } },
+    "animation": { "type": "power-slots", "data": { "digits": [2, 0, 2, 3] } },
     "tags": ["AMC 8", "2023", "number theory", "exponents", "optimization"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA",
@@ -46354,19 +46359,24 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "1",
     "solutionSteps": [
       {
-        "title": "Find line AB",
-        "body": "Line through (0,0) and (3,1) has slope 1/3.",
-        "equation": "y = x/3"
+        "title": "Draw both lines",
+        "body": "AB runs through (0,0) and (3,1), so its slope is 1/3 and it passes through the origin. CD runs through (0,10) and (2,9), so its slope is −1/2 starting from 10. The rectangle is only 1 wide and 2 tall, sitting far away at x = 15.",
+        "equation": "y = x/3   and   y = −x/2 + 10"
       },
       {
-        "title": "Find line CD",
-        "body": "Line through (0,10) and (2,9) has slope −1/2.",
-        "equation": "y = 10 − x/2"
+        "title": "Zoom in on the rectangle",
+        "body": "Its corners are (15,3), (16,3), (16,5) and (15,5), so it covers x from 15 to 16 and y from 3 to 5. At this distance both lines run close by, and neither obviously hits — the heights have to be checked.",
+        "equation": "15 ≤ x ≤ 16,  3 ≤ y ≤ 5"
       },
       {
-        "title": "Check intersections with the rectangle",
-        "body": "The rectangle has corners (15,3), (16,3), (16,5), (15,5). For line AB: at x=15, y=5 — this is the corner (15,5). At x=16, y=16/3 ≈ 5.33, outside. For line CD: at x=15, y=2.5, outside. At x=16, y=2, outside. So exactly 1 point.",
-        "equation": "1 intersection point"
+        "title": "Line AB grazes one corner",
+        "body": "At x = 15, y = 15/3 = 5, which is exactly the top-left corner. At x = 16, y = 16/3, already above the top edge. So AB is at or above the rectangle across its whole width, and meets it at that single corner.",
+        "equation": "(15, 5) is on the line"
+      },
+      {
+        "title": "Line CD passes underneath",
+        "body": "At x = 15, y = 5/2, and at x = 16, y = 2. Both are below the bottom edge y = 3, so CD never reaches the rectangle. Only the one corner point remains.",
+        "equation": "1 point"
       }
     ],
     "animationFrames": [
@@ -46374,7 +46384,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "Check where each line meets the rectangle. Line AB passes through (15,5). Line CD misses the rectangle.", "visualHint": "Intersection point highlighted." },
       { "title": "Check", "narration": "Only 1 point on the rectangle lies on a line. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "line-box-hit", "data": { "rect": [15, 3, 16, 5], "lines": ["A 0 0 B 3 1", "C 0 10 D 2 9"] } },
     "tags": ["AMC 8", "2023", "geometry", "coordinate geometry", "lines"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA",
@@ -46403,18 +46413,23 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "000101",
     "solutionSteps": [
       {
-        "title": "Count total wins",
-        "body": "With 4 players each playing 6 matches, there are 12 total matches, so 12 wins total.",
-        "equation": "Total wins = 12"
+        "title": "Read the table",
+        "body": "Each of the four players plays six matches, listed in order, so the six columns are six rounds. Lola won 5, Lolo 3 and Tiya 2 — Tiyo's row is the unknown.",
+        "equation": "Lola 111011, Lolo 101010, Tiya 010100"
       },
       {
-        "title": "Count known wins",
-        "body": "Lola: 5 wins. Lolo: 3 wins. Tiya: 2 wins. Total known: 10.",
-        "equation": "5 + 3 + 2 = 10"
+        "title": "Every column holds exactly two 1s",
+        "body": "In each round all four players are busy, so they pair off into two matches. Two matches produce two winners and two losers, so every column of the table sums to 2. In round 1, Lola and Lolo both won, so Tiyo must have lost.",
+        "equation": "1 + 1 + 0 + ? = 2  ⇒  ? = 0"
       },
       {
-        "title": "Determine Tiyo's wins",
-        "body": "Tiyo must have 12 − 10 = 2 wins. Checking which 6-digit string has exactly two 1s and matches the constraints: 000101.",
+        "title": "Fill in the rest the same way",
+        "body": "Round by round, Tiyo's entry is whatever the column still needs to reach 2: rounds 2, 3 and 5 already have their two winners, while rounds 4 and 6 have only one, so Tiyo won those. Note that counting Tiyo's wins alone would not have settled it — three of the answer choices contain exactly two 1s.",
+        "equation": "columns: 2, 2, 2, 1, 2, 1"
+      },
+      {
+        "title": "Read off the record",
+        "body": "Tiyo's record is 000101, which is two wins. As a check, 5 + 3 + 2 + 2 = 12 wins, exactly the number of matches played.",
         "equation": "Tiyo: 000101"
       }
     ],
@@ -46423,7 +46438,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "Total wins = 12. Known wins = 10. Tiyo has 2 wins. Only 000101 fits.", "visualHint": "Counting wins per column." },
       { "title": "Check", "narration": "Tiyo's record is 000101. The answer is (A).", "visualHint": "Answer A circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "tournament-grid", "data": { "rows": ["Lola 111011", "Lolo 101010", "Tiya 010100", "Tiyo ??????"] } },
     "tags": ["AMC 8", "2023", "logic", "deduction", "tournament"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA",
@@ -46452,19 +46467,24 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "8",
     "solutionSteps": [
       {
-        "title": "Read the graph",
-        "body": "Identify the time intervals where the elevation is between 4 and 7 meters.",
+        "title": "Read the trail",
+        "body": "Malaika starts near 14.5 m, drops to a low of about 3.75 m around t = 5, climbs to a crest of about 7.3 m at t = 11, then plunges to the base just after t = 15.",
         "equation": ""
       },
       {
-        "title": "Find the intervals",
-        "body": "The curve is between 4 and 7 meters from about t=2 to t=4 seconds (descending) and from about t=8 to t=14 seconds (ascending then descending).",
-        "equation": "2 + 6 = 8 seconds"
+        "title": "Shade the band from 4 to 7",
+        "body": "Draw the horizontal lines at 4 m and 7 m. The question is only about the time the curve spends inside that strip — everything above 7 or below 4 is out.",
+        "equation": "4 ≤ elevation ≤ 7"
       },
       {
-        "title": "Total time",
-        "body": "The total time spent between 4 and 7 meters is 8 seconds.",
-        "equation": "Total = 8 seconds"
+        "title": "Mark every crossing",
+        "body": "Going down she enters the band at t = 2 and leaves through the floor at t = 4. She comes back up through 4 at t = 6, rises out through the ceiling at t = 10, drops back in at t = 12, and finally leaves through 4 at t = 14. That is three separate stretches, not one — she dips below the band and later climbs above it.",
+        "equation": "in at 2, 6, 12 · out at 4, 10, 14"
+      },
+      {
+        "title": "Add the stretches",
+        "body": "The three stretches last 2, 4 and 2 seconds. Missing either exit would merge two stretches and give 10 seconds instead.",
+        "equation": "2 + 4 + 2 = 8 seconds"
       }
     ],
     "animationFrames": [
@@ -46472,7 +46492,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "The curve is in the 4–7m band for about 8 seconds total.", "visualHint": "Shaded region between y=4 and y=7." },
       { "title": "Check", "narration": "Total time = 8 seconds. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "graph-read", "data": {} },
+    "animation": { "type": "band-time", "data": { "points": [0, 14.5, 1, 10, 2, 7, 3, 5.2, 4, 4, 5, 3.75, 6, 4, 7, 4.8, 8, 5.5, 9, 6.2, 10, 7, 11, 7.3, 12, 7, 13, 6, 14, 4, 15.2, 0], "low": 4, "high": 7, "unit": "seconds", "yLabel": "elevation", "icon": "\u26f7\ufe0f" } },
     "tags": ["AMC 8", "2023", "algebra", "graph reading"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA",
@@ -46501,19 +46521,24 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "1/3",
     "solutionSteps": [
       {
+        "title": "Cut the pie into twelfths",
+        "body": "Each animal takes a fraction of what is still on the plate, not of the original pie. Cutting into 12 equal slices makes every one of those bites a whole number of slices, so the whole problem becomes counting.",
+        "equation": "1 whole = 12 slices"
+      },
+      {
         "title": "Harold eats 1/4",
-        "body": "After Harold eats 1/4 of the pie, 3/4 remains.",
-        "equation": "1 − 1/4 = 3/4"
+        "body": "A quarter of 12 slices is 3, leaving 9.",
+        "equation": "12 − 3 = 9 slices"
       },
       {
-        "title": "Moose eats 1/3 of what's left",
-        "body": "The moose eats 1/3 of 3/4 = 1/4. Remaining: 3/4 − 1/4 = 1/2.",
-        "equation": "3/4 − 1/4 = 1/2"
+        "title": "The moose eats 1/3 of what is left",
+        "body": "A third of the 9 slices still there is 3 — not a third of the original 12, which would have been 4. That leaves 6.",
+        "equation": "9 − 3 = 6 slices"
       },
       {
-        "title": "Porcupine eats 1/3 of what's left",
-        "body": "The porcupine eats 1/3 of 1/2 = 1/6. Remaining: 1/2 − 1/6 = 1/3.",
-        "equation": "1/2 − 1/6 = 1/3"
+        "title": "The porcupine eats 1/3 of what is left",
+        "body": "A third of 6 is 2, leaving 4 slices out of 12, which is 1/3 of the pie. Taking each fraction of the whole pie instead would have left only 1/12.",
+        "equation": "4/12 = 1/3"
       }
     ],
     "animationFrames": [
@@ -46521,7 +46546,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "3/4 remains → 1/2 remains → 1/3 remains.", "visualHint": "Sequential fractions shown." },
       { "title": "Check", "narration": "1/3 of the original pie is left. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "bar-model", "data": { "steps": 3, "final": "1/3" } },
+    "animation": { "type": "pie-bites", "data": { "eaters": ["Harold|\ud83e\uddd1|1|4", "the moose|\ud83e\udece|1|3", "the porcupine|\ud83e\udd94|1|3"] } },
     "tags": ["AMC 8", "2023", "algebra", "fractions"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA"

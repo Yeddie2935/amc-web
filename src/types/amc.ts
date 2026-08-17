@@ -102,6 +102,11 @@ export type AnimationTemplateType =
   | "thermometer-drop"
   | "spiral-grid"
   | "sample-ratio"
+  | "power-slots"
+  | "line-box-hit"
+  | "tournament-grid"
+  | "band-time"
+  | "pie-bites"
   | "cube-net"
   | "solid-3d"
   | "generic";
