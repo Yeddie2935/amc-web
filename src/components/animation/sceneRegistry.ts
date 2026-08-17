@@ -78,6 +78,11 @@ import { RatioShiftScene } from "./scenes/RatioShiftScene";
 import { UnrollTapeScene } from "./scenes/UnrollTapeScene";
 import { LatticeCrossScene } from "./scenes/LatticeCrossScene";
 import { MountainOverlapScene } from "./scenes/MountainOverlapScene";
+import { DetourPaceScene } from "./scenes/DetourPaceScene";
+import { OvershootRemoveScene } from "./scenes/OvershootRemoveScene";
+import { TwoScaleRouteScene } from "./scenes/TwoScaleRouteScene";
+import { CircleLedgerScene } from "./scenes/CircleLedgerScene";
+import { MagnitudeEstimateScene } from "./scenes/MagnitudeEstimateScene";
 import { PieBitesScene } from "./scenes/PieBitesScene";
 import { BandTimeScene } from "./scenes/BandTimeScene";
 import { TournamentGridScene } from "./scenes/TournamentGridScene";
@@ -378,6 +383,21 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "pie-bites" && Array.isArray(data.eaters) && data.eaters.length > 0) {
     return PieBitesScene;
+  }
+  if (type === "magnitude-estimate" && num(data.value ?? 0) > 0 && Array.isArray(data.chain) && data.chain.length >= 2) {
+    return MagnitudeEstimateScene;
+  }
+  if (type === "circle-ledger" && num(data.radius ?? 0) > 0 && Array.isArray(data.circles) && data.circles.length > 0) {
+    return CircleLedgerScene;
+  }
+  if (type === "two-scale-route" && Array.isArray(data.scales) && data.scales.length >= 2 && Array.isArray(data.pick) && num(data.gap ?? 0) > 0) {
+    return TwoScaleRouteScene;
+  }
+  if (type === "overshoot-remove" && Array.isArray(data.kinds) && data.kinds.length >= 2 && num(data.target ?? 0) > 0) {
+    return OvershootRemoveScene;
+  }
+  if (type === "detour-pace" && num(data.blocks ?? 0) > 1 && num(data.minutes ?? 0) > 0 && num(data.distance ?? 0) > 0 && num(data.detourBlocks ?? 0) > 1) {
+    return DetourPaceScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

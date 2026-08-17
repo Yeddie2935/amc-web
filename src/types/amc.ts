@@ -107,6 +107,11 @@ export type AnimationTemplateType =
   | "tournament-grid"
   | "band-time"
   | "pie-bites"
+  | "magnitude-estimate"
+  | "circle-ledger"
+  | "two-scale-route"
+  | "overshoot-remove"
+  | "detour-pace"
   | "cube-net"
   | "solid-3d"
   | "generic";

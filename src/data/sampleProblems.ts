@@ -46573,19 +46573,24 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "60,000",
     "solutionSteps": [
       {
-        "title": "Estimate total hours",
-        "body": "6.5 months ≈ 6.5 × 30 × 24 hours.",
-        "equation": "6.5 × 30 × 24 ≈ 4,680 hours"
+        "title": "What is given",
+        "body": "The rover covered 292,526,838 miles in about 6.5 months. The answer is wanted in miles per hour, so the time has to be turned into hours first.",
+        "equation": "292,526,838 miles in 6.5 months"
       },
       {
-        "title": "Compute speed",
-        "body": "Divide distance by time.",
-        "equation": "292,526,838 ÷ 4,680 ≈ 62,500 mph"
+        "title": "Months into hours",
+        "body": "Take it one factor at a time: 6.5 months is about 6.5 × 30 = 195 days, and 195 days is 195 × 24 = 4,680 hours.",
+        "equation": "6.5 × 30 × 24 = 4,680 hours"
       },
       {
-        "title": "Match to choices",
-        "body": "62,500 is closest to 60,000.",
-        "equation": "≈ 60,000 mph"
+        "title": "Round both to one digit",
+        "body": "The answer choices are whole decades apart — 6,000, 12,000, 60,000, 120,000, 600,000 — so there is no need for the exact division. Keep only the leading digit of each number: 292,526,838 ≈ 3 × 10⁸ and 4,680 ≈ 5 × 10³.",
+        "equation": "3 × 10⁸ ÷ 5 × 10³"
+      },
+      {
+        "title": "Divide the digits, subtract the exponents",
+        "body": "3 ÷ 5 = 0.6 and 10⁸ ÷ 10³ = 10⁵, so the speed is about 0.6 × 10⁵ = 60,000 mph — landing exactly on a choice. The exact division gives 62,506, which is only 2,506 from 60,000 — every other choice is at least 50,000 away.",
+        "equation": "0.6 × 10⁵ = 60,000 mph"
       }
     ],
     "animationFrames": [
@@ -46593,7 +46598,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "6.5 months ≈ 4,680 hours. 293,000,000 ÷ 4,680 ≈ 62,500 mph.", "visualHint": "Division computation." },
       { "title": "Check", "narration": "Closest to 60,000 mph. The answer is (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "equation", "data": { "distance": "292526838", "time": "4680", "speed": "62500" } },
+    "animation": { "type": "magnitude-estimate", "data": { "value": 292526838, "valueUnit": "miles", "perUnit": "hour", "chain": ["6.5|months", "30|days|days in a month", "24|hours|hours in a day"], "icon": "\ud83d\ude80" } },
     "tags": ["AMC 8", "2023", "algebra", "estimation", "unit conversion"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA"
@@ -46620,18 +46625,23 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "11/36",
     "solutionSteps": [
       {
-        "title": "Identify the circles",
-        "body": "The large circle has radius 3. Inside it are circles of radii 2 and 1 (shaded and white), plus smaller circles of radius 1.",
-        "equation": ""
+        "title": "Read the radii off the grid",
+        "body": "The large white circle has radius 3. Inside it sits a shaded circle of radius 2, and inside that two white circles of radius 1. Three more shaded circles of radius 1/2 sit in the white space on the right.",
+        "equation": "radii 3, 2, 1, 1, and three of 1/2"
       },
       {
-        "title": "Compute areas",
-        "body": "Total area = 9π. The shaded area consists of parts of the inner circles. Carefully adding and subtracting overlapping regions gives the shaded fraction.",
-        "equation": "Shaded = 11π/4"
+        "title": "Measure in units of the smallest circle",
+        "body": "Every area is πr², so the π is a common factor and can be dropped. Taking the radius-1/2 circle as one unit, a radius-1 circle is 4 units, a radius-2 circle is 16, and the whole radius-3 circle is 36.",
+        "equation": "1, 4, 16, 36 units"
       },
       {
-        "title": "Find the fraction",
-        "body": "Fraction shaded = (11π/4) / (9π) = 11/36.",
+        "title": "The shaded disc, minus its holes",
+        "body": "The radius-2 shaded circle is worth 16 units, but the two white circles of radius 1 punch 4 units out of it each. That leaves 16 − 4 − 4 = 8 units of shading.",
+        "equation": "16 − 4 − 4 = 8"
+      },
+      {
+        "title": "Add the three strays",
+        "body": "The three small shaded circles sit on white background, so each adds a full unit: 8 + 3 = 11 shaded units out of the 36 the big circle is worth.",
         "equation": "11/36"
       }
     ],
@@ -46640,7 +46650,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "Compute areas of each region and add up the shaded parts.", "visualHint": "Regions labeled with areas." },
       { "title": "Check", "narration": "The shaded fraction is 11/36. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "area-model", "data": { "total": "9π", "shaded": "11π/4", "fraction": "11/36" } },
+    "animation": { "type": "circle-ledger", "data": { "radius": 3, "circles": ["-1|0|2|1", "-2|0|1|0", "0|0|1|0", "1.5|1.5|0.5|1", "2.5|0|0.5|1", "1.5|-1.5|0.5|1"] } },
     "tags": ["AMC 8", "2023", "geometry", "circles", "area"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA",
@@ -46669,19 +46679,24 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "48",
     "solutionSteps": [
       {
-        "title": "Set up variables",
-        "body": "Let d be the total race distance. Water stations divide the route into 8 equal parts, each d/8 miles. Repair stations divide it into 3 equal parts, each d/3 miles.",
-        "equation": ""
+        "title": "Count the gaps, not the stations",
+        "body": "Markers spaced evenly between the two ends cut the route into one more piece than there are markers. So 7 water stations make 8 equal gaps, and 2 repair stations make 3.",
+        "equation": "8 gaps and 3 gaps"
       },
       {
-        "title": "Write the equation",
-        "body": "The 3rd water station is at 3d/8. The 1st repair station is at d/3. The difference is 2 miles.",
-        "equation": "3d/8 − d/3 = 2"
+        "title": "Where each station sits",
+        "body": "The 3rd of the 7 water stations is 3/8 of the way along the route, and the 1st of the 2 repair stations is 1/3 of the way.",
+        "equation": "3/8 and 1/3 of the race"
       },
       {
-        "title": "Solve",
-        "body": "Find common denominator: 9d/24 − 8d/24 = d/24 = 2.",
-        "equation": "d = 48"
+        "title": "Put both over 24ths",
+        "body": "The two rulers only agree in twenty-fourths: 3/8 = 9/24 and 1/3 = 8/24. So those two stations are neighbouring ticks on a 24-tick ruler, one twenty-fourth of the race apart.",
+        "equation": "9/24 − 8/24 = 1/24"
+      },
+      {
+        "title": "Price the sliver",
+        "body": "That single twenty-fourth is the given 2 miles, so the whole race is 24 × 2 = 48 miles. Checking: water stations every 6 miles put the 3rd at 18, repair stations every 16 miles put the 1st at 16, and 18 − 16 = 2.",
+        "equation": "24 × 2 = 48 miles"
       }
     ],
     "animationFrames": [
@@ -46689,7 +46704,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "3d/8 − d/3 = 2 → d/24 = 2 → d = 48.", "visualHint": "Equation solved step by step." },
       { "title": "Check", "narration": "The race is 48 miles. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "number-line", "data": { "total": 48, "waterInterval": 6, "repairInterval": 16 } },
+    "animation": { "type": "two-scale-route", "data": { "scales": ["7|water|\ud83d\udca7", "2|repair|\ud83d\udd27"], "pick": [3, 1], "gap": 2, "unit": "miles" } },
     "tags": ["AMC 8", "2023", "algebra", "linear equations", "spacing"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA",
@@ -46718,19 +46733,24 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "55",
     "solutionSteps": [
       {
-        "title": "Maximize stamp count",
-        "body": "To use the most stamps, use as many small-value stamps as possible. Use all 20 nickels (100¢) and all 20 dimes (200¢) = 300¢ from 40 stamps.",
-        "equation": "40 stamps = 300¢"
+        "title": "Start by using every stamp",
+        "body": "All 60 stamps come to 20 × 5 + 20 × 10 + 20 × 25 = 100 + 200 + 500 = 800 cents. That is 90 cents more than the 710 needed, so not every stamp can be used.",
+        "equation": "800¢ is 90¢ too much"
       },
       {
-        "title": "Remaining amount",
-        "body": "Need 710 − 300 = 410¢ more from 25-cent stamps and possibly swapping.",
-        "equation": "410 ÷ 25 = 16.4 (not exact)"
+        "title": "Turn it into a removal problem",
+        "body": "Wanting the most stamps left is the same as taking off the fewest. So the question becomes: which is the smallest number of stamps worth exactly 90 cents? Here the big stamps are the useful ones, since each one taken off sheds the most value.",
+        "equation": "remove the fewest worth 90¢"
       },
       {
-        "title": "Adjust with swaps",
-        "body": "We need 5a + 10b + 25c = 710 with a, b, c ≤ 20, maximizing a + b + c. Trying c = 17 quarters (425¢): 5a + 10b = 285, so a + 2b = 57. With b = 19: a = 19. Total = 19 + 19 + 17 = 55. Check: 95 + 190 + 425 = 710. ✓",
-        "equation": "55 stamps"
+        "title": "Three quarters, a dime and a nickel",
+        "body": "Three quarters shed 75 cents, leaving 15 more to shed — which takes a dime and a nickel. That is 5 stamps worth 25 + 25 + 25 + 10 + 5 = 90 cents.",
+        "equation": "5 stamps shed 90¢"
+      },
+      {
+        "title": "Four could never do it",
+        "body": "No 4 stamps can be worth 90 cents: four quarters make 100, three quarters leave 15 for a single stamp, and anything smaller falls short. Nor can 3, 2 or 1. So 5 removals is the minimum and 60 − 5 = 55 stamps remain — 19 nickels, 19 dimes and 17 quarters, worth 95 + 190 + 425 = 710 cents.",
+        "equation": "60 − 5 = 55 stamps"
       }
     ],
     "animationFrames": [
@@ -46738,7 +46758,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "Use as many small stamps as possible. Optimal: 38 small stamps + 17 quarters = 55 stamps.", "visualHint": "Stamp counts computed." },
       { "title": "Check", "narration": "55 stamps total $7.10. The answer is (E).", "visualHint": "Answer E circled." }
     ],
-    "animation": { "type": "equation", "data": { "total": "710", "stamps": "55" } },
+    "animation": { "type": "overshoot-remove", "data": { "kinds": ["5|nickel|20", "10|dime|20", "25|quarter|20"], "target": 710, "unit": "\u00a2", "itemWord": "stamps" } },
     "tags": ["AMC 8", "2023", "number theory", "optimization", "money"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA"
@@ -46765,19 +46785,24 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "4.2",
     "solutionSteps": [
       {
-        "title": "Find normal speed",
-        "body": "Viswam walks 10 blocks (0.5 mile) in 10 minutes: 0.5 mile / (10/60 hr) = 3 mph. Each block is 0.05 miles.",
-        "equation": "Normal speed = 3 mph"
+        "title": "The usual walk",
+        "body": "Ten equal blocks make half a mile, so each block is 1/20 of a mile, and one block a minute is half a mile in 10 minutes — a steady 3 mph.",
+        "equation": "0.5 mile in 10 min = 3 mph"
       },
       {
-        "title": "Analyze the detour",
-        "body": "After 5 blocks (5 min), he has 5 min left. The detour adds 2 extra blocks, so he must walk 7 blocks in 5 minutes. Each block = 1/20 mile, so 7 blocks = 7/20 mile.",
-        "equation": "Distance remaining = 7/20 mile in 5 min"
+        "title": "Blocked after five blocks",
+        "body": "Five blocks in means five minutes gone and five minutes left, with five blocks still to go. Walking those five in those five minutes would just be the usual 3 mph.",
+        "equation": "5 minutes and 5 blocks left"
       },
       {
-        "title": "Compute required speed",
-        "body": "7 blocks × (1/20 mile per block) = 7/20 mile. Time = 5 min = 1/12 hr. Speed = (7/20) / (1/12) = 84/20 = 4.2 mph.",
-        "equation": "Speed = 4.2 mph"
+        "title": "The detour costs two extra blocks",
+        "body": "Going around means one block becomes three — up one, across one, back down one. So the five blocks left become 5 − 1 + 3 = 7. The clock, though, is untouched: still five minutes.",
+        "equation": "5 − 1 + 3 = 7 blocks"
+      },
+      {
+        "title": "Same time, so scale the speed",
+        "body": "Seven blocks in the time meant for five is 7/5 of the distance in the same time, which is simply 7/5 of the speed: 3 × 7/5 = 4.2 mph. (The long way round agrees: 7/20 mile in 1/12 hour is also 4.2 mph.)",
+        "equation": "3 × 7/5 = 4.2 mph"
       }
     ],
     "animationFrames": [
@@ -46785,7 +46810,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "7 blocks remain in 5 min. 7/20 mile in 1/12 hour = 4.2 mph.", "visualHint": "Speed calculation." },
       { "title": "Check", "narration": "Required speed is 4.2 mph. The answer is (B).", "visualHint": "Answer B circled." }
     ],
-    "animation": { "type": "equation", "data": { "distance": "7/20", "time": "1/12", "speed": "4.2" } },
+    "animation": { "type": "detour-pace", "data": { "blocks": 10, "minutes": 10, "distance": 0.5, "unit": "mile", "walked": 5, "detourBlocks": 3, "icon": "\ud83d\udeb6" } },
     "tags": ["AMC 8", "2023", "algebra", "rate", "speed"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA",
