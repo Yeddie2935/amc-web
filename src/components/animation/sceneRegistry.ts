@@ -78,6 +78,11 @@ import { RatioShiftScene } from "./scenes/RatioShiftScene";
 import { UnrollTapeScene } from "./scenes/UnrollTapeScene";
 import { LatticeCrossScene } from "./scenes/LatticeCrossScene";
 import { MountainOverlapScene } from "./scenes/MountainOverlapScene";
+import { NetFoldRingScene } from "./scenes/NetFoldRingScene";
+import { TwoStepReachScene } from "./scenes/TwoStepReachScene";
+import { TriangleRingSplitScene } from "./scenes/TriangleRingSplitScene";
+import { StatInsertScene } from "./scenes/StatInsertScene";
+import { DiagonalLetterGridScene } from "./scenes/DiagonalLetterGridScene";
 import { DetourPaceScene } from "./scenes/DetourPaceScene";
 import { OvershootRemoveScene } from "./scenes/OvershootRemoveScene";
 import { TwoScaleRouteScene } from "./scenes/TwoScaleRouteScene";
@@ -398,6 +403,21 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "detour-pace" && num(data.blocks ?? 0) > 1 && num(data.minutes ?? 0) > 0 && num(data.distance ?? 0) > 0 && num(data.detourBlocks ?? 0) > 1) {
     return DetourPaceScene;
+  }
+  if (type === "diagonal-letters" && num(data.size ?? 0) > 2 && Array.isArray(data.letters) && data.letters.length >= 2) {
+    return DiagonalLetterGridScene;
+  }
+  if (type === "net-fold-ring" && Array.isArray(data.faces) && data.faces.length >= 4 && Array.isArray(data.points) && Array.isArray(data.strip)) {
+    return NetFoldRingScene;
+  }
+  if (type === "two-step-reach" && num(data.right ?? 0) > 0 && num(data.left ?? 0) > 0 && num(data.target ?? 0) > 0) {
+    return TwoStepReachScene;
+  }
+  if (type === "triangle-ring-split" && num(data.outer ?? 0) > 1 && num(data.inner ?? 0) > 0 && num(data.inner ?? 0) < num(data.outer ?? 0)) {
+    return TriangleRingSplitScene;
+  }
+  if (type === "stat-insert" && Array.isArray(data.list) && data.list.length >= 3) {
+    return StatInsertScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

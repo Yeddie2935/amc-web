@@ -112,6 +112,11 @@ export type AnimationTemplateType =
   | "two-scale-route"
   | "overshoot-remove"
   | "detour-pace"
+  | "diagonal-letters"
+  | "net-fold-ring"
+  | "two-step-reach"
+  | "triangle-ring-split"
+  | "stat-insert"
   | "cube-net"
   | "solid-3d"
   | "generic";

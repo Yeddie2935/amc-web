@@ -46839,19 +46839,24 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "133 Ps, 134 Qs, 133 Rs",
     "solutionSteps": [
       {
-        "title": "Identify the pattern period",
-        "body": "In the repeating pattern, a 5×5 block contains 8 P's, 9 Q's, and 8 R's.",
-        "equation": ""
+        "title": "The letter depends only on row + column",
+        "body": "Reading the figure with its bottom row as row 1, the entry in row r and column c is the (r + c − 2)th letter of P, Q, R, cycling. Moving one step right or one step up both advance the letter by one, so every entry on a single diagonal — all the cells with the same r + c — carries the same letter.",
+        "equation": "letter = (r + c − 2) mod 3"
       },
       {
-        "title": "Scale to 20×20",
-        "body": "A 20×20 grid consists of 16 copies of the 5×5 block. But since 20 ≡ 2 (mod 3), we need to count using modular arithmetic.",
-        "equation": ""
+        "title": "So the table is striped diagonally",
+        "body": "Filling the whole 20 × 20 table shows the three letters running in diagonal stripes. They look almost equally common, but 400 is not divisible by 3, so they cannot be.",
+        "equation": "400 = 20²"
       },
       {
-        "title": "Count precisely",
-        "body": "In any n×n grid with n ≡ 2 (mod 3), there are n², n²+1, and n² letters of P, Q, R respectively. For n=20: total = 400, giving 133 Ps, 134 Qs, 133 Rs.",
-        "equation": "133 + 134 + 133 = 400"
+        "title": "The rows do not split evenly",
+        "body": "Since 20 = 3 × 6 + 2, the row numbers 1 to 20 leave remainder 1 seven times and remainder 2 seven times, but remainder 0 only six times. The columns split exactly the same way.",
+        "equation": "7, 7 and 6 rows"
+      },
+      {
+        "title": "Multiply the row and column counts",
+        "body": "A cell's letter is fixed by the pair of remainders, so each letter collects three products. P gets 7×7 + 7×6 + 6×7 = 133 and R the same, while Q gets 7×7 + 7×7 + 6×6 = 134 — Q is the one letter taking two of the 7×7 blocks. Checking: 133 + 134 + 133 = 400.",
+        "equation": "133 Ps, 134 Qs, 133 Rs"
       }
     ],
     "animationFrames": [
@@ -46859,7 +46864,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "The pattern repeats with period 3. For a 20×20 grid: 133 Ps, 134 Qs, 133 Rs.", "visualHint": "Counting by pattern blocks." },
       { "title": "Check", "narration": "133 + 134 + 133 = 400 = 20². The answer is (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "diagonal-letters", "data": { "size": 20, "letters": ["P", "Q", "R"], "sample": 5 } },
     "tags": ["AMC 8", "2023", "counting", "patterns", "modular arithmetic"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA",
@@ -46888,19 +46893,24 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "1",
     "solutionSteps": [
       {
-        "title": "Study the net",
-        "body": "The net shows 8 triangular faces numbered 1–7 and Q. Identify which edges will meet when folded.",
-        "equation": ""
+        "title": "Read the net as a run plus two flaps",
+        "body": "Six of the triangles sit in one long run — 1, 3, 4, 5, 6, Q from left to right — and the other two hang off it: 7 above 6, and 2 below 3.",
+        "equation": "run 1, 3, 4, 5, 6, Q"
       },
       {
-        "title": "Trace the folding",
-        "body": "When folded into an octahedron, face Q is on one side. The face to its right shares an edge with Q and is determined by the net layout.",
-        "equation": ""
+        "title": "The flaps fold over as the caps",
+        "body": "Folding 7 up and 2 down closes the top and bottom of the solid. They end up directly opposite each other, which leaves the run to wrap around the middle.",
+        "equation": "7 and 2 become opposite caps"
       },
       {
-        "title": "Identify the answer",
-        "body": "Face 1 ends up to the right of Q.",
-        "equation": "Face 1"
+        "title": "Six faces make a full ring",
+        "body": "The middle of a regular octahedron is a band of exactly six triangles, so the run of six has to close into a ring — its two ends must join. That means face 1, the start of the run, comes all the way round and glues onto Q, the end of it.",
+        "equation": "1 joins Q"
+      },
+      {
+        "title": "Which side of Q it lands on",
+        "body": "Q has three neighbours: 6, which sits just before it in the run; 2, the cap folded down onto it; and 1, arriving round the ring. Since 6 comes from the left along the run, 1 arrives on the other side — the right. (The face directly opposite Q is 4.)",
+        "equation": "face 1"
       }
     ],
     "animationFrames": [
@@ -46908,7 +46918,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "Trace which edges connect when folded. Face 1 shares the right edge with Q.", "visualHint": "Folding animation." },
       { "title": "Check", "narration": "Face 1 is to the right of Q. The answer is (A).", "visualHint": "Answer A circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "net-fold-ring", "data": { "points": ["A|0|0", "B|2|0", "C|4|0", "D|6|0", "E|1|-1", "F|3|-1", "G|5|-1", "H|7|-1", "P|5|1", "R|2|-2"], "faces": ["1|A|B|E", "3|B|E|F", "4|B|C|F", "5|C|F|G", "6|C|D|G", "Q|D|G|H", "7|C|D|P", "2|E|F|R"], "strip": ["1", "3", "4", "5", "6", "Q"], "target": "Q" } },
     "tags": ["AMC 8", "2023", "geometry", "3D geometry", "nets", "octahedron"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA",
@@ -46937,19 +46947,24 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "411",
     "solutionSteps": [
       {
-        "title": "Set up the equation",
-        "body": "Let x = number of right jumps (+5) and y = number of left jumps (−3). We need 5x − 3y = 2023 and minimize x + y.",
+        "title": "Two moves, one target",
+        "body": "Let x be the number of right jumps (+5) and y the number of left jumps (−3). Greta needs a net of +2023 pads, so 5x − 3y = 2023, and she wants x + y as small as possible.",
         "equation": "5x − 3y = 2023"
       },
       {
-        "title": "Make 2023 divisible by 5",
-        "body": "We need 2023 + 3y to be divisible by 5. The smallest y making this work is y = 4, since 2023 + 12 = 2035 and 2035/5 = 407.",
-        "equation": "x = 407, y = 4"
+        "title": "She must overshoot, then come back",
+        "body": "2023 is not a multiple of 5, so right jumps alone can never land on it. After x right jumps she is on pad 5x, and the overshoot 5x − 2023 has to be undone by whole left jumps — so it must be a non-negative multiple of 3. Trying each x in turn: 5·404 = 2020 lands 3 short; 5·405 = 2025 overshoots by 2; 5·406 = 2030 overshoots by 7; 5·407 = 2035 overshoots by 12 = 3 × 4. ✓",
+        "equation": "5(407) − 2023 = 12 = 3 × 4"
       },
       {
-        "title": "Total jumps",
-        "body": "Minimum jumps = 407 + 4 = 411.",
-        "equation": "411 jumps"
+        "title": "No other route can be shorter",
+        "body": "Any other solution is this one plus some copies of a wasted loop: 3 right jumps (+15) followed by 5 left jumps (−15) return Greta to the same pad at a cost of 8 jumps. So the possible totals are 411, 419, 427, … — nothing lies between them, and none of the other answer choices is one of them.",
+        "equation": "3(+5) + 5(−3) = 0, costing 8 jumps"
+      },
+      {
+        "title": "Count the jumps",
+        "body": "407 right jumps carry her to pad 2035, then 4 left jumps bring her back 12 pads to land exactly on pad 2023.",
+        "equation": "407 + 4 = 411 jumps"
       }
     ],
     "animationFrames": [
@@ -46957,7 +46972,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "5(407) − 3(4) = 2035 − 12 = 2023. Total jumps = 411.", "visualHint": "Equation solution." },
       { "title": "Check", "narration": "411 jumps: 407 right and 4 left. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "number-line", "data": { "rightJumps": 407, "leftJumps": 4, "target": 2023 } },
+    "animation": { "type": "two-step-reach", "data": { "right": 5, "left": 3, "target": 2023, "icon": "🦗" } },
     "tags": ["AMC 8", "2023", "number theory", "optimization", "Diophantine"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA"
@@ -46984,19 +46999,24 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "5 : 12",
     "solutionSteps": [
       {
-        "title": "Find the area ratio",
-        "body": "If the outer side is s, the inner side is 2s/3. The area ratio of outer to inner is (3/2)² = 9/4.",
-        "equation": "A_outer/A_inner = 9/4"
+        "title": "Three congruent pieces",
+        "body": "The three cuts run from each outer vertex to the nearest inner vertex, so a 120° turn about the centre carries each trapezoid onto the next — they really are congruent, and each holds exactly a third of the region between the triangles.",
+        "equation": "outer side 3, inner side 2"
       },
       {
-        "title": "Find the region between",
-        "body": "The area between the triangles is 9/4 − 1 = 5/4 times the inner area.",
-        "equation": "A_between = (5/4) × A_inner"
+        "title": "Count in unit triangles, not sides",
+        "body": "Take the small triangle of side 1 as the unit. An equilateral triangle of side n cuts into n² of them, so the outer triangle is 9 units and the inner one is 4. (Sliding the inner triangle into a corner of the outer changes no area and lands it exactly on 4 unit triangles.) The area ratio is 4 : 9 — not the side ratio 2 : 3.",
+        "equation": "3² = 9,  2² = 4"
       },
       {
-        "title": "Area of one trapezoid",
-        "body": "Three congruent trapezoids make up the between-region. Each has area (5/4)/3 = 5/12 of the inner triangle.",
-        "equation": "Ratio = 5 : 12"
+        "title": "What is left over",
+        "body": "The region between the triangles is everything the inner one does not cover: 9 − 4 = 5 unit triangles.",
+        "equation": "9 − 4 = 5"
+      },
+      {
+        "title": "Share it out",
+        "body": "The three congruent trapezoids divide those 5 units equally, so each is 5/3 units against the inner triangle's 4. Multiplying both sides of 5/3 : 4 by 3 clears the fraction.",
+        "equation": "5/3 : 4 = 5 : 12"
       }
     ],
     "animationFrames": [
@@ -47004,7 +47024,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "Area ratio = (3/2)² = 9/4. Between-region = 5/4. Each trapezoid = 5/12 of inner.", "visualHint": "Area calculations." },
       { "title": "Check", "narration": "Ratio is 5:12. The answer is (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "area-model", "data": { "outerRatio": "9/4", "innerArea": "1", "trapezoidArea": "5/12" } },
+    "animation": { "type": "triangle-ring-split", "data": { "outer": 3, "inner": 2, "pieces": 3 } },
     "tags": ["AMC 8", "2023", "geometry", "similar triangles", "area ratios"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA",
@@ -47033,19 +47053,24 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "60",
     "solutionSteps": [
       {
-        "title": "Find current range",
-        "body": "Range = 28 − 3 = 25. Double the range = 50.",
-        "equation": "New range = 50"
+        "title": "What has to stay true",
+        "body": "The range is 28 − 3 = 25, so the new range must be 50. The mode must still be 3 alone, and the median must still be 8.",
+        "equation": "range 25 → 50"
       },
       {
-        "title": "Determine constraints",
-        "body": "Mode stays 3 (so don't add another 8 or change 3's frequency). Median of 7 numbers should be 8 (currently middle of 5 is 8). To maximize the sum, make one number large. The new max must be 3 + 50 = 53.",
-        "equation": "New maximum = 53"
+        "title": "The bigger number is capped at 53",
+        "body": "Both 3 and 28 stay in the list, so the smallest number is at most 3 and the largest is at least 28. Since largest − smallest = 50, the largest is at most 3 + 50 = 53 — and reaching 53 forces the smallest to stay 3. So no inserted number can exceed 53.",
+        "equation": "largest ≤ 3 + 50 = 53"
       },
       {
-        "title": "Find optimal pair",
-        "body": "Need the other number to keep median = 8 and mode = 3. The other should be ≤ 8 but not 3 (to keep mode). Using 7: sum = 7 + 53 = 60.",
-        "equation": "Maximum sum = 60"
+        "title": "The other number is forced down to 8",
+        "body": "With 7 numbers the median is the 4th smallest, so four of them must be ≤ 8. The original list offers only three (3, 3 and 8), so one of the two new numbers has to be ≤ 8 as well. That bounds the sum by 8 + 53 = 61.",
+        "equation": "sum ≤ 8 + 53 = 61"
+      },
+      {
+        "title": "8 ties the mode, so take 7",
+        "body": "Inserting 8 would give the list two 8s alongside two 3s, making it bimodal — so 61 is out. The next value down, 7, keeps 3 as the only mode and leaves 8 in the middle: 3, 3, 7, 8, 11, 28, 53 has range 50, median 8 and mode 3. (Adding another 3 would be fine for the mode too, but 3 + 53 = 56 is smaller.)",
+        "equation": "7 + 53 = 60"
       }
     ],
     "animationFrames": [
@@ -47053,7 +47078,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "New range = 50, so max = 53. Other number = 7 to keep median at 8. Sum = 60.", "visualHint": "Values computed." },
       { "title": "Check", "narration": "7 and 53 give sum 60, satisfying all conditions. The answer is (D).", "visualHint": "Answer D circled." }
     ],
-    "animation": { "type": "number-line", "data": { "original": [3,3,8,11,28], "added": [7,53] } },
+    "animation": { "type": "stat-insert", "data": { "list": [3, 3, 8, 11, 28], "insert": 2, "factor": 2 } },
     "tags": ["AMC 8", "2023", "algebra", "statistics", "range", "mode", "median"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA"
