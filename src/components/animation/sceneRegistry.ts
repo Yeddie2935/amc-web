@@ -82,6 +82,11 @@ import { NetFoldRingScene } from "./scenes/NetFoldRingScene";
 import { TwoStepReachScene } from "./scenes/TwoStepReachScene";
 import { TriangleRingSplitScene } from "./scenes/TriangleRingSplitScene";
 import { StatInsertScene } from "./scenes/StatInsertScene";
+import { MagicSquareLinesScene } from "./scenes/MagicSquareLinesScene";
+import { ProductChainScene } from "./scenes/ProductChainScene";
+import { TilePatternProbScene } from "./scenes/TilePatternProbScene";
+import { TriangleAreaSplitScene } from "./scenes/TriangleAreaSplitScene";
+import { IntervalSqueezeScene } from "./scenes/IntervalSqueezeScene";
 import { DiagonalLetterGridScene } from "./scenes/DiagonalLetterGridScene";
 import { DetourPaceScene } from "./scenes/DetourPaceScene";
 import { OvershootRemoveScene } from "./scenes/OvershootRemoveScene";
@@ -418,6 +423,21 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "stat-insert" && Array.isArray(data.list) && data.list.length >= 3) {
     return StatInsertScene;
+  }
+  if (type === "magic-square-lines" && Array.isArray(data.cards) && Array.isArray(data.square) && data.square.length >= 3) {
+    return MagicSquareLinesScene;
+  }
+  if (type === "product-chain" && num(data.length ?? 0) >= 3 && num(data.target ?? 0) > 1) {
+    return ProductChainScene;
+  }
+  if (type === "tile-pattern-prob" && num(data.grid ?? 0) >= 2 && num(data.options ?? 0) >= 2 && Array.isArray(data.pattern) && data.pattern.length >= 4) {
+    return TilePatternProbScene;
+  }
+  if (type === "triangle-area-split" && num(data.topHeight ?? 0) > 0 && num(data.bottomHeight ?? 0) > 0) {
+    return TriangleAreaSplitScene;
+  }
+  if (type === "interval-squeeze" && Array.isArray(data.bounds) && data.bounds.length >= 2 && num(data.count ?? 0) >= 3) {
+    return IntervalSqueezeScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

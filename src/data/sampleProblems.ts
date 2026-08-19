@@ -47105,18 +47105,23 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "2",
     "solutionSteps": [
       {
-        "title": "Find the required group sum",
-        "body": "Total = 1+2+…+9 = 45. Each group must sum to 45/3 = 15.",
-        "equation": "Group sum = 15"
+        "title": "Each group must add to 15",
+        "body": "The nine cards total 1 + 2 + … + 9 = 45, and the three groups are equal, so each one adds to 45 ÷ 3 = 15.",
+        "equation": "45 ÷ 3 = 15"
       },
       {
-        "title": "Find valid partitions",
-        "body": "The group containing 5 must sum to 15 with two other numbers. The possibilities with 5: {1,5,9}, {2,5,8}, {3,5,7}, {4,5,6}. For each choice, check if the remaining 6 numbers can form two groups of 15.",
-        "equation": ""
+        "title": "The eight triples are the lines of a magic square",
+        "body": "Of the 84 triples of cards, only 8 add to 15: {1,5,9}, {1,6,8}, {2,4,9}, {2,5,8}, {2,6,7}, {3,4,8}, {3,5,7}, {4,5,6}. Those are exactly the 3 rows, 3 columns and 2 diagonals of the 3 × 3 magic square 2 7 6 / 9 5 1 / 4 3 8. So a valid split is three of these lines that between them cover all nine cells.",
+        "equation": "8 triples = 3 rows + 3 columns + 2 diagonals"
       },
       {
-        "title": "Count arrangements",
-        "body": "With {1,5,9}: remaining {2,3,4,6,7,8} → {3,4,8} and {2,6,7}. With {3,5,7}: remaining {1,2,4,6,8,9} → {1,6,8} and {2,4,9}. The other two choices for the 5-group don't yield valid partitions. So there are 2 ways.",
+        "title": "Follow the card in the centre",
+        "body": "Card 5 sits at the centre of the square, so its group is one of the four lines through the middle: the middle row {1,5,9}, the middle column {3,5,7}, or a diagonal, {2,5,8} or {4,5,6}. Take a diagonal and the six cards left over contain no triple adding to 15 at all — both diagonals are dead ends.",
+        "equation": "diagonals leave 0 usable triples"
+      },
+      {
+        "title": "Two ways: the rows, or the columns",
+        "body": "Take the middle row {1,5,9} and the only triples left inside the remaining six cards are {2,6,7} and {3,4,8} — the other two rows. Take the middle column {3,5,7} and what is left is {1,6,8} and {2,4,9} — the other two columns. Each choice forces everything else, so there are exactly 2 ways.",
         "equation": "2 ways"
       }
     ],
@@ -47125,7 +47130,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "Systematically find partitions: {1,5,9},{3,4,8},{2,6,7} and {3,5,7},{1,6,8},{2,4,9}.", "visualHint": "Two valid groupings shown." },
       { "title": "Check", "narration": "Exactly 2 ways. The answer is (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "generic", "data": {} },
+    "animation": { "type": "magic-square-lines", "data": { "cards": [1, 2, 3, 4, 5, 6, 7, 8, 9], "groups": 3, "square": ["2,7,6", "9,5,1", "4,3,8"] } },
     "tags": ["AMC 8", "2023", "counting", "combinatorics", "partitions"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA"
@@ -47152,19 +47157,24 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "5",
     "solutionSteps": [
       {
-        "title": "Express terms in terms of A and B",
-        "body": "Let the first two terms be A and B. Then: a₃ = AB, a₄ = AB², a₅ = A²B³, a₆ = A³B⁵.",
-        "equation": "a₆ = A³B⁵ = 4000"
+        "title": "Write every term with the first two",
+        "body": "Call the first two terms A and B. Multiplying each pair in turn gives a₃ = AB, a₄ = AB², a₅ = A²B³ and a₆ = A³B⁵.",
+        "equation": "a₆ = A³B⁵"
       },
       {
-        "title": "Factor 4000",
-        "body": "4000 = 2⁵ × 5³.",
-        "equation": "4000 = 2⁵ × 5³"
+        "title": "Multiplying terms adds the exponents",
+        "body": "Because each term is a product, the exponent of A in a term is the sum of its two predecessors' exponents of A — and likewise for B. So the exponents climb the Fibonacci numbers: A runs 1, 0, 1, 1, 2, 3 and B runs 0, 1, 1, 2, 3, 5. That is why a₆ is A³B⁵ rather than anything else.",
+        "equation": "A: 1,0,1,1,2,3   B: 0,1,1,2,3,5"
       },
       {
-        "title": "Solve",
-        "body": "Comparing A³B⁵ = 2⁵ × 5³: if A = 5 and B = 2, then 5³ × 2⁵ = 125 × 32 = 4000. ✓",
-        "equation": "A = 5, B = 2"
+        "title": "Match the exponents against 4000",
+        "body": "4000 = 2⁵ × 5³, which carries exactly the two exponents the chain needs, 5 and 3. The exponent 5 belongs to B and the exponent 3 to A, so B = 2 and A = 5. Swapping them gives 2³ × 5⁵ = 25,000 instead, so the order matters, and no other pair of positive integers works.",
+        "equation": "A³B⁵ = 5³ × 2⁵ = 4000"
+      },
+      {
+        "title": "Run the sequence forward",
+        "body": "Starting from 5 and 2: 5, 2, 10, 20, 200, 4000. The sixth term is 4000, so the first term is 5.",
+        "equation": "5, 2, 10, 20, 200, 4000"
       }
     ],
     "animationFrames": [
@@ -47172,7 +47182,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "a₆ = A³B⁵. Since 4000 = 5³ × 2⁵, A = 5 and B = 2.", "visualHint": "Factoring and matching." },
       { "title": "Check", "narration": "5, 2, 10, 20, 200, 4000. ✓ The answer is (D).", "visualHint": "Sequence verified." }
     ],
-    "animation": { "type": "equation", "data": { "a1": "5", "a2": "2", "a6": "4000" } },
+    "animation": { "type": "product-chain", "data": { "length": 6, "target": 4000 } },
     "tags": ["AMC 8", "2023", "algebra", "sequences", "exponents"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA"
@@ -47187,7 +47197,7 @@ const amc2023Problems: Problem[] = [
     "category": "Counting & Probability",
     "subcategory": "Probability",
     "difficulty": 5,
-    "statement": "See below:",
+    "statement": "Each square in a 3 × 3 grid is randomly filled with one of the 4 gray and white tiles shown below on the right. What is the probability that the tiling will contain a large gray diamond in one of the smaller 2 × 2 grids? Below is an example of such a tiling.",
     "choices": [
       { "label": "A", "text": "1/1024" },
       { "label": "B", "text": "1/256" },
@@ -47199,19 +47209,24 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "1/64",
     "solutionSteps": [
       {
-        "title": "Count 2×2 sub-grids",
-        "body": "In a 3×3 grid, there are 4 possible 2×2 sub-grids (top-left, top-right, bottom-left, bottom-right).",
-        "equation": "4 sub-grids"
+        "title": "Every tiling is equally likely",
+        "body": "Each of the 9 squares independently takes one of the 4 tiles, so there are 4⁹ = 262,144 tilings and each is equally likely. The 4 tiles are the four rotations of the same half-gray square, so a tile is described by which corner its gray triangle sits in.",
+        "equation": "4⁹ = 262,144 tilings"
       },
       {
-        "title": "Probability for each sub-grid",
-        "body": "Each of the 4 tiles in a 2×2 must be the correct orientation to form a diamond. Each tile has 1 correct choice out of 4. But the 5 remaining squares can be anything.",
-        "equation": "P(one sub-grid) = (1/4)⁴ for each"
+        "title": "One named 2 × 2 block gives a diamond with probability 1/256",
+        "body": "A diamond fills a 2 × 2 block exactly when all four of its tiles turn their gray corner toward the block's centre — the top-left tile pointing bottom-right, the top-right tile pointing bottom-left, and so on. Each of those four tiles has 1 right orientation out of 4, and the other 5 squares of the grid may be anything, so a particular block gives a diamond with probability (1/4)⁴ = 1/256.",
+        "equation": "(1/4)⁴ = 1/256"
       },
       {
-        "title": "Use inclusion-exclusion",
-        "body": "The 4 cases don't overlap (a diamond in one 2×2 sub-grid is independent of others sharing some tiles). Total: 4 × (1/4)⁴ × 4⁵ / 4⁹ ... Actually: P = 4 × 4⁵ / 4⁹ = 4/4⁴ = 1/64.",
-        "equation": "P = 1/64"
+        "title": "The middle square rules out every double",
+        "body": "A 3 × 3 grid holds 4 of these blocks, and the centre square belongs to all four of them. Each block needs that centre tile pointing at its own middle — the top-left block wants its top-left corner, the top-right block its top-right corner, and likewise for the other two. Those are four different orientations of one square, so the centre tile alone names the only block that could possibly hold a diamond, and no two blocks can hold one at the same time.",
+        "equation": "4 blocks, 4 different demands on one square"
+      },
+      {
+        "title": "Add the four disjoint chances",
+        "body": "Because the four events cannot overlap, their probabilities simply add: 4 × 1/256 = 4/256 = 1/64. (Counting tilings instead: 4 × 4⁵ = 4,096 of the 262,144 tilings contain a diamond.)",
+        "equation": "4 × 1/256 = 1/64"
       }
     ],
     "animationFrames": [
@@ -47219,7 +47234,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "4 sub-grids, each needs specific tiles. P = 4 × (1/4)⁴ × 4⁵ / 4⁹ = 1/64.", "visualHint": "Probability calculation." },
       { "title": "Check", "narration": "The probability is 1/64. The answer is (C).", "visualHint": "Answer C circled." }
     ],
-    "animation": { "type": "probability", "data": { "favorable": 4, "total": 256, "probability": "1/64" } },
+    "animation": { "type": "tile-pattern-prob", "data": { "grid": 3, "options": 4, "window": 2, "pattern": [3, 2, 1, 0], "sample": [0, 1, 2, 3, 1, 0, 3, 2, 1] } },
     "tags": ["AMC 8", "2023", "counting", "probability", "geometric probability"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA",
@@ -47248,19 +47263,24 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "14.6",
     "solutionSteps": [
       {
-        "title": "Set up similar triangles",
-        "body": "The unshaded top triangle has height 11, and the unshaded bottom strip has height 5. The shaded regions have equal area.",
-        "equation": ""
+        "title": "Read the two shaded pieces",
+        "body": "The figure shows the same triangle twice. In the left copy the cut sits 11 below the apex and everything *below* it is shaded, so that piece is the whole triangle minus the small triangle of height 11. In the right copy the unshaded strip along the base has height 5, so the shaded piece is the triangle of height h − 5. The two shaded pieces are equal.",
+        "equation": "whole − T(11) = T(h − 5)"
       },
       {
-        "title": "Use area relationships",
-        "body": "The top unshaded triangle has area proportional to (11/h)² × [ABC]. The bottom unshaded region relates to the bottom strip of height 5. Setting the two shaded areas equal gives the equation.",
-        "equation": "1 − (11/h)² = ((h−5)/h)²"
+        "title": "A similar triangle's area is the square of its height ratio",
+        "body": "Each cut is parallel to AC, so each cut-off top is similar to △ABC. Scaling a triangle stretches its height and its width by the same factor, so the area scales by the square of that factor: the triangle of height x has area (x/h)² of the whole.",
+        "equation": "area of T(x) = (x/h)² × [ABC]"
       },
       {
-        "title": "Solve the equation",
-        "body": "Expanding: 1 − 121/h² = (h−5)²/h². So h² − 121 = h² − 10h + 25. This gives 10h = 146, so h = 14.6.",
-        "equation": "h = 14.6"
+        "title": "The whole is the two tops put together",
+        "body": "Rearranging the first line, [ABC] = T(11) + T(h − 5) — the big triangle has exactly the combined area of the two cut-off tops. Since areas go as the squares of the heights, that is the same as saying a square of side h equals a square of side 11 plus a square of side h − 5.",
+        "equation": "h² = 11² + (h − 5)²"
+      },
+      {
+        "title": "The h² cancels, so it is only linear",
+        "body": "Expanding the right side gives 121 + h² − 10h + 25. The h² appears on both sides and cancels, leaving 10h = 146, so h = 14.6. Checking: the cut-off top on the right stands 9.6 tall, and 11² + 9.6² = 121 + 92.16 = 213.16 = 14.6².",
+        "equation": "10h = 146,  h = 14.6"
       }
     ],
     "animationFrames": [
@@ -47268,7 +47288,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "Set up equation: 1 − (11/h)² = ((h−5)/h)². Solve: 10h = 146, h = 14.6.", "visualHint": "Equation solved." },
       { "title": "Check", "narration": "h = 14.6. The answer is (A).", "visualHint": "Answer A circled." }
     ],
-    "animation": { "type": "area-model", "data": { "height": "14.6", "topUnshaded": "11", "bottomUnshaded": "5" } },
+    "animation": { "type": "triangle-area-split", "data": { "topHeight": 11, "bottomHeight": 5 } },
     "tags": ["AMC 8", "2023", "geometry", "similar triangles", "area"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA",
@@ -47297,19 +47317,24 @@ const amc2023Problems: Problem[] = [
     "shortAnswer": "8",
     "solutionSteps": [
       {
-        "title": "Set up the arithmetic sequence",
-        "body": "Let a₁ = a and common difference = d. Then a₂ = a + d and a₁₅ = a + 14d.",
-        "equation": ""
+        "title": "Two unknowns, three windows",
+        "body": "Equally spaced means aᵢ = a₁ + (i − 1)d, so the whole sequence is fixed by the first term a₁ and the step d. The three windows have to pin both down exactly, because a₁₄ has no window of its own.",
+        "equation": "aᵢ = a₁ + (i − 1)d"
       },
       {
-        "title": "Use the constraints",
-        "body": "From a₂ − a₁: d = a₂ − a₁, with 13 ≤ a+d ≤ 20 and 1 ≤ a ≤ 10. Also 241 ≤ a+14d ≤ 250. From a₁₅ − a₂ = 13d, we get 221 ≤ 13d ≤ 237, so 17 ≤ d ≤ 18.2, meaning d = 17 or 18.",
-        "equation": "d = 17"
+        "title": "Any two windows squeeze the step",
+        "body": "Two windows bound the gap between their terms, and that gap is a whole number of steps, so dividing bounds d. The further apart the two terms, the more steps share the gap and the tighter the squeeze. Using a₁ and a₁₅, which are 14 steps apart: 241 − 10 ≤ 14d ≤ 250 − 1, so 16.5 ≤ d ≤ 17.79 — and 17 is the only integer in that range. (The nearer pair a₂ and a₁₅ only narrows d to 17 or 18, which is why it is worth reaching for the widest pair.)",
+        "equation": "231 ≤ 14d ≤ 249,  so d = 17"
       },
       {
-        "title": "Determine a and find a₁₄",
-        "body": "If d = 17: a₁₅ = a + 238. For 241 ≤ a + 238 ≤ 250: 3 ≤ a ≤ 12. Combined with 1 ≤ a ≤ 10: 3 ≤ a ≤ 10. Check a₂: a + 17 must be 13–20, so a ≤ 3. Thus a = 3. a₁₄ = 3 + 13(17) = 3 + 221 = 224. Digit sum = 2+2+4 = 8.",
-        "equation": "a₁₄ = 224, digit sum = 8"
+        "title": "Now every window becomes a window on a₁",
+        "body": "With d = 17, subtract the appropriate multiple of 17 from each window. From a₁ itself: 1 ≤ a₁ ≤ 10. From a₂: 13 − 17 ≤ a₁ ≤ 20 − 17, so −4 ≤ a₁ ≤ 3. From a₁₅: 241 − 238 ≤ a₁ ≤ 250 − 238, so 3 ≤ a₁ ≤ 12. The three overlap in exactly one integer, a₁ = 3.",
+        "equation": "a₁ = 3"
+      },
+      {
+        "title": "Read off a₁₄",
+        "body": "The sequence is 3, 20, 37, …, and a₁₄ = 3 + 13 × 17 = 3 + 221 = 224. Its digits add to 2 + 2 + 4 = 8. (Checking the windows: a₁ = 3 ∈ [1, 10], a₂ = 20 ∈ [13, 20], a₁₅ = 241 ∈ [241, 250].)",
+        "equation": "a₁₄ = 224,  2 + 2 + 4 = 8"
       }
     ],
     "animationFrames": [
@@ -47317,7 +47342,7 @@ const amc2023Problems: Problem[] = [
       { "title": "Solve", "narration": "d = 17, a = 3. a₁₄ = 3 + 13×17 = 224. Digit sum = 8.", "visualHint": "Computation shown." },
       { "title": "Check", "narration": "Sum of digits of 224 is 8. The answer is (A).", "visualHint": "Answer A circled." }
     ],
-    "animation": { "type": "number-line", "data": { "a1": 3, "d": 17, "a14": 224 } },
+    "animation": { "type": "interval-squeeze", "data": { "count": 15, "bounds": ["1|1|10", "2|13|20", "15|241|250"], "ask": 14 } },
     "tags": ["AMC 8", "2023", "number theory", "arithmetic sequences", "inequalities"],
     "sourceName": "2023 AMC 8",
     "license": "CC BY-NC-SA"

@@ -117,6 +117,11 @@ export type AnimationTemplateType =
   | "two-step-reach"
   | "triangle-ring-split"
   | "stat-insert"
+  | "magic-square-lines"
+  | "product-chain"
+  | "tile-pattern-prob"
+  | "triangle-area-split"
+  | "interval-squeeze"
   | "cube-net"
   | "solid-3d"
   | "generic";
