@@ -111,6 +111,7 @@ export type AnimationTemplateType =
   | "units-digit-run"
   | "midpoint-rect"
   | "dot-plot-shift"
+  | "magic-grid-slide"
   | "spiral-grid"
   | "sample-ratio"
   | "power-slots"

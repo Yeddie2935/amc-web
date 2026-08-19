@@ -123,6 +123,7 @@ import { OverlapPairsScene } from "./scenes/OverlapPairsScene";
 import { UnitsDigitRunScene } from "./scenes/UnitsDigitRunScene";
 import { MidpointRectScene } from "./scenes/MidpointRectScene";
 import { DotPlotShiftScene } from "./scenes/DotPlotShiftScene";
+import { MagicGridSlideScene } from "./scenes/MagicGridSlideScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -494,6 +495,14 @@ export function resolveScene(problem: Problem): AnimatedScene {
     num(data.targetMedian ?? 0) > 0
   ) {
     return DotPlotShiftScene;
+  }
+  // a square grid with at least one blank and the named unknown present
+  if (type === "magic-grid-slide" && Array.isArray(data.grid) && data.grid.length >= 2) {
+    const g = data.grid.map((r) => String(r).split(","));
+    const xn = data.unknown != null ? String(data.unknown) : "x";
+    const square = g.every((r) => r.length === g.length);
+    const flat = g.flat().map((s) => s.trim());
+    if (square && flat.includes(xn) && flat.filter((s) => s === "?").length >= 1) return MagicGridSlideScene;
   }
   if (type === "spiral-grid" && num(data.size ?? 0) >= 3 && Array.isArray(data.marked) && data.marked.length >= 2) {
     return SpiralGridScene;

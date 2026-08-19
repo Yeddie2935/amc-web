@@ -45911,18 +45911,23 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "8",
     "solutionSteps": [
       {
-        "title": "Set up the grid",
-        "body": "The grid has: Row 1: −2, 9, 5; Row 2: ?, ?, −1; Row 3: x, ?, 8. All row sums and column sums must be equal.",
-        "equation": "Row 1 sum = −2 + 9 + 5 = 12"
+        "title": "Two full lines give the common sum",
+        "body": "The top row is already complete: −2 + 9 + 5 = 12. So is the right column: 5 + (−1) + 8 = 12. They agree, so every row and every column must add to 12.",
+        "equation": "every line = 12"
       },
       {
-        "title": "Find missing values",
-        "body": "Let y be the lower middle value. Column 1: −2 + a + x = 12, Column 3: 5 + (−1) + 8 = 12. Row 3: x + y + 8 = 12, so y = 4 − x. Column 2: 9 + b + y = 12.",
-        "equation": "Common sum = 12"
+        "title": "The grid fills itself",
+        "body": "Each blank sits in a line with only one blank left, so they fall out one at a time. Column 1 gives the middle-left cell 12 − (−2) − x = 14 − x; row 3 gives the bottom-middle 12 − x − 8 = 4 − x; column 2 then gives the middle cell 12 − 9 − (4 − x) = x − 1. Row 2 was never needed, and it checks out: (14 − x) + (x − 1) + (−1) = 12 for every x.",
+        "equation": "14 − x, x − 1, 4 − x"
       },
       {
-        "title": "Apply constraint x > others",
-        "body": "From the equations: a = 14 − x, b = x − 1, y = 4 − x. Need x > 14 − x, x > x − 1, x > 4 − x. The binding constraint is x > 14 − x, so x > 7. Smallest integer is x = 8.",
+        "title": "Slide x and watch the others move",
+        "body": "The three others are not fixed — they move with x. As x climbs, x − 1 trails just below it and 4 − x drops away, but 14 − x falls toward x, so those two race at each other. They meet where x = 14 − x, that is at x = 7.",
+        "equation": "x = 14 − x at x = 7"
+      },
+      {
+        "title": "Take the first integer past the crossing",
+        "body": "x must be strictly greater than 14 − x, so x > 7 and the smallest integer is x = 8. That fills the grid with 6, 7 and −4, all below 8, and every row and column adds to 12.",
         "equation": "x > 7 → x = 8"
       }
     ],
@@ -45931,7 +45936,10 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "Row 1 sums to 12. Express unknowns in terms of x. x must exceed all three others: x > 7.", "visualHint": "Inequalities shown." },
       { "title": "Check", "narration": "Smallest x = 8. The answer is (D).", "visualHint": "8; choice D circled." }
     ],
-    "animation": { "type": "generic", "data": { "answer": 8 } },
+    "animation": {
+      "type": "magic-grid-slide",
+      "data": { "grid": ["-2,9,5", "?,?,-1", "x,?,8"], "unknown": "x" }
+    },
     "tags": ["AMC 8", "2022", "algebra", "systems of equations"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA",
