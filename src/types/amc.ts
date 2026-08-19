@@ -127,6 +127,9 @@ export type AnimationTemplateType =
   | "factor-triple"
   | "reflect-compose"
   | "age-bars"
+  | "spaced-ratio"
+  | "unit-chain"
+  | "telescope-product"
   | "cube-net"
   | "solid-3d"
   | "generic";

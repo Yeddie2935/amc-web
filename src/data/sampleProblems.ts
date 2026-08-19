@@ -45125,14 +45125,24 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "6",
     "solutionSteps": [
       {
-        "title": "Set up equation",
-        "body": "Let the smallest be x. The largest is 4x. Since they are equally spaced with middle 15, the middle is the average: (x + 4x)/2 = 15.",
-        "equation": "5x/2 = 15"
+        "title": "The middle is fixed, the spacing is not",
+        "body": "Knowing the middle number is 15 does not pin anything down on its own — the two outer numbers can sit any equal distance either side of it. The second fact, that the largest is 4 times the smallest, is what settles which spacing is the right one.",
+        "equation": ""
       },
       {
-        "title": "Solve",
-        "body": "5x = 30, so x = 6.",
-        "equation": "x = 6"
+        "title": "Equal spacing makes 15 the average",
+        "body": "The two outer numbers are the same distance from 15, one below and one above, so 15 is exactly halfway between them. That means they add to 2 × 15 = 30 — and this is true whatever the spacing turns out to be, so it can be used before the spacing is known.",
+        "equation": "smallest + largest = 2 × 15 = 30"
+      },
+      {
+        "title": "The ratio cuts 30 into equal parts",
+        "body": "The largest is 4 times the smallest, so the two of them are 1 part and 4 parts of the same size — 5 equal parts altogether. Since they total 30, each part is 30 ÷ 5 = 6, making the smallest 6 and the largest 24.",
+        "equation": "30 ÷ 5 = 6"
+      },
+      {
+        "title": "Check the three numbers",
+        "body": "The three numbers are 6, 15, 24. The gaps are 15 − 6 = 9 and 24 − 15 = 9, so they really are equally spaced, and 4 × 6 = 24. Note that both numbers met along the way, the 4 and the 5, are themselves answer choices — so it is worth finishing the division rather than stopping early.",
+        "equation": "6, 15, 24"
       }
     ],
     "animationFrames": [
@@ -45140,7 +45150,7 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "Since they're equally spaced, 15 is the average: 5x = 30, x = 6.", "visualHint": "Equation solved." },
       { "title": "Check", "narration": "6, 15, 24: equally spaced (difference 9) and 24 = 4 × 6. Answer is (C).", "visualHint": "6; choice C circled." }
     ],
-    "animation": { "type": "number-line", "data": { "points": [6, 15, 24] } },
+    "animation": { "type": "spaced-ratio", "data": { "middle": 15, "ratio": 4 } },
     "tags": ["AMC 8", "2022", "algebra", "linear equations"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA"
@@ -45167,19 +45177,24 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "10 minutes",
     "solutionSteps": [
       {
-        "title": "Convert to kilobits",
-        "body": "4.2 megabytes = 4.2 × 8000 = 33,600 kilobits.",
-        "equation": "4.2 × 8000 = 33600"
+        "title": "Measure the song in the units the speed uses",
+        "body": "The speed is given in kilobits per second, so the song has to be measured in kilobits too — otherwise there is nothing to divide. The note says a megabyte is 8000 kilobits, so 4.2 megabytes is 4.2 × 8000 = 33,600 kilobits. Notice the megabytes cancel: megabytes × (kilobits per megabyte) leaves kilobits.",
+        "equation": "4.2 × 8000 = 33,600 kilobits"
       },
       {
-        "title": "Find seconds",
-        "body": "33,600 ÷ 56 = 600 seconds.",
-        "equation": "33600 ÷ 56 = 600"
+        "title": "Divide by the speed to get seconds",
+        "body": "The modem delivers 56 kilobits every second, so the number of seconds is just how many 56s fit into 33,600. That gives 33,600 ÷ 56 = 600 seconds. Again the units do the bookkeeping: kilobits ÷ (kilobits per second) leaves seconds.",
+        "equation": "33,600 ÷ 56 = 600 seconds"
       },
       {
-        "title": "Convert to minutes",
-        "body": "600 ÷ 60 = 10 minutes.",
-        "equation": "600 ÷ 60 = 10"
+        "title": "Convert seconds to minutes",
+        "body": "The question asks for minutes, not seconds, so group the 600 seconds into minutes of 60 seconds each: 600 ÷ 60 = 10 minutes.",
+        "equation": "600 ÷ 60 = 10 minutes"
+      },
+      {
+        "title": "Check the chain",
+        "body": "Reading the whole chain back, each step cancels the unit it arrives with: 4.2 megabytes → 33,600 kilobits → 600 seconds → 10 minutes. Multiplying by 60 instead of dividing gives 36,000, which is choice E. Note that 600 — the answer in seconds — is deliberately not offered, so stopping one step early leaves nothing to pick.",
+        "equation": "10 minutes"
       }
     ],
     "animationFrames": [
@@ -45187,7 +45202,7 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "33600 kilobits ÷ 56 kbps = 600 seconds = 10 minutes.", "visualHint": "Step-by-step division." },
       { "title": "Check", "narration": "The answer is (B) 10.", "visualHint": "10; choice B circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 10 } },
+    "animation": { "type": "unit-chain", "data": { "start": 4.2, "startUnit": "megabytes", "subject": "song", "icon": "\ud83c\udfb5", "chain": ["\u00d7|8000|kilobits|8000 kilobits in a megabyte", "\u00f7|56|seconds|56 kilobits arrive every second", "\u00f7|60|minutes|60 seconds in a minute"] } },
     "tags": ["AMC 8", "2022", "algebra", "unit conversion"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA"
@@ -45214,14 +45229,24 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "1/231",
     "solutionSteps": [
       {
-        "title": "Identify cancellation",
-        "body": "The numerators run from 1 to 20 and the denominators from 3 to 22. Common factors from 3 to 20 cancel.",
-        "equation": "Numerator: 1·2·3·⋯·20, Denominator: 3·4·5·⋯·22"
+        "title": "Every term is k over k + 2",
+        "body": "The factors are 1/3, 2/4, 3/5, and so on up to 20/22 \u2014 that is k/(k+2) for k from 1 to 20. So the numerators run 1, 2, 3, \u2026, 20 and the denominators run 3, 4, 5, \u2026, 22: the same list of numbers, shifted along by two.",
+        "equation": "k / (k + 2), k = 1 to 20"
       },
       {
-        "title": "Simplify",
-        "body": "After cancellation: (1 · 2) / (21 · 22) = 2/462 = 1/231.",
-        "equation": "1·2 / (21·22) = 2/462 = 1/231"
+        "title": "Each numerator cancels a denominator two terms back",
+        "body": "Because the bottom runs two ahead of the top, the numerator k is the same number as the denominator of the term two places earlier (that term is (k\u22122)/k). So 3 on top cancels the 3 underneath the first factor, 4 cancels the 4 under the second, and this continues all the way along \u2014 every number from 3 to 20 appears once on top and once underneath.",
+        "equation": "3, 4, 5, \u2026, 20 all cancel"
+      },
+      {
+        "title": "Count what is left unmatched",
+        "body": "The pairing only fails at the two ends. The numerators 1 and 2 would need denominators 1 and 2, but the denominators start at 3. The denominators 21 and 22 would need numerators 21 and 22, but the numerators stop at 20. A gap of 2 therefore leaves exactly 2 survivors on top and 2 underneath \u2014 this is the whole problem, and it is why the answer is not the usual single number over a single number.",
+        "equation": "(1 \u00b7 2) / (21 \u00b7 22)"
+      },
+      {
+        "title": "Multiply out and reduce",
+        "body": "That leaves 2/462, and dividing both parts by 2 gives 1/231. Two of the wrong choices come from miscounting the survivors: keeping only the 1 on top gives 1/462, and applying the ordinary adjacent-telescoping rule of first numerator over last denominator gives 1/22.",
+        "equation": "2/462 = 1/231"
       }
     ],
     "animationFrames": [
@@ -45229,7 +45254,7 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "Factors 3 through 20 cancel, leaving 1·2 in numerator and 21·22 in denominator.", "visualHint": "Cancellation shown." },
       { "title": "Check", "narration": "2/462 = 1/231. The answer is (B).", "visualHint": "1/231; choice B circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": "1/231" } },
+    "animation": { "type": "telescope-product", "data": { "from": 1, "to": 20, "gap": 2 } },
     "tags": ["AMC 8", "2022", "algebra", "telescoping products"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA",

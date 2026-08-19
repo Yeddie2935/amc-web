@@ -92,6 +92,9 @@ import { OperationMachineScene } from "./scenes/OperationMachineScene";
 import { FactorTripleScene } from "./scenes/FactorTripleScene";
 import { ReflectComposeScene } from "./scenes/ReflectComposeScene";
 import { AgeBarsScene } from "./scenes/AgeBarsScene";
+import { SpacedRatioScene } from "./scenes/SpacedRatioScene";
+import { UnitChainScene } from "./scenes/UnitChainScene";
+import { TelescopeProductScene } from "./scenes/TelescopeProductScene";
 import { DiagonalLetterGridScene } from "./scenes/DiagonalLetterGridScene";
 import { DetourPaceScene } from "./scenes/DetourPaceScene";
 import { OvershootRemoveScene } from "./scenes/OvershootRemoveScene";
@@ -462,6 +465,15 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "age-bars" && Array.isArray(data.people) && data.people.length >= 2 && num(data.total ?? 0) > 0) {
     return AgeBarsScene;
+  }
+  if (type === "spaced-ratio" && num(data.middle ?? 0) > 0 && num(data.ratio ?? 0) > 1) {
+    return SpacedRatioScene;
+  }
+  if (type === "unit-chain" && Array.isArray(data.chain) && data.chain.length >= 2 && num(data.start ?? 0) > 0) {
+    return UnitChainScene;
+  }
+  if (type === "telescope-product" && num(data.to ?? 0) > num(data.from ?? 0) && num(data.gap ?? 0) >= 1) {
+    return TelescopeProductScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
