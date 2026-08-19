@@ -44861,18 +44861,23 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "10",
     "solutionSteps": [
       {
-        "title": "Count full squares",
-        "body": "There are 4 whole squares inside the logo, contributing 4 square inches.",
+        "title": "Every corner sits on a grid line",
+        "body": "The logo's outline turns only at grid points, and each slanted edge runs corner to corner across a single square. So every square the logo touches is either covered completely or cut exactly in half along a diagonal — there are no awkward fractions to estimate.",
+        "equation": ""
+      },
+      {
+        "title": "Count the whole squares",
+        "body": "Four squares in the middle of the logo are covered completely: 4 square inches.",
         "equation": "4 × 1 = 4"
       },
       {
-        "title": "Count half squares",
-        "body": "There are 12 half-squares along the diagonal edges. Each pair makes one full square: 12 ÷ 2 = 6 square inches.",
-        "equation": "12 ÷ 2 = 6"
+        "title": "Count the half squares",
+        "body": "Around the four arms, 12 more squares are each cut in half by a diagonal edge, giving 12 halves.",
+        "equation": "12 × ½"
       },
       {
-        "title": "Add the areas",
-        "body": "Total area = 4 + 6 = 10 square inches.",
+        "title": "Pair the halves up",
+        "body": "The half squares come in matching corners — one with its right angle at the bottom-right fits exactly against one with its right angle at the top-left — so the 12 halves pair off into 6 whole squares. Altogether the logo covers 4 + 6 = 10 square inches.",
         "equation": "4 + 6 = 10"
       }
     ],
@@ -44881,7 +44886,7 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "Count 4 full squares and 12 half squares (= 6 full).", "visualHint": "Full and half squares colored differently." },
       { "title": "Check", "narration": "4 + 6 = 10. The answer is (A).", "visualHint": "Total 10; choice A circled." }
     ],
-    "animation": { "type": "area-model", "data": { "fullSquares": 4, "halfSquares": 12, "total": 10 } },
+    "animation": { "type": "grid-polygon-area", "data": { "grid": 6, "outline": [[2,1],[1,2],[2,3],[1,4],[2,5],[3,4],[4,5],[5,4],[4,3],[5,2],[4,1],[3,2]], "unit": "square inches" } },
     "tags": ["AMC 8", "2022", "geometry", "area on a grid"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA",
@@ -44910,14 +44915,24 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "100",
     "solutionSteps": [
       {
-        "title": "Compute 5 ◆ 3",
-        "body": "5 ◆ 3 = 5² − 3² = 25 − 9 = 16.",
+        "title": "The two machines are not the same",
+        "body": "◆ squares first and subtracts after; ★ subtracts first and squares after. That is the whole problem. Feed both the same pair and they disagree: 5 ◆ 3 = 25 − 9 = 16, while 5 ★ 3 = (5 − 3)² = 4. As areas, ◆ is a big square with a smaller one lifted out of its corner, and ★ is a single square built on the shortened side.",
+        "equation": "a ◆ b = a² − b²,  a ★ b = (a − b)²"
+      },
+      {
+        "title": "Work the inside first: 5 ◆ 3",
+        "body": "The brackets say start with ◆. Take the 5 × 5 square of 25 unit squares and lift the 3 × 3 corner of 9 out of it; the L-shape left behind holds 16.",
         "equation": "25 − 9 = 16"
       },
       {
-        "title": "Compute 16 ★ 6",
-        "body": "16 ★ 6 = (16 − 6)² = 10² = 100.",
-        "equation": "(16 − 6)² = 100"
+        "title": "Feed that 16 into ★ with 6",
+        "body": "Now the ★ machine takes the 16 and the 6. It subtracts first — 16 − 6 = 10 — and only then squares, so the answer is the area of a 10 × 10 square.",
+        "equation": "(16 − 6)² = 10² = 100"
+      },
+      {
+        "title": "Every other choice is a mis-picked machine",
+        "body": "The five answer choices are exactly the five ways of getting the machines wrong: using ◆ twice gives 16² − 6² = 220, using ★ twice gives (4 − 6)² = 4, using ★ then ◆ gives 4² − 6² = −20, and stopping after the first machine leaves 16. Only ◆ then ★ gives 100.",
+        "equation": "(5 ◆ 3) ★ 6 = 100"
       }
     ],
     "animationFrames": [
@@ -44925,7 +44940,7 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "First 5 ◆ 3 = 16, then 16 ★ 6 = 100.", "visualHint": "Step-by-step computation." },
       { "title": "Check", "narration": "The answer is (D) 100.", "visualHint": "100; choice D circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 100 } },
+    "animation": { "type": "operation-machine", "data": { "a": 5, "b": 3, "c": 6, "first": "sq-diff", "second": "diff-sq", "symbols": ["◆", "★"] } },
     "tags": ["AMC 8", "2022", "algebra", "custom operations"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA"
@@ -44952,14 +44967,24 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "4",
     "solutionSteps": [
       {
-        "title": "List divisors of 100",
-        "body": "The positive divisors of 100 are 1, 2, 4, 5, 10, 20, 25, 50, 100.",
+        "title": "Everything is built from 2² × 5²",
+        "body": "100 = 2² × 5², so a, b and c just share out those four prime factors between them. In particular each of them is one of the nine divisors 1, 2, 4, 5, 10, 20, 25, 50, 100.",
         "equation": "100 = 2² × 5²"
       },
       {
-        "title": "Find valid triples",
-        "body": "With a < b < c: (1, 2, 50), (1, 4, 25), (1, 5, 20), (2, 5, 10). That gives 4 ways.",
-        "equation": "4 triples"
+        "title": "a is stuck below the cube root",
+        "body": "Since a is the smallest, a × a × a is smaller than a × b × c = 100, so a³ < 100 and a < 4.65. The only divisors that small are 1, 2 and 4 — every larger divisor already overshoots 100 when cubed, so nothing else can start a triple.",
+        "equation": "a³ < 100,  so a is 1, 2 or 4"
+      },
+      {
+        "title": "For each a, b lives in a short window",
+        "body": "Once a is fixed, b × c = 100/a, and b is the smaller of the two, so b² < 100/a. With a = 1: 1 < b < 10, and the divisors 2, 4, 5 give (1,2,50), (1,4,25), (1,5,20). With a = 2: 2 < b < 7.07, and only 5 fits, giving (2,5,10). With a = 4: 4 < b < 5, and no divisor fits at all, so the search stops there.",
+        "equation": "3 + 1 + 0 = 4"
+      },
+      {
+        "title": "Four ways",
+        "body": "The four triples are (1,2,50), (1,4,25), (1,5,20) and (2,5,10) — the same four prime tokens dealt into three boxes four different ways. Counting a second way agrees: there are 36 ordered triples of factors, 12 of them repeat a value, and the remaining 24 each got counted 6 times, so 24 ÷ 6 = 4.",
+        "equation": "4 ways"
       }
     ],
     "animationFrames": [
@@ -44967,7 +44992,7 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "Try each largest factor c and factor 100/c.", "visualHint": "Four valid triples listed." },
       { "title": "Check", "narration": "There are 4 ways. The answer is (E).", "visualHint": "4; choice E circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 4 } },
+    "animation": { "type": "factor-triple", "data": { "product": 100, "parts": 3 } },
     "tags": ["AMC 8", "2022", "number theory", "divisors"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA"
@@ -44994,14 +45019,24 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "E",
     "solutionSteps": [
       {
-        "title": "Reflect over q",
-        "body": "Line q goes through the origin at roughly 45°. Reflecting M over q flips it diagonally.",
+        "title": "Two mirrors, crossing at 45°",
+        "body": "Line p is horizontal and line q runs up to the right at 45°, so the two mirrors meet at 45°. The M starts in the wedge above q, between q and the vertical.",
         "equation": ""
       },
       {
-        "title": "Reflect over p",
-        "body": "Line p is horizontal. Reflecting the result over p flips it vertically, giving the final image: M rotated 180°.",
+        "title": "Flip across q",
+        "body": "Reflecting across q swings the M down past the diagonal into the wedge between q and p — still above p, over on the right. This single flip mirrors the letter.",
         "equation": ""
+      },
+      {
+        "title": "Flip across p",
+        "body": "Reflecting that across the horizontal p drops it straight down below p, still on the right. Because it has now been mirrored twice, the letter reads the right way round again.",
+        "equation": ""
+      },
+      {
+        "title": "Two flips make one turn",
+        "body": "Reflecting twice is never a mirroring — the two flips compose into a rotation about the point where the lines cross, through twice the angle between them: 2 × 45° = 90° clockwise. Turning the original M by 90° clockwise lands exactly on the doubly reflected letter, which is choice (E). That also settles the look-alike choice sitting in the same place: the result must be a turn of the M, not a flipped copy of it.",
+        "equation": "2 × 45° = 90°"
       }
     ],
     "animationFrames": [
@@ -45009,7 +45044,7 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "Two reflections across intersecting lines produce a rotation by twice the angle between them.", "visualHint": "Intermediate and final positions shown." },
       { "title": "Check", "narration": "The result is answer choice (E).", "visualHint": "Choice E circled." }
     ],
-    "animation": { "type": "generic", "data": { "answer": "E" } },
+    "animation": { "type": "reflect-compose", "data": { "glyph": "M", "guides": ["p|0", "|90", "q|-45"], "order": ["q", "p"], "start": -67.5, "radius": 62 } },
     "tags": ["AMC 8", "2022", "geometry", "reflections"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA",
@@ -45038,19 +45073,24 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "3 years",
     "solutionSteps": [
       {
-        "title": "Find current ages",
-        "body": "Five years ago Bella was 6, so today Bella is 11. The kitten was newborn, so the kitten is 5.",
-        "equation": "Bella = 11, kitten = 5"
+        "title": "One birthday pins two of the ages",
+        "body": "Everything hangs off the same moment five years ago: Bella turned 6 and the kitten was newborn. Add the five years that have passed and both are known today — Bella is 11 and the kitten is 5.",
+        "equation": "Bella 6 + 5 = 11,  kitten 0 + 5 = 5"
       },
       {
-        "title": "Find Anna's age",
-        "body": "Anna + 11 + 5 = 30, so Anna = 14.",
+        "title": "The total hands over Anna's age",
+        "body": "The three ages together make 30, and two of them are now known, so Anna's age is simply what is left over: 30 − 11 − 5 = 14.",
         "equation": "30 − 11 − 5 = 14"
       },
       {
-        "title": "Find the difference",
-        "body": "Anna is 14 − 11 = 3 years older than Bella.",
+        "title": "The question asks for the gap, not the age",
+        "body": "Anna is 14 and Bella is 11, so Anna is 14 − 11 = 3 years older. It is the difference that is wanted, not Anna's age itself.",
         "equation": "14 − 11 = 3"
+      },
+      {
+        "title": "The gap never changes",
+        "body": "Winding the clock back takes the same five years off all three, so five years ago the total was 30 − 3 × 5 = 15. Then Bella was 6 and the kitten was 0, making Anna 15 − 6 − 0 = 9 — and 9 − 6 is still 3. An age difference stays fixed forever, which is why the answer could have been read off either moment.",
+        "equation": "9 − 6 = 3 = 14 − 11"
       }
     ],
     "animationFrames": [
@@ -45058,7 +45098,7 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "Anna = 30 − 11 − 5 = 14.", "visualHint": "Subtraction shown." },
       { "title": "Check", "narration": "14 − 11 = 3. The answer is (C).", "visualHint": "3; choice C circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 3 } },
+    "animation": { "type": "age-bars", "data": { "total": 30, "yearsAgo": 5, "people": ["Anna|🧒|", "Bella|👧|6", "kitten|🐱|0"], "compare": ["Anna", "Bella"] } },
     "tags": ["AMC 8", "2022", "algebra", "age problems"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA"

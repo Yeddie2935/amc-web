@@ -87,6 +87,11 @@ import { ProductChainScene } from "./scenes/ProductChainScene";
 import { TilePatternProbScene } from "./scenes/TilePatternProbScene";
 import { TriangleAreaSplitScene } from "./scenes/TriangleAreaSplitScene";
 import { IntervalSqueezeScene } from "./scenes/IntervalSqueezeScene";
+import { GridPolygonAreaScene } from "./scenes/GridPolygonAreaScene";
+import { OperationMachineScene } from "./scenes/OperationMachineScene";
+import { FactorTripleScene } from "./scenes/FactorTripleScene";
+import { ReflectComposeScene } from "./scenes/ReflectComposeScene";
+import { AgeBarsScene } from "./scenes/AgeBarsScene";
 import { DiagonalLetterGridScene } from "./scenes/DiagonalLetterGridScene";
 import { DetourPaceScene } from "./scenes/DetourPaceScene";
 import { OvershootRemoveScene } from "./scenes/OvershootRemoveScene";
@@ -438,6 +443,25 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "interval-squeeze" && Array.isArray(data.bounds) && data.bounds.length >= 2 && num(data.count ?? 0) >= 3) {
     return IntervalSqueezeScene;
+  }
+  if (type === "grid-polygon-area" && Array.isArray(data.outline) && data.outline.length >= 3 && num(data.grid ?? 0) >= 2) {
+    return GridPolygonAreaScene;
+  }
+  if (
+    type === "operation-machine" &&
+    ["sq-diff", "diff-sq"].includes(String(data.first)) &&
+    ["sq-diff", "diff-sq"].includes(String(data.second))
+  ) {
+    return OperationMachineScene;
+  }
+  if (type === "factor-triple" && num(data.product ?? 0) > 1) {
+    return FactorTripleScene;
+  }
+  if (type === "reflect-compose" && Array.isArray(data.guides) && Array.isArray(data.order) && data.order.length === 2) {
+    return ReflectComposeScene;
+  }
+  if (type === "age-bars" && Array.isArray(data.people) && data.people.length >= 2 && num(data.total ?? 0) > 0) {
+    return AgeBarsScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

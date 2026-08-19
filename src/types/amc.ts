@@ -122,6 +122,11 @@ export type AnimationTemplateType =
   | "tile-pattern-prob"
   | "triangle-area-split"
   | "interval-squeeze"
+  | "grid-polygon-area"
+  | "operation-machine"
+  | "factor-triple"
+  | "reflect-compose"
+  | "age-bars"
   | "cube-net"
   | "solid-3d"
   | "generic";
