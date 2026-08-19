@@ -45283,18 +45283,23 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "86°F",
     "solutionSteps": [
       {
-        "title": "Initial difference",
-        "body": "212 − 68 = 144°F difference.",
+        "title": "Measure the gap, not the temperature",
+        "body": "The water starts at 212°F and the room stays at 68°F, so the water begins 212 − 68 = 144°F above the room. That difference is the thing the problem halves.",
         "equation": "212 − 68 = 144"
       },
       {
-        "title": "Halve three times",
-        "body": "After 5 min: 72. After 10 min: 36. After 15 min: 18.",
-        "equation": "144 → 72 → 36 → 18"
+        "title": "Why it cannot be the temperature itself",
+        "body": "Halving 212 three times would give 26.5°F — colder than the 68°F room the cup is sitting in, which is impossible. The room temperature is a floor the water settles toward but never reaches.",
+        "equation": "212 → 106 → 53 → 26.5 ✗"
       },
       {
-        "title": "Find temperature",
-        "body": "Water temp = 68 + 18 = 86°F.",
+        "title": "Three halvings in 15 minutes",
+        "body": "15 ÷ 5 = 3 halvings. The gap goes 144 → 72 (5 min) → 36 (10 min) → 18 (15 min).",
+        "equation": "144 ÷ 2³ = 18"
+      },
+      {
+        "title": "Add the room back on",
+        "body": "The water ends 18°F above the room: 68 + 18 = 86°F. Stopping a halving early gives 68 + 36 = 104 (E) and one halving too many gives 68 + 9 = 77 (A), so the count of halvings is what the choices are testing.",
         "equation": "68 + 18 = 86"
       }
     ],
@@ -45303,7 +45308,10 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "After 15 min (3 halvings): 144 → 72 → 36 → 18.", "visualHint": "Halvings shown." },
       { "title": "Check", "narration": "68 + 18 = 86°F. The answer is (B).", "visualHint": "86; choice B circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 86 } },
+    "animation": {
+      "type": "halving-gap",
+      "data": { "start": 212, "ambient": 68, "minutes": 15, "period": 5, "unit": "°F", "timeUnit": "min" }
+    },
     "tags": ["AMC 8", "2022", "algebra", "exponential decay"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA"
@@ -45330,19 +45338,24 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "E",
     "solutionSteps": [
       {
-        "title": "Calculate distance",
-        "body": "She drove 2 hours at 45 mph, so 2 × 45 = 90 miles.",
-        "equation": "2 × 45 = 90"
+        "title": "The drive out sets the peak",
+        "body": "From 8 AM to 10 AM she drives 2 hours at 45 mph, so the graph climbs in a straight line to 2 × 45 = 90 miles from home.",
+        "equation": "45 × 2 = 90 miles"
       },
       {
-        "title": "Determine graph shape",
-        "body": "Distance increases linearly to 90 miles (8–10 AM), stays at 90 for 3 hours (10 AM–1 PM), then decreases faster (60 mph > 45 mph) back to 0. Return takes 90/60 = 1.5 hours.",
-        "equation": "90 ÷ 60 = 1.5 hours"
+        "title": "The hike is a flat stretch",
+        "body": "The graph tracks the distance of her car, and the car is parked at the trail for the 3 hours she hikes. So from 10 AM to 1 PM the clock moves but the distance does not: the graph runs flat at 90 miles.",
+        "equation": "10 AM – 1 PM: still 90 miles"
       },
       {
-        "title": "Match to graph",
-        "body": "Graph E shows: linear increase, flat portion for hiking, then steeper decrease. This matches.",
-        "equation": ""
+        "title": "The drive home is steeper",
+        "body": "She returns at 60 mph, which is faster than she came, so the fall is steeper than the climb and takes less time: 90 ÷ 60 = 1.5 hours, reaching home at 2:30 PM. Coming back at 45 mph would have taken 2 hours and landed at 3 PM instead.",
+        "equation": "90 ÷ 60 = 1.5 hours → 2:30 PM"
+      },
+      {
+        "title": "Check the five graphs",
+        "body": "Every candidate climbs from 8 AM and runs flat from 10 AM to 1 PM, so each is pinned down by just two things: how high it peaks and when it gets back to zero. Those give the speeds it claims — (A) 90 and 3 PM means 45 out but only 45 back; (B) and (C) peak at 45 instead of 90; (D) peaks at 120, which is the return speed used for the drive out. Only (E), peaking at 90 and landing at 2:30 PM, gives 45 mph out and 60 mph back.",
+        "equation": "peak ÷ 2 = 45, peak ÷ 1.5 = 60"
       }
     ],
     "animationFrames": [
@@ -45350,7 +45363,20 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "The return slope must be steeper than the outgoing slope.", "visualHint": "Slopes compared." },
       { "title": "Check", "narration": "Only graph E has the correct shape. The answer is (E).", "visualHint": "Choice E circled." }
     ],
-    "animation": { "type": "graph-read", "data": { "answer": "E" } },
+    "animation": {
+      "type": "trip-graph",
+      "data": {
+        "startHour": 8,
+        "outHours": 2,
+        "outSpeed": 45,
+        "stayHours": 3,
+        "backSpeed": 60,
+        "unit": "miles",
+        "rateUnit": "mph",
+        "stayLabel": "hiking",
+        "candidates": ["A|90|15", "B|45|15", "C|45|14.5", "D|120|16", "E|90|14.5"]
+      }
+    },
     "tags": ["AMC 8", "2022", "algebra", "distance-time graphs"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA",
@@ -45379,18 +45405,23 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "44 inches",
     "solutionSteps": [
       {
-        "title": "Count bites",
-        "body": "Each bite splits one piece into two, so n bites produce n + 1 pieces. With 10 pieces, he took 9 bites.",
-        "equation": "9 + 1 = 10"
+        "title": "What one bite does",
+        "body": "The bite is taken from the middle of a piece, so pasta survives on both sides: every bite removes 3 inches and turns one piece into two.",
+        "equation": "1 piece → 2 pieces, −3 in"
       },
       {
-        "title": "Calculate total eaten",
-        "body": "9 bites × 3 inches each = 27 inches eaten.",
+        "title": "Count the gaps, not the pieces",
+        "body": "Lay the 10 finished pieces in a row. Each bite left one gap between two neighbouring pieces, and 10 pieces in a row have only 9 gaps between them — so he took 9 bites. (10 bites would have left 11 pieces.)",
+        "equation": "10 pieces → 9 gaps → 9 bites"
+      },
+      {
+        "title": "Refill every gap",
+        "body": "Each of the 9 gaps is 3 inches of pasta he ate, so 9 × 3 = 27 inches are missing from the row.",
         "equation": "9 × 3 = 27"
       },
       {
-        "title": "Find original length",
-        "body": "Original = remaining + eaten = 17 + 27 = 44 inches.",
+        "title": "Add the two parts",
+        "body": "The original strand is what is left plus what he ate: 17 + 27 = 44 inches. Each wrong answer is just a different bite count — 41 assumes 8 bites and 47 assumes 10.",
         "equation": "17 + 27 = 44"
       }
     ],
@@ -45399,7 +45430,10 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "9 bites for 10 pieces; total eaten = 27 inches; original = 17 + 27 = 44.", "visualHint": "Calculation shown." },
       { "title": "Check", "narration": "44 inches. The answer is (D).", "visualHint": "44; choice D circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 44 } },
+    "animation": {
+      "type": "bite-split",
+      "data": { "remaining": 17, "pieces": 10, "biteLen": 3, "unit": "in" }
+    },
     "tags": ["AMC 8", "2022", "algebra", "linear equations"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA"
@@ -45426,18 +45460,23 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "1/8",
     "solutionSteps": [
       {
-        "title": "Count total outcomes",
-        "body": "Spinner A has 4 values (5, 6, 7, 8) and Spinner B has 4 values (1, 2, 3, 4). Total = 4 × 4 = 16.",
+        "title": "N just writes the two spins side by side",
+        "body": "Multiplying spinner A by 10 and adding spinner B is the same as writing A as the tens digit and B as the units digit. A 7 and a 3 make 73, not some new number to work out.",
+        "equation": "10 × 7 + 3 = 73"
+      },
+      {
+        "title": "All 16 outcomes",
+        "body": "Spinner A gives 5, 6, 7, 8 and spinner B gives 1, 2, 3, 4, so the outcomes are the 4 × 4 = 16 two-digit numbers with tens digit 5–8 and units digit 1–4. Each is equally likely.",
         "equation": "4 × 4 = 16"
       },
       {
-        "title": "Find perfect squares",
-        "body": "N = 10a + b. Two-digit perfect squares from spinners: 64 (a=6, b=4) and 81 (a=8, b=1). That gives 2 successes.",
-        "equation": "64 = 8², 81 = 9²"
+        "title": "Only two squares can fit",
+        "body": "The smallest outcome is 51 and the largest is 84, so the only perfect squares that could appear are between them: 7² = 49 falls short and 10² = 100 overshoots, leaving 8² = 64 and 9² = 81. Both are genuine outcomes — 64 needs a 6 and a 4, and 81 needs an 8 and a 1, all of which are on the faces.",
+        "equation": "51 ≤ N ≤ 84 → 64 and 81"
       },
       {
-        "title": "Calculate probability",
-        "body": "Probability = 2/16 = 1/8.",
+        "title": "Divide by the outcomes",
+        "body": "2 of the 16 equally likely outcomes are perfect squares, so the probability is 2/16 = 1/8. Spotting only one of the two squares gives 1/16, which is answer (A).",
         "equation": "2/16 = 1/8"
       }
     ],
@@ -45446,7 +45485,10 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "16 total outcomes; perfect squares are 64 and 81: 2 favorable.", "visualHint": "Grid of outcomes with squares highlighted." },
       { "title": "Check", "narration": "2/16 = 1/8. The answer is (B).", "visualHint": "1/8; choice B circled." }
     ],
-    "animation": { "type": "probability", "data": { "favorable": 2, "total": 16 } },
+    "animation": {
+      "type": "spinner-square",
+      "data": { "a": [5, 6, 7, 8], "b": [1, 2, 3, 4] }
+    },
     "tags": ["AMC 8", "2022", "counting & probability", "probability"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA",
@@ -45475,19 +45517,24 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "9",
     "solutionSteps": [
       {
-        "title": "Set up equations",
-        "body": "Let the two numbers be m and n with m > n. Then m = 2n + d and m + n = 28.",
-        "equation": "m = 2n + d, m + n = 28"
+        "title": "Picking the smaller number fixes everything",
+        "body": "The two numbers add to 28, so choosing the smaller one, n, forces the other to be 28 − n. The blank is then whatever is left of that larger number after two copies of n are taken out of it. With n = 1 the other is 27, and 27 = 2 × 1 + 25, so the blank is 25.",
+        "equation": "blank = (28 − n) − 2n = 28 − 3n"
       },
       {
-        "title": "Solve for d",
-        "body": "Substituting: 2n + d + n = 28, so 3n + d = 28, giving d = 28 − 3n. Need d ≥ 1 and n ≥ 1.",
-        "equation": "d = 28 − 3n"
+        "title": "Slide the cut and the blank drops by 3",
+        "body": "Move n up by 1: the two copies of n gain 2 between them and the larger number loses 1, so the blank loses 3 every time. The blanks run 25, 22, 19, 16, 13, 10, 7, 4, 1 — always falling, so no two cuts ever give the same blank.",
+        "equation": "25 → 22 → 19 → … → 1"
       },
       {
-        "title": "Count valid values",
-        "body": "n = 1, 2, ..., 9 each gives a positive d. So there are 9 possible values.",
-        "equation": "n ∈ {1, 2, ..., 9}"
+        "title": "Where the cuts run out",
+        "body": "The blank has to be a positive integer, so 28 − 3n ≥ 1 and n ≤ 9. At n = 10 the two copies already come to 20 while only 18 is left over, so the larger number is not even twice the smaller one.",
+        "equation": "28 − 3n ≥ 1 → n ≤ 9"
+      },
+      {
+        "title": "Count the blanks",
+        "body": "n = 1 through 9 give 9 different blanks, so 9 positive integers can fill it. (Allowing the other number to be 0 would add a 10th blank, 28, which is answer (E).)",
+        "equation": "9 values"
       }
     ],
     "animationFrames": [
@@ -45495,7 +45542,7 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "d = 28 − 3n. For n = 1 to 9, d is positive.", "visualHint": "Values of n and d listed." },
       { "title": "Check", "narration": "9 values work. The answer is (D).", "visualHint": "9; choice D circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 9 } },
+    "animation": { "type": "split-blank", "data": { "total": 28, "multiple": 2 } },
     "tags": ["AMC 8", "2022", "algebra", "integer constraints"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA"
@@ -45522,18 +45569,23 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "24",
     "solutionSteps": [
       {
-        "title": "Identify the letters",
-        "body": "BEEKEEPER has 5 Es and 4 non-E letters: B, K, P, R.",
+        "title": "Sort the letters",
+        "body": "BEEKEEPER is 9 letters: five Es, which are all identical, and four others — B, K, P, R — which are all different. No two of the five Es may end up next to each other.",
         "equation": "5 E's + B, K, P, R"
       },
       {
-        "title": "Place Es to separate them",
-        "body": "To prevent adjacent Es, place them in a pattern: E_E_E_E_E. The 4 blanks must be filled by B, K, P, R.",
-        "equation": "_ E _ E _ E _ E _ E _"
+        "title": "Lay the other letters down first",
+        "body": "Put B, K, P, R in a row. The only places an E can go are the gaps around them, and four letters in a row leave 5 gaps — one before, one after, and three between.",
+        "equation": "_ B _ K _ P _ R _ → 5 gaps"
       },
       {
-        "title": "Count arrangements",
-        "body": "The 4 non-E letters can go in the 4 required slots in 4! = 24 ways.",
+        "title": "The Es have no choice at all",
+        "body": "Two Es in the same gap would be next to each other, so each gap holds at most one E. There are 5 Es and exactly 5 gaps, so every gap must take exactly one — the skeleton E _ E _ E _ E _ E is forced, in only 1 way.",
+        "equation": "E B E K E P E R E"
+      },
+      {
+        "title": "Only the order is free",
+        "body": "With the E positions fixed, all that is left is which of B, K, P, R goes in each of the four remaining slots: 4 × 3 × 2 × 1 = 24 ways. (Stopping at the forced skeleton gives 1, answer (A); ordering the five Es instead gives 5! = 120, answer (E).)",
         "equation": "4! = 24"
       }
     ],
@@ -45542,7 +45594,7 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "Pattern must be E_E_E_E_E with B, K, P, R in the gaps. 4! = 24.", "visualHint": "Pattern shown." },
       { "title": "Check", "narration": "24 ways. The answer is (D).", "visualHint": "24; choice D circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 24 } },
+    "animation": { "type": "gap-placement", "data": { "word": "BEEKEEPER", "letter": "E" } },
     "tags": ["AMC 8", "2022", "counting & probability", "permutations"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA"
@@ -45569,14 +45621,24 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "3 ounces",
     "solutionSteps": [
       {
-        "title": "Understand price per ounce",
-        "body": "Price per ounce = price ÷ weight. On the scatter plot, this is the slope from the origin to each point. The lowest slope gives the best deal.",
-        "equation": "price per ounce = price/weight"
+        "title": "Price per ounce is a slope",
+        "body": "Price per ounce is price ÷ weight, which for a plotted point is exactly the slope of the line from the origin out to it. The dearest pepper, 1 ounce for $2.80, sits on the steepest such line at $2.80 per ounce.",
+        "equation": "price per ounce = price ÷ weight"
       },
       {
-        "title": "Find the best point",
-        "body": "The point at approximately (3, 2.5) gives the lowest price-per-ounce ratio among integer-weight points.",
-        "equation": "≈ 2.5/3 ≈ $0.83/oz"
+        "title": "A ray is a price, not a point",
+        "body": "Every point on one line through the origin has the same price per ounce. The line of slope 2 passes through the 1 oz / $2.00, 1.5 oz / $3.00 and 2 oz / $4.00 peppers — three different jars, all $2.00 per ounce.",
+        "equation": "2/1 = 3/1.5 = 4/2 = $2.00"
+      },
+      {
+        "title": "Sweep a ray up from flat",
+        "body": "Cheaper per ounce means a shallower line, so start a ray along the axis and rotate it upward. The first point it meets is the cheapest of all, and every other point must lie above it. That first point is the 3 ounce pepper at $2.50.",
+        "equation": "first point hit = lowest slope"
+      },
+      {
+        "title": "Price the five choices",
+        "body": "Each answer choice is a weight, so read the cheapest jar at each one: 1 oz costs $1.20 per ounce, 2 oz $1.00, 3 oz $0.83, 4 oz $0.98, 5 oz $0.90. The 3 ounce pepper wins — the biggest jar is not the best value.",
+        "equation": "$2.50 ÷ 3 ≈ $0.83 per oz"
       }
     ],
     "animationFrames": [
@@ -45584,7 +45646,23 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "Draw lines from origin to each integer-weight point. The shallowest line wins.", "visualHint": "Lines drawn from origin." },
       { "title": "Check", "narration": "The 3-ounce pepper at ~$2.50 has the lowest price per ounce. Answer is (C).", "visualHint": "3; choice C circled." }
     ],
-    "animation": { "type": "graph-read", "data": { "answer": 3 } },
+    "animation": {
+      "type": "slope-sweep",
+      "data": {
+        "unit": "oz",
+        "cols": [
+          "1|1.2,1.7,2,2.8",
+          "1.5|2.1,3,3.3,3.75",
+          "2|2,2.9,3,4,4.35,4.8",
+          "2.5|2.7,3.7,4.2,4.4",
+          "3|2.5,3.4,4.2",
+          "3.5|3.8,4.5,4.8",
+          "4|3.9,5.1",
+          "4.5|4.75,5",
+          "5|4.5,5"
+        ]
+      }
+    },
     "tags": ["AMC 8", "2022", "algebra", "rates and ratios"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA",

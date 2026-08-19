@@ -112,6 +112,13 @@ import { ThermometerDropScene } from "./scenes/ThermometerDropScene";
 import { PaperFoldCutScene } from "./scenes/PaperFoldCutScene";
 import { PrecedenceGroupScene } from "./scenes/PrecedenceGroupScene";
 import { SeatPairScene } from "./scenes/SeatPairScene";
+import { HalvingGapScene } from "./scenes/HalvingGapScene";
+import { BiteSplitScene } from "./scenes/BiteSplitScene";
+import { TripGraphScene } from "./scenes/TripGraphScene";
+import { SpinnerSquareScene } from "./scenes/SpinnerSquareScene";
+import { SplitBlankScene } from "./scenes/SplitBlankScene";
+import { GapPlacementScene } from "./scenes/GapPlacementScene";
+import { SlopeSweepScene } from "./scenes/SlopeSweepScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -373,6 +380,76 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "thermometer-drop" && num(data.rate ?? 0) > 0 && num(data.amount ?? 0) > 0) {
     return ThermometerDropScene;
+  }
+  // needs a real gap to halve and a whole number of halvings the ladder can draw
+  if (
+    type === "halving-gap" &&
+    num(data.start ?? 0) !== num(data.ambient ?? 0) &&
+    num(data.period ?? 0) > 0 &&
+    num(data.minutes ?? 0) > 0 &&
+    Math.abs(num(data.minutes ?? 0) / num(data.period ?? 1) - Math.round(num(data.minutes ?? 0) / num(data.period ?? 1))) < 1e-9 &&
+    Math.round(num(data.minutes ?? 0) / num(data.period ?? 1)) <= 5
+  ) {
+    return HalvingGapScene;
+  }
+  // enough pieces to have gaps, and few enough that the row stays readable
+  if (
+    type === "bite-split" &&
+    num(data.pieces ?? 0) >= 2 &&
+    num(data.pieces ?? 0) <= 14 &&
+    num(data.biteLen ?? 0) > 0 &&
+    num(data.remaining ?? 0) > 0
+  ) {
+    return BiteSplitScene;
+  }
+  // needs both speeds, a real stay, and the contest's candidate graphs to judge
+  if (
+    type === "trip-graph" &&
+    num(data.outSpeed ?? 0) > 0 &&
+    num(data.backSpeed ?? 0) > 0 &&
+    num(data.outHours ?? 0) > 0 &&
+    num(data.stayHours ?? 0) > 0 &&
+    Array.isArray(data.candidates) &&
+    data.candidates.length >= 2 &&
+    data.candidates.length <= 6
+  ) {
+    return TripGraphScene;
+  }
+  // both faces real, and small enough that the outcome block stays readable
+  if (
+    type === "spinner-square" &&
+    Array.isArray(data.a) &&
+    Array.isArray(data.b) &&
+    data.a.length >= 2 &&
+    data.a.length <= 5 &&
+    data.b.length >= 2 &&
+    data.b.length <= 5
+  ) {
+    return SpinnerSquareScene;
+  }
+  // a real total, and few enough cuts that every blank gets its own card
+  if (
+    type === "split-blank" &&
+    num(data.total ?? 0) > 2 &&
+    Math.floor((num(data.total ?? 0) - 1) / (Math.max(1, num(data.multiple ?? 2)) + 1)) >= 1 &&
+    Math.floor((num(data.total ?? 0) - 1) / (Math.max(1, num(data.multiple ?? 2)) + 1)) <= 12
+  ) {
+    return SplitBlankScene;
+  }
+  // a real word that actually repeats the named letter, short enough for one row
+  if (type === "gap-placement" && typeof data.word === "string" && typeof data.letter === "string") {
+    const w = String(data.word).toUpperCase();
+    const L = String(data.letter).toUpperCase().slice(0, 1);
+    const repeats = w.split("").filter((c) => c === L).length;
+    if (repeats >= 2 && w.length - repeats >= 1 && w.length <= 13) return GapPlacementScene;
+  }
+  // enough plotted points for a real scatter, few enough to stay readable
+  if (type === "slope-sweep" && Array.isArray(data.cols) && data.cols.length >= 2) {
+    const n = data.cols.reduce((a, c) => {
+      const list = String(c).split("|")[1];
+      return a + (list ? list.split(",").length : 0);
+    }, 0);
+    if (n >= 4 && n <= 60) return SlopeSweepScene;
   }
   if (type === "spiral-grid" && num(data.size ?? 0) >= 3 && Array.isArray(data.marked) && data.marked.length >= 2) {
     return SpiralGridScene;
