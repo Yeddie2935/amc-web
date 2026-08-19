@@ -119,6 +119,10 @@ import { SpinnerSquareScene } from "./scenes/SpinnerSquareScene";
 import { SplitBlankScene } from "./scenes/SplitBlankScene";
 import { GapPlacementScene } from "./scenes/GapPlacementScene";
 import { SlopeSweepScene } from "./scenes/SlopeSweepScene";
+import { OverlapPairsScene } from "./scenes/OverlapPairsScene";
+import { UnitsDigitRunScene } from "./scenes/UnitsDigitRunScene";
+import { MidpointRectScene } from "./scenes/MidpointRectScene";
+import { DotPlotShiftScene } from "./scenes/DotPlotShiftScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -450,6 +454,46 @@ export function resolveScene(problem: Problem): AnimatedScene {
       return a + (list ? list.split(",").length : 0);
     }, 0);
     if (n >= 4 && n <= 60) return SlopeSweepScene;
+  }
+  // an odd number of overlapping pairs is what makes the middles cancel
+  if (
+    type === "overlap-pairs" &&
+    Array.isArray(data.averages) &&
+    data.averages.length >= 3 &&
+    data.averages.length <= 5 &&
+    data.averages.length % 2 === 1
+  ) {
+    return OverlapPairsScene;
+  }
+  // a real arithmetic run of factors, long enough to have a tail worth killing
+  if (
+    type === "units-digit-run" &&
+    num(data.first ?? 0) > 0 &&
+    num(data.step ?? 0) > 0 &&
+    num(data.last ?? 0) >= num(data.first ?? 0) &&
+    (num(data.last ?? 0) - num(data.first ?? 0)) / num(data.step ?? 1) + 1 <= 5000
+  ) {
+    return UnitsDigitRunScene;
+  }
+  // exactly four midpoints, each a real coordinate pair
+  if (
+    type === "midpoint-rect" &&
+    Array.isArray(data.points) &&
+    data.points.length === 4 &&
+    data.points.every((p) => Array.isArray(p) && p.length === 2 && p.every((c) => Number.isFinite(Number(c))))
+  ) {
+    return MidpointRectScene;
+  }
+  // a real dot plot with a bonus and a target median, small enough to search
+  if (
+    type === "dot-plot-shift" &&
+    Array.isArray(data.scores) &&
+    data.scores.length >= 2 &&
+    data.scores.length <= 10 &&
+    num(data.boost ?? 0) > 0 &&
+    num(data.targetMedian ?? 0) > 0
+  ) {
+    return DotPlotShiftScene;
   }
   if (type === "spiral-grid" && num(data.size ?? 0) >= 3 && Array.isArray(data.marked) && data.marked.length >= 2) {
     return SpiralGridScene;

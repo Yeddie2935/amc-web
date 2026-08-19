@@ -45691,18 +45691,23 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "25",
     "solutionSteps": [
       {
-        "title": "Convert to sums",
-        "body": "First two sum to 42, middle two sum to 52, last two sum to 60.",
-        "equation": "a+b=42, b+c=52, c+d=60"
+        "title": "Turn each average into a sum",
+        "body": "A pair averaging 21 is a pair adding to 42. Doubling all three: the first two add to 42, the middle two to 52, and the last two to 60.",
+        "equation": "a+b = 42, b+c = 52, c+d = 60"
       },
       {
-        "title": "Find total and first+last",
-        "body": "Sum of all four = (a+b) + (c+d) = 42 + 60 = 102. Sum of first and last = 102 − 52 = 50.",
-        "equation": "a + d = 102 − 52 = 50"
+        "title": "The outer two pairs cover everything once",
+        "body": "The first pair and the last pair do not overlap, and between them they use each of the four numbers exactly once. So a + b + c + d = 42 + 60 = 102.",
+        "equation": "42 + 60 = 102"
       },
       {
-        "title": "Find average",
-        "body": "Average of first and last = 50 ÷ 2 = 25.",
+        "title": "Take the middle pair away",
+        "body": "The middle pair is b and c — exactly the two numbers we do not want. Subtracting it leaves each end counted once and each middle number zero times: a + d = 102 − 52 = 50.",
+        "equation": "102 − 52 = 50"
+      },
+      {
+        "title": "Halve it — and note nothing else was ever fixed",
+        "body": "The average of the first and last is 50 ÷ 2 = 25. The four numbers themselves are never determined: choosing a fixes the rest, and a = 11, 21 or 31 all satisfy the three averages, yet a + d comes to 50 every time.",
         "equation": "50 ÷ 2 = 25"
       }
     ],
@@ -45711,7 +45716,7 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "Sums: 42, 52, 60. Total = 42 + 60 = 102. First + last = 102 − 52 = 50.", "visualHint": "Algebra shown." },
       { "title": "Check", "narration": "Average = 50/2 = 25. The answer is (B).", "visualHint": "25; choice B circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 25 } },
+    "animation": { "type": "overlap-pairs", "data": { "averages": [21, 26, 30] } },
     "tags": ["AMC 8", "2022", "algebra", "averages"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA"
@@ -45738,19 +45743,24 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "2",
     "solutionSteps": [
       {
-        "title": "Find when units digit becomes 0",
-        "body": "Once n ≥ 10, n!! contains a factor of 10 (from 2 × 4 × 6 × 8 × 10), so the units digit is 0.",
-        "equation": "10!! = 2·4·6·8·10 → units digit 0"
+        "title": "Each term is the one before, times one more factor",
+        "body": "n!! multiplies every even number up to n, so each term is built from the previous one by multiplying in the next even number: 2, then 2 · 4 = 8, then 8 · 6 = 48, then 48 · 8 = 384. That means the units digit of a term depends only on the previous units digit and the new factor.",
+        "equation": "8!! = 2 · 4 · 6 · 8 = 384"
       },
       {
-        "title": "Compute small terms",
-        "body": "2!! = 2, 4!! = 8, 6!! = 48, 8!! = 384. Sum of units digits: 2 + 8 + 8 + 4 = 22.",
-        "equation": "2 + 8 + 48 + 384"
+        "title": "Read the head of the sum",
+        "body": "The first four terms are 2, 8, 48 and 384, with units digits 2, 8, 8 and 4.",
+        "equation": "2, 8, 48, 384 → 2, 8, 8, 4"
       },
       {
-        "title": "Find final units digit",
-        "body": "Units digit of 22 is 2.",
-        "equation": "units digit = 2"
+        "title": "The whole tail ends in 0",
+        "body": "10!! = 2 · 4 · 6 · 8 · 10 contains the factor 10, so it ends in 0 — and every term after it keeps that same factor 10. So all 1007 terms from 10!! to 2022!! contribute nothing to the units digit.",
+        "equation": "10!! = 2·4·6·8·10 → ends in 0"
+      },
+      {
+        "title": "Add the four survivors",
+        "body": "Only the head is left: 2 + 8 + 8 + 4 = 22, so the sum ends in 2. (Missing the first term gives 20, ending in 0 — answer (A); stopping one term early gives 18, ending in 8 — answer (E).)",
+        "equation": "2 + 8 + 8 + 4 = 22 → 2"
       }
     ],
     "animationFrames": [
@@ -45758,7 +45768,7 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "For n ≥ 10, n!! ends in 0. Only 2!!+4!!+6!!+8!! contribute: units 2+8+8+4 = 22.", "visualHint": "Small terms computed." },
       { "title": "Check", "narration": "Units digit is 2. The answer is (B).", "visualHint": "2; choice B circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 2 } },
+    "animation": { "type": "units-digit-run", "data": { "first": 2, "step": 2, "last": 2022 } },
     "tags": ["AMC 8", "2022", "number theory", "units digit"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA"
@@ -45785,18 +45795,23 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "40",
     "solutionSteps": [
       {
-        "title": "Recognize the rhombus",
-        "body": "The midpoints of a rectangle form a rhombus whose area is half the rectangle's area. The diagonals of this rhombus equal the sides of the rectangle.",
-        "equation": ""
+        "title": "Plot the four midpoints",
+        "body": "Joined up in order, (−3,0), (2,0), (5,4) and (0,4) make a rhombus — every side is 5. That equal-sided shape is tempting but it is not the rectangle, and its area is not what is asked for.",
+        "equation": "all four sides 5"
       },
       {
-        "title": "Find diagonal lengths",
-        "body": "Diagonal 1: from (−3,0) to (5,4) has length √(64+16) = √80 = 4√5. Diagonal 2: from (2,0) to (0,4) has length √(4+16) = √20 = 2√5.",
-        "equation": "AC = 4√5, BD = 2√5"
+        "title": "Join the opposite midpoints",
+        "body": "From (−3,0) to (5,4) is √(8² + 4²) = √80 = 4√5, and from (2,0) to (0,4) is √(2² + 4²) = √20 = 2√5. The two segments meet at right angles.",
+        "equation": "4√5 and 2√5"
       },
       {
-        "title": "Compute rectangle area",
-        "body": "The rectangle dimensions are 4√5 and 2√5, so area = 4√5 × 2√5 = 40.",
+        "title": "Each segment is a side length",
+        "body": "A segment joining the midpoints of two opposite sides of a rectangle runs parallel to the other pair of sides and is exactly as long as them. So the rectangle measures 4√5 by 2√5 — and drawing it back in puts every given point at the middle of a side.",
+        "equation": "sides 4√5 and 2√5"
+      },
+      {
+        "title": "Multiply the two dimensions",
+        "body": "Area = 4√5 × 2√5 = 8 × 5 = 40. (The rhombus itself has area 20, which is answer (A), and squaring its side of 5 gives 25, which is answer (B).)",
         "equation": "4√5 × 2√5 = 40"
       }
     ],
@@ -45805,7 +45820,10 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "Diagonals: 4√5 and 2√5. Rectangle area = 4√5 × 2√5 = 40.", "visualHint": "Distance formula shown." },
       { "title": "Check", "narration": "Area = 40. The answer is (C).", "visualHint": "40; choice C circled." }
     ],
-    "animation": { "type": "area-model", "data": { "answer": 40 } },
+    "animation": {
+      "type": "midpoint-rect",
+      "data": { "points": [[-3, 0], [2, 0], [5, 4], [0, 4]] }
+    },
     "tags": ["AMC 8", "2022", "geometry", "coordinate geometry"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA"
@@ -45832,19 +45850,24 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "4",
     "solutionSteps": [
       {
-        "title": "Read the dot plot",
-        "body": "From the dot plot: 65(1), 70(1), 75(2), 80(4), 85(4), 90(3), 95(1), 100(1). There are 13 students at or below 80, and only 5 at or above 90.",
-        "equation": ""
+        "title": "Count in to the middle",
+        "body": "The plot holds 2 scores of 65, 2 of 70, 4 of 75, 5 of 80, 2 of 85, 3 of 90, one 95 and one 100 — 20 in all. Counting from the left, the 10th and 11th scores both land in the 80 column, so the median is 80.",
+        "equation": "median = (80 + 80) ÷ 2 = 80"
       },
       {
-        "title": "Find current median",
-        "body": "With 20 students, the median is the average of the 10th and 11th scores. Currently the 10th and 11th scores are both 80, so the median is 80.",
-        "equation": ""
+        "title": "The median only cares about the count below 85",
+        "body": "For the median to become 85, the 10th score must be at least 85, so at most 9 students may finish below 85. Right now 13 do — the 2 + 2 + 4 students at 65, 70 and 75 plus all 5 at 80.",
+        "equation": "13 below, at most 9 allowed"
       },
       {
-        "title": "Determine minimum regrading",
-        "body": "To raise the median to 85, we need the 10th score ≥ 85. Currently 8 students score below 80. The 9th through 12th students score 80. We need to boost 4 of them to 85 so the 10th score becomes 85.",
-        "equation": "minimum = 4"
+        "title": "Only the 80s can cross",
+        "body": "Five extra points moves a score one column to the right. A 75 becomes 80, which is still below 85, so boosting the lower students changes nothing about the count. Only a student at 80 crosses the line, landing exactly on 85.",
+        "equation": "80 + 5 = 85, but 75 + 5 = 80"
+      },
+      {
+        "title": "Move four of them",
+        "body": "13 − 9 = 4 students at 80 must be boosted. That leaves 9 below 85 and puts the 10th and 11th scores both at 85, so the median is 85. Three boosts leave 10 students below 85, and the best median they can reach is 82.5.",
+        "equation": "13 − 9 = 4"
       }
     ],
     "animationFrames": [
@@ -45852,7 +45875,14 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "Need 10th and 11th scores to average 85. Must boost 4 students from 80 to 85.", "visualHint": "Students shifted on dot plot." },
       { "title": "Check", "narration": "Minimum is 4. The answer is (C).", "visualHint": "4; choice C circled." }
     ],
-    "animation": { "type": "bar-model", "data": { "answer": 4 } },
+    "animation": {
+      "type": "dot-plot-shift",
+      "data": {
+        "scores": ["65|2", "70|2", "75|4", "80|5", "85|2", "90|3", "95|1", "100|1"],
+        "boost": 5,
+        "targetMedian": 85
+      }
+    },
     "tags": ["AMC 8", "2022", "algebra", "median"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA",
