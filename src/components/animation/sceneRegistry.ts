@@ -129,6 +129,11 @@ import { ChaseScheduleScene } from "./scenes/ChaseScheduleScene";
 import { LinePairGridScene } from "./scenes/LinePairGridScene";
 import { PrismNetScene } from "./scenes/PrismNetScene";
 import { LeafHopReturnScene } from "./scenes/LeafHopReturnScene";
+import { RecipeChainScene } from "./scenes/RecipeChainScene";
+import { EqualizeShareScene } from "./scenes/EqualizeShareScene";
+import { AreaYieldScene } from "./scenes/AreaYieldScene";
+import { HexRingsScene } from "./scenes/HexRingsScene";
+import { PourShareScene } from "./scenes/PourShareScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -546,6 +551,40 @@ export function resolveScene(problem: Problem): AnimatedScene {
     const sitesN = num(data.sites ?? 0);
     const hopsN = num(data.hops ?? 0);
     if (sitesN >= 3 && sitesN <= 8 && hopsN >= 2 && hopsN <= 10) return LeafHopReturnScene;
+  }
+  // a real fill fraction and cup count, small enough for the slices to be drawable
+  if (
+    type === "pour-share" &&
+    num(data.numer ?? 0) > 0 &&
+    num(data.den ?? 0) > 1 &&
+    num(data.cups ?? 0) >= 1 &&
+    num(data.den ?? 0) * num(data.cups ?? 0) <= 40
+  ) {
+    return PourShareScene;
+  }
+  // a real hexagon index to build up to, with the figure's own hexagons to prove on
+  if (type === "hex-rings" && num(data.target ?? 0) >= 2) {
+    return HexRingsScene;
+  }
+  // a real rectangle plus at least one per-unit rate to carry its area through
+  if (
+    type === "area-yield" &&
+    Array.isArray(data.rates) &&
+    data.rates.length >= 1 &&
+    num(data.width ?? 0) > 0 &&
+    num(data.length ?? 0) > 0
+  ) {
+    return AreaYieldScene;
+  }
+  // real amounts that pool and divide exactly, so the levelling picture is honest
+  if (type === "equalize-share" && Array.isArray(data.amounts) && data.amounts.length >= 2) {
+    const amts = data.amounts.map((a) => num(a));
+    const sum = amts.reduce((a, b) => a + b, 0);
+    if (amts.every((a) => a > 0) && sum % amts.length === 0) return EqualizeShareScene;
+  }
+  // a real chain of "k times as much A as B" links plus the given quantity
+  if (type === "recipe-chain" && Array.isArray(data.levels) && data.levels.length >= 2 && num(data.amount ?? 0) > 0) {
+    return RecipeChainScene;
   }
   if (type === "spiral-grid" && num(data.size ?? 0) >= 3 && Array.isArray(data.marked) && data.marked.length >= 2) {
     return SpiralGridScene;

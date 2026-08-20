@@ -43760,22 +43760,39 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "24 cups",
     "solutionSteps": [
       {
-        "title": "Find sugar",
+        "title": "Read the two links",
+        "body": "The recipe never compares water with lemon juice directly. It gives two separate links: sugar = 2 × lemon juice, and water = 4 × sugar. Sugar sits between the two.",
+        "equation": "lemon juice → sugar → water"
+      },
+      {
+        "title": "Follow one cup through",
+        "body": "One cup of lemon juice needs 2 cups of sugar, and each of those needs 4 cups of water: 2 × 4 = 8. So one cup of lemon juice is worth 8 cups of water, not 4 — using the 4 straight away gives 4 × 3 = 12, which skips the sugar link.",
+        "equation": "1 × 2 × 4 = 8"
+      },
+      {
+        "title": "Find the sugar",
         "body": "Sugar is twice the lemon juice: 2 × 3 = 6 cups.",
         "equation": "2 × 3 = 6"
       },
       {
-        "title": "Find water",
+        "title": "Find the water",
         "body": "Water is 4 times the sugar: 4 × 6 = 24 cups.",
         "equation": "4 × 6 = 24"
       }
     ],
     "animationFrames": [
-      { "title": "Ratios", "narration": "Water : Sugar : Lemon = 4:2:1 scaled up.", "visualHint": "Ratio diagram appears." },
+      { "title": "Ratios", "narration": "Water : Sugar : Lemon = 8:2:1 scaled up.", "visualHint": "Ratio diagram appears." },
       { "title": "Compute sugar", "narration": "Sugar = 2 × 3 = 6.", "visualHint": "6 cups of sugar." },
       { "title": "Compute water", "narration": "Water = 4 × 6 = 24.", "visualHint": "24; choice E circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 24 } },
+    "animation": {
+      "type": "recipe-chain",
+      "data": {
+        "amount": 3,
+        "unit": "cups",
+        "levels": ["lemon juice|🍋", "sugar|🍬|2|#be185d", "water|💧|4|#0284c7"]
+      }
+    },
     "tags": ["AMC 8", "2020", "algebra", "ratios"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA"
@@ -43802,13 +43819,22 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "$15",
     "solutionSteps": [
       {
-        "title": "Find equal share",
-        "body": "Total = 15 + 20 + 25 + 40 = $100. Each gets 100/4 = $25.",
+        "title": "Four unequal piles",
+        "body": "The four friends earned $15, $20, $25 and $40 — every amount is a whole number of $5 notes: 3, 4, 5 and 8 of them. Splitting equally will move notes from the tall pile onto the short ones."
+      },
+      {
+        "title": "Pool the earnings",
+        "body": "Splitting equally means the money is treated as one pot: 15 + 20 + 25 + 40 = $100.",
+        "equation": "15 + 20 + 25 + 40 = 100"
+      },
+      {
+        "title": "Find the equal share",
+        "body": "The $100 pot is dealt back out four ways: 100 ÷ 4 = $25 each.",
         "equation": "100 ÷ 4 = 25"
       },
       {
         "title": "Amount given away",
-        "body": "The $40 earner keeps $25, so gives away 40 − 25 = $15.",
+        "body": "The $40 earner keeps $25, so gives away 40 − 25 = $15. Check it from the other side: the others were short $10, $5 and $0 — which is the same $15, since no money enters or leaves.",
         "equation": "40 − 25 = 15"
       }
     ],
@@ -43817,7 +43843,15 @@ const amc2020Problems: Problem[] = [
       { "title": "Equal share", "narration": "Each person gets $25.", "visualHint": "100÷4=25." },
       { "title": "Amount given", "narration": "$40 earner gives away $15.", "visualHint": "40−25=15; choice C circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 15 } },
+    "animation": {
+      "type": "equalize-share",
+      "data": {
+        "amounts": [15, 20, 25, 40],
+        "icons": ["🧒", "👦", "👧", "🧑"],
+        "unit": "$",
+        "ask": 3
+      }
+    },
     "tags": ["AMC 8", "2020", "algebra", "averages"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA"
@@ -43857,6 +43891,11 @@ const amc2020Problems: Problem[] = [
         "title": "Find total strawberries",
         "body": "192 × 10 = 1920 strawberries.",
         "equation": "192 × 10 = 1920"
+      },
+      {
+        "title": "Area, not distance around",
+        "body": "Both rates are per square foot of ground, so the garden has to be measured by the squares inside it. Measuring the way round instead lands on the wrong answers: 6 + 8 = 14 gives 14 × 40 = 560, and the perimeter 2(6 + 8) = 28 gives 28 × 40 = 1120 — both of them answer choices.",
+        "equation": "6 × 8 = 48, not 2 × (6 + 8) = 28"
       }
     ],
     "animationFrames": [
@@ -43864,7 +43903,18 @@ const amc2020Problems: Problem[] = [
       { "title": "Plant count", "narration": "48 × 4 = 192 plants.", "visualHint": "192 plants shown." },
       { "title": "Harvest", "narration": "192 × 10 = 1920.", "visualHint": "Choice D circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 1920 } },
+    "animation": {
+      "type": "area-yield",
+      "data": {
+        "width": 6,
+        "length": 8,
+        "unit": "ft",
+        "areaUnit": "square feet",
+        "areaUnitOne": "square foot",
+        "icon": "👩‍🌾",
+        "rates": ["4|plants|🌱", "10|strawberries|🍓"]
+      }
+    },
     "tags": ["AMC 8", "2020", "algebra", "multiplication"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA"
@@ -43891,12 +43941,21 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "37",
     "solutionSteps": [
       {
-        "title": "Count rows in each hexagon",
-        "body": "Hexagon 1: 1 dot. Hexagon 2: 2+3+2 = 7. Hexagon 3: 3+4+5+4+3 = 19."
+        "title": "Each hexagon adds a band",
+        "body": "The figure shades the bands: hexagon 1 is a single dot, hexagon 2 is that dot plus a ring, hexagon 3 adds another ring. The totals so far are 1, 7 and 19."
       },
       {
-        "title": "Extend the pattern",
-        "body": "Hexagon 4: 4+5+6+7+6+5+4 = 37.",
+        "title": "A band is six arms",
+        "body": "Walking the band k steps out from the centre goes along six straight arms of k dots each, so it holds 6k dots. Check it on hexagon 3: its outer band is 6 × 2 = 12, and 7 + 12 = 19."
+      },
+      {
+        "title": "Add the next band",
+        "body": "Hexagon 4 keeps all 19 dots and adds the band 3 steps out: 6 × 3 = 18 more. That gives 19 + 18 = 37. Careful — the new band is 3 out, not 4; using 6 × 4 = 24 would give 43.",
+        "equation": "19 + 6 × 3 = 37"
+      },
+      {
+        "title": "Check by rows",
+        "body": "Counting the same dots row by row gives 4+5+6+7+6+5+4 = 37, which agrees.",
         "equation": "4+5+6+7+6+5+4 = 37"
       }
     ],
@@ -43905,7 +43964,7 @@ const amc2020Problems: Problem[] = [
       { "title": "Count rows", "narration": "Hexagon 4 has rows: 4,5,6,7,6,5,4.", "visualHint": "Row counts listed." },
       { "title": "Sum", "narration": "4+5+6+7+6+5+4 = 37.", "visualHint": "Choice B circled." }
     ],
-    "animation": { "type": "generic", "data": { "answer": 37 } },
+    "animation": { "type": "hex-rings", "data": { "target": 4, "shown": 3 } },
     "tags": ["AMC 8", "2020", "counting & probability", "patterns", "diagram"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA",
@@ -43934,13 +43993,22 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "15%",
     "solutionSteps": [
       {
-        "title": "Divide the juice",
-        "body": "Each cup gets (3/4) ÷ 5 = 3/20 of the pitcher.",
-        "equation": "3/4 ÷ 5 = 3/20"
+        "title": "Three quarters full",
+        "body": "The juice fills 3 of the pitcher's 4 quarters. The empty quarter still counts — the question asks for a percent of the pitcher's total capacity, not of the juice."
       },
       {
-        "title": "Convert to percent",
-        "body": "3/20 = 15%.",
+        "title": "Rule the pitcher into 20 slices",
+        "body": "Split each quarter into 5, giving 20 equal slices of the pitcher. The juice is 3 × 5 = 15 of them — and 15 divides evenly by 5, which is exactly why 20 is the right ruler.",
+        "equation": "3/4 of 20 = 15 slices"
+      },
+      {
+        "title": "Pour into the 5 cups",
+        "body": "The 15 slices of juice split evenly: 15 ÷ 5 = 3 slices per cup.",
+        "equation": "15 ÷ 5 = 3"
+      },
+      {
+        "title": "Measure against the pitcher",
+        "body": "Each cup holds 3 of the pitcher's 20 slices: 3/20 = 15%. Measuring those same 3 slices against the 15 slices of juice instead gives 1/5 = 20%, which is the share of the juice, not of the pitcher.",
         "equation": "3/20 × 100 = 15%"
       }
     ],
@@ -43949,7 +44017,10 @@ const amc2020Problems: Problem[] = [
       { "title": "Each cup", "narration": "Each cup gets 3/20 of the pitcher.", "visualHint": "3/20 shown." },
       { "title": "Percent", "narration": "3/20 = 15%.", "visualHint": "Choice C circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": "15%" } },
+    "animation": {
+      "type": "pour-share",
+      "data": { "numer": 3, "den": 4, "cups": 5, "drink": "pineapple juice", "vessel": "pitcher", "icon": "🍍" }
+    },
     "tags": ["AMC 8", "2020", "algebra", "fractions"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA"
