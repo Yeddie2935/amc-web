@@ -45968,19 +45968,24 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "9",
     "solutionSteps": [
       {
-        "title": "Set up equations",
-        "body": "Let x = Candace's first-half baskets, y = second-half baskets. Same total attempts: 12 + 18 = 30 = 20 + 10. Same overall percentage: x + y = 15 + 10 = 25.",
+        "title": "Candace needs 25 baskets too",
+        "body": "Steph made 15 + 10 = 25 baskets from 20 + 10 = 30 attempts, so she shot 25/30 ≈ 83.3%. Candace took 12 + 18 = 30 attempts — the same 30 — and finished on the same overall percentage. Equal attempts at an equal rate means an equal number of baskets, so if x and y are her two halves, x + y = 25.",
         "equation": "x + y = 25"
       },
       {
-        "title": "Apply percentage constraints",
-        "body": "First half: x/12 < 15/20 = 3/4, so x < 9. Second half: y/18 < 10/10 = 1, so y < 18. With x + y = 25: x ≤ 8 and y ≥ 17.",
-        "equation": "x < 9, y < 18"
+        "title": "The first half has a ceiling of 8",
+        "body": "Steph shot 15/20 = 75% before the break, and Candace was strictly worse, so x/12 < 3/4. Three quarters of 12 attempts is exactly 9 — but 9/12 would only *tie* 75%, not fall below it, so 9 is out and x ≤ 8.",
+        "equation": "x/12 < 3/4 → x ≤ 8"
       },
       {
-        "title": "Find the answer",
-        "body": "The only solution is x = 8, y = 17. Difference = 17 − 8 = 9.",
-        "equation": "17 − 8 = 9"
+        "title": "The second half has a ceiling of 17",
+        "body": "Steph shot 10/10 = 100% after the break. Candace has to be strictly under a perfect record, so she must miss at least one of her 18 attempts: y ≤ 17.",
+        "equation": "y/18 < 1 → y ≤ 17"
+      },
+      {
+        "title": "The ceilings leave no slack",
+        "body": "The most Candace could possibly have is 8 + 17 = 25 — exactly the 25 she needs. There is nothing to spare, so neither half can give up even one basket: x = 8 and y = 17 is the only split. She scored 17 − 8 = 9 more in the second half. (Check: 8/12 ≈ 66.7% < 75% and 17/18 ≈ 94.4% < 100%, yet 25/30 ties Steph overall — this is Simpson's paradox, and it works because Candace took most of her shots in her strong half while Steph took most of hers in her weak one.)",
+        "equation": "8 + 17 = 25 → 17 − 8 = 9"
       }
     ],
     "animationFrames": [
@@ -45988,7 +45993,15 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "x + y = 25, x < 9, y < 18. Only solution: (8, 17).", "visualHint": "Constraints narrowed." },
       { "title": "Check", "narration": "17 − 8 = 9. The answer is (C).", "visualHint": "9; choice C circled." }
     ],
-    "animation": { "type": "bar-model", "data": { "answer": 9 } },
+    "animation": {
+      "type": "ceiling-squeeze",
+      "data": {
+        "rival": "Steph",
+        "solver": "Candace",
+        "unit": "baskets",
+        "halves": ["First Half|15|20|12", "Second Half|10|10|18"]
+      }
+    },
     "tags": ["AMC 8", "2022", "counting & probability", "inequalities"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA",
@@ -46017,18 +46030,28 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "17 minutes",
     "solutionSteps": [
       {
-        "title": "Track positions",
-        "body": "Bus moves one stop every 3 minutes (2 min driving + 1 min waiting). Zia walks one stop every 5 minutes. Bus starts 3 stops behind.",
-        "equation": "Bus: 3 min/stop, Zia: 5 min/stop"
+        "title": "The two rhythms",
+        "body": "Number the stops 1, 2, 3, … along the road. The bus starts at stop 1 and Zia at stop 4, three stops ahead of it. The bus gains a stop every 2 + 1 = 3 minutes, so it reaches stop n at time 2(n−1) + 1(n−2) minutes: stop 2 at 2, stop 3 at 5, stop 4 at 8, stop 5 at 11, stop 6 at 14, stop 7 at 17. Zia reaches a new stop every 5 minutes: stop 5 at 5, stop 6 at 10, stop 7 at 15. Zia only makes a decision at those three moments.",
+        "equation": "bus: 3 min/stop · Zia: 5 min/stop"
       },
       {
-        "title": "Simulate 5-minute intervals",
-        "body": "At t=5: Bus at stop 2 (waiting), Zia at stop 4. At t=10: Bus between stops 3 and 4, Zia at stop 5. At t=15: Bus at stop 5 (leaving), Zia at stop 6. Zia sees bus at previous stop, so she waits.",
-        "equation": ""
+        "title": "t = 5 — she keeps walking",
+        "body": "Zia reaches stop 5. The rule asks about the stop behind her, stop 4, and the bus does not get there until minute 8. At minute 5 the bus is only just pulling into stop 3, so it is not at stop 4 and has not left it. She walks on.",
+        "equation": "8 > 5 → keep walking"
       },
       {
-        "title": "Find boarding time",
-        "body": "Zia waits at stop 6. Bus arrives at stop 6 at t = 17. Total: 17 minutes.",
+        "title": "t = 10 — she keeps walking, but only just",
+        "body": "Zia reaches stop 6, so now the stop behind her is stop 5, which the bus does not reach until minute 11. At minute 10 the bus has left stop 4 (at minute 9) and is one minute short of stop 5 — closer than last time, but still not there. She walks on.",
+        "equation": "11 > 10 → keep walking"
+      },
+      {
+        "title": "t = 15 — the bus is finally behind her",
+        "body": "Zia reaches stop 7, and the stop behind her is stop 6, which the bus reached back at minute 14. In fact at minute 15 the bus is exactly at stop 6, finishing its one-minute wait. The condition is met, so Zia stops and waits.",
+        "equation": "14 ≤ 15 → wait"
+      },
+      {
+        "title": "The bus pulls in at minute 17",
+        "body": "The bus leaves stop 6 at minute 15 and takes 2 minutes to drive to stop 7, arriving at minute 17 — where Zia is waiting. She boards after 17 minutes. (Had she ignored the rule and kept walking, she would have reached stop 8 at minute 20 just as the bus arrived there, which is why 20 is offered as a choice.)",
         "equation": "15 + 2 = 17"
       }
     ],
@@ -46037,7 +46060,19 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "Simulate: at t=15, Zia waits at stop 6 because bus is at stop 5. Bus arrives at 17.", "visualHint": "Table of positions." },
       { "title": "Check", "narration": "17 minutes. The answer is (A).", "visualHint": "17; choice A circled." }
     ],
-    "animation": { "type": "number-line", "data": { "answer": 17 } },
+    "animation": {
+      "type": "chase-schedule",
+      "data": {
+        "busStart": 1,
+        "walkerStart": 4,
+        "driveTime": 2,
+        "dwellTime": 1,
+        "walkTime": 5,
+        "walker": "Zia",
+        "vehicle": "bus",
+        "destination": "Library"
+      }
+    },
     "tags": ["AMC 8", "2022", "logic", "scheduling"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA",
@@ -46066,19 +46101,24 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "84",
     "solutionSteps": [
       {
-        "title": "Count by columns",
-        "body": "Consider cases where identical symbols fill a column. There are 3 ways to choose a column of all △s and 2 ways for a column of all ○s (from remaining). The third column can be filled in 2³ = 8 ways.",
-        "equation": "3 × 2 × 8 = 48"
+        "title": "What has to be true",
+        "body": "There are 8 lines in the grid — 3 rows, 3 columns and 2 diagonals — and 2⁹ = 512 ways to fill it. We need a filling that has some line entirely △ *and* some line entirely ○. The sample shown has an all-△ column, but no line of ○s, so it is not one of the ones we want.",
+        "equation": "512 fillings, 8 lines"
       },
       {
-        "title": "Subtract overcounting",
-        "body": "We overcounted cases with all 3 columns uniform (one symbol per column). There are 2 × 3 = 6 such cases.",
-        "equation": "48 − 6 = 42"
+        "title": "The two lines cannot cross",
+        "body": "A cell cannot hold both symbols, so the △ line and the ○ line share no cell at all. That rules out a great deal: every row meets every column, each diagonal meets every row, every column and the other diagonal. The only pairs of lines in a 3-by-3 grid that miss each other completely are two different rows, or two different columns — so **the diagonals can never take part**.",
+        "equation": "the two lines are parallel"
       },
       {
-        "title": "Double for rows",
-        "body": "The same count applies for rows. By symmetry, double the answer: 42 × 2 = 84.",
-        "equation": "42 × 2 = 84"
+        "title": "Counting the two-row case",
+        "body": "Each row is one of 2³ = 8 patterns: all △, all ○, or one of the other 6 mixed patterns. We need at least one all-△ row and at least one all-○ row. One of each plus a mixed row gives 3! = 6 orders × 6 mixed patterns = 36; two all-△ rows and one all-○ gives 3; one all-△ and two all-○ gives 3. That is 36 + 3 + 3 = 42.",
+        "equation": "36 + 3 + 3 = 42"
+      },
+      {
+        "title": "Rows and columns never overlap, so add",
+        "body": "By symmetry the two-column case also gives 42. These cannot both happen at once — a filling with an all-△ row and an all-○ column would need that row and column to disagree where they cross — so no filling is counted twice and the two cases simply add: 42 + 42 = 84.",
+        "equation": "42 + 42 = 84"
       }
     ],
     "animationFrames": [
@@ -46086,7 +46126,10 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "Columns: 3×2×8 − 6 = 42. By symmetry for rows, double to 84.", "visualHint": "Counting illustrated." },
       { "title": "Check", "narration": "84 configurations. The answer is (D).", "visualHint": "84; choice D circled." }
     ],
-    "animation": { "type": "generic", "data": { "answer": 84 } },
+    "animation": {
+      "type": "line-pair-grid",
+      "data": { "size": 3, "sample": ["010", "010", "001"] }
+    },
     "tags": ["AMC 8", "2022", "counting & probability", "inclusion-exclusion"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA",
@@ -46115,18 +46158,23 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "192",
     "solutionSteps": [
       {
-        "title": "Identify edges from folding",
-        "body": "When folded: AB goes on BC, AH goes on CI, and EF goes on FG. So BJ = CI = 8 and FG = BC = 8. Also HJ = 8 (parallel to FG).",
-        "equation": "BJ = CI = FG = BC = 8"
+        "title": "The five faces of the net",
+        "body": "The dotted fold lines BJ, BG, CF and FI cut the polygon into five pieces: rectangle ABJH, right triangle BJG, rectangle BCFG, right triangle CIF and rectangle IDEF. That is exactly a triangular prism — two triangular bases and three rectangular sides. Note that J lies on GH and I lies on CD, so those two sides of the polygon each span two different faces.",
+        "equation": "2 triangles + 3 rectangles"
       },
       {
-        "title": "Find triangle dimensions",
-        "body": "GH = 14, HJ = 8, so JG = 14 − 8 = 6. Triangle BJG has legs BJ = 8 and JG = 6.",
+        "title": "Every rectangle carries the prism's length",
+        "body": "The prism has one length, and each of the three rectangular faces has that length as one of its two dimensions. Rectangle IDEF gives it to us directly: EF = 8. So the length is 8, and therefore ID = 8, BC = GF = 8, and — the one that matters — AB = HJ = 8.",
+        "equation": "length = EF = 8"
+      },
+      {
+        "title": "GH is two edges wearing one name",
+        "body": "Here is the catch. GH = 14 looks like a single side of the polygon, but J sits on it, so it is really HJ followed by JG. HJ belongs to rectangle ABJH and is the prism length, 8. JG belongs to triangle BJG and is the leg we still need. So JG = 14 − 8 = 6. The other leg is BJ = AH = 8 (given), and the right angle is at J.",
         "equation": "JG = 14 − 8 = 6"
       },
       {
-        "title": "Compute volume",
-        "body": "Area of triangle BJG = (8 × 6)/2 = 24. Height of prism = FG = 8. Volume = 24 × 8 = 192.",
+        "title": "Sweep the base along the length",
+        "body": "The base is a right triangle with legs 8 and 6, so its area is ½ · 8 · 6 = 24. Sweeping that base along the prism's length of 8 gives the volume: 24 × 8 = 192. (As a check, the hypotenuse works out to 10, which is exactly BG = CF, the long side of the middle rectangle.)",
         "equation": "24 × 8 = 192"
       }
     ],
@@ -46135,7 +46183,10 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "Triangle base has legs 8 and 6, area = 24. Prism height = 8. V = 192.", "visualHint": "Prism assembled." },
       { "title": "Check", "narration": "Volume = 192. The answer is (C).", "visualHint": "192; choice C circled." }
     ],
-    "animation": { "type": "generic", "data": { "answer": 192 } },
+    "animation": {
+      "type": "prism-net",
+      "data": { "ah": 8, "ef": 8, "gh": 14 }
+    },
     "tags": ["AMC 8", "2022", "geometry", "3D geometry"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA",
@@ -46164,24 +46215,24 @@ const amc2022Problems: Problem[] = [
     "shortAnswer": "7/27",
     "solutionSteps": [
       {
-        "title": "Define states",
-        "body": "Let A be the starting leaf and B be the group of 3 other leaves. From A, the cricket always goes to B (probability 1). From B, it goes to A with probability 1/3 or stays in B with probability 2/3.",
-        "equation": "P(A→B) = 1, P(B→A) = 1/3"
+        "title": "Four leaves collapse to two states",
+        "body": "The three leaves that are not the starting one are completely interchangeable — from the cricket's point of view they all look the same — so we never need to know *which* one it is on, only whether it is home (H) or away (A). That gives a two-state machine: from H it must move, so it goes to A with probability 1; from A it returns home with probability 1/3, or lands on one of the other two away leaves with probability 2/3. Note H → H is impossible.",
+        "equation": "H → A: 1 · A → H: 1/3 · A → A: 2/3"
       },
       {
-        "title": "Case 1: A→B→A→B→A",
-        "body": "Probability = 1 · (1/3) · 1 · (1/3) = 1/9.",
-        "equation": "1/9"
+        "title": "Route 1 — H A H A H",
+        "body": "The cricket leaves home, comes straight back, leaves again and comes back once more. Multiplying the four hop probabilities: 1 · 1/3 · 1 · 1/3 = 1/9.",
+        "equation": "1 · 1/3 · 1 · 1/3 = 1/9"
       },
       {
-        "title": "Case 2: A→B→B→B→A",
-        "body": "Probability = 1 · (2/3) · (2/3) · (1/3) = 4/27.",
-        "equation": "4/27"
+        "title": "Route 2 — H A A A H",
+        "body": "The cricket leaves home and wanders among the away leaves before returning. Each A → A hop must land on a *different* away leaf, which is 2 of the 3 choices: 1 · 2/3 · 2/3 · 1/3 = 4/27.",
+        "equation": "1 · 2/3 · 2/3 · 1/3 = 4/27"
       },
       {
-        "title": "Total probability",
-        "body": "1/9 + 4/27 = 3/27 + 4/27 = 7/27.",
-        "equation": "1/9 + 4/27 = 7/27"
+        "title": "Add the routes",
+        "body": "Those are the only two routes home, because the cricket can never sit at home on two consecutive hops. Over a common denominator, 3/27 + 4/27 = 7/27. As an independent check, of the 3⁴ = 81 equally likely hop sequences, exactly 21 end back at the starting leaf, and 21/81 = 7/27. (Watch two traps: after only 3 hops the probability is 2/9, and if the cricket were allowed to stay put it would be 1/4 — both are offered as choices.)",
+        "equation": "3/27 + 4/27 = 7/27"
       }
     ],
     "animationFrames": [
@@ -46189,7 +46240,10 @@ const amc2022Problems: Problem[] = [
       { "title": "Solve", "narration": "Two paths back: ABABA (1/9) and ABBBA (4/27). Total = 7/27.", "visualHint": "Tree diagram of paths." },
       { "title": "Check", "narration": "7/27. The answer is (E).", "visualHint": "7/27; choice E circled." }
     ],
-    "animation": { "type": "probability", "data": { "answer": "7/27" } },
+    "animation": {
+      "type": "leaf-hop-return",
+      "data": { "sites": 4, "hops": 4, "siteWord": "leaf" }
+    },
     "tags": ["AMC 8", "2022", "counting & probability", "markov chains"],
     "sourceName": "2022 AMC 8",
     "license": "CC BY-NC-SA",

@@ -124,6 +124,11 @@ import { UnitsDigitRunScene } from "./scenes/UnitsDigitRunScene";
 import { MidpointRectScene } from "./scenes/MidpointRectScene";
 import { DotPlotShiftScene } from "./scenes/DotPlotShiftScene";
 import { MagicGridSlideScene } from "./scenes/MagicGridSlideScene";
+import { CeilingSqueezeScene } from "./scenes/CeilingSqueezeScene";
+import { ChaseScheduleScene } from "./scenes/ChaseScheduleScene";
+import { LinePairGridScene } from "./scenes/LinePairGridScene";
+import { PrismNetScene } from "./scenes/PrismNetScene";
+import { LeafHopReturnScene } from "./scenes/LeafHopReturnScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -503,6 +508,44 @@ export function resolveScene(problem: Problem): AnimatedScene {
     const square = g.every((r) => r.length === g.length);
     const flat = g.flat().map((s) => s.trim());
     if (square && flat.includes(xn) && flat.filter((s) => s === "?").length >= 1) return MagicGridSlideScene;
+  }
+  // at least two parts, each carrying a real rival record and its own attempts
+  if (type === "ceiling-squeeze" && Array.isArray(data.halves) && data.halves.length >= 2) {
+    const parts = data.halves.map((h) => String(h).split("|"));
+    const ok = parts.every((p) => {
+      const [, made, att, own] = p;
+      return p.length >= 4 && Number(att) > 0 && Number(own) > 0 && Number(made) >= 0 && Number(made) <= Number(att);
+    });
+    if (ok) return CeilingSqueezeScene;
+  }
+  // real rhythms for both travellers, and the ride genuinely starts behind
+  if (type === "chase-schedule") {
+    const drive = num(data.driveTime ?? 0);
+    const walkT = num(data.walkTime ?? 0);
+    const busS = num(data.busStart ?? 0);
+    const walkS = num(data.walkerStart ?? 0);
+    if (drive > 0 && walkT > 0 && num(data.dwellTime ?? 0) >= 0 && walkS > busS) return ChaseScheduleScene;
+  }
+  // a real square grid, small enough to enumerate, with a well-formed sample
+  if (type === "line-pair-grid" && Array.isArray(data.sample)) {
+    const size = num(data.size ?? 0);
+    const rows = data.sample.map((r) => String(r));
+    if (size >= 2 && size <= 4 && rows.length === size && rows.every((r) => r.length === size && /^[01]+$/.test(r))) {
+      return LinePairGridScene;
+    }
+  }
+  // GH must genuinely overhang the prism length, or there is no second leg
+  if (type === "prism-net") {
+    const ahv = num(data.ah ?? 0);
+    const efv = num(data.ef ?? 0);
+    const ghv = num(data.gh ?? 0);
+    if (ahv > 0 && efv > 0 && ghv > efv) return PrismNetScene;
+  }
+  // at least 3 sites (so a move is possible) and a real number of hops
+  if (type === "leaf-hop-return") {
+    const sitesN = num(data.sites ?? 0);
+    const hopsN = num(data.hops ?? 0);
+    if (sitesN >= 3 && sitesN <= 8 && hopsN >= 2 && hopsN <= 10) return LeafHopReturnScene;
   }
   if (type === "spiral-grid" && num(data.size ?? 0) >= 3 && Array.isArray(data.marked) && data.marked.length >= 2) {
     return SpiralGridScene;
