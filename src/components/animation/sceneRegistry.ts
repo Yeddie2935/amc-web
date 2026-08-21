@@ -139,6 +139,9 @@ import { IncreasingDigitsScene } from "./scenes/IncreasingDigitsScene";
 import { SwapValueScene } from "./scenes/SwapValueScene";
 import { IcedCubeScene } from "./scenes/IcedCubeScene";
 import { GlueBlockScene } from "./scenes/GlueBlockScene";
+import { AverageSpeedGraphScene } from "./scenes/AverageSpeedGraphScene";
+import { FactorialRegroupScene } from "./scenes/FactorialRegroupScene";
+import { MixtureTopUpScene } from "./scenes/MixtureTopUpScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -691,6 +694,33 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "telescope-product" && num(data.to ?? 0) > num(data.from ?? 0) && num(data.gap ?? 0) >= 1) {
     return TelescopeProductScene;
+  }
+  // the frozen remainder must divide into whole parts, and the drawer must stay drawable
+  if (type === "mixture-topup" && Array.isArray(data.kinds) && data.kinds.length >= 2) {
+    const parsed = data.kinds.map((k) => String(k).split("|"));
+    const tgt = String(data.target ?? "");
+    const p = num(data.percent ?? 0);
+    const frozen = parsed.filter((k) => k[0] !== tgt).reduce((s, k) => s + num(k[2] ?? 0), 0);
+    const g2 = (a: number, b: number): number => (b === 0 ? a : g2(b, a % b));
+    const dd = g2(Math.round(100 - p), 100) || 1;
+    const rn = Math.round(100 - p) / dd;
+    const total = rn > 0 ? (frozen / rn) * (100 / dd) : 0;
+    if (p > 0 && p < 100 && frozen > 0 && Number.isInteger(total) && total > 0 && total <= 120) {
+      return MixtureTopUpScene;
+    }
+  }
+  // two factorials small enough to stay exact, and a coefficient that really divides
+  if (type === "factorial-regroup" && Array.isArray(data.left) && data.left.length === 2) {
+    const a = num(data.left[0] ?? 0);
+    const b = num(data.left[1] ?? 0);
+    const k = num(data.coef ?? 0);
+    const fa = a >= 1 && a <= 12 ? Array.from({ length: a }, (_, i) => i + 1).reduce((x, y) => x * y, 1) : 0;
+    if (a >= 1 && a <= 12 && b >= 1 && b <= 12 && k >= 2 && fa % k === 0) return FactorialRegroupScene;
+  }
+  // exactly two journeys, each a real polyline, so a difference of averages exists
+  if (type === "avg-speed-graph" && Array.isArray(data.travellers) && data.travellers.length === 2) {
+    const ok = data.travellers.every((t) => String(t).split("|").length >= 4 && String(t).split("|")[3].trim().length > 0);
+    if (ok && num(data.xMax ?? 0) > 0 && num(data.yMax ?? 0) > 0) return AverageSpeedGraphScene;
   }
   // enough items that gluing two of them actually shortens the row, few enough to enumerate
   if (type === "glue-block" && Array.isArray(data.items) && Array.isArray(data.pair)) {

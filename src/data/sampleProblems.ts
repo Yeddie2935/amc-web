@@ -44347,27 +44347,45 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "24 mph",
     "solutionSteps": [
       {
-        "title": "Naomi's speed",
-        "body": "Naomi travels 6 miles in 10 minutes = 1/6 hour. Speed = 6 ÷ (1/6) = 36 mph.",
-        "equation": "6 ÷ (1/6) = 36"
+        "title": "Read only the ends of each journey",
+        "body": "Both graphs are full of detail — Naomi's bus waits at the kerb, then halts at a stop partway, and Maya's bike rests three separate times. But both journeys finish at 6 miles: Naomi's at the 10-minute mark, Maya's at the 30-minute mark."
       },
       {
-        "title": "Maya's speed",
-        "body": "Maya travels 6 miles in 30 minutes = 1/2 hour. Speed = 6 ÷ (1/2) = 12 mph.",
-        "equation": "6 ÷ (1/2) = 12"
+        "title": "Average speed ignores the middle",
+        "body": "Average speed is total distance ÷ total time, so it depends only on where a journey starts and where it ends. Every stop and every change of slope in between drops out — each wiggly graph can be replaced by a single straight line from its start to its finish."
       },
       {
-        "title": "Difference",
-        "body": "36 − 12 = 24 mph.",
+        "title": "Take each slope",
+        "body": "Naomi covers 6 miles in 10 minutes, and 10 minutes is 1/6 of an hour, so her average speed is 6 ÷ 1/6 = 36 mph. Maya covers the same 6 miles in 30 minutes, which is 1/2 an hour, so hers is 6 ÷ 1/2 = 12 mph.",
+        "equation": "36 mph and 12 mph"
+      },
+      {
+        "title": "Subtract",
+        "body": "The difference is 36 − 12 = 24 mph. Every other answer choice is a number met along the way: 12 is Maya's speed alone, 20 is the gap between the two journey times in minutes, 6 is the distance, and 18 is what you get dividing 6 miles by that 20-minute gap.",
         "equation": "36 − 12 = 24"
       }
     ],
     "animationFrames": [
-      { "title": "Read graph", "narration": "Naomi: 6 mi in 10 min. Maya: 6 mi in 30 min.", "visualHint": "Graph with two lines." },
-      { "title": "Compute speeds", "narration": "Naomi: 36 mph. Maya: 12 mph.", "visualHint": "Speeds shown." },
+      { "title": "Read the ends", "narration": "Both reach 6 miles: Naomi at 10 min, Maya at 30 min.", "visualHint": "Both journeys drawn with their stops." },
+      { "title": "Straighten", "narration": "Average speed only sees the start and the finish.", "visualHint": "Each path collapses onto its chord." },
+      { "title": "Two slopes", "narration": "Naomi 36 mph, Maya 12 mph.", "visualHint": "Run bracketed under each chord." },
       { "title": "Difference", "narration": "36 − 12 = 24.", "visualHint": "Choice E circled." }
     ],
-    "animation": { "type": "graph-read", "data": { "answer": 24 } },
+    "animation": {
+      "type": "avg-speed-graph",
+      "data": {
+        "xMax": 30,
+        "yMax": 6,
+        "perHour": 60,
+        "xUnit": "minutes",
+        "yUnit": "miles",
+        "speedUnit": "mph",
+        "travellers": [
+          "Naomi|🚌|#dc2626|0,0 1.8,0 5.5,3.7 8,3.7 10,6",
+          "Maya|🚲|#4338ca|0,0 5.7,1.3 7.5,1.3 15.5,3.2 18,3.2 25.7,5.2 26.7,5.2 30,6"
+        ]
+      }
+    },
     "tags": ["AMC 8", "2020", "algebra", "rates", "diagram"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA",
@@ -44396,22 +44414,36 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "10",
     "solutionSteps": [
       {
-        "title": "Simplify 5!",
-        "body": "5! = 120 = 12 × 10. So 5! · 9! = 12 · 10 · 9!.",
-        "equation": "5! = 120 = 12 × 10"
+        "title": "Write both factorials out",
+        "body": "5! is the run 5 · 4 · 3 · 2 · 1 = 120 and 9! is 9 · 8 · … · 1 = 362,880, so the left side is 43,545,600. Dividing that by 12 would work, but there is a much shorter route: the 12 on the right is already sitting inside 5!.",
+        "equation": "5! · 9! = 12 · N!"
       },
       {
-        "title": "Solve",
-        "body": "12 · 10 · 9! = 12 · 10! = 12 · N!, so N = 10.",
+        "title": "Peel the 12 out of 5!",
+        "body": "Sort 5!'s factors into two groups: 4 · 3 = 12, and 5 · 2 · 1 = 10. So 5! = 12 × 10. The 12 matches the 12 on the right-hand side exactly, and the 10 is still looking for a home.",
+        "equation": "5! = 12 × 10"
+      },
+      {
+        "title": "The 10 becomes 9!'s next rung",
+        "body": "A factorial grows by one factor at a time, and 10 is precisely the factor that turns 9! into 10!. So 10 · 9! = 10!, and the whole left side is 12 · 10!.",
+        "equation": "10 · 9! = 10!"
+      },
+      {
+        "title": "Cancel and check",
+        "body": "Both sides now read 12 times a factorial, so 10! = N! and N = 10. Testing the other choices confirms it is the only one: consecutive factorials differ by a whole factor, so 12 · 11! is already 11 times too big, and each further choice overshoots by more.",
         "equation": "N = 10"
       }
     ],
     "animationFrames": [
-      { "title": "Expand 5!", "narration": "5! = 120 = 12 × 10.", "visualHint": "120 = 12 × 10." },
-      { "title": "Simplify", "narration": "12 × 10 × 9! = 12 × 10!.", "visualHint": "10 · 9! = 10!." },
-      { "title": "Answer", "narration": "N = 10.", "visualHint": "Choice A circled." }
+      { "title": "Write them out", "narration": "5! · 9! = 43,545,600 = 12 · N!.", "visualHint": "Both runs as factor tiles." },
+      { "title": "Peel the 12", "narration": "5! sorts into 4·3 = 12 and 5·2·1 = 10.", "visualHint": "Tiles regroup into two boxes." },
+      { "title": "Add a rung", "narration": "10 · 9! = 10!.", "visualHint": "The 10 lands on the head of the run." },
+      { "title": "Cancel", "narration": "12 · 10! = 12 · N!, so N = 10.", "visualHint": "Choice A circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 10 } },
+    "animation": {
+      "type": "factorial-regroup",
+      "data": { "left": [5, 9], "coef": 12, "unknown": "N" }
+    },
     "tags": ["AMC 8", "2020", "number theory", "factorials"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA"
@@ -44438,22 +44470,39 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "9",
     "solutionSteps": [
       {
-        "title": "Set up equation",
-        "body": "After adding x purple socks: (18 + x)/(36 + x) = 3/5.",
-        "equation": "(18 + x)/(36 + x) = 3/5"
+        "title": "The drawer as it starts",
+        "body": "There are 6 + 18 + 12 = 36 socks, of which 18 are purple — exactly half. Only purple socks get added, so that share has to climb to 60%."
       },
       {
-        "title": "Solve",
-        "body": "5(18 + x) = 3(36 + x) → 90 + 5x = 108 + 3x → 2x = 18 → x = 9.",
-        "equation": "x = 9"
+        "title": "Everything that is not purple is frozen",
+        "body": "The 6 green and the 12 orange socks never change: there are 18 of them before and 18 after. So if purple finishes on 60%, those same 18 socks are the whole of the other 40%."
+      },
+      {
+        "title": "18 socks are 40%, so the drawer holds 45",
+        "body": "40% is 2 parts out of 5, so those 18 socks make 2 equal parts and one part is 18 ÷ 2 = 9 socks. Five parts is 5 × 9 = 45, so the finished drawer holds 45 socks — found by one division, with no equation to solve.",
+        "equation": "18 ÷ 2 = 9 per part, 5 × 9 = 45"
+      },
+      {
+        "title": "Purple gains exactly one part",
+        "body": "Purple ends at 45 − 18 = 27, which is 3 parts, and it started at 18, which is 2 parts. So one part was added: 9 socks. Checking, 27 out of 45 really is 60%.",
+        "equation": "27 − 18 = 9"
       }
     ],
     "animationFrames": [
-      { "title": "Set up", "narration": "Total socks: 36 + x. Purple: 18 + x. Probability = 3/5.", "visualHint": "(18+x)/(36+x) = 3/5." },
-      { "title": "Cross multiply", "narration": "5(18+x) = 3(36+x).", "visualHint": "90 + 5x = 108 + 3x." },
-      { "title": "Solve", "narration": "x = 9.", "visualHint": "Choice B circled." }
+      { "title": "The drawer", "narration": "36 socks, 18 of them purple — half.", "visualHint": "Socks laid out in the drawer." },
+      { "title": "Frozen", "narration": "The 18 non-purple socks never change, so they are the whole 40%.", "visualHint": "Non-purple block ringed." },
+      { "title": "Parts", "narration": "18 = 2 parts, so 1 part = 9 and 5 parts = 45.", "visualHint": "Rows as equal parts." },
+      { "title": "One more row", "narration": "Purple 18 → 27, so 9 were added.", "visualHint": "Choice B circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 9 } },
+    "animation": {
+      "type": "mixture-topup",
+      "data": {
+        "kinds": ["green|#16a34a|6", "orange|#f97316|12", "purple|#7c3aed|18"],
+        "target": "purple",
+        "percent": 60,
+        "itemWord": "socks"
+      }
+    },
     "tags": ["AMC 8", "2020", "algebra", "equations"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA"

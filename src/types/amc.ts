@@ -157,6 +157,9 @@ export type AnimationTemplateType =
   | "swap-value"
   | "iced-cube"
   | "glue-block"
+  | "avg-speed-graph"
+  | "factorial-regroup"
+  | "mixture-topup"
   | "cube-net"
   | "solid-3d"
   | "generic";
