@@ -44529,21 +44529,40 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "95,000",
     "solutionSteps": [
       {
-        "title": "Read the average",
-        "body": "The dashed line is at approximately 4,750 (halfway between 4,500 and 5,000)."
+        "title": "Twenty bars, no numbers",
+        "body": "The chart gives 20 cities with populations from about 1,400 up to about 8,700, and it prints none of them. Reading off twenty heights and adding them is slow and easy to get wrong — the dashed line is there so you don't have to."
       },
       {
-        "title": "Compute total",
-        "body": "Total = average × 20 = 4,750 × 20 = 95,000.",
+        "title": "Read the dashed line",
+        "body": "The dashed line marks the average population. It sits between the 4,000 and 6,000 gridlines, a little below the halfway mark at 5,000, so the average is about 4,750."
+      },
+      {
+        "title": "The average levels the bars",
+        "body": "That is exactly what an average means: everything the tall cities have above the line is precisely what the short cities are missing below it. Pour the surplus into the gaps and you get 20 equal bars of 4,750 holding the very same total."
+      },
+      {
+        "title": "Multiply",
+        "body": "Total = average × number of cities = 4,750 × 20 = 95,000. The answer choices are 10,000 apart — only 500 apart in average terms — so even a slightly different reading of the dashed line still gives 95,000.",
         "equation": "4,750 × 20 = 95,000"
       }
     ],
     "animationFrames": [
+      { "title": "Read the chart", "narration": "Twenty bars, no numbers printed.", "visualHint": "Bars grow in." },
       { "title": "Read average", "narration": "The dashed line sits at about 4,750.", "visualHint": "Dashed line highlighted." },
-      { "title": "Multiply", "narration": "4,750 × 20 = 95,000.", "visualHint": "95,000 computed." },
-      { "title": "Answer", "narration": "Closest is 95,000.", "visualHint": "Choice D circled." }
+      { "title": "Level off", "narration": "Surplus above the line fills the gaps below it.", "visualHint": "Bars level to the line." },
+      { "title": "Multiply", "narration": "4,750 × 20 = 95,000.", "visualHint": "One rectangle, 20 wide and 4,750 tall." }
     ],
-    "animation": { "type": "bar-model", "data": { "answer": 95000 } },
+    "animation": {
+      "type": "average-level",
+      "data": {
+        "values": [8700, 3800, 5000, 2900, 6400, 7500, 4100, 1400, 2600, 1450, 2600, 7100, 4080, 7500, 7000, 8100, 1900, 1550, 5850, 5750],
+        "readAverage": 4750,
+        "gridStep": 2000,
+        "unit": "people",
+        "yLabel": "Population",
+        "xLabel": "cities"
+      }
+    },
     "tags": ["AMC 8", "2020", "algebra", "graph reading", "diagram"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA",
@@ -44572,22 +44591,35 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "75%",
     "solutionSteps": [
       {
-        "title": "Set up equation",
-        "body": "0.15x = 0.20y, so y/x = 0.15/0.20 = 3/4.",
-        "equation": "y/x = 15/20 = 3/4"
+        "title": "Slice both into 5% pieces",
+        "body": "15 and 20 are both whole numbers of 5, so cut each quantity into twenty 5% slices. Then 15% of x is 3 of x's slices, and 20% of y is 4 of y's slices."
       },
       {
-        "title": "Convert",
-        "body": "y is 3/4 of x, which is 75%.",
-        "equation": "3/4 = 75%"
+        "title": "Use the given fact",
+        "body": "Those two chunks are equal, so 3 slices of x = 4 slices of y. One slice of y is therefore 3/4 of a slice of x — y's slices are the smaller ones.",
+        "equation": "3 x-slices = 4 y-slices"
+      },
+      {
+        "title": "Measure y against x",
+        "body": "y is 20 of its own slices, and each is 3/4 of an x-slice, so y measures 20 × 3/4 = 15 of x's slices.",
+        "equation": "20 × 3/4 = 15"
+      },
+      {
+        "title": "Read off the percentage",
+        "body": "y covers 15 of x's 20 slices, and each slice is 5%, so y is 15/20 = 75% of x. Read the other way the same picture says x is 133 1/3% of y — that is choice D, the answer to the question the problem did not ask.",
+        "equation": "15/20 = 75%"
       }
     ],
     "animationFrames": [
-      { "title": "Equation", "narration": "15% of x = 20% of y.", "visualHint": "0.15x = 0.20y." },
-      { "title": "Ratio", "narration": "y/x = 15/20 = 3/4.", "visualHint": "3/4 shown." },
-      { "title": "Percent", "narration": "y is 75% of x.", "visualHint": "Choice C circled." }
+      { "title": "Slice", "narration": "Twenty 5% slices in each bar.", "visualHint": "3 of x shaded, 4 of y shaded." },
+      { "title": "Equal chunks", "narration": "3 x-slices = 4 y-slices.", "visualHint": "y's bar shrinks until the shaded runs match." },
+      { "title": "Measure", "narration": "y = 20 × 3/4 = 15 x-slices.", "visualHint": "y reaches x's 15th tick." },
+      { "title": "Percent", "narration": "15 of 20 slices is 75%.", "visualHint": "Choice C." }
     ],
-    "animation": { "type": "equation", "data": { "answer": "75%" } },
+    "animation": {
+      "type": "percent-slice",
+      "data": { "leftPercent": 15, "rightPercent": 20, "leftName": "x", "rightName": "y" }
+    },
     "tags": ["AMC 8", "2020", "algebra", "percentages"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA"

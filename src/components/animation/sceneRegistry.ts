@@ -142,6 +142,8 @@ import { GlueBlockScene } from "./scenes/GlueBlockScene";
 import { AverageSpeedGraphScene } from "./scenes/AverageSpeedGraphScene";
 import { FactorialRegroupScene } from "./scenes/FactorialRegroupScene";
 import { MixtureTopUpScene } from "./scenes/MixtureTopUpScene";
+import { AverageLevelScene } from "./scenes/AverageLevelScene";
+import { PercentSliceScene } from "./scenes/PercentSliceScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -750,6 +752,22 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if (type === "seat-deduce" && Array.isArray(data.people) && Array.isArray(data.rules)) {
     const n = num(data.slots ?? 0);
     if (n >= 2 && n <= 7 && data.people.length === n && data.rules.length > 0) return SeatDeduceScene;
+  }
+  // both percentages must be whole numbers of one slice, and the answer bar must
+  // end on a tick of the other's ruler, or the counting picture would be a lie
+  if (type === "percent-slice") {
+    const p = num(data.leftPercent ?? 0);
+    const q = num(data.rightPercent ?? 0);
+    const g2 = (a: number, b: number): number => (b === 0 ? Math.abs(a) : g2(b, a % b));
+    const u = g2(g2(p, q), 100) || 1;
+    const slices = 100 / u;
+    if (p > 0 && q > 0 && p <= 100 && q <= 100 && slices <= 25 && (100 * p) % q === 0 && (slices * p) % q === 0) {
+      return PercentSliceScene;
+    }
+  }
+  // enough bars that adding them is the wrong move, and a line to read off the chart
+  if (type === "average-level" && Array.isArray(data.values) && data.values.length >= 4 && num(data.readAverage ?? 0) > 0) {
+    return AverageLevelScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

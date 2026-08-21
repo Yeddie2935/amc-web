@@ -160,6 +160,8 @@ export type AnimationTemplateType =
   | "avg-speed-graph"
   | "factorial-regroup"
   | "mixture-topup"
+  | "average-level"
+  | "percent-slice"
   | "cube-net"
   | "solid-3d"
   | "generic";
