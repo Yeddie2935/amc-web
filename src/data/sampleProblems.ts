@@ -44047,20 +44047,44 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "Aaron",
     "solutionSteps": [
       {
-        "title": "Place Maren",
-        "body": "Maren is in car 5 (last). Aaron is directly behind Sharon, so Sharon is ahead of Aaron with no gap."
+        "title": "Pin down what is fixed",
+        "body": "Number the cars 1 (front) to 5 (last). Maren is in car 5. Aaron sits directly behind Sharon, so Sharon and Aaron occupy consecutive cars in that order — they are a block that never comes apart."
       },
       {
-        "title": "Place Darren and constraints",
-        "body": "Darren is in front of Aaron, and at least one person between Karen and Darren. The only arrangement that works is M, K, A, S, D → no. Working through: the arrangement is MKASD. The middle car (3rd) is Aaron."
+        "title": "Find where the block fits",
+        "body": "Car 5 is taken, so the Sharon–Aaron block can only sit in cars 1–2, 2–3, or 3–4. Those three placements are the entire search."
+      },
+      {
+        "title": "Rule out two of them",
+        "body": "If the block is in cars 1–2, Darren must be in front of car 2, but only car 1 is there and Sharon has it. If the block is in cars 3–4, Darren and Karen are squeezed into cars 1 and 2, which are neighbours — nobody sits between them. Both fail."
+      },
+      {
+        "title": "Read off the middle car",
+        "body": "That leaves the block in cars 2–3: Sharon in 2, Aaron in 3. Darren must be in front of Aaron, so Darren takes car 1, and Karen takes car 4 — three cars from Darren, so the gap rule holds. The seating is Darren, Sharon, Aaron, Karen, Maren, and car 3 is Aaron.",
+        "equation": "D S A K M"
       }
     ],
     "animationFrames": [
-      { "title": "Constraints", "narration": "Maren last; Aaron behind Sharon; Darren in front of Aaron.", "visualHint": "5 cars shown." },
-      { "title": "Arrange", "narration": "Working through constraints: M, K, A, S, D.", "visualHint": "Names placed in cars." },
-      { "title": "Middle car", "narration": "Aaron is in the middle (3rd) car.", "visualHint": "Choice A circled." }
+      { "title": "Constraints", "narration": "Maren last; Aaron directly behind Sharon; Darren in front of Aaron.", "visualHint": "5 cars shown." },
+      { "title": "Slide the block", "narration": "The Sharon–Aaron block fits in cars 1–2, 2–3 or 3–4.", "visualHint": "Block tried in each place." },
+      { "title": "Eliminate", "narration": "Cars 1–2 leaves no room in front for Darren; cars 3–4 forces Karen and Darren to be neighbours.", "visualHint": "Two rows struck out." },
+      { "title": "Middle car", "narration": "Darren, Sharon, Aaron, Karen, Maren — car 3 is Aaron.", "visualHint": "Choice A circled." }
     ],
-    "animation": { "type": "ranking", "data": { "answer": "Aaron" } },
+    "animation": {
+      "type": "seat-deduce",
+      "data": {
+        "slots": 5,
+        "unit": "car",
+        "ask": 3,
+        "people": ["Aaron|🧑|A", "Darren|🧔|D", "Karen|👩|K", "Maren|👧|M", "Sharon|👱|S"],
+        "rules": [
+          "at|Maren|5|Maren sits in the last car",
+          "behind|Aaron|Sharon|Aaron sits directly behind Sharon",
+          "front|Darren|Aaron|Darren must be in front of Aaron",
+          "gap|Karen|Darren|2|someone must sit between Karen and Darren"
+        ]
+      }
+    },
     "tags": ["AMC 8", "2020", "logic", "deductive reasoning"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA"
@@ -44087,21 +44111,34 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "15",
     "solutionSteps": [
       {
-        "title": "Identify constraints",
-        "body": "The number is between 2020 and 2400 with digits in increasing order. First digit is 2. Second digit must be 3 (since digits increase and the number < 2400)."
+        "title": "Counting numbers means counting sets",
+        "body": "\"Increasing order\" is not a choice you make — it arranges the digits for you. The four digits 2, 3, 4, 7 can be written 4! = 24 ways, but exactly one of them climbs: 2347. So each set of four distinct digits gives exactly one number, and the job is to count sets, not arrangements."
       },
       {
-        "title": "Choose remaining digits",
-        "body": "The last two digits must be chosen from {4,5,6,7,8,9} in increasing order. That's C(6,2) = 15.",
+        "title": "The window forces the opening digits",
+        "body": "The whole window 2020–2400 sits in the 2000s, so the first digit is 2. For the second digit, test the smallest number it could possibly produce — if even the smallest overshoots, so does everything else. A second digit of 3 gives 2345, which is inside; 4 gives 2456, 5 gives 2567, 6 gives 2678 and 7 gives 2789, all past 2400; and 8 or 9 leave fewer than two larger digits to finish with. So every such number starts 2, 3."
+      },
+      {
+        "title": "Pick the last two",
+        "body": "The remaining two digits must beat 3, so they come from {4, 5, 6, 7, 8, 9} — six digits. Picking 4 then 7 and picking 7 then 4 produce the same number, 2347, because increasing order has already decided where they go. So this is a choice of 2, not an arrangement of 2: C(6,2) = 6 × 5 ÷ 2 = 15.",
         "equation": "C(6,2) = 15"
+      },
+      {
+        "title": "Count them off",
+        "body": "Grouping the numbers by their third digit gives 2345–2349, then 2356–2359, then 2367–2369, then 2378 and 2379, then 2389 — rows of 5, 4, 3, 2 and 1. That sums to 15, matching C(6,2).",
+        "equation": "5 + 4 + 3 + 2 + 1 = 15"
       }
     ],
     "animationFrames": [
-      { "title": "Fix first digits", "narration": "First digit 2, second digit 3.", "visualHint": "23__ format." },
-      { "title": "Choose last two", "narration": "Pick 2 from {4,5,6,7,8,9}, order is forced.", "visualHint": "C(6,2) shown." },
-      { "title": "Count", "narration": "C(6,2) = 15.", "visualHint": "Choice C circled." }
+      { "title": "Order is forced", "narration": "24 arrangements of 2,3,4,7 — only 2347 increases.", "visualHint": "Digits sort themselves." },
+      { "title": "Fix first digits", "narration": "Only a second digit of 3 keeps the number under 2400.", "visualHint": "Candidates on a number line." },
+      { "title": "Choose last two", "narration": "Pick 2 from {4,5,6,7,8,9}; order is already decided.", "visualHint": "C(6,2) shown." },
+      { "title": "Count", "narration": "5 + 4 + 3 + 2 + 1 = 15.", "visualHint": "Choice C circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 15 } },
+    "animation": {
+      "type": "increasing-digits",
+      "data": { "low": 2020, "high": 2400, "length": 4, "example": 2347 }
+    },
     "tags": ["AMC 8", "2020", "counting & probability", "combinatorics"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA"
@@ -44128,27 +44165,41 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "8072 cents",
     "solutionSteps": [
       {
-        "title": "Maximum money",
-        "body": "Use 2019 nickels and 1 penny: 2019 × 5 + 1 = 10096 cents.",
-        "equation": "2019 × 5 + 1 = 10096"
+        "title": "A nickel is worth 4 cents more",
+        "body": "There are always 2020 coins, and at least one of each kind, so neither can run out. The only thing that varies is how many of them are nickels — and a nickel is worth 5 − 1 = 4 cents more than a penny.",
+        "equation": "5 − 1 = 4"
       },
       {
-        "title": "Minimum money",
-        "body": "Use 2019 pennies and 1 nickel: 2019 × 1 + 5 = 2024 cents.",
-        "equation": "2019 + 5 = 2024"
+        "title": "One trade is worth exactly 4 cents",
+        "body": "Swap one penny for one nickel. The number of coins is still 2020, but the total goes up by exactly 4 cents. Nothing else changes, so the whole problem is a count of how many such trades are allowed."
       },
       {
-        "title": "Difference",
-        "body": "10096 − 2024 = 8072.",
-        "equation": "10096 − 2024 = 8072"
+        "title": "Trade as far as the rule allows",
+        "body": "At least one penny must stay, so at most 2019 coins can be nickels: 1 × 1 + 2019 × 5 = 10096 cents. At least one nickel must stay, so at fewest 1 coin is a nickel: 2019 × 1 + 1 × 5 = 2024 cents.",
+        "equation": "10096 and 2024"
+      },
+      {
+        "title": "Count the trades",
+        "body": "Going from 1 nickel to 2019 nickels is 2019 − 1 = 2018 trades, each worth 4 cents, so the spread is 2018 × 4 = 8072 cents — which checks against 10096 − 2024. Note the neighbouring choices are exactly one trade off: 8068 is 2017 × 4 and 8076 is 2019 × 4.",
+        "equation": "2018 × 4 = 8072"
       }
     ],
     "animationFrames": [
-      { "title": "Maximize", "narration": "2019 nickels + 1 penny = 10096¢.", "visualHint": "10096 shown." },
-      { "title": "Minimize", "narration": "2019 pennies + 1 nickel = 2024¢.", "visualHint": "2024 shown." },
-      { "title": "Difference", "narration": "10096 − 2024 = 8072.", "visualHint": "Choice C circled." }
+      { "title": "The gap", "narration": "A nickel beats a penny by 4 cents.", "visualHint": "Two coins compared." },
+      { "title": "One trade", "narration": "Swap a penny for a nickel: count unchanged, total +4.", "visualHint": "Coin swapped in a slot." },
+      { "title": "Both extremes", "narration": "2019 pennies + 1 nickel = 2024¢; 1 penny + 2019 nickels = 10096¢.", "visualHint": "Two coin rows." },
+      { "title": "Count the trades", "narration": "2018 trades × 4 = 8072.", "visualHint": "Choice C circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 8072 } },
+    "animation": {
+      "type": "swap-value",
+      "data": {
+        "total": 2020,
+        "minEach": 1,
+        "low": "1|penny|pennies",
+        "high": "5|nickel|nickels",
+        "unit": "cent"
+      }
+    },
     "tags": ["AMC 8", "2020", "number theory", "optimization"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA"
@@ -44175,22 +44226,39 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "20",
     "solutionSteps": [
       {
-        "title": "Edge cubes (not bottom)",
-        "body": "Cubes on edges of the top and side faces (not bottom) have 2 iced faces. There are 12 edges total minus 4 bottom edges = 8 top/side edges. Each has 2 center cubes. 8 × 2 = 16.",
-        "equation": "8 × 2 = 16"
+        "title": "Icing on 5 faces, not 6",
+        "body": "The top and the four sides are iced; the bottom sits on the plate and is bare. So a small piece scores one iced face for every coated wall it touches — and touching the bottom earns nothing."
       },
       {
-        "title": "Bottom face corners",
-        "body": "The 4 corner cubes on the bottom face each have exactly 2 iced sides (two adjacent side faces). Total = 16 + 4 = 20.",
-        "equation": "16 + 4 = 20"
+        "title": "The three lower layers are identical",
+        "body": "Slice the cake into 4 horizontal layers. In any layer below the top, the only icing available is the side walls, so a piece scores 2 at the four corners, 1 along the edges, and 0 in the middle. Layers 1, 2 and 3 all carry that same pattern."
+      },
+      {
+        "title": "The top layer is that pattern plus one",
+        "body": "Every piece in the top layer touches the iced top face, so each of its scores is exactly one more than the layer below: corners become 3, edges become 2, and the middle becomes 1. Nothing else about the pattern changes."
+      },
+      {
+        "title": "Collect the twos",
+        "body": "Downstairs the 2s are the corners: 4 corners × 3 layers = 12. Upstairs the pattern has shifted up, so the 2s are the 8 edge pieces instead, while the corners have spilled over to 3. That gives 12 + 8 = 20.",
+        "equation": "4 × 3 + 8 = 20"
       }
     ],
     "animationFrames": [
-      { "title": "Identify edges", "narration": "8 edges (not bottom) each contribute 2 center cubes with 2 iced faces.", "visualHint": "Cube with edges highlighted." },
-      { "title": "Bottom corners", "narration": "4 bottom corner cubes also have exactly 2 iced faces.", "visualHint": "4 corners highlighted." },
-      { "title": "Total", "narration": "16 + 4 = 20.", "visualHint": "Choice D circled." }
+      { "title": "Five iced faces", "narration": "Top and four sides iced; the bottom is bare.", "visualHint": "Cake with cross-section." },
+      { "title": "Slice into layers", "narration": "Below the top, every layer scores 2 at corners, 1 on edges, 0 inside.", "visualHint": "Four exploded layers." },
+      { "title": "Top layer +1", "narration": "The top icing adds one to every piece in the top layer.", "visualHint": "Top layer numbers tick up." },
+      { "title": "Collect the twos", "narration": "12 corners below plus 8 top edges = 20.", "visualHint": "Choice D circled." }
     ],
-    "animation": { "type": "solid-3d", "data": { "n": 4, "answer": 20 } },
+    "animation": {
+      "type": "iced-cube",
+      "data": {
+        "size": 4,
+        "faces": ["top", "left", "right", "front", "back"],
+        "target": 2,
+        "subject": "cake",
+        "coating": "icing"
+      }
+    },
     "tags": ["AMC 8", "2020", "geometry", "3D geometry", "diagram"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA",
@@ -44219,27 +44287,40 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "12",
     "solutionSteps": [
       {
-        "title": "Total arrangements",
-        "body": "4! = 24 total permutations.",
+        "title": "Count everything first",
+        "body": "Ignore the rule for a moment. The first spot on the shelf has 4 marbles to choose from, the next 3, then 2, then 1 — so there are 4 × 3 × 2 × 1 = 24 arrangements in all.",
         "equation": "4! = 24"
       },
       {
-        "title": "Subtract restricted",
-        "body": "Arrangements with S and T adjacent: treat ST as one block → 3! × 2 = 12.",
-        "equation": "3! × 2 = 12"
+        "title": "Glue the banned pair together",
+        "body": "It is easier to count the arrangements the rule forbids and take them away. If the Steelie and the Tiger have to touch, they behave as a single glued piece — so the shelf is holding 3 pieces, not 4, and there are 3 × 2 × 1 = 6 orders for them.",
+        "equation": "3! = 6"
       },
       {
-        "title": "Valid arrangements",
-        "body": "24 − 12 = 12.",
+        "title": "The glued piece has two faces",
+        "body": "Each of those 6 orders happens twice over, because the glued piece can be laid down either way round: Steelie–Tiger or Tiger–Steelie. So the banned arrangements number 6 × 2 = 12. (Miss this doubling and you would call it 24 − 6 = 18.)",
+        "equation": "6 × 2 = 12"
+      },
+      {
+        "title": "Subtract",
+        "body": "Of the 24 arrangements, 12 are banned, so 24 − 12 = 12 keep the Steelie and the Tiger apart.",
         "equation": "24 − 12 = 12"
       }
     ],
     "animationFrames": [
-      { "title": "Total", "narration": "4! = 24 total arrangements.", "visualHint": "24 shown." },
-      { "title": "Subtract adjacent", "narration": "S and T together: 3! × 2 = 12.", "visualHint": "12 restricted." },
-      { "title": "Answer", "narration": "24 − 12 = 12.", "visualHint": "Choice C circled." }
+      { "title": "Total", "narration": "4 × 3 × 2 × 1 = 24 arrangements in all.", "visualHint": "Marbles drop onto the shelf." },
+      { "title": "Glue the pair", "narration": "S and T glued make one piece, so 3 pieces: 3! = 6.", "visualHint": "Pair clamped together." },
+      { "title": "Flip the piece", "narration": "The glued piece can go either way round: 6 × 2 = 12 banned.", "visualHint": "Block flips." },
+      { "title": "Subtract", "narration": "24 − 12 = 12.", "visualHint": "Choice C circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 12 } },
+    "animation": {
+      "type": "glue-block",
+      "data": {
+        "items": ["Aggie|#0e7490|A|band", "Bumblebee|#eab308|B|stripe", "Steelie|#64748b|S|plain", "Tiger|#f97316|T|stripe"],
+        "pair": ["Steelie", "Tiger"],
+        "mode": "apart"
+      }
+    },
     "tags": ["AMC 8", "2020", "counting & probability", "permutations"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA"

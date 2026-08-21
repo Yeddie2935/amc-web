@@ -152,6 +152,11 @@ export type AnimationTemplateType =
   | "spaced-ratio"
   | "unit-chain"
   | "telescope-product"
+  | "seat-deduce"
+  | "increasing-digits"
+  | "swap-value"
+  | "iced-cube"
+  | "glue-block"
   | "cube-net"
   | "solid-3d"
   | "generic";

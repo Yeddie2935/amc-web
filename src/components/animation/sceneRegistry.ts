@@ -134,6 +134,11 @@ import { EqualizeShareScene } from "./scenes/EqualizeShareScene";
 import { AreaYieldScene } from "./scenes/AreaYieldScene";
 import { HexRingsScene } from "./scenes/HexRingsScene";
 import { PourShareScene } from "./scenes/PourShareScene";
+import { SeatDeduceScene } from "./scenes/SeatDeduceScene";
+import { IncreasingDigitsScene } from "./scenes/IncreasingDigitsScene";
+import { SwapValueScene } from "./scenes/SwapValueScene";
+import { IcedCubeScene } from "./scenes/IcedCubeScene";
+import { GlueBlockScene } from "./scenes/GlueBlockScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -686,6 +691,35 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "telescope-product" && num(data.to ?? 0) > num(data.from ?? 0) && num(data.gap ?? 0) >= 1) {
     return TelescopeProductScene;
+  }
+  // enough items that gluing two of them actually shortens the row, few enough to enumerate
+  if (type === "glue-block" && Array.isArray(data.items) && Array.isArray(data.pair)) {
+    if (data.items.length >= 3 && data.items.length <= 6 && data.pair.length === 2) return GlueBlockScene;
+  }
+  // a real cube with some faces bare (all six coated has no layer to contrast)
+  if (type === "iced-cube" && Array.isArray(data.faces)) {
+    const sz = num(data.size ?? 0);
+    if (sz >= 2 && sz <= 6 && data.faces.length > 0 && data.faces.length < 6) return IcedCubeScene;
+  }
+  // two real values with a genuine gap, and room to spare the floor at both ends
+  if (type === "swap-value" && typeof data.low === "string" && typeof data.high === "string") {
+    const tot = num(data.total ?? 0);
+    const floor = num(data.minEach ?? 1);
+    const lo = num(String(data.low).split("|")[0]);
+    const hi = num(String(data.high).split("|")[0]);
+    if (tot > 2 * floor && hi > lo) return SwapValueScene;
+  }
+  // a real window and a digit count the increasing enumeration can actually fill
+  if (type === "increasing-digits") {
+    const lo = num(data.low ?? 0);
+    const hi = num(data.high ?? 0);
+    const ln = num(data.length ?? 0);
+    if (hi > lo && ln >= 2 && ln <= 9) return IncreasingDigitsScene;
+  }
+  // one person per place, few enough to enumerate every seating, and real rules
+  if (type === "seat-deduce" && Array.isArray(data.people) && Array.isArray(data.rules)) {
+    const n = num(data.slots ?? 0);
+    if (n >= 2 && n <= 7 && data.people.length === n && data.rules.length > 0) return SeatDeduceScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
