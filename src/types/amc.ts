@@ -177,6 +177,11 @@ export type AnimationTemplateType =
   | "shared-remainder"
   | "rhombus-diagonal"
   | "graph-match-story"
+  | "symmetry-line-grid"
+  | "cap-fill"
+  | "remaining-grid"
+  | "cylinder-pair"
+  | "stat-correction"
   | "cube-net"
   | "solid-3d"
   | "generic";

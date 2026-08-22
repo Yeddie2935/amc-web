@@ -42404,17 +42404,21 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "2/5",
     "solutionSteps": [
       {
-        "title": "Count lines of symmetry",
-        "body": "A square has 4 lines of symmetry: horizontal, vertical, and two diagonals. Each passes through the center P."
+        "title": "What makes PQ a line of symmetry?",
+        "body": "Folding the square along PQ has to land the square exactly on itself. Pick a Q at random and it usually fails: the half that swings over hangs off the edge, so that PQ is not a line of symmetry."
       },
       {
-        "title": "Count points on symmetry lines",
-        "body": "Each symmetry line passes through 8 grid points besides P (4 on each side). That gives 4 × 8 = 32 favorable points.",
+        "title": "Only 4 folds work",
+        "body": "A square folds onto itself in exactly 4 ways — along the horizontal, the vertical, and the two diagonals. Every one of those fold lines runs through the center of the square, which is exactly where P is. So Q must sit on one of these 4 lines."
+      },
+      {
+        "title": "Count the points on them",
+        "body": "Each of the 4 lines passes through 9 of the grid points, one of which is P itself, leaving 8 usable ones (4 on each side). The lines meet only at P, so nothing is counted twice: 4 × 8 = 32 favorable choices of Q.",
         "equation": "4 × 8 = 32"
       },
       {
-        "title": "Compute probability",
-        "body": "The probability is 32/80 = 2/5.",
+        "title": "Divide by all the choices",
+        "body": "Q is one of the 80 points other than P, so the probability is 32/80 = 2/5. Equivalently, without counting: 4 lines × (9 − 1) points over 9² − 1 = (9 − 1)(9 + 1) is just 4/(9 + 1).",
         "equation": "32/80 = 2/5"
       }
     ],
@@ -42436,11 +42440,10 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "symmetry-line-grid",
       "data": {
-        "favorable": 32,
-        "total": 80,
-        "answer": "2/5"
+        "size": 9,
+        "decoy": [8, 2]
       }
     },
     "tags": [
@@ -42479,18 +42482,23 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "48",
     "solutionSteps": [
       {
-        "title": "Find the required total",
-        "body": "To average 81 over 5 tests, the total must be 81 × 5 = 405.",
+        "title": "Averaging 81 fixes the total",
+        "body": "If all five tests came in at exactly 81 they would average 81, so the five scores have to add to 81 × 5 = 405 no matter how they are spread out.",
         "equation": "81 × 5 = 405"
       },
       {
-        "title": "Subtract known scores",
-        "body": "The first three tests sum to 76 + 94 + 87 = 257. The last two must total 405 − 257 = 148.",
+        "title": "See what the first three spend",
+        "body": "The first three tests sum to 76 + 94 + 87 = 257, so the last two must supply 405 − 257 = 148 between them.",
         "equation": "405 − 257 = 148"
       },
       {
-        "title": "Minimize one score",
-        "body": "To minimize one score, maximize the other at 100. The lowest score is 148 − 100 = 48.",
+        "title": "The last two are on a seesaw",
+        "body": "Their total is stuck at 148, so every point one gains the other loses. Splitting evenly gives 74 each, but nothing forces that — lifting one score drags the other down by the same amount.",
+        "equation": "148 ÷ 2 = 74"
+      },
+      {
+        "title": "The 100-point ceiling stops the fall",
+        "body": "Each test is worth a maximum of 100, so the rising score jams at 100 and can lift no further. That leaves 148 − 100 = 48 for the other, and no lower score is reachable.",
         "equation": "148 − 100 = 48"
       }
     ],
@@ -42512,12 +42520,14 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "cap-fill",
       "data": {
-        "total": 405,
-        "knownSum": 257,
-        "remaining": 148,
-        "answer": 48
+        "average": 81,
+        "count": 5,
+        "known": [76, 94, 87],
+        "cap": 100,
+        "label": "test",
+        "icon": "📝"
       }
     },
     "tags": [
@@ -42551,19 +42561,24 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "54%",
     "solutionSteps": [
       {
-        "title": "After Pedro",
-        "body": "Gilda keeps 80% after giving Pedro 20%.",
-        "equation": "1 − 0.20 = 0.80"
+        "title": "Make the bag 100 marbles",
+        "body": "The question asks for a percentage, so the real number of marbles never matters. Take the bag to be 100 marbles and every share becomes a plain count — the answer can then be read straight off what is left.",
+        "equation": "100 marbles"
       },
       {
-        "title": "After Ebony",
-        "body": "She gives 10% of the remainder, keeping 90% of 80% = 72%.",
-        "equation": "0.80 × 0.90 = 0.72"
+        "title": "Pedro takes 20% of the bag",
+        "body": "20% of 100 is 20 marbles, so 80 are left in the bag.",
+        "equation": "100 − 20 = 80"
       },
       {
-        "title": "After Jimmy",
-        "body": "She gives 25% of what's left, keeping 75% of 72% = 54%.",
-        "equation": "0.72 × 0.75 = 0.54"
+        "title": "Ebony takes 10% of what is left",
+        "body": "The 10% is measured against the 80 still in the bag, not the original 100 — so Ebony gets 8 marbles, not 10, and 72 are left.",
+        "equation": "10% × 80 = 8, so 80 − 8 = 72"
+      },
+      {
+        "title": "Jimmy takes 25% of what is now left",
+        "body": "Again the percentage is taken from the smaller bag: 25% of 72 is 18 marbles, not 25. That leaves Gilda 54 of her original 100 marbles, which is 54%.",
+        "equation": "25% × 72 = 18, so 72 − 18 = 54"
       }
     ],
     "animationFrames": [
@@ -42584,10 +42599,13 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "remaining-grid",
       "data": {
-        "steps": ["80%", "72%", "54%"],
-        "answer": "54%"
+        "start": 100,
+        "cols": 10,
+        "unit": "marbles",
+        "keeper": "Gilda|👧",
+        "takers": ["Pedro|🧑|1|5", "Ebony|👩|1|10", "Jimmy|👦|1|4"]
       }
     },
     "tags": [
@@ -42621,19 +42639,24 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "1 : 2",
     "solutionSteps": [
       {
-        "title": "Compute Alex's volume",
-        "body": "Radius 3, height 12. Volume = π(3²)(12) = 108π.",
-        "equation": "π × 9 × 12 = 108π"
+        "title": "The same two numbers, swapped",
+        "body": "Both cans are built from 6 and 12 — Alex's is narrow and tall, Felicia's is wide and short. That makes it tempting to call them equal, but the volume is π r² h, and only the radius gets squared. Watch the diameters too: a diameter of 6 is a radius of 3.",
+        "equation": "V = π r² h"
       },
       {
-        "title": "Compute Felicia's volume",
-        "body": "Radius 6, height 6. Volume = π(6²)(6) = 216π.",
-        "equation": "π × 36 × 6 = 216π"
+        "title": "Alex's can",
+        "body": "Diameter 6 means radius 3, so the base is π × 3² = 9π. Sweeping that base up the full height of 12 gives the volume.",
+        "equation": "9π × 12 = 108π"
       },
       {
-        "title": "Find the ratio",
-        "body": "108π / 216π = 1/2, so the ratio is 1 : 2.",
-        "equation": "108/216 = 1/2"
+        "title": "Felicia's can",
+        "body": "Diameter 12 means radius 6, so the base is π × 6² = 36π — four times Alex's base, since a 6 by 6 square holds exactly four 3 by 3 squares. Sweeping it up a height of only 6 gives the volume.",
+        "equation": "36π × 6 = 216π"
+      },
+      {
+        "title": "The trade is not fair",
+        "body": "Doubling the radius multiplies the base by 4, but halving the height only divides by 2 — so Felicia's can holds twice as much, and the ratio is 108π : 216π = 1 : 2.",
+        "equation": "4 × ½ = 2, so 1 : 2"
       }
     ],
     "animationFrames": [
@@ -42654,11 +42677,10 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "cylinder-pair",
       "data": {
-        "volumeAlex": "108π",
-        "volumeFelicia": "216π",
-        "answer": "1:2"
+        "unit": "cm",
+        "cans": ["Alex|🧑|6|12", "Felicia|👩|12|6"]
       }
     },
     "tags": [
@@ -42693,16 +42715,24 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "Mean increases by 1 and median increases by 1",
     "solutionSteps": [
       {
-        "title": "Original values",
-        "body": "From the bar chart: Mon = 20, Tue = 26, Wed = 16, Thu = 22, Fri = 16. Sum = 100, mean = 20. Sorted: 16, 16, 20, 22, 26 → median = 20."
+        "title": "Read the chart",
+        "body": "The bars give Mon 20, Tue 26, Wed 16, Thu 22, Fri 16. They total 100, so the mean is 100 ÷ 5 = 20. Sorted they run 16, 16, 20, 22, 26, and the middle one is 20 — so the median is 20 too.",
+        "equation": "100 ÷ 5 = 20, median = 20"
       },
       {
-        "title": "Corrected values",
-        "body": "Change Wednesday from 16 to 21. New sum = 105, new mean = 21. Sorted: 16, 20, 21, 22, 26 → new median = 21."
+        "title": "The correction",
+        "body": "Wednesday was really 21, not 16 — an increase of 5. Only that one number moves, but the mean and the median respond to it in completely different ways.",
+        "equation": "Wed: 16 → 21, that is +5"
       },
       {
-        "title": "Changes",
-        "body": "Mean: 21 − 20 = 1 increase. Median: 21 − 20 = 1 increase."
+        "title": "The mean divides the change",
+        "body": "The extra 5 lands in the total, and the total is shared over all 5 days. So the mean rises by only 5 ÷ 5 = 1, from 20 to 21.",
+        "equation": "+5 ÷ 5 = +1"
+      },
+      {
+        "title": "The median re-sorts",
+        "body": "The median moves for a different reason: Wednesday used to be the smallest value, and at 21 it overtakes both Friday's 16 and Monday's 20 to land in the middle slot itself. The sorted list becomes 16, 20, 21, 22, 26, so the median rises from 20 to 21 — a change of position, not of arithmetic. Both statistics happen to rise by 1.",
+        "equation": "median 20 → 21"
       }
     ],
     "animationFrames": [
@@ -42723,12 +42753,13 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "stat-correction",
       "data": {
-        "oldMean": 20,
-        "newMean": 21,
-        "oldMedian": 20,
-        "newMedian": 21
+        "unit": "students",
+        "icon": "⚽",
+        "bars": ["Monday|20", "Tuesday|26", "Wednesday|16", "Thursday|22", "Friday|16"],
+        "fixIndex": 2,
+        "fixTo": 21
       }
     },
     "tags": [

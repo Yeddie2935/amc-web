@@ -159,6 +159,11 @@ import { IdenticalTilesScene } from "./scenes/IdenticalTilesScene";
 import { SharedRemainderScene } from "./scenes/SharedRemainderScene";
 import { RhombusDiagonalScene } from "./scenes/RhombusDiagonalScene";
 import { GraphMatchStoryScene } from "./scenes/GraphMatchStoryScene";
+import { SymmetryLineGridScene } from "./scenes/SymmetryLineGridScene";
+import { CapFillScene } from "./scenes/CapFillScene";
+import { RemainingGridScene } from "./scenes/RemainingGridScene";
+import { CylinderPairScene } from "./scenes/CylinderPairScene";
+import { StatCorrectionScene } from "./scenes/StatCorrectionScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -975,6 +980,54 @@ export function resolveScene(problem: Problem): AnimatedScene {
     if (n >= 3 && n <= 12 && on(pr, pc) && on(qr, qc) && qr > pr && (pr + pc) % 2 === (qr + qc) % 2) {
       return CheckerPathsScene;
     }
+  }
+  // an odd number of readings, so the median is a single middle tile the
+  // corrected value can visibly move into, and a correction that really changes
+  if (type === "stat-correction" && Array.isArray(data.bars) && data.bars.length >= 3) {
+    const vals = data.bars.map((b) => num(String(b).split("|")[1]));
+    const fi = Math.round(num(data.fixIndex ?? -1));
+    const ft = num(data.fixTo ?? 0);
+    const okAll = vals.every((v) => Number.isFinite(v) && v >= 0);
+    if (okAll && data.bars.length % 2 === 1 && data.bars.length <= 9 && fi >= 0 && fi < vals.length && ft !== vals[fi]) {
+      return StatCorrectionScene;
+    }
+  }
+  // two real cans, and whole radii so r² can be drawn as a countable square
+  if (type === "cylinder-pair" && Array.isArray(data.cans) && data.cans.length === 2) {
+    const dims = data.cans.map((c) => String(c).split("|").slice(2).map((v) => num(v)));
+    const okDims = dims.every(([d, h]) => d > 0 && h > 0 && Number.isInteger(d / 2) && d / 2 <= 12);
+    if (okDims) return CylinderPairScene;
+  }
+  // every share must come out a whole object, or the countable grid would lie
+  if (type === "remaining-grid" && Array.isArray(data.takers) && data.takers.length > 0) {
+    const st = Math.round(num(data.start ?? 0));
+    let rest = st;
+    const whole = data.takers.every((t) => {
+      const [, , n, d] = String(t).split("|");
+      const den = Math.round(num(d));
+      const bite = den ? (rest * Math.round(num(n))) / den : NaN;
+      rest -= bite;
+      return Number.isInteger(bite) && bite >= 0;
+    });
+    if (st >= 1 && st <= 200 && whole && rest >= 0) return RemainingGridScene;
+  }
+  // real blanks left to fill, a whole total to hit, and a cap the answer respects
+  if (type === "cap-fill" && Array.isArray(data.known)) {
+    const cnt = Math.round(num(data.count ?? 0));
+    const avg = num(data.average ?? 0);
+    const cp = num(data.cap ?? 0);
+    const ks = data.known.map((v) => num(v));
+    const slots = cnt - ks.length;
+    const need = avg * cnt - ks.reduce((a, b) => a + b, 0);
+    const low = need - cp * (slots - 1);
+    if (cnt >= 2 && cnt <= 8 && slots >= 1 && cp > 0 && Number.isInteger(avg * cnt) && low >= 0 && low <= cp) {
+      return CapFillScene;
+    }
+  }
+  // an odd grid, so a centre point exists at all, and small enough to draw
+  if (type === "symmetry-line-grid") {
+    const sz = Math.round(num(data.size ?? 0));
+    if (sz >= 3 && sz <= 15 && sz % 2 === 1) return SymmetryLineGridScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
