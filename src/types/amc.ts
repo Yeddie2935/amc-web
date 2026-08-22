@@ -162,6 +162,11 @@ export type AnimationTemplateType =
   | "mixture-topup"
   | "average-level"
   | "percent-slice"
+  | "line-incidence"
+  | "divisor-lattice"
+  | "semicircle-rect"
+  | "pattern-digits"
+  | "halve-double-chain"
   | "cube-net"
   | "solid-3d"
   | "generic";

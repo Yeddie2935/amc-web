@@ -144,6 +144,11 @@ import { FactorialRegroupScene } from "./scenes/FactorialRegroupScene";
 import { MixtureTopUpScene } from "./scenes/MixtureTopUpScene";
 import { AverageLevelScene } from "./scenes/AverageLevelScene";
 import { PercentSliceScene } from "./scenes/PercentSliceScene";
+import { LineIncidenceScene } from "./scenes/LineIncidenceScene";
+import { DivisorLatticeScene } from "./scenes/DivisorLatticeScene";
+import { SemicircleRectScene } from "./scenes/SemicircleRectScene";
+import { PatternDigitScene } from "./scenes/PatternDigitScene";
+import { HalveDoubleChainScene } from "./scenes/HalveDoubleChainScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -752,6 +757,66 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if (type === "seat-deduce" && Array.isArray(data.people) && Array.isArray(data.rules)) {
     const n = num(data.slots ?? 0);
     if (n >= 2 && n <= 7 && data.people.length === n && data.rules.length > 0) return SeatDeduceScene;
+  }
+  // a short enough chain to enumerate and draw, with a real slot for the known value
+  if (type === "halve-double-chain") {
+    const c = Math.round(num(data.count ?? 0));
+    const ki = Math.round(num(data.knownIndex ?? 0));
+    const kv = Math.round(num(data.knownValue ?? 0));
+    if (c >= 3 && c <= 6 && ki >= 1 && ki <= c && kv >= 1) return HalveDoubleChainScene;
+  }
+  // the divisor must be characterised by a last-digit rule and a digit-sum rule,
+  // so strip 2s, 3s and 5s and require nothing else to be left over
+  if (type === "pattern-digits" && typeof data.pattern === "string") {
+    const pat = String(data.pattern).trim();
+    const marks = new Set(pat.split(""));
+    let d = Math.round(num(data.divisor ?? 0));
+    const cap = { two: 0, three: 0, five: 0 };
+    while (d % 2 === 0) { d /= 2; cap.two += 1; }
+    while (d % 3 === 0) { d /= 3; cap.three += 1; }
+    while (d % 5 === 0) { d /= 5; cap.five += 1; }
+    const simple = d === 1 && cap.two <= 1 && cap.three <= 2 && cap.five <= 1;
+    if (pat.length >= 3 && pat.length <= 7 && marks.size === 2 && simple) return PatternDigitScene;
+  }
+  // the rectangle must fit inside the arc, and only equal end pieces centre it
+  if (type === "semicircle-rect") {
+    const w = num(data.width ?? 0);
+    const lp = num(data.leftPad ?? 0);
+    const rp = num(data.rightPad ?? lp);
+    const rad = (lp + w + rp) / 2;
+    if (w > 0 && lp >= 0 && rp >= 0 && Math.abs(lp - rp) < 1e-9 && rad * rad > (w / 2) * (w / 2)) {
+      return SemicircleRectScene;
+    }
+  }
+  // at most three primes (the box needs an axis each) and few enough cells to draw
+  if (type === "divisor-lattice") {
+    const n = Math.round(num(data.n ?? 0));
+    let m = n;
+    const es: number[] = [];
+    for (let p = 2; p * p <= m; p += 1) {
+      let e = 0;
+      while (m % p === 0) {
+        m /= p;
+        e += 1;
+      }
+      if (e) es.push(e);
+    }
+    if (m > 1) es.push(1);
+    const divisors = es.reduce((acc, e) => acc * (e + 1), 1);
+    if (n >= 2 && es.length >= 1 && es.length <= 3 && divisors <= 24) return DivisorLatticeScene;
+  }
+  // exactly one point busier than the rest, or the incidence count forces nothing
+  if (type === "line-incidence" && Array.isArray(data.points) && Array.isArray(data.lines)) {
+    const labels = data.points.map((p) => String(p).split("|")[0]);
+    const lns = data.lines.map((l) => String(l).split(",").map((t) => t.trim()));
+    const count = (lab: string) => lns.filter((l) => l.includes(lab)).length;
+    const cs = labels.map(count);
+    const lo = cs.length ? Math.min(...cs) : 0;
+    const busy = cs.filter((c) => c > lo).length;
+    const known = lns.every((l) => l.every((t) => labels.includes(t)));
+    if (labels.length >= 3 && lns.length >= 2 && known && busy === 1 && num(data.total ?? 0) > 0) {
+      return LineIncidenceScene;
+    }
   }
   // both percentages must be whole numbers of one slice, and the answer bar must
   // end on a tick of the other's ruler, or the counting picture would be a lie

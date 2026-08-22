@@ -44646,21 +44646,41 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "5",
     "solutionSteps": [
       {
-        "title": "Count occurrences",
-        "body": "Adding all five line sums counts each point by how many lines pass through it. The total is 2A + 3B + 2C + 2D + 2E + 2F = 47."
+        "title": "The five sums",
+        "body": "The five lines are A+B+C, B+F, C+D+E, B+D and A+E+F, and together those five sums come to 47. The digits 1 through 6 sit one per point, but the figure never says which digit is where."
       },
       {
-        "title": "Use digit sum",
-        "body": "A+B+C+D+E+F = 1+2+3+4+5+6 = 21. So 2(21) + B = 42 + B = 47, giving B = 5.",
-        "equation": "42 + B = 47 → B = 5"
+        "title": "Adding the sums counts the points",
+        "body": "Adding all five sums adds each point once for every line through it. Counting lines through each point: B lies on three of them, and A, C, D, E and F each lie on two. So the total is 2A + 3B + 2C + 2D + 2E + 2F = 47."
+      },
+      {
+        "title": "Two of everything is fixed",
+        "body": "Two copies of every point is 2(A+B+C+D+E+F) = 2 × (1+2+3+4+5+6) = 2 × 21 = 42, no matter how the digits are arranged. Everything above that is the one extra copy of B.",
+        "equation": "42 + B = 47"
+      },
+      {
+        "title": "Subtract",
+        "body": "B = 47 − 42 = 5. Notice the other five digits are never determined — any arrangement of 1, 2, 3, 4 and 6 on the remaining points gives a total of 47, because only their sum was ever used.",
+        "equation": "B = 47 − 42 = 5"
       }
     ],
     "animationFrames": [
-      { "title": "Count line memberships", "narration": "B appears on 3 lines; all others on 2 lines each.", "visualHint": "Point counts shown." },
-      { "title": "Sum equation", "narration": "2(A+B+C+D+E+F) + B = 47.", "visualHint": "42 + B = 47." },
-      { "title": "Solve", "narration": "B = 5.", "visualHint": "Choice E circled." }
+      { "title": "The figure", "narration": "Five lines through six points; the five sums total 47.", "visualHint": "Lines draw themselves in." },
+      { "title": "Count line memberships", "narration": "B appears on 3 lines; all others on 2 lines each.", "visualHint": "A token drops per point per line." },
+      { "title": "Two of everything", "narration": "2 × 21 = 42, whatever the arrangement.", "visualHint": "Bottom two rows banded; B's extra lifts out." },
+      { "title": "Solve", "narration": "B = 47 − 42 = 5.", "visualHint": "5 lands on B; choice E." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 5 } },
+    "animation": {
+      "type": "line-incidence",
+      "data": {
+        "points": ["A|0.6619|0.2375|W", "B|0.4219|0.5850|W", "C|0.1906|0.9200|NW", "D|0.4781|0.8401|NE", "E|0.7844|0.7550|NE", "F|0.7156|0.4650|NE"],
+        "lines": ["A,B,C", "B,F", "C,D,E", "B,D", "A,E,F"],
+        "total": 47,
+        "digitsFrom": 1,
+        "digitsTo": 6,
+        "ask": "B"
+      }
+    },
     "tags": ["AMC 8", "2020", "algebra", "systems of equations", "diagram"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA",
@@ -44690,20 +44710,30 @@ const amc2020Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Factor 2020",
-        "body": "2020 = 2² × 5 × 101. It has (2+1)(1+1)(1+1) = 12 factors."
+        "body": "Peel off primes one at a time: 2020 ÷ 2 = 1010, ÷ 2 = 505, ÷ 5 = 101, ÷ 101 = 1. So 2020 = 2² × 5 × 101."
       },
       {
-        "title": "Exclude factors with ≤ 3 factors",
-        "body": "Factors with ≤ 3 factors are 1, 2, 4, 5, 101 (1 has 1 factor; primes have 2; 4 has 3). That's 5 factors.",
+        "title": "A divisor is a choice of exponents",
+        "body": "Every factor of 2020 is 2^a × 5^b × 101^c with a = 0, 1 or 2, b = 0 or 1, and c = 0 or 1. That is 3 × 2 × 2 = 12 factors, and they fill a box with one prime per direction."
+      },
+      {
+        "title": "Which ones fall short?",
+        "body": "The number of factors of 2^a × 5^b × 101^c is (a+1)(b+1)(c+1). As soon as two different primes appear, two of those brackets are at least 2, so the count is already at least 4. Only a factor built from a single prime can fall short — here 1, 2, 4, 5 and 101, with 1, 2, 3, 2 and 2 factors. That is 5 of them.",
+        "equation": "(a+1)(b+1)(c+1) ≥ 2 × 2 = 4"
+      },
+      {
+        "title": "Subtract",
+        "body": "12 − 5 = 7. The survivors are 10, 20, 202, 404, 505, 1010 and 2020.",
         "equation": "12 − 5 = 7"
       }
     ],
     "animationFrames": [
-      { "title": "Factor 2020", "narration": "2020 = 2² × 5 × 101, with 12 total factors.", "visualHint": "All 12 factors listed." },
-      { "title": "Small factor counts", "narration": "1, 2, 4, 5, 101 each have ≤ 3 factors.", "visualHint": "5 factors excluded." },
-      { "title": "Answer", "narration": "12 − 5 = 7.", "visualHint": "Choice B circled." }
+      { "title": "Factor 2020", "narration": "Divide out primes: 2020 = 2² × 5 × 101.", "visualHint": "Division ladder." },
+      { "title": "Build the box", "narration": "3 × 2 × 2 = 12 factors, one per choice of exponents.", "visualHint": "12 cells with prime tokens." },
+      { "title": "One prime is not enough", "narration": "Two different primes forces at least 4 factors.", "visualHint": "Single-colour cells turn red." },
+      { "title": "Answer", "narration": "12 − 5 = 7.", "visualHint": "Choice B." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 7 } },
+    "animation": { "type": "divisor-lattice", "data": { "n": 2020, "moreThan": 3 } },
     "tags": ["AMC 8", "2020", "number theory", "factors"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA"
@@ -44730,27 +44760,36 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "240",
     "solutionSteps": [
       {
-        "title": "Find the diameter",
-        "body": "FE = FD + DA + AE = 9 + 16 + 9 = 34. Radius = 17.",
-        "equation": "9 + 16 + 9 = 34"
+        "title": "Measure the diameter",
+        "body": "The height of the rectangle appears nowhere in the figure — but the radius does. Along the diameter, FE = FD + DA + AE = 9 + 16 + 9 = 34, so the radius is 17.",
+        "equation": "9 + 16 + 9 = 34, r = 17"
       },
       {
-        "title": "Find the height",
-        "body": "The center O is the midpoint of FE. OD = OA = 16/2 = 8. By Pythagorean theorem in triangle OBC: height = √(17² − 8²) = √(289 − 64) = √225 = 15.",
+        "title": "The centre sits under the rectangle",
+        "body": "The two end pieces FD and AE are both 9. Equal end pieces are exactly what centres the rectangle — nothing else could put both C and B on the arc — so the midpoint O of FE is also the midpoint of DA, and OA = 16 ÷ 2 = 8.",
+        "equation": "OA = 16 ÷ 2 = 8"
+      },
+      {
+        "title": "Join the centre to a corner",
+        "body": "B lies on the arc, so OB is a radius: 17. Triangle OAB has a right angle at A, with legs OA = 8 and AB = the height. So height = √(17² − 8²) = √(289 − 64) = √225 = 15.",
         "equation": "√(289 − 64) = 15"
       },
       {
         "title": "Area",
-        "body": "Area = DA × height = 16 × 15 = 240.",
+        "body": "Area = DA × height = 16 × 15 = 240. Note the two tempting slips: using the radius 17 as the height gives 272, and assuming the rectangle is a square gives 256 — both are answer choices.",
         "equation": "16 × 15 = 240"
       }
     ],
     "animationFrames": [
-      { "title": "Diameter", "narration": "FE = 34, radius = 17.", "visualHint": "9 + 16 + 9 = 34." },
-      { "title": "Height", "narration": "Using Pythagorean theorem: √(17² − 8²) = 15.", "visualHint": "Right triangle shown." },
-      { "title": "Area", "narration": "16 × 15 = 240.", "visualHint": "Choice A circled." }
+      { "title": "Diameter", "narration": "9 + 16 + 9 = 34, so r = 17.", "visualHint": "Three segments measured, then halved." },
+      { "title": "Centre", "narration": "Equal end pieces put O at the middle of DA, so OA = 8.", "visualHint": "The 16 splits into 8 and 8." },
+      { "title": "Radius to the corner", "narration": "OB = 17, so the height is √(17² − 8²) = 15.", "visualHint": "Compass arm sweeps to B; right triangle." },
+      { "title": "Area", "narration": "16 × 15 = 240.", "visualHint": "Unit lines fill the rectangle." }
     ],
-    "animation": { "type": "area-model", "data": { "width": 16, "height": 15, "area": 240 } },
+    "animation": {
+      "type": "semicircle-rect",
+      "data": { "leftPad": 9, "width": 16, "rightPad": 9, "labels": "F,D,A,E,C,B" }
+    },
     "tags": ["AMC 8", "2020", "geometry", "Pythagorean theorem", "area", "diagram"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA",
@@ -44779,25 +44818,35 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "4",
     "solutionSteps": [
       {
-        "title": "Structure",
-        "body": "A five-digit flippy number has the form ababа where a and b are distinct digits. Divisible by 15 means divisible by 3 and 5."
+        "title": "The pattern is five slots, two digits",
+        "body": "A five-digit flippy number has the form ababa with a and b distinct digits. The letter a fills three slots and b fills two — and since one letter means one digit, whatever pins any a-slot pins all three at once. Divisible by 15 means divisible by both 3 and 5."
       },
       {
-        "title": "Divisible by 5",
-        "body": "Last digit a must be 0 or 5. If a = 0 the number starts with 0, impossible. So a = 5. The number is 5b5b5."
+        "title": "Divisible by 5 pins a",
+        "body": "Divisibility by 5 makes the last digit 0 or 5 — but the last slot is an a, and so is the first. A five-digit number cannot start with 0, so the pair collapses to a single value: a = 5, and the number is 5b5b5.",
+        "equation": "a = 5"
       },
       {
-        "title": "Divisible by 3",
-        "body": "Digit sum = 15 + 2b must be divisible by 3, so 2b ≡ 0 (mod 3), meaning b ∈ {0, 3, 6, 9}. That's 4 numbers: 50505, 53535, 56565, 59595.",
+        "title": "Divisible by 3 sweeps b",
+        "body": "The digit sum is 5 + b + 5 + b + 5 = 15 + 2b. Since 15 = 3 × 5 is already a multiple of 3, the whole test comes down to whether 3 divides 2b — and 3 does not divide 2, so b itself must be a multiple of 3: b = 0, 3, 6 or 9. (b = 5 is barred by distinctness anyway, and its sum of 25 fails regardless.)",
+        "equation": "15 + 2b ≡ 0 (mod 3)"
+      },
+      {
+        "title": "Count them",
+        "body": "That gives 50505, 53535, 56565 and 59595 — 4 numbers, and dividing each by 15 confirms it.",
         "equation": "4 numbers"
       }
     ],
     "animationFrames": [
-      { "title": "Form", "narration": "Five-digit flippy: ababa. Last digit must be 0 or 5.", "visualHint": "a = 5, form 5b5b5." },
-      { "title": "Divisibility by 3", "narration": "15 + 2b divisible by 3 → b = 0, 3, 6, 9.", "visualHint": "Four values of b." },
-      { "title": "Count", "narration": "50505, 53535, 56565, 59595.", "visualHint": "Choice B circled." }
+      { "title": "Form", "narration": "ababa — a in three slots, b in two.", "visualHint": "Slots linked by letter." },
+      { "title": "Divisible by 5", "narration": "Last digit 0 or 5, but a also leads, so a = 5.", "visualHint": "The rule travels to the first slot." },
+      { "title": "Divisible by 3", "narration": "15 + 2b divisible by 3 → b = 0, 3, 6, 9.", "visualHint": "b swept 0–9 with ✓/✗." },
+      { "title": "Count", "narration": "50505, 53535, 56565, 59595.", "visualHint": "Four cards, each divided by 15." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 4 } },
+    "animation": {
+      "type": "pattern-digits",
+      "data": { "pattern": "ababa", "divisor": 15, "distinct": true }
+    },
     "tags": ["AMC 8", "2020", "number theory", "divisibility"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA"
@@ -44824,21 +44873,42 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "24.2",
     "solutionSteps": [
       {
-        "title": "Use constraints",
-        "body": "Tree 2 = 11. Each tree is double or half its neighbor. The average ends in .2, so the sum ends in 1 or 6. Since 5 × avg ends in 0 or 1. Working through: Trees are 11, 11, 22, 44, 22 → sum = 110? No. The answer from the solution: Trees 11, 22, 11, 44, 22 with sum = 121? The average is 24.2."
+        "title": "Halving 11 is impossible",
+        "body": "Tree 2 is 11 metres, and every height is a whole number. Tree 1 is either 22 or 5.5, and Tree 3 is either 22 or 5.5 — but 5.5 is not a whole number, so both are forced: Tree 1 = 22 and Tree 3 = 22, with no casework at all.",
+        "equation": "Tree 1 = Tree 3 = 22"
       },
       {
-        "title": "Verify",
-        "body": "Sum = 121, average = 121/5 = 24.2.",
+        "title": "Only three chains exist",
+        "body": "Write every height as 11 × a power of 2. The power moves up or down by 1 at each step and can never go below 0, since 11 is odd. From Tree 3 = 22, Tree 4 is 11 or 44; if Tree 4 = 11 then Tree 5 must be 22, and if Tree 4 = 44 then Tree 5 is 22 or 88. That is every possibility: 22-11-22-11-22, 22-11-22-44-22 and 22-11-22-44-88."
+      },
+      {
+        "title": "The one surviving digit decides",
+        "body": "Their sums are 88, 121 and 187, giving averages 17.6, 24.2 and 37.4. Only 24.2 ends in .2, so the rain left exactly enough to pin the answer down.",
+        "equation": "88 → 17.6,  121 → 24.2,  187 → 37.4"
+      },
+      {
+        "title": "Average",
+        "body": "The trees are 22, 11, 22, 44 and 22 metres, so the average is 121 ÷ 5 = 24.2 metres. Watch the near miss: the rejected 187 chain averages 37.4, and choice E is 37.2 — the same whole number.",
         "equation": "121 ÷ 5 = 24.2"
       }
     ],
     "animationFrames": [
-      { "title": "Constraints", "narration": "Each tree is double or half its neighbor. Tree 2 = 11.", "visualHint": "Table with blanks." },
-      { "title": "Reconstruct", "narration": "Working through possibilities gives unique solution.", "visualHint": "All heights filled in." },
-      { "title": "Average", "narration": "Sum/5 = 24.2.", "visualHint": "Choice B circled." }
+      { "title": "Forced", "narration": "Half of 11 is 5.5, so both neighbours must be 22.", "visualHint": "5.5 struck out; trees grow to 22." },
+      { "title": "Branch", "narration": "Only three whole-number chains exist.", "visualHint": "Branch diagram with forks." },
+      { "title": "The .2 clue", "narration": "17.6, 24.2, 37.4 — only one ends in .2.", "visualHint": "Two chains dim, one lights." },
+      { "title": "Average", "narration": "121 ÷ 5 = 24.2.", "visualHint": "Final forest with the average line." }
     ],
-    "animation": { "type": "generic", "data": { "answer": 24.2 } },
+    "animation": {
+      "type": "halve-double-chain",
+      "data": {
+        "count": 5,
+        "knownIndex": 2,
+        "knownValue": 11,
+        "averageEndsWith": ".2",
+        "unit": "meters",
+        "label": "Tree"
+      }
+    },
     "tags": ["AMC 8", "2020", "logic", "deduction", "diagram"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA",
