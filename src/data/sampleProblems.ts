@@ -42006,17 +42006,23 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "9",
     "solutionSteps": [
       {
-        "title": "Maximize sandwiches",
-        "body": "Each sandwich costs $4.50. With $30.00, the most sandwiches they can buy is 6, since 6 × 4.50 = 27.00.",
-        "equation": "⌊30 ÷ 4.50⌋ = 6"
+        "title": "Buy sandwiches first",
+        "body": "Sandwiches come first in their plan, and each one takes $4.50 off the $30.00. Six of them cost 6 × $4.50 = $27.00, which still fits.",
+        "equation": "6 × $4.50 = $27.00"
       },
       {
-        "title": "Spend the remainder on drinks",
-        "body": "They have 30 − 27 = $3.00 left, which buys 3 soft drinks at $1.00 each."
+        "title": "A seventh will not fit",
+        "body": "Seven sandwiches would cost 7 × $4.50 = $31.50, which is $1.50 more than they have. So six really is the most — the division 30 ÷ 4.50 = 6.67 has to be rounded *down*, not to the nearest whole number.",
+        "equation": "7 × $4.50 = $31.50 > $30.00"
       },
       {
-        "title": "Count total items",
-        "body": "6 sandwiches + 3 drinks = 9 items.",
+        "title": "The change buys drinks",
+        "body": "After the sandwiches they have $30.00 − $27.00 = $3.00 left. A soft drink costs exactly $1.00, so the leftover dollars turn into drinks one for one: 3 drinks, and nothing is left over.",
+        "equation": "$3.00 ÷ $1.00 = 3 drinks"
+      },
+      {
+        "title": "Count every item",
+        "body": "The question asks how many items they buy altogether, not how many sandwiches: 6 sandwiches plus 3 drinks is 9 items, using the full $30.00.",
         "equation": "6 + 3 = 9"
       }
     ],
@@ -42038,11 +42044,11 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "greedy-buy",
       "data": {
-        "sandwiches": 6,
-        "drinks": 3,
-        "answer": 9
+        "budget": 30,
+        "kinds": ["4.50|sandwich|sandwich", "1.00|soft drink|cup"],
+        "currency": "$"
       }
     },
     "tags": [
@@ -42076,14 +42082,23 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "150 square feet",
     "solutionSteps": [
       {
-        "title": "Find the long side of each small rectangle",
-        "body": "Two small rectangles are stacked side by side below one on top. The top rectangle spans the full width, so its long side equals 2 × 5 = 10.",
-        "equation": "5 × 2 = 10"
+        "title": "What the figure gives us",
+        "body": "Two of the rectangles lie flat and are stacked on the left; the third stands upright on the right, reaching the full height of ABCD. Every one of them has a short side of 5 feet."
       },
       {
-        "title": "Find the dimensions of ABCD",
-        "body": "The width of ABCD is 10 (the long side of the top rectangle). The height is 5 + 10 = 15.",
-        "equation": "10 × 15 = 150"
+        "title": "Two short sides make one long side",
+        "body": "The stacked pair and the upright rectangle reach exactly the same height. The pair contributes two short sides, and the upright one contributes a single long side — so the long side is 5 + 5 = 10 feet.",
+        "equation": "long = 5 + 5 = 10"
+      },
+      {
+        "title": "Measure ABCD",
+        "body": "Along the bottom, the lower stacked rectangle contributes its long side (10) and the upright rectangle contributes its short side (5), so ABCD is 15 feet wide. Its height is the upright rectangle's long side, 10 feet.",
+        "equation": "15 wide, 10 tall"
+      },
+      {
+        "title": "Take the area",
+        "body": "ABCD has area 15 × 10 = 150 square feet. Checking a second way: each small rectangle is 10 × 5 = 50, and three of them give 3 × 50 = 150, which matches because the three tile ABCD exactly.",
+        "equation": "15 × 10 = 150"
       }
     ],
     "animationFrames": [
@@ -42104,11 +42119,12 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "identical-tiles",
       "data": {
-        "width": 10,
-        "height": 15,
-        "area": 150
+        "short": 5,
+        "tiles": ["0,0,2,1", "0,1,2,1", "2,0,1,2"],
+        "unit": "feet",
+        "corners": "A,B,C,D"
       }
     },
     "tags": [
@@ -42148,12 +42164,23 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "19/15 < 17/13 < 15/11",
     "solutionSteps": [
       {
-        "title": "Rewrite each fraction",
-        "body": "Each fraction is of the form (x+z)/x where x/y > 1. Since x/(x+z) < x/y when z is larger relative to x, we note 15/11 = 1 + 4/11, 17/13 = 1 + 4/13, 19/15 = 1 + 4/15."
+        "title": "Split off the whole part",
+        "body": "Every one of these is a little more than 1. Dividing out that whole: 15/11 = 1 + 4/11, 17/13 = 1 + 4/13, and 19/15 = 1 + 4/15.",
+        "equation": "15/11 = 1 + 4/11,  17/13 = 1 + 4/13,  19/15 = 1 + 4/15"
       },
       {
-        "title": "Compare the remainders",
-        "body": "Since 4/15 < 4/13 < 4/11, we get 19/15 < 17/13 < 15/11.",
+        "title": "The whole parts cancel",
+        "body": "All three have the same whole part of 1, so it cannot separate them — and all three leftovers have the same numerator, 4. The entire comparison is now between 4/11, 4/13 and 4/15.",
+        "equation": "compare 4/11, 4/13, 4/15"
+      },
+      {
+        "title": "Same pieces, thinner slices",
+        "body": "Each leftover takes 4 pieces, but from a bar cut into a different number of slices. Cutting into more slices makes every slice thinner, so taking 4 of them gives less: a bigger denominator means a smaller fraction. That is the reverse of how numerators behave, which is exactly the trap.",
+        "equation": "4/15 < 4/13 < 4/11"
+      },
+      {
+        "title": "Read off the order",
+        "body": "Ordering by denominator largest-first gives 19/15 < 17/13 < 15/11. Cross-multiplying confirms it — 19 · 13 = 247 < 17 · 15 = 255, and 17 · 11 = 187 < 15 · 13 = 195.",
         "equation": "19/15 < 17/13 < 15/11"
       }
     ],
@@ -42175,10 +42202,9 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "shared-remainder",
       "data": {
-        "fractions": ["19/15", "17/13", "15/11"],
-        "answer": "E"
+        "fractions": ["15/11", "19/15", "17/13"]
       }
     },
     "tags": [
@@ -42217,14 +42243,19 @@ const amc2019Problems: Problem[] = [
         "equation": "52 ÷ 4 = 13"
       },
       {
-        "title": "Find half-diagonals",
-        "body": "The diagonals bisect each other perpendicularly. Half of AC is 12. Using the Pythagorean theorem with side 13 and half-diagonal 12, the other half-diagonal is 5.",
-        "equation": "13² − 12² = 169 − 144 = 25, so √25 = 5"
+        "title": "Solve the right triangle",
+        "body": "The diagonals of a rhombus cut each other in half at right angles, so half of AC (12) and a whole side (13) are two sides of a right triangle whose third side is half of BD. Then 13² − 12² = 169 − 144 = 25, giving 5 — the 5-12-13 triple.",
+        "equation": "13² − 12² = 25, so half of BD = 5"
       },
       {
-        "title": "Compute the area",
-        "body": "The full diagonals are 24 and 10. Area = (d₁ × d₂) / 2.",
-        "equation": "(24 × 10) / 2 = 120"
+        "title": "Get the second diagonal",
+        "body": "That 5 sits above the centre and another 5 below it, so BD = 10. The two diagonals therefore span a 24 × 10 box around the rhombus.",
+        "equation": "BD = 2 × 5 = 10"
+      },
+      {
+        "title": "The rhombus is half the box",
+        "body": "The diagonals cut the rhombus into four right triangles. Turn each one halfway around the midpoint of the rhombus edge it carries and it lands exactly on the empty corner outside — so the four corners hold copies of the same four triangles, and the rhombus is precisely half the box.",
+        "equation": "24 × 10 ÷ 2 = 120"
       }
     ],
     "animationFrames": [
@@ -42245,11 +42276,12 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "rhombus-diagonal",
       "data": {
-        "diagonal1": 24,
-        "diagonal2": 10,
-        "area": 120
+        "perimeter": 52,
+        "diagonal": 24,
+        "unit": "meters",
+        "corners": "A,B,C,D"
       }
     },
     "tags": [
@@ -42289,16 +42321,20 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "B",
     "solutionSteps": [
       {
-        "title": "Tortoise walks steadily",
-        "body": "The tortoise moves at a constant pace, so its graph is a straight line with constant slope — this rules out choice D."
+        "title": "Turn the story into three demands",
+        "body": "Read the story as three things the graph has to show: the tortoise never changes pace, the hare stops dead for a while, and the tortoise reaches the finish first. Each one rules out graphs on its own, so test all five rather than judging them whole."
       },
       {
-        "title": "Hare rests then runs",
-        "body": "The hare's graph should be steep, then flat (napping), then steep again. During the flat portion the distance stays the same, ruling out choices E and C."
+        "title": "A steady walk is one straight line",
+        "body": "The tortoise \"walks at a slow steady pace for the entire race\", so its line must have a single slope from start to finish. In D the tortoise's line is shallow and then bends sharply upward near the end — it speeds up — so D is out."
       },
       {
-        "title": "Tortoise wins",
-        "body": "The tortoise's line must end higher (farther) than the hare's at the finish, ruling out choice A. The answer is B."
+        "title": "A nap is a flat stretch",
+        "body": "While the hare sleeps, time passes but its distance does not change, so its line must go exactly horizontal. In E the hare only slows down — the line stays tilted upward the whole way. In C the hare's line actually goes back *down*, which would mean running backwards. Both are out."
+      },
+      {
+        "title": "Who crosses the finish line first",
+        "body": "A and B have the same shapes — straight tortoise, run-nap-sprint hare — and differ only in the ending. In A the hare's final sprint carries it to the finish height before the tortoise gets there, so the hare wins. In B the tortoise's line reaches the finish height first, which is the race the story describes. The answer is B."
       }
     ],
     "animationFrames": [
@@ -42319,9 +42355,17 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "graph-match-story",
       "data": {
-        "answer": "B"
+        "finish": 4,
+        "tMax": 6,
+        "graphs": [
+          "A|0,0 1,2 4.4,2 5.3,4|0,0 6,4",
+          "B|0,0 1.5,2 4.5,2 6,4|0,0 5.3,4",
+          "C|0,0 1.5,2.5 4.5,1.5 6,4|0,0 6,4",
+          "D|0,0 2,2.5 5,2.5 6,4|0,0 5,1.5 6.3,4",
+          "E|0,0 2,1.5 5,2.5 6,3.4|0,0 6,4"
+        ]
       }
     },
     "tags": [

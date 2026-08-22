@@ -154,6 +154,11 @@ import { ReverseMachineScene } from "./scenes/ReverseMachineScene";
 import { SurjectionCasesScene } from "./scenes/SurjectionCasesScene";
 import { TileBorderRatioScene } from "./scenes/TileBorderRatioScene";
 import { SquaredRectangleScene } from "./scenes/SquaredRectangleScene";
+import { GreedyBuyScene } from "./scenes/GreedyBuyScene";
+import { IdenticalTilesScene } from "./scenes/IdenticalTilesScene";
+import { SharedRemainderScene } from "./scenes/SharedRemainderScene";
+import { RhombusDiagonalScene } from "./scenes/RhombusDiagonalScene";
+import { GraphMatchStoryScene } from "./scenes/GraphMatchStoryScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -769,6 +774,70 @@ export function resolveScene(problem: Problem): AnimatedScene {
     const ki = Math.round(num(data.knownIndex ?? 0));
     const kv = Math.round(num(data.knownValue ?? 0));
     if (c >= 3 && c <= 6 && ki >= 1 && ki <= c && kv >= 1) return HalveDoubleChainScene;
+  }
+  // every candidate needs two real polylines, and the tests must single one out
+  if (type === "graph-match-story" && Array.isArray(data.graphs) && data.graphs.length >= 2) {
+    const ok = data.graphs.every((g) => {
+      const parts = String(g).split("|");
+      if (parts.length < 3) return false;
+      return parts.slice(1, 3).every((poly) => {
+        const pts = poly.trim().split(/\s+/).map((q) => q.split(",").map(Number));
+        return pts.length >= 2 && pts.every((q) => q.length === 2 && q.every((n) => Number.isFinite(n)));
+      });
+    });
+    if (ok && data.graphs.length <= 6 && num(data.finish ?? 0) > 0) return GraphMatchStoryScene;
+  }
+  // the half-diagonal must actually fit inside a side, or there is no right
+  // triangle to solve and no rhombus to draw
+  if (type === "rhombus-diagonal") {
+    const per = num(data.perimeter ?? 0);
+    const dg = num(data.diagonal ?? 0);
+    const sd = per / 4;
+    if (per > 0 && dg > 0 && sd > dg / 2) return RhombusDiagonalScene;
+  }
+  // the argument only exists when every fraction has the same whole part and the
+  // same remainder numerator, so the denominators alone decide the order
+  if (type === "shared-remainder" && Array.isArray(data.fractions) && data.fractions.length >= 2) {
+    const fs = data.fractions.map((f) => String(f).split("/").map((v) => Math.round(Number(v))));
+    const ok = fs.every((f) => f.length === 2 && Number.isFinite(f[0]) && Number.isFinite(f[1]) && f[1] > 0);
+    if (ok && fs.length <= 4) {
+      const ws = new Set(fs.map((f) => Math.floor(f[0] / f[1])));
+      const rs = new Set(fs.map((f) => f[0] - Math.floor(f[0] / f[1]) * f[1]));
+      const ds = new Set(fs.map((f) => f[1]));
+      if (ws.size === 1 && rs.size === 1 && ds.size === fs.length && Math.max(...fs.map((f) => f[1])) <= 30) {
+        return SharedRemainderScene;
+      }
+    }
+  }
+  // the pieces must really be congruent and really tile the box, or the whole
+  // "long side = k short sides" reading has nothing to stand on
+  if (type === "identical-tiles" && Array.isArray(data.tiles) && data.tiles.length >= 2) {
+    const ts = data.tiles.map((t) => String(t).split(",").map((v) => num(v)));
+    const ok = ts.every((t) => t.length === 4 && t[2] > 0 && t[3] > 0);
+    if (ok && num(data.short ?? 0) > 0) {
+      const bw = Math.max(...ts.map((t) => t[0] + t[2]));
+      const bh = Math.max(...ts.map((t) => t[1] + t[3]));
+      const shapes = new Set(ts.map((t) => [t[2], t[3]].sort((a, b) => a - b).join("x")));
+      const covered = ts.reduce((a, t) => a + t[2] * t[3], 0) === bw * bh;
+      const clash = ts.some((a, i) =>
+        ts.some((b, j) => j > i && a[0] < b[0] + b[2] && b[0] < a[0] + a[2] && a[1] < b[1] + b[3] && b[1] < a[1] + a[3])
+      );
+      if (shapes.size === 1 && covered && !clash && ts.length <= 8) return IdenticalTilesScene;
+    }
+  }
+  // real prices, and few enough purchases that every item can be drawn and counted
+  if (type === "greedy-buy" && Array.isArray(data.kinds) && data.kinds.length >= 2) {
+    const b = Math.round(num(data.budget ?? 0) * 100);
+    const prices = data.kinds.map((k) => Math.round(num(String(k).split("|")[0] ?? 0) * 100));
+    let rest = b;
+    let items = 0;
+    for (const pr of prices) {
+      if (pr <= 0) { items = -1; break; }
+      const c = Math.floor(rest / pr);
+      items += c;
+      rest -= c * pr;
+    }
+    if (b > 0 && items >= 2 && items <= 16) return GreedyBuyScene;
   }
   // the middle square only exists if the two dimensions differ by a positive even
   // amount, and the outer pair needs room to split legally

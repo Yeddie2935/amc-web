@@ -172,6 +172,11 @@ export type AnimationTemplateType =
   | "surjection-cases"
   | "tile-border-ratio"
   | "squared-rectangle"
+  | "greedy-buy"
+  | "identical-tiles"
+  | "shared-remainder"
+  | "rhombus-diagonal"
+  | "graph-match-story"
   | "cube-net"
   | "solid-3d"
   | "generic";
