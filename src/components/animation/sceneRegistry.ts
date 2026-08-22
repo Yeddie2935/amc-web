@@ -146,9 +146,14 @@ import { AverageLevelScene } from "./scenes/AverageLevelScene";
 import { PercentSliceScene } from "./scenes/PercentSliceScene";
 import { LineIncidenceScene } from "./scenes/LineIncidenceScene";
 import { DivisorLatticeScene } from "./scenes/DivisorLatticeScene";
+import { CheckerPathsScene } from "./scenes/CheckerPathsScene";
 import { SemicircleRectScene } from "./scenes/SemicircleRectScene";
 import { PatternDigitScene } from "./scenes/PatternDigitScene";
 import { HalveDoubleChainScene } from "./scenes/HalveDoubleChainScene";
+import { ReverseMachineScene } from "./scenes/ReverseMachineScene";
+import { SurjectionCasesScene } from "./scenes/SurjectionCasesScene";
+import { TileBorderRatioScene } from "./scenes/TileBorderRatioScene";
+import { SquaredRectangleScene } from "./scenes/SquaredRectangleScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -765,6 +770,63 @@ export function resolveScene(problem: Problem): AnimatedScene {
     const kv = Math.round(num(data.knownValue ?? 0));
     if (c >= 3 && c <= 6 && ki >= 1 && ki <= c && kv >= 1) return HalveDoubleChainScene;
   }
+  // the middle square only exists if the two dimensions differ by a positive even
+  // amount, and the outer pair needs room to split legally
+  if (type === "squared-rectangle") {
+    const w = Math.round(num(data.width ?? 0));
+    const h = Math.round(num(data.height ?? 0));
+    const mid = (w - h) / 2;
+    if (w > h && Number.isInteger(mid) && mid > 0 && h - 1 >= mid + 1) return SquaredRectangleScene;
+  }
+  // the area share must have an exact square root, or the side ratio is not a
+  // fraction and the whole edge argument has nothing to stand on
+  if (type === "tile-border-ratio") {
+    const nn = Math.round(num(data.n ?? 0));
+    const pc = num(data.percent ?? 0);
+    const scaled = Math.round(pc * 100);
+    const g2 = (a: number, b: number): number => (b ? g2(b, a % b) : Math.abs(a));
+    const k = g2(scaled, 10000) || 1;
+    const rt = (x: number) => {
+      const r = Math.round(Math.sqrt(x));
+      return r * r === x ? r : null;
+    };
+    const pn = rt(scaled / k);
+    const qn = rt(10000 / k);
+    if (nn >= 2 && nn <= 24 && pc > 0 && pc < 100 && pn != null && qn != null && pn < qn) {
+      return TileBorderRatioScene;
+    }
+  }
+  // small enough that every shape can be drawn and the factorials stay exact
+  if (type === "surjection-cases") {
+    const it = Math.round(num(data.items ?? 0));
+    const bx = Math.round(num(data.boxes ?? 0));
+    const mn = Math.round(num(data.minEach ?? 1));
+    if (it >= bx && bx >= 2 && bx <= 4 && it <= 9 && mn >= 0 && it >= bx * mn) return SurjectionCasesScene;
+  }
+  // the backwards search must terminate in a tree narrow enough to draw, so grow
+  // it here and check the widest level rather than trusting the step count
+  if (type === "reverse-machine") {
+    const dv = Math.round(num(data.divide ?? 2));
+    const ml = Math.round(num(data.mul ?? 3));
+    const ad = Math.round(num(data.add ?? 1));
+    const tg = Math.round(num(data.target ?? 0));
+    const st = Math.round(num(data.steps ?? 0));
+    if (dv >= 2 && ml >= 1 && tg >= 1 && st >= 2 && st <= 9) {
+      let level = [tg];
+      let widest = 1;
+      for (let i = 0; i < st; i++) {
+        const next: number[] = [];
+        for (const v of level) {
+          if (!next.includes(dv * v)) next.push(dv * v);
+          const q = (v - ad) / ml;
+          if (Number.isInteger(q) && q > 0 && q % dv !== 0 && !next.includes(q)) next.push(q);
+        }
+        level = next;
+        widest = Math.max(widest, level.length);
+      }
+      if (widest <= 6) return ReverseMachineScene;
+    }
+  }
   // the divisor must be characterised by a last-digit rule and a digit-sum rule,
   // so strip 2s, 3s and 5s and require nothing else to be left over
   if (type === "pattern-digits" && typeof data.pattern === "string") {
@@ -833,6 +895,17 @@ export function resolveScene(problem: Problem): AnimatedScene {
   // enough bars that adding them is the wrong move, and a line to read off the chart
   if (type === "average-level" && Array.isArray(data.values) && data.values.length >= 4 && num(data.readAverage ?? 0) > 0) {
     return AverageLevelScene;
+  }
+  // both squares on the board, the same colour (so the diagonal walk connects
+  // them at all), and the target genuinely above the start
+  if (type === "checker-paths" && Array.isArray(data.from) && Array.isArray(data.to)) {
+    const n = Math.round(num(data.size ?? 8));
+    const [pr, pc] = (data.from as unknown[]).map((v) => Math.round(num(v ?? 0)));
+    const [qr, qc] = (data.to as unknown[]).map((v) => Math.round(num(v ?? 0)));
+    const on = (r: number, c: number) => r >= 1 && r <= n && c >= 1 && c <= n;
+    if (n >= 3 && n <= 12 && on(pr, pc) && on(qr, qc) && qr > pr && (pr + pc) % 2 === (qr + qc) % 2) {
+      return CheckerPathsScene;
+    }
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

@@ -44937,13 +44937,22 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "28",
     "solutionSteps": [
       {
-        "title": "Waterfall method",
-        "body": "Starting from P, count paths to each white square in each row by summing the counts from the white squares directly below it."
+        "title": "What a path looks like",
+        "body": "Every step goes up one row and one column left or right, landing on a white square. P is in the bottom row and Q is in the top row, so a path is exactly 7 steps, and the only freedom is the left-or-right choice made each time."
       },
       {
-        "title": "Count up row by row",
-        "body": "Bottom row: P = 1. Row by row upward, the counts propagate. At Q the total is 28.",
-        "equation": "28 paths"
+        "title": "Count upward from P",
+        "body": "Write 1 on P. Every white square then gets the sum of the counts on the white squares diagonally below it, since a path can only have arrived from those. Row 2: 1, 1. Row 3: 1, 2, 1. Row 4: 1, 3, 3."
+      },
+      {
+        "title": "Carry the counts up to Q",
+        "body": "Row 5: 1, 4, 6, 3. Row 6: 1, 5, 10, 9. Row 7: 6, 15, 19, 9. Only two squares feed Q, so Q = 19 + 9 = 28.",
+        "equation": "19 + 9 = 28"
+      },
+      {
+        "title": "Why the answer is not 35",
+        "body": "Ignore the edges and a path is just an order for 4 right steps and 3 left steps: C(7,3) = 35, which is answer choice E. But 7 of those would have to step off the right side of the board — 4 leave from the column-8 square in row 3, and 3 more from the column-8 square in row 5 — so 35 − 7 = 28.",
+        "equation": "35 − 7 = 28"
       }
     ],
     "animationFrames": [
@@ -44951,7 +44960,7 @@ const amc2020Problems: Problem[] = [
       { "title": "Propagate counts", "narration": "Each white square's count = sum of adjacent white squares below.", "visualHint": "Numbers fill in row by row." },
       { "title": "Reach Q", "narration": "Q gets a count of 28.", "visualHint": "Choice A circled." }
     ],
-    "animation": { "type": "generic", "data": { "answer": 28 } },
+    "animation": { "type": "checker-paths", "data": { "size": 8, "from": [1, 6], "to": [8, 7] } },
     "tags": ["AMC 8", "2020", "counting & probability", "path counting", "diagram"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA",
@@ -44980,13 +44989,29 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "83",
     "solutionSteps": [
       {
-        "title": "Work backwards",
-        "body": "Start from output 1 and reverse 6 steps. At each step, if the current value is v, the previous value was either 2v (even input) or (v−1)/3 (if v−1 is divisible by 3 and (v−1)/3 is odd)."
+        "title": "The machine",
+        "body": "An even input is halved; an odd input becomes 3N+1. The problem's own example runs 7 → 22 → 11 → 34 → 17 → 52 → 26. Here we are told the last number instead of the first, so guessing N forwards is hopeless — run the machine backwards.",
+        "equation": "7 → 22 → 11 → 34 → 17 → 52 → 26"
       },
       {
-        "title": "Trace all paths",
-        "body": "{1} → {2} → {4} → {1,8} → {2,16} → {4,5,32} → {1,8,10,64}. Sum = 1 + 8 + 10 + 64 = 83.",
-        "equation": "1 + 8 + 10 + 64 = 83"
+        "title": "Reverse the machine",
+        "body": "If the output is v, the input was either 2v (which is even, so it gets halved back to v) or (v−1)/3 (which must be a whole odd number, since an even input would have been halved instead of tripled). Check it on the example: reversing 22 gives 44 and (22−1)/3 = 7 — and 7 is exactly where the example starts.",
+        "equation": "v ← 2v   or   v ← (v−1)/3 when whole and odd"
+      },
+      {
+        "title": "Three steps back",
+        "body": "Start from the output 1 and grow the possibilities backwards. 1 ← 2 ← 4, with only the doubling door open. At 4 the second door finally opens: (4−1)/3 = 1, which is odd, so 1 is also an input giving 4.",
+        "equation": "{1} → {2} → {4} → {8, 1}"
+      },
+      {
+        "title": "Three more steps back",
+        "body": "Keep going. From 8 and 1: {16, 2}. From 16 the second door opens again — (16−1)/3 = 5 — giving {32, 5, 4}. One more step gives {64, 10, 8, 1}.",
+        "equation": "{8, 1} → {16, 2} → {32, 5, 4} → {64, 10, 8, 1}"
+      },
+      {
+        "title": "Add the starting values",
+        "body": "The four values six steps back are exactly the N that reach 1 in six steps: 64, 10, 8 and 1. (N = 1 counts: 1 → 4 → 2 → 1 → 4 → 2 → 1.) Their sum is 83.",
+        "equation": "64 + 10 + 8 + 1 = 83"
       }
     ],
     "animationFrames": [
@@ -44994,7 +45019,7 @@ const amc2020Problems: Problem[] = [
       { "title": "Reverse from 1", "narration": "Work backwards 6 steps, tracking all possible inputs.", "visualHint": "Tree of possibilities." },
       { "title": "Sum", "narration": "Valid starting values: 1, 8, 10, 64. Sum = 83.", "visualHint": "Choice E circled." }
     ],
-    "animation": { "type": "generic", "data": { "answer": 83 } },
+    "animation": { "type": "reverse-machine", "data": { "target": 1, "steps": 6, "example": 7, "divide": 2, "mul": 3, "add": 1 } },
     "tags": ["AMC 8", "2020", "number theory", "sequences", "diagram"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA",
@@ -45023,18 +45048,23 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "150",
     "solutionSteps": [
       {
-        "title": "Case 1: 3-1-1 split",
-        "body": "Choose which student gets 3: 3 ways. Choose 3 awards from 5: C(5,3) = 10. Distribute remaining 2 to 2 students: 2 ways. Total: 3 × 10 × 2 = 60.",
+        "title": "Which pile shapes are allowed",
+        "body": "A handout is decided by the shape of the three piles. Splitting 5 into 3 piles gives only 5+0+0, 4+1+0, 3+2+0, 3+1+1 and 2+2+1 — and the first three leave a student empty-handed. So only two shapes survive, and each is counted the same way: how many ways to hand the sizes out, times how many ways the awards fill them.",
+        "equation": "5 = 3+1+1  or  2+2+1"
+      },
+      {
+        "title": "Shape 3 + 1 + 1",
+        "body": "The two piles of size 1 are interchangeable as sizes, so handing the sizes out is just choosing who gets the 3: 3 ways, not 3! = 6. Then deal the awards — C(5,3) = 10 for the big pile, and C(2,1) = 2 to split the last two between the other students.",
         "equation": "3 × 10 × 2 = 60"
       },
       {
-        "title": "Case 2: 2-2-1 split",
-        "body": "Choose which student gets 1: 3 ways. Choose 1 award from 5: 5. Choose 2 of remaining 4 for a specific student: C(4,2) = 6. Total: 3 × 5 × 6 = 90.",
-        "equation": "3 × 5 × 6 = 90"
+        "title": "Shape 2 + 2 + 1",
+        "body": "Here the two piles of size 2 are the interchangeable ones, so again 3 ways to hand the sizes out — choose who gets the single award. Then C(5,2) = 10 fills the first pair and C(3,2) = 3 fills the second; the last award goes to the remaining student.",
+        "equation": "3 × 10 × 3 = 90"
       },
       {
-        "title": "Total",
-        "body": "60 + 90 = 150.",
+        "title": "Add the surviving shapes",
+        "body": "60 + 90 = 150. As a check that never mentions shapes at all, inclusion–exclusion on the 3⁵ unrestricted handouts removes those that miss a student: 3⁵ − 3·2⁵ + 3·1⁵ = 243 − 96 + 3 = 150.",
         "equation": "60 + 90 = 150"
       }
     ],
@@ -45043,7 +45073,7 @@ const amc2020Problems: Problem[] = [
       { "title": "Case 2-2-1", "narration": "One student gets 1 award: 90 ways.", "visualHint": "3 × 5 × C(4,2) = 90." },
       { "title": "Total", "narration": "60 + 90 = 150.", "visualHint": "Choice B circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 150 } },
+    "animation": { "type": "surjection-cases", "data": { "items": 5, "boxes": 3, "minEach": 1, "itemWord": "award", "boxWord": "student" } },
     "tags": ["AMC 8", "2020", "counting & probability", "combinatorics"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA"
@@ -45070,18 +45100,24 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "6/25",
     "solutionSteps": [
       {
-        "title": "Set up areas",
-        "body": "Gray area = (24s)² = 576s². Large square side = 24s + 25d (24 tiles plus 25 borders). Large area = (24s + 25d)²."
+        "title": "Count the borders along one edge",
+        "body": "Walk the top edge of the n = 3 figure: border, tile, border, tile, border, tile, border. Three tiles, but four borders — the run starts and ends with one. So n tiles always need n + 1 borders, and for n = 24 the side is 24s + 25d, not 24s + 24d.",
+        "equation": "side = 24s + 25d"
       },
       {
-        "title": "Use 64%",
-        "body": "(24s)²/(24s + 25d)² = 64/100 = 16/25. Taking square roots: 24s/(24s + 25d) = 4/5.",
-        "equation": "24s/(24s + 25d) = 4/5"
+        "title": "Turn the area share into a side share",
+        "body": "The 576 gray tiles are 24 × 24, so slid together they form one square of side 24s. That square is 64% of the large square, and both are squares, so their sides are in the ratio √(64/100) = 4/5. The percentage of area has become a fraction of length.",
+        "equation": "(24s)² / side² = 16/25  →  24s / side = 4/5"
       },
       {
-        "title": "Solve",
-        "body": "5 · 24s = 4(24s + 25d) → 120s = 96s + 100d → 24s = 100d → d/s = 24/100 = 6/25.",
-        "equation": "d/s = 6/25"
+        "title": "Split the edge",
+        "body": "Gather the edge with all the tiles at one end and all the borders at the other — nothing changes length. The 24 tiles fill 4/5 of it and the 25 borders fill the remaining 1/5, so the borders' total is four times smaller than the tiles' total.",
+        "equation": "24s = 4/5 · side,   25d = 1/5 · side"
+      },
+      {
+        "title": "Compare one border with one tile",
+        "body": "Since 25d is a quarter of 24s, the 25 borders laid end to end are exactly 24/4 = 6 tiles long. So 25d = 6s, giving d/s = 6/25.",
+        "equation": "25d = 6s  →  d/s = 6/25"
       }
     ],
     "animationFrames": [
@@ -45089,7 +45125,7 @@ const amc2020Problems: Problem[] = [
       { "title": "Equation", "narration": "64% → ratio 4/5 after square root.", "visualHint": "24s/(24s+25d) = 4/5." },
       { "title": "Solve", "narration": "d/s = 6/25.", "visualHint": "Choice A circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": "6/25" } },
+    "animation": { "type": "tile-border-ratio", "data": { "n": 24, "percent": 64, "figureN": 3 } },
     "tags": ["AMC 8", "2020", "algebra", "ratios", "diagram"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA",
@@ -45118,12 +45154,22 @@ const amc2020Problems: Problem[] = [
     "shortAnswer": "651",
     "solutionSteps": [
       {
-        "title": "Set up equations",
-        "body": "Let s₁, s₂, s₃ be the side lengths. From the top: s₁ + s₂ + s₃ = 3322. From the side: s₁ − s₂ + s₃ = 2020."
+        "title": "Only S₂ is pinned down",
+        "body": "The internal walls can shift: make S₁ smaller and S₃ grows to match, and the pieces still tile the same 3322 × 2020 rectangle. Only the sum s₁ + s₃ is fixed, not either one — which is why the question asks for S₂, the one square the two given dimensions really determine."
       },
       {
-        "title": "Solve",
-        "body": "Subtracting: 2s₂ = 1302, so s₂ = 651.",
+        "title": "Across: the three squares fill the width",
+        "body": "Drop the three squares onto the bottom edge. S₁ covers the left part, S₂ the middle, S₃ the right, with no gap and no overlap — so their sides add to the full width.",
+        "equation": "s₁ + s₂ + s₃ = 3322"
+      },
+      {
+        "title": "Down: S₁ and S₃ overlap by exactly S₂",
+        "body": "Now project S₁ and S₃ onto the left edge. Between them they cover the whole height, but they double up over the middle band — and that shared band is exactly the rows S₂ occupies. So their sides add to the height plus one extra s₂.",
+        "equation": "s₁ + s₃ = 2020 + s₂"
+      },
+      {
+        "title": "Substitute and split the difference",
+        "body": "The width is s₁ + s₃ plus one more s₂, and s₁ + s₃ is itself the height plus an s₂. So the width is the height plus two copies of s₂: the width counts s₂ once and the height misses it once. That gap is 3322 − 2020 = 1302, so s₂ = 651.",
         "equation": "2s₂ = 3322 − 2020 = 1302 → s₂ = 651"
       }
     ],
@@ -45132,7 +45178,7 @@ const amc2020Problems: Problem[] = [
       { "title": "Subtract", "narration": "2s₂ = 3322 − 2020 = 1302.", "visualHint": "1302 shown." },
       { "title": "Solve", "narration": "s₂ = 651.", "visualHint": "Choice A circled." }
     ],
-    "animation": { "type": "equation", "data": { "answer": 651 } },
+    "animation": { "type": "squared-rectangle", "data": { "width": 3322, "height": 2020 } },
     "tags": ["AMC 8", "2020", "algebra", "systems of equations", "diagram"],
     "sourceName": "2020 AMC 8",
     "license": "CC BY-NC-SA",
