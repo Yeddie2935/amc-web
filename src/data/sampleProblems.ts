@@ -42798,13 +42798,23 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "39",
     "solutionSteps": [
       {
-        "title": "Find the overlap",
-        "body": "By inclusion-exclusion, the number taking both is 70 + 54 − 93 = 31.",
-        "equation": "70 + 54 − 93 = 31"
+        "title": "Everyone is counted once",
+        "body": "There are 93 students, and every one of them takes math, a foreign language, or both. So the three groups — math only, both, language only — together make up all 93.",
+        "equation": "math only + both + language only = 93"
       },
       {
-        "title": "Math only",
-        "body": "Students taking only math = 70 − 31 = 39.",
+        "title": "The two rosters hold 124 names",
+        "body": "The math roster lists 70 names and the language roster lists 54, so laid end to end the two rosters carry 70 + 54 = 124 names — far more names than there are students.",
+        "equation": "70 + 54 = 124"
+      },
+      {
+        "title": "The extra names are the students in both",
+        "body": "A student taking both classes is written down twice, once on each roster; everyone else is written once. So the overshoot counts exactly the students in both classes: 124 − 93 = 31.",
+        "equation": "124 − 93 = 31"
+      },
+      {
+        "title": "Take them off the math roster",
+        "body": "Of the 70 students in math, 31 also take a foreign language. The ones taking only math are 70 − 31 = 39.",
         "equation": "70 − 31 = 39"
       }
     ],
@@ -42826,12 +42836,13 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "venn",
+      "type": "two-set-overlap",
       "data": {
-        "math": 70,
-        "language": 54,
-        "both": 31,
-        "mathOnly": 39
+        "total": 93,
+        "neither": 0,
+        "sets": ["Math|70|➗", "Language|54|🌍"],
+        "ask": "a-only",
+        "unit": "students"
       }
     },
     "tags": [
@@ -42866,16 +42877,20 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "red",
     "solutionSteps": [
       {
-        "title": "Analyze the views",
-        "body": "From the first view, B is on top, R is on the front, and G is on the right. From the second view, W is on the right side while R is still on the front. From the third image, P is on the front and R is on top."
+        "title": "Read the three views",
+        "body": "Each view shows three faces meeting at a single corner, so those three colors all touch one another. View 1 has B on top, R in front, G on the right. View 2 has B on top, W in front, R on the right. View 3 has R on top, P in front, G on the right."
       },
       {
-        "title": "Determine adjacencies",
-        "body": "R is adjacent to B, G, W, and P (it appears next to all of them across the three views). The only remaining color that is not adjacent to R is A (aqua)."
+        "title": "Collect what red touches",
+        "body": "Red appears in all three views, and each one puts two colors beside it: B and G from view 1, B and W from view 2, P and G from view 3. That is six sightings but only four different colors — B, G, W and P."
+      },
+      {
+        "title": "Red's ring is full",
+        "body": "A face of a cube touches exactly four other faces, and red has already been seen touching four different colors. So none of the remaining colors can touch red — and the only color left is aqua, which never appears in any of the three views."
       },
       {
         "title": "Conclude",
-        "body": "Since aqua is the only color never adjacent to red, the face opposite aqua is red."
+        "body": "Aqua is the one face red does not touch, so aqua and red are opposite each other. The face opposite the aqua face is red."
       }
     ],
     "animationFrames": [
@@ -42896,10 +42911,18 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "solid-3d",
+      "type": "cube-views",
       "data": {
-        "oppositeOfAqua": "red",
-        "answer": "A"
+        "faces": [
+          "R|red|#dc2626",
+          "W|white|#f1f5f9",
+          "G|green|#16a34a",
+          "B|brown|#92400e",
+          "A|aqua|#22d3ee",
+          "P|purple|#7c3aed"
+        ],
+        "views": ["B|R|G", "B|W|R", "R|P|G"],
+        "ask": "A"
       }
     },
     "tags": [
@@ -42939,43 +42962,64 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "2",
     "solutionSteps": [
       {
-        "title": "Identify two-digit palindromes",
-        "body": "The two-digit palindromes are 11, 22, 33, …, 99 (multiples of 11)."
+        "title": "The two-digit palindromes are the multiples of 11",
+        "body": "A two-digit number reads the same backwards only when both digits match, so the palindromes are 11, 22, 33, …, 99 — and dd = 10d + d = 11d, so these nine numbers are exactly 11 × 1 through 11 × 9.",
+        "equation": "dd = 10d + d = 11d"
       },
       {
-        "title": "Find the smallest qualifying N",
-        "body": "N must be a three-digit non-palindrome that is the sum of three distinct multiples of 11. The smallest three-digit multiple of 11 that is not a palindrome is 110 = 77 + 22 + 11.",
-        "equation": "77 + 22 + 11 = 110"
+        "title": "So every such sum is a multiple of 11",
+        "body": "Adding three of them factors the 11 straight back out: 11a + 11b + 11c = 11(a + b + c), where a, b, c are distinct digits from 1 to 9. The bracket runs from 1 + 2 + 3 = 6 up to 7 + 8 + 9 = 24, and every value in between occurs, so the reachable sums are exactly 66, 77, …, 264.",
+        "equation": "11a + 11b + 11c = 11(a + b + c)"
       },
       {
-        "title": "Digit sum",
+        "title": "The search cannot start below 110",
+        "body": "Each of 100 through 109 leaves a nonzero remainder on division by 11, so none of them is 11 × anything and none can be such a sum. The first three-digit number in reach is 110 = 11 × 10, and 10 = 1 + 2 + 7 is a sum of three distinct digits.",
+        "equation": "110 = 11 × 10 = 11 + 22 + 77"
+      },
+      {
+        "title": "110 is not a palindrome, so N = 110",
+        "body": "Read backwards, 110 becomes 011, which is different — so 110 is not a palindrome, which is exactly what the problem asks for. (The next candidate, 121, does read the same both ways, so it would have been disqualified.)",
+        "equation": "110 ≠ 011"
+      },
+      {
+        "title": "Add the digits of N",
         "body": "The digit sum of 110 is 1 + 1 + 0 = 2.",
         "equation": "1 + 1 + 0 = 2"
       }
     ],
     "animationFrames": [
       {
-        "title": "List two-digit palindromes",
-        "narration": "Two-digit palindromes are 11, 22, 33, …, 99.",
-        "visualHint": "The nine multiples of 11 appear."
+        "title": "Sieve the two-digit numbers",
+        "narration": "Only 11, 22, …, 99 read the same both ways — and each is 11 × its digit.",
+        "visualHint": "Each number meets a mirror; the nine survivors become 11×1 … 11×9."
       },
       {
-        "title": "Find the smallest N",
-        "narration": "The smallest three-digit non-palindrome sum of three distinct ones is 110.",
-        "visualHint": "77 + 22 + 11 = 110."
+        "title": "Factor the 11 back out",
+        "narration": "11a + 11b + 11c = 11(a + b + c), with the bracket running from 6 to 24.",
+        "visualHint": "The three 11s merge into one; a ruler shows every reachable multiplier."
+      },
+      {
+        "title": "Climb from 100",
+        "narration": "100 through 109 all leave a remainder, so 110 is the first number in reach.",
+        "visualHint": "A magnifier walks the ladder, striking out ten cells before 110 turns green."
+      },
+      {
+        "title": "Hold 110 up to the mirror",
+        "narration": "110 backwards is 011, so it is not a palindrome — while 121 is.",
+        "visualHint": "The reflected digits slide out of the mirror and fail to match."
       },
       {
         "title": "Digit sum",
         "narration": "1 + 1 + 0 = 2.",
-        "visualHint": "Choice A is circled."
+        "visualHint": "The digits of 110 drop into a sum row totalling 2."
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "palindrome-sum",
       "data": {
-        "N": 110,
-        "digitSum": 2,
-        "answer": "A"
+        "partDigits": 2,
+        "addends": 3,
+        "targetDigits": 3
       }
     },
     "tags": [
@@ -43010,41 +43054,66 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "Wednesday",
     "solutionSteps": [
       {
-        "title": "Days mod 7",
-        "body": "Every 10 days is equivalent to every 3 days mod 7 (since 10 ≡ 3 mod 7)."
+        "title": "Ten days is three weekdays",
+        "body": "A whole week returns to the same weekday, so only the remainder matters: 10 = 1 × 7 + 3, that is 10 ≡ 3 (mod 7). Each coupon therefore falls 3 weekdays after the one before.",
+        "equation": "10 = 7 + 3, so 10 ≡ 3 (mod 7)"
       },
       {
-        "title": "Check starting days",
-        "body": "Starting on Wednesday (day 4): the six dates cycle through days 4, 0, 3, 6, 2, 5 (mod 7). If Sunday is day 0, we need to check none of the six hits 0. Starting from Wednesday: Wed, Sat, Tue, Fri, Mon, Thu — no Sunday."
+        "title": "The six coupons land on six different days",
+        "body": "Measured from the first coupon, the six dates sit at +0, +3, +6, +9 ≡ +2, +12 ≡ +5 and +15 ≡ +1 weekdays. Those are six different days of the week.",
+        "equation": "+0, +3, +6, +2, +5, +1 (mod 7)"
       },
       {
-        "title": "Confirm",
-        "body": "Wednesday is the only starting day that avoids Sunday for all six dates."
+        "title": "Exactly one weekday is never circled",
+        "body": "Because 3 and 7 share no common factor, hopping forward 3 at a time would reach all 7 weekdays in 7 hops. She only takes 6 of them, so exactly one weekday is skipped — the one the seventh hop would have landed on, at +3 × 6 = +18 ≡ +4.",
+        "equation": "+3 × 6 = +18 ≡ +4 (mod 7)"
+      },
+      {
+        "title": "The gap has to be Sunday",
+        "body": "Every weekday except that gap does get circled, and no circled date is a Sunday. So Sunday must be the gap: start + 4 = Sunday, which puts the first coupon 4 days earlier, on Wednesday.",
+        "equation": "start + 4 = Sunday ⟹ start = Wednesday"
+      },
+      {
+        "title": "Check it, and check the rest",
+        "body": "From Wednesday the six dates fall on Wed, Sat, Tue, Fri, Mon, Thu — every weekday but Sunday. Every other starting day does hit a Sunday: Monday on coupon 3, Tuesday on coupon 5, Thursday on coupon 2, Friday on coupon 4, Saturday on coupon 6 and Sunday on coupon 1. Wednesday is the only survivor.",
+        "equation": "Wed, Sat, Tue, Fri, Mon, Thu"
       }
     ],
     "animationFrames": [
       {
-        "title": "Reduce mod 7",
-        "narration": "Every 10 days advances 3 days of the week.",
-        "visualHint": "10 mod 7 = 3."
+        "title": "Ten days on a calendar",
+        "narration": "10 = 7 + 3, and a whole week lands on the same weekday.",
+        "visualHint": "A cone walks 10 days, wrapping a row and landing 3 columns over."
       },
       {
-        "title": "Try Wednesday",
-        "narration": "Starting Wednesday: Wed, Sat, Tue, Fri, Mon, Thu — no Sunday.",
-        "visualHint": "Six dates listed, none is Sunday."
+        "title": "Six hops of +3",
+        "narration": "The six coupons sit at +0, +3, +6, +2, +5, +1 on the weekly dial.",
+        "visualHint": "The hops trace a star across a 7-day wheel."
       },
       {
-        "title": "Answer",
-        "narration": "Wednesday is the correct starting day.",
-        "visualHint": "Choice C is circled."
+        "title": "One day is skipped",
+        "narration": "Six of the seven days are circled; the gap is where hop seven would land.",
+        "visualHint": "The unvisited node glows amber with the never-taken hop drawn to it."
+      },
+      {
+        "title": "The gap is Sunday",
+        "narration": "Sunday has nowhere else to be, so start + 4 = Sunday.",
+        "visualHint": "Day names fly on from the gap and a marker walks back 4 days."
+      },
+      {
+        "title": "Wednesday works, nothing else does",
+        "narration": "Wed, Sat, Tue, Fri, Mon, Thu — no Sunday.",
+        "visualHint": "The real tour, beside every other start hitting a Sunday."
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "modular-cycle",
       "data": {
-        "modulus": 7,
-        "step": 3,
-        "answer": "Wednesday"
+        "labels": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "stepDays": 10,
+        "count": 6,
+        "avoid": "Sunday",
+        "icon": "🍦"
       }
     },
     "tags": [
@@ -43078,26 +43147,46 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "7/25",
     "solutionSteps": [
       {
-        "title": "Find the number wearing both",
-        "body": "Among cap-wearers, 2/5 also wear sunglasses: (2/5) × 35 = 14 people wear both.",
+        "title": "What the two counts do and don't tell us",
+        "body": "50 people wear sunglasses and 35 wear caps, but these are two lists, not two separate crowds — anyone wearing both appears on each. How many that is, is exactly what the 2/5 is for.",
+        "equation": "50 sunglasses, 35 caps, overlap unknown"
+      },
+      {
+        "title": "Two fifths of the cap wearers",
+        "body": "Split the 35 cap wearers into 5 equal groups of 7. Picking one at random gives sunglasses with probability 2/5, so 2 of those groups wear sunglasses too: 2 × 7 = 14 people wear both.",
         "equation": "(2/5) × 35 = 14"
       },
       {
-        "title": "Find the probability",
-        "body": "Among 50 sunglass-wearers, the probability of also wearing a cap is 14/50 = 7/25.",
+        "title": "The same 14 people, a different crowd",
+        "body": "Those 14 are one fixed set of individuals. Standing among the 50 sunglasses wearers instead, they are still exactly the same 14 — the count of people wearing both never changed, only the group we are choosing from did, from 35 to 50.",
+        "equation": "14 of 35 → 14 of 50"
+      },
+      {
+        "title": "Divide by the new crowd",
+        "body": "So a randomly chosen sunglasses wearer has a cap with probability 14/50. Pairing the 50 up gives 25 pairs, 7 of them all cap wearers, so 14/50 = 7/25.",
         "equation": "14/50 = 7/25"
       }
     ],
     "animationFrames": [
       {
-        "title": "Find the overlap",
-        "narration": "2/5 of the 35 cap-wearers also wear sunglasses: that's 14 people.",
-        "visualHint": "(2/5) × 35 = 14."
+        "title": "Two lists on one beach",
+        "narration": "50 in sunglasses, 35 in caps, and an unknown number on both lists.",
+        "visualHint": "Two blocks of beachgoers with a dashed question mark between them."
       },
       {
-        "title": "Compute the new probability",
-        "narration": "Out of 50 sunglass-wearers, 14 also have caps.",
-        "visualHint": "14/50 = 7/25."
+        "title": "Split into fifths",
+        "narration": "2 of the 5 groups of 7 also wear sunglasses: 14 people.",
+        "visualHint": "The cap crowd sorts itself into 5 groups; 2 groups put sunglasses on."
+      },
+      {
+        "title": "The same 14",
+        "narration": "Those 14 walk over into the sunglasses crowd — same people, bigger crowd.",
+        "visualHint": "14 figures travel across and the other 36 fill in around them."
+      },
+      {
+        "title": "Fourteen out of fifty",
+        "narration": "14/50 = 7/25.",
+        "visualHint": "The 50 regroup into 25 pairs, 7 of which are entirely cap wearers."
       },
       {
         "title": "Answer",
@@ -43106,11 +43195,14 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "conditional-swap",
       "data": {
-        "both": 14,
-        "sunglasses": 50,
-        "answer": "7/25"
+        "aLabel": "sunglasses",
+        "aCount": 50,
+        "bLabel": "caps",
+        "bCount": 35,
+        "givenNum": 2,
+        "givenDen": 5
       }
     },
     "tags": [

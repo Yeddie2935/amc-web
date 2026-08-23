@@ -182,6 +182,11 @@ export type AnimationTemplateType =
   | "remaining-grid"
   | "cylinder-pair"
   | "stat-correction"
+  | "two-set-overlap"
+  | "cube-views"
+  | "palindrome-sum"
+  | "modular-cycle"
+  | "conditional-swap"
   | "cube-net"
   | "solid-3d"
   | "generic";

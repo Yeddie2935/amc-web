@@ -164,6 +164,11 @@ import { CapFillScene } from "./scenes/CapFillScene";
 import { RemainingGridScene } from "./scenes/RemainingGridScene";
 import { CylinderPairScene } from "./scenes/CylinderPairScene";
 import { StatCorrectionScene } from "./scenes/StatCorrectionScene";
+import { TwoSetOverlapScene } from "./scenes/TwoSetOverlapScene";
+import { CubeViewsScene } from "./scenes/CubeViewsScene";
+import { PalindromeSumScene } from "./scenes/PalindromeSumScene";
+import { ModularCycleScene } from "./scenes/ModularCycleScene";
+import { ConditionalSwapScene } from "./scenes/ConditionalSwapScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -1028,6 +1033,63 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if (type === "symmetry-line-grid") {
     const sz = Math.round(num(data.size ?? 0));
     if (sz >= 3 && sz <= 15 && sz % 2 === 1) return SymmetryLineGridScene;
+  }
+  // six real faces, and every view naming three distinct known ones, or the
+  // corner-triple search has nothing to solve against
+  if (type === "cube-views" && Array.isArray(data.faces) && Array.isArray(data.views)) {
+    const keys = data.faces.map((f) => String(f).split("|")[0]);
+    const vs = data.views.map((v) => String(v).split("|"));
+    const ok =
+      keys.length === 6 &&
+      new Set(keys).size === 6 &&
+      vs.length >= 2 &&
+      vs.every((v) => v.length === 3 && new Set(v).size === 3 && v.every((k) => keys.includes(k)));
+    if (ok && keys.includes(String(data.ask ?? ""))) return CubeViewsScene;
+  }
+  // real part/target lengths, and enough distinct palindromes of that length to
+  // actually take `addends` of them — otherwise there is nothing to enumerate
+  if (type === "palindrome-sum") {
+    const pd = num(data.partDigits ?? 0);
+    const td = num(data.targetDigits ?? 0);
+    const k = num(data.addends ?? 0);
+    const available = 9 * Math.pow(10, Math.floor((pd - 1) / 2)); // palindromes with pd digits
+    if (pd >= 2 && td > pd && k >= 2 && k <= available) return PalindromeSumScene;
+  }
+  // a real cycle of named positions, a real stride, and a forbidden position that
+  // is actually one of them — otherwise there is no cycle to walk or day to avoid
+  if (type === "modular-cycle" && Array.isArray(data.labels)) {
+    const names = data.labels.map((l) => String(l).toLowerCase());
+    const ok =
+      names.length >= 3 &&
+      new Set(names).size === names.length &&
+      num(data.stepDays ?? 0) > 0 &&
+      num(data.count ?? 0) >= 2 &&
+      num(data.count ?? 0) <= names.length &&
+      names.includes(String(data.avoid ?? "").toLowerCase());
+    if (ok) return ModularCycleScene;
+  }
+  // the overlap must come out a whole number of people, fit inside the other
+  // group, and both crowds must be small enough to draw one figure each
+  if (type === "conditional-swap") {
+    const a = num(data.aCount ?? 0);
+    const b = num(data.bCount ?? 0);
+    const gn = num(data.givenNum ?? 0);
+    const gd = num(data.givenDen ?? 0);
+    const both = gd > 0 ? (b * gn) / gd : -1;
+    if (a > 0 && a <= 60 && b > 0 && b <= 60 && gd > 0 && Number.isInteger(both) && both >= 0 && both <= a) {
+      return ConditionalSwapScene;
+    }
+  }
+  // both groups real, a genuine overlap, and few enough people that every one of
+  // them can be drawn as its own countable dot
+  if (type === "two-set-overlap" && Array.isArray(data.sets) && data.sets.length === 2) {
+    const [ca, cb] = data.sets.map((s) => Math.round(num(String(s).split("|")[1] ?? 0)));
+    const tot = Math.round(num(data.total ?? 0));
+    const un = tot - Math.round(num(data.neither ?? 0));
+    const overlap = ca + cb - un;
+    if (ca > 0 && cb > 0 && un > 0 && un <= tot && tot <= 200 && overlap > 0 && overlap <= Math.min(ca, cb)) {
+      return TwoSetOverlapScene;
+    }
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
