@@ -95,6 +95,10 @@ import { AgeBarsScene } from "./scenes/AgeBarsScene";
 import { SpacedRatioScene } from "./scenes/SpacedRatioScene";
 import { UnitChainScene } from "./scenes/UnitChainScene";
 import { TelescopeProductScene } from "./scenes/TelescopeProductScene";
+import { SplitTelescopeScene } from "./scenes/SplitTelescopeScene";
+import { ParityGridScene } from "./scenes/ParityGridScene";
+import { TournamentBudgetScene } from "./scenes/TournamentBudgetScene";
+import { NestedSquareScene } from "./scenes/NestedSquareScene";
 import { DiagonalLetterGridScene } from "./scenes/DiagonalLetterGridScene";
 import { DetourPaceScene } from "./scenes/DetourPaceScene";
 import { OvershootRemoveScene } from "./scenes/OvershootRemoveScene";
@@ -169,6 +173,7 @@ import { CubeViewsScene } from "./scenes/CubeViewsScene";
 import { PalindromeSumScene } from "./scenes/PalindromeSumScene";
 import { ModularCycleScene } from "./scenes/ModularCycleScene";
 import { ConditionalSwapScene } from "./scenes/ConditionalSwapScene";
+import { PaceCarChaseScene } from "./scenes/PaceCarChaseScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -722,6 +727,37 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if (type === "telescope-product" && num(data.to ?? 0) > num(data.from ?? 0) && num(data.gap ?? 0) >= 1) {
     return TelescopeProductScene;
   }
+  // a positive right-hand side gives the level line something to cut, and a
+  // positive inner shift is what raises the middle hump the argument turns on
+  if (type === "nested-square" && num(data.rhs ?? 0) > 0 && num(data.inner ?? 0) > 0) {
+    return NestedSquareScene;
+  }
+  // the crosstable draws exactly one cell per game only when every pair meets
+  // twice, and the leaders must have someone below them to sweep
+  if (type === "tournament-budget") {
+    const tm = Math.round(num(data.teams ?? 0));
+    const tp = Math.round(num(data.top ?? 0));
+    if (tm >= 3 && tm <= 10 && tp >= 2 && tp < tm && Math.round(num(data.meetings ?? 0)) === 2 && num(data.win ?? 0) > 0) {
+      return TournamentBudgetScene;
+    }
+  }
+  // both parities must actually appear, or there is no two-block picture to
+  // reveal, and the table has to stay small enough to draw every roll
+  if (type === "parity-grid" && Array.isArray(data.faces) && data.faces.length >= 2 && data.faces.length <= 10) {
+    const fs = data.faces.map((v) => Math.round(num(v)));
+    const odd = fs.filter((v) => Math.abs(v % 2) === 1).length;
+    if (fs.every((v) => Number.isFinite(v)) && odd >= 1 && odd < fs.length) return ParityGridScene;
+  }
+  // at least three factors (so each chain has a real interior to cancel) and few
+  // enough that re-multiplying every one of them stays cheap and exact
+  if (
+    type === "split-telescope" &&
+    num(data.from ?? 0) >= 1 &&
+    num(data.to ?? 0) >= num(data.from ?? 0) + 2 &&
+    num(data.to ?? 0) - num(data.from ?? 0) <= 5000
+  ) {
+    return SplitTelescopeScene;
+  }
   // the frozen remainder must divide into whole parts, and the drawer must stay drawable
   if (type === "mixture-topup" && Array.isArray(data.kinds) && data.kinds.length >= 2) {
     const parsed = data.kinds.map((k) => String(k).split("|"));
@@ -1090,6 +1126,15 @@ export function resolveScene(problem: Problem): AnimatedScene {
     if (ca > 0 && cb > 0 && un > 0 && un <= tot && tot <= 200 && overlap > 0 && overlap <= Math.min(ca, cb)) {
       return TwoSetOverlapScene;
     }
+  }
+  // a real first leg, and a second speed above the target with the first below
+  // it — otherwise there is no gap for the pace car to open, or none to close
+  if (type === "pace-car-chase") {
+    const d = num(data.distance ?? 0);
+    const v1 = num(data.speed ?? 0);
+    const v2 = num(data.nextSpeed ?? 0);
+    const tg = num(data.target ?? 0);
+    if (d > 0 && v1 > 0 && v1 < tg && v2 > tg) return PaceCarChaseScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

@@ -152,6 +152,10 @@ export type AnimationTemplateType =
   | "spaced-ratio"
   | "unit-chain"
   | "telescope-product"
+  | "split-telescope"
+  | "parity-grid"
+  | "tournament-budget"
+  | "nested-square"
   | "seat-deduce"
   | "increasing-digits"
   | "swap-value"
@@ -187,6 +191,7 @@ export type AnimationTemplateType =
   | "palindrome-sum"
   | "modular-cycle"
   | "conditional-swap"
+  | "pace-car-chase"
   | "cube-net"
   | "solid-3d"
   | "generic";

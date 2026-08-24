@@ -43236,19 +43236,24 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "110 miles",
     "solutionSteps": [
       {
-        "title": "Time for first leg",
-        "body": "15 miles at 30 mph takes 15/30 = 0.5 hours.",
-        "equation": "15/30 = 0.5 hours"
+        "title": "Half an hour is already gone",
+        "body": "The first leg is 15 miles at 30 mph, so it uses 15 ÷ 30 = 0.5 hours. That is slower than the 50 mph the whole trip has to average, so Qiang starts out behind.",
+        "equation": "15 ÷ 30 = 0.5 hours"
       },
       {
-        "title": "Set up the equation",
-        "body": "Let d be the additional miles. Total distance = 15 + d, total time = 0.5 + d/55. Average speed = (15 + d)/(0.5 + d/55) = 50.",
-        "equation": "(15 + d)/(0.5 + d/55) = 50"
+        "title": "Race a 50 mph pace car",
+        "body": "Averaging 50 mph for the entire trip means finishing level with a car that just drives a steady 50 mph the whole way. In that same half hour the pace car covers 50 × 0.5 = 25 miles, so Qiang is 25 − 15 = 10 miles behind it.",
+        "equation": "50 × 0.5 − 15 = 10 miles behind"
       },
       {
-        "title": "Solve",
-        "body": "15 + d = 50(0.5 + d/55) = 25 + 50d/55 = 25 + 10d/11. So 11(15 + d) = 11·25 + 10d → 165 + 11d = 275 + 10d → d = 110.",
-        "equation": "d = 110"
+        "title": "Close the gap at 5 mph",
+        "body": "From here Qiang drives 55 mph while the pace car keeps to 50, so he takes back 55 − 50 = 5 miles every hour. Erasing a 10-mile gap therefore takes 10 ÷ 5 = 2 hours.",
+        "equation": "10 ÷ 5 = 2 hours"
+      },
+      {
+        "title": "Two hours at 55 mph",
+        "body": "Those 2 hours cover 55 × 2 = 110 additional miles. Check: 15 + 110 = 125 miles in 0.5 + 2 = 2.5 hours, and 125 ÷ 2.5 = 50 mph exactly.",
+        "equation": "55 × 2 = 110 miles"
       }
     ],
     "animationFrames": [
@@ -43258,21 +43263,31 @@ const amc2019Problems: Problem[] = [
         "visualHint": "15 mi ÷ 30 mph = 0.5 hr."
       },
       {
-        "title": "Set up equation",
-        "narration": "Total distance over total time must equal 50 mph.",
-        "visualHint": "(15 + d)/(0.5 + d/55) = 50."
+        "title": "The pace car",
+        "narration": "A car holding a steady 50 mph covers 25 miles in that same half hour.",
+        "visualHint": "Qiang sits 10 miles behind the pace car."
       },
       {
-        "title": "Solve for d",
-        "narration": "Solving gives d = 110 additional miles.",
-        "visualHint": "d = 110; choice D is circled."
+        "title": "Closing the gap",
+        "narration": "At 55 against 50 he gains 5 miles every hour, so 10 miles takes 2 hours.",
+        "visualHint": "The gap between the two cars shrinks to zero."
+      },
+      {
+        "title": "The extra distance",
+        "narration": "Two hours at 55 mph is 110 more miles, and 125 miles in 2.5 hours is exactly 50 mph.",
+        "visualHint": "110 additional miles; choice D is circled."
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "pace-car-chase",
       "data": {
-        "equation": "(15 + d)/(0.5 + d/55) = 50",
-        "answer": 110
+        "distance": 15,
+        "speed": 30,
+        "nextSpeed": 55,
+        "target": 50,
+        "driver": "Qiang",
+        "unit": "miles",
+        "speedUnit": "mph"
       }
     },
     "tags": [
@@ -43307,13 +43322,21 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "50/99",
     "solutionSteps": [
       {
-        "title": "Rewrite each factor",
-        "body": "Each factor is (n(n+2))/((n+1)²) for n = 1, 2, …, 98. Rewrite as (n/(n+1)) · ((n+2)/(n+1))."
+        "title": "Look at one factor",
+        "body": "Every factor has the same shape: n(n+2) on top and (n+1)² underneath, for n = 1, 2, …, 98. Nothing cancels inside a single factor, so the 98 factors have to be handled together."
       },
       {
-        "title": "Telescope",
-        "body": "The product of n/(n+1) for n = 1 to 98 is 1/2 · 2/3 · … · 98/99 = 1/99. The product of (n+2)/(n+1) for n = 1 to 98 is 3/2 · 4/3 · … · 100/99 = 100/2 = 50.",
-        "equation": "(1/99) × 50 = 50/99"
+        "title": "Split each factor in two",
+        "body": "The numerator is already two numbers and so is the denominator, so each factor splits: n(n+2)/(n+1)² = (n/(n+1)) · ((n+2)/(n+1)). Collecting the left halves and the right halves turns the one product into two chains, 1/2 · 2/3 · … · 98/99 and 3/2 · 4/3 · … · 100/99."
+      },
+      {
+        "title": "Cancel each chain",
+        "body": "The two chains cancel in opposite directions. In the first, each numerator cancels the denominator of the factor before it, so everything from 2 to 98 disappears and 1/99 is left. In the second, each numerator cancels the denominator of the factor after it, so everything from 3 to 99 disappears and 100/2 is left. Only four numbers survive: 1 and 99 from the first chain, 100 and 2 from the second."
+      },
+      {
+        "title": "Multiply what is left",
+        "body": "Multiplying the survivors gives (1 × 100)/(99 × 2) = 100/198, which reduces to 50/99. Each wrong choice is a place the cancelling could have stopped: 1/2 keeps only the left survivors, 100/99 only the right ones, 50 only the second chain, and 9800/9801 is just the final factor.",
+        "equation": "(1/99) × (100/2) = 100/198 = 50/99"
       }
     ],
     "animationFrames": [
@@ -43334,9 +43357,10 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "split-telescope",
       "data": {
-        "answer": "50/99"
+        "from": 1,
+        "to": 98
       }
     },
     "tags": [
@@ -43375,17 +43399,20 @@ const amc2019Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Count odds and evens on each die",
-        "body": "Each die has faces {1, 2, 3, 5, 7, 8}. Odd faces: 1, 3, 5, 7 (4 faces). Even faces: 2, 8 (2 faces)."
+        "body": "These are not ordinary dice. Each one has faces {1, 2, 3, 5, 7, 8}, so the odd faces are 1, 3, 5, 7 (four of them) and the even faces are 2 and 8 (only two). An ordinary die would split three and three, which is exactly what the problem is playing on."
       },
       {
-        "title": "Even sum requires same parity",
-        "body": "P(both odd) = (4/6)(4/6) = 16/36. P(both even) = (2/6)(2/6) = 4/36.",
-        "equation": "16/36 + 4/36 = 20/36"
+        "title": "An even sum needs matching parity",
+        "body": "Odd + odd is even and even + even is even, but odd + even is odd. So the actual face values never matter — a roll wins exactly when the two faces have the same parity."
       },
       {
-        "title": "Simplify",
-        "body": "20/36 = 5/9.",
-        "equation": "20/36 = 5/9"
+        "title": "Sort the table into blocks",
+        "body": "Write all 6 × 6 = 36 rolls in a table. In the printed face order the winning rolls look scattered, but sorting the faces so the odds come first gathers them into two solid rectangles: a 4 × 4 block of odd-odd rolls and a 2 × 2 block of even-even rolls. That is 16 + 4 = 20 winning rolls."
+      },
+      {
+        "title": "Turn the count into a probability",
+        "body": "20 of the 36 equally likely rolls give an even sum, and 20/36 reduces to 5/9. Three of the wrong choices are named slips: 4/9 counts the odd-odd block but forgets even-even, 1/2 is what an ordinary three-odd-three-even die would give, and 2/3 is just the chance that one die alone shows an odd face.",
+        "equation": "16/36 + 4/36 = 20/36 = 5/9"
       }
     ],
     "animationFrames": [
@@ -43406,11 +43433,10 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "parity-grid",
       "data": {
-        "bothOdd": "16/36",
-        "bothEven": "4/36",
-        "answer": "5/9"
+        "faces": [1, 2, 3, 5, 7, 8],
+        "want": "even"
       }
     },
     "tags": [
@@ -43446,11 +43472,19 @@ const amc2019Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Count the games",
-        "body": "6 teams each play each other twice: C(6,2) × 2 = 30 games total."
+        "body": "Six teams each play every other team twice, so there are C(6,2) × 2 = 30 games. Laying them out as a table with one cell per game — the row team at home — makes all 30 countable at once."
       },
       {
-        "title": "Maximize top-3 points",
-        "body": "Each top-3 team beats each bottom-3 team in both games (3 opponents × 2 games × 3 pts = 18 pts from those). Among themselves, each pair plays twice, contributing 6 points per game to the pair (or some mix). To tie, they can each win once and lose once against each of the other two top teams: 2 wins × 3 pts = 6 pts from inter-top games.",
+        "title": "Split the table into blocks",
+        "body": "Put the top three first and the table falls into three kinds of game: the 6 games the top three play each other, the 18 games between a top team and a bottom team, and the 6 games the bottom three play among themselves. That last block matters because none of its points can ever reach a top team."
+      },
+      {
+        "title": "Work out the points budget",
+        "body": "Each game hands out 3 points, so 30 games put 90 points on the table. The top three can win all 18 of their games against the bottom three, worth 54 points, and the 6 games they play each other are worth 18 more that land on a top team whichever way they go. That is 54 + 18 = 72 points for the three of them at the very most, so no more than 72 ÷ 3 = 24 each. Choice 26 would need 78 points and choice 30 would need 90, and neither exists."
+      },
+      {
+        "title": "Reach the ceiling",
+        "body": "A bound is not an answer until some tournament meets it. Let every top team beat every bottom team, and among the top three let the home team win each game. Then each top team wins 6 games against the bottom three and splits its games with the other two leaders, one win and one loss apiece, for 8 wins in all: 8 × 3 = 24, and all three are level. The bottom three end on 6 points each, so the top three really are the top three.",
         "equation": "18 + 6 = 24"
       }
     ],
@@ -43472,11 +43506,12 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "tournament-budget",
       "data": {
-        "topVsBottom": 18,
-        "topVsTop": 6,
-        "answer": 24
+        "teams": 6,
+        "top": 3,
+        "meetings": 2,
+        "win": 3
       }
     },
     "tags": [
@@ -43511,18 +43546,22 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "4",
     "solutionSteps": [
       {
-        "title": "Take square roots",
-        "body": "(x² − 5)² = 16 means x² − 5 = ±4.",
+        "title": "Undo the outer square",
+        "body": "Something squared equals 16, so that something is +4 or −4 — a square root always brings both signs. One equation has become two: x² − 5 = 4 and x² − 5 = −4. Dropping the minus branch here is what leaves you with half the answers.",
         "equation": "x² − 5 = 4 or x² − 5 = −4"
       },
       {
-        "title": "Solve each case",
-        "body": "If x² − 5 = 4, then x² = 9, so x = ±3 (2 solutions). If x² − 5 = −4, then x² = 1, so x = ±1 (2 solutions).",
+        "title": "Undo the inner square",
+        "body": "The two branches give x² = 9 and x² = 1. Both are positive, so each one splits again into two real values of x — a negative value here would have produced none. That leaves x = 3, −3, 1, −1.",
         "equation": "x = ±3 or x = ±1"
       },
       {
-        "title": "Count",
-        "body": "There are 4 different real solutions: −3, −1, 1, 3."
+        "title": "See the roots on the curve",
+        "body": "Plotting y = (x² − 5)² gives a W-shaped curve, and the equation asks where it meets the horizontal line y = 16. The line crosses it at exactly four places, x = −3, −1, 1 and 3, which are the four values already found. Substituting back confirms them: (9 − 5)² = 16 and (1 − 5)² = 16."
+      },
+      {
+        "title": "Why four and not two",
+        "body": "The middle hump of the curve peaks at x = 0, where y = (0 − 5)² = 25. A horizontal line above 25 clears that hump and cuts the curve only twice; a line below it cuts all four times. Since 16 is below 25, there are 4 real solutions. That also explains the tempting answer of 2 — it is the count for a line above the hump, and the count you get by taking only the + square root."
       }
     ],
     "animationFrames": [
@@ -43543,10 +43582,10 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "nested-square",
       "data": {
-        "solutions": [-3, -1, 1, 3],
-        "answer": 4
+        "inner": 5,
+        "rhs": 16
       }
     },
     "tags": [
