@@ -192,6 +192,11 @@ export type AnimationTemplateType =
   | "modular-cycle"
   | "conditional-swap"
   | "pace-car-chase"
+  | "line-triangle"
+  | "percent-square-bite"
+  | "score-share-search"
+  | "mass-point-balance"
+  | "stars-and-bars"
   | "cube-net"
   | "solid-3d"
   | "generic";

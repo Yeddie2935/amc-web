@@ -43620,12 +43620,20 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "16",
     "solutionSteps": [
       {
-        "title": "Find the vertices",
-        "body": "y = 5 and y = 1 + x: x = 4, so (4, 5). y = 5 and y = 1 − x: x = −4, so (−4, 5). y = 1 + x and y = 1 − x: x = 0, y = 1, so (0, 1)."
+        "title": "Sketch the three lines",
+        "body": "y = 5 is horizontal. y = 1 + x rises to the right and y = 1 − x falls to the right, and both cross the y-axis at (0, 1). No two of the three are parallel, so each pair meets once and the three crossings are the corners of the triangle."
       },
       {
-        "title": "Compute the area",
-        "body": "The base along y = 5 has length 4 − (−4) = 8. The height from (0,1) to y = 5 is 4.",
+        "title": "Solve each pair for a vertex",
+        "body": "y = 5 with y = 1 + x: 5 = 1 + x, so x = 4, giving (4, 5). y = 5 with y = 1 − x: 5 = 1 − x, so x = −4, giving (−4, 5). y = 1 + x with y = 1 − x: 1 + x = 1 − x, so x = 0 and y = 1, giving (0, 1)."
+      },
+      {
+        "title": "Measure the base and the height",
+        "body": "Two vertices share the height y = 5, so that side is the base: it runs from x = −4 to x = 4, a length of 4 − (−4) = 8 — the whole width, not just the 4 on one side of the y-axis. The apex (0, 1) lies 5 − 1 = 4 below that line, so the height is 4."
+      },
+      {
+        "title": "Halve the surrounding box",
+        "body": "Draw the 8 by 4 rectangle with the same base and height. The two corners the triangle leaves over are congruent to its own two halves, so the triangle is exactly half the rectangle: 32 ÷ 2 = 16.",
         "equation": "(1/2)(8)(4) = 16"
       }
     ],
@@ -43647,11 +43655,9 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "line-triangle",
       "data": {
-        "base": 8,
-        "height": 4,
-        "area": 16
+        "lines": ["0|5|y = 5", "1|1|y = 1 + x", "-1|1|y = 1 − x"]
       }
     },
     "tags": [
@@ -43686,14 +43692,23 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "40%",
     "solutionSteps": [
       {
-        "title": "Set up the equation",
-        "body": "Let x be the fractional change. Increasing then decreasing by x gives (1 + x)(1 − x) = 1 − x² = 0.84.",
+        "title": "Raise the price by x",
+        "body": "Let x be the fractional change, and draw the original price as a 1 by 1 square. Raising it by x stretches the square to 1 + x wide, so the strip added has area x."
+      },
+      {
+        "title": "Take the same percent back off",
+        "body": "The cut is x of the new price, so the strip that comes off spans the whole 1 + x width — wider than the one that went on. What is left is (1 + x)(1 − x), and the problem says that is 0.84 of the original.",
+        "equation": "(1 + x)(1 − x) = 0.84"
+      },
+      {
+        "title": "Rearrange into a square with a bite out",
+        "body": "Slide the leftover right-hand column up into the gap on top. The pieces now fill the original 1 by 1 square except for an x by x corner, so (1 + x)(1 − x) = 1 − x².",
         "equation": "1 − x² = 0.84"
       },
       {
-        "title": "Solve",
-        "body": "x² = 0.16, so x = 0.4 = 40%.",
-        "equation": "x = 0.4 = 40%"
+        "title": "Solve for x",
+        "body": "x² = 0.16, but that is the area of the missing corner — 16% of the price, not the percent asked for. Its side is x = √0.16 = 0.4.",
+        "equation": "x = √0.16 = 0.4 = 40%"
       }
     ],
     "animationFrames": [
@@ -43714,10 +43729,9 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "percent-square-bite",
       "data": {
-        "equation": "(1+x)(1−x) = 0.84",
-        "answer": "40%"
+        "finalPercent": 84
       }
     },
     "tags": [
@@ -43752,17 +43766,22 @@ const amc2019Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Set up the equation",
-        "body": "Let t be the total. Alexa scored t/4, Brittany t/7, Chelsea 15. The remaining 7 players scored at most 2 each, so at most 14. So t/4 + 2t/7 + 15 + x = t where 0 ≤ x ≤ 14.",
+        "body": "Let t be the total. Alexa scored t/4, Brittany 2t/7, Chelsea 15, and the other 7 players scored x total, with 0 ≤ x ≤ 14 since none scored more than 2.",
         "equation": "t/4 + 2t/7 + 15 + x = t"
       },
       {
-        "title": "Simplify",
-        "body": "t/4 + 2t/7 = 7t/28 + 8t/28 = 15t/28. So x + 15 = t − 15t/28 = 13t/28. Since t must be divisible by 28, try t = 56: x + 15 = 13(56)/28 = 26, so x = 11.",
-        "equation": "x = 26 − 15 = 11"
+        "title": "Combine the known fractions",
+        "body": "t/4 + 2t/7 = 7t/28 + 8t/28 = 15t/28, which is only a whole number of points when t is a multiple of 28.",
+        "equation": "15t/28 + 15 + x = t"
+      },
+      {
+        "title": "Test multiples of 28",
+        "body": "x = 13t/28 − 15 must land between 0 and 14. t = 28 gives x = −2 (too low). t = 56 gives x = 11 (fits). t = 84 gives x = 24 (too high). So t = 56 is the only total that works.",
+        "equation": "x = 13(56)/28 − 15 = 11"
       },
       {
         "title": "Verify",
-        "body": "x = 11 ≤ 14 (7 players each scoring ≤ 2). Total check: 14 + 16 + 15 + 11 = 56. ✓"
+        "body": "Alexa 14 + Brittany 16 + Chelsea 15 + others 11 = 56, and 11 ≤ 14 (7 players scoring at most 2 each). ✓"
       }
     ],
     "animationFrames": [
@@ -43783,10 +43802,15 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "score-share-search",
       "data": {
-        "total": 56,
-        "answer": 11
+        "alexaNum": 1,
+        "alexaDen": 4,
+        "brittanyNum": 2,
+        "brittanyDen": 7,
+        "chelsea": 15,
+        "otherPlayers": 7,
+        "maxPerPlayer": 2
       }
     },
     "tags": [
@@ -43820,19 +43844,24 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "30",
     "solutionSteps": [
       {
-        "title": "Find area of △ABD",
-        "body": "Since AD : DC = 1 : 2, triangle ABD has 1/3 of the area of ABC.",
+        "title": "Balance A and C to place D",
+        "body": "AD : DC = 1 : 2 means D sits where a mass of 2 at A balances a mass of 1 at C (heavier end, shorter arm). Since [ABD] : [ABC] = AD : AC, triangle ABD is 1/3 of the whole.",
         "equation": "[ABD] = 360/3 = 120"
       },
       {
-        "title": "Find area of △ABE",
-        "body": "E is the midpoint of BD, so [ABE] = [ABD]/2 = 60.",
-        "equation": "[ABE] = 120/2 = 60"
+        "title": "The median from A splits ABD evenly",
+        "body": "E is the midpoint of BD, so cevian AE is a median of triangle ABD — it always cuts a triangle into two equal areas, regardless of shape.",
+        "equation": "[ABE] = [ADE] = 120/2 = 60"
       },
       {
-        "title": "Use area ratios to find [EBF]",
-        "body": "Using the ratio [EBF]/([EBF] + 60) = hE/hA = 1/3 (from the height ratios derived from the cevian configuration), we get [EBF] = 30.",
-        "equation": "[EBF] = 30"
+        "title": "Balance B and C to place F",
+        "body": "E being BD's midpoint forces mass 3 at B (equal to D's mass 3). With masses 3 at B and 1 at C, F — where line AE meets BC — sits where those two balance: BF : FC = 1 : 3, so [ABF] is 1/4 of the whole.",
+        "equation": "[ABF] = 360/4 = 90"
+      },
+      {
+        "title": "Read [EBF] off the line A–E–F",
+        "body": "Triangles ABE and EBF share vertex B, and A, E, F are collinear, so their areas are in the ratio of their bases along that line: [EBF] = [ABF] − [ABE].",
+        "equation": "[EBF] = 90 − 60 = 30"
       }
     ],
     "animationFrames": [
@@ -43853,10 +43882,11 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "mass-point-balance",
       "data": {
-        "totalArea": 360,
-        "answer": 30
+        "adNum": 1,
+        "dcNum": 2,
+        "totalArea": 360
       }
     },
     "tags": [
@@ -43896,13 +43926,23 @@ const amc2019Problems: Problem[] = [
     "shortAnswer": "190",
     "solutionSteps": [
       {
-        "title": "Reduce to unrestricted problem",
-        "body": "Give each person 2 apples first. Now distribute the remaining 24 − 6 = 18 apples among 3 people with no restrictions.",
+        "title": "Guarantee the minimum",
+        "body": "Give each of the 3 people 2 apples first. That uses 6 apples, leaving 24 − 6 = 18 to distribute with no restrictions at all.",
         "equation": "24 − 2 × 3 = 18"
       },
       {
-        "title": "Stars and bars",
-        "body": "The number of ways to distribute 18 identical apples among 3 people is C(18 + 2, 2) = C(20, 2).",
+        "title": "Model the leftovers as stars and bars",
+        "body": "Line up the 18 remaining apples as stars. Splitting them among 3 people takes 2 dividers, so one arrangement of 18 stars and 2 bars in a row is exactly one way to share.",
+        "equation": "18 stars + 2 bars"
+      },
+      {
+        "title": "Different bar positions are different splits",
+        "body": "Sliding the 2 bars to different slots in the row of 20 symbols changes how many stars fall in each section — that is, changes each person's extra apples.",
+        "equation": "20 slots total"
+      },
+      {
+        "title": "Count the arrangements",
+        "body": "The number of ways is just the number of ways to choose which 2 of the 20 slots hold bars.",
         "equation": "C(20, 2) = 190"
       }
     ],
@@ -43924,11 +43964,11 @@ const amc2019Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "stars-and-bars",
       "data": {
-        "n": 18,
-        "k": 3,
-        "answer": 190
+        "totalApples": 24,
+        "people": 3,
+        "minEach": 2
       }
     },
     "tags": [

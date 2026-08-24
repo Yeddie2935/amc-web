@@ -1,6 +1,11 @@
 import type { Problem } from "../../types/amc";
 import type { AnimatedScene } from "./scenes/types";
 import { ClockAngleScene } from "./scenes/ClockAngleScene";
+import { LineTriangleScene, parseLines } from "./scenes/LineTriangleScene";
+import { PercentSquareBiteScene } from "./scenes/PercentSquareBiteScene";
+import { ScoreShareSearchScene } from "./scenes/ScoreShareSearchScene";
+import { MassPointBalanceScene } from "./scenes/MassPointBalanceScene";
+import { StarsAndBarsScene } from "./scenes/StarsAndBarsScene";
 import { DigitSlotsScene } from "./scenes/DigitSlotsScene";
 import { Solid3DScene } from "./scenes/Solid3DScene";
 import { EquationScene } from "./scenes/EquationScene";
@@ -1135,6 +1140,81 @@ export function resolveScene(problem: Problem): AnimatedScene {
     const v2 = num(data.nextSpeed ?? 0);
     const tg = num(data.target ?? 0);
     if (d > 0 && v1 > 0 && v1 < tg && v2 > tg) return PaceCarChaseScene;
+  }
+  // three lines with distinct slopes really do cut out a triangle, and one pair
+  // of them must meet the third at the same height so there is a base to measure
+  if (type === "line-triangle") {
+    const ls = parseLines(data.lines);
+    if (ls.length === 3 && ls.every((l) => Number.isFinite(l.m) && Number.isFinite(l.b))) {
+      const meet = (i: number, j: number) => {
+        const x = (ls[j].b - ls[i].b) / (ls[i].m - ls[j].m);
+        return { x, y: ls[i].m * x + ls[i].b };
+      };
+      const slopesDiffer = ls[0].m !== ls[1].m && ls[0].m !== ls[2].m && ls[1].m !== ls[2].m;
+      const vs = [meet(0, 1), meet(0, 2), meet(1, 2)];
+      const pairs: [number, number][] = [
+        [0, 1],
+        [0, 2],
+        [1, 2],
+      ];
+      const flat = pairs.findIndex(([i, j]) => Math.abs(vs[i].y - vs[j].y) < 1e-9);
+      // the apex has to sit over the base, or its foot falls outside the segment
+      // and the box-halving picture would be a lie
+      const spans =
+        flat >= 0 &&
+        (() => {
+          const [i, j] = pairs[flat];
+          const apex = vs[3 - i - j];
+          return apex.x > Math.min(vs[i].x, vs[j].x) && apex.x < Math.max(vs[i].x, vs[j].x);
+        })();
+      if (slopesDiffer && vs.every((v) => Number.isFinite(v.x) && Number.isFinite(v.y)) && spans) {
+        return LineTriangleScene;
+      }
+    }
+  }
+  // the final price has to be a real fraction of the original and short of it,
+  // or there is no bite for the square to lose
+  if (type === "percent-square-bite") {
+    const f = num(data.finalPercent ?? 0);
+    if (f > 0 && f < 100) return PercentSquareBiteScene;
+  }
+  // needs two real fractions and a search window with room for a leftover — or
+  // there is nothing to divide evenly and nothing to test
+  if (type === "score-share-search") {
+    const aDen = num(data.alexaDen ?? 0);
+    const bDen = num(data.brittanyDen ?? 0);
+    const chelsea = num(data.chelsea ?? -1);
+    const others = num(data.otherPlayers ?? 0);
+    const maxEach = num(data.maxPerPlayer ?? -1);
+    if (aDen > 0 && bDen > 0 && chelsea >= 0 && others > 0 && maxEach >= 0) {
+      const g = (a: number, b: number): number => (b === 0 ? a : g(b, a % b));
+      const L = (aDen * bDen) / g(aDen, bDen);
+      const alexaTicks = num(data.alexaNum ?? 0) * (L / aDen);
+      const britTicks = num(data.brittanyNum ?? 0) * (L / bDen);
+      const remPerK = L - alexaTicks - britTicks;
+      const othersMax = others * maxEach;
+      let found = false;
+      for (let k = 1; k <= 60 && !found; k++) {
+        const x = remPerK * k - chelsea;
+        if (x >= 0 && x <= othersMax) found = true;
+      }
+      if (remPerK > 0 && found) return ScoreShareSearchScene;
+    }
+  }
+  // real, positive ratio parts and a real total area, or there is no triangle
+  // and no area to split
+  if (type === "mass-point-balance") {
+    const adNum = num(data.adNum ?? 0);
+    const dcNum = num(data.dcNum ?? 0);
+    const totalArea = num(data.totalArea ?? 0);
+    if (adNum > 0 && dcNum > 0 && totalArea > 0) return MassPointBalanceScene;
+  }
+  // needs enough apples left over after the minimums to actually be split
+  if (type === "stars-and-bars") {
+    const total = num(data.totalApples ?? 0);
+    const people = num(data.people ?? 0);
+    const minEach = num(data.minEach ?? 0);
+    if (people >= 2 && minEach >= 0 && total - people * minEach >= 0) return StarsAndBarsScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
