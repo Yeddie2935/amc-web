@@ -214,6 +214,11 @@ import { RepeatedBlockFactorScene } from "./scenes/RepeatedBlockFactorScene";
 import { TruthCountHouseScene } from "./scenes/TruthCountHouseScene";
 import { FractionMarblePackingScene } from "./scenes/FractionMarblePackingScene";
 import { MaxCardSelectionScene } from "./scenes/MaxCardSelectionScene";
+import { DiagonalTileCountScene } from "./scenes/DiagonalTileCountScene";
+import { RemainderOneIntervalScene } from "./scenes/RemainderOneIntervalScene";
+import { GameResultBalanceScene } from "./scenes/GameResultBalanceScene";
+import { EqualHalfScoreScene } from "./scenes/EqualHalfScoreScene";
+import { LetterBranchPathScene } from "./scenes/LetterBranchPathScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -1570,6 +1575,52 @@ export function resolveScene(problem: Problem): AnimatedScene {
     };
     if (cards.length >= 3 && cards.length <= 7 && new Set(cards).size === cards.length && cards.every((v, i) => v > 0 && (i === 0 || cards[i - 1] < v)) && draw >= 2 && draw < cards.length && cards.includes(target) && choose(cards.length, draw) <= 20) {
       return MaxCardSelectionScene;
+    }
+  }
+  // an odd side creates exactly one shared center tile; cap the side so every
+  // floor tile can still be drawn and inspected individually
+  if (type === "diagonal-tile-count") {
+    const side = Math.round(num(data.sideTiles ?? 0));
+    const union = Math.round(num(data.diagonalUnion ?? 0));
+    if (side >= 3 && side <= 25 && side % 2 === 1 && union === 2 * side - 1) {
+      return DiagonalTileCountScene;
+    }
+  }
+  // exactly three modest divisors keep each remainder lane drawable; a common
+  // positive remainder must be smaller than every divisor
+  if (type === "remainder-one-interval" && Array.isArray(data.divisors)) {
+    const ds = data.divisors.map((value) => Math.round(num(value)));
+    const rem = Math.round(num(data.remainder ?? -1));
+    if (ds.length === 3 && new Set(ds).size === 3 && ds.every((d) => d >= 2 && d <= 12 && rem >= 0 && rem < d)) {
+      return RemainderOneIntervalScene;
+    }
+  }
+  // exactly three named players, one unknown win count, and small nonnegative
+  // records keep the complete token ledger both truthful and drawable
+  if (type === "game-result-balance" && Array.isArray(data.players)) {
+    const rows = data.players.map((raw) => String(raw).split("|"));
+    const valid = rows.length === 3 && rows.every((row) => row.length === 3 && row[0].length > 0 && num(row[2]) >= 0 && num(row[2]) <= 8);
+    const unknown = rows.filter((row) => Math.round(num(row[1], -1)) < 0).length;
+    if (valid && unknown === 1 && rows.every((row) => num(row[1], -1) <= 8)) return GameResultBalanceScene;
+  }
+  // scores must stay within percentage bounds, and Chloe's equal-half mirror
+  // must produce a valid shared score for Zoe's final equal-weight average
+  if (type === "equal-half-score") {
+    const ca = num(data.chloeAlone ?? -1);
+    const co = num(data.chloeOverall ?? -1);
+    const za = num(data.zoeAlone ?? -1);
+    const shared = 2 * co - ca;
+    const out = (za + shared) / 2;
+    if ([ca, co, za, shared, out].every((v) => v >= 0 && v <= 100) && ca < co && co < shared && Number.isInteger(out)) return EqualHalfScoreScene;
+  }
+  // a short target and a small, uniquely positioned sparse lattice allow every
+  // orthogonal branch to be enumerated and every source node to be drawn
+  if (type === "letter-branch-path" && typeof data.target === "string" && Array.isArray(data.nodes)) {
+    const target = data.target;
+    const parsed = data.nodes.map((raw) => String(raw).split(","));
+    const keys = parsed.map((row) => `${row[0]},${row[1]}`);
+    if (target.length >= 3 && target.length <= 6 && parsed.length >= target.length && parsed.length <= 30 && parsed.every((row) => row.length === 3 && num(row[0], -1) >= 0 && num(row[0], -1) <= 8 && num(row[1], -1) >= 0 && num(row[1], -1) <= 8 && row[2].length === 1 && target.includes(row[2])) && new Set(keys).size === keys.length) {
+      return LetterBranchPathScene;
     }
   }
   if (type === "counting") return DigitSlotsScene;

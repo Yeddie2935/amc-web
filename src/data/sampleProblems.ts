@@ -38511,11 +38511,10 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "diagonal-tile-count",
       "data": {
         "sideTiles": 19,
-        "total": 361,
-        "answer": "C"
+        "diagonalUnion": 37
       }
     },
     "tags": [
@@ -38566,12 +38565,16 @@ const amc2017Problems: Problem[] = [
     "shortAnswer": "60 and 79",
     "solutionSteps": [
       {
-        "title": "Use the LCM",
-        "body": "A number leaving remainder 1 for 4, 5, and 6 must be 1 more than a common multiple of 4, 5, and 6."
+        "title": "Remove the shared remainder",
+        "body": "If n leaves remainder 1 when divided by 4, 5, and 6, then n−1 is divisible by all three numbers."
       },
       {
-        "title": "Find the smallest",
-        "body": "LCM(4,5,6)=60, so the smallest greater than 1 is 60+1=61."
+        "title": "Find the common multiple",
+        "body": "The least common multiple is LCM(4,5,6)=60."
+      },
+      {
+        "title": "Add the remainder back",
+        "body": "The smallest solution greater than 1 is 60+1=61, and it leaves remainder 1 for each divisor."
       },
       {
         "title": "Locate the range",
@@ -38596,10 +38599,14 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "remainder-one-interval",
       "data": {
-        "value": 61,
-        "answer": "D"
+        "divisors": [
+          4,
+          5,
+          6
+        ],
+        "remainder": 1
       }
     },
     "tags": [
@@ -38653,8 +38660,12 @@ const amc2017Problems: Problem[] = [
         "body": "Every chess game creates one win and one loss, so total wins equal total losses."
       },
       {
-        "title": "Count known totals",
-        "body": "Known losses are 2+3+3=8. Known wins are 4+3=7."
+        "title": "Count known wins",
+        "body": "Peter and Emma have 4+3=7 known wins."
+      },
+      {
+        "title": "Count all losses",
+        "body": "The recorded losses total 2+3+3=8, one more than the known wins."
       },
       {
         "title": "Find Kyler's wins",
@@ -38679,11 +38690,13 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "game-result-balance",
       "data": {
-        "losses": 8,
-        "knownWins": 7,
-        "answer": "B"
+        "players": [
+          "Peter|4|2",
+          "Emma|3|3",
+          "Kyler|-1|3"
+        ]
       }
     },
     "tags": [
@@ -38733,12 +38746,16 @@ const amc2017Problems: Problem[] = [
     "shortAnswer": "93",
     "solutionSteps": [
       {
-        "title": "Find the shared-half score",
-        "body": "Chloe averaged 88 overall. Her alone half was 80, which is 8 points below 88, so the shared half must be 8 points above 88: 96."
+        "title": "Use equal halves",
+        "body": "Because half the problems were solved alone and half together, each overall percentage is the average of two equally weighted scores."
       },
       {
-        "title": "Average Zoe's halves",
-        "body": "Zoe scored 90 on her alone half and 96 on the shared half."
+        "title": "Find the shared-half score",
+        "body": "Chloe's 80 is 8 points below her overall 88, so the equally weighted shared half is 8 points above 88: 96."
+      },
+      {
+        "title": "Build Zoe's two halves",
+        "body": "Zoe scored 90 on her alone half and the same 96 on the shared half."
       },
       {
         "title": "Compute overall",
@@ -38763,12 +38780,11 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "equal-half-score",
       "data": {
         "chloeAlone": 80,
-        "shared": 96,
-        "zoeAlone": 90,
-        "answer": 93
+        "chloeOverall": 88,
+        "zoeAlone": 90
       }
     },
     "tags": [
@@ -38818,12 +38834,20 @@ const amc2017Problems: Problem[] = [
     "shortAnswer": "24",
     "solutionSteps": [
       {
+        "title": "Start at A",
+        "body": "There is one starting A in the center."
+      },
+      {
         "title": "Count M choices",
         "body": "The central A is adjacent to 4 M's."
       },
       {
-        "title": "Count next choices",
-        "body": "Each M is adjacent to 3 C's, and each C is adjacent to 2 8's."
+        "title": "Count C choices",
+        "body": "Each chosen M is adjacent to 3 C's, giving 4×3=12 partial paths."
+      },
+      {
+        "title": "Count 8 choices",
+        "body": "Each chosen C is adjacent to 2 8's, giving 12×2=24 complete paths."
       },
       {
         "title": "Multiply choices",
@@ -38853,15 +38877,32 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "letter-branch-path",
       "data": {
-        "choices": [
-          4,
-          3,
-          2
+        "target": "AMC8",
+        "nodes": [
+          "0,1,8",
+          "0,2,C",
+          "0,3,8",
+          "1,0,8",
+          "1,1,C",
+          "1,2,M",
+          "1,3,C",
+          "1,4,8",
+          "2,0,C",
+          "2,1,M",
+          "2,2,A",
+          "2,3,M",
+          "2,4,C",
+          "3,0,8",
+          "3,1,C",
+          "3,2,M",
+          "3,3,C",
+          "3,4,8",
+          "4,1,8",
+          "4,2,C",
+          "4,3,8"
         ],
-        "paths": 24,
-        "answer": "D"
       }
     },
     "tags": [

@@ -234,6 +234,11 @@ export type AnimationTemplateType =
   | "truth-count-house"
   | "fraction-marble-packing"
   | "max-card-selection"
+  | "diagonal-tile-count"
+  | "remainder-one-interval"
+  | "game-result-balance"
+  | "equal-half-score"
+  | "letter-branch-path"
   | "generic";
 
 export interface AnswerChoice {
