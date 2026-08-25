@@ -40765,11 +40765,10 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "seating-adjacency",
       "data": {
-        "totalPairs": 15,
-        "adjacentPairs": 7,
-        "answer": "7/15"
+        "rows": 2,
+        "cols": 3
       }
     },
     "tags": [
@@ -40855,12 +40854,11 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "race-clock",
       "data": {
         "carMinutes": 35,
         "realMinutes": 30,
-        "carElapsedHours": 7,
-        "realElapsedHours": 6
+        "carElapsedHours": 7
       }
     },
     "tags": [
@@ -40941,15 +40939,11 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "repeated-score-range",
       "data": {
-        "possibleY": [
-          86,
-          90,
-          94,
-          98
-        ],
-        "answer": 4
+        "tests": 5,
+        "average": 82,
+        "maxScore": 100
       }
     },
     "tags": [
@@ -41031,10 +41025,10 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "greedy-digit-product",
       "data": {
-        "N": 85311,
-        "digitSum": 18
+        "target": 120,
+        "slots": 5
       }
     },
     "tags": [
@@ -41114,10 +41108,9 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "crescent-circle",
       "data": {
-        "combinedSmallArea": 1,
-        "shadedArea": 1
+        "combinedSmallArea": 1
       }
     },
     "tags": [

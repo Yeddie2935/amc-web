@@ -209,6 +209,11 @@ export type AnimationTemplateType =
   | "frequency-mean-bars"
   | "border-tile-grid"
   | "harmonic-mean-flip"
+  | "seating-adjacency"
+  | "race-clock"
+  | "repeated-score-range"
+  | "greedy-digit-product"
+  | "crescent-circle"
   | "generic";
 
 export interface AnswerChoice {

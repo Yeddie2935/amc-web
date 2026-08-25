@@ -189,6 +189,11 @@ import { DigitLockChopScene } from "./scenes/DigitLockChopScene";
 import { FrequencyMeanBarsScene } from "./scenes/FrequencyMeanBarsScene";
 import { BorderTileGridScene } from "./scenes/BorderTileGridScene";
 import { HarmonicMeanFlipScene } from "./scenes/HarmonicMeanFlipScene";
+import { SeatingAdjacencyScene } from "./scenes/SeatingAdjacencyScene";
+import { RaceClockScene } from "./scenes/RaceClockScene";
+import { RepeatedScoreRangeScene } from "./scenes/RepeatedScoreRangeScene";
+import { GreedyDigitProductScene } from "./scenes/GreedyDigitProductScene";
+import { CrescentCircleScene } from "./scenes/CrescentCircleScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -1300,6 +1305,39 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if (type === "harmonic-mean-flip" && Array.isArray(data.values) && data.values.length >= 2) {
     const vs = data.values.map((v) => num(v));
     if (vs.every((v) => v > 0 && Number.isInteger(v))) return HarmonicMeanFlipScene;
+  }
+  // a real R×C grid of seats, small enough that every pair stays drawable
+  if (type === "seating-adjacency" && num(data.rows ?? 0) >= 1 && num(data.cols ?? 0) >= 2 && num(data.rows ?? 0) * num(data.cols ?? 0) <= 8) {
+    return SeatingAdjacencyScene;
+  }
+  // real calibration minutes plus a real elapsed hour count to convert
+  if (
+    type === "race-clock" &&
+    num(data.carMinutes ?? 0) > 0 &&
+    num(data.realMinutes ?? 0) > 0 &&
+    num(data.carMinutes ?? 0) !== num(data.realMinutes ?? 0) &&
+    num(data.carElapsedHours ?? 0) > 0
+  ) {
+    return RaceClockScene;
+  }
+  // at least three tests (so four-equal-plus-one is even possible) and a real
+  // average/max-score pair to derive the total and the divisibility step from
+  if (
+    type === "repeated-score-range" &&
+    num(data.tests ?? 0) >= 3 &&
+    num(data.maxScore ?? 0) > 0 &&
+    num(data.average ?? -1) >= 0 &&
+    num(data.average ?? 0) <= num(data.maxScore ?? 0)
+  ) {
+    return RepeatedScoreRangeScene;
+  }
+  // a real target product and a small enough digit count that the greedy
+  // search and the full enumeration both stay cheap and exact
+  if (type === "greedy-digit-product" && num(data.target ?? 0) > 1 && num(data.slots ?? 0) >= 2 && num(data.slots ?? 0) <= 6) {
+    return GreedyDigitProductScene;
+  }
+  if (type === "crescent-circle" && num(data.combinedSmallArea ?? 0) > 0) {
+    return CrescentCircleScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
