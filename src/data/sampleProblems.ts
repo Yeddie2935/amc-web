@@ -38957,20 +38957,24 @@ const amc2017Problems: Problem[] = [
     "shortAnswer": "12/5",
     "solutionSteps": [
       {
-        "title": "Use equal perimeters",
-        "body": "Perimeter ACD is 3 + CD + AD. Perimeter ABD is 4 + BD + AD."
+        "title": "Trace both perimeters",
+        "body": "Triangle ACD has perimeter 3 + CD + AD, while triangle ABD has perimeter 4 + BD + AD."
       },
       {
-        "title": "Solve along BC",
-        "body": "Since BD + CD = 5 and the perimeters are equal, CD = 3 and BD = 2."
+        "title": "Cancel the shared side",
+        "body": "Both perimeters contain AD, so equal perimeters require 3 + CD = 4 + BD. Thus CD − BD = 1."
       },
       {
-        "title": "Use area ratio",
-        "body": "Triangles ACD and ABD share the same altitude to BC, so their areas are proportional to CD and BD."
+        "title": "Locate point D",
+        "body": "Also CD + BD = BC = 5. Solving the sum and difference gives CD = 3 and BD = 2."
       },
       {
-        "title": "Compute area",
-        "body": "Area ABC = (1/2)(3)(4)=6, so Area ABD = (2/5)·6 = 12/5."
+        "title": "Compare the two areas",
+        "body": "Triangles ACD and ABD share the same altitude from A to line BC, so their areas are proportional to bases CD and BD."
+      },
+      {
+        "title": "Compute the requested area",
+        "body": "Area ABC = (1/2)(3)(4) = 6, so Area ABD = (BD/BC)·6 = (2/5)·6 = 12/5."
       }
     ],
     "animationFrames": [
@@ -38996,15 +39000,10 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "equal-perimeter-split",
       "data": {
-        "baseSplit": [
-          3,
-          2
-        ],
-        "areaABC": 6,
-        "areaABD": "12/5",
-        "answer": "D"
+        "legs": [3, 4],
+        "hypotenuse": 5
       }
     },
     "tags": [
@@ -39058,20 +39057,24 @@ const amc2017Problems: Problem[] = [
     "shortAnswer": "45",
     "solutionSteps": [
       {
-        "title": "Let c be the number of chests",
-        "body": "Putting 9 coins in each used chest means 9(c−2) coins."
+        "title": "Model the first attempt",
+        "body": "Each used chest receives 9 coins, while 2 chests stay empty."
       },
       {
-        "title": "Use the second setup",
-        "body": "Putting 6 in every chest with 3 left gives 6c+3 coins."
+        "title": "Model the second attempt",
+        "body": "Redistributing the same coins puts 6 in every chest and leaves 3 coins over."
       },
       {
-        "title": "Solve",
-        "body": "Set 9(c−2)=6c+3, so c=7."
+        "title": "Track the surplus coins",
+        "body": "Each originally used chest gives up 9−6=3 coins. The 2 empty chests need 12 coins, and 3 more remain, so the donors supply 15 coins."
       },
       {
-        "title": "Find coins",
-        "body": "There are 9(7−2)=45 coins."
+        "title": "Count the chests",
+        "body": "Since each donor supplies 3 coins, there are 15÷3=5 used chests. Including the 2 empty chests gives 7 chests total."
+      },
+      {
+        "title": "Count all the coins",
+        "body": "The first arrangement has 5×9=45 coins. Checking the second gives 7×6+3=45."
       }
     ],
     "animationFrames": [
@@ -39097,11 +39100,12 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "chest-redistribution",
       "data": {
-        "chests": 7,
-        "coins": 45,
-        "answer": "C"
+        "firstPerChest": 9,
+        "secondPerChest": 6,
+        "emptyChests": 2,
+        "leftoverCoins": 3
       }
     },
     "tags": [
@@ -39151,16 +39155,24 @@ const amc2017Problems: Problem[] = [
     "shortAnswer": "24",
     "solutionSteps": [
       {
-        "title": "Draw diagonal BD",
-        "body": "In right triangle BCD, the legs are 3 and 4, so BD = 5."
+        "title": "Complete the large triangle",
+        "body": "Draw diagonal BD. The concave quadrilateral is the large triangle ABD with triangular notch BCD removed."
       },
       {
-        "title": "Recognize the big right triangle",
-        "body": "Triangle ABD has sides 5, 12, and 13, so it is right."
+        "title": "Find diagonal BD",
+        "body": "Triangle BCD is right with legs 3 and 4, so BD = 5 by the 3-4-5 Pythagorean triple."
       },
       {
-        "title": "Subtract areas",
-        "body": "Area ABD = 30 and area BCD = 6. The non-convex quadrilateral has area 30 − 6 = 24."
+        "title": "Identify the large right triangle",
+        "body": "Triangle ABD has side lengths 5, 12, and 13. Since 5²+12²=13², it is right at B."
+      },
+      {
+        "title": "Compute both triangle areas",
+        "body": "Area ABD = (1/2)(5)(12) = 30, while area BCD = (1/2)(3)(4) = 6."
+      },
+      {
+        "title": "Remove the triangular notch",
+        "body": "Subtract the notch from the large triangle: 30−6=24."
       }
     ],
     "animationFrames": [
@@ -39181,11 +39193,12 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "concave-triangle-subtract",
       "data": {
-        "bigArea": 30,
-        "smallArea": 6,
-        "answer": 24
+        "AB": 12,
+        "BC": 4,
+        "CD": 3,
+        "AD": 13
       }
     },
     "tags": [
@@ -39248,11 +39261,15 @@ const amc2017Problems: Problem[] = [
       },
       {
         "title": "Count factors of 5 in 98!",
-        "body": "⌊98/5⌋ + ⌊98/25⌋ = 19 + 3 = 22."
+        "body": "The 19 multiples of 5 through 95 each contribute at least one factor of 5."
       },
       {
-        "title": "Add the extra factors",
-        "body": "10000 contributes four more factors of 5, so n = 22 + 4 = 26."
+        "title": "Count the extra factors from 25",
+        "body": "The multiples 25, 50, and 75 each contribute one additional factor of 5, so 98! contains 19+3=22 factors of 5."
+      },
+      {
+        "title": "Add the bracket's factors",
+        "body": "The factor 10000=10⁴ contributes four more factors of 5, so n=22+4=26."
       }
     ],
     "animationFrames": [
@@ -39278,11 +39295,10 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "factorial-five-ledger",
       "data": {
-        "v5_98_factorial": 22,
-        "extra": 4,
-        "answer": 26
+        "factorials": [98, 99, 100],
+        "prime": 5
       }
     },
     "tags": [
@@ -39340,12 +39356,20 @@ const amc2017Problems: Problem[] = [
         "body": "The number must be odd, so the units digit has 5 choices: 1,3,5,7,9."
       },
       {
-        "title": "Choose remaining digits",
-        "body": "The thousands digit has 8 choices, the hundreds has 8 choices, and the tens has 7 choices."
+        "title": "Choose the thousands digit",
+        "body": "The thousands digit has 8 choices: it cannot be zero or repeat the chosen units digit."
       },
       {
-        "title": "Form probability",
-        "body": "Favorable = 5·8·8·7 = 2240, so the probability is 2240/9000 = 56/225."
+        "title": "Choose the hundreds digit",
+        "body": "The hundreds digit can be zero, but it cannot repeat either used digit, leaving 10−2=8 choices."
+      },
+      {
+        "title": "Choose the tens digit",
+        "body": "Three digits are now used, so the tens digit has 10−3=7 choices. Thus there are 5·8·8·7=2240 favorable numbers."
+      },
+      {
+        "title": "Form and reduce the probability",
+        "body": "The probability is 2240/9000. Dividing numerator and denominator by 40 gives 56/225."
       }
     ],
     "animationFrames": [
@@ -39371,11 +39395,13 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "distinct-odd-digit-slots",
       "data": {
-        "favorable": 2240,
-        "total": 9000,
-        "answer": "B"
+        "lower": 1000,
+        "upper": 9999,
+        "digitCount": 10,
+        "length": 4,
+        "oddUnits": [1, 3, 5, 7, 9]
       }
     },
     "tags": [

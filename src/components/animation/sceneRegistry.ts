@@ -219,6 +219,11 @@ import { RemainderOneIntervalScene } from "./scenes/RemainderOneIntervalScene";
 import { GameResultBalanceScene } from "./scenes/GameResultBalanceScene";
 import { EqualHalfScoreScene } from "./scenes/EqualHalfScoreScene";
 import { LetterBranchPathScene } from "./scenes/LetterBranchPathScene";
+import { EqualPerimeterSplitScene } from "./scenes/EqualPerimeterSplitScene";
+import { ChestRedistributionScene } from "./scenes/ChestRedistributionScene";
+import { ConcaveTriangleSubtractScene } from "./scenes/ConcaveTriangleSubtractScene";
+import { FactorialFiveLedgerScene } from "./scenes/FactorialFiveLedgerScene";
+import { DistinctOddDigitSlotsScene } from "./scenes/DistinctOddDigitSlotsScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -1622,6 +1627,50 @@ export function resolveScene(problem: Problem): AnimatedScene {
     if (target.length >= 3 && target.length <= 6 && parsed.length >= target.length && parsed.length <= 30 && parsed.every((row) => row.length === 3 && num(row[0], -1) >= 0 && num(row[0], -1) <= 8 && num(row[1], -1) >= 0 && num(row[1], -1) <= 8 && row[2].length === 1 && target.includes(row[2])) && new Set(keys).size === keys.length) {
       return LetterBranchPathScene;
     }
+  }
+  // a positive 3-4-5-scale right triangle makes the equal-perimeter split
+  // unique and keeps the derived point strictly inside the hypotenuse
+  if (type === "equal-perimeter-split" && Array.isArray(data.legs) && data.legs.length === 2) {
+    const [a, b] = data.legs.map((value) => num(value));
+    const c = num(data.hypotenuse);
+    const cd = (c + b - a) / 2;
+    if (a > 0 && b > 0 && c > 0 && a <= 20 && b <= 20 && c <= 30 && Math.abs(a * a + b * b - c * c) < 1e-9 && cd > 0 && cd < c) return EqualPerimeterSplitScene;
+  }
+  // positive integer rates with a smaller second deal must yield a modest,
+  // integral number of donor and total chests so each chest can be drawn
+  if (type === "chest-redistribution") {
+    const first = Math.round(num(data.firstPerChest));
+    const second = Math.round(num(data.secondPerChest));
+    const empty = Math.round(num(data.emptyChests));
+    const leftover = Math.round(num(data.leftoverCoins));
+    const gap = first - second;
+    const used = gap > 0 ? (empty * second + leftover) / gap : 0;
+    const total = used + empty;
+    if ([first, second, empty, leftover].every((v) => Number.isInteger(v) && v >= 0) && first <= 12 && second > 0 && empty > 0 && gap > 0 && Number.isInteger(used) && used > 0 && total <= 8) return ChestRedistributionScene;
+  }
+  // two positive legs define the right triangular notch; its hypotenuse with
+  // AB must in turn match AD, keeping both nested right triangles drawable
+  if (type === "concave-triangle-subtract") {
+    const ab = num(data.AB), bc = num(data.BC), cd = num(data.CD), ad = num(data.AD);
+    const bd = Math.sqrt(bc * bc + cd * cd);
+    if ([ab, bc, cd, ad].every((v) => v > 0 && v <= 30) && bd > 0 && Math.abs(ab * ab + bd * bd - ad * ad) < 1e-9) return ConcaveTriangleSubtractScene;
+  }
+  // three consecutive, modest factorial indices keep the common-factor ratios
+  // exact and drawable; the prime-power ledger is capped at three floor terms
+  if (type === "factorial-five-ledger" && Array.isArray(data.factorials) && data.factorials.length === 3) {
+    const fs = data.factorials.map((v) => Math.round(num(v))).sort((a, b) => a - b);
+    const p = Math.round(num(data.prime));
+    let powers = 0;
+    if (p >= 2) for (let q = p; q <= fs[0]; q *= p) powers += 1;
+    if (p >= 2 && p <= 11 && fs[0] >= p && fs[0] <= 150 && fs[1] === fs[0] + 1 && fs[2] === fs[1] + 1 && powers >= 1 && powers <= 3) return FactorialFiveLedgerScene;
+  }
+  // a decimal four-slot lock with the exact odd units set keeps every exclusion
+  // explicit; the supplied range must contain all and only four-digit numbers
+  if (type === "distinct-odd-digit-slots" && Array.isArray(data.oddUnits)) {
+    const low = Math.round(num(data.lower)), high = Math.round(num(data.upper));
+    const digits = Math.round(num(data.digitCount)), len = Math.round(num(data.length));
+    const odds = data.oddUnits.map((v) => Math.round(num(v)));
+    if (low === 1000 && high === 9999 && digits === 10 && len === 4 && odds.length === 5 && odds.join(",") === "1,3,5,7,9") return DistinctOddDigitSlotsScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

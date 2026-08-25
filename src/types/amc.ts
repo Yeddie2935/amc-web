@@ -239,6 +239,11 @@ export type AnimationTemplateType =
   | "game-result-balance"
   | "equal-half-score"
   | "letter-branch-path"
+  | "equal-perimeter-split"
+  | "chest-redistribution"
+  | "concave-triangle-subtract"
+  | "factorial-five-ledger"
+  | "distinct-odd-digit-slots"
   | "generic";
 
 export interface AnswerChoice {
