@@ -41255,17 +41255,17 @@ const amc2018Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Use the speed ratio",
-        "body": "Bella and Ella cover the distance in a 1:5 ratio, so Bella covers 1/6 of 10,560 feet.",
+        "body": "Bella and Ella cover distance in a 1:5 ratio. Together they cover 6 equal distance parts before meeting."
+      },
+      {
+        "title": "Find Bella’s distance",
+        "body": "Bella covers 1 of the 6 equal parts of the 10,560-foot distance.",
         "equation": "10560 ÷ 6 = 1760"
       },
       {
         "title": "Convert feet to steps",
-        "body": "Each Bella step covers 2.5 feet.",
+        "body": "Each Bella step covers 2.5 feet, so divide her 1,760-foot distance by 2.5.",
         "equation": "1760 ÷ 2.5 = 704"
-      },
-      {
-        "title": "Conclude",
-        "body": "Bella takes 704 steps."
       }
     ],
     "animationFrames": [
@@ -41286,12 +41286,13 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "ratio-meet-steps",
       "data": {
-        "distance": 10560,
-        "bellaDistance": 1760,
+        "distanceFeet": 10560,
+        "speedRatio": 5,
         "stepLength": 2.5,
-        "answer": 704
+        "walker": "Bella",
+        "cyclist": "Ella"
       }
     },
     "tags": [
@@ -41373,10 +41374,9 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "prime-choice-machine",
       "data": {
-        "factorization": "2^6·3^1·11^2",
-        "answer": 42
+        "n": 23232
       }
     },
     "tags": [
@@ -41425,16 +41425,17 @@ const amc2018Problems: Problem[] = [
     "shortAnswer": "8",
     "solutionSteps": [
       {
-        "title": "Think of same/different",
-        "body": "The sign rule acts like checking whether adjacent signs match or differ."
+        "title": "Build upward",
+        "body": "Compare each adjacent pair: matching signs make +, while different signs make −. Repeat until one top sign remains."
       },
       {
-        "title": "Count patterns",
-        "body": "For four bottom signs, exactly half of the 16 possible patterns produce a plus at the top."
+        "title": "Check all bottom rows",
+        "body": "There are 2^4=16 possible bottom rows. Evaluating the pyramid gives 8 with + on top and 8 with − on top.",
+        "equation": "2^4 = 16"
       },
       {
-        "title": "Result",
-        "body": "Half of 16 is 8.",
+        "title": "Pair opposite results",
+        "body": "Flipping the first bottom sign flips the top sign, pairing every + result with one − result. Therefore exactly half work.",
         "equation": "16 ÷ 2 = 8"
       }
     ],
@@ -41456,10 +41457,15 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "sign-pyramid-sweep",
       "data": {
-        "totalBottomRows": 16,
-        "winningRows": 8
+        "bottomCount": 4,
+        "example": [
+          "+",
+          "−",
+          "+",
+          "−"
+        ]
       }
     },
     "tags": [
@@ -41516,14 +41522,14 @@ const amc2018Problems: Problem[] = [
         "body": "Since AE=1 and EB=2, AB=3 and AE/AB=1/3."
       },
       {
-        "title": "Find the small triangle area",
-        "body": "Triangle ADE is similar to triangle ABC with side ratio 1/3, so its area ratio is 1/9.",
-        "equation": "[ADE] = (1/3)^2[ABC] = 1/9[ABC]"
+        "title": "Scale the corner triangles",
+        "body": "Triangle ADE has side scale 1/3, so its area is 1/9 of ABC. Triangle EFB has side scale 2/3, so its area is 4/9 of ABC.",
+        "equation": "[ADE]/[ABC]=1/9, [EFB]/[ABC]=4/9"
       },
       {
-        "title": "Subtract from related region",
-        "body": "The parallelogram-style middle region leaves CDEF with 4/9 of the original triangle.",
-        "equation": "[CDEF]/[ABC]=4/9"
+        "title": "Subtract the corners",
+        "body": "CDEF is what remains after removing triangles ADE and EFB from ABC.",
+        "equation": "[CDEF]/[ABC]=1−1/9−4/9=4/9"
       }
     ],
     "animationFrames": [
@@ -41544,9 +41550,12 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "parallel-triangle-area",
       "data": {
-        "ratio": "4/9"
+        "baseParts": [
+          1,
+          2
+        ]
       }
     },
     "tags": [

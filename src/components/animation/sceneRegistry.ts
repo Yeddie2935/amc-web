@@ -149,6 +149,7 @@ import { SwapValueScene } from "./scenes/SwapValueScene";
 import { IcedCubeScene } from "./scenes/IcedCubeScene";
 import { GlueBlockScene } from "./scenes/GlueBlockScene";
 import { BookBlockPermuteScene } from "./scenes/BookBlockPermuteScene";
+import { RatioMeetStepsScene } from "./scenes/RatioMeetStepsScene";
 import { AverageSpeedGraphScene } from "./scenes/AverageSpeedGraphScene";
 import { FactorialRegroupScene } from "./scenes/FactorialRegroupScene";
 import { MixtureTopUpScene } from "./scenes/MixtureTopUpScene";
@@ -156,6 +157,9 @@ import { AverageLevelScene } from "./scenes/AverageLevelScene";
 import { PercentSliceScene } from "./scenes/PercentSliceScene";
 import { LineIncidenceScene } from "./scenes/LineIncidenceScene";
 import { DivisorLatticeScene } from "./scenes/DivisorLatticeScene";
+import { PrimeChoiceMachineScene } from "./scenes/PrimeChoiceMachineScene";
+import { SignPyramidSweepScene } from "./scenes/SignPyramidSweepScene";
+import { ParallelTriangleAreaScene } from "./scenes/ParallelTriangleAreaScene";
 import { CheckerPathsScene } from "./scenes/CheckerPathsScene";
 import { SemicircleRectScene } from "./scenes/SemicircleRectScene";
 import { PatternDigitScene } from "./scenes/PatternDigitScene";
@@ -826,6 +830,17 @@ export function resolveScene(problem: Problem): AnimatedScene {
       grouped.every((name) => names.includes(name));
     if (valid) return BookBlockPermuteScene;
   }
+  // A positive whole-part speed ratio, a divisible road length, and a step
+  // length that turns the walker's share into a whole number of steps.
+  if (type === "ratio-meet-steps") {
+    const distance = num(data.distanceFeet ?? 0);
+    const ratio = Math.round(num(data.speedRatio ?? 0));
+    const stride = num(data.stepLength ?? 0);
+    const share = ratio >= 1 ? distance / (ratio + 1) : 0;
+    if (distance > 0 && ratio >= 1 && ratio <= 8 && stride > 0 && Number.isInteger(share / stride)) {
+      return RatioMeetStepsScene;
+    }
+  }
   // a real cube with some faces bare (all six coated has no layer to contrast)
   if (type === "iced-cube" && Array.isArray(data.faces)) {
     const sz = num(data.size ?? 0);
@@ -1018,6 +1033,36 @@ export function resolveScene(problem: Problem): AnimatedScene {
     if (m > 1) es.push(1);
     const divisors = es.reduce((acc, e) => acc * (e + 1), 1);
     if (n >= 2 && es.length >= 1 && es.length <= 3 && divisors <= 24) return DivisorLatticeScene;
+  }
+  // A drawable factor-choice machine: exactly three distinct prime bins, no
+  // exponent too wide for its row, and a modest total choice count.
+  if (type === "prime-choice-machine") {
+    let n = Math.round(num(data.n ?? 0));
+    const es: number[] = [];
+    for (let p = 2; p * p <= n; p += 1) {
+      let e = 0;
+      while (n % p === 0) { n /= p; e += 1; }
+      if (e) es.push(e);
+    }
+    if (n > 1) es.push(1);
+    const choices = es.reduce((product, e) => product * (e + 1), 1);
+    if (num(data.n ?? 0) >= 2 && es.length === 3 && es.every((e) => e <= 7) && choices <= 64) {
+      return PrimeChoiceMachineScene;
+    }
+  }
+  // The proof pairs all 2^4 bottom rows by flipping the first sign, so this
+  // scene intentionally guards the exact four-cell pyramid and a real example.
+  if (type === "sign-pyramid-sweep" && num(data.bottomCount ?? 0) === 4 && Array.isArray(data.example)) {
+    const signs = data.example.map(String);
+    if (signs.length === 4 && signs.every((s) => s === "+" || s === "−" || s === "-")) {
+      return SignPyramidSweepScene;
+    }
+  }
+  // Two positive base pieces whose proportions define the parallel cuts; this
+  // renderer currently uses the exact thirds lattice needed for a 1:2 split.
+  if (type === "parallel-triangle-area" && Array.isArray(data.baseParts) && data.baseParts.length === 2) {
+    const [a, b] = data.baseParts.map((v) => num(v));
+    if (a > 0 && b > 0 && Math.abs(b / a - 2) < 1e-9) return ParallelTriangleAreaScene;
   }
   // exactly one point busier than the rest, or the incidence count forces nothing
   if (type === "line-incidence" && Array.isArray(data.points) && Array.isArray(data.lines)) {
