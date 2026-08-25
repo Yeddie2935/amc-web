@@ -103,6 +103,7 @@ export type AnimationTemplateType =
   | "nested-radical-collapse"
   | "estimate-product-shift"
   | "product-sum-cancel"
+  | "angle-ratio-parts"
   | "paper-fold-cut"
   | "thermometer-drop"
   | "halving-gap"
@@ -229,6 +230,10 @@ export type AnimationTemplateType =
   | "repeated-score-range"
   | "greedy-digit-product"
   | "crescent-circle"
+  | "repeated-block-factor"
+  | "truth-count-house"
+  | "fraction-marble-packing"
+  | "max-card-selection"
   | "generic";
 
 export interface AnswerChoice {

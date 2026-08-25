@@ -125,6 +125,7 @@ import { VotePieScaleScene } from "./scenes/VotePieScaleScene";
 import { NestedRadicalCollapseScene } from "./scenes/NestedRadicalCollapseScene";
 import { EstimateProductShiftScene } from "./scenes/EstimateProductShiftScene";
 import { ProductSumCancelScene } from "./scenes/ProductSumCancelScene";
+import { AngleRatioPartsScene } from "./scenes/AngleRatioPartsScene";
 import { SeatPairScene } from "./scenes/SeatPairScene";
 import { HalvingGapScene } from "./scenes/HalvingGapScene";
 import { BiteSplitScene } from "./scenes/BiteSplitScene";
@@ -209,6 +210,10 @@ import { RaceClockScene } from "./scenes/RaceClockScene";
 import { RepeatedScoreRangeScene } from "./scenes/RepeatedScoreRangeScene";
 import { GreedyDigitProductScene } from "./scenes/GreedyDigitProductScene";
 import { CrescentCircleScene } from "./scenes/CrescentCircleScene";
+import { RepeatedBlockFactorScene } from "./scenes/RepeatedBlockFactorScene";
+import { TruthCountHouseScene } from "./scenes/TruthCountHouseScene";
+import { FractionMarblePackingScene } from "./scenes/FractionMarblePackingScene";
+import { MaxCardSelectionScene } from "./scenes/MaxCardSelectionScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -520,6 +525,14 @@ export function resolveScene(problem: Problem): AnimatedScene {
     const to = Math.round(num(data.to));
     const count = to - from + 1;
     if (from === 1 && to === 8 && count % 2 === 0) return ProductSumCancelScene;
+  }
+  // Exactly three positive ratio entries making no more than twelve drawable
+  // tiles, with a whole-degree value for each part of the triangle's angle sum.
+  if (type === "angle-ratio-parts" && Array.isArray(data.ratio) && data.ratio.length === 3) {
+    const ratio = data.ratio.map((v) => Math.round(num(v)));
+    const sum = ratio.reduce((a, b) => a + b, 0);
+    const degrees = num(data.angleSum);
+    if (ratio.every((v) => v > 0) && sum <= 12 && degrees === 180 && Number.isInteger(degrees / sum)) return AngleRatioPartsScene;
   }
   if (type === "paper-fold-cut" && Array.isArray(data.cutPoly) && data.cutPoly.length >= 6) {
     return PaperFoldCutScene;
@@ -1509,6 +1522,55 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "crescent-circle" && num(data.combinedSmallArea ?? 0) > 0) {
     return CrescentCircleScene;
+  }
+  // exactly one three-digit repeat shift and a small, exact factorization keep
+  // both the place-value regrouping and the drawable factor tree truthful
+  if (type === "repeated-block-factor" && Array.isArray(data.factors)) {
+    const digits = Math.round(num(data.blockDigits ?? 0));
+    const shift = Math.round(num(data.shift ?? 0));
+    const factors = data.factors.map((value) => Math.round(num(value)));
+    if (digits === 3 && shift === 10 ** digits && factors.length === 3 && factors.every((value) => value > 1 && value <= 99) && factors.reduce((a, b) => a * b, 1) === shift + 1) {
+      return RepeatedBlockFactorScene;
+    }
+  }
+  // enumerate the entire stated range, but keep it small enough for a complete
+  // truth check and require a single-digit predicate plus a genuine divisor
+  if (type === "truth-count-house") {
+    const lo = Math.round(num(data.min ?? 0));
+    const hi = Math.round(num(data.max ?? 0));
+    const divisor = Math.round(num(data.divisor ?? 0));
+    const digit = Math.round(num(data.requiredDigit ?? -1));
+    const truths = Math.round(num(data.truthCount ?? 0));
+    if (lo === 10 && hi === 99 && divisor >= 2 && divisor <= 20 && digit >= 0 && digit <= 9 && truths === 3) {
+      return TruthCountHouseScene;
+    }
+  }
+  // the denominators must yield a compact common-multiple tray, and the fixed
+  // color count must be small enough to draw every marble in the first trials
+  if (type === "fraction-marble-packing") {
+    const bd = Math.round(num(data.blueDen ?? 0));
+    const rd = Math.round(num(data.redDen ?? 0));
+    const green = Math.round(num(data.greenCount ?? 0));
+    const gcd2 = (a: number, b: number): number => (b ? gcd2(b, a % b) : Math.abs(a));
+    const base = bd > 0 && rd > 0 ? (bd * rd) / gcd2(bd, rd) : 0;
+    if (bd >= 2 && bd <= 8 && rd >= 2 && rd <= 8 && base >= 2 && base <= 24 && green >= 1 && green <= 20 && base * 2 <= 48) {
+      return FractionMarblePackingScene;
+    }
+  }
+  // distinct ordered card labels and a modest combination count ensure every
+  // equally likely selection can be generated and drawn in the gallery
+  if (type === "max-card-selection" && Array.isArray(data.cards)) {
+    const cards = data.cards.map((value) => Math.round(num(value)));
+    const draw = Math.round(num(data.draw ?? 0));
+    const target = Math.round(num(data.targetMax ?? 0));
+    const choose = (n: number, k: number) => {
+      let out = 1;
+      for (let i = 1; i <= k; i += 1) out = (out * (n - i + 1)) / i;
+      return out;
+    };
+    if (cards.length >= 3 && cards.length <= 7 && new Set(cards).size === cards.length && cards.every((v, i) => v > 0 && (i === 0 || cards[i - 1] < v)) && draw >= 2 && draw < cards.length && cards.includes(target) && choose(cards.length, draw) <= 20) {
+      return MaxCardSelectionScene;
+    }
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

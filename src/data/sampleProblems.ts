@@ -38073,15 +38073,14 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "angle-ratio-parts",
       "data": {
         "ratio": [
           3,
           3,
           4
         ],
-        "largest": 72,
-        "answer": "D"
+        "angleSum": 180
       }
     },
     "tags": [
@@ -38162,10 +38161,15 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "repeated-block-factor",
       "data": {
-        "factorization": "1001=7·11·13",
-        "answer": "A"
+        "blockDigits": 3,
+        "shift": 1000,
+        "factors": [
+          7,
+          11,
+          13
+        ]
       }
     },
     "tags": [
@@ -38245,10 +38249,13 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "truth-count-house",
       "data": {
-        "number": 98,
-        "answer": "D"
+        "min": 10,
+        "max": 99,
+        "divisor": 7,
+        "requiredDigit": 9,
+        "truthCount": 3
       }
     },
     "tags": [
@@ -38328,11 +38335,11 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "fraction-marble-packing",
       "data": {
-        "total": 24,
-        "yellow": 4,
-        "answer": "D"
+        "blueDen": 3,
+        "redDen": 4,
+        "greenCount": 6
       }
     },
     "tags": [
@@ -38413,11 +38420,17 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "max-card-selection",
       "data": {
-        "total": 10,
-        "favorable": 3,
-        "answer": "C"
+        "cards": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "draw": 3,
+        "targetMax": 4
       }
     },
     "tags": [
