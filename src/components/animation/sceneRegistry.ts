@@ -120,6 +120,11 @@ import { SpiralGridScene } from "./scenes/SpiralGridScene";
 import { ThermometerDropScene } from "./scenes/ThermometerDropScene";
 import { PaperFoldCutScene } from "./scenes/PaperFoldCutScene";
 import { PrecedenceGroupScene } from "./scenes/PrecedenceGroupScene";
+import { ExpressionRaceScene } from "./scenes/ExpressionRaceScene";
+import { VotePieScaleScene } from "./scenes/VotePieScaleScene";
+import { NestedRadicalCollapseScene } from "./scenes/NestedRadicalCollapseScene";
+import { EstimateProductShiftScene } from "./scenes/EstimateProductShiftScene";
+import { ProductSumCancelScene } from "./scenes/ProductSumCancelScene";
 import { SeatPairScene } from "./scenes/SeatPairScene";
 import { HalvingGapScene } from "./scenes/HalvingGapScene";
 import { BiteSplitScene } from "./scenes/BiteSplitScene";
@@ -459,6 +464,62 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "precedence-group" && Array.isArray(data.expressions) && data.expressions.length === 2) {
     return PrecedenceGroupScene;
+  }
+  // Exactly five four-number expressions with five finite track values; this
+  // keeps every racer meaningful and within the scene's drawable 0–10 track.
+  if (
+    type === "expression-race" &&
+    Array.isArray(data.expressions) && data.expressions.length === 5 && data.expressions.every((v) => typeof v === "string") &&
+    Array.isArray(data.values) && data.values.length === 5 && data.values.every((v) => Number.isFinite(Number(v)) && num(v) >= 0 && num(v) <= 10) &&
+    Array.isArray(data.labels) && data.labels.length === 5 && data.labels.every((v) => typeof v === "string")
+  ) {
+    return ExpressionRaceScene;
+  }
+  // Three positive sectors must make one whole pie; the highlighted percentage
+  // must split into whole 10% boxes with a whole vote count in each box.
+  if (
+    type === "vote-pie-scale" &&
+    Array.isArray(data.candidates) && data.candidates.length === 3 && data.candidates.every((v) => typeof v === "string") &&
+    Array.isArray(data.percents) && data.percents.length === 3 && data.percents.every((v) => num(v) > 0) && data.percents.reduce((a, v) => a + num(v), 0) === 100 &&
+    typeof data.highlightedCandidate === "string" && data.candidates.includes(data.highlightedCandidate) &&
+    num(data.votes) > 0 && num(data.percents[data.candidates.indexOf(data.highlightedCandidate)]) % 10 === 0 &&
+    Number.isInteger(num(data.votes) / (num(data.percents[data.candidates.indexOf(data.highlightedCandidate)]) / 10))
+  ) {
+    return VotePieScaleScene;
+  }
+  // Three positive radicands whose inside-out roots are all whole numbers;
+  // otherwise the three-shell collapse would assert unsupported simplifications.
+  if (type === "nested-radical-collapse") {
+    const outer = num(data.outerFactor);
+    const middle = num(data.middleFactor);
+    const radicand = num(data.innerRadicand);
+    const inner = Math.sqrt(radicand);
+    const mid = Math.sqrt(middle * inner);
+    const result = Math.sqrt(outer * mid);
+    if (outer > 0 && middle > 0 && radicand > 0 && [inner, mid, result].every(Number.isInteger)) {
+      return NestedRadicalCollapseScene;
+    }
+  }
+  // Two positive exact factors and two positive one-significant-digit estimates,
+  // bounded so their scientific-notation product remains legible.
+  if (
+    type === "estimate-product-shift" &&
+    Array.isArray(data.exactFactors) && data.exactFactors.length === 2 && data.exactFactors.every((v) => num(v) > 0 && num(v) < 1e10) &&
+    Array.isArray(data.roundedFactors) && data.roundedFactors.length === 2 && data.roundedFactors.every((v) => num(v) > 0 && num(v) < 1e10)
+  ) {
+    const oneSig = (v: unknown) => {
+      const n = num(v);
+      return Math.round((n / 10 ** Math.floor(Math.log10(n))) * 1e10) / 1e10;
+    };
+    if (data.roundedFactors.every((v) => Number.isInteger(oneSig(v)) && oneSig(v) >= 1 && oneSig(v) <= 9)) return EstimateProductShiftScene;
+  }
+  // An even, short run of consecutive positive integers, specifically bounded
+  // so every paired sum and factor tile remains drawable and exact.
+  if (type === "product-sum-cancel") {
+    const from = Math.round(num(data.from));
+    const to = Math.round(num(data.to));
+    const count = to - from + 1;
+    if (from === 1 && to === 8 && count % 2 === 0) return ProductSumCancelScene;
   }
   if (type === "paper-fold-cut" && Array.isArray(data.cutPoly) && data.cutPoly.length >= 6) {
     return PaperFoldCutScene;

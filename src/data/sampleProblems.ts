@@ -37609,13 +37609,17 @@ const amc2017Problems: Problem[] = [
     "shortAnswer": "2 + 0 + 1 + 7",
     "solutionSteps": [
       {
-        "title": "Evaluate each expression",
-        "body": "Use order of operations before comparing the choices.",
-        "equation": "10, 8, 9, 9, 0"
+        "title": "Do multiplication first",
+        "body": "In choices with a multiplication sign, multiply before adding. Choice A has only addition."
+      },
+      {
+        "title": "Evaluate every choice",
+        "body": "The five values are 10, 8, 9, 9, and 0.",
+        "equation": "A=10, B=8, C=9, D=9, E=0"
       },
       {
         "title": "Pick the largest",
-        "body": "The largest value is 10, which comes from choice A."
+        "body": "The unique largest value is 10, which comes from choice A."
       }
     ],
     "animationFrames": [
@@ -37636,8 +37640,15 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "expression-race",
       "data": {
+        "expressions": [
+          "2 + 0 + 1 + 7",
+          "2 × 0 + 1 + 7",
+          "2 + 0 × 1 + 7",
+          "2 + 0 + 1 × 7",
+          "2 × 0 × 1 × 7"
+        ],
         "values": [
           10,
           8,
@@ -37645,7 +37656,7 @@ const amc2017Problems: Problem[] = [
           9,
           0
         ],
-        "answer": "A"
+        "labels": ["A", "B", "C", "D", "E"]
       }
     },
     "tags": [
@@ -37699,13 +37710,14 @@ const amc2017Problems: Problem[] = [
         "body": "The chart shows Brenda received 30% of the votes."
       },
       {
-        "title": "Set up the percent equation",
-        "body": "If x is the total number of votes, then 30% of x is 36.",
-        "equation": "0.30x = 36"
+        "title": "Scale down to 10%",
+        "body": "Since 30% is three groups of 10%, each 10% group represents 36 ÷ 3 = 12 votes.",
+        "equation": "36 ÷ 3 = 12"
       },
       {
-        "title": "Solve",
-        "body": "Divide by 0.30 to get x = 120."
+        "title": "Scale up to 100%",
+        "body": "The whole election has ten groups of 10%, so 10 × 12 = 120 votes.",
+        "equation": "10 × 12 = 120"
       }
     ],
     "animationFrames": [
@@ -37726,12 +37738,12 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "vote-pie-scale",
       "data": {
-        "percent": 30,
-        "votes": 36,
-        "total": 120,
-        "answer": "E"
+        "candidates": ["Alicia", "Brenda", "Colby"],
+        "percents": [45, 30, 25],
+        "highlightedCandidate": "Brenda",
+        "votes": 36
       }
     },
     "tags": [
@@ -37817,10 +37829,11 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "nested-radical-collapse",
       "data": {
-        "expression": "√(16√(8√4))",
-        "answer": 8
+        "outerFactor": 16,
+        "middleFactor": 8,
+        "innerRadicand": 4
       }
     },
     "tags": [
@@ -37897,10 +37910,10 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "estimate-product-shift",
       "data": {
-        "estimate": 2400,
-        "answer": "D"
+        "exactFactors": [0.000315, 7928564],
+        "roundedFactors": [0.0003, 8000000]
       }
     },
     "tags": [
@@ -37977,11 +37990,10 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "product-sum-cancel",
       "data": {
-        "numerator": "8!",
-        "denominator": 36,
-        "answer": 1120
+        "from": 1,
+        "to": 8
       }
     },
     "tags": [
