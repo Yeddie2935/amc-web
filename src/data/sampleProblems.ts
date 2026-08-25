@@ -39848,13 +39848,19 @@ const amc2018Problems: Problem[] = [
     "shortAnswer": "14 feet",
     "solutionSteps": [
       {
-        "title": "Use the scale ratio",
-        "body": "A 1:20 model has height equal to the real height divided by 20.",
+        "title": "Set up the scale",
+        "body": "A 1:20 model shrinks every real measurement by a factor of 20.",
+        "equation": "289 ft ÷ 20"
+      },
+      {
+        "title": "Divide by the scale factor",
+        "body": "Divide the Capitol's real height by 20 to get the model's height.",
         "equation": "289 ÷ 20 = 14.45"
       },
       {
-        "title": "Round",
-        "body": "The nearest whole number to 14.45 is 14."
+        "title": "Round to the nearest foot",
+        "body": "14.45 rounds down to 14, so the model stands about 14 feet tall — choice A.",
+        "equation": "14.45 → 14"
       }
     ],
     "animationFrames": [
@@ -39875,11 +39881,11 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "scale-model",
       "data": {
         "realHeight": 289,
-        "scale": "1:20",
-        "answer": 14
+        "ratio": 20,
+        "subject": "U.S. Capitol"
       }
     },
     "tags": [
@@ -39929,12 +39935,17 @@ const amc2018Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Rewrite each factor",
-        "body": "Each factor 1+1/n becomes (n+1)/n.",
+        "body": "Each factor 1 + 1/n equals (n+1)/n, turning the product into a chain of six fractions.",
+        "equation": "(1+1/1)(1+1/2)⋯(1+1/6) = (2/1)(3/2)(4/3)(5/4)(6/5)(7/6)"
+      },
+      {
+        "title": "Cancel diagonally",
+        "body": "Each fraction's numerator matches the next fraction's denominator, so they cancel in pairs all the way down the chain.",
         "equation": "2/1 · 3/2 · 4/3 · 5/4 · 6/5 · 7/6"
       },
       {
-        "title": "Cancel",
-        "body": "Every denominator cancels with the next numerator.",
+        "title": "Read off the result",
+        "body": "Only the first denominator (1) and the last numerator (7) survive.",
         "equation": "7/1 = 7"
       }
     ],
@@ -39956,10 +39967,9 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "fraction-zipper",
       "data": {
-        "product": "(2/1)(3/2)(4/3)(5/4)(6/5)(7/6)",
-        "answer": 7
+        "count": 6
       }
     },
     "tags": [
@@ -40042,8 +40052,16 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "ranking",
+      "type": "count-out-circle",
       "data": {
+        "names": [
+          "Arn",
+          "Bob",
+          "Cyd",
+          "Dan",
+          "Eve",
+          "Fon"
+        ],
         "eliminationCounts": [
           7,
           14,
@@ -40133,11 +40151,19 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "pinwheel-grid",
       "data": {
-        "centralSquares": 9,
-        "halfSquares": 8,
-        "answer": 13
+        "points": [
+          [3, 1], [4, 2], [5, 2], [6, 3], [5, 4], [5, 5],
+          [4, 6], [3, 5], [2, 5], [1, 4], [2, 3], [2, 2]
+        ],
+        "core": [2, 2, 5, 5],
+        "spikes": [
+          [3, 1, 2, 2, 4, 2],
+          [6, 3, 5, 2, 5, 4],
+          [4, 6, 5, 5, 3, 5],
+          [1, 4, 2, 5, 2, 3]
+        ]
       }
     },
     "tags": [
@@ -40223,11 +40249,10 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "sign-pair-sum",
       "data": {
         "pairs": 1009,
-        "leftover": 2019,
-        "answer": 1010
+        "leftover": 2019
       }
     },
     "tags": [

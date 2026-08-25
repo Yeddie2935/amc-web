@@ -179,6 +179,11 @@ import { PalindromeSumScene } from "./scenes/PalindromeSumScene";
 import { ModularCycleScene } from "./scenes/ModularCycleScene";
 import { ConditionalSwapScene } from "./scenes/ConditionalSwapScene";
 import { PaceCarChaseScene } from "./scenes/PaceCarChaseScene";
+import { ScaleModelScene } from "./scenes/ScaleModelScene";
+import { FractionZipperScene } from "./scenes/FractionZipperScene";
+import { CountOutCircleScene } from "./scenes/CountOutCircleScene";
+import { PinwheelGridScene } from "./scenes/PinwheelGridScene";
+import { SignPairSumScene } from "./scenes/SignPairSumScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -1215,6 +1220,35 @@ export function resolveScene(problem: Problem): AnimatedScene {
     const people = num(data.people ?? 0);
     const minEach = num(data.minEach ?? 0);
     if (people >= 2 && minEach >= 0 && total - people * minEach >= 0) return StarsAndBarsScene;
+  }
+  // a real height to shrink and a scale factor greater than 1, or there is
+  // nothing to divide and no model to draw
+  if (type === "scale-model" && num(data.realHeight ?? 0) > 0 && num(data.ratio ?? 0) > 1) {
+    return ScaleModelScene;
+  }
+  // at least two factors, or there is no telescoping chain to cancel down
+  if (type === "fraction-zipper" && num(data.count ?? 0) >= 2) {
+    return FractionZipperScene;
+  }
+  // at least three named people, or there is no circle to count around
+  if (type === "count-out-circle" && Array.isArray(data.names) && data.names.length >= 3) {
+    return CountOutCircleScene;
+  }
+  // a real outline, a real core rectangle, and at least one spike triangle to split
+  if (
+    type === "pinwheel-grid" &&
+    Array.isArray(data.points) &&
+    data.points.length >= 4 &&
+    Array.isArray(data.core) &&
+    data.core.length === 4 &&
+    Array.isArray(data.spikes) &&
+    data.spikes.length > 0
+  ) {
+    return PinwheelGridScene;
+  }
+  // at least one pair to cancel, or there is no telescoping annihilation to show
+  if (type === "sign-pair-sum" && num(data.pairs ?? 0) >= 1) {
+    return SignPairSumScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

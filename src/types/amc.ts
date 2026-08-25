@@ -199,6 +199,11 @@ export type AnimationTemplateType =
   | "stars-and-bars"
   | "cube-net"
   | "solid-3d"
+  | "scale-model"
+  | "fraction-zipper"
+  | "count-out-circle"
+  | "pinwheel-grid"
+  | "sign-pair-sum"
   | "generic";
 
 export interface AnswerChoice {
