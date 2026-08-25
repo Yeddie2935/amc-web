@@ -41195,12 +41195,17 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "book-block-permute",
       "data": {
-        "units": 5,
-        "arabicOrders": 2,
-        "spanishOrders": 24,
-        "answer": 5760
+        "groups": [
+          "Arabic|A|2|#f59e0b",
+          "German|G|3|#3b82f6",
+          "Spanish|S|4|#ef4444"
+        ],
+        "grouped": [
+          "Arabic",
+          "Spanish"
+        ]
       }
     },
     "tags": [

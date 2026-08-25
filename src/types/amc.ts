@@ -161,6 +161,7 @@ export type AnimationTemplateType =
   | "swap-value"
   | "iced-cube"
   | "glue-block"
+  | "book-block-permute"
   | "avg-speed-graph"
   | "factorial-regroup"
   | "mixture-topup"

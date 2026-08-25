@@ -148,6 +148,7 @@ import { IncreasingDigitsScene } from "./scenes/IncreasingDigitsScene";
 import { SwapValueScene } from "./scenes/SwapValueScene";
 import { IcedCubeScene } from "./scenes/IcedCubeScene";
 import { GlueBlockScene } from "./scenes/GlueBlockScene";
+import { BookBlockPermuteScene } from "./scenes/BookBlockPermuteScene";
 import { AverageSpeedGraphScene } from "./scenes/AverageSpeedGraphScene";
 import { FactorialRegroupScene } from "./scenes/FactorialRegroupScene";
 import { MixtureTopUpScene } from "./scenes/MixtureTopUpScene";
@@ -808,6 +809,22 @@ export function resolveScene(problem: Problem): AnimatedScene {
   // enough items that gluing two of them actually shortens the row, few enough to enumerate
   if (type === "glue-block" && Array.isArray(data.items) && Array.isArray(data.pair)) {
     if (data.items.length >= 3 && data.items.length <= 6 && data.pair.length === 2) return GlueBlockScene;
+  }
+  // Exactly nine distinct books in three language groups, with the two named
+  // groups forming blocks and the resulting factorial product matching the data.
+  if (type === "book-block-permute" && Array.isArray(data.groups) && Array.isArray(data.grouped)) {
+    const groups = data.groups.map((raw) => String(raw).split("|"));
+    const counts = groups.map((g) => Math.round(num(g[2] ?? 0)));
+    const names = groups.map((g) => g[0]);
+    const grouped = data.grouped.map(String);
+    const valid =
+      groups.length === 3 &&
+      counts.every((c) => c >= 1 && c <= 6) &&
+      counts.reduce((sum, c) => sum + c, 0) === 9 &&
+      grouped.length === 2 &&
+      new Set(grouped).size === 2 &&
+      grouped.every((name) => names.includes(name));
+    if (valid) return BookBlockPermuteScene;
   }
   // a real cube with some faces bare (all six coated has no layer to contrast)
   if (type === "iced-cube" && Array.isArray(data.faces)) {
