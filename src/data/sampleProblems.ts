@@ -41640,8 +41640,10 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "three-remainders",
       "data": {
+        "divisors": [6, 9, 11],
+        "remainders": [2, 5, 7],
         "solutions": [
           194,
           392,
@@ -41729,7 +41731,7 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "square-midpoint-area",
       "data": {
         "fraction": "5/12",
         "givenArea": 45,
@@ -41819,9 +41821,13 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "octagon-triangle-count",
       "data": {
+        "vertices": 8,
         "total": 56,
+        "oneSideThirdChoices": 4,
+        "oneSideCases": 32,
+        "twoSideCases": 8,
         "favorable": 40,
         "answer": "5/7"
       }
@@ -41908,10 +41914,11 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "solid-3d",
+      "type": "cube-rhombus-slice",
       "data": {
         "diagonal1": "s√3",
         "diagonal2": "s√2",
+        "ratio": "√6/2",
         "answer": "3/2"
       }
     },
@@ -41996,10 +42003,14 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "cube-base-range",
       "data": {
+        "lower": 257,
+        "upper": 262145,
         "firstBase": 7,
         "lastBase": 64,
+        "firstCube": 343,
+        "lastCube": 262144,
         "answer": 58
       }
     },

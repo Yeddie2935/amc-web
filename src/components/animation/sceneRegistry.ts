@@ -160,6 +160,11 @@ import { DivisorLatticeScene } from "./scenes/DivisorLatticeScene";
 import { PrimeChoiceMachineScene } from "./scenes/PrimeChoiceMachineScene";
 import { SignPyramidSweepScene } from "./scenes/SignPyramidSweepScene";
 import { ParallelTriangleAreaScene } from "./scenes/ParallelTriangleAreaScene";
+import { ThreeRemaindersScene } from "./scenes/ThreeRemaindersScene";
+import { SquareMidpointAreaScene } from "./scenes/SquareMidpointAreaScene";
+import { OctagonTriangleCountScene } from "./scenes/OctagonTriangleCountScene";
+import { CubeRhombusSliceScene } from "./scenes/CubeRhombusSliceScene";
+import { CubeBaseRangeScene } from "./scenes/CubeBaseRangeScene";
 import { CheckerPathsScene } from "./scenes/CheckerPathsScene";
 import { SemicircleRectScene } from "./scenes/SemicircleRectScene";
 import { PatternDigitScene } from "./scenes/PatternDigitScene";
@@ -1063,6 +1068,49 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if (type === "parallel-triangle-area" && Array.isArray(data.baseParts) && data.baseParts.length === 2) {
     const [a, b] = data.baseParts.map((v) => num(v));
     if (a > 0 && b > 0 && Math.abs(b / a - 2) < 1e-9) return ParallelTriangleAreaScene;
+  }
+  // All remainders must be the same fixed distance below their respective
+  // divisors; bounded positive inputs keep the synchronized-multiples drawing legible.
+  if (type === "three-remainders" && Array.isArray(data.divisors) && Array.isArray(data.remainders) && Array.isArray(data.solutions)) {
+    const ds = data.divisors.map((v) => Math.round(num(v)));
+    const rs = data.remainders.map((v) => Math.round(num(v)));
+    const ss = data.solutions.map((v) => Math.round(num(v)));
+    const shift = ds[0] - rs[0];
+    const gcd = (a: number, b: number): number => b === 0 ? Math.abs(a) : gcd(b, a % b);
+    const period = ds.reduce((acc, d) => Math.abs(acc * d) / gcd(acc, d), 1);
+    const expected = Array.from({ length: Math.max(0, Math.floor((999 + shift) / period)) }, (_, i) => period * (i + 1) - shift)
+      .filter((value) => value >= 100 && value <= 999);
+    if (ds.length === 3 && rs.length === 3 && ss.length > 0 && ss.length <= 8 && ds.every((d, i) => d > 1 && rs[i] >= 0 && rs[i] < d && d - rs[i] === shift) && shift > 0 && period <= 300 && ss.every((value, i) => value === expected[i]) && ss.length === expected.length) {
+      return ThreeRemaindersScene;
+    }
+  }
+  // The unit-square split is safe only for the supplied 5/12 coordinate area
+  // with a positive given area and its exact scale-up result.
+  if (type === "square-midpoint-area" && String(data.fraction ?? "") === "5/12") {
+    const given = num(data.givenArea);
+    const answer = num(data.answer);
+    if (given > 0 && answer > 0 && Math.abs(given * 12 / 5 - answer) < 1e-9) return SquareMidpointAreaScene;
+  }
+  // Eight vertices permit the disjoint one-side (8×4) and two-side (8)
+  // classes; the guard verifies all counts before drawing the enumeration.
+  if (type === "octagon-triangle-count") {
+    const n = Math.round(num(data.vertices));
+    const total = Math.round(num(data.total));
+    const third = Math.round(num(data.oneSideThirdChoices));
+    const one = Math.round(num(data.oneSideCases));
+    const two = Math.round(num(data.twoSideCases));
+    const favorable = Math.round(num(data.favorable));
+    if (n === 8 && total === 56 && third === 4 && one === n * third && two === n && favorable === one + two && String(data.answer ?? "") === "5/7") return OctagonTriangleCountScene;
+  }
+  // This projected cube scene relies on the actual space/face diagonal pair
+  // and their resulting squared ratio, rather than inventing a generic slice.
+  if (type === "cube-rhombus-slice" && String(data.diagonal1 ?? "") === "s√3" && String(data.diagonal2 ?? "") === "s√2" && String(data.ratio ?? "") === "√6/2" && String(data.answer ?? "") === "3/2") {
+    return CubeRhombusSliceScene;
+  }
+  // The base tokens must exactly span a modest inclusive cube-base interval.
+  if (type === "cube-base-range") {
+    const first = Math.round(num(data.firstBase)); const last = Math.round(num(data.lastBase));
+    if (Math.round(num(data.lower)) === 257 && Math.round(num(data.upper)) === 262145 && first === 7 && last === 64 && Math.round(num(data.firstCube)) === first ** 3 && Math.round(num(data.lastCube)) === last ** 3 && Math.round(num(data.answer)) === last - first + 1) return CubeBaseRangeScene;
   }
   // exactly one point busier than the rest, or the incidence count forces nothing
   if (type === "line-incidence" && Array.isArray(data.points) && Array.isArray(data.lines)) {
