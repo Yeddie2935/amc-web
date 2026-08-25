@@ -204,6 +204,11 @@ export type AnimationTemplateType =
   | "count-out-circle"
   | "pinwheel-grid"
   | "sign-pair-sum"
+  | "road-chunk-pace"
+  | "digit-lock-chop"
+  | "frequency-mean-bars"
+  | "border-tile-grid"
+  | "harmonic-mean-flip"
   | "generic";
 
 export interface AnswerChoice {

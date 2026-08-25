@@ -40333,11 +40333,12 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "road-chunk-pace",
       "data": {
+        "coastalMiles": 10,
         "coastalMinutes": 30,
-        "highwayMinutes": 50,
-        "answer": 80
+        "highwayMiles": 50,
+        "speedRatio": 3
       }
     },
     "tags": [
@@ -40418,11 +40419,11 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "digit-lock-chop",
       "data": {
-        "digitSum": "11+U=18",
-        "U": 7,
-        "remainder": 3
+        "digits": [2, 0, 1, 8],
+        "divisor1": 9,
+        "divisor2": 8
       }
     },
     "tags": [
@@ -40504,11 +40505,12 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "frequency-mean-bars",
       "data": {
-        "weightedTotal": 109,
-        "students": 25,
-        "mean": 4.36
+        "values": [1, 2, 3, 4, 5, 6, 7],
+        "freqs": [1, 3, 2, 6, 8, 3, 2],
+        "xLabel": "days exercised",
+        "yLabel": "students"
       }
     },
     "tags": [
@@ -40594,11 +40596,10 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "border-tile-grid",
       "data": {
-        "borderTiles": 52,
-        "interiorTiles": 35,
-        "answer": 87
+        "width": 12,
+        "height": 16
       }
     },
     "tags": [
@@ -40680,11 +40681,9 @@ const amc2018Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "harmonic-mean-flip",
       "data": {
-        "reciprocalSum": "7/4",
-        "average": "7/12",
-        "answer": "12/7"
+        "values": [1, 2, 4]
       }
     },
     "tags": [

@@ -184,6 +184,11 @@ import { FractionZipperScene } from "./scenes/FractionZipperScene";
 import { CountOutCircleScene } from "./scenes/CountOutCircleScene";
 import { PinwheelGridScene } from "./scenes/PinwheelGridScene";
 import { SignPairSumScene } from "./scenes/SignPairSumScene";
+import { RoadChunkPaceScene } from "./scenes/RoadChunkPaceScene";
+import { DigitLockChopScene } from "./scenes/DigitLockChopScene";
+import { FrequencyMeanBarsScene } from "./scenes/FrequencyMeanBarsScene";
+import { BorderTileGridScene } from "./scenes/BorderTileGridScene";
+import { HarmonicMeanFlipScene } from "./scenes/HarmonicMeanFlipScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -1249,6 +1254,52 @@ export function resolveScene(problem: Problem): AnimatedScene {
   // at least one pair to cancel, or there is no telescoping annihilation to show
   if (type === "sign-pair-sum" && num(data.pairs ?? 0) >= 1) {
     return SignPairSumScene;
+  }
+  // the highway distance must tile exactly into whole coastal-length chunks,
+  // and the speed ratio must actually be faster, or there is nothing to tile
+  if (
+    type === "road-chunk-pace" &&
+    num(data.coastalMiles ?? 0) > 0 &&
+    num(data.coastalMinutes ?? 0) > 0 &&
+    num(data.highwayMiles ?? 0) > 0 &&
+    num(data.speedRatio ?? 0) > 1 &&
+    Number.isInteger(num(data.highwayMiles ?? 0) / num(data.coastalMiles ?? 1))
+  ) {
+    return RoadChunkPaceScene;
+  }
+  // the digit sum must land on exactly one unit digit, or the "find U" step has
+  // no unique answer to lock in
+  if (type === "digit-lock-chop" && Array.isArray(data.digits) && data.digits.length >= 2) {
+    const ds = data.digits.map((d) => Math.round(num(d)));
+    const d1 = Math.round(num(data.divisor1 ?? 0));
+    const d2 = Math.round(num(data.divisor2 ?? 0));
+    const known = ds.every((d) => d >= 0 && d <= 9) ? ds.reduce((a, b) => a + b, 0) : -1;
+    const hits = known >= 0 ? Array.from({ length: 10 }, (_, u) => u).filter((u) => (known + u) % d1 === 0).length : 0;
+    if (d1 >= 2 && d2 >= 2 && hits === 1) return DigitLockChopScene;
+  }
+  // a matching value/frequency for every bar, and at least one person counted,
+  // or there is no weighted mean to compute
+  if (
+    type === "frequency-mean-bars" &&
+    Array.isArray(data.values) &&
+    Array.isArray(data.freqs) &&
+    data.values.length >= 2 &&
+    data.values.length === data.freqs.length &&
+    data.freqs.reduce((a, f) => a + num(f), 0) > 0
+  ) {
+    return FrequencyMeanBarsScene;
+  }
+  // the interior left after peeling a 1-tile ring must have even width and
+  // height, or the 2×2 tiles cannot exactly cover it
+  if (type === "border-tile-grid" && num(data.width ?? 0) >= 3 && num(data.height ?? 0) >= 3) {
+    const w = Math.round(num(data.width ?? 0));
+    const h = Math.round(num(data.height ?? 0));
+    if ((w - 2) % 2 === 0 && (h - 2) % 2 === 0) return BorderTileGridScene;
+  }
+  // every value must be a positive integer, or there is no clean reciprocal to flip
+  if (type === "harmonic-mean-flip" && Array.isArray(data.values) && data.values.length >= 2) {
+    const vs = data.values.map((v) => num(v));
+    if (vs.every((v) => v > 0 && Number.isInteger(v))) return HarmonicMeanFlipScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
