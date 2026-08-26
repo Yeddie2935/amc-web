@@ -254,6 +254,11 @@ export type AnimationTemplateType =
   | "missing-score-total-gap"
   | "two-pace-mile-compare"
   | "digit-mod-candidate-sieve"
+  | "cumulative-median-stacks"
+  | "power-square-parity"
+  | "constant-difference-pairs"
+  | "distinct-prime-token-sum"
+  | "nested-linear-operation"
   | "generic";
 
 export interface AnswerChoice {

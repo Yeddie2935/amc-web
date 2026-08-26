@@ -35868,17 +35868,22 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "cumulative-median-stacks",
       "data": {
-        "medianPosition": 10,
+        "lengths": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
         "frequencies": [
           7,
           3,
           1,
           4,
           4
-        ],
-        "answer": "B"
+        ]
       }
     },
     "tags": [
@@ -35963,10 +35968,22 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "power-square-parity",
       "data": {
-        "answer": "B",
-        "reason": "odd exponent with non-square base"
+        "bases": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "exponents": [
+          2016,
+          2017,
+          2018,
+          2019,
+          2020
+        ]
       }
     },
     "tags": [
@@ -36047,11 +36064,11 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "constant-difference-pairs",
       "data": {
-        "pairs": 25,
-        "pairValue": 2,
-        "answer": "C"
+        "start": 100,
+        "end": 2,
+        "termStep": 2
       }
     },
     "tags": [
@@ -36133,14 +36150,9 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "distinct-prime-token-sum",
       "data": {
-        "answer": "B",
-        "factors": [
-          2,
-          3,
-          7
-        ]
+        "number": 2016
       }
     },
     "tags": [
@@ -36189,6 +36201,11 @@ const amc2016Problems: Problem[] = [
     "shortAnswer": "10",
     "solutionSteps": [
       {
+        "title": "Decode the operation",
+        "body": "The rule a ∗ b = 3a − b means triple the first input, then subtract the second input.",
+        "equation": "a ∗ b = 3a − b"
+      },
+      {
         "title": "Evaluate inside first",
         "body": "By the definition, 5 ∗ x = 3(5) − x = 15 − x.",
         "equation": "5 ∗ x = 15 − x"
@@ -36222,10 +36239,12 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "nested-linear-operation",
       "data": {
-        "answer": "D",
-        "x": 10
+        "multiplier": 3,
+        "innerLeft": 5,
+        "outerLeft": 2,
+        "target": 1
       }
     },
     "tags": [

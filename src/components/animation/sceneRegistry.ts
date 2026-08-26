@@ -234,6 +234,11 @@ import { MidpointBaseHeightScene } from "./scenes/MidpointBaseHeightScene";
 import { MissingScoreTotalGapScene } from "./scenes/MissingScoreTotalGapScene";
 import { TwoPaceMileCompareScene } from "./scenes/TwoPaceMileCompareScene";
 import { DigitModCandidateSieveScene } from "./scenes/DigitModCandidateSieveScene";
+import { CumulativeMedianStacksScene } from "./scenes/CumulativeMedianStacksScene";
+import { PowerSquareParityScene } from "./scenes/PowerSquareParityScene";
+import { ConstantDifferencePairsScene } from "./scenes/ConstantDifferencePairsScene";
+import { DistinctPrimeTokenSumScene } from "./scenes/DistinctPrimeTokenSumScene";
+import { NestedLinearOperationScene } from "./scenes/NestedLinearOperationScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -1757,6 +1762,44 @@ export function resolveScene(problem: Problem): AnimatedScene {
     const candidates = hi >= lo ? Array.from({ length: hi - lo + 1 }, (_, i) => lo + i).filter((value) => value % 10 === digit) : [];
     const winners = fm > 0 ? candidates.filter((value) => value % fm === fr) : [];
     if (lo >= 10 && hi <= 99 && hi >= lo && digit >= 0 && digit <= 9 && candidates.length >= 2 && candidates.length <= 10 && fm >= 2 && fm <= 20 && fr >= 0 && fr < fm && out >= 2 && out <= 20 && winners.length === 1 && Math.floor(winners[0] / out) <= 12) return DigitModCandidateSieveScene;
+  }
+  // Matching bounded value/frequency arrays with an odd total keep every
+  // ordered person-dot drawable and guarantee a single median landing.
+  if (type === "cumulative-median-stacks" && Array.isArray(data.lengths) && Array.isArray(data.frequencies)) {
+    const values = data.lengths.map((value) => num(value)), freqs = data.frequencies.map((value) => Math.round(num(value)));
+    const total = freqs.reduce((sum, value) => sum + value, 0);
+    if (values.length >= 2 && values.length <= 8 && freqs.length === values.length && values.every((value, i) => value > 0 && value <= 30 && (i === 0 || value > values[i - 1])) && freqs.every((freq) => freq >= 0 && freq <= 12) && total >= 3 && total <= 49 && total % 2 === 1) return CumulativeMedianStacksScene;
+  }
+  // Matching bounded positive base/exponent arrays keep every choice row
+  // drawable and allow exact parity and perfect-square-base classification.
+  if (type === "power-square-parity" && Array.isArray(data.bases) && Array.isArray(data.exponents)) {
+    const bases = data.bases.map((value) => Math.round(num(value))), exponents = data.exponents.map((value) => Math.round(num(value)));
+    const exceptions = bases.filter((base, i) => exponents[i] % 2 !== 0 && Math.round(Math.sqrt(base)) ** 2 !== base);
+    if (bases.length >= 2 && bases.length <= 6 && exponents.length === bases.length && bases.every((base) => base >= 1 && base <= 100) && exponents.every((exponent) => exponent >= 1 && exponent <= 10000) && exceptions.length === 1) return PowerSquareParityScene;
+  }
+  // A bounded descending arithmetic run with an even term count keeps every
+  // pair result enumerable and makes the adjacent differences constant.
+  if (type === "constant-difference-pairs") {
+    const start = Math.round(num(data.start)), end = Math.round(num(data.end)), step = Math.round(num(data.termStep));
+    const count = step > 0 && start >= end && (start - end) % step === 0 ? (start - end) / step + 1 : 0;
+    if (start > 0 && start <= 1000 && end >= 0 && step > 0 && step <= 100 && count >= 2 && count <= 100 && count % 2 === 0) return ConstantDifferencePairsScene;
+  }
+  // A bounded composite whose prime factorization has few total and distinct
+  // factors keeps both the division ladder and duplicate bins drawable.
+  if (type === "distinct-prime-token-sum") {
+    const n = Math.round(num(data.number));
+    const factors: number[] = [];
+    let remaining = n;
+    for (let p = 2; p * p <= remaining; p += 1) while (remaining % p === 0) { factors.push(p); remaining /= p; }
+    if (remaining > 1) factors.push(remaining);
+    if (n >= 4 && n <= 100000 && factors.length >= 2 && factors.length <= 10 && new Set(factors).size >= 2 && new Set(factors).size <= 3) return DistinctPrimeTokenSumScene;
+  }
+  // Bounded nonzero integer inputs keep both nested linear expansions and the
+  // final balance drawable; an integer solution preserves the choice check.
+  if (type === "nested-linear-operation") {
+    const k = num(data.multiplier), inner = num(data.innerLeft), outer = num(data.outerLeft), target = num(data.target);
+    const solution = target - (k * outer - k * inner);
+    if ([k, inner, outer, target].every(Number.isInteger) && k >= 1 && k <= 10 && inner >= -20 && inner <= 20 && outer >= -20 && outer <= 20 && target >= -100 && target <= 100 && Number.isInteger(solution) && Math.abs(solution) <= 100) return NestedLinearOperationScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
