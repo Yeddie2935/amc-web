@@ -224,6 +224,11 @@ import { ChestRedistributionScene } from "./scenes/ChestRedistributionScene";
 import { ConcaveTriangleSubtractScene } from "./scenes/ConcaveTriangleSubtractScene";
 import { FactorialFiveLedgerScene } from "./scenes/FactorialFiveLedgerScene";
 import { DistinctOddDigitSlotsScene } from "./scenes/DistinctOddDigitSlotsScene";
+import { SignProductCasesScene } from "./scenes/SignProductCasesScene";
+import { SemicircleAreaSplitScene } from "./scenes/SemicircleAreaSplitScene";
+import { PaceDivisorDaysScene } from "./scenes/PaceDivisorDaysScene";
+import { PeriodicCallInclusionScene } from "./scenes/PeriodicCallInclusionScene";
+import { EquilateralSectorCutScene } from "./scenes/EquilateralSectorCutScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -1671,6 +1676,45 @@ export function resolveScene(problem: Problem): AnimatedScene {
     const digits = Math.round(num(data.digitCount)), len = Math.round(num(data.length));
     const odds = data.oddUnits.map((v) => Math.round(num(v)));
     if (low === 1000 && high === 9999 && digits === 10 && len === 4 && odds.length === 5 && odds.join(",") === "1,3,5,7,9") return DistinctOddDigitSlotsScene;
+  }
+  // exactly three nonzero variables summing to zero leave the six nonuniform
+  // sign patterns; a singleton result keeps the final merge truthful
+  if (type === "sign-product-cases" && Array.isArray(data.variables) && Array.isArray(data.possibleValues)) {
+    const vars = data.variables.map(String);
+    const values = data.possibleValues.map((v) => num(v));
+    if (vars.length === 3 && new Set(vars).size === 3 && vars.every((v) => v.length === 1) && num(data.targetSum, NaN) === 0 && values.length === 1 && Number.isFinite(values[0])) return SignProductCasesScene;
+  }
+  // positive right-triangle legs with a rational area-split radius keep the
+  // centre inside AC and the tangent point strictly inside the hypotenuse
+  if (type === "semicircle-area-split") {
+    const ac = num(data.AC), bc = num(data.BC), ab = Math.hypot(ac, bc);
+    const r = ac * bc / (ab + bc);
+    if (ac > 0 && bc > 0 && ac <= 30 && bc <= 30 && Number.isInteger(ab) && r > 0 && r < ac / 2) return SemicircleAreaSplitScene;
+  }
+  // a modest hour length and day count keep the full divisor set, every pace
+  // chain, and each one-mile road block enumerable and drawable
+  if (type === "pace-divisor-days") {
+    const hour = Math.round(num(data.hourMinutes)), days = Math.round(num(data.days)), gap = Math.round(num(data.paceIncrease));
+    const ds = hour > 0 ? Array.from({ length: hour }, (_, i) => i + 1).filter((d) => hour % d === 0) : [];
+    const chains = ds.filter((start) => Array.from({ length: days }, (_, i) => start + i * gap).every((v) => ds.includes(v)));
+    if (hour >= 12 && hour <= 120 && days >= 3 && days <= 6 && gap > 0 && ds.length <= 24 && chains.length === 1 && hour / chains[0] <= 20) return PaceDivisorDaysScene;
+  }
+  // Three distinct short periods and a bounded year keep both the complete
+  // repeat cycle and every day of the independent calendar check drawable.
+  if (type === "periodic-call-inclusion" && Array.isArray(data.periods)) {
+    const year = Math.round(num(data.yearDays));
+    const periods = data.periods.map((value) => Math.round(num(value)));
+    const gcd = (a: number, b: number): number => b === 0 ? Math.abs(a) : gcd(b, a % b);
+    const cycle = periods.length === 3
+      ? periods.reduce((current, period) => Math.abs(current * period) / (gcd(current, period) || 1), 1)
+      : 0;
+    if (year >= 30 && year <= 400 && periods.length === 3 && new Set(periods).size === 3 && periods.every((period) => period >= 2 && period <= 12) && cycle <= 120) return PeriodicCallInclusionScene;
+  }
+  // Equal short sides and matching arc radii complete a side-(s+r)
+  // equilateral triangle; the 60° arcs are exactly its two corner sectors.
+  if (type === "equilateral-sector-cut") {
+    const segment = num(data.segmentLength), radius = num(data.arcRadius), angle = num(data.centralAngle);
+    if (segment > 0 && segment <= 20 && radius === segment && angle === 60) return EquilateralSectorCutScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

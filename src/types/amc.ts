@@ -244,6 +244,11 @@ export type AnimationTemplateType =
   | "concave-triangle-subtract"
   | "factorial-five-ledger"
   | "distinct-odd-digit-slots"
+  | "sign-product-cases"
+  | "semicircle-area-split"
+  | "pace-divisor-days"
+  | "periodic-call-inclusion"
+  | "equilateral-sector-cut"
   | "generic";
 
 export interface AnswerChoice {

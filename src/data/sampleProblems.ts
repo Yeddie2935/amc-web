@@ -39451,16 +39451,24 @@ const amc2017Problems: Problem[] = [
     "shortAnswer": "0",
     "solutionSteps": [
       {
-        "title": "Use signs",
+        "title": "Convert each quotient to a sign",
         "body": "For any nonzero x, x/|x| is 1 if x is positive and −1 if x is negative."
       },
       {
-        "title": "Possible sign patterns",
-        "body": "Since a+b+c=0, the numbers cannot all have the same sign. There are either two positives and one negative, or two negatives and one positive."
+        "title": "Eliminate uniform signs",
+        "body": "Because a+b+c=0 and none is zero, the numbers cannot all be positive or all be negative. Only two-positive/one-negative and two-negative/one-positive patterns remain."
       },
       {
-        "title": "Evaluate both cases",
-        "body": "Two positives and one negative gives 1+1−1−1=0. Two negatives and one positive gives −1−1+1+1=0."
+        "title": "Evaluate two positives",
+        "body": "Two positive signs and one negative sign give 1+1−1. Their product is −1, so the complete expression is 1+1−1−1=0."
+      },
+      {
+        "title": "Evaluate two negatives",
+        "body": "Two negative signs and one positive sign give −1−1+1. Their product is +1, so the complete expression is −1−1+1+1=0."
+      },
+      {
+        "title": "Combine the cases",
+        "body": "Every allowed sign pattern belongs to one of these two families, and both give 0. Thus 0 is the only possible value."
       }
     ],
     "animationFrames": [
@@ -39486,12 +39494,11 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "sign-product-cases",
       "data": {
-        "possibleValues": [
-          0
-        ],
-        "answer": "A"
+        "variables": ["a", "b", "c"],
+        "targetSum": 0,
+        "possibleValues": [0]
       }
     },
     "tags": [
@@ -39545,16 +39552,20 @@ const amc2017Problems: Problem[] = [
         "body": "Triangle ABC is a 5-12-13 right triangle, so AB = 13."
       },
       {
-        "title": "Split the area by radius",
-        "body": "Let r be the radius. The radius is perpendicular to AB at the tangency point, so it can serve as the height to AB. It also serves as the height to BC in triangle BOC."
+        "title": "Reveal the radius heights",
+        "body": "Let O be the semicircle's center and T its tangency point on AB. Then OT is perpendicular to AB and OC is perpendicular to BC, with OT=OC=r."
       },
       {
-        "title": "Use total area",
-        "body": "Area ABC = 30. Also, area = (1/2)(13)r + (1/2)(5)r = 9r."
+        "title": "Split the triangle at O",
+        "body": "Draw BO. Triangles AOB and BOC fill triangle ABC. Their bases are AB and BC, and their corresponding heights are both r."
       },
       {
-        "title": "Solve",
-        "body": "30 = 9r, so r = 10/3."
+        "title": "Write the area equation",
+        "body": "Area ABC=(1/2)(12)(5)=30. The two pieces give (1/2)(13)r+(1/2)(5)r=9r."
+      },
+      {
+        "title": "Solve for the radius",
+        "body": "Therefore 30=9r, so r=10/3."
       }
     ],
     "animationFrames": [
@@ -39580,12 +39591,10 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "semicircle-area-split",
       "data": {
-        "hypotenuse": 13,
-        "area": 30,
-        "radius": "10/3",
-        "answer": "D"
+        "AC": 12,
+        "BC": 5
       }
     },
     "tags": [
@@ -39644,16 +39653,20 @@ const amc2017Problems: Problem[] = [
         "body": "In 60 minutes, if one mile takes x minutes, the distance is 60/x miles. So x must be a divisor of 60."
       },
       {
-        "title": "Find four divisors 5 apart",
-        "body": "The only sequence of four divisors of 60 increasing by 5 is 5, 10, 15, 20."
+        "title": "List the possible paces",
+        "body": "The positive divisors of 60 are 1,2,3,4,5,6,10,12,15,20,30, and 60."
       },
       {
-        "title": "Compute distances",
-        "body": "The distances are 60/5, 60/10, 60/15, and 60/20, or 12, 6, 4, and 3 miles."
+        "title": "Find four paces 5 apart",
+        "body": "The only four-term sequence of divisors increasing by 5 is 5,10,15,20."
       },
       {
-        "title": "Add",
-        "body": "The total is 12+6+4+3 = 25."
+        "title": "Convert paces to distances",
+        "body": "The four one-hour distances are 60/5, 60/10, 60/15, and 60/20, or 12,6,4, and 3 miles."
+      },
+      {
+        "title": "Join the four trips",
+        "body": "The total distance is 12+6+4+3=25 miles."
       }
     ],
     "animationFrames": [
@@ -39679,21 +39692,11 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "pace-divisor-days",
       "data": {
-        "minutesPerMile": [
-          5,
-          10,
-          15,
-          20
-        ],
-        "distances": [
-          12,
-          6,
-          4,
-          3
-        ],
-        "answer": 25
+        "hourMinutes": 60,
+        "days": 4,
+        "paceIncrease": 5
       }
     },
     "tags": [
@@ -39743,20 +39746,24 @@ const amc2017Problems: Problem[] = [
     "shortAnswer": "146",
     "solutionSteps": [
       {
-        "title": "Use inclusion-exclusion",
-        "body": "Count days in 2017 with at least one call, then subtract from 365."
+        "title": "Mark one repeating cycle",
+        "body": "Starting after December 31, calls occur on day numbers divisible by 3, 4, or 5. All three schedules repeat together every 60 days."
       },
       {
-        "title": "Single-call sets",
-        "body": "The counts are ⌊365/3⌋, ⌊365/4⌋, and ⌊365/5⌋."
+        "title": "Subtract the three schedules",
+        "body": "From 365 days subtract ⌊365/3⌋=121, ⌊365/4⌋=91, and ⌊365/5⌋=73 call dates. This temporarily leaves 80."
       },
       {
-        "title": "Correct overlaps",
-        "body": "Add back pairwise overlaps for lcm 12, 15, and 20, then subtract triple overlaps for lcm 60."
+        "title": "Add back pair overlaps",
+        "body": "Dates shared by two schedules were subtracted twice. Add back ⌊365/12⌋=30, ⌊365/15⌋=24, and ⌊365/20⌋=18, reaching 152."
       },
       {
-        "title": "Subtract from 365",
-        "body": "The number of days with no calls is 146."
+        "title": "Correct triple overlaps",
+        "body": "All three schedules coincide every 60 days. The 6 triple-call dates were restored once too many, so subtract ⌊365/60⌋=6 to get 146."
+      },
+      {
+        "title": "Verify all days",
+        "body": "Directly marking all 365 dates leaves exactly 146 dates with no call."
       }
     ],
     "animationFrames": [
@@ -39782,9 +39789,9 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "venn",
+      "type": "periodic-call-inclusion",
       "data": {
-        "answer": 146,
+        "yearDays": 365,
         "periods": [
           3,
           4,
@@ -39878,11 +39885,11 @@ const amc2017Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "equilateral-sector-cut",
       "data": {
-        "triangleArea": "4√3",
-        "sectorArea": "2π/3",
-        "answer": "B"
+        "segmentLength": 2,
+        "arcRadius": 2,
+        "centralAngle": 60
       }
     },
     "tags": [
