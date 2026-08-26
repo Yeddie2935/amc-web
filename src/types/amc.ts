@@ -249,6 +249,11 @@ export type AnimationTemplateType =
   | "pace-divisor-days"
   | "periodic-call-inclusion"
   | "equilateral-sector-cut"
+  | "time-block-conversion"
+  | "midpoint-base-height"
+  | "missing-score-total-gap"
+  | "two-pace-mile-compare"
+  | "digit-mod-candidate-sieve"
   | "generic";
 
 export interface AnswerChoice {

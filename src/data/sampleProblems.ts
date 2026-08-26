@@ -35423,10 +35423,11 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "time-block-conversion",
       "data": {
-        "answer": "C",
-        "expression": "11 × 60 + 5 = 665"
+        "hours": 11,
+        "extraMinutes": 5,
+        "minutesPerHour": 60
       }
     },
     "tags": [
@@ -35509,11 +35510,11 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "midpoint-base-height",
       "data": {
-        "base": 4,
-        "height": 6,
-        "answer": "A"
+        "AB": 6,
+        "AD": 8,
+        "midpointParts": 2
       }
     },
     "tags": [
@@ -35601,12 +35602,15 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "missing-score-total-gap",
       "data": {
-        "total": 280,
-        "known": 240,
-        "missing": 40,
-        "answer": "A"
+        "studentCount": 4,
+        "average": 70,
+        "knownScores": [
+          70,
+          80,
+          90
+        ]
       }
     },
     "tags": [
@@ -35688,12 +35692,14 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "two-pace-mile-compare",
       "data": {
-        "boyPace": 14,
-        "oldPace": 24,
-        "difference": 10,
-        "answer": "B"
+        "boyHours": 3,
+        "boyExtraMinutes": 30,
+        "boyMiles": 15,
+        "currentHours": 4,
+        "currentMiles": 10,
+        "minutesPerHour": 60
       }
     },
     "tags": [
@@ -35775,12 +35781,14 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "digit-mod-candidate-sieve",
       "data": {
-        "candidate": 73,
-        "modulus": 11,
-        "remainder": 7,
-        "answer": "E"
+        "minValue": 10,
+        "maxValue": 99,
+        "lastDigit": 3,
+        "filterModulus": 9,
+        "filterRemainder": 1,
+        "finalModulus": 11
       }
     },
     "tags": [

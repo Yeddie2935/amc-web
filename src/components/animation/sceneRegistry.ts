@@ -229,6 +229,11 @@ import { SemicircleAreaSplitScene } from "./scenes/SemicircleAreaSplitScene";
 import { PaceDivisorDaysScene } from "./scenes/PaceDivisorDaysScene";
 import { PeriodicCallInclusionScene } from "./scenes/PeriodicCallInclusionScene";
 import { EquilateralSectorCutScene } from "./scenes/EquilateralSectorCutScene";
+import { TimeBlockConversionScene } from "./scenes/TimeBlockConversionScene";
+import { MidpointBaseHeightScene } from "./scenes/MidpointBaseHeightScene";
+import { MissingScoreTotalGapScene } from "./scenes/MissingScoreTotalGapScene";
+import { TwoPaceMileCompareScene } from "./scenes/TwoPaceMileCompareScene";
+import { DigitModCandidateSieveScene } from "./scenes/DigitModCandidateSieveScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -1715,6 +1720,43 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if (type === "equilateral-sector-cut") {
     const segment = num(data.segmentLength), radius = num(data.arcRadius), angle = num(data.centralAngle);
     if (segment > 0 && segment <= 20 && radius === segment && angle === 60) return EquilateralSectorCutScene;
+  }
+  // A modest whole-hour count keeps every conversion tile drawable; a true
+  // minutes-per-hour factor and sub-hour remainder preserve the time model.
+  if (type === "time-block-conversion") {
+    const hours = Math.round(num(data.hours)), extra = Math.round(num(data.extraMinutes)), perHour = Math.round(num(data.minutesPerHour));
+    if (hours >= 1 && hours <= 12 && extra >= 0 && extra < 60 && perHour === 60) return TimeBlockConversionScene;
+  }
+  // Positive bounded rectangle dimensions and exactly two midpoint parts keep
+  // the external perpendicular height and the half-side base well defined.
+  if (type === "midpoint-base-height") {
+    const ab = num(data.AB), ad = num(data.AD), parts = Math.round(num(data.midpointParts));
+    if (ab > 0 && ab <= 30 && ad > 0 && ad <= 30 && parts === 2 && Number.isInteger(ad / parts)) return MidpointBaseHeightScene;
+  }
+  // One missing member and bounded nonnegative scores keep the target-total
+  // tray and every known exam paper directly enumerable and drawable.
+  if (type === "missing-score-total-gap" && Array.isArray(data.knownScores)) {
+    const count = Math.round(num(data.studentCount)), average = num(data.average);
+    const scores = data.knownScores.map((value) => num(value));
+    const gap = count * average - scores.reduce((sum, value) => sum + value, 0);
+    if (count >= 2 && count <= 6 && scores.length === count - 1 && average > 0 && average <= 100 && scores.every((score) => score >= 0 && score <= 100) && gap >= 0 && gap <= 100) return MissingScoreTotalGapScene;
+  }
+  // Bounded whole-mile trips keep every mile block drawable; ordinary clock
+  // fields and 60 minutes per hour preserve both unit-rate conversions.
+  if (type === "two-pace-mile-compare") {
+    const bh = num(data.boyHours), be = num(data.boyExtraMinutes), bm = Math.round(num(data.boyMiles));
+    const ch = num(data.currentHours), cm = Math.round(num(data.currentMiles)), mph = Math.round(num(data.minutesPerHour));
+    const bp = (bh * mph + be) / bm, cp = ch * mph / cm;
+    if (bh > 0 && bh <= 24 && be >= 0 && be < 60 && bm >= 1 && bm <= 20 && ch > 0 && ch <= 24 && cm >= 1 && cm <= 20 && mph === 60 && Number.isInteger(bp) && Number.isInteger(cp) && cp > bp) return TwoPaceMileCompareScene;
+  }
+  // A two-digit interval, decimal last digit, and small positive moduli keep
+  // the full candidate sieve and the final quotient rows directly drawable.
+  if (type === "digit-mod-candidate-sieve") {
+    const lo = Math.round(num(data.minValue)), hi = Math.round(num(data.maxValue)), digit = Math.round(num(data.lastDigit));
+    const fm = Math.round(num(data.filterModulus)), fr = Math.round(num(data.filterRemainder)), out = Math.round(num(data.finalModulus));
+    const candidates = hi >= lo ? Array.from({ length: hi - lo + 1 }, (_, i) => lo + i).filter((value) => value % 10 === digit) : [];
+    const winners = fm > 0 ? candidates.filter((value) => value % fm === fr) : [];
+    if (lo >= 10 && hi <= 99 && hi >= lo && digit >= 0 && digit <= 9 && candidates.length >= 2 && candidates.length <= 10 && fm >= 2 && fm <= 20 && fr >= 0 && fr < fm && out >= 2 && out <= 20 && winners.length === 1 && Math.floor(winners[0] / out) <= 12) return DigitModCandidateSieveScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
