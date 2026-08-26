@@ -264,6 +264,11 @@ export type AnimationTemplateType =
   | "zero-product-pair-probability"
   | "fuel-tank-trip"
   | "fourth-power-two-factor"
+  | "lap-gain-pass"
+  | "password-prefix-subtract"
+  | "elimination-race-ledger"
+  | "symmetric-even-sequence"
+  | "shared-lcm-token"
   | "generic";
 
 export interface AnswerChoice {

@@ -36777,12 +36777,10 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "lap-gain-pass",
       "data": {
-        "gainPerLap": 0.25,
-        "bonnieLaps": 4,
-        "annieLaps": 5,
-        "answer": "D"
+        "trackMeters": 400,
+        "percentFaster": 25
       }
     },
     "tags": [
@@ -36863,12 +36861,11 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "counting",
+      "type": "password-prefix-subtract",
       "data": {
         "slots": 4,
-        "choices": 10,
-        "adjustment": -10,
-        "answer": "9990"
+        "digitChoices": 10,
+        "forbiddenPrefix": "911"
       }
     },
     "tags": [
@@ -36949,12 +36946,10 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "elimination-race-ledger",
       "data": {
         "competitors": 216,
-        "eliminatedPerRace": 5,
-        "races": 43,
-        "answer": "C"
+        "lanes": 6
       }
     },
     "tags": [
@@ -37035,12 +37030,11 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "symmetric-even-sequence",
       "data": {
-        "middle": 400,
-        "steps": 12,
-        "stepSize": 2,
-        "answer": "E"
+        "total": 10000,
+        "count": 25,
+        "stepSize": 2
       }
     },
     "tags": [
@@ -37124,12 +37118,10 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "shared-lcm-token",
       "data": {
-        "a": 4,
-        "b": 3,
-        "c": 5,
-        "answer": "A"
+        "leftLcm": 12,
+        "rightLcm": 15
       }
     },
     "tags": [

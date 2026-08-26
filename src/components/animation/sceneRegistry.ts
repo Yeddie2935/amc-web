@@ -244,6 +244,11 @@ import { EqualGroupsTripFractionScene } from "./scenes/EqualGroupsTripFractionSc
 import { ZeroProductPairProbabilityScene } from "./scenes/ZeroProductPairProbabilityScene";
 import { FuelTankTripScene } from "./scenes/FuelTankTripScene";
 import { FourthPowerTwoFactorScene } from "./scenes/FourthPowerTwoFactorScene";
+import { LapGainPassScene } from "./scenes/LapGainPassScene";
+import { PasswordPrefixSubtractScene } from "./scenes/PasswordPrefixSubtractScene";
+import { EliminationRaceLedgerScene } from "./scenes/EliminationRaceLedgerScene";
+import { SymmetricEvenSequenceScene } from "./scenes/SymmetricEvenSequenceScene";
+import { SharedLcmTokenScene } from "./scenes/SharedLcmTokenScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -1841,6 +1846,39 @@ export function resolveScene(problem: Problem): AnimatedScene {
     const a = Math.round(num(data.a)), b = Math.round(num(data.b));
     const value = a ** 4 - b ** 4;
     if (a > b && b >= 1 && a <= 31 && a % 2 === 1 && b % 2 === 1 && value > 0 && Number.isSafeInteger(value)) return FourthPowerTwoFactorScene;
+  }
+  // A positive track and a reciprocal whole-lap percentage gain keep the
+  // quarter-gain loop finite, exact, and drawable with at most eight markers.
+  if (type === "lap-gain-pass") {
+    const track = num(data.trackMeters), percent = num(data.percentFaster), gain = percent / 100, laps = 1 / gain;
+    if (track > 0 && track <= 10000 && percent > 0 && percent <= 100 && Number.isInteger(laps) && laps >= 1 && laps <= 8) return LapGainPassScene;
+  }
+  // A short decimal password and proper fixed prefix keep all suffix cards
+  // enumerable while proving the forbidden block is exactly 10^(free slots).
+  if (type === "password-prefix-subtract") {
+    const slots = Math.round(num(data.slots)), choices = Math.round(num(data.digitChoices));
+    const prefix = typeof data.forbiddenPrefix === "string" ? data.forbiddenPrefix : "";
+    if (slots >= 2 && slots <= 6 && choices === 10 && prefix.length >= 1 && prefix.length < slots && /^[0-9]+$/.test(prefix)) return PasswordPrefixSubtractScene;
+  }
+  // A small lane count and integral bounded race total keep the demonstration
+  // heat, full competitor field, and complete race-block ledger drawable.
+  if (type === "elimination-race-ledger") {
+    const competitors = Math.round(num(data.competitors)), lanes = Math.round(num(data.lanes));
+    const races = (competitors - 1) / (lanes - 1);
+    if (competitors >= lanes && competitors <= 300 && lanes >= 2 && lanes <= 8 && Number.isInteger(races) && races >= 1 && races <= 60) return EliminationRaceLedgerScene;
+  }
+  // An odd bounded count, positive integral step, and integral middle keep the
+  // full symmetric row and every right-half hop exact and drawable.
+  if (type === "symmetric-even-sequence") {
+    const total = num(data.total), count = Math.round(num(data.count)), step = num(data.stepSize);
+    if (total > 0 && count >= 3 && count <= 31 && count % 2 === 1 && Number.isInteger(total / count) && Number.isInteger(step) && step > 0 && step <= 20) return SymmetricEvenSequenceScene;
+  }
+  // Small positive LCMs with a nontrivial shared factor keep both prime trays
+  // and exhaustive divisor-triple verification finite and drawable.
+  if (type === "shared-lcm-token") {
+    const left=Math.round(num(data.leftLcm)),right=Math.round(num(data.rightLcm));
+    const common=(a:number,b:number):number=>b?common(b,a%b):Math.abs(a);
+    if(left>=2&&right>=2&&left<=100&&right<=100&&common(left,right)>1) return SharedLcmTokenScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
