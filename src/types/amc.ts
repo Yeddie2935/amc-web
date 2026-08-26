@@ -259,6 +259,11 @@ export type AnimationTemplateType =
   | "constant-difference-pairs"
   | "distinct-prime-token-sum"
   | "nested-linear-operation"
+  | "digit-reversal-pair-count"
+  | "equal-groups-trip-fraction"
+  | "zero-product-pair-probability"
+  | "fuel-tank-trip"
+  | "fourth-power-two-factor"
   | "generic";
 
 export interface AnswerChoice {

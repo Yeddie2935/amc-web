@@ -239,6 +239,11 @@ import { PowerSquareParityScene } from "./scenes/PowerSquareParityScene";
 import { ConstantDifferencePairsScene } from "./scenes/ConstantDifferencePairsScene";
 import { DistinctPrimeTokenSumScene } from "./scenes/DistinctPrimeTokenSumScene";
 import { NestedLinearOperationScene } from "./scenes/NestedLinearOperationScene";
+import { DigitReversalPairCountScene } from "./scenes/DigitReversalPairCountScene";
+import { EqualGroupsTripFractionScene } from "./scenes/EqualGroupsTripFractionScene";
+import { ZeroProductPairProbabilityScene } from "./scenes/ZeroProductPairProbabilityScene";
+import { FuelTankTripScene } from "./scenes/FuelTankTripScene";
+import { FourthPowerTwoFactorScene } from "./scenes/FourthPowerTwoFactorScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -1800,6 +1805,42 @@ export function resolveScene(problem: Problem): AnimatedScene {
     const k = num(data.multiplier), inner = num(data.innerLeft), outer = num(data.outerLeft), target = num(data.target);
     const solution = target - (k * outer - k * inner);
     if ([k, inner, outer, target].every(Number.isInteger) && k >= 1 && k <= 10 && inner >= -20 && inner <= 20 && outer >= -20 && outer <= 20 && target >= -100 && target <= 100 && Number.isInteger(solution) && Math.abs(solution) <= 100) return NestedLinearOperationScene;
+  }
+  // A two-digit base-10 reversal has factor 11; bounded digit limits keep the
+  // full ordered-pair enumeration drawable and independently checkable.
+  if (type === "digit-reversal-pair-count") {
+    const target = Math.round(num(data.target)), base = Math.round(num(data.base)), maxDigit = Math.round(num(data.maxDigit));
+    const digitSum = target / (base + 1);
+    const pairs = Number.isInteger(digitSum) ? Array.from({ length: maxDigit }, (_, i) => i + 1).filter((a) => digitSum - a >= 0 && digitSum - a <= maxDigit) : [];
+    if (target >= 10 && target <= 198 && base === 10 && maxDigit === 9 && Number.isInteger(digitSum) && pairs.length >= 1 && pairs.length <= 9) return DigitReversalPairCountScene;
+  }
+  // Equal bounded rosters divisible by both denominators keep every student
+  // drawable and guarantee integral selected subgroups.
+  if (type === "equal-groups-trip-fraction") {
+    const size = Math.round(num(data.groupSize)), gn = Math.round(num(data.girlsNumerator)), gd = Math.round(num(data.girlsDenominator));
+    const bn = Math.round(num(data.boysNumerator)), bd = Math.round(num(data.boysDenominator));
+    if (size >= 2 && size <= 24 && gd >= 2 && gd <= 12 && bd >= 2 && bd <= 12 && gn >= 1 && gn < gd && bn >= 1 && bn < bd && size % gd === 0 && size % bd === 0 && size * gn / gd + size * bn / bd <= 30) return EqualGroupsTripFractionScene;
+  }
+  // A small distinct integer set with exactly one zero keeps its complete pair
+  // graph drawable and makes the zero-product favorable edges unambiguous.
+  if (type === "zero-product-pair-probability" && Array.isArray(data.values)) {
+    const values = data.values.map((value) => num(value));
+    if (values.length >= 3 && values.length <= 8 && values.every((value) => Number.isInteger(value) && Math.abs(value) <= 99) && new Set(values).size === values.length && values.filter((value) => value === 0).length === 1) return ZeroProductPairProbabilityScene;
+  }
+  // Integral gallon states and a bounded tank keep every fuel cell drawable;
+  // the refill must fit and the final fraction must describe a real tank level.
+  if (type === "fuel-tank-trip") {
+    const capacity = Math.round(num(data.capacity)), mpg = num(data.mpg), firstMiles = num(data.firstMiles), refill = num(data.refill);
+    const fn = Math.round(num(data.finalNumerator)), fd = Math.round(num(data.finalDenominator));
+    const used = firstMiles / mpg, afterFirst = capacity - used, afterRefill = afterFirst + refill, finalFuel = capacity * fn / fd;
+    if (capacity >= 2 && capacity <= 20 && mpg > 0 && mpg <= 100 && firstMiles > 0 && refill > 0 && Number.isInteger(used) && Number.isInteger(afterFirst) && Number.isInteger(afterRefill) && fd >= 2 && fn >= 1 && fn < fd && Number.isInteger(finalFuel) && afterFirst >= 0 && afterRefill <= capacity && afterRefill >= finalFuel) return FuelTankTripScene;
+  }
+  // Small distinct odd bases keep the factor tree and each extracted 2-token
+  // drawable; their ordered difference guarantees a positive source value.
+  if (type === "fourth-power-two-factor") {
+    const a = Math.round(num(data.a)), b = Math.round(num(data.b));
+    const value = a ** 4 - b ** 4;
+    if (a > b && b >= 1 && a <= 31 && a % 2 === 1 && b % 2 === 1 && value > 0 && Number.isSafeInteger(value)) return FourthPowerTwoFactorScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

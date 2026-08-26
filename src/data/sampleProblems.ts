@@ -36302,6 +36302,11 @@ const amc2016Problems: Problem[] = [
         "equation": "11(a + b) = 132"
       },
       {
+        "title": "Find the digit sum",
+        "body": "Divide by 11, so the two digits must satisfy a + b = 12.",
+        "equation": "a + b = 12"
+      },
+      {
         "title": "Count digit pairs",
         "body": "So a + b = 12. The valid pairs are (3,9), (4,8), (5,7), (6,6), (7,5), (8,4), and (9,3). There are 7 numbers."
       }
@@ -36324,11 +36329,11 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "digit-reversal-pair-count",
       "data": {
         "target": 132,
-        "pairs": 7,
-        "answer": "B"
+        "base": 10,
+        "maxDigit": 9
       }
     },
     "tags": [
@@ -36381,8 +36386,13 @@ const amc2016Problems: Problem[] = [
         "body": "Let there be 12 boys and 12 girls to avoid fractions."
       },
       {
-        "title": "Count trip students",
-        "body": "Three-fourths of 12 girls is 9 girls. Two-thirds of 12 boys is 8 boys.",
+        "title": "Select the girls",
+        "body": "Three-fourths of 12 girls is 9 girls.",
+        "equation": "3/4 × 12 = 9"
+      },
+      {
+        "title": "Select the boys",
+        "body": "Two-thirds of 12 boys is 8 boys, so 9 + 8 = 17 students went on the trip.",
         "equation": "9 + 8 = 17"
       },
       {
@@ -36409,11 +36419,13 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "equal-groups-trip-fraction",
       "data": {
-        "girlsTrip": 9,
-        "boysTrip": 8,
-        "answer": "B"
+        "groupSize": 12,
+        "girlsNumerator": 3,
+        "girlsDenominator": 4,
+        "boysNumerator": 2,
+        "boysDenominator": 3
       }
     },
     "tags": [
@@ -36471,7 +36483,11 @@ const amc2016Problems: Problem[] = [
       },
       {
         "title": "Count all pairs",
-        "body": "There are C(6,2)=15 total ways to choose two different numbers.",
+        "body": "There are C(6,2)=15 total ways to choose two different numbers."
+      },
+      {
+        "title": "Form the probability",
+        "body": "Five of the 15 pairs have product 0, and the fraction simplifies to one-third.",
         "equation": "5/15 = 1/3"
       }
     ],
@@ -36493,11 +36509,9 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "zero-product-pair-probability",
       "data": {
-        "favorable": 5,
-        "total": 15,
-        "answer": "D"
+        "values": [-2, -1, 0, 3, 4, 5]
       }
     },
     "tags": [
@@ -36587,11 +36601,14 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "fuel-tank-trip",
       "data": {
+        "capacity": 14,
+        "mpg": 35,
         "firstMiles": 350,
-        "secondMiles": 175,
-        "answer": "A"
+        "refill": 8,
+        "finalNumerator": 1,
+        "finalDenominator": 2
       }
     },
     "tags": [
@@ -36673,11 +36690,10 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "fourth-power-two-factor",
       "data": {
-        "power": 5,
-        "value": 32,
-        "answer": "C"
+        "a": 13,
+        "b": 11
       }
     },
     "tags": [
