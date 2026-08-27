@@ -33746,9 +33746,10 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "isosceles-altitude",
       "data": {
-        "answer": "B"
+        "equalSide": 29,
+        "base": 42
       }
     },
     "tags": [
@@ -33829,9 +33830,9 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "outcome-product-grid",
       "data": {
-        "answer": "E"
+        "values": [1, 2, 3]
       }
     },
     "tags": [
@@ -33912,9 +33913,10 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "triangle-perimeter-ceiling",
       "data": {
-        "answer": "D"
+        "sideA": 5,
+        "sideB": 19
       }
     },
     "tags": [
@@ -33994,9 +33996,11 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "odd-layer-square",
       "data": {
-        "answer": "D"
+        "days": 20,
+        "first": 1,
+        "increment": 2
       }
     },
     "tags": [
@@ -34077,10 +34081,10 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "counting",
+      "type": "distinct-four-digit-count",
       "data": {
-        "choicesPerSlot": [9, 9, 8, 7],
-        "answer": "4536"
+        "digitCount": 10,
+        "length": 4
       }
     },
     "tags": [

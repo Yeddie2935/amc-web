@@ -259,6 +259,11 @@ import { OctagonMidpointShadeScene } from "./scenes/OctagonMidpointShadeScene";
 import { SharedRouteArrivalGapScene } from "./scenes/SharedRouteArrivalGapScene";
 import { EndSeatPermutationProductScene } from "./scenes/EndSeatPermutationProductScene";
 import { ScoreStatisticChangeScene } from "./scenes/ScoreStatisticChangeScene";
+import { IsoscelesAltitudeScene } from "./scenes/IsoscelesAltitudeScene";
+import { OutcomeProductGridScene } from "./scenes/OutcomeProductGridScene";
+import { TrianglePerimeterCeilingScene } from "./scenes/TrianglePerimeterCeilingScene";
+import { OddLayerSquareScene } from "./scenes/OddLayerSquareScene";
+import { DistinctFourDigitCountScene } from "./scenes/DistinctFourDigitCountScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -1948,6 +1953,35 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if(type==="score-statistic-change"&&Array.isArray(data.scores)){
     const scores=data.scores.map(v=>num(v)),next=num(data.newScore),all=[...scores,next];
     if(scores.length>=5&&scores.length<=18&&all.every(v=>Number.isInteger(v)&&v>=0&&v<=100)&&new Set(scores).size>=2) return ScoreStatisticChangeScene;
+  }
+  // A bounded even base and two equal longer sides create two congruent,
+  // drawable right triangles with a real altitude.
+  if(type==="isosceles-altitude"){
+    const side=num(data.equalSide),base=num(data.base),half=base/2;
+    if(side>0&&side<=100&&base>0&&base<=160&&Number.isInteger(half)&&half<side&&Number.isInteger(Math.sqrt(side*side-half*half))) return IsoscelesAltitudeScene;
+  }
+  // Two identical short lists of distinct positive integers keep the complete
+  // ordered product table finite, exact, and readable cell by cell.
+  if(type==="outcome-product-grid"&&Array.isArray(data.values)){
+    const values=data.values.map(v=>num(v));
+    if(values.length>=2&&values.length<=4&&new Set(values).size===values.length&&values.every(v=>Number.isInteger(v)&&v>0&&v<=12)) return OutcomeProductGridScene;
+  }
+  // Two bounded positive whole side lengths determine a finite strict third-side
+  // limit and an exact whole-number perimeter ceiling.
+  if(type==="triangle-perimeter-ceiling"){
+    const a=num(data.sideA),b=num(data.sideB);
+    if(Number.isInteger(a)&&Number.isInteger(b)&&a>0&&b>0&&a<=60&&b<=60&&a!==b) return TrianglePerimeterCeilingScene;
+  }
+  // A bounded run of the positive odd numbers can be drawn exactly as nested
+  // L-borders while keeping the resulting square's cells legible.
+  if(type==="odd-layer-square"){
+    const days=Math.round(num(data.days)),first=Math.round(num(data.first)),increment=Math.round(num(data.increment));
+    if(days>=2&&days<=25&&first===1&&increment===2) return OddLayerSquareScene;
+  }
+  // Ten decimal digit cards and exactly four distinct slots make the leading-
+  // zero exclusion and successive used-card removals exact and drawable.
+  if(type==="distinct-four-digit-count"){
+    if(num(data.digitCount)===10&&num(data.length)===4) return DistinctFourDigitCountScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

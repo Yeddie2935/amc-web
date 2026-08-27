@@ -279,6 +279,11 @@ export type AnimationTemplateType =
   | "shared-route-arrival-gap"
   | "end-seat-permutation-product"
   | "score-statistic-change"
+  | "isosceles-altitude"
+  | "outcome-product-grid"
+  | "triangle-perimeter-ceiling"
+  | "odd-layer-square"
+  | "distinct-four-digit-count"
   | "generic";
 
 export interface AnswerChoice {
