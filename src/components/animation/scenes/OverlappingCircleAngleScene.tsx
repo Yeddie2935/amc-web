@@ -1,0 +1,32 @@
+import { AnimatePresence, motion } from "motion/react";
+import type { AnimatedSceneProps } from "./types";
+import { num, sceneData, SvgAnswerBadge } from "./sceneKit";
+
+const FONT="ui-monospace, SFMono-Regular, Menlo, monospace";const INK="#1f2a44",IND="#4338ca",TEAL="#0d9488",GREEN="#16a34a",AMBER="#d97706",RED="#dc2626",DIM="#64748b";
+type P={x:number;y:number}; const polar=(o:P,r:number,d:number)=>({x:o.x+r*Math.cos(d*Math.PI/180),y:o.y+r*Math.sin(d*Math.PI/180)});
+
+/** Build the equilateral center triangle, expose two 30° side angles, then merge the three wedges. */
+export function OverlappingCircleAngleScene({problem,step,totalSteps}:AnimatedSceneProps){
+  const data=sceneData(problem);const radius=num(data.radius,0);const final=step>=totalSteps-1,phase=final?2:Math.min(step,1);
+  const r=80,A={x:190,y:150},B={x:270,y:150},C={x:110,y:150},D={x:350,y:150},E={x:230,y:150-Math.sqrt(r*r-40*40)};
+  const dist=(p:P,q:P)=>Math.hypot(p.x-q.x,p.y-q.y);const dot=(u:P,v:P)=>u.x*v.x+u.y*v.y;
+  const angle=(p:P,o:P,q:P)=>Math.acos(dot({x:p.x-o.x,y:p.y-o.y},{x:q.x-o.x,y:q.y-o.y})/(dist(p,o)*dist(q,o)))*180/Math.PI;
+  const centerAngle=Math.round(angle(A,E,B)),leftAngle=Math.round(angle(C,E,A)),rightAngle=Math.round(angle(B,E,D)),target=Math.round(angle(C,E,D));
+  const choice=problem.choices?.find(c=>Number(c.text)===target)?.label;const stored=Number(String(problem.shortAnswer??"").replace(/[^\d.]/g,""));
+  const ok=Math.abs(dist(E,A)-dist(A,B))<1e-6&&centerAngle===60&&leftAngle===30&&rightAngle===30&&target===120&&stored===target&&choice===problem.answer;
+  const failure=centerAngle!==60?`center angle is ${centerAngle}, not 60`:leftAngle!==30||rightAngle!==30?`side angles are ${leftAngle} and ${rightAngle}`:stored!==target?`computed ${target}, stored ${problem.shortAnswer}`:`choice ${choice??"missing"}, stored ${problem.answer}`;
+  const wedge=(start:number,end:number,rad:number)=>{const p=polar(E,rad,start),q=polar(E,rad,end);return `M${E.x} ${E.y} L${p.x} ${p.y} A${rad} ${rad} 0 0 1 ${q.x} ${q.y} Z`;};
+  const label=(p:P,t:string,dx:number,dy:number)=><text x={p.x+dx} y={p.y+dy} fontSize="12" fontWeight="900" fill={INK}>{t}</text>;
+  return <div style={{display:"flex",justifyContent:"center",width:"100%",minWidth:0,padding:"6px 4px",boxSizing:"border-box"}}><svg viewBox="0 0 460 330" width="100%" style={{width:"100%",maxWidth:"100%",minWidth:0,display:"block"}}>
+    <text x="230" y="18" textAnchor="middle" fontSize="11.5" fontWeight="850" fill={INK}>{phase===0?"equal radii make triangle EAB equilateral":phase===1?"the straight baseline creates two isosceles side triangles":"merge the 30°, 60°, and 30° wedges at E"}</text>
+    <motion.circle cx={A.x} cy={A.y} r={r} fill="#eef2ff" fillOpacity=".35" stroke={IND} strokeWidth="2.2" initial={{pathLength:0}} animate={{pathLength:1}}/><motion.circle cx={B.x} cy={B.y} r={r} fill="#ecfeff" fillOpacity=".35" stroke={TEAL} strokeWidth="2.2" initial={{pathLength:0}} animate={{pathLength:1}} transition={{delay:.15}}/>
+    <line x1={C.x-10} y1={C.y} x2={D.x+10} y2={D.y} stroke={INK} strokeWidth="2"/>
+    <line x1={E.x} y1={E.y} x2={C.x} y2={C.y} stroke={phase>=1?AMBER:DIM} strokeWidth={phase>=1?2.4:1.2}/><line x1={E.x} y1={E.y} x2={D.x} y2={D.y} stroke={phase>=1?AMBER:DIM} strokeWidth={phase>=1?2.4:1.2}/>
+    <motion.polygon points={`${E.x},${E.y} ${A.x},${A.y} ${B.x},${B.y}`} fill="#e0e7ff" stroke={IND} strokeWidth="2.5" initial={{opacity:0}} animate={{opacity:phase===0?1:.45}}/>
+    {phase===0&&<><path d={wedge(60,120,31)} fill="#c7d2fe" stroke={IND} strokeWidth="2"/><text x={E.x} y={E.y+29} textAnchor="middle" fontSize="11" fontWeight="900" fill={IND}>{centerAngle}°</text>{[[E,A],[E,B],[A,B]].map((pair,i)=>{const p=pair[0],q=pair[1],mx=(p.x+q.x)/2,my=(p.y+q.y)/2;return <g key={i}><line x1={mx-4} y1={my-4} x2={mx+4} y2={my+4} stroke={IND} strokeWidth="2"/></g>})}<text x="230" y="244" textAnchor="middle" fontSize="15" fontWeight="900" fill={IND} fontFamily={FONT}>EA = EB = AB = radius</text><text x="230" y="272" textAnchor="middle" fontSize="12" fontWeight="850" fill={DIM}>three equal sides ⇒ every angle is 60°</text></>}
+    {phase===1&&<><motion.path d={wedge(120,150,38)} fill="#fef3c7" stroke={AMBER} strokeWidth="2" initial={{opacity:0,scale:.5}} animate={{opacity:1,scale:1}} style={{transformBox:"fill-box",transformOrigin:`${E.x}px ${E.y}px`}}/><motion.path d={wedge(30,60,38)} fill="#ccfbf1" stroke={TEAL} strokeWidth="2" initial={{opacity:0,scale:.5}} animate={{opacity:1,scale:1}} style={{transformBox:"fill-box",transformOrigin:`${E.x}px ${E.y}px`}}/><text x="190" y="116" textAnchor="middle" fontSize="11" fontWeight="900" fill={AMBER}>{leftAngle}°</text><text x="270" y="116" textAnchor="middle" fontSize="11" fontWeight="900" fill={TEAL}>{rightAngle}°</text><g transform="translate(62 225)"><rect width="336" height="48" rx="12" fill="#f8fafc" stroke="#cbd5e1"/><text x="168" y="19" textAnchor="middle" fontSize="10.5" fontWeight="850" fill={DIM}>EA=AC and EB=BD; each vertex angle is 120°</text><text x="168" y="38" textAnchor="middle" fontSize="13" fontWeight="900" fill={INK} fontFamily={FONT}>(180° − 120°) ÷ 2 = 30°</text></g></>}
+    {phase===2&&<><motion.path d={wedge(30,150,55)} fill="#dcfce7" stroke={GREEN} strokeWidth="3" initial={{opacity:0,scale:.45}} animate={{opacity:.82,scale:1}} transition={{type:"spring",stiffness:170,damping:15}} style={{transformBox:"fill-box",transformOrigin:`${E.x}px ${E.y}px`}}/><line x1={E.x} y1={E.y} x2={A.x} y2={A.y} stroke="#fff" strokeWidth="2"/><line x1={E.x} y1={E.y} x2={B.x} y2={B.y} stroke="#fff" strokeWidth="2"/><text x="230" y="125" textAnchor="middle" fontSize="12" fontWeight="900" fill={GREEN}>{target}°</text><motion.rect x="103" y="231" width="254" height="45" rx="12" fill="#dcfce7" stroke={ok?GREEN:RED} strokeWidth="2.3" initial={{scale:.65}} animate={{scale:1}} style={{transformBox:"fill-box",transformOrigin:"center"}}/><text x="230" y="259" textAnchor="middle" fontSize="18" fontWeight="900" fill={ok?GREEN:RED} fontFamily={FONT}>{leftAngle}° + {centerAngle}° + {rightAngle}° = {target}°</text><SvgAnswerBadge show={ok} answer={problem.answer} cx={230} y={291} width={80}/></>}
+    <>{label(C,"C",-17,5)}{label(A,"A",-5,18)}{label(B,"B",-5,18)}{label(D,"D",8,5)}{label(E,"E",-5,-9)}</>
+    <AnimatePresence>{final&&!ok&&<motion.text x="230" y="328" textAnchor="middle" fill={RED} fontSize="10">{failure}</motion.text>}</AnimatePresence>
+  </svg></div>;
+}

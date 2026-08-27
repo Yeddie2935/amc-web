@@ -269,6 +269,11 @@ export type AnimationTemplateType =
   | "elimination-race-ledger"
   | "symmetric-even-sequence"
   | "shared-lcm-token"
+  | "last-color-random-order"
+  | "bat-wing-area-subtract"
+  | "overlapping-circle-angle"
+  | "branching-digit-divisibility"
+  | "isosceles-semicircle-radius"
   | "generic";
 
 export interface AnswerChoice {

@@ -249,6 +249,11 @@ import { PasswordPrefixSubtractScene } from "./scenes/PasswordPrefixSubtractScen
 import { EliminationRaceLedgerScene } from "./scenes/EliminationRaceLedgerScene";
 import { SymmetricEvenSequenceScene } from "./scenes/SymmetricEvenSequenceScene";
 import { SharedLcmTokenScene } from "./scenes/SharedLcmTokenScene";
+import { LastColorRandomOrderScene } from "./scenes/LastColorRandomOrderScene";
+import { BatWingAreaSubtractScene } from "./scenes/BatWingAreaSubtractScene";
+import { OverlappingCircleAngleScene } from "./scenes/OverlappingCircleAngleScene";
+import { BranchingDigitDivisibilityScene } from "./scenes/BranchingDigitDivisibilityScene";
+import { IsoscelesSemicircleRadiusScene } from "./scenes/IsoscelesSemicircleRadiusScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -1879,6 +1884,36 @@ export function resolveScene(problem: Problem): AnimatedScene {
     const left=Math.round(num(data.leftLcm)),right=Math.round(num(data.rightLcm));
     const common=(a:number,b:number):number=>b?common(b,a%b):Math.abs(a);
     if(left>=2&&right>=2&&left<=100&&right<=100&&common(left,right)>1) return SharedLcmTokenScene;
+  }
+  // Two positive color counts with a small total keep every chip identity and
+  // both illustrative completion orders directly drawable.
+  if(type==="last-color-random-order"){
+    const red=Math.round(num(data.red)),green=Math.round(num(data.green)),total=red+green;
+    if(red>=1&&green>=1&&total>=3&&total<=8) return LastColorRandomOrderScene;
+  }
+  // The exact 3×4 rectangle with three unit top segments guarantees the two
+  // diagonals meet one unit below the top and preserves the source diagram.
+  if(type==="bat-wing-area-subtract"){
+    const width=num(data.width),height=num(data.height),segment=num(data.segment);
+    if(width===3&&height===4&&segment===1) return BatWingAreaSubtractScene;
+  }
+  // One positive common radius encodes congruent circles whose centers lie on
+  // each other; the normalized construction is exact at every scale.
+  if(type==="overlapping-circle-angle"){
+    const radius=num(data.radius);
+    if(radius>0&&radius<=1000) return OverlappingCircleAngleScene;
+  }
+  // Five distinct nonzero decimal digits and the exact three stated moduli
+  // keep complete permutation enumeration and every QR branch drawable.
+  if(type==="branching-digit-divisibility"&&Array.isArray(data.digits)){
+    const digits=data.digits.map(v=>Math.round(num(v,-1)));
+    if(digits.length===5&&new Set(digits).size===5&&digits.every(d=>d>=1&&d<=9)&&num(data.modPQR)===4&&num(data.modQRS)===5&&num(data.modRST)===3) return BranchingDigitDivisibilityScene;
+  }
+  // A bounded isosceles triangle whose half-base and altitude form an integral
+  // right triangle keeps the tangent-radius area construction exact and visible.
+  if(type==="isosceles-semicircle-radius"){
+    const base=num(data.base),height=num(data.height),half=base/2,slant=Math.hypot(half,height);
+    if(base>0&&base<=40&&height>0&&height<=40&&Number.isInteger(half)&&Number.isInteger(slant)) return IsoscelesSemicircleRadiusScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

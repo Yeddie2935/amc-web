@@ -37200,11 +37200,10 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "last-color-random-order",
       "data": {
-        "green": 2,
-        "total": 5,
-        "answer": "B"
+        "red": 3,
+        "green": 2
       }
     },
     "tags": [
@@ -37290,12 +37289,11 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "bat-wing-area-subtract",
       "data": {
-        "trapezoidArea": 8,
-        "smallTriangle": 0.5,
-        "largeTriangle": 4.5,
-        "answer": "C"
+        "width": 3,
+        "height": 4,
+        "segment": 1
       }
     },
     "tags": [
@@ -37386,14 +37384,9 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "overlapping-circle-angle",
       "data": {
-        "angleParts": [
-          30,
-          60,
-          30
-        ],
-        "answer": "C"
+        "radius": 1
       }
     },
     "tags": [
@@ -37449,7 +37442,7 @@ const amc2016Problems: Problem[] = [
       },
       {
         "title": "Use divisibility by 4",
-        "body": "PQR is divisible by 4, so the last two digits QR must form a multiple of 4. Testing remaining digits leads to R = 4 and Q = 2."
+        "body": "PQR is divisible by 4, so the last two digits QR must form a multiple of 4. With the remaining digits, QR can be 12, 24, or 32."
       },
       {
         "title": "Use divisibility by 3",
@@ -37483,14 +37476,12 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "branching-digit-divisibility",
       "data": {
-        "P": 1,
-        "Q": 2,
-        "R": 4,
-        "S": 5,
-        "T": 3,
-        "answer": "A"
+        "digits": [1, 2, 3, 4, 5],
+        "modPQR": 4,
+        "modQRS": 5,
+        "modRST": 3
       }
     },
     "tags": [
@@ -37580,12 +37571,10 @@ const amc2016Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "isosceles-semicircle-radius",
       "data": {
-        "base": 17,
-        "area": 60,
-        "radius": "120/17",
-        "answer": "B"
+        "base": 16,
+        "height": 15
       }
     },
     "tags": [
