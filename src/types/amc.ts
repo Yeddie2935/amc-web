@@ -274,6 +274,11 @@ export type AnimationTemplateType =
   | "overlapping-circle-angle"
   | "branching-digit-divisibility"
   | "isosceles-semicircle-radius"
+  | "carpet-square-yard-grid"
+  | "octagon-midpoint-shade"
+  | "shared-route-arrival-gap"
+  | "end-seat-permutation-product"
+  | "score-statistic-change"
   | "generic";
 
 export interface AnswerChoice {

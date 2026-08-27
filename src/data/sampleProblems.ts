@@ -33316,9 +33316,11 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "carpet-square-yard-grid",
       "data": {
-        "answer": "A"
+        "lengthFeet": 12,
+        "widthFeet": 9,
+        "feetPerYard": 3
       }
     },
     "tags": [
@@ -33400,9 +33402,12 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "octagon-midpoint-shade",
       "data": {
-        "answer": "D"
+        "vertexCount": 8,
+        "fullTriangles": 3,
+        "halfTriangles": 1,
+        "midpointSide": "AB"
       }
     },
     "tags": [
@@ -33488,9 +33493,11 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "shared-route-arrival-gap",
       "data": {
-        "answer": "D"
+        "distanceMiles": 1,
+        "names": ["Jill", "Jack"],
+        "speedsMph": [10, 4]
       }
     },
     "tags": [
@@ -33571,9 +33578,10 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "end-seat-permutation-product",
       "data": {
-        "answer": "E"
+        "endGroup": ["B1", "B2"],
+        "middleGroup": ["G1", "G2", "G3"]
       }
     },
     "tags": [
@@ -33653,9 +33661,10 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "score-statistic-change",
       "data": {
-        "answer": "A"
+        "scores": [42, 47, 53, 53, 58, 58, 58, 61, 64, 65, 73],
+        "newScore": 40
       }
     },
     "tags": [

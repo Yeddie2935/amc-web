@@ -254,6 +254,11 @@ import { BatWingAreaSubtractScene } from "./scenes/BatWingAreaSubtractScene";
 import { OverlappingCircleAngleScene } from "./scenes/OverlappingCircleAngleScene";
 import { BranchingDigitDivisibilityScene } from "./scenes/BranchingDigitDivisibilityScene";
 import { IsoscelesSemicircleRadiusScene } from "./scenes/IsoscelesSemicircleRadiusScene";
+import { CarpetSquareYardGridScene } from "./scenes/CarpetSquareYardGridScene";
+import { OctagonMidpointShadeScene } from "./scenes/OctagonMidpointShadeScene";
+import { SharedRouteArrivalGapScene } from "./scenes/SharedRouteArrivalGapScene";
+import { EndSeatPermutationProductScene } from "./scenes/EndSeatPermutationProductScene";
+import { ScoreStatisticChangeScene } from "./scenes/ScoreStatisticChangeScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -1914,6 +1919,35 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if(type==="isosceles-semicircle-radius"){
     const base=num(data.base),height=num(data.height),half=base/2,slant=Math.hypot(half,height);
     if(base>0&&base<=40&&height>0&&height<=40&&Number.isInteger(half)&&Number.isInteger(slant)) return IsoscelesSemicircleRadiusScene;
+  }
+  // Whole-foot dimensions divisible by the stated feet-per-yard value produce
+  // a bounded grid of complete square-yard carpet patches, with no partial tile.
+  if(type==="carpet-square-yard-grid"){
+    const length=Math.round(num(data.lengthFeet)),width=Math.round(num(data.widthFeet)),unit=Math.round(num(data.feetPerYard));
+    if(length>=unit&&length<=18&&width>=unit&&width<=15&&unit>=2&&unit<=5&&length%unit===0&&width%unit===0) return CarpetSquareYardGridScene;
+  }
+  // The source construction uses an eight-sector regular octagon, three full
+  // shaded sectors, and one sector bisected at the named side midpoint.
+  if(type==="octagon-midpoint-shade"){
+    if(num(data.vertexCount)===8&&num(data.fullTriangles)===3&&num(data.halfTriangles)===1&&String(data.midpointSide)==="AB") return OctagonMidpointShadeScene;
+  }
+  // Two named travelers on one positive bounded route, with distinct speeds
+  // giving whole-minute arrivals, keep both lanes and every gap tick drawable.
+  if(type==="shared-route-arrival-gap"&&Array.isArray(data.names)&&Array.isArray(data.speedsMph)){
+    const distance=num(data.distanceMiles),speeds=data.speedsMph.map(v=>num(v)),names=data.names.map(String),times=speeds.map(v=>distance/v*60);
+    if(distance>0&&distance<=10&&names.length===2&&new Set(names).size===2&&speeds.length===2&&speeds.every(v=>v>0&&v<=60)&&times.every(v=>Number.isInteger(v)&&v>0&&v<=60)&&times[0]!==times[1]) return SharedRouteArrivalGapScene;
+  }
+  // Two distinct end-seat people and three distinct middle-seat people make
+  // all 2!·3! arrangements small enough to enumerate without invented cases.
+  if(type==="end-seat-permutation-product"&&Array.isArray(data.endGroup)&&Array.isArray(data.middleGroup)){
+    const ends=data.endGroup.map(String),middle=data.middleGroup.map(String),all=[...ends,...middle];
+    if(ends.length===2&&middle.length===3&&new Set(all).size===5&&all.every(v=>v.length>=1&&v.length<=3)) return EndSeatPermutationProductScene;
+  }
+  // A modest ordered integer score set plus one new integer keeps every dot and
+  // all five named statistics exact, finite, and independently checkable.
+  if(type==="score-statistic-change"&&Array.isArray(data.scores)){
+    const scores=data.scores.map(v=>num(v)),next=num(data.newScore),all=[...scores,next];
+    if(scores.length>=5&&scores.length<=18&&all.every(v=>Number.isInteger(v)&&v>=0&&v<=100)&&new Set(scores).size>=2) return ScoreStatisticChangeScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
