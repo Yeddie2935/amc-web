@@ -31669,9 +31669,10 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "common-width-join",
       "data": {
-        "answer": "D"
+        "commonWidth": 2,
+        "lengths": [1, 4, 9, 16, 25, 36]
       }
     },
     "tags": [
@@ -31750,9 +31751,11 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "difference-total-ratio",
       "data": {
-        "answer": "B"
+        "total": 28,
+        "difference": 4,
+        "labels": ["Girls", "Boys"]
       }
     },
     "tags": [
@@ -31831,9 +31834,11 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "eleven-digit-balance",
       "data": {
-        "answer": "D"
+        "members": 11,
+        "hundredsDigit": 1,
+        "onesDigit": 2
       }
     },
     "tags": [
@@ -31912,9 +31917,11 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "isosceles-supplement",
       "data": {
-        "answer": "D"
+        "givenAngle": 70,
+        "triangleAngleSum": 180,
+        "straightAngle": 180
       }
     },
     "tags": [
@@ -31994,9 +32001,11 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "inclusive-contest-birth-year",
       "data": {
-        "answer": "A"
+        "firstYear": 1985,
+        "ordinal": 7,
+        "age": 12
       }
     },
     "tags": [

@@ -131,6 +131,11 @@ import { CoinCountExtremesScene } from "./scenes/CoinCountExtremesScene";
 import { WeekReadingStacksScene } from "./scenes/WeekReadingStacksScene";
 import { OddPrimePairScene } from "./scenes/OddPrimePairScene";
 import { BudgetFuelRangeScene } from "./scenes/BudgetFuelRangeScene";
+import { CommonWidthJoinScene } from "./scenes/CommonWidthJoinScene";
+import { DifferenceTotalRatioScene } from "./scenes/DifferenceTotalRatioScene";
+import { ElevenDigitBalanceScene } from "./scenes/ElevenDigitBalanceScene";
+import { IsoscelesSupplementScene } from "./scenes/IsoscelesSupplementScene";
+import { InclusiveContestBirthYearScene } from "./scenes/InclusiveContestBirthYearScene";
 import { VotePieScaleScene } from "./scenes/VotePieScaleScene";
 import { NestedRadicalCollapseScene } from "./scenes/NestedRadicalCollapseScene";
 import { EstimateProductShiftScene } from "./scenes/EstimateProductShiftScene";
@@ -333,6 +338,38 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if (type === "budget-fuel-range") {
     const budget = num(data.budget), price = num(data.pricePerGallon), mpg = num(data.milesPerGallon), gallons = budget / price;
     if (budget > 0 && budget <= 100 && price > 0 && price <= budget && mpg > 0 && mpg <= 100 && Number.isInteger(gallons) && gallons >= 1 && gallons <= 8) return BudgetFuelRangeScene;
+  }
+  // A small positive common width and six bounded positive lengths keep every
+  // source rectangle and every proportional joined segment readable.
+  if (type === "common-width-join" && Array.isArray(data.lengths)) {
+    const width = num(data.commonWidth), lengths = data.lengths.map((v) => num(v));
+    const sum = lengths.reduce((a, b) => a + b, 0);
+    if (width > 0 && width <= 10 && lengths.length === 6 && lengths.every((v) => Number.isInteger(v) && v > 0 && v <= 50) && sum <= 150) return CommonWidthJoinScene;
+  }
+  // A positive even remainder after removing the bounded difference guarantees
+  // two integral rosters and keeps every student glyph directly drawable.
+  if (type === "difference-total-ratio" && Array.isArray(data.labels)) {
+    const total = Math.round(num(data.total)), difference = Math.round(num(data.difference));
+    if (total >= 4 && total <= 40 && difference > 0 && difference < total && (total - difference) % 2 === 0 && data.labels.length === 2 && data.labels.every((v) => typeof v === "string")) return DifferenceTotalRatioScene;
+  }
+  // Exactly eleven payers and two legal outer digits keep the complete ten-digit
+  // candidate check finite and the final equal-payment verification integral.
+  if (type === "eleven-digit-balance") {
+    const members = Math.round(num(data.members)), h = Math.round(num(data.hundredsDigit)), o = Math.round(num(data.onesDigit));
+    const candidates = Array.from({ length: 10 }, (_, a) => a).filter((a) => (100 * h + 10 * a + o) % members === 0);
+    if (members === 11 && h >= 1 && h <= 9 && o >= 0 && o <= 9 && candidates.length === 1) return ElevenDigitBalanceScene;
+  }
+  // A valid acute base angle in an isosceles triangle leaves a positive vertex
+  // angle and a bounded supplementary exterior angle, all directly drawable.
+  if (type === "isosceles-supplement") {
+    const given = num(data.givenAngle), tri = num(data.triangleAngleSum), straight = num(data.straightAngle);
+    if (given > 0 && given < 90 && tri === 180 && straight === 180 && tri - 2 * given > 0) return IsoscelesSupplementScene;
+  }
+  // A short ordinal run and bounded age keep every annual contest card and
+  // every birthday interval individually drawable.
+  if (type === "inclusive-contest-birth-year") {
+    const first = Math.round(num(data.firstYear)), ordinal = Math.round(num(data.ordinal)), age = Math.round(num(data.age));
+    if (first >= 1900 && first <= 2100 && ordinal >= 2 && ordinal <= 8 && age >= 1 && age <= 20 && first + ordinal - 1 - age >= 1900) return InclusiveContestBirthYearScene;
   }
 
   // Only use the clock when a real time (H:MM) is in the problem; otherwise the
