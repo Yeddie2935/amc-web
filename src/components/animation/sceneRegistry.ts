@@ -13,6 +13,7 @@ import { GroupedSumScene } from "./scenes/GroupedSumScene";
 import { NumberGridScene } from "./scenes/NumberGridScene";
 import { NestedMidpointGridScene } from "./scenes/NestedMidpointGridScene";
 import { BudgetCheckScene } from "./scenes/BudgetCheckScene";
+import { SockUpgradeBudgetScene } from "./scenes/SockUpgradeBudgetScene";
 import { PercentBarScene } from "./scenes/PercentBarScene";
 import { TimelineScene } from "./scenes/TimelineScene";
 import { BorderAreaScene } from "./scenes/BorderAreaScene";
@@ -130,6 +131,11 @@ import { NestedRadicalCollapseScene } from "./scenes/NestedRadicalCollapseScene"
 import { EstimateProductShiftScene } from "./scenes/EstimateProductShiftScene";
 import { ProductSumCancelScene } from "./scenes/ProductSumCancelScene";
 import { AngleRatioPartsScene } from "./scenes/AngleRatioPartsScene";
+import { ConstructedRightTriangleScene } from "./scenes/ConstructedRightTriangleScene";
+import { FormationDivisorCalendarScene } from "./scenes/FormationDivisorCalendarScene";
+import { ConsecutiveCupPackingScene } from "./scenes/ConsecutiveCupPackingScene";
+import { DivisionScheduleSieveScene } from "./scenes/DivisionScheduleSieveScene";
+import { CornerCutSquareFitScene } from "./scenes/CornerCutSquareFitScene";
 import { SeatPairScene } from "./scenes/SeatPairScene";
 import { HalvingGapScene } from "./scenes/HalvingGapScene";
 import { BiteSplitScene } from "./scenes/BiteSplitScene";
@@ -311,6 +317,14 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "budget-check" && Array.isArray(data.names) && data.names.length > 0) {
     return BudgetCheckScene;
+  }
+  // Three increasing whole-dollar prices and exactly one all-positive integer
+  // purchase keep the baseline-upgrade search finite and unambiguous.
+  if (type === "sock-upgrade-budget" && Array.isArray(data.prices) && data.prices.length === 3) {
+    const prices=data.prices.map(v=>num(v,0)),pairs=num(data.pairs,0),cost=num(data.totalCost,0);
+    let solutions=0;
+    if(Number.isInteger(pairs)&&pairs>=3&&pairs<=18&&prices.every(Number.isInteger)&&prices[0]>0&&prices[0]<prices[1]&&prices[1]<prices[2]&&Number.isInteger(cost)) for(let x=1;x<pairs-1;x++) for(let y=1;y<pairs-x;y++){const z=pairs-x-y;if(x*prices[0]+y*prices[1]+z*prices[2]===cost)solutions++;}
+    if(solutions===1) return SockUpgradeBudgetScene;
   }
   if (type === "percent-bar" && Array.isArray(data.factors) && data.factors.length > 0) {
     return PercentBarScene;
@@ -618,6 +632,58 @@ export function resolveScene(problem: Problem): AnimatedScene {
     const degrees = num(data.angleSum);
     if (ratio.every((v) => v > 0) && sum <= 12 && degrees === 180 && Number.isInteger(degrees / sum)) return AngleRatioPartsScene;
   }
+  // Two integer square areas whose side lengths transfer to the perpendicular
+  // legs. This scene deliberately owns only the 60+90+120 angle construction.
+  if (
+    type === "constructed-right-triangle" &&
+    Array.isArray(data.squareAreas) && data.squareAreas.length === 2 &&
+    data.squareAreas.every((v) => Number.isInteger(num(v)) && num(v) > 0 && num(v) <= 200) &&
+    data.hexAngle === 120 &&
+    data.equilateral === "JBK" &&
+    Array.isArray(data.equalSides) && data.equalSides.length === 2 &&
+    data.equalSides[0] === "JB=BK" && data.equalSides[1] === "FE=BC"
+  ) {
+    return ConstructedRightTriangleScene;
+  }
+  // The calendar needs twelve distinct successful formations followed by one
+  // failure, plus the three exact per-row clues that force a multiple of 30.
+  if (
+    type === "formation-divisor-calendar" &&
+    Array.isArray(data.knownPerRow) && data.knownPerRow.length === 3 &&
+    data.knownPerRow[0] === 15 && data.knownPerRow[1] === 1 && data.knownPerRow[2] === 6 &&
+    data.lastSuccessfulDay === 12 && data.firstFailedDay === 13
+  ) {
+    return FormationDivisorCalendarScene;
+  }
+  // Exactly twelve positive half-unit slips, five consecutive cups, and the two
+  // named placements keep the packing search finite and faithful to the puzzle.
+  if (type === "consecutive-cup-packing" && Array.isArray(data.slips) && data.slips.length === 12) {
+    const slips = data.slips.map((v) => num(v, 0));
+    if (
+      slips.every((v) => v >= 2 && v <= 4.5 && Number.isInteger(v * 2)) &&
+      slips.reduce((a, b) => a + b, 0) === 35 &&
+      data.cupCount === 5 &&
+      Array.isArray(data.givenPlacements) && data.givenPlacements.length === 2 &&
+      data.givenPlacements[0] === "E=2" && data.givenPlacements[1] === "B=3"
+    ) return ConsecutiveCupPackingScene;
+  }
+  // Two modest equal divisions make the selected team's three same-division
+  // and four cross-division opponent lanes exact and keep the integer sieve short.
+  if (
+    type === "division-schedule-sieve" &&
+    Array.isArray(data.divisionSizes) && data.divisionSizes.length === 2 &&
+    data.divisionSizes[0] === 4 && data.divisionSizes[1] === 4 &&
+    data.totalGames === 76 &&
+    Array.isArray(data.constraints) && data.constraints.length === 2 &&
+    data.constraints[0] === "N>2M" && data.constraints[1] === "M>4"
+  ) return DivisionScheduleSieveScene;
+  // A symmetric four-corner cut with room between adjacent cuts guarantees the
+  // tilted, four-contact square and its eight complementary triangles are real.
+  if (
+    type === "corner-cut-square-fit" &&
+    data.outerSide === 5 && data.cutSide === 1 && data.cutCount === 4 &&
+    num(data.outerSide, 0) > 2 * num(data.cutSide, 0)
+  ) return CornerCutSquareFitScene;
   if (type === "paper-fold-cut" && Array.isArray(data.cutPoly) && data.cutPoly.length >= 6) {
     return PaperFoldCutScene;
   }

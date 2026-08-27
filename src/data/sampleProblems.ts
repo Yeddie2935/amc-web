@@ -34962,7 +34962,11 @@ const amc2015Problems: Problem[] = [
       },
       {
         "title": "Use positive integers",
-        "body": "With y,z at least 1, the solution is y=3 and z=2. Thus x=12−3−2=7."
+        "body": "Because z≥1 and 3z≤10, test z=1,2,3. Only z=2 makes y=(12−3z)/2 a positive integer, giving y=3."
+      },
+      {
+        "title": "Reconstruct and check the purchase",
+        "body": "The remaining $1 pairs number x=12−3−2=7. The cost check is 7·$1+3·$3+2·$4=$24."
       }
     ],
     "animationFrames": [
@@ -34983,9 +34987,15 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "sock-upgrade-budget",
       "data": {
-        "answer": "D"
+        "pairs": 12,
+        "totalCost": 24,
+        "prices": [
+          1,
+          3,
+          4
+        ]
       }
     },
     "tags": [
@@ -35036,16 +35046,20 @@ const amc2015Problems: Problem[] = [
     "shortAnswer": "12",
     "solutionSteps": [
       {
-        "title": "Find two side lengths",
-        "body": "FE is a side of a square with area 32, so FE=4√2. Since FE=BC, BC=4√2. Also JB is a side of a square with area 18, so JB=3√2."
+        "title": "Read the square side lengths",
+        "body": "A square's side is the square root of its area. Thus JB=√18=3√2 and FE=√32=4√2."
       },
       {
-        "title": "Use the equilateral triangle",
-        "body": "Since triangle JBK is equilateral, BK=JB=3√2."
+        "title": "Transfer the equal lengths",
+        "body": "Triangle JBK is equilateral, so BK=JB=3√2. The given FE=BC similarly gives BC=4√2."
       },
       {
-        "title": "Find the area",
-        "body": "Angle KBC is a right angle, so triangle KBC has legs 3√2 and 4√2. Its area is (3√2·4√2)/2=12."
+        "title": "Prove the angle at B is right",
+        "body": "The angles around B are 60° from the equilateral triangle, 90° from the square, 120° from the equiangular hexagon, and ∠KBC. Therefore ∠KBC=360°−60°−90°−120°=90°."
+      },
+      {
+        "title": "Find and verify the area",
+        "body": "Triangle KBC has perpendicular legs 3√2 and 4√2, so its area is 1/2(3√2)(4√2)=1/2·12·2=12, which is choice C."
       }
     ],
     "animationFrames": [
@@ -35066,9 +35080,18 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "constructed-right-triangle",
       "data": {
-        "answer": "C"
+        "squareAreas": [
+          18,
+          32
+        ],
+        "hexAngle": 120,
+        "equilateral": "JBK",
+        "equalSides": [
+          "JB=BK",
+          "FE=BC"
+        ]
       }
     },
     "tags": [
@@ -35123,16 +35146,20 @@ const amc2015Problems: Problem[] = [
     "shortAnswer": "60",
     "solutionSteps": [
       {
-        "title": "Interpret arrangements",
-        "body": "A different number of students per row corresponds to a different divisor of the total number of students."
+        "title": "Turn formations into divisors",
+        "body": "If there are r rows with s students per row, then N=r·s. Thus every possible value of s is a divisor of the total N."
       },
       {
-        "title": "Use the clues",
-        "body": "The total must have exactly 12 divisors and be divisible by 15 and 6."
+        "title": "Count the available formations",
+        "body": "The group uses a new divisor on each of June 1 through June 12, but no new divisor exists on June 13. Therefore N has exactly 12 positive divisors."
       },
       {
-        "title": "Find the smallest",
-        "body": "60 has divisors 1,2,3,4,5,6,10,12,15,20,30,60, so it works and is the smallest choice."
+        "title": "Find and reject the first candidate",
+        "body": "Because both 15 and 6 divide N, their least common multiple 30 divides N. The smallest candidate is 30, but its divisors are 1,2,3,5,6,10,15,30—only 8, not 12."
+      },
+      {
+        "title": "Verify the next multiple",
+        "body": "The next multiple is 60. Its six factor pairs give 12 divisors: 1,2,3,4,5,6,10,12,15,20,30,60. Hence the smallest possible group has 60 students, choice C."
       }
     ],
     "animationFrames": [
@@ -35153,9 +35180,15 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "formation-divisor-calendar",
       "data": {
-        "answer": "C"
+        "knownPerRow": [
+          15,
+          1,
+          6
+        ],
+        "lastSuccessfulDay": 12,
+        "firstFailedDay": 13
       }
     },
     "tags": [
@@ -35206,16 +35239,24 @@ const amc2015Problems: Problem[] = [
     "shortAnswer": "D",
     "solutionSteps": [
       {
-        "title": "Find the target sums",
-        "body": "The slips sum to 35, so the five consecutive cup sums average 7. The sums must be 5, 6, 7, 8, and 9."
+        "title": "Add all the slips",
+        "body": "The twelve slip values have total 35, so the five cup sums must also total 35."
       },
       {
-        "title": "Use the given slips",
-        "body": "Cup E already has 2 and must sum to 9. Cup B already has 3 and must sum to 6."
+        "title": "Construct the consecutive targets",
+        "body": "Five consecutive integers totaling 35 have average 35÷5=7. Therefore the cup sums from A through E are 5, 6, 7, 8, and 9."
       },
       {
-        "title": "Eliminate positions",
-        "body": "The 3.5 slip cannot fit cups A, B, C, or E under the remaining sums. Therefore it must go in cup D."
+        "title": "Place the two given slips",
+        "body": "Putting 3 in cup B leaves 3 to reach its target of 6. Putting 2 in cup E leaves 7 to reach its target of 9."
+      },
+      {
+        "title": "Test the 3.5 slip",
+        "body": "In A it would leave an impossible 1.5; in B it overfills the remaining 3; and in C or E it would leave 3.5, requiring a second 3.5 slip. Thus A, B, C, and E are impossible."
+      },
+      {
+        "title": "Place and verify",
+        "body": "The 3.5 slip must go in cup D, where it pairs with 4.5 to make 8. A complete packing of all slips verifies the placement, so the answer is D."
       }
     ],
     "animationFrames": [
@@ -35236,9 +35277,27 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "consecutive-cup-packing",
       "data": {
-        "answer": "D"
+        "slips": [
+          2,
+          2,
+          2,
+          2.5,
+          2.5,
+          3,
+          3,
+          3,
+          3,
+          3.5,
+          4,
+          4.5
+        ],
+        "cupCount": 5,
+        "givenPlacements": [
+          "E=2",
+          "B=3"
+        ]
       }
     },
     "tags": [
@@ -35293,12 +35352,16 @@ const amc2015Problems: Problem[] = [
         "body": "Each team has 3 division opponents and 4 non-division opponents, so 3N + 4M = 76."
       },
       {
-        "title": "Test possible M",
-        "body": "Since M > 4, try M = 5, 6, 7, ... . The first value giving an integer N and satisfying N > 2M is M = 7."
+        "title": "Bound the possible values of M",
+        "body": "Since N>2M, the equation gives 76=3N+4M>6M+4M=10M, so M<7.6. Together with M>4 and integer game counts, M can only be 5, 6, or 7."
       },
       {
-        "title": "Compute division games",
-        "body": "When M=7, 3N = 76 − 28 = 48, so a team plays 48 games within its own division."
+        "title": "Sieve the three candidates",
+        "body": "For M=5 and M=6, (76−4M)/3 is not an integer. For M=7, N=(76−28)/3=16, and 16>2·7, so this is the unique valid schedule."
+      },
+      {
+        "title": "Compute and verify the division games",
+        "body": "The three division opponents contribute 3·16=48 games. The four other opponents contribute 4·7=28 games, and 48+28=76, so the answer is 48, choice B."
       }
     ],
     "animationFrames": [
@@ -35319,9 +35382,17 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "division-schedule-sieve",
       "data": {
-        "answer": "B"
+        "divisionSizes": [
+          4,
+          4
+        ],
+        "totalGames": 76,
+        "constraints": [
+          "N>2M",
+          "M>4"
+        ]
       }
     },
     "tags": [
@@ -35372,16 +35443,20 @@ const amc2015Problems: Problem[] = [
     "shortAnswer": "15",
     "solutionSteps": [
       {
-        "title": "Start with the big square",
-        "body": "The original 5 by 5 square has area 25. Four corner unit squares are removed."
+        "title": "Cut the four corners",
+        "body": "The original square has area 5·5=25. Removing a 1-by-1 square from each corner removes 4 square inches."
       },
       {
-        "title": "Account for the remaining gaps",
-        "body": "The largest tilted square leaves the four cut-out unit squares plus four pairs of right triangles. Those triangles have total area 6."
+        "title": "Expand the tilted square",
+        "body": "Rotate and enlarge the fitted square until each of its four sides touches an inner corner of a cutout. Any further enlargement would cross a missing corner, so this is the maximal position."
       },
       {
-        "title": "Subtract",
-        "body": "The largest square has area 25 − 4 − 6 = 15."
+        "title": "Pair the leftover triangles",
+        "body": "Beside each removed corner are two right triangles of height 1. Their bases together span 5−1−1=3, so each pair has area 1/2·1·3=3/2. Four pairs have total area 6."
+      },
+      {
+        "title": "Subtract and verify",
+        "body": "The tilted square has area 25−4·1−4·(3/2)=15 square inches. This matches choice C."
       }
     ],
     "animationFrames": [
@@ -35402,9 +35477,11 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "corner-cut-square-fit",
       "data": {
-        "answer": "C"
+        "outerSide": 5,
+        "cutSide": 1,
+        "cutCount": 4
       }
     },
     "tags": [
