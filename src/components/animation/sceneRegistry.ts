@@ -11,6 +11,7 @@ import { Solid3DScene } from "./scenes/Solid3DScene";
 import { EquationScene } from "./scenes/EquationScene";
 import { GroupedSumScene } from "./scenes/GroupedSumScene";
 import { NumberGridScene } from "./scenes/NumberGridScene";
+import { NestedMidpointGridScene } from "./scenes/NestedMidpointGridScene";
 import { BudgetCheckScene } from "./scenes/BudgetCheckScene";
 import { PercentBarScene } from "./scenes/PercentBarScene";
 import { TimelineScene } from "./scenes/TimelineScene";
@@ -53,6 +54,7 @@ import { PairedChoiceScene } from "./scenes/PairedChoiceScene";
 import { FlowGraphScene } from "./scenes/FlowGraphScene";
 import { CircleSquareShadeScene } from "./scenes/CircleSquareShadeScene";
 import { SpeedZoneMeetScene } from "./scenes/SpeedZoneMeetScene";
+import { InverseTimeSpeedScene } from "./scenes/InverseTimeSpeedScene";
 import { HalvingShareScene } from "./scenes/HalvingShareScene";
 import { GraphLabelScene } from "./scenes/GraphLabelScene";
 import { EqualSpacingScene } from "./scenes/EqualSpacingScene";
@@ -68,6 +70,7 @@ import { RinkPathsScene } from "./scenes/RinkPathsScene";
 import { TileMinimumScene } from "./scenes/TileMinimumScene";
 import { BranchValueTreeScene } from "./scenes/BranchValueTreeScene";
 import { RatioUnitScene } from "./scenes/RatioUnitScene";
+import { BuddyPairRatioScene } from "./scenes/BuddyPairRatioScene";
 import { LinearTrendScene } from "./scenes/LinearTrendScene";
 import { TriangleBaseHeightScene } from "./scenes/TriangleBaseHeightScene";
 import { LevelBarsScene } from "./scenes/LevelBarsScene";
@@ -93,6 +96,7 @@ import { TilePatternProbScene } from "./scenes/TilePatternProbScene";
 import { TriangleAreaSplitScene } from "./scenes/TriangleAreaSplitScene";
 import { IntervalSqueezeScene } from "./scenes/IntervalSqueezeScene";
 import { GridPolygonAreaScene } from "./scenes/GridPolygonAreaScene";
+import { TriangleBoxComplementScene } from "./scenes/TriangleBoxComplementScene";
 import { OperationMachineScene } from "./scenes/OperationMachineScene";
 import { FactorTripleScene } from "./scenes/FactorTripleScene";
 import { ReflectComposeScene } from "./scenes/ReflectComposeScene";
@@ -298,6 +302,13 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if (type === "number-grid" && Array.isArray(data.rows) && data.rows.length > 0) {
     return NumberGridScene;
   }
+  // An odd square grid and four finite corner values make the two boundary
+  // midpoints and their middle-column midpoint exact and drawable.
+  if (type === "nested-midpoint-grid" && Array.isArray(data.corners) && data.corners.length === 4) {
+    const size = num(data.size, 0);
+    const corners = data.corners.map((v) => num(v, Number.NaN));
+    if (Number.isInteger(size) && size >= 3 && size <= 9 && size % 2 === 1 && corners.every(Number.isFinite)) return NestedMidpointGridScene;
+  }
   if (type === "budget-check" && Array.isArray(data.names) && data.names.length > 0) {
     return BudgetCheckScene;
   }
@@ -428,6 +439,15 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if (type === "speed-zone-meet" && Array.isArray(data.zones) && data.zones.length > 0) {
     return SpeedZoneMeetScene;
   }
+  // Two short positive trip times on one route, with the second strictly faster;
+  // reduced inverse-ratio blocks must remain whole and few enough to draw.
+  if (type === "inverse-time-speed" && Array.isArray(data.times) && data.times.length === 2) {
+    const ts = data.times.map((v) => num(v, 0));
+    const gcd = (a: number, b: number): number => b === 0 ? Math.abs(a) : gcd(b, a % b);
+    const div = gcd(ts[0], ts[1]);
+    const parts = div > 0 ? [ts[1] / div, ts[0] / div] : [];
+    if (ts.every((v) => Number.isInteger(v) && v > 0 && v <= 60) && ts[1] < ts[0] && parts.every((v) => Number.isInteger(v) && v > 0 && v <= 8) && num(data.speedIncrease, 0) > 0) return InverseTimeSpeedScene;
+  }
   if (type === "halving-share" && Array.isArray(data.names) && data.names.length > 0) {
     return HalvingShareScene;
   }
@@ -472,6 +492,16 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "ratio-unit" && Array.isArray(data.items) && data.items.length > 1) {
     return RatioUnitScene;
+  }
+  // Two proper positive fractions whose selected numerators can be scaled to a
+  // small common whole count, keeping every student and buddy pair drawable.
+  if (type === "buddy-pair-ratio" && Array.isArray(data.fractions) && data.fractions.length === 2) {
+    const fs = data.fractions.map((v) => String(v).split("|"));
+    const parsed = fs.map((v) => [num(v[1], 0), num(v[2], 0)]);
+    const gcd = (a: number, b: number): number => b === 0 ? Math.abs(a) : gcd(b, a % b);
+    const common = Math.abs(parsed[0][0] * parsed[1][0]) / (gcd(parsed[0][0], parsed[1][0]) || 1);
+    const totals = parsed.map(([n, d]) => common * d / n);
+    if (fs.every((v) => v.length === 3 && v[0].length > 0) && parsed.every(([n, d]) => Number.isInteger(n) && Number.isInteger(d) && n > 0 && n < d) && Number.isInteger(common) && common > 0 && totals.every((v) => Number.isInteger(v) && v > 0 && v <= 12)) return BuddyPairRatioScene;
   }
   if (type === "linear-trend" && num(data.endYear ?? 0) > num(data.startYear ?? 0) && num(data.rate ?? 0) !== 0) {
     return LinearTrendScene;
@@ -859,6 +889,14 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "grid-polygon-area" && Array.isArray(data.outline) && data.outline.length >= 3 && num(data.grid ?? 0) >= 2) {
     return GridPolygonAreaScene;
+  }
+  // Three distinct lattice vertices inside a small rectangular grid keep the
+  // bounding-box complement construction exact and fully visible.
+  if (type === "triangle-box-complement" && Array.isArray(data.grid) && data.grid.length === 2 && Array.isArray(data.vertices) && data.vertices.length === 3) {
+    const grid = data.grid.map(v => num(v, 0));
+    const pts = data.vertices.map(v => String(v).split("|")).map(v => [num(v[1], Number.NaN), num(v[2], Number.NaN)]);
+    const twice = Math.abs(pts.reduce((s,p,i) => { const q=pts[(i+1)%3]; return s+p[0]*q[1]-q[0]*p[1]; },0));
+    if (grid.every(v => Number.isInteger(v) && v >= 2 && v <= 10) && pts.every(p => Number.isFinite(p[0]) && Number.isFinite(p[1]) && p[0] >= 0 && p[0] <= grid[0] && p[1] >= 0 && p[1] <= grid[1]) && new Set(pts.map(p=>p.join(","))).size===3 && twice>0) return TriangleBoxComplementScene;
   }
   if (
     type === "operation-machine" &&

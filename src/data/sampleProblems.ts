@@ -34579,16 +34579,20 @@ const amc2015Problems: Problem[] = [
     "shortAnswer": "4/11",
     "solutionSteps": [
       {
-        "title": "Relate the group sizes",
-        "body": "Let s be the number of sixth graders and n be the number of ninth graders. The paired counts are equal, so n/3 = 2s/5."
+        "title": "Mark the buddy subsets",
+        "body": "The selected subsets are 2/5 of the sixth graders and 1/3 of the ninth graders, and these subsets must contain the same number of students."
       },
       {
-        "title": "Solve the ratio",
-        "body": "From n/3 = 2s/5, we get n = 6s/5."
+        "title": "Build the smallest whole groups",
+        "body": "Use 2 selected students in each grade. Then 2/5 of 5 sixth graders is 2, while 1/3 of 6 ninth graders is 2, so the grade-size ratio is 5:6."
       },
       {
-        "title": "Find the buddy fraction",
-        "body": "The paired students are n/3 + 2s/5 = 4s/5, while the total students are n+s = 11s/5. The fraction is (4s/5)/(11s/5)=4/11."
+        "title": "Form the buddy pairs",
+        "body": "Pair the 2 selected sixth graders with the 2 selected ninth graders. Thus 2 + 2 students have buddies, while the two grades contain 5 + 6 students altogether."
+      },
+      {
+        "title": "Combine and verify",
+        "body": "The requested fraction is (2 + 2)/(5 + 6) = 4/11. The checks 2/5 of 5 = 2 and 1/3 of 6 = 2 confirm both given fractions."
       }
     ],
     "animationFrames": [
@@ -34609,9 +34613,12 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "buddy-pair-ratio",
       "data": {
-        "answer": "B"
+        "fractions": [
+          "Sixth graders|2|5",
+          "Ninth graders|1|3"
+        ]
       }
     },
     "tags": [
@@ -34662,16 +34669,20 @@ const amc2015Problems: Problem[] = [
     "shortAnswer": "9",
     "solutionSteps": [
       {
-        "title": "Use times in hours",
-        "body": "20 minutes is 1/3 hour and 12 minutes is 1/5 hour."
+        "title": "Put both trips on one route",
+        "body": "Both drives cover the same home-to-school distance. Their times are 20 minutes = 1/3 hour and 12 minutes = 1/5 hour."
       },
       {
-        "title": "Set equal distances",
-        "body": "If the usual speed is v, then distance d satisfies d = v/3 and d = (v+18)/5."
+        "title": "Reverse the time ratio",
+        "body": "For the same distance, speed is inversely proportional to time. Since 20:12 = 5:3, the rush-hour and clear-road speeds are in the ratio 3:5."
       },
       {
-        "title": "Solve",
-        "body": "Equating gives v/3 = (v+18)/5, so v = 27 and d = 27/3 = 9 miles."
+        "title": "Find both speeds",
+        "body": "The 18-mile-per-hour increase spans 5 − 3 = 2 ratio parts, so each part is 18 ÷ 2 = 9 mph. The speeds are 27 mph and 45 mph."
+      },
+      {
+        "title": "Measure and check the distance",
+        "body": "Using the clear trip gives 45 × 1/5 = 9 miles. The rush-hour trip checks: 27 × 1/3 = 9 miles also."
       }
     ],
     "animationFrames": [
@@ -34692,9 +34703,14 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "inverse-time-speed",
       "data": {
-        "answer": "D"
+        "times": [
+          20,
+          12
+        ],
+        "speedIncrease": 18,
+        "unit": "miles"
       }
     },
     "tags": [
@@ -34774,9 +34790,15 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "nested-midpoint-grid",
       "data": {
-        "answer": "B"
+        "size": 5,
+        "corners": [
+          1,
+          25,
+          17,
+          81
+        ]
       }
     },
     "tags": [
@@ -34831,16 +34853,24 @@ const amc2015Problems: Problem[] = [
     "shortAnswer": "1/6",
     "solutionSteps": [
       {
-        "title": "Find the triangle area",
-        "body": "Using the coordinate area formula, the area of triangle ABC is 5 square units."
+        "title": "Frame the triangle",
+        "body": "The vertices fit inside the rectangle from x=1 to x=5 and y=1 to y=4, which is 4 units wide and 3 units tall."
       },
       {
-        "title": "Find the grid area",
-        "body": "The 6 by 5 grid has area 30 square units."
+        "title": "Measure the outside triangles",
+        "body": "The three right triangles outside ABC have areas (3×1)/2 = 3/2, (1×3)/2 = 3/2, and (4×2)/2 = 4."
       },
       {
-        "title": "Form the fraction",
-        "body": "The fraction covered is 5/30 = 1/6."
+        "title": "Subtract to find the triangle area",
+        "body": "The bounding rectangle has area 4×3 = 12, so triangle ABC has area 12 − 3/2 − 3/2 − 4 = 5 square units."
+      },
+      {
+        "title": "Find the whole grid area",
+        "body": "The complete 6 by 5 grid contains 6×5 = 30 square units."
+      },
+      {
+        "title": "Form and verify the fraction",
+        "body": "The fraction covered is 5/30 = 1/6. The coordinate shoelace formula independently confirms that triangle ABC has area 5."
       }
     ],
     "animationFrames": [
@@ -34861,9 +34891,14 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "triangle-box-complement",
       "data": {
-        "answer": "A"
+        "grid": [6, 5],
+        "vertices": [
+          "A|1|3",
+          "B|5|1",
+          "C|4|4"
+        ]
       }
     },
     "tags": [
