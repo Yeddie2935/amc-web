@@ -16,6 +16,11 @@ export type ProblemStatus = "unsolved" | "solved" | "missed" | "bookmarked";
 
 export type AnimationTemplateType =
   | "equation"
+  | "parentheses-path"
+  | "coin-count-extremes"
+  | "week-reading-stacks"
+  | "odd-prime-pair"
+  | "budget-fuel-range"
   | "clock-angle"
   | "number-line"
   | "area-model"

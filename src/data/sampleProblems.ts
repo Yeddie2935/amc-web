@@ -31262,9 +31262,11 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "parentheses-path",
       "data": {
-        "answer": "A"
+        "start": 8,
+        "subtract": 2,
+        "add": 5
       }
     },
     "tags": [
@@ -31343,9 +31345,10 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "coin-count-extremes",
       "data": {
-        "answer": "E"
+        "targetCents": 35,
+        "denominations": [5, 10, 25]
       }
     },
     "tags": [
@@ -31424,9 +31427,10 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "week-reading-stacks",
       "data": {
-        "answer": "B"
+        "dayCounts": [3, 3, 1],
+        "pagesPerDay": [36, 44, 10]
       }
     },
     "tags": [
@@ -31505,9 +31509,9 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "odd-prime-pair",
       "data": {
-        "answer": "E"
+        "targetSum": 85
       }
     },
     "tags": [
@@ -31582,9 +31586,11 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "budget-fuel-range",
       "data": {
-        "answer": "C"
+        "budget": 20,
+        "pricePerGallon": 4,
+        "milesPerGallon": 32
       }
     },
     "tags": [

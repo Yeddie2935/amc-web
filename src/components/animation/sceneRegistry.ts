@@ -126,6 +126,11 @@ import { ThermometerDropScene } from "./scenes/ThermometerDropScene";
 import { PaperFoldCutScene } from "./scenes/PaperFoldCutScene";
 import { PrecedenceGroupScene } from "./scenes/PrecedenceGroupScene";
 import { ExpressionRaceScene } from "./scenes/ExpressionRaceScene";
+import { ParenthesesPathScene } from "./scenes/ParenthesesPathScene";
+import { CoinCountExtremesScene } from "./scenes/CoinCountExtremesScene";
+import { WeekReadingStacksScene } from "./scenes/WeekReadingStacksScene";
+import { OddPrimePairScene } from "./scenes/OddPrimePairScene";
+import { BudgetFuelRangeScene } from "./scenes/BudgetFuelRangeScene";
 import { VotePieScaleScene } from "./scenes/VotePieScaleScene";
 import { NestedRadicalCollapseScene } from "./scenes/NestedRadicalCollapseScene";
 import { EstimateProductShiftScene } from "./scenes/EstimateProductShiftScene";
@@ -296,6 +301,39 @@ function num(value: unknown): number {
 export function resolveScene(problem: Problem): AnimatedScene {
   const type = problem.animation?.type;
   const data = problem.animation?.data ?? {};
+  // Three small nonnegative integers keep both evaluation lanes and the final
+  // number-line jump bounded, exact, and directly drawable.
+  if (type === "parentheses-path") {
+    const start = num(data.start), subtract = num(data.subtract), add = num(data.add);
+    if ([start, subtract, add].every(Number.isInteger) && start >= 0 && start <= 20 && subtract >= 0 && subtract <= 20 && add >= 0 && add <= 20 && Math.abs(start - subtract - add) <= 20) return ParenthesesPathScene;
+  }
+  // Three distinct positive denominations and an integral all-small-coin
+  // payment keep both extremal rows exact and bounded to ten drawable coins.
+  if (type === "coin-count-extremes" && Array.isArray(data.denominations)) {
+    const target = Math.round(num(data.targetCents));
+    const ds = data.denominations.map((v) => Math.round(num(v))).sort((a, b) => a - b);
+    const remainder = target - ds[2];
+    if (target > 0 && target <= 100 && ds.length === 3 && new Set(ds).size === 3 && ds.every((d) => d > 0 && d < target) && target % ds[0] === 0 && target / ds[0] <= 10 && ds.includes(remainder)) return CoinCountExtremesScene;
+  }
+  // Seven bounded whole-day stacks in exactly three groups keep every daily
+  // page pile legible and make each average-to-subtotal product exact.
+  if (type === "week-reading-stacks" && Array.isArray(data.dayCounts) && Array.isArray(data.pagesPerDay)) {
+    const counts = data.dayCounts.map((v) => Math.round(num(v))), rates = data.pagesPerDay.map((v) => Math.round(num(v)));
+    if (counts.length === 3 && rates.length === 3 && counts.every((v) => v >= 1 && v <= 7) && counts.reduce((a, b) => a + b, 0) === 7 && rates.every((v) => v >= 1 && v <= 100)) return WeekReadingStacksScene;
+  }
+  // A bounded odd target with a prime remainder after removing 2 makes the
+  // parity-forced pair unique and keeps the sum bar directly drawable.
+  if (type === "odd-prime-pair") {
+    const target = Math.round(num(data.targetSum)), partner = target - 2;
+    const prime = (n: number) => n >= 2 && Array.from({ length: Math.max(0, Math.floor(Math.sqrt(n)) - 1) }, (_, i) => i + 2).every((d) => n % d !== 0);
+    if (target >= 5 && target <= 199 && target % 2 === 1 && prime(partner)) return OddPrimePairScene;
+  }
+  // An integral bounded gallon purchase keeps each payment, can, and equal
+  // mileage segment literal and drawable without compressing the count.
+  if (type === "budget-fuel-range") {
+    const budget = num(data.budget), price = num(data.pricePerGallon), mpg = num(data.milesPerGallon), gallons = budget / price;
+    if (budget > 0 && budget <= 100 && price > 0 && price <= budget && mpg > 0 && mpg <= 100 && Number.isInteger(gallons) && gallons >= 1 && gallons <= 8) return BudgetFuelRangeScene;
+  }
 
   // Only use the clock when a real time (H:MM) is in the problem; otherwise the
   // scene would invent one. Mis-tagged "clock" problems fall to the walkthrough.
