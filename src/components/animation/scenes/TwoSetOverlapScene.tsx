@@ -221,11 +221,49 @@ export function TwoSetOverlapScene({ problem, step: beat, totalSteps }: Animated
   );
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, width: "100%", padding: "8px 4px" }}>
-      <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ maxWidth: 480 }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, width: "100%", maxWidth: "100%", minWidth: 0, overflow: "hidden", boxSizing: "border-box", padding: "8px 4px" }}>
+      <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block", maxWidth: 480, minWidth: 0 }}>
         {/* ============ phase 0: the whole class, counted once each ============ */}
         {phase === 0 &&
           (() => {
+            if (total > 80) {
+              const x = 42;
+              const w = W - 84;
+              const unionW = (w * union) / total;
+              return (
+                <g>
+                  <text x={W / 2} y={30} textAnchor="middle" fontSize="11.5" fontWeight="800" fill={INK}>
+                    begin with all {total} students
+                  </text>
+                  <rect x={x} y={72} width={w} height={52} rx={9} fill="#e2e8f0" stroke={DIM} strokeWidth={1.5} />
+                  <motion.rect x={x} y={72} width={unionW} height={52} rx={9} fill={IND} fillOpacity={0.82} initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ type: "spring", stiffness: 70, damping: 16, delay: 0.2 }} style={{ transformBox: "fill-box", transformOrigin: "left" }} />
+                  <motion.text x={x + unionW / 2} y={95} textAnchor="middle" fontSize="13" fontWeight="800" fill="#fff" fontFamily={numberFont} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}>
+                    {union} favor ≥ 1 issue
+                  </motion.text>
+                  <motion.text x={x + unionW + (w - unionW) / 2} y={94} textAnchor="middle" fontSize="11" fontWeight="800" fill={INK} fontFamily={numberFont} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
+                    {neither}
+                  </motion.text>
+                  <text x={x + unionW + (w - unionW) / 2} y={108} textAnchor="middle" fontSize="8.5" fontWeight="700" fill={DIM}>neither</text>
+                  <motion.text x={W / 2} y={151} textAnchor="middle" fontSize="17" fontWeight="800" fill={IND} fontFamily={numberFont} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.15 }}>
+                    {total} − {neither} = {union}
+                  </motion.text>
+                  {[
+                    { set: A, colour: IND, x: 46 },
+                    { set: B, colour: TEAL, x: 246 },
+                  ].map((c, i) => (
+                    <motion.g key={c.set.label} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring", stiffness: 140, damping: 16, delay: 1.3 + i * 0.18 }}>
+                      <rect x={c.x} y={186} width={178} height={48} rx={10} fill={c.colour} fillOpacity={0.1} stroke={c.colour} strokeWidth={1.5} />
+                      <text x={c.x + 14} y={215} fontSize="17">{c.set.icon}</text>
+                      <text x={c.x + 40} y={205} fontSize="10.5" fontWeight="800" fill={c.colour}>{c.set.label}</text>
+                      <text x={c.x + 40} y={222} fontSize="12" fontWeight="800" fill={c.colour} fontFamily={numberFont}>{c.set.count} yes votes</text>
+                    </motion.g>
+                  ))}
+                  <text x={W / 2} y={268} textAnchor="middle" fontSize="10.5" fontWeight="700" fill={DIM}>
+                    these two rosters can overlap inside the {union}
+                  </text>
+                </g>
+              );
+            }
             const cols = 16;
             const s = 25;
             const gx = (W - cols * s) / 2 + s / 2;
@@ -240,7 +278,8 @@ export function TwoSetOverlapScene({ problem, step: beat, totalSteps }: Animated
                   const col = i - row * cols;
                   const x = gx + col * s + ((cols - rowN) * s) / 2;
                   const y = 74 + row * s;
-                  return <Dot key={i} p={{ x, y }} fill={DIM} r={7.5} delay={0.15 + i * 0.012} />;
+                  const inUnion = i < union;
+                  return <Dot key={i} p={{ x, y }} fill={inUnion ? IND : "#cbd5e1"} r={7.5} delay={0.15 + i * 0.012} />;
                 })}
                 {[
                   { set: A, colour: IND, x: 46 },
@@ -265,7 +304,7 @@ export function TwoSetOverlapScene({ problem, step: beat, totalSteps }: Animated
                   </motion.g>
                 ))}
                 <motion.text x={W / 2} y={224} textAnchor="middle" fontSize="10.5" fontWeight="700" fill={DIM} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}>
-                  {neither === 0 ? "nobody is outside both classes — but some are in both" : `${neither} are in neither class`}
+                  {neither === 0 ? "everyone is in at least one group" : `${total} − ${neither} = ${union} favor at least one issue`}
                 </motion.text>
               </g>
             );
@@ -355,7 +394,7 @@ export function TwoSetOverlapScene({ problem, step: beat, totalSteps }: Animated
                   <path d={`M ${edge},44 L ${edge},56`} stroke={WARN} strokeWidth={1.8} />
                   <path d={`M ${endX},44 L ${endX},56`} stroke={WARN} strokeWidth={1.8} />
                   <text x={(edge + endX) / 2} y={38} textAnchor="middle" fontSize="12" fontWeight="800" fill={WARN} fontFamily={numberFont}>
-                    {both}
+                    {ask === "both" ? "shared?" : both}
                   </text>
                 </motion.g>
 
@@ -363,10 +402,10 @@ export function TwoSetOverlapScene({ problem, step: beat, totalSteps }: Animated
                   {A.count} + {B.count} = {names} names
                 </motion.text>
                 <motion.text x={W / 2} y={250} textAnchor="middle" fontSize="16" fontWeight="800" fill={WARN} fontFamily={numberFont} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.3 }}>
-                  {names} − {union} = {both} names too many
+                  {ask === "both" ? `${names} − ${union} = shared students` : `${names} − ${union} = ${both} names too many`}
                 </motion.text>
                 <motion.text x={W / 2} y={276} textAnchor="middle" fontSize="10.5" fontWeight="700" fill={DIM} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.6 }}>
-                  so {both} {unit} must have been written down twice
+                  {ask === "both" ? "the overhang is exactly the twice-counted overlap" : `so ${both} ${unit} must have been written down twice`}
                 </motion.text>
               </g>
             );
@@ -420,18 +459,44 @@ export function TwoSetOverlapScene({ problem, step: beat, totalSteps }: Animated
               <path d={`M ${notchX},${notchY - 4} L ${notchX},52`} stroke={WARN} strokeWidth={1.5} />
               <rect x={notchX - 40} y={30} width={80} height={22} rx={11} fill={WARN} />
               <text x={notchX} y={45} textAnchor="middle" fontSize="11.5" fontWeight="800" fill="#fff" fontFamily={numberFont}>
-                {both} in both
+                {ask === "both" ? "same students" : `${both} in both`}
               </text>
             </motion.g>
 
             <motion.text x={W / 2} y={H - 8} textAnchor="middle" fontSize="12.5" fontWeight="800" fill={INK} fontFamily={numberFont} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 3.4 }}>
-              {names} names collapse to {union} {unit}
+              {ask === "both" ? `${names} roster entries collapse to ${union} unique students` : `${names} names collapse to ${union} ${unit}`}
             </motion.text>
           </g>
         )}
 
         {/* ============ phase 3: lift the overlap back out of the asked-for circle ============ */}
-        {phase === 3 && (
+        {phase === 3 && ask === "both" && (
+          <g>
+            <text x={W / 2} y={22} textAnchor="middle" fontSize="11.5" fontWeight="800" fill={INK}>
+              the excess roster entries identify the overlap
+            </text>
+            <Circles />
+            {ptsA.map((p, i) => <Dot key={`fa${i}`} p={p} fill={IND} delay={0.08 + i * 0.005} />)}
+            {ptsB.map((p, i) => <Dot key={`fb${i}`} p={p} fill={TEAL} delay={0.08 + i * 0.005} />)}
+            {ptsM.map((p, i) => <Dot key={`fm${i}`} p={p} fill={WARN} delay={0.35 + i * 0.006} />)}
+            <SideLabel side="l" icon={A.icon} label={A.label} count={A.count} colour={IND} />
+            <SideLabel side="r" icon={B.icon} label={B.label} count={B.count} colour={TEAL} />
+            <motion.g initial={{ opacity: 0, scale: 0.75 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring", stiffness: 190, damping: 15, delay: 1.25 }} style={{ transformBox: "fill-box", transformOrigin: "center" }}>
+              <rect x={notchX - 43} y={30} width={86} height={24} rx={12} fill={WARN} />
+              <text x={notchX} y={46} textAnchor="middle" fontSize="12" fontWeight="800" fill="#fff" fontFamily={numberFont}>
+                both = {both}
+              </text>
+            </motion.g>
+            <motion.text x={W / 2} y={H - 31} textAnchor="middle" fontSize="16" fontWeight="800" fill={WARN} fontFamily={numberFont} initial={{ opacity: 0, y: 7 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.45 }}>
+              {names} − {union} = {both}
+            </motion.text>
+            <motion.text x={W / 2} y={H - 9} textAnchor="middle" fontSize="10.5" fontWeight="700" fill={DIM} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8 }}>
+              check: {aOnly} only first + {both} both + {bOnly} only second + {neither} neither = {total}
+            </motion.text>
+          </g>
+        )}
+
+        {phase === 3 && ask !== "both" && (
           <g>
             <text x={W / 2} y={22} textAnchor="middle" fontSize="11.5" fontWeight="800" fill={INK}>
               take the {both} who also take {B.label.toLowerCase()} off the {A.label.toLowerCase()} roster
@@ -506,14 +571,17 @@ export function TwoSetOverlapScene({ problem, step: beat, totalSteps }: Animated
           padding: "4px 12px",
           borderRadius: 999,
           textAlign: "center",
+          maxWidth: "calc(100% - 16px)",
+          boxSizing: "border-box",
+          whiteSpace: "normal",
         }}
       >
         {phase === 0
           ? `${aOnly + both + bOnly + neither} ${unit}, ${A.count} in ${A.label.toLowerCase()}, ${B.count} in ${B.label.toLowerCase()}`
           : phase === 1
-          ? `${names} names − ${union} ${unit} = ${both} counted twice`
+          ? ask === "both" ? `${names} roster entries extend past ${union} unique students` : `${names} names − ${union} ${unit} = ${both} counted twice`
           : phase === 2
-          ? `the ${both} in the middle are on both rosters`
+          ? ask === "both" ? "each paired dot is one student recorded on both rosters" : `the ${both} in the middle are on both rosters`
           : `${asked} ${unit} are ${askedLabel}`}
       </motion.span>
 

@@ -34165,10 +34165,10 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "counting",
+      "type": "license-plate-factory",
       "data": {
-        "choicesPerSlot": [5, 21, 20, 10],
-        "answer": "1/21000"
+        "counts": [5, 21, 20, 10],
+        "target": "AMC8"
       }
     },
     "tags": [
@@ -34249,9 +34249,10 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "cube-parallel-edge-pairs",
       "data": {
-        "answer": "C"
+        "directions": 3,
+        "groups": ["AB|EF|DC|HG", "AE|BF|CG|DH", "AD|BC|FG|EH"]
       }
     },
     "tags": [
@@ -34306,6 +34307,10 @@ const amc2015Problems: Problem[] = [
     "shortAnswer": "5",
     "solutionSteps": [
       {
+        "title": "Total the original set",
+        "body": "The 11 numbers balance around 6, so their sum is 11 × 6 = 66."
+      },
+      {
         "title": "Find the target sum",
         "body": "After removing two numbers, 9 numbers remain with mean 6, so their sum must be 9 × 6 = 54."
       },
@@ -34336,9 +34341,11 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "remove-pair-mean",
       "data": {
-        "answer": "D"
+        "values": [1,2,3,4,5,6,7,8,9,10,11],
+        "remainingCount": 9,
+        "targetMean": 6
       }
     },
     "tags": [
@@ -34393,8 +34400,12 @@ const amc2015Problems: Problem[] = [
         "body": "Four consecutive odd integers can be written as n, n+2, n+4, and n+6 where n is odd."
       },
       {
-        "title": "Simplify",
-        "body": "Their sum is 4n + 12 = 4(n+3). Since n is odd, n+3 is even, so the sum is a multiple of 8."
+        "title": "Regroup around the center",
+        "body": "The offsets 0, 2, 4, and 6 balance at 3, so the sum is 4(n+3)."
+      },
+      {
+        "title": "Expose the factor of 8",
+        "body": "Since n is odd, n+3 is even. Writing n+3 = 2k gives 4(n+3) = 8k, a multiple of 8."
       },
       {
         "title": "Check choices",
@@ -34419,9 +34430,11 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "four-odd-sum-sieve",
       "data": {
-        "answer": "D"
+        "count": 4,
+        "gap": 2,
+        "choices": [16,40,72,100,200]
       }
     },
     "tags": [
@@ -34472,16 +34485,20 @@ const amc2015Problems: Problem[] = [
     "shortAnswer": "99",
     "solutionSteps": [
       {
-        "title": "Find students for at least one issue",
+        "title": "Find the students in the union",
         "body": "Since 29 voted against both, 198 − 29 = 169 students voted for at least one issue."
       },
       {
-        "title": "Apply inclusion-exclusion",
-        "body": "149 + 119 − both = 169."
+        "title": "Count the two yes rosters",
+        "body": "The first-issue and second-issue rosters contain 149 + 119 = 268 entries altogether."
       },
       {
-        "title": "Solve",
-        "body": "Both = 149 + 119 − 169 = 99."
+        "title": "Identify the double count",
+        "body": "Students who favored both issues appear on both rosters, so the overlap is exactly the excess of 268 entries over 169 unique students."
+      },
+      {
+        "title": "Compute and verify the overlap",
+        "body": "268 − 169 = 99. The regions are 50 only first, 99 both, 20 only second, and 29 neither; they total 198."
       }
     ],
     "animationFrames": [
@@ -34502,9 +34519,16 @@ const amc2015Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "two-set-overlap",
       "data": {
-        "answer": "D"
+        "total": 198,
+        "neither": 29,
+        "sets": [
+          "First issue|149|1️⃣",
+          "Second issue|119|2️⃣"
+        ],
+        "ask": "both",
+        "unit": "students"
       }
     },
     "tags": [

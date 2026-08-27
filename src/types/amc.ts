@@ -284,6 +284,10 @@ export type AnimationTemplateType =
   | "triangle-perimeter-ceiling"
   | "odd-layer-square"
   | "distinct-four-digit-count"
+  | "license-plate-factory"
+  | "cube-parallel-edge-pairs"
+  | "remove-pair-mean"
+  | "four-odd-sum-sieve"
   | "generic";
 
 export interface AnswerChoice {

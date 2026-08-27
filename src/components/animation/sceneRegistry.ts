@@ -264,6 +264,10 @@ import { OutcomeProductGridScene } from "./scenes/OutcomeProductGridScene";
 import { TrianglePerimeterCeilingScene } from "./scenes/TrianglePerimeterCeilingScene";
 import { OddLayerSquareScene } from "./scenes/OddLayerSquareScene";
 import { DistinctFourDigitCountScene } from "./scenes/DistinctFourDigitCountScene";
+import { LicensePlateFactoryScene } from "./scenes/LicensePlateFactoryScene";
+import { CubeParallelEdgePairsScene } from "./scenes/CubeParallelEdgePairsScene";
+import { RemovePairMeanScene } from "./scenes/RemovePairMeanScene";
+import { FourOddSumSieveScene } from "./scenes/FourOddSumSieveScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -1982,6 +1986,30 @@ export function resolveScene(problem: Problem): AnimatedScene {
   // zero exclusion and successive used-card removals exact and drawable.
   if(type==="distinct-four-digit-count"){
     if(num(data.digitCount)===10&&num(data.length)===4) return DistinctFourDigitCountScene;
+  }
+  // Four bounded positive slot pools and one exact four-symbol target keep the
+  // multiplication tree finite and the single favorable plate literal.
+  if(type==="license-plate-factory"&&Array.isArray(data.counts)){
+    const counts=data.counts.map(v=>num(v)),target=String(data.target??"");
+    if(counts.length===4&&counts.every(v=>Number.isInteger(v)&&v>=2&&v<=30)&&target.length===4) return LicensePlateFactoryScene;
+  }
+  // Three encoded four-edge families must partition the cube's twelve labeled
+  // edges, keeping every parallel pair literal and uniquely countable.
+  if(type==="cube-parallel-edge-pairs"&&Array.isArray(data.groups)){
+    const groups=data.groups.map(v=>String(v).split("|")),all=groups.flat();
+    if(num(data.directions)===3&&groups.length===3&&groups.every(g=>g.length===4)&&new Set(all).size===12&&all.every(e=>/^[A-H]{2}$/.test(e))) return CubeParallelEdgePairsScene;
+  }
+  // A short distinct integer set, positive remaining count, and integral target
+  // mean keep the total gap and every unordered removal pair exactly enumerable.
+  if(type==="remove-pair-mean"&&Array.isArray(data.values)){
+    const values=data.values.map(v=>num(v)),remain=num(data.remainingCount),mean=num(data.targetMean);
+    if(values.length>=4&&values.length<=15&&new Set(values).size===values.length&&values.every(Number.isInteger)&&Number.isInteger(remain)&&remain===values.length-2&&Number.isInteger(mean)&&mean>0) return RemovePairMeanScene;
+  }
+  // Four consecutive odd-term offsets and a short distinct integer choice list
+  // keep the equalization proof and complete remainder-8 sieve exact.
+  if(type==="four-odd-sum-sieve"&&Array.isArray(data.choices)){
+    const choices=data.choices.map(v=>num(v));
+    if(num(data.count)===4&&num(data.gap)===2&&choices.length===5&&new Set(choices).size===5&&choices.every(v=>Number.isInteger(v)&&v>0&&v<=1000)) return FourOddSumSieveScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
