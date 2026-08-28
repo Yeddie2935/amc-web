@@ -260,6 +260,8 @@ import { MissingScoreTotalGapScene } from "./scenes/MissingScoreTotalGapScene";
 import { TwoPaceMileCompareScene } from "./scenes/TwoPaceMileCompareScene";
 import { DigitModCandidateSieveScene } from "./scenes/DigitModCandidateSieveScene";
 import { CumulativeMedianStacksScene } from "./scenes/CumulativeMedianStacksScene";
+import { MedianCanBudgetScene } from "./scenes/MedianCanBudgetScene";
+import { RepeatedSemicircleRideScene } from "./scenes/RepeatedSemicircleRideScene";
 import { PowerSquareParityScene } from "./scenes/PowerSquareParityScene";
 import { ConstantDifferencePairsScene } from "./scenes/ConstantDifferencePairsScene";
 import { DistinctPrimeTokenSumScene } from "./scenes/DistinctPrimeTokenSumScene";
@@ -298,6 +300,9 @@ import { DeadlineSplitRouteScene } from "./scenes/DeadlineSplitRouteScene";
 import { BirthOutcomeBucketsScene } from "./scenes/BirthOutcomeBucketsScene";
 import { ExposureMinimizationCubeScene } from "./scenes/ExposureMinimizationCubeScene";
 import { CornerQuarterCircleSubtractScene } from "./scenes/CornerQuarterCircleSubtractScene";
+import { SharedDigitCongruenceSieveScene } from "./scenes/SharedDigitCongruenceSieveScene";
+import { DigitProductSumBalanceScene } from "./scenes/DigitProductSumBalanceScene";
+import { PrimeDateOrderScene } from "./scenes/PrimeDateOrderScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -2021,6 +2026,22 @@ export function resolveScene(problem: Problem): AnimatedScene {
     const total = freqs.reduce((sum, value) => sum + value, 0);
     if (values.length >= 2 && values.length <= 8 && freqs.length === values.length && values.every((value, i) => value > 0 && value <= 30 && (i === 0 || value > values[i - 1])) && freqs.every((freq) => freq >= 0 && freq <= 12) && total >= 3 && total <= 49 && total % 2 === 1) return CumulativeMedianStacksScene;
   }
+  // An even, bounded customer count and an exact extremal fill keep all 100
+  // sorted stack slots drawable and prove both middle-value bounds.
+  if (type === "median-can-budget") {
+    const customers = Math.round(num(data.customers)), totalCans = Math.round(num(data.totalCans)), minimum = Math.round(num(data.minimumPerCustomer));
+    const lower = customers / 2 - 1, upper = customers / 2;
+    const left = Math.floor((totalCans - lower * minimum) / (upper + 1));
+    const right = Math.floor((totalCans - lower * minimum - left) / upper);
+    if (customers >= 4 && customers <= 120 && customers % 2 === 0 && minimum >= 1 && minimum <= 10 && totalCans > customers * minimum && left >= minimum && right >= left && lower * minimum + left + upper * right === totalCans) return MedianCanBudgetScene;
+  }
+  // Whole, bounded 40-foot spans keep every diameter tile enumerable, while
+  // positive mile and speed units preserve the exact arc-length rate chain.
+  if (type === "repeated-semicircle-ride") {
+    const miles = num(data.highwayMiles), width = num(data.highwayWidthFeet), feetPerMile = num(data.feetPerMile), speed = num(data.speedMph);
+    const count = miles * feetPerMile / width, reciprocalTimeCoefficient = 2 * speed / miles;
+    if (miles > 0 && miles <= 10 && width > 0 && width <= 200 && feetPerMile === 5280 && speed > 0 && speed <= 100 && Number.isInteger(count) && count >= 2 && count <= 200 && Number.isInteger(reciprocalTimeCoefficient) && reciprocalTimeCoefficient >= 1 && reciprocalTimeCoefficient <= 200) return RepeatedSemicircleRideScene;
+  }
   // Matching bounded positive base/exponent arrays keep every choice row
   // drawable and allow exact parity and perfect-square-base classification.
   if (type === "power-square-parity" && Array.isArray(data.bases) && Array.isArray(data.exponents)) {
@@ -2263,6 +2284,25 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if(type==="corner-quarter-circle-subtract"&&Array.isArray(data.radii)&&Array.isArray(data.cornerLabels)){
     const width=num(data.rectangleWidth),height=num(data.rectangleHeight),r=data.radii.map(v=>num(v)),labels=data.cornerLabels.map(String);
     if(width>0&&width<=20&&height>0&&height<=20&&r.length===3&&r.every(v=>v>0&&v<=20)&&r[0]+r[1]===height&&r[1]+r[2]===width&&labels.length===3&&new Set(labels).size===3&&labels.every(v=>v.length===1)) return CornerQuarterCircleSubtractScene;
+  }
+  // Two seven-character decimal patterns must share exactly A and B, with C
+  // appearing only in the second; modulus 3 keeps every supplied choice drawable.
+  if(type==="shared-digit-congruence-sieve"&&Array.isArray(data.patterns)){
+    const patterns=data.patterns.map(String),mod=Math.round(num(data.modulus));
+    const letters=(s:string)=>[...new Set([...s].filter(ch=>/[A-Z]/.test(ch)))].sort().join("");
+    if(patterns.length===2&&patterns.every(p=>p.length===7&&/^[0-9A-Z]+$/.test(p))&&letters(patterns[0])==="AB"&&letters(patterns[1])==="ABC"&&mod===3&&(problem.choices??[]).length===5) return SharedDigitCongruenceSieveScene;
+  }
+  // Base ten and two distinct one-letter digit symbols make the full 90-pair
+  // enumeration finite while preserving the nonzero leading-digit constraint.
+  if(type==="digit-product-sum-balance"){
+    const base=Math.round(num(data.base)),tens=String(data.tensLabel??""),units=String(data.unitsLabel??"");
+    if(base===10&&/^[a-z]$/.test(tens)&&/^[a-z]$/.test(units)&&tens!==units) return DigitProductSumBalanceScene;
+  }
+  // Three distinct named players, two-digit primes, and a real month-length cap
+  // keep the roster and all six player assignments exhaustively enumerable.
+  if(type==="prime-date-order"&&Array.isArray(data.names)){
+    const min=Math.round(num(data.minJersey)),max=Math.round(num(data.maxDate)),names=data.names.map(String);
+    if(min===10&&max>=28&&max<=31&&names.length===3&&new Set(names).size===3&&names.every(v=>v.length>=2&&v.length<=12)) return PrimeDateOrderScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

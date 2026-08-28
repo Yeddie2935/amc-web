@@ -32933,8 +32933,12 @@ const amc2014Problems: Problem[] = [
         "body": "For 326AB4C, the digit sum is 15+A+B+C, so A+B+C must be divisible by 3."
       },
       {
-        "title": "Find C",
-        "body": "Since A+B is 2 modulo 3, C must be 1 modulo 3. Among the choices, only 1 works."
+        "title": "Combine the constraints",
+        "body": "Substitute A+B≡2 into the second condition: 2+C≡0 modulo 3, so C≡1 modulo 3."
+      },
+      {
+        "title": "Test the choices",
+        "body": "Among 1, 2, 3, 5, and 8, only 1 has remainder 1 when divided by 3."
       }
     ],
     "animationFrames": [
@@ -32955,9 +32959,10 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "shared-digit-congruence-sieve",
       "data": {
-        "answer": "A"
+        "patterns": ["74A52B1", "326AB4C"],
+        "modulus": 3
       }
     },
     "tags": [
@@ -33015,8 +33020,12 @@ const amc2014Problems: Problem[] = [
         "body": "Product plus sum equals the number: ab+a+b=10a+b."
       },
       {
-        "title": "Solve",
-        "body": "This simplifies to ab=9a. Since a is nonzero, b=9."
+        "title": "Cancel the units term",
+        "body": "Subtract b from both sides to get ab+a=10a."
+      },
+      {
+        "title": "Factor and solve",
+        "body": "Factor to get a(b+1)=10a. Since the tens digit a is nonzero, divide by a: b+1=10, so b=9."
       }
     ],
     "animationFrames": [
@@ -33037,9 +33046,11 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "digit-product-sum-balance",
       "data": {
-        "answer": "E"
+        "base": 10,
+        "tensLabel": "a",
+        "unitsLabel": "b"
       }
     },
     "tags": [
@@ -33088,8 +33099,12 @@ const amc2014Problems: Problem[] = [
     "shortAnswer": "11",
     "solutionSteps": [
       {
-        "title": "List possible small prime sums",
-        "body": "The sums must be dates, so they are at most 31. Possible sums of two 2-digit primes from the choices are 24, 28, and 30."
+        "title": "Find the possible jerseys",
+        "body": "The sums are dates at most 31. The only possible roster of three distinct two-digit primes is 11, 13, and 17; including 19 would force 13+19=32."
+      },
+      {
+        "title": "Form the three dates",
+        "body": "The three pair sums are 11+13=24, 11+17=28, and 13+17=30."
       },
       {
         "title": "Use the order of dates",
@@ -33118,9 +33133,11 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "ranking",
+      "type": "prime-date-order",
       "data": {
-        "answer": "A"
+        "minJersey": 10,
+        "maxDate": 31,
+        "names": ["Ashley", "Brittany", "Caitlin"]
       }
     },
     "tags": [
@@ -33178,8 +33195,16 @@ const amc2014Problems: Problem[] = [
         "body": "Give the first 49 customers one can each, leaving 203 cans for the top 51 customers."
       },
       {
-        "title": "Maximize the middle pair",
-        "body": "If the 50th customer had 4 cans, at least 49+51·4=253 cans would be needed. So the 50th can be 3 and the 51st can be 4, giving median 3.5."
+        "title": "Reject 4 in the 50th position",
+        "body": "If the 50th customer had 4 cans, then all 51 customers from positions 50 through 100 would have at least 4. That would require 49+51·4=253 cans, so the 50th value is at most 3."
+      },
+      {
+        "title": "Maximize the 51st position",
+        "body": "Put 3 cans at position 50. After the first 49 customers and this middle customer, 252−49−3=200 cans remain for the final 50 customers, so the 51st value is at most 200÷50=4. Giving all final 50 customers 4 cans uses exactly 252 cans."
+      },
+      {
+        "title": "Average the middle pair",
+        "body": "The largest possible middle pair is 3 and 4, so the maximum median is (3+4)÷2=3.5. This is choice C."
       }
     ],
     "animationFrames": [
@@ -33200,9 +33225,11 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "median-can-budget",
       "data": {
-        "answer": "C"
+        "customers": 100,
+        "totalCans": 252,
+        "minimumPerCustomer": 1
       }
     },
     "tags": [
@@ -33253,11 +33280,15 @@ const amc2014Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Compare arc length to diameter",
-        "body": "Each semicircle has length (π/2) times its diameter."
+        "body": "Each semicircle has diameter 40 feet, so its arc length is half a circumference: (1/2)·π·40=20π feet."
       },
       {
-        "title": "Scale the whole mile",
-        "body": "The whole path is therefore (π/2) times the one-mile straight stretch, or π/2 miles."
+        "title": "Count the semicircles",
+        "body": "The 40-foot diameters lie end-to-end along 5280 feet, so the path contains 5280÷40=132 semicircles."
+      },
+      {
+        "title": "Unroll the full path",
+        "body": "Together the arcs have length 132·20π=2640π feet. Dividing by 5280 feet per mile gives π/2 mile."
       },
       {
         "title": "Use speed",
@@ -33282,9 +33313,12 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "repeated-semicircle-ride",
       "data": {
-        "answer": "B"
+        "highwayMiles": 1,
+        "highwayWidthFeet": 40,
+        "feetPerMile": 5280,
+        "speedMph": 5
       }
     },
     "tags": [
