@@ -136,6 +136,11 @@ import { DifferenceTotalRatioScene } from "./scenes/DifferenceTotalRatioScene";
 import { ElevenDigitBalanceScene } from "./scenes/ElevenDigitBalanceScene";
 import { IsoscelesSupplementScene } from "./scenes/IsoscelesSupplementScene";
 import { InclusiveContestBirthYearScene } from "./scenes/InclusiveContestBirthYearScene";
+import { ForbiddenIntersectionPathsScene } from "./scenes/ForbiddenIntersectionPathsScene";
+import { BabyPictureMatchingScene } from "./scenes/BabyPictureMatchingScene";
+import { SquareParityPairScene } from "./scenes/SquareParityPairScene";
+import { EqualAreaRightTriangleScene } from "./scenes/EqualAreaRightTriangleScene";
+import { EqualArcBaseAnglesScene } from "./scenes/EqualArcBaseAnglesScene";
 import { VotePieScaleScene } from "./scenes/VotePieScaleScene";
 import { NestedRadicalCollapseScene } from "./scenes/NestedRadicalCollapseScene";
 import { EstimateProductShiftScene } from "./scenes/EstimateProductShiftScene";
@@ -370,6 +375,39 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if (type === "inclusive-contest-birth-year") {
     const first = Math.round(num(data.firstYear)), ordinal = Math.round(num(data.ordinal)), age = Math.round(num(data.age));
     if (first >= 1900 && first <= 2100 && ordinal >= 2 && ordinal <= 8 && age >= 1 && age <= 20 && first + ordinal - 1 - age >= 1900) return InclusiveContestBirthYearScene;
+  }
+  // A small monotone grid and one strictly interior blocked point keep complete
+  // route enumeration finite while making the complementary product literal.
+  if (type === "forbidden-intersection-paths" && Array.isArray(data.blocked) && data.blocked.length === 2) {
+    const east = Math.round(num(data.eastBlocks)), north = Math.round(num(data.northBlocks));
+    const bx = Math.round(num(data.blocked[0])), by = Math.round(num(data.blocked[1]));
+    const choose = (n: number, k: number) => { let value = 1; for (let i = 1; i <= k; i++) value = value * (n - k + i) / i; return value; };
+    if (east >= 1 && east <= 6 && north >= 1 && north <= 6 && bx > 0 && bx < east && by > 0 && by < north && choose(east + north, Math.min(east, north)) <= 35) return ForbiddenIntersectionPathsScene;
+  }
+  // Three unique short labels produce exactly six complete matchings, small
+  // enough to enumerate while preserving one identity match as the success.
+  if (type === "baby-picture-matching" && Array.isArray(data.labels)) {
+    const labels = data.labels.map(String);
+    if (labels.length === 3 && new Set(labels).size === 3 && labels.every((v) => v.length >= 1 && v.length <= 3)) return BabyPictureMatchingScene;
+  }
+  // Both parity residues exactly once generate the complete 2×2 case table;
+  // the even target then leaves precisely the two same-parity cases.
+  if (type === "square-parity-pair" && Array.isArray(data.residues)) {
+    const residues = data.residues.map(Number);
+    if (data.targetParity === "even" && residues.length === 2 && new Set(residues).size === 2 && residues.every((v) => v === 0 || v === 1)) return SquareParityPairScene;
+  }
+  // Positive bounded integral rectangle dimensions keep every unit tile visible;
+  // equal area determines a bounded integral triangle base and hypotenuse.
+  if (type === "equal-area-right-triangle") {
+    const width = num(data.rectangleWidth), height = num(data.sharedHeight), area = width * height;
+    const base = height === 0 ? 0 : 2 * area / height, hyp = Math.hypot(height, base);
+    if (Number.isInteger(width) && Number.isInteger(height) && width >= 1 && width <= 10 && height >= 1 && height <= 10 && area <= 60 && Number.isInteger(base) && base <= 20 && Number.isInteger(hyp)) return EqualAreaRightTriangleScene;
+  }
+  // Twelve unique labels and two valid endpoint pairs reproduce the full source
+  // circle while keeping both minor central angles unambiguous and drawable.
+  if (type === "equal-arc-base-angles" && Array.isArray(data.labels) && Array.isArray(data.xEndpoints) && Array.isArray(data.yEndpoints)) {
+    const count=Math.round(num(data.arcCount)),labels=data.labels.map(String),x=data.xEndpoints.map(v=>Math.round(num(v))),y=data.yEndpoints.map(v=>Math.round(num(v)));
+    if(count===12&&labels.length===count&&new Set(labels).size===count&&labels.every(v=>v.length===1)&&x.length===2&&y.length===2&&[...x,...y].every(v=>v>=0&&v<count)&&new Set(x).size===2&&new Set(y).size===2) return EqualArcBaseAnglesScene;
   }
 
   // Only use the clock when a real time (H:MM) is in the problem; otherwise the

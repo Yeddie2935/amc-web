@@ -32084,9 +32084,11 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "forbidden-intersection-paths",
       "data": {
-        "answer": "A"
+        "eastBlocks": 3,
+        "northBlocks": 2,
+        "blocked": [1, 1]
       }
     },
     "tags": [
@@ -32167,9 +32169,9 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "baby-picture-matching",
       "data": {
-        "answer": "B"
+        "labels": ["A", "B", "C"]
       }
     },
     "tags": [
@@ -32248,9 +32250,10 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "square-parity-pair",
       "data": {
-        "answer": "D"
+        "residues": [0, 1],
+        "targetParity": "even"
       }
     },
     "tags": [
@@ -32329,9 +32332,10 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "equal-area-right-triangle",
       "data": {
-        "answer": "B"
+        "rectangleWidth": 6,
+        "sharedHeight": 5
       }
     },
     "tags": [
@@ -32393,8 +32397,12 @@ const amc2014Problems: Problem[] = [
         "body": "The central angle AOE covers 4 steps, so it is 120°. In isosceles triangle AOE, x=(180°−120°)/2=30°."
       },
       {
-        "title": "Find y and add",
-        "body": "The central angle GOI covers 2 steps, so it is 60°. Thus y=(180°−60°)/2=60°, and x+y=90°."
+        "title": "Find y",
+        "body": "The central angle GOI covers 2 steps, so it is 60°. Thus y=(180°−60°)/2=60°."
+      },
+      {
+        "title": "Add the angles",
+        "body": "Therefore x+y=30°+60°=90°."
       }
     ],
     "animationFrames": [
@@ -32415,9 +32423,12 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "equal-arc-base-angles",
       "data": {
-        "answer": "C"
+        "arcCount": 12,
+        "labels": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"],
+        "xEndpoints": [0, 4],
+        "yEndpoints": [6, 8]
       }
     },
     "tags": [
