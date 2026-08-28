@@ -293,6 +293,11 @@ import { LicensePlateFactoryScene } from "./scenes/LicensePlateFactoryScene";
 import { CubeParallelEdgePairsScene } from "./scenes/CubeParallelEdgePairsScene";
 import { RemovePairMeanScene } from "./scenes/RemovePairMeanScene";
 import { FourOddSumSieveScene } from "./scenes/FourOddSumSieveScene";
+import { TeamScheduleCountScene } from "./scenes/TeamScheduleCountScene";
+import { DeadlineSplitRouteScene } from "./scenes/DeadlineSplitRouteScene";
+import { BirthOutcomeBucketsScene } from "./scenes/BirthOutcomeBucketsScene";
+import { ExposureMinimizationCubeScene } from "./scenes/ExposureMinimizationCubeScene";
+import { CornerQuarterCircleSubtractScene } from "./scenes/CornerQuarterCircleSubtractScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -2227,6 +2232,37 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if(type==="four-odd-sum-sieve"&&Array.isArray(data.choices)){
     const choices=data.choices.map(v=>num(v));
     if(num(data.count)===4&&num(data.gap)===2&&choices.length===5&&new Set(choices).size===5&&choices.every(v=>Number.isInteger(v)&&v>0&&v<=1000)) return FourOddSumSieveScene;
+  }
+  // A small whole-team league keeps the complete upper-triangle pairing board
+  // drawable; integral game counts preserve the home/away and outside ledgers.
+  if(type==="team-schedule-count"){
+    const teams=Math.round(num(data.teamCount)),perPair=Math.round(num(data.gamesPerPair)),outside=Math.round(num(data.nonConferencePerTeam));
+    if(teams>=3&&teams<=10&&perPair>=1&&perPair<=4&&outside>=1&&outside<=6) return TeamScheduleCountScene;
+  }
+  // Positive bounded route facts with an interior split and whole minute states
+  // keep both road segments and the shared deadline clock exact and drawable.
+  if(type==="deadline-split-route"){
+    const distance=num(data.distanceMiles),normal=num(data.normalSpeedMph),firstDistance=num(data.firstDistanceMiles),firstSpeed=num(data.firstSpeedMph),mph=Math.round(num(data.minutesPerHour));
+    const normalMinutes=distance/normal*mph,firstMinutes=firstDistance/firstSpeed*mph,remaining=normalMinutes-firstMinutes;
+    if(distance>0&&distance<=20&&normal>0&&normal<=60&&firstDistance>0&&firstDistance<distance&&firstSpeed>0&&firstSpeed<=60&&mph===60&&Number.isInteger(normalMinutes)&&Number.isInteger(firstMinutes)&&Number.isInteger(remaining)&&remaining>0&&remaining<=120) return DeadlineSplitRouteScene;
+  }
+  // Four binary outcomes produce exactly sixteen drawable sequence cards and
+  // the 1, 1, 6, 8 composition buckets used by the source answer choices.
+  if(type==="birth-outcome-buckets"&&Array.isArray(data.outcomeLabels)){
+    const children=Math.round(num(data.childCount)),labels=data.outcomeLabels.map(String);
+    if(children===4&&labels.length===2&&new Set(labels).size===2&&labels.every(v=>v.length===1)) return BirthOutcomeBucketsScene;
+  }
+  // The exact 3×3×3 cube has the unique 1/6/12/8 exposure inventory; six
+  // white and twenty-one red cubes fill it and keep the full surface net small.
+  if(type==="exposure-minimization-cube"){
+    const n=Math.round(num(data.edgeCubes)),white=Math.round(num(data.whiteCubes)),red=Math.round(num(data.redCubes));
+    if(n===3&&white===6&&red===21&&white+red===n**3) return ExposureMinimizationCubeScene;
+  }
+  // Three positive corner radii must exactly tile the two adjacent side lengths;
+  // this proves the clipped quarters are tangent and keeps the source figure exact.
+  if(type==="corner-quarter-circle-subtract"&&Array.isArray(data.radii)&&Array.isArray(data.cornerLabels)){
+    const width=num(data.rectangleWidth),height=num(data.rectangleHeight),r=data.radii.map(v=>num(v)),labels=data.cornerLabels.map(String);
+    if(width>0&&width<=20&&height>0&&height<=20&&r.length===3&&r.every(v=>v>0&&v<=20)&&r[0]+r[1]===height&&r[1]+r[2]===width&&labels.length===3&&new Set(labels).size===3&&labels.every(v=>v.length===1)) return CornerQuarterCircleSubtractScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

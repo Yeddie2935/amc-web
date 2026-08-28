@@ -32482,8 +32482,12 @@ const amc2014Problems: Problem[] = [
     "shortAnswer": "88",
     "solutionSteps": [
       {
-        "title": "Conference games",
-        "body": "There are C(8,2)=28 pairs of teams, and each pair plays twice, so there are 56 conference games."
+        "title": "Count each matchup once",
+        "body": "Choose the 2 teams in a matchup: C(8,2)=8·7÷2=28 unique conference pairs."
+      },
+      {
+        "title": "Play home and away",
+        "body": "Each pair plays twice, once at each home court, so there are 28·2=56 conference games."
       },
       {
         "title": "Non-conference games",
@@ -32512,9 +32516,11 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "team-schedule-count",
       "data": {
-        "answer": "B"
+        "teamCount": 8,
+        "gamesPerPair": 2,
+        "nonConferencePerTeam": 4
       }
     },
     "tags": [
@@ -32571,8 +32577,12 @@ const amc2014Problems: Problem[] = [
         "body": "Today the first 1/2 mile at 2 mph takes (1/2)/2=1/4 hour."
       },
       {
-        "title": "Find needed speed",
-        "body": "He has 1/3−1/4=1/12 hour to travel 1/2 mile, so the speed is (1/2)/(1/12)=6 mph."
+        "title": "Find the time left",
+        "body": "He has 1/3−1/4=1/12 hour, or 5 minutes, remaining before school begins."
+      },
+      {
+        "title": "Find the needed speed",
+        "body": "To travel the last 1/2 mile in 1/12 hour, his speed must be (1/2)/(1/12)=6 mph."
       }
     ],
     "animationFrames": [
@@ -32593,9 +32603,13 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "deadline-split-route",
       "data": {
-        "answer": "B"
+        "distanceMiles": 1,
+        "normalSpeedMph": 3,
+        "firstDistanceMiles": 0.5,
+        "firstSpeedMph": 2,
+        "minutesPerHour": 60
       }
     },
     "tags": [
@@ -32648,8 +32662,12 @@ const amc2014Problems: Problem[] = [
         "body": "There are 2^4=16 equally likely gender sequences."
       },
       {
-        "title": "Compare cases",
-        "body": "All boys and all girls each have 1 sequence; two and two has C(4,2)=6 sequences."
+        "title": "Count the all-same cases",
+        "body": "All boys has 1 sequence and all girls has 1 sequence."
+      },
+      {
+        "title": "Count the balanced cases",
+        "body": "Choose which 2 of the 4 positions are girls, giving C(4,2)=6 sequences with 2 girls and 2 boys."
       },
       {
         "title": "Most likely",
@@ -32674,9 +32692,10 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "birth-outcome-buckets",
       "data": {
-        "answer": "D"
+        "childCount": 4,
+        "outcomeLabels": ["B", "G"]
       }
     },
     "tags": [
@@ -32725,6 +32744,10 @@ const amc2014Problems: Problem[] = [
     "shortAnswer": "5/54",
     "solutionSteps": [
       {
+        "title": "Rank the positions",
+        "body": "A center cube shows 0 faces, a face-center cube shows 1, an edge cube shows 2, and a corner cube shows 3. Use the least exposed positions first."
+      },
+      {
         "title": "Hide one white cube",
         "body": "Place one white cube in the center, where none of its faces show."
       },
@@ -32755,10 +32778,11 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "solid-3d",
+      "type": "exposure-minimization-cube",
       "data": {
-        "n": 3,
-        "answer": "A"
+        "edgeCubes": 3,
+        "whiteCubes": 6,
+        "redCubes": 21
       }
     },
     "tags": [
@@ -32812,6 +32836,10 @@ const amc2014Problems: Problem[] = [
         "body": "The rectangle area is 3·5=15."
       },
       {
+        "title": "Identify the inside sectors",
+        "body": "Because A, B, and C are corners of the rectangle, the parts of the three circles inside it are quarter circles. Their radii sum to the adjacent side lengths, so they are tangent and do not overlap."
+      },
+      {
         "title": "Circle sectors inside",
         "body": "Inside the rectangle are three quarter circles with radii 1, 2, and 3, total area (π/4)(1²+2²+3²)=14π/4=7π/2."
       },
@@ -32838,9 +32866,12 @@ const amc2014Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "corner-quarter-circle-subtract",
       "data": {
-        "answer": "B"
+        "rectangleWidth": 5,
+        "rectangleHeight": 3,
+        "radii": [1, 2, 3],
+        "cornerLabels": ["A", "B", "C"]
       }
     },
     "tags": [

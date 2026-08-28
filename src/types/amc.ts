@@ -16,6 +16,11 @@ export type ProblemStatus = "unsolved" | "solved" | "missed" | "bookmarked";
 
 export type AnimationTemplateType =
   | "equation"
+  | "team-schedule-count"
+  | "deadline-split-route"
+  | "birth-outcome-buckets"
+  | "exposure-minimization-cube"
+  | "corner-quarter-circle-subtract"
   | "parentheses-path"
   | "coin-count-extremes"
   | "week-reading-stacks"
