@@ -1,6 +1,14 @@
 import type { Problem } from "../../types/amc";
 import type { AnimatedScene } from "./scenes/types";
 import { ClockAngleScene } from "./scenes/ClockAngleScene";
+import { TreadmillPaceScene } from "./scenes/TreadmillPaceScene";
+import { FriendCoverShareScene } from "./scenes/FriendCoverShareScene";
+import { WeightMedianMeanScene } from "./scenes/WeightMedianMeanScene";
+import { ProductPyramidScene } from "./scenes/ProductPyramidScene";
+import { TrainTimelineScene } from "./scenes/TrainTimelineScene";
+import { ConsecutiveHeadsScene } from "./scenes/ConsecutiveHeadsScene";
+import { HulkJumpScene } from "./scenes/HulkJumpScene";
+import { PrimeFactorVennScene } from "./scenes/PrimeFactorVennScene";
 import { LineTriangleScene, parseLines } from "./scenes/LineTriangleScene";
 import { PercentSquareBiteScene } from "./scenes/PercentSquareBiteScene";
 import { ScoreShareSearchScene } from "./scenes/ScoreShareSearchScene";
@@ -225,6 +233,17 @@ import { FractionZipperScene } from "./scenes/FractionZipperScene";
 import { CountOutCircleScene } from "./scenes/CountOutCircleScene";
 import { PinwheelGridScene } from "./scenes/PinwheelGridScene";
 import { SignPairSumScene } from "./scenes/SignPairSumScene";
+import { AlternatingPairScaleScene } from "./scenes/AlternatingPairScaleScene";
+import { RollingBallOffsetScene } from "./scenes/RollingBallOffsetScene";
+import { TriangleSwapAreaScene } from "./scenes/TriangleSwapAreaScene";
+import { SemicircleDiameterTriangleScene } from "./scenes/SemicircleDiameterTriangleScene";
+import { ToothpickBoundaryCountScene } from "./scenes/ToothpickBoundaryCountScene";
+import { FixedBridgeRouteProductScene } from "./scenes/FixedBridgeRouteProductScene";
+import { RectangleSemicircleRadiusScene } from "./scenes/RectangleSemicircleRadiusScene";
+import { VisibleReferenceRankingScene } from "./scenes/VisibleReferenceRankingScene";
+import { RectangularFortLayersScene } from "./scenes/RectangularFortLayersScene";
+import { EvenConsecutiveBalanceScene } from "./scenes/EvenConsecutiveBalanceScene";
+import { CommonAnchorRatioScene } from "./scenes/CommonAnchorRatioScene";
 import { RoadChunkPaceScene } from "./scenes/RoadChunkPaceScene";
 import { DigitLockChopScene } from "./scenes/DigitLockChopScene";
 import { FrequencyMeanBarsScene } from "./scenes/FrequencyMeanBarsScene";
@@ -262,6 +281,8 @@ import { DigitModCandidateSieveScene } from "./scenes/DigitModCandidateSieveScen
 import { CumulativeMedianStacksScene } from "./scenes/CumulativeMedianStacksScene";
 import { MedianCanBudgetScene } from "./scenes/MedianCanBudgetScene";
 import { RepeatedSemicircleRideScene } from "./scenes/RepeatedSemicircleRideScene";
+import { RowCompletionCarsScene } from "./scenes/RowCompletionCarsScene";
+import { DiscountPackageDoublingScene } from "./scenes/DiscountPackageDoublingScene";
 import { PowerSquareParityScene } from "./scenes/PowerSquareParityScene";
 import { ConstantDifferencePairsScene } from "./scenes/ConstantDifferencePairsScene";
 import { DistinctPrimeTokenSumScene } from "./scenes/DistinctPrimeTokenSumScene";
@@ -271,6 +292,10 @@ import { EqualGroupsTripFractionScene } from "./scenes/EqualGroupsTripFractionSc
 import { ZeroProductPairProbabilityScene } from "./scenes/ZeroProductPairProbabilityScene";
 import { FuelTankTripScene } from "./scenes/FuelTankTripScene";
 import { FourthPowerTwoFactorScene } from "./scenes/FourthPowerTwoFactorScene";
+import { ExponentLockProductScene } from "./scenes/ExponentLockProductScene";
+import { ColorMatchOutcomeGridScene } from "./scenes/ColorMatchOutcomeGridScene";
+import { DigitSwapDifferenceSieveScene } from "./scenes/DigitSwapDifferenceSieveScene";
+import { ThreeItemDiscountSavingsScene } from "./scenes/ThreeItemDiscountSavingsScene";
 import { LapGainPassScene } from "./scenes/LapGainPassScene";
 import { PasswordPrefixSubtractScene } from "./scenes/PasswordPrefixSubtractScene";
 import { EliminationRaceLedgerScene } from "./scenes/EliminationRaceLedgerScene";
@@ -321,6 +346,105 @@ function num(value: unknown): number {
 export function resolveScene(problem: Problem): AnimatedScene {
   const type = problem.animation?.type;
   const data = problem.animation?.data ?? {};
+  // A positive even endpoint creates exact (−odd,+even) pairs; bounded values
+  // keep the literal edge pairs readable and the outside scaling integral.
+  if (type === "alternating-pair-scale") {
+    const last = Math.round(num(data.lastTerm)), factor = Math.round(num(data.outsideFactor));
+    if (last >= 2 && last <= 10000 && last % 2 === 0 && factor >= 1 && factor <= 20) return AlternatingPairScaleScene;
+  }
+  // Exactly three bounded semicircles with alternating lower/upper/lower sides
+  // keep the offset-center radii positive and the complete course drawable.
+  if (type === "rolling-ball-offset" && Array.isArray(data.radii) && Array.isArray(data.orientations)) {
+    const radii = data.radii.map((v) => num(v)), sides = data.orientations.map(String), ballRadius = num(data.ballDiameter) / 2;
+    if (radii.length === 3 && radii.every((r) => r > 0 && r <= 200) && sides.join(",") === "lower,upper,lower" && ballRadius > 0 && ballRadius < Math.min(...radii)) return RollingBallOffsetScene;
+  }
+  // Three unit squares and true midpoints produce the bounded congruent-triangle
+  // swap; these exact invariants are the geometry represented by the scene.
+  if (type === "triangle-swap-area") {
+    const count = Math.round(num(data.squareCount)), side = num(data.sideLength), midpoint = num(data.midpointFraction);
+    if (count === 3 && side > 0 && side <= 10 && midpoint === 0.5) return TriangleSwapAreaScene;
+  }
+  // Positive bounded π-coefficients must decode to finite diameters that form
+  // a genuine right triangle, keeping all three semicircles safely drawable.
+  if (type === "semicircle-diameter-triangle") {
+    const area = num(data.abSemicircleAreaCoefficient), arc = num(data.acSemicircleArcCoefficient), ab = 2 * Math.sqrt(2 * area), ac = 2 * arc;
+    if (area > 0 && area <= 100 && arc > 0 && arc <= 100 && Number.isFinite(ab) && ac > ab && ac * ac - ab * ab > 0) return SemicircleDiameterTriangleScene;
+  }
+  // Positive bounded whole dimensions create exactly length+1 vertical lines
+  // and width+1 horizontal lines while keeping the representative grid legible.
+  if (type === "toothpick-boundary-count") {
+    const length = num(data.lengthToothpicks), width = num(data.widthToothpicks);
+    if (Number.isInteger(length) && Number.isInteger(width) && length >= 1 && length <= 500 && width >= 1 && width <= 500) return ToothpickBoundaryCountScene;
+  }
+  // Two small nonnegative monotone-move pairs and one fixed connector keep both
+  // route menus exhaustively enumerable and their Cartesian product drawable.
+  if (type === "fixed-bridge-route-product" && Array.isArray(data.beforeMoves) && Array.isArray(data.afterMoves)) {
+    const before = data.beforeMoves.map((v) => num(v)), after = data.afterMoves.map((v) => num(v)), fixed = num(data.fixedConnectorCount);
+    if (before.length === 2 && after.length === 2 && [...before, ...after].every((v) => Number.isInteger(v) && v >= 0 && v <= 4) && before.reduce((a, b) => a + b, 0) > 0 && after.reduce((a, b) => a + b, 0) > 0 && fixed === 1) return FixedBridgeRouteProductScene;
+  }
+  // A positive bounded rectangle with its longer side on the diameter gives a
+  // centered half-width/height radius triangle that remains safely drawable.
+  if (type === "rectangle-semicircle-radius") {
+    const width = num(data.rectangleWidth), height = num(data.rectangleHeight);
+    if (width > height && height > 0 && width <= 20 && height <= 20) return RectangleSemicircleRadiusScene;
+  }
+  // Three distinct names, one named visible reference, and two comparisons
+  // forming a strict three-person chain make the logical ranking unambiguous.
+  if (type === "visible-reference-ranking" && Array.isArray(data.names) && Array.isArray(data.comparisons)) {
+    const names = data.names.map(String), visible = String(data.visibleScoreOwner ?? ""), comparisons = data.comparisons.map(String);
+    const pairs = comparisons.map((s) => s.split(">")), mentioned = pairs.flat();
+    const indegrees = names.map((n) => pairs.filter(([, lo]) => lo === n).length).sort(), outdegrees = names.map((n) => pairs.filter(([hi]) => hi === n).length).sort();
+    if (names.length === 3 && new Set(names).size === 3 && names.includes(visible) && comparisons.length === 2 && mentioned.length === 4 && mentioned.every((n) => names.includes(n)) && new Set(comparisons).size === 2 && indegrees.join() === "0,1,1" && outdegrees.join() === "0,1,1" && pairs.some(([hi]) => hi === visible) && pairs.some(([, lo]) => lo === visible)) return VisibleReferenceRankingScene;
+  }
+  // Bounded integral outer dimensions, positive hollow interior, and unit
+  // thickness keep every floor cell, border cube, and wall layer drawable.
+  if (type === "rectangular-fort-layers") {
+    const length = num(data.length), width = num(data.width), height = num(data.height), thick = num(data.thickness);
+    if ([length, width, height, thick].every(Number.isInteger) && length >= 3 && length <= 20 && width >= 3 && width <= 20 && height >= 2 && height <= 10 && thick === 1 && length * width <= 300) return RectangularFortLayersScene;
+  }
+  // A bounded positive total, even count, and integral consecutive endpoints
+  // produce a half-integer balance point and a fully drawable exact sequence.
+  if (type === "even-consecutive-balance") {
+    const total = num(data.total), count = num(data.count), stepSize = num(data.stepSize), average = total / count, first = average - ((count - 1) * stepSize) / 2;
+    if (total > 0 && Number.isInteger(count) && count >= 2 && count <= 12 && count % 2 === 0 && Number.isInteger(stepSize) && stepSize > 0 && stepSize <= 10 && Number.isInteger(first) && first > 0) return EvenConsecutiveBalanceScene;
+  }
+  // Two positive bounded two-part ratios sharing their first category must
+  // scale integrally to a small common anchor and a drawable minimum roster.
+  if (type === "common-anchor-ratio" && Array.isArray(data.firstRatio) && Array.isArray(data.secondRatio) && Array.isArray(data.labels)) {
+    const first = data.firstRatio.map((v) => num(v)), second = data.secondRatio.map((v) => num(v)), labels = data.labels.map(String);
+    const ratioGcd = (a: number, b: number): number => b ? ratioGcd(b, a % b) : Math.abs(a);
+    const common = first.length === 2 && second.length === 2 ? first[0] / ratioGcd(first[0], second[0]) * second[0] : 0;
+    if (first.length === 2 && second.length === 2 && [...first, ...second].every((v) => Number.isInteger(v) && v > 0 && v <= 20) && labels.length === 3 && new Set(labels).size === 3 && Number.isInteger(common) && common <= 60 && common / first[0] * first[1] + common / second[0] * second[1] + common <= 150) return CommonAnchorRatioScene;
+  }
+  // Three bounded equations must each leave an exact positive power after the
+  // known addend is removed; distinct symbols then feed one product tray.
+  if (type === "exponent-lock-product" && Array.isArray(data.unknownBases) && Array.isArray(data.knownTerms) && Array.isArray(data.targets) && Array.isArray(data.symbols) && Array.isArray(data.knownLabels)) {
+    const bases = data.unknownBases.map((v) => num(v)), known = data.knownTerms.map((v) => num(v)), targets = data.targets.map((v) => num(v));
+    const symbols = data.symbols.map(String), labels = data.knownLabels.map(String);
+    const exponents = bases.map((base, i) => { let value = 1; for (let exponent = 0; exponent <= 10; exponent += 1, value *= base) if (value === targets[i] - known[i]) return exponent; return -1; });
+    if (bases.length === 3 && known.length === 3 && targets.length === 3 && symbols.length === 3 && labels.length === 3 && new Set(symbols).size === 3 && bases.every((v) => Number.isInteger(v) && v >= 2 && v <= 12) && known.every((v) => Number.isInteger(v) && v > 0 && v <= 2000) && targets.every((v, i) => Number.isInteger(v) && v > known[i] && v <= 10000) && exponents.every((v) => v >= 1)) return ExponentLockProductScene;
+  }
+  // Two nonempty bounded hands using only the three stated colors create a
+  // complete, readable Cartesian outcome grid with at least one color match.
+  if (type === "color-match-outcome-grid" && Array.isArray(data.abeColors) && Array.isArray(data.bobColors)) {
+    const abe = data.abeColors.map(String), bob = data.bobColors.map(String), allowed = new Set(["green", "red", "yellow"]);
+    const matches = abe.flatMap((a) => bob.map((b) => a === b)).filter(Boolean).length;
+    if (abe.length === 2 && bob.length === 4 && abe.every((v) => allowed.has(v)) && bob.every((v) => allowed.has(v)) && matches > 0 && matches < abe.length * bob.length) return ColorMatchOutcomeGridScene;
+  }
+  // A base-10 two-slot reversal always changes the value by nine times the
+  // digit gap; require one supplied positive choice with a legal gap at most 9.
+  if (type === "digit-swap-difference-sieve" && Array.isArray(data.symbols)) {
+    const base = num(data.base), symbols = data.symbols.map(String), values = (problem.choices ?? []).map((item) => Number(item.text));
+    const possible = values.filter((value) => Number.isInteger(value) && value > 0 && value % (base - 1) === 0 && value / (base - 1) <= base - 1);
+    if (base === 10 && symbols.length === 2 && new Set(symbols).size === 2 && symbols.every((v) => /^[a-z]$/.test(v)) && values.length === 5 && values.every((v) => Number.isInteger(v) && v > 0 && v <= 99) && possible.length === 1) return DigitSwapDifferenceSieveScene;
+  }
+  // Three bounded discounts on one common positive price must produce whole
+  // cent totals and a genuine saving, keeping the three-item rack exact.
+  if (type === "three-item-discount-savings" && Array.isArray(data.discountPercents)) {
+    const regular = num(data.regularPrice), discounts = data.discountPercents.map((v) => num(v));
+    const prices = discounts.map((discount) => regular * (1 - discount / 100)), full = regular * discounts.length, sale = prices.reduce((sum, value) => sum + value, 0);
+    if (regular > 0 && regular <= 500 && discounts.length === 3 && discounts[0] === 0 && discounts.slice(1).every((v) => v > 0 && v < 100) && prices.every((v) => Number.isInteger(v) && v >= 0) && sale > 0 && sale < full) return ThreeItemDiscountSavingsScene;
+  }
   // Three small nonnegative integers keep both evaluation lanes and the final
   // number-line jump bounded, exact, and directly drawable.
   if (type === "parentheses-path") {
@@ -2042,6 +2166,21 @@ export function resolveScene(problem: Problem): AnimatedScene {
     const count = miles * feetPerMile / width, reciprocalTimeCoefficient = 2 * speed / miles;
     if (miles > 0 && miles <= 10 && width > 0 && width <= 200 && feetPerMile === 5280 && speed > 0 && speed <= 100 && Number.isInteger(count) && count >= 2 && count <= 200 && Number.isInteger(reciprocalTimeCoefficient) && reciprocalTimeCoefficient >= 1 && reciprocalTimeCoefficient <= 200) return RepeatedSemicircleRideScene;
   }
+  // A bounded row width and a nonempty final gap keep every model car and its
+  // unique next-multiple parking space literal and drawable.
+  if (type === "row-completion-cars") {
+    const current = Math.round(num(data.currentCars)), rowSize = Math.round(num(data.carsPerRow));
+    const next = Math.ceil(current / rowSize) * rowSize, gap = next - current;
+    if (current >= 1 && current <= 60 && rowSize >= 2 && rowSize <= 8 && gap >= 1 && gap < rowSize && next <= 64) return RowCompletionCarsScene;
+  }
+  // A proper package fraction, ordinary discount, and small whole package count
+  // keep both equal price shares and every target-weight package drawable.
+  if (type === "discount-package-doubling") {
+    const wn = Math.round(num(data.packageWeightNumerator)), wd = Math.round(num(data.packageWeightDenominator));
+    const sale = num(data.salePrice), discount = num(data.discountPercent), target = num(data.targetWeightPounds);
+    const paid = 1 - discount / 100, count = target / (wn / wd), regular = sale / paid;
+    if (wn >= 1 && wd >= 2 && wn < wd && wd <= 12 && sale > 0 && sale <= 100 && discount > 0 && discount < 100 && target > 0 && target <= 20 && Number.isInteger(count) && count >= 2 && count <= 6 && Number.isInteger(regular)) return DiscountPackageDoublingScene;
+  }
   // Matching bounded positive base/exponent arrays keep every choice row
   // drawable and allow exact parity and perfect-square-base classification.
   if (type === "power-square-parity" && Array.isArray(data.bases) && Array.isArray(data.exponents)) {
@@ -2303,6 +2442,63 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if(type==="prime-date-order"&&Array.isArray(data.names)){
     const min=Math.round(num(data.minJersey)),max=Math.round(num(data.maxDate)),names=data.names.map(String);
     if(min===10&&max>=28&&max<=31&&names.length===3&&new Set(names).size===3&&names.every(v=>v.length>=2&&v.length<=12)) return PrimeDateOrderScene;
+  }
+  // Seven of eight friends must exactly cover the eighth's share for the
+  // "one share = one share" reveal to hold.
+  if (type === "friend-cover-share") {
+    const friendCount = Math.round(num(data.friendCount)), extraPayers = Math.round(num(data.extraPayers)), extraAmount = num(data.extraAmount);
+    if (friendCount >= 3 && friendCount <= 12 && extraPayers === friendCount - 1 && extraAmount > 0 && extraAmount <= 50) return FriendCoverShareScene;
+  }
+  // The weights must already be sorted with an odd count so the middle
+  // index is a well-defined median to compare against the computed mean.
+  if (type === "weight-median-mean" && Array.isArray(data.weights)) {
+    const weights = data.weights.map((v) => num(v));
+    if (weights.length >= 3 && weights.length % 2 === 1 && weights.every((w, i) => w > 0 && (i === 0 || w >= weights[i - 1]))) return WeightMedianMeanScene;
+  }
+  // Both products up the pyramid (given example and the two derived steps)
+  // must land on whole numbers for the box grid to resolve cleanly.
+  if (type === "product-pyramid") {
+    const topLeft = num(data.topLeft), topMid = num(data.topMid), midLeft = num(data.midLeft), bottom = num(data.bottom);
+    const midRight = midLeft !== 0 ? bottom / midLeft : NaN;
+    const topRight = topMid !== 0 ? midRight / topMid : NaN;
+    if (topLeft > 0 && topMid > 0 && midLeft > 0 && bottom > 0 && topLeft * topMid === midLeft && Number.isInteger(midRight) && Number.isInteger(topRight)) return ProductPyramidScene;
+  }
+  // The sample rate must divide evenly into the total crossing time so the
+  // scaled-up group count is a whole number, not an estimate hiding a remainder.
+  if (type === "train-timeline") {
+    const sampleCars = num(data.sampleCars), sampleSeconds = num(data.sampleSeconds), minutes = num(data.minutes), seconds = num(data.seconds);
+    const total = minutes * 60 + seconds;
+    const div = (a: number, b: number): number => (b === 0 ? a : div(b, a % b));
+    const unitSeconds = sampleSeconds / (div(sampleCars, sampleSeconds) || 1);
+    if (sampleCars > 0 && sampleSeconds > 0 && total > 0 && Number.isInteger(total / unitSeconds)) return TrainTimelineScene;
+  }
+  // Keep the toss count small enough that every sequence is drawable as its
+  // own row, and require a real run length to highlight within it.
+  if (type === "consecutive-heads") {
+    const tosses = Math.round(num(data.tosses)), runLen = Math.round(num(data.minConsecutiveHeads));
+    if (tosses >= 2 && tosses <= 4 && runLen >= 2 && runLen <= tosses) return ConsecutiveHeadsScene;
+  }
+  // The doubling sequence must actually cross the threshold within the drawn
+  // range, so there is a genuine "first" bar for the scene to mark.
+  if (type === "hulk-jump") {
+    const firstJump = num(data.firstJumpMeters), threshold = num(data.thresholdMeters), maxJump = Math.round(num(data.maxJump));
+    if (firstJump > 0 && threshold > firstJump && maxJump >= 3 && maxJump <= 20 && firstJump * 2 ** (maxJump - 1) > threshold) return HulkJumpScene;
+  }
+  // Both numbers must be plain positive integers with at least one shared
+  // and one distinct prime factor so the overlap and both crescents are real.
+  if (type === "prime-factor-venn") {
+    const a = Math.round(num(data.a)), b = Math.round(num(data.b));
+    const gcdOf = (x: number, y: number): number => (y === 0 ? x : gcdOf(y, x % y));
+    const g = gcdOf(a, b);
+    if (a > 1 && b > 1 && a !== b && g > 1 && a / g > 1 && b / g > 1) return PrimeFactorVennScene;
+  }
+  // Every day's pace and the baseline pace must be positive so each track's
+  // crossing time, and hence the animation duration, stays finite and real.
+  if (type === "treadmill-pace" && Array.isArray(data.dayLabels) && Array.isArray(data.daySpeeds)) {
+    const labels = data.dayLabels.map(String);
+    const speeds = data.daySpeeds.map((v) => num(v));
+    const distance = num(data.distanceMiles), baselineMph = num(data.baselineMph);
+    if (labels.length >= 2 && labels.length === speeds.length && distance > 0 && baselineMph > 0 && speeds.every((s) => s > 0)) return TreadmillPaceScene;
   }
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {

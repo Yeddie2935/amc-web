@@ -29172,7 +29172,7 @@ const amc2013Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Find the next full row",
-        "body": "Rows must have 6 cars each, so the total number of cars must be a multiple of 6."
+        "body": "Put the 23 cars into rows of 6. Three rows use 18 cars, leaving 5 cars in a fourth row."
       },
       {
         "title": "Compare to 23",
@@ -29202,9 +29202,10 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "row-completion-cars",
       "data": {
-        "answer": "A"
+        "currentCars": 23,
+        "carsPerRow": 6
       }
     },
     "tags": [
@@ -29253,17 +29254,16 @@ const amc2013Problems: Problem[] = [
     "shortAnswer": "12",
     "solutionSteps": [
       {
-        "title": "Undo the 50% discount",
-        "body": "If $3 is half price for a half-pound package, then the regular price for a half pound is $6."
+        "title": "Interpret the 50% sale",
+        "body": "A 50% discount means the $3 sale price is one of two equal halves of the regular price for a half-pound package."
+      },
+      {
+        "title": "Restore the regular package price",
+        "body": "Restore the other equal $3 half, so the regular price for a half-pound package is $3+$3=$6."
       },
       {
         "title": "Scale to one pound",
-        "body": "A full pound is two half-pound packages.",
-        "equation": "2× 6=12"
-      },
-      {
-        "title": "Conclude",
-        "body": "The regular price for a full pound is $12."
+        "body": "A full pound is two half-pound packages, so its regular price is 2·$6=$12."
       }
     ],
     "animationFrames": [
@@ -29284,9 +29284,13 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "discount-package-doubling",
       "data": {
-        "answer": "D"
+        "packageWeightNumerator": 1,
+        "packageWeightDenominator": 2,
+        "salePrice": 3,
+        "discountPercent": 50,
+        "targetWeightPounds": 1
       }
     },
     "tags": [
@@ -29366,9 +29370,10 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "alternating-pair-scale",
       "data": {
-        "answer": "E"
+        "lastTerm": 1000,
+        "outsideFactor": 4
       }
     },
     "tags": [
@@ -29448,9 +29453,11 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "friend-cover-share",
       "data": {
-        "answer": "C"
+        "friendCount": 8,
+        "extraPayers": 7,
+        "extraAmount": 2.5
       }
     },
     "tags": [
@@ -29529,9 +29536,9 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "weight-median-mean",
       "data": {
-        "answer": "E"
+        "weights": [5, 5, 6, 8, 106]
       }
     },
     "tags": [
@@ -29610,9 +29617,12 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "product-pyramid",
       "data": {
-        "answer": "C"
+        "topLeft": 6,
+        "topMid": 5,
+        "midLeft": 30,
+        "bottom": 600
       }
     },
     "tags": [
@@ -29695,9 +29705,12 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "train-timeline",
       "data": {
-        "answer": "C"
+        "sampleCars": 6,
+        "sampleSeconds": 10,
+        "minutes": 2,
+        "seconds": 45
       }
     },
     "tags": [
@@ -29776,9 +29789,10 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "consecutive-heads",
       "data": {
-        "answer": "C"
+        "tosses": 3,
+        "minConsecutiveHeads": 2
       }
     },
     "tags": [
@@ -29857,9 +29871,11 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "hulk-jump",
       "data": {
-        "answer": "C"
+        "firstJumpMeters": 1,
+        "thresholdMeters": 1000,
+        "maxJump": 13
       }
     },
     "tags": [
@@ -29938,9 +29954,10 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "prime-factor-venn",
       "data": {
-        "answer": "C"
+        "a": 180,
+        "b": 594
       }
     },
     "tags": [
@@ -30020,9 +30037,12 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "treadmill-pace",
       "data": {
-        "answer": "D"
+        "distanceMiles": 2,
+        "dayLabels": ["Mon", "Wed", "Fri"],
+        "daySpeeds": [5, 3, 4],
+        "baselineMph": 4
       }
     },
     "tags": [
@@ -30071,12 +30091,16 @@ const amc2013Problems: Problem[] = [
     "shortAnswer": "30%",
     "solutionSteps": [
       {
-        "title": "Find sale total",
-        "body": "The three pairs cost $50, $30, and $25."
+        "title": "Find regular total",
+        "body": "Three pairs at the regular price would cost 3×$50=$150."
       },
       {
-        "title": "Compare to regular price",
-        "body": "The sale total is $105 compared with the regular total $150."
+        "title": "Apply the special",
+        "body": "The three pairs cost $50, $50×60%=$30, and $50×50%=$25."
+      },
+      {
+        "title": "Find the savings",
+        "body": "The sale total is $50+$30+$25=$105, so Javier saved $150-$105=$45."
       },
       {
         "title": "Find percent saved",
@@ -30085,25 +30109,31 @@ const amc2013Problems: Problem[] = [
     ],
     "animationFrames": [
       {
-        "title": "Understand the question",
-        "narration": "Identify the quantities given and what the problem asks for.",
-        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+        "title": "Build the regular-price rack",
+        "narration": "Three sandal pairs at $50 each make the $150 regular total.",
+        "visualHint": "Place three pairs of sandals on a rack with equal $50 tags."
       },
       {
-        "title": "Apply the main idea",
-        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
-        "visualHint": "Animate the central calculation step by step."
+        "title": "Apply both discounts",
+        "narration": "Keep the first tag at $50, reduce the second to $30, and halve the third to $25.",
+        "visualHint": "Stamp the second and third tags with their discounts and shrink their paid portions."
       },
       {
-        "title": "Choose the answer",
-        "narration": "Match the result to choice B.",
-        "visualHint": "Circle answer choice B."
+        "title": "Expose the saved gap",
+        "narration": "Combine the sale tags to get $105 and compare with $150, leaving $45 saved.",
+        "visualHint": "Slide the three paid amounts into a $150 bar and highlight the missing $45."
+      },
+      {
+        "title": "Convert the gap to a percent",
+        "narration": "$45 out of $150 is 30%, which matches choice B.",
+        "visualHint": "Scale the saved portion into a percent meter and reveal the answer."
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "three-item-discount-savings",
       "data": {
-        "answer": "B"
+        "regularPrice": 50,
+        "discountPercents": [0, 40, 50]
       }
     },
     "tags": [
@@ -30160,31 +30190,41 @@ const amc2013Problems: Problem[] = [
         "body": "The reversed score is 10b+a."
       },
       {
-        "title": "Find the difference",
-        "body": "The difference is |(10a+b)-(10b+a)|=9|a-b|, a multiple of 9. Only 45 is a multiple of 9."
+        "title": "Factor the difference",
+        "body": "The difference is |(10a+b)-(10b+a)|=9|a-b|, so every possible error is a multiple of 9."
+      },
+      {
+        "title": "Test the choices",
+        "body": "Only 45 is a multiple of 9, and 45=9×5 corresponds to a possible digit gap of 5."
       }
     ],
     "animationFrames": [
       {
-        "title": "Understand the question",
-        "narration": "Identify the quantities given and what the problem asks for.",
-        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+        "title": "Build the score",
+        "narration": "Put a in the tens slot and b in the units slot, giving 10a+b.",
+        "visualHint": "Place two symbolic digit cards into labeled tens and units slots."
       },
       {
-        "title": "Apply the main idea",
-        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
-        "visualHint": "Animate the central calculation step by step."
+        "title": "Swap the cards",
+        "narration": "Trade the two digit cards to produce the reversed value 10b+a.",
+        "visualHint": "Move the cards along crossing paths into the opposite place-value slots."
       },
       {
-        "title": "Choose the answer",
-        "narration": "Match the result to choice A.",
-        "visualHint": "Circle answer choice A."
+        "title": "Expose the factor 9",
+        "narration": "Subtract the place-value expressions and factor the result as 9|a-b|.",
+        "visualHint": "Cancel and regroup the place-value contributions into nine digit-gap units."
+      },
+      {
+        "title": "Sieve the choices",
+        "narration": "Only 45 passes the multiple-of-9 gate, and its digit gap 5 is possible.",
+        "visualHint": "Send all five answer tickets through a divisibility-by-9 gate."
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "digit-swap-difference-sieve",
       "data": {
-        "answer": "A"
+        "base": 10,
+        "symbols": ["a", "b"]
       }
     },
     "tags": [
@@ -30247,25 +30287,26 @@ const amc2013Problems: Problem[] = [
     ],
     "animationFrames": [
       {
-        "title": "Understand the question",
-        "narration": "Identify the quantities given and what the problem asks for.",
-        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+        "title": "Green match",
+        "narration": "Place Abe's choices in rows and Bob's choices in columns. Green-green fills 1 of the 8 equally likely cells.",
+        "visualHint": "Build a two-by-four jelly bean outcome board and light the green-green cell."
       },
       {
-        "title": "Apply the main idea",
-        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
-        "visualHint": "Animate the central calculation step by step."
+        "title": "Red matches",
+        "narration": "Abe's red can pair with either of Bob's two red beans, filling 2 more cells.",
+        "visualHint": "Light both red-red cells while preserving the green match."
       },
       {
-        "title": "Choose the answer",
-        "narration": "Match the result to choice C.",
-        "visualHint": "Circle answer choice C."
+        "title": "Count all matches",
+        "narration": "There are 3 matching cells among 2×4=8 equally likely pairs, so the probability is 3/8, choice C.",
+        "visualHint": "Collect the three matching cells into the final favorable-over-total fraction."
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "color-match-outcome-grid",
       "data": {
-        "answer": "C"
+        "abeColors": ["green", "red"],
+        "bobColors": ["green", "yellow", "red", "red"]
       }
     },
     "tags": [
@@ -30328,25 +30369,34 @@ const amc2013Problems: Problem[] = [
     ],
     "animationFrames": [
       {
-        "title": "Understand the question",
-        "narration": "Identify the quantities given and what the problem asks for.",
-        "visualHint": "Highlight the key numbers, labels, or diagram parts."
+        "title": "Unlock p",
+        "narration": "Remove 3^4=81 from 90. The remainder 9 is 3^2, so p=2.",
+        "visualHint": "Slide the known addend out of the first exponent lock and reveal p=2."
       },
       {
-        "title": "Apply the main idea",
-        "narration": "Use the needed arithmetic, counting, geometry, or probability relationship.",
-        "visualHint": "Animate the central calculation step by step."
+        "title": "Unlock r",
+        "narration": "Remove 44 from 76. The remainder 32 is 2^5, so r=5.",
+        "visualHint": "Resolve the second lock while keeping p's unlocked value visible."
       },
       {
-        "title": "Choose the answer",
-        "narration": "Match the result to choice B.",
-        "visualHint": "Circle answer choice B."
+        "title": "Unlock s",
+        "narration": "Remove 5^3=125 from 1421. The remainder 1296 is 6^4, so s=4.",
+        "visualHint": "Resolve the final exponent lock and collect all three exponent tiles."
+      },
+      {
+        "title": "Multiply the exponents",
+        "narration": "Send 2, 5, and 4 into the product tray: 2×5×4=40, which is choice B.",
+        "visualHint": "Drop the three unlocked values into one multiplication tray and reveal 40."
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "exponent-lock-product",
       "data": {
-        "answer": "B"
+        "unknownBases": [3, 2, 6],
+        "knownTerms": [81, 44, 125],
+        "knownLabels": ["3⁴", "44", "5³"],
+        "targets": [90, 76, 1421],
+        "symbols": ["p", "r", "s"]
       }
     },
     "tags": [
@@ -30395,11 +30445,15 @@ const amc2013Problems: Problem[] = [
     "shortAnswer": "89",
     "solutionSteps": [
       {
-        "title": "Match 8th graders",
+        "title": "Find a common 8th-grade count",
+        "body": "The smallest number divisible by both 5 and 8 is LCM(5,8)=40."
+      },
+      {
+        "title": "Scale the 8th-to-6th ratio",
         "body": "Scale 5:3 by 8 to get 40:24 for 8th:6th."
       },
       {
-        "title": "Scale the other ratio",
+        "title": "Scale the 8th-to-7th ratio",
         "body": "Scale 8:5 by 5 to get 40:25 for 8th:7th."
       },
       {
@@ -30425,9 +30479,11 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "common-anchor-ratio",
       "data": {
-        "answer": "E"
+        "firstRatio": [5, 3],
+        "secondRatio": [8, 5],
+        "labels": ["8th", "6th", "7th"]
       }
     },
     "tags": [
@@ -30506,9 +30562,11 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "even-consecutive-balance",
       "data": {
-        "answer": "B"
+        "total": 2013,
+        "count": 6,
+        "stepSize": 1
       }
     },
     "tags": [
@@ -30561,8 +30619,12 @@ const amc2013Problems: Problem[] = [
         "body": "The floor is 12 by 10, so it uses 120 cubes."
       },
       {
-        "title": "Count each wall layer",
-        "body": "Above the floor there are 4 layers. Each layer around the wall uses 9+11+9+11=40 cubes."
+        "title": "Count one wall ring",
+        "body": "A one-cube-thick layer around the wall uses 12×10−10×8=40 cubes."
+      },
+      {
+        "title": "Stack the wall layers",
+        "body": "The 5-foot height includes the 1-foot floor, leaving 5−1=4 identical wall layers above it."
       },
       {
         "title": "Add everything",
@@ -30587,9 +30649,12 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "solid-3d",
+      "type": "rectangular-fort-layers",
       "data": {
-        "answer": "B"
+        "length": 12,
+        "width": 10,
+        "height": 5,
+        "thickness": 1
       }
     },
     "tags": [
@@ -30672,9 +30737,11 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "ranking",
+      "type": "visible-reference-ranking",
       "data": {
-        "answer": "D"
+        "names": ["Bridget", "Cassie", "Hannah"],
+        "visibleScoreOwner": "Hannah",
+        "comparisons": ["Cassie>Hannah", "Hannah>Bridget"]
       }
     },
     "tags": [
@@ -30753,9 +30820,10 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "rectangle-semicircle-radius",
       "data": {
-        "answer": "C"
+        "rectangleWidth": 2,
+        "rectangleHeight": 1
       }
     },
     "tags": [
@@ -30835,9 +30903,11 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "fixed-bridge-route-product",
       "data": {
-        "answer": "E"
+        "beforeMoves": [2, 1],
+        "afterMoves": [2, 2],
+        "fixedConnectorCount": 1
       }
     },
     "tags": [
@@ -30917,9 +30987,10 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "toothpick-boundary-count",
       "data": {
-        "answer": "E"
+        "lengthToothpicks": 60,
+        "widthToothpicks": 32
       }
     },
     "tags": [
@@ -30981,7 +31052,11 @@ const amc2013Problems: Problem[] = [
       },
       {
         "title": "Use the Pythagorean theorem",
-        "body": "Since ABC is right, BC=√(17^2-8^2)=15, so the semicircle on BC has radius 7.5."
+        "body": "Since ABC is right, BC=√(17^2-8^2)=15."
+      },
+      {
+        "title": "Convert diameter to radius",
+        "body": "The side BC is the semicircle's diameter, so its radius is 15÷2=7.5."
       }
     ],
     "animationFrames": [
@@ -31002,9 +31077,10 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "semicircle-diameter-triangle",
       "data": {
-        "answer": "B"
+        "abSemicircleAreaCoefficient": 8,
+        "acSemicircleArcCoefficient": 8.5
       }
     },
     "tags": [
@@ -31058,11 +31134,15 @@ const amc2013Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Use unit squares",
-        "body": "Let each square have side length 1, so the total area of the three squares is 3."
+        "body": "Let each square have side length 1, so the total area is 3. The midpoint conditions place D and C halfway along EH and HI."
       },
       {
-        "title": "Decompose the shaded region",
-        "body": "The shaded pentagon can be split into simple pieces whose total area is 1."
+        "title": "Locate the diagonal crossing",
+        "body": "Let K be where AJ crosses HI. Because K is halfway vertically from A to J, it is halfway horizontally too, giving DK=KI=3/4."
+      },
+      {
+        "title": "Swap equal triangles",
+        "body": "Triangles ADK and KIJ are congruent right triangles, each with legs 1 and 3/4. Rotating triangle KIJ into triangle ADK makes the shaded region one full square."
       },
       {
         "title": "Take the ratio",
@@ -31087,9 +31167,11 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "triangle-swap-area",
       "data": {
-        "answer": "C"
+        "squareCount": 3,
+        "sideLength": 1,
+        "midpointFraction": 0.5
       }
     },
     "tags": [
@@ -31146,12 +31228,16 @@ const amc2013Problems: Problem[] = [
         "body": "The semicircle lengths are 100π, 60π, and 80π, for a total of 240π."
       },
       {
-        "title": "Adjust for the center of the ball",
-        "body": "The ball has radius 2, so the path of its center is shifted from the track. The net adjustment over the three semicircles is -2π."
+        "title": "Trace the centerline",
+        "body": "The ball has radius 2, so its center follows a parallel path 2 inches from the track."
+      },
+      {
+        "title": "Adjust the three radii",
+        "body": "The two lower arcs have centerline radii 100−2=98 and 80−2=78, while the upper arc has centerline radius 60+2=62."
       },
       {
         "title": "Compute",
-        "body": "The center travels 240π-2π=238π."
+        "body": "The center travels π(98+62+78)=238π."
       }
     ],
     "animationFrames": [
@@ -31172,9 +31258,11 @@ const amc2013Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "rolling-ball-offset",
       "data": {
-        "answer": "A"
+        "radii": [100, 60, 80],
+        "orientations": ["lower", "upper", "lower"],
+        "ballDiameter": 4
       }
     },
     "tags": [
