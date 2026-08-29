@@ -27134,13 +27134,28 @@ const amc2012Problems: Problem[] = [
     "shortAnswer": "9",
     "solutionSteps": [
       {
-        "title": "Scale the recipe",
-        "body": "Twenty-four hamburgers is 3 times as many as 8 hamburgers."
+        "title": "Read the recipe",
+        "body": "Rachelle's recipe uses 3 pounds of meat to make 8 hamburgers."
+      },
+      {
+        "title": "Find how many batches",
+        "body": "Twenty-four hamburgers is 3 times as many as 8 hamburgers.",
+        "equation": "24 ÷ 8 = 3"
       },
       {
         "title": "Scale the meat",
-        "body": "Multiply the 3 pounds of meat by 3.",
+        "body": "Multiply the 3 pounds of meat by that same factor of 3.",
         "equation": "3 × 3 = 9"
+      },
+      {
+        "title": "Check the shortcut",
+        "body": "Adding 3 + 3 = 6 instead of multiplying gives choice A — but scaling a recipe means multiplying, not adding.",
+        "equation": "3 + 3 = 6 (wrong)"
+      },
+      {
+        "title": "Answer",
+        "body": "She needs 9 pounds of meat for 24 hamburgers.",
+        "equation": "9 lb → E"
       }
     ],
     "animationFrames": [
@@ -27161,9 +27176,12 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "recipe-scale",
       "data": {
-        "answer": "E"
+        "fromBatches": 8,
+        "toBatches": 24,
+        "fromAmount": 3,
+        "unit": "lb"
       }
     },
     "tags": [
@@ -27214,17 +27232,28 @@ const amc2012Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Find daily births",
-        "body": "A day has 24 hours, so a birth every 8 hours means 3 births per day.",
+        "body": "A day has 24 hours, and a baby is born every 8 hours, so 24 ÷ 8 = 3 births each day.",
         "equation": "24 ÷ 8 = 3"
       },
       {
-        "title": "Find daily increase",
-        "body": "There is also 1 death per day, so the net increase is 2 people per day."
+        "title": "Subtract the daily death",
+        "body": "One person also dies each day, so the net gain is 3 − 1 = 2 people per day.",
+        "equation": "3 − 1 = 2"
       },
       {
-        "title": "Estimate yearly increase",
-        "body": "Over 365 days, the increase is 730, which rounds to 700 to the nearest hundred.",
+        "title": "Scale to a year",
+        "body": "Over 365 days, the net gain is 2 × 365 = 730 people.",
         "equation": "2 × 365 = 730"
+      },
+      {
+        "title": "Round to the nearest hundred",
+        "body": "730 is 30 away from 700 and 70 away from 800, so it rounds to 700.",
+        "equation": "730 → 700"
+      },
+      {
+        "title": "Answer",
+        "body": "About 700 people are added to the population each year.",
+        "equation": "700 → B"
       }
     ],
     "animationFrames": [
@@ -27245,9 +27274,11 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "net-rate-year",
       "data": {
-        "answer": "B"
+        "hoursPerBirth": 8,
+        "deathsPerDay": 1,
+        "days": 365
       }
     },
     "tags": [
@@ -27296,12 +27327,28 @@ const amc2012Problems: Problem[] = [
     "shortAnswer": "5:21 PM",
     "solutionSteps": [
       {
-        "title": "Add daylight to sunrise",
-        "body": "The correct sunset is sunrise time plus the length of daylight."
+        "title": "Read the setup",
+        "body": "Sunrise was correctly listed as 6:57 AM. The paper also listed sunset as 8:15 PM, but that number is wrong."
       },
       {
-        "title": "Add the times",
-        "body": "6:57 AM plus 10 hours is 4:57 PM. Adding 24 more minutes gives 5:21 PM."
+        "title": "Add 10 hours",
+        "body": "Daylight lasted 10 hours and 24 minutes. Starting from 6:57 AM, adding 10 hours gives 4:57 PM.",
+        "equation": "6:57 AM + 10:00 = 4:57 PM"
+      },
+      {
+        "title": "Add 24 minutes",
+        "body": "Adding the remaining 24 minutes gives the true sunset time.",
+        "equation": "4:57 PM + 0:24 = 5:21 PM"
+      },
+      {
+        "title": "Compare to the reported time",
+        "body": "The true sunset, 5:21 PM, is almost 3 hours earlier than the wrong 8:15 PM the paper printed.",
+        "equation": "8:15 PM − 5:21 PM = 2:54"
+      },
+      {
+        "title": "Answer",
+        "body": "The sun really set at 5:21 PM.",
+        "equation": "5:21 PM → B"
       }
     ],
     "animationFrames": [
@@ -27322,9 +27369,16 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "time-sum-correction",
       "data": {
-        "answer": "B"
+        "startHour": 6,
+        "startMinute": 57,
+        "startIsPM": false,
+        "durationHours": 10,
+        "durationMinutes": 24,
+        "reportedHour": 8,
+        "reportedMinute": 15,
+        "reportedIsPM": true
       }
     },
     "tags": [
@@ -27373,13 +27427,28 @@ const amc2012Problems: Problem[] = [
     "shortAnswer": "1/8",
     "solutionSteps": [
       {
-        "title": "Count Peter’s slices",
-        "body": "Peter ate 1 full slice plus half of another slice.",
+        "title": "The whole pizza",
+        "body": "Peter's family ordered a pizza cut into 12 equal slices."
+      },
+      {
+        "title": "Peter eats one slice",
+        "body": "Peter eats one whole slice first.",
+        "equation": "1 slice"
+      },
+      {
+        "title": "Peter shares another slice",
+        "body": "Peter shares a second slice equally with his brother Paul, so Peter eats another half slice.",
         "equation": "1 + 1/2 = 3/2"
       },
       {
-        "title": "Compare to the whole pizza",
-        "body": "The pizza has 12 slices, so Peter ate (3/2)/12 = 1/8 of the pizza."
+        "title": "Fraction of the pizza",
+        "body": "Peter ate 3/2 of the 12 slices, which is 1/8 of the whole pizza. Counting the shared slice as a whole one instead would wrongly give 2/12 = 1/6.",
+        "equation": "(3/2) ÷ 12 = 1/8"
+      },
+      {
+        "title": "Answer",
+        "body": "Peter ate 1/8 of the pizza.",
+        "equation": "1/8 → C"
       }
     ],
     "animationFrames": [
@@ -27400,9 +27469,11 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "split-slice-share",
       "data": {
-        "answer": "C"
+        "totalSlices": 12,
+        "wholeSlicesEaten": 1,
+        "splitParts": 2
       }
     },
     "tags": [
@@ -27450,17 +27521,28 @@ const amc2012Problems: Problem[] = [
     "shortAnswer": "5",
     "solutionSteps": [
       {
-        "title": "Use vertical balance",
-        "body": "The total vertical distance going down must equal the total vertical distance going up."
+        "title": "The shape",
+        "body": "All angles in the figure are right angles, so every turn is 90°, and X is one of the vertical drops."
       },
       {
-        "title": "Set up the equation",
-        "body": "On one side the vertical lengths add to 1+1+1+2+X. On the other side they add to 1+2+1+6.",
-        "equation": "1+1+1+2+X = 1+2+1+6"
+        "title": "Trace the drops",
+        "body": "Follow the outline and highlight every edge that goes down: 1, 2, X, 1, and 1.",
+        "equation": "1 + 2 + X + 1 + 1"
       },
       {
-        "title": "Solve",
-        "body": "This gives 5+X=10, so X=5."
+        "title": "Trace the rises",
+        "body": "Now highlight every edge that goes up: 6, 1, 2, and 1.",
+        "equation": "6 + 1 + 2 + 1 = 10"
+      },
+      {
+        "title": "Balance the trip",
+        "body": "The path starts and ends at the same height, so the drops must total the same as the rises.",
+        "equation": "5 + X = 10"
+      },
+      {
+        "title": "Answer",
+        "body": "X = 5.",
+        "equation": "X = 5 → E"
       }
     ],
     "animationFrames": [
@@ -27481,9 +27563,28 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "rectilinear-balance",
       "data": {
-        "answer": "E"
+        "edges": [
+          { "d": "D", "l": 1 },
+          { "d": "R", "l": 2 },
+          { "d": "D", "l": 2 },
+          { "d": "R", "l": 2 },
+          { "d": "D", "l": "X" },
+          { "d": "R", "l": 3 },
+          { "d": "U", "l": 6 },
+          { "d": "R", "l": 1 },
+          { "d": "U", "l": 1 },
+          { "d": "R", "l": 2 },
+          { "d": "U", "l": 2 },
+          { "d": "L", "l": 3 },
+          { "d": "U", "l": 1 },
+          { "d": "L", "l": 2 },
+          { "d": "D", "l": 1 },
+          { "d": "L", "l": 1 },
+          { "d": "D", "l": 1 },
+          { "d": "L", "l": 4 }
+        ]
       }
     },
     "tags": [
@@ -27537,17 +27638,34 @@ const amc2012Problems: Problem[] = [
     "shortAnswer": "88",
     "solutionSteps": [
       {
-        "title": "Find the photo area",
-        "body": "The photograph area is 8×10=80 square inches."
+        "title": "The photograph",
+        "body": "The photograph is 10 inches wide and 8 inches high.",
+        "equation": "10 × 8 = 80"
       },
       {
-        "title": "Find the outer dimensions",
-        "body": "The border adds 2 inches to each side, so the outer rectangle is 12 inches by 14 inches."
+        "title": "Add the frame",
+        "body": "The border adds 2 inches on every side, so the outer rectangle grows to 14 inches by 12 inches.",
+        "equation": "10+2+2=14,  8+2+2=12"
       },
       {
-        "title": "Subtract",
-        "body": "The border area is the outer area minus the photograph area.",
-        "equation": "12×14 - 8×10 = 168 - 80 = 88"
+        "title": "Outer area",
+        "body": "The outer rectangle, frame included, has this area.",
+        "equation": "14 × 12 = 168"
+      },
+      {
+        "title": "Subtract the photo",
+        "body": "The border area is the outer area minus the photograph.",
+        "equation": "168 − 80 = 88"
+      },
+      {
+        "title": "Check a shortcut",
+        "body": "Multiplying the photo's perimeter by the border width misses the 4 corner squares of the frame, so it gives the wrong total.",
+        "equation": "2(10+8)×2 = 72, missing 4×2×2 = 16"
+      },
+      {
+        "title": "Answer",
+        "body": "The border area is 88 square inches.",
+        "equation": "88 → E"
       }
     ],
     "animationFrames": [
@@ -27568,9 +27686,12 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "photo-frame-border",
       "data": {
-        "answer": "E"
+        "photoWidth": 10,
+        "photoHeight": 8,
+        "borderWidth": 2,
+        "unit": "in"
       }
     },
     "tags": [
@@ -27620,17 +27741,33 @@ const amc2012Problems: Problem[] = [
     "shortAnswer": "92",
     "solutionSteps": [
       {
-        "title": "Find needed total",
-        "body": "An average of 95 over 4 tests requires 380 total points.",
-        "equation": "95×4=380"
+        "title": "The goal",
+        "body": "An average of 95 over 4 tests requires this total.",
+        "equation": "95 × 4 = 380"
       },
       {
-        "title": "Use known scores",
-        "body": "The first two scores total 188, so she needs 192 more points."
+        "title": "Known scores",
+        "body": "The first two scores total 188, leaving 192 needed from tests 3 and 4 combined.",
+        "equation": "380 − 188 = 192"
       },
       {
-        "title": "Maximize the fourth test",
-        "body": "To make the third score as low as possible, assume she gets 100 on the fourth test. Then the third score must be 92."
+        "title": "The even-split trap",
+        "body": "Splitting the remaining 192 evenly gives 96 on each of the last two tests — that matches an answer choice, but it isn't the lowest test 3 could be.",
+        "equation": "192 ÷ 2 = 96"
+      },
+      {
+        "title": "Maximize test 4",
+        "body": "No test can score above 100. Pushing test 4 to its cap of 100 leaves as little as possible for test 3."
+      },
+      {
+        "title": "Solve for test 3",
+        "body": "The lowest possible score on the third test.",
+        "equation": "192 − 100 = 92"
+      },
+      {
+        "title": "Answer",
+        "body": "The lowest possible score on the third test is 92.",
+        "equation": "92 → B"
       }
     ],
     "animationFrames": [
@@ -27651,9 +27788,12 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "score-minimize-cap",
       "data": {
-        "answer": "B"
+        "testCount": 4,
+        "targetAverage": 95,
+        "known": [97, 91],
+        "cap": 100
       }
     },
     "tags": [
@@ -27702,17 +27842,33 @@ const amc2012Problems: Problem[] = [
     "shortAnswer": "60",
     "solutionSteps": [
       {
-        "title": "Start with half price",
-        "body": "Half price means the sale price is 50% of the original."
+        "title": "Set up",
+        "body": "Start with the full price: 100% of the original."
+      },
+      {
+        "title": "Half price",
+        "body": "The sale cuts the price to half of the original.",
+        "equation": "100 × 0.50 = 50"
       },
       {
         "title": "Apply the coupon to the sale price",
-        "body": "A 20% discount leaves 80% of the sale price.",
-        "equation": "0.80×0.50 = 0.40"
+        "body": "The coupon's 20% comes off the already-reduced sale price, not the original.",
+        "equation": "50 × 0.80 = 40"
+      },
+      {
+        "title": "Check a shortcut",
+        "body": "Adding the two percentages (50% + 20% = 70% off) matches a wrong answer choice — discounts don't simply add.",
+        "equation": "50 + 20 = 70 (wrong)"
       },
       {
         "title": "Convert to percent off",
-        "body": "The final price is 40% of the original, so the discount is 60%."
+        "body": "The final price is 40% of the original, so the true discount is 100% − 40%.",
+        "equation": "100 − 40 = 60"
+      },
+      {
+        "title": "Answer",
+        "body": "The price today is 60% off the original.",
+        "equation": "60 → D"
       }
     ],
     "animationFrames": [
@@ -27733,9 +27889,10 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "compound-discount",
       "data": {
-        "answer": "D"
+        "firstPercentOff": 50,
+        "secondPercentOff": 20
       }
     },
     "tags": [
@@ -27784,16 +27941,34 @@ const amc2012Problems: Problem[] = [
     "shortAnswer": "139",
     "solutionSteps": [
       {
-        "title": "Let variables represent animals",
-        "body": "Let b be birds and m be mammals. Then b+m=200 and 2b+4m=522."
+        "title": "Assume all birds",
+        "body": "Suppose every one of the 200 animals is a 2-legged bird.",
+        "equation": "200 × 2 = 400"
       },
       {
-        "title": "Compare to all two-legged animals",
-        "body": "If all 200 animals had 2 legs, there would be 400 legs. The extra 122 legs come from mammals, 2 extra per mammal."
+        "title": "Find the gap",
+        "body": "That's short of the real leg count.",
+        "equation": "522 − 400 = 122"
       },
       {
-        "title": "Find birds",
-        "body": "There are 61 mammals, so there are 200-61=139 birds."
+        "title": "Swap birds for mammals",
+        "body": "Turning a bird into a mammal keeps the same head but adds 2 legs. Enough swaps must cover the gap.",
+        "equation": "122 ÷ 2 = 61"
+      },
+      {
+        "title": "Find the birds",
+        "body": "So 61 of the 200 animals are mammals, leaving the rest as birds.",
+        "equation": "200 − 61 = 139"
+      },
+      {
+        "title": "Check",
+        "body": "139 birds and 61 mammals give back the original counts.",
+        "equation": "2×139 + 4×61 = 522,  139+61 = 200"
+      },
+      {
+        "title": "Answer",
+        "body": "There were 139 two-legged birds.",
+        "equation": "139 → C"
       }
     ],
     "animationFrames": [
@@ -27814,9 +27989,12 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "head-leg-swap",
       "data": {
-        "answer": "C"
+        "totalHeads": 200,
+        "targetLegs": 522,
+        "fewLegs": 2,
+        "manyLegs": 4
       }
     },
     "tags": [
@@ -27865,16 +28043,33 @@ const amc2012Problems: Problem[] = [
     "shortAnswer": "9",
     "solutionSteps": [
       {
-        "title": "Choose the first digit",
-        "body": "The first digit cannot be 0. It can be 1 or 2."
+        "title": "The digits",
+        "body": "2012 uses the digits 2, 0, 1, 2 — one digit repeated. The first digit of a 4-digit number can't be 0."
       },
       {
-        "title": "Case 1: starts with 1",
-        "body": "The remaining digits are 0,2,2, which make 3 distinct arrangements."
+        "title": "Check a shortcut",
+        "body": "Arranging all four digits without that restriction, 0 allowed to lead, gives every possible ordering — a real answer choice, but not what the question asks.",
+        "equation": "12 arrangements total"
       },
       {
-        "title": "Case 2: starts with 2",
-        "body": "The remaining digits 0,1,2 make 6 arrangements. The total is 3+6=9."
+        "title": "Case: starts with 1",
+        "body": "The remaining digits 0, 2, 2 make this many distinct arrangements.",
+        "equation": "3 numbers"
+      },
+      {
+        "title": "Case: starts with 2",
+        "body": "The remaining digits 0, 1, 2 make this many distinct arrangements.",
+        "equation": "6 numbers"
+      },
+      {
+        "title": "Total",
+        "body": "Add the two cases.",
+        "equation": "3 + 6 = 9"
+      },
+      {
+        "title": "Answer",
+        "body": "There are 9 such 4-digit numbers.",
+        "equation": "9 → D"
       }
     ],
     "animationFrames": [
@@ -27895,9 +28090,9 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "leading-zero-permute",
       "data": {
-        "answer": "D"
+        "digits": ["2", "0", "1", "2"]
       }
     },
     "tags": [
@@ -27946,16 +28141,32 @@ const amc2012Problems: Problem[] = [
     "shortAnswer": "11",
     "solutionSteps": [
       {
-        "title": "Identify likely common value",
-        "body": "Because 6 appears twice already, the unique mode is naturally 6 unless x creates another tie."
+        "title": "The list",
+        "body": "3, 4, 5, 6, 6, 7, and x. The value 6 already appears twice — the natural mode candidate."
       },
       {
-        "title": "Force the mean to be 6",
-        "body": "The known numbers sum to 31. For 7 numbers to average 6, the total must be 42."
+        "title": "Check a shortcut",
+        "body": "Setting x = 6 looks tempting, since it reinforces the mode. But the resulting mean isn't even a whole number.",
+        "equation": "(3+4+5+6+6+7+6) ÷ 7 = 37/7"
+      },
+      {
+        "title": "Target the total",
+        "body": "For the mean, median, and mode all to equal 6, the 7 numbers must sum to this.",
+        "equation": "7 × 6 = 42"
       },
       {
         "title": "Solve for x",
-        "body": "So x=42-31=11. The median is also 6, so this works."
+        "body": "The known numbers sum to 31, so x makes up the rest.",
+        "equation": "42 − 31 = 11"
+      },
+      {
+        "title": "Check all three",
+        "body": "With x = 11, the list is 3, 4, 5, 6, 6, 7, 11. The median (middle value) is 6, the mode (only repeated value) is 6, and the mean is 6."
+      },
+      {
+        "title": "Answer",
+        "body": "x = 11.",
+        "equation": "11 → D"
       }
     ],
     "animationFrames": [
@@ -27976,9 +28187,10 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "triple-stat-solve",
       "data": {
-        "answer": "D"
+        "known": [3, 4, 5, 6, 6, 7],
+        "target": 6
       }
     },
     "tags": [
@@ -28030,15 +28242,31 @@ const amc2012Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Only the units digit matters",
-        "body": "The units digits of powers of 13 follow the same cycle as powers of 3."
+        "body": "13 has units digit 3, so 13^n always ends the same way as 3^n."
       },
       {
-        "title": "Use the cycle",
-        "body": "Powers of 3 have units-digit cycle 3,9,7,1, repeating every 4."
+        "title": "Build the cycle",
+        "body": "The units digits of powers of 3 cycle through 3, 9, 7, 1.",
+        "equation": "3^1=3, 3^2=9, 3^3=27, 3^4=81"
       },
       {
-        "title": "Use the exponent",
-        "body": "Since 2012 is divisible by 4, the units digit is the 4th value in the cycle, 1."
+        "title": "The cycle repeats",
+        "body": "The next power ends in 3 again, so the cycle has length 4.",
+        "equation": "3^5 = 243"
+      },
+      {
+        "title": "Locate the exponent",
+        "body": "Divide 2012 by the cycle length.",
+        "equation": "2012 ÷ 4 = 503 remainder 0"
+      },
+      {
+        "title": "Check a shortcut",
+        "body": "A remainder of 0 might tempt you to pick the first value in the cycle, but it actually means a whole number of cycles — landing on the last one instead."
+      },
+      {
+        "title": "Answer",
+        "body": "The units digit of 13^2012 is 1.",
+        "equation": "1 → A"
       }
     ],
     "animationFrames": [
@@ -28059,9 +28287,10 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "power-cycle",
       "data": {
-        "answer": "A"
+        "base": 13,
+        "exponent": 2012
       }
     },
     "tags": [
@@ -28111,15 +28340,32 @@ const amc2012Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Convert to cents",
-        "body": "The totals are 143 cents and 187 cents."
+        "body": "Jamar paid 143 cents, Sharona paid 187 cents, both at the same price per pencil, above a penny."
       },
       {
-        "title": "Find the pencil price",
-        "body": "The price per pencil must divide both totals and is more than 1 cent. The greatest common divisor of 143 and 187 is 11."
+        "title": "Check a shortcut",
+        "body": "13 cents divides Jamar's total evenly, but it doesn't divide Sharona's total evenly — so 13 isn't the shared price.",
+        "equation": "187 ÷ 13 = 14 remainder 5"
+      },
+      {
+        "title": "Find the shared price",
+        "body": "11 cents is the only price above a penny that divides both totals evenly.",
+        "equation": "gcd(143, 187) = 11"
       },
       {
         "title": "Count pencils",
-        "body": "Jamar bought 13 pencils and Sharona bought 17, so Sharona bought 4 more."
+        "body": "Divide each total by the price.",
+        "equation": "143 ÷ 11 = 13,  187 ÷ 11 = 17"
+      },
+      {
+        "title": "Find the difference",
+        "body": "Sharona bought this many more pencils than Jamar.",
+        "equation": "17 − 13 = 4"
+      },
+      {
+        "title": "Answer",
+        "body": "Sharona bought 4 more pencils than Jamar.",
+        "equation": "4 → C"
       }
     ],
     "animationFrames": [
@@ -28140,9 +28386,12 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "shared-price-chop",
       "data": {
-        "answer": "C"
+        "totalA": 143,
+        "totalB": 187,
+        "labelA": "Jamar",
+        "labelB": "Sharona"
       }
     },
     "tags": [
@@ -28191,16 +28440,33 @@ const amc2012Problems: Problem[] = [
     "shortAnswer": "7",
     "solutionSteps": [
       {
-        "title": "Use pair counting",
-        "body": "Each game is a pair of teams, so n teams create n(n-1)/2 games."
+        "title": "Set up",
+        "body": "Each pair of teams plays exactly one game."
       },
       {
-        "title": "Set equal to 21",
-        "body": "Solve n(n-1)/2=21, so n(n-1)=42."
+        "title": "Check a shortcut",
+        "body": "Trying 6 teams — every pair connected — only produces this many games, short of 21.",
+        "equation": "6 teams → 15 games"
       },
       {
-        "title": "Find n",
-        "body": "Since 7×6=42, there are 7 teams."
+        "title": "Set up the equation",
+        "body": "With n teams, each pair plays once, so the number of games is n(n−1)/2.",
+        "equation": "n(n−1) ÷ 2 = 21"
+      },
+      {
+        "title": "Solve for n",
+        "body": "Find two consecutive integers whose product is 42.",
+        "equation": "7 × 6 = 42, so n = 7"
+      },
+      {
+        "title": "Verify",
+        "body": "7 teams, every pair connected, gives back the 21 games played.",
+        "equation": "7 teams → 21 games"
+      },
+      {
+        "title": "Answer",
+        "body": "There were 7 teams in the conference.",
+        "equation": "7 → B"
       }
     ],
     "animationFrames": [
@@ -28221,9 +28487,9 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "round-robin-graph",
       "data": {
-        "answer": "B"
+        "totalGames": 21
       }
     },
     "tags": [
@@ -28273,15 +28539,30 @@ const amc2012Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Use the remainder condition",
-        "body": "If the number leaves remainder 2 when divided by 3,4,5,6, then subtracting 2 makes it divisible by all four."
+        "body": "If the number leaves remainder 2 when divided by 3, 4, 5, and 6, then subtracting 2 makes it divisible by all four."
       },
       {
-        "title": "Find the LCM",
-        "body": "The least common multiple of 3,4,5,6 is 60."
+        "title": "Find where the multiples align",
+        "body": "The multiples of 3, 4, 5, and 6 first all land together at their least common multiple.",
+        "equation": "lcm(3,4,5,6) = 60"
+      },
+      {
+        "title": "Check a shortcut",
+        "body": "Stopping at 60 without adding the remainder back would place the answer between 56 and 60 — a real choice, but too small."
       },
       {
         "title": "Add back the remainder",
-        "body": "The smallest number is 60+2=62, which lies between 61 and 65."
+        "body": "Add the remainder to the least common multiple.",
+        "equation": "60 + 2 = 62"
+      },
+      {
+        "title": "Locate the range",
+        "body": "62 falls between 61 and 65."
+      },
+      {
+        "title": "Answer",
+        "body": "The number lies between 61 and 65.",
+        "equation": "62 → D"
       }
     ],
     "animationFrames": [
@@ -28302,9 +28583,10 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "multiple-ladder",
       "data": {
-        "answer": "D"
+        "divisors": [3, 4, 5, 6],
+        "remainder": 2
       }
     },
     "tags": [
@@ -28353,16 +28635,30 @@ const amc2012Problems: Problem[] = [
     "shortAnswer": "87431",
     "solutionSteps": [
       {
-        "title": "Maximize place values",
-        "body": "To maximize the sum, the largest digits must go in the largest place values across the two numbers."
+        "title": "Pair the digits by place value",
+        "body": "The two largest digits (9, 8) must be the ten-thousands digits, the next two (7, 6) the thousands digits, and so on down to the smallest pair (1, 0) as the units digits."
       },
       {
-        "title": "Compare viable choices",
-        "body": "The candidate must use digits in decreasing order. Choices 76531 and 87431 are the only plausible ones."
+        "title": "Check a shortcut",
+        "body": "76531 has strictly decreasing digits and looks right, but its leading digit, 7, isn't in the top pair {9, 8} — it can't be one of the numbers."
       },
       {
-        "title": "Choose the better pairing",
-        "body": "87431 pairs with a number beginning 96, creating a larger sum than the best pairing for 76531."
+        "title": "Rule out the other wrong choices",
+        "body": "86724, 96240, and 97403 each place a digit in the wrong pair somewhere in the middle."
+      },
+      {
+        "title": "Confirm the answer",
+        "body": "87431 takes exactly one digit from each pair, in the correct order — it's valid."
+      },
+      {
+        "title": "See the maximum sum",
+        "body": "Its complement, 96520, uses the other digit from every pair, and together they give the largest possible sum.",
+        "equation": "87431 + 96520 = 183951"
+      },
+      {
+        "title": "Answer",
+        "body": "87431 could be one of the two numbers.",
+        "equation": "87431 → C"
       }
     ],
     "animationFrames": [
@@ -28383,9 +28679,9 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "ranking",
+      "type": "digit-pair-place",
       "data": {
-        "answer": "C"
+        "digits": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
       }
     },
     "tags": [
@@ -28434,16 +28730,31 @@ const amc2012Problems: Problem[] = [
     "shortAnswer": "4",
     "solutionSteps": [
       {
-        "title": "Eliminate side length 3",
-        "body": "A 3 by 3 square has area 9, so it cannot be cut into 10 positive-area squares."
+        "title": "The requirement",
+        "body": "Cut a square into 10 integer-sided squares, at least 8 of which have area 1."
+      },
+      {
+        "title": "Check a shortcut",
+        "body": "A 3 by 3 square has area 9. Ten squares, each with area at least 1, need a total area of at least 10 — one square short of fitting, no matter how they're arranged.",
+        "equation": "3² = 9 < 10"
       },
       {
         "title": "Try side length 4",
-        "body": "A 4 by 4 square can be made from eight 1 by 1 squares and two 2 by 2 squares."
+        "body": "A 4 by 4 square has room for 10 squares."
       },
       {
-        "title": "Conclude",
-        "body": "This gives 10 integer-sided squares with at least eight unit squares, so 4 is possible and minimal."
+        "title": "Build the dissection",
+        "body": "Two 2 by 2 squares along the top, and eight 1 by 1 squares filling the rest."
+      },
+      {
+        "title": "Verify",
+        "body": "The areas add up correctly and the count matches.",
+        "equation": "8×1 + 2×2² = 16 = 4²"
+      },
+      {
+        "title": "Answer",
+        "body": "The smallest possible side length is 4.",
+        "equation": "4 → B"
       }
     ],
     "animationFrames": [
@@ -28464,9 +28775,12 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "square-dissect",
       "data": {
-        "answer": "B"
+        "rejectedSide": 3,
+        "answerSide": 4,
+        "unitCount": 8,
+        "largeCount": 2
       }
     },
     "tags": [
@@ -28516,15 +28830,30 @@ const amc2012Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Understand the restrictions",
-        "body": "The number must be composite, not a square, and all prime factors must be at least 50."
+        "body": "The number must be composite, not a perfect square, and have no prime factor below 50."
       },
       {
-        "title": "Use smallest possible primes",
-        "body": "The two smallest primes greater than 50 are 53 and 59."
+        "title": "Check a shortcut",
+        "body": "Squaring the smallest usable prime clears the factor rule and beats every choice on size — but a perfect square isn't allowed.",
+        "equation": "53² = 2809 (a square — excluded)"
       },
       {
-        "title": "Multiply",
-        "body": "Their product is 53×59=3127, which is not prime and not a square."
+        "title": "Use two different primes",
+        "body": "The two smallest primes at or above 50 are 53 and 59.",
+        "equation": "53 × 59 = 3127"
+      },
+      {
+        "title": "Check the answer choices",
+        "body": "Factor every choice and check all three rules."
+      },
+      {
+        "title": "Confirm",
+        "body": "3127 is composite, not a square, and its smallest prime factor is 53."
+      },
+      {
+        "title": "Answer",
+        "body": "The smallest such number is 3127.",
+        "equation": "3127 → A"
       }
     ],
     "animationFrames": [
@@ -28545,9 +28874,11 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "prime-factor-gate",
       "data": {
-        "answer": "A"
+        "threshold": 50,
+        "primeA": 53,
+        "primeB": 59
       }
     },
     "tags": [
@@ -28596,16 +28927,32 @@ const amc2012Problems: Problem[] = [
     "shortAnswer": "9",
     "solutionSteps": [
       {
-        "title": "Translate each statement",
-        "body": "All but 6 are red means green plus blue is 6. Similarly, red plus blue is 8 and red plus green is 4."
+        "title": "The setup",
+        "body": "A jar of red, green, and blue marbles, with three clues about how many are NOT each color."
       },
       {
-        "title": "Add equations",
-        "body": "Adding gives 2 times the total number of marbles equals 18."
+        "title": "Translate each clue",
+        "body": "\"All but 6 are red\" means the non-red marbles (green plus blue) number 6. Likewise for the other two colors.",
+        "equation": "not red = 6, not green = 8, not blue = 4"
       },
       {
-        "title": "Solve",
-        "body": "The total number of marbles is 9."
+        "title": "Check a shortcut",
+        "body": "Averaging the three numbers looks tempting, but that's not what the clues say."
+      },
+      {
+        "title": "Add and halve",
+        "body": "Adding all three counts every marble exactly twice — once for each of the two colors it isn't.",
+        "equation": "6 + 8 + 4 = 18,  18 ÷ 2 = 9"
+      },
+      {
+        "title": "Solve each color",
+        "body": "Each color's count is the total minus its \"not\" count.",
+        "equation": "red = 9−6 = 3, green = 9−8 = 1, blue = 9−4 = 5"
+      },
+      {
+        "title": "Answer",
+        "body": "There are 9 marbles in the jar.",
+        "equation": "9 → C"
       }
     ],
     "animationFrames": [
@@ -28626,9 +28973,11 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "all-but-count",
       "data": {
-        "answer": "C"
+        "notRed": 6,
+        "notGreen": 8,
+        "notBlue": 4
       }
     },
     "tags": [
@@ -28677,8 +29026,16 @@ const amc2012Problems: Problem[] = [
     "shortAnswer": "5/19 < 7/21 < 9/23",
     "solutionSteps": [
       {
-        "title": "Approximate or compare",
-        "body": "7/21 equals 1/3. The fraction 5/19 is slightly less than 1/3, and 9/23 is greater than 1/3."
+        "title": "Choose an anchor",
+        "body": "The middle fraction simplifies exactly: 7/21=1/3."
+      },
+      {
+        "title": "Compare 5/19",
+        "body": "Since 5×3=15<19, we have 5/19<1/3."
+      },
+      {
+        "title": "Compare 9/23",
+        "body": "Since 9×3=27>23, we have 1/3<9/23."
       },
       {
         "title": "Order them",
@@ -28703,9 +29060,10 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "ranking",
+      "type": "unit-fraction-anchor-order",
       "data": {
-        "answer": "B"
+        "fractions": ["5|19", "7|21", "9|23"],
+        "anchorIndex": 1
       }
     },
     "tags": [
@@ -28784,9 +29142,11 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "cube-face-paint-border",
       "data": {
-        "answer": "D"
+        "edgeLength": 10,
+        "paintArea": 300,
+        "faceCount": 6
       }
     },
     "tags": [
@@ -28844,7 +29204,11 @@ const amc2012Problems: Problem[] = [
       },
       {
         "title": "Find the largest possible median",
-        "body": "By placing the three unknown integers after 14, the fifth number can be as large as 9. The possible medians are 3 through 9, giving 7 values."
+        "body": "By placing the three unknown integers after 14, the fifth number can be as large as 9."
+      },
+      {
+        "title": "Enumerate the interval",
+        "body": "Every integer from 3 through 9 can occupy the fifth slot, so there are 9−3+1=7 possible medians."
       }
     ],
     "animationFrames": [
@@ -28865,9 +29229,10 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "median-range-slots",
       "data": {
-        "answer": "D"
+        "fixedValues": [2, 3, 4, 6, 9, 14],
+        "totalCount": 9
       }
     },
     "tags": [
@@ -28920,12 +29285,16 @@ const amc2012Problems: Problem[] = [
         "body": "If the triangle side is s, the perimeter is 3s. A regular hexagon with the same perimeter has side length s/2."
       },
       {
-        "title": "Compare small equilateral triangles",
-        "body": "The hexagon is made of 6 equilateral triangles, each with side length half the original triangle’s side."
+        "title": "Scale one small triangle",
+        "body": "The area-4 triangle splits into four half-side equilateral triangles. Halving both dimensions scales area by (1/2)², so each piece has area 1."
       },
       {
-        "title": "Scale area",
-        "body": "Each small triangle has 1/4 the area of the original, so each has area 1. The hexagon area is 6."
+        "title": "Assemble the hexagon",
+        "body": "Six congruent half-side triangles meet at the center to form the regular hexagon."
+      },
+      {
+        "title": "Count the area",
+        "body": "The hexagon contains six unit-area triangles, so its area is 6×1=6."
       }
     ],
     "animationFrames": [
@@ -28946,9 +29315,11 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "equal-perimeter-triangle-hexagon",
       "data": {
-        "answer": "C"
+        "triangleArea": 4,
+        "triangleSides": 3,
+        "hexagonSides": 6
       }
     },
     "tags": [
@@ -28998,8 +29369,12 @@ const amc2012Problems: Problem[] = [
     "shortAnswer": "(4−π)/π",
     "solutionSteps": [
       {
-        "title": "Enclose the star in a square",
-        "body": "The star fits inside a square of side 4, the diameter of the original circle."
+        "title": "Cut four equal arcs",
+        "body": "The four marked points divide the radius-2 circle into four congruent quarter-circle arcs."
+      },
+      {
+        "title": "Rearrange the arcs",
+        "body": "Joining the same four arcs forms the star inside a square whose side is the circle's diameter, 4."
       },
       {
         "title": "Subtract the four quarter-circles",
@@ -29028,9 +29403,10 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "quarter-arc-star-area",
       "data": {
-        "answer": "A"
+        "radius": 2,
+        "arcCount": 4
       }
     },
     "tags": [
@@ -29083,8 +29459,12 @@ const amc2012Problems: Problem[] = [
     "shortAnswer": "1/2",
     "solutionSteps": [
       {
+        "title": "See the decomposition",
+        "body": "The tilted inner square leaves exactly four corner triangles inside the outer square."
+      },
+      {
         "title": "Compare areas",
-        "body": "The outer square has area 5 and the inner square has area 4, so the four corner triangles have total area 1."
+        "body": "Their total area is the outer area minus the inner area: 5−4=1."
       },
       {
         "title": "Use congruent triangles",
@@ -29113,9 +29493,11 @@ const amc2012Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "inscribed-square-corner-area",
       "data": {
-        "answer": "C"
+        "outerArea": 5,
+        "innerArea": 4,
+        "cornerCount": 4
       }
     },
     "tags": [

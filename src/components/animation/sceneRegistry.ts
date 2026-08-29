@@ -1,6 +1,31 @@
 import type { Problem } from "../../types/amc";
 import type { AnimatedScene } from "./scenes/types";
 import { ClockAngleScene } from "./scenes/ClockAngleScene";
+import { AllButCountScene } from "./scenes/AllButCountScene";
+import { UnitFractionAnchorOrderScene } from "./scenes/UnitFractionAnchorOrderScene";
+import { PrimeFactorGateScene } from "./scenes/PrimeFactorGateScene";
+import { CubeFacePaintBorderScene } from "./scenes/CubeFacePaintBorderScene";
+import { SquareDissectScene } from "./scenes/SquareDissectScene";
+import { DigitPairPlaceScene } from "./scenes/DigitPairPlaceScene";
+import { MultipleLadderScene } from "./scenes/MultipleLadderScene";
+import { RoundRobinGraphScene } from "./scenes/RoundRobinGraphScene";
+import { SharedPriceChopScene } from "./scenes/SharedPriceChopScene";
+import { PowerCycleScene } from "./scenes/PowerCycleScene";
+import { TripleStatSolveScene } from "./scenes/TripleStatSolveScene";
+import { LeadingZeroPermuteScene } from "./scenes/LeadingZeroPermuteScene";
+import { HeadLegSwapScene } from "./scenes/HeadLegSwapScene";
+import { CompoundDiscountScene } from "./scenes/CompoundDiscountScene";
+import { ScoreMinimizeCapScene } from "./scenes/ScoreMinimizeCapScene";
+import { PhotoFrameBorderScene } from "./scenes/PhotoFrameBorderScene";
+import { RectilinearBalanceScene } from "./scenes/RectilinearBalanceScene";
+import { SplitSliceShareScene } from "./scenes/SplitSliceShareScene";
+import { TimeSumCorrectionScene } from "./scenes/TimeSumCorrectionScene";
+import { MedianRangeSlotsScene } from "./scenes/MedianRangeSlotsScene";
+import { NetRateYearScene } from "./scenes/NetRateYearScene";
+import { EqualPerimeterTriangleHexagonScene } from "./scenes/EqualPerimeterTriangleHexagonScene";
+import { QuarterArcStarAreaScene } from "./scenes/QuarterArcStarAreaScene";
+import { RecipeScaleScene } from "./scenes/RecipeScaleScene";
+import { InscribedSquareCornerAreaScene } from "./scenes/InscribedSquareCornerAreaScene";
 import { TreadmillPaceScene } from "./scenes/TreadmillPaceScene";
 import { FriendCoverShareScene } from "./scenes/FriendCoverShareScene";
 import { WeightMedianMeanScene } from "./scenes/WeightMedianMeanScene";
@@ -346,6 +371,42 @@ function num(value: unknown): number {
 export function resolveScene(problem: Problem): AnimatedScene {
   const type = problem.animation?.type;
   const data = problem.animation?.data ?? {};
+  // Three positive proper fractions with one interior unit-fraction anchor keep
+  // both cross-products finite and the final local number line drawable.
+  if(type==="unit-fraction-anchor-order"&&Array.isArray(data.fractions)){
+    const fs=data.fractions.map(v=>String(v).split("|").map(Number)),ai=Math.round(num(data.anchorIndex));
+    if(fs.length===3&&ai>=0&&ai<3&&fs.every(p=>p.length===2&&Number.isInteger(p[0])&&Number.isInteger(p[1])&&p[0]>0&&p[1]>p[0]&&p[1]<=100)) return UnitFractionAnchorOrderScene;
+  }
+  // A cube has exactly six congruent faces; bounded positive edge and paint
+  // areas keep the per-face border positive and the centered square drawable.
+  if(type==="cube-face-paint-border"){
+    const edge=num(data.edgeLength),paint=num(data.paintArea),faces=Math.round(num(data.faceCount));
+    if(edge>0&&edge<=100&&faces===6&&paint>0&&paint<faces*edge*edge&&paint/faces<edge*edge) return CubeFacePaintBorderScene;
+  }
+  // Six distinct fixed integers plus three unknowns make exactly nine ordered
+  // slots; bounded values keep the complete median interval readable.
+  if (type === "median-range-slots" && Array.isArray(data.fixedValues)) {
+    const values=data.fixedValues.map(v=>num(v,NaN)),total=Math.round(num(data.totalCount));
+    if(total===9&&values.length===6&&new Set(values).size===6&&values.every(v=>Number.isInteger(v)&&Math.abs(v)<=100)) return MedianRangeSlotsScene;
+  }
+  // Exactly three versus six sides forces the half-side scale; a bounded
+  // positive triangle area keeps all four and six equilateral pieces drawable.
+  if (type === "equal-perimeter-triangle-hexagon") {
+    const area = num(data.triangleArea), tri = Math.round(num(data.triangleSides)), hex = Math.round(num(data.hexagonSides));
+    if (area > 0 && area <= 100 && tri === 3 && hex === 6) return EqualPerimeterTriangleHexagonScene;
+  }
+  // Four quarter-arcs from one bounded positive-radius circle make a diameter
+  // square and exactly four drawable corner sectors with no invented geometry.
+  if (type === "quarter-arc-star-area") {
+    const radius = num(data.radius), arcs = Math.round(num(data.arcCount));
+    if (radius > 0 && radius <= 20 && arcs === 4) return QuarterArcStarAreaScene;
+  }
+  // Two positive square areas and exactly four corners make the leftover-area
+  // split and the single right-triangle product exact and drawable.
+  if (type === "inscribed-square-corner-area") {
+    const outer = num(data.outerArea), inner = num(data.innerArea), corners = Math.round(num(data.cornerCount));
+    if (outer > inner && outer <= 100 && inner > 0 && corners === 4) return InscribedSquareCornerAreaScene;
+  }
   // A positive even endpoint creates exact (−odd,+even) pairs; bounded values
   // keep the literal edge pairs readable and the outside scaling integral.
   if (type === "alternating-pair-scale") {
@@ -2503,6 +2564,190 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if (type === "counting") return DigitSlotsScene;
   if (type === "solid-3d" && num(data.n ?? data.size ?? data.cubes) > 1) {
     return Solid3DScene;
+  }
+  if (
+    type === "recipe-scale" &&
+    num(data.fromBatches) > 0 &&
+    num(data.toBatches) > num(data.fromBatches) &&
+    num(data.toBatches) % num(data.fromBatches) === 0 &&
+    num(data.fromAmount) > 0
+  ) {
+    return RecipeScaleScene;
+  }
+  if (
+    type === "net-rate-year" &&
+    num(data.hoursPerBirth) > 0 &&
+    24 % num(data.hoursPerBirth) === 0 &&
+    num(data.deathsPerDay) >= 0 &&
+    24 / num(data.hoursPerBirth) > num(data.deathsPerDay) &&
+    num(data.days) > 0
+  ) {
+    return NetRateYearScene;
+  }
+  if (
+    type === "time-sum-correction" &&
+    num(data.startHour) >= 1 &&
+    num(data.startHour) <= 12 &&
+    num(data.startMinute) >= 0 &&
+    num(data.startMinute) < 60 &&
+    num(data.reportedHour) >= 1 &&
+    num(data.reportedHour) <= 12 &&
+    num(data.reportedMinute) >= 0 &&
+    num(data.reportedMinute) < 60 &&
+    (num(data.durationHours) > 0 || num(data.durationMinutes) > 0)
+  ) {
+    return TimeSumCorrectionScene;
+  }
+  if (
+    type === "split-slice-share" &&
+    num(data.totalSlices) >= 3 &&
+    num(data.wholeSlicesEaten) >= 0 &&
+    num(data.wholeSlicesEaten) + 1 < num(data.totalSlices) &&
+    num(data.splitParts) >= 2
+  ) {
+    return SplitSliceShareScene;
+  }
+  if (
+    type === "rectilinear-balance" &&
+    Array.isArray(data.edges) &&
+    data.edges.length >= 4 &&
+    data.edges.some((e) => (e as Record<string, unknown>)?.l === "X")
+  ) {
+    return RectilinearBalanceScene;
+  }
+  if (
+    type === "photo-frame-border" &&
+    num(data.photoWidth) > 0 &&
+    num(data.photoHeight) > 0 &&
+    num(data.borderWidth) > 0
+  ) {
+    return PhotoFrameBorderScene;
+  }
+  if (
+    type === "score-minimize-cap" &&
+    num(data.testCount) === 4 &&
+    num(data.targetAverage) > 0 &&
+    Array.isArray(data.known) &&
+    data.known.length === 2 &&
+    num(data.cap) > 0 &&
+    num(data.testCount) * num(data.targetAverage) - num((data.known as unknown[])[0]) - num((data.known as unknown[])[1]) - num(data.cap) >= 0
+  ) {
+    return ScoreMinimizeCapScene;
+  }
+  if (
+    type === "compound-discount" &&
+    num(data.firstPercentOff) > 0 &&
+    num(data.firstPercentOff) < 100 &&
+    num(data.secondPercentOff) > 0 &&
+    num(data.secondPercentOff) < 100
+  ) {
+    return CompoundDiscountScene;
+  }
+  if (
+    type === "head-leg-swap" &&
+    num(data.totalHeads) > 0 &&
+    num(data.targetLegs) > 0 &&
+    num(data.fewLegs) > 0 &&
+    num(data.manyLegs) > num(data.fewLegs) &&
+    num(data.targetLegs) >= num(data.totalHeads) * num(data.fewLegs) &&
+    num(data.targetLegs) <= num(data.totalHeads) * num(data.manyLegs) &&
+    (num(data.targetLegs) - num(data.totalHeads) * num(data.fewLegs)) % (num(data.manyLegs) - num(data.fewLegs)) === 0
+  ) {
+    return HeadLegSwapScene;
+  }
+  if (
+    type === "leading-zero-permute" &&
+    Array.isArray(data.digits) &&
+    data.digits.length === 4 &&
+    data.digits.includes("0") &&
+    new Set(data.digits as string[]).size < 4
+  ) {
+    return LeadingZeroPermuteScene;
+  }
+  if (
+    type === "triple-stat-solve" &&
+    Array.isArray(data.known) &&
+    data.known.length >= 3 &&
+    num(data.target) > 0
+  ) {
+    return TripleStatSolveScene;
+  }
+  if (
+    type === "power-cycle" &&
+    num(data.base) > 0 &&
+    num(data.base) % 10 !== 0 &&
+    num(data.exponent) > 0
+  ) {
+    return PowerCycleScene;
+  }
+  if (type === "shared-price-chop" && num(data.totalA) > 0 && num(data.totalB) > 0) {
+    const gcd = (a: number, b: number): number => (b === 0 ? Math.abs(a) : gcd(b, a % b));
+    if (gcd(Math.round(num(data.totalA)), Math.round(num(data.totalB))) > 1) {
+      return SharedPriceChopScene;
+    }
+  }
+  if (type === "round-robin-graph" && num(data.totalGames) > 0) {
+    const g = Math.round(num(data.totalGames));
+    let hasN = false;
+    for (let k = 2; k <= g * 2; k++) {
+      if (k * (k - 1) === g * 2) {
+        hasN = true;
+        break;
+      }
+    }
+    if (hasN) return RoundRobinGraphScene;
+  }
+  if (
+    type === "multiple-ladder" &&
+    Array.isArray(data.divisors) &&
+    data.divisors.length >= 2 &&
+    num(data.remainder) >= 0
+  ) {
+    return MultipleLadderScene;
+  }
+  if (
+    type === "digit-pair-place" &&
+    Array.isArray(data.digits) &&
+    data.digits.length === 10 &&
+    new Set(data.digits.map(String)).size === 10
+  ) {
+    return DigitPairPlaceScene;
+  }
+  if (
+    type === "square-dissect" &&
+    num(data.rejectedSide) > 0 &&
+    num(data.answerSide) > num(data.rejectedSide) &&
+    num(data.unitCount) > 0 &&
+    num(data.largeCount) > 0 &&
+    num(data.rejectedSide) * num(data.rejectedSide) < num(data.unitCount) + num(data.largeCount) &&
+    Number.isInteger(Math.sqrt((num(data.answerSide) * num(data.answerSide) - num(data.unitCount)) / num(data.largeCount)))
+  ) {
+    return SquareDissectScene;
+  }
+  if (
+    type === "prime-factor-gate" &&
+    num(data.threshold) > 0 &&
+    num(data.primeA) >= num(data.threshold) &&
+    num(data.primeB) > num(data.primeA)
+  ) {
+    return PrimeFactorGateScene;
+  }
+  if (
+    type === "all-but-count" &&
+    num(data.notRed) > 0 &&
+    num(data.notGreen) > 0 &&
+    num(data.notBlue) > 0
+  ) {
+    const s = num(data.notRed) + num(data.notGreen) + num(data.notBlue);
+    const t = s / 2;
+    if (
+      Number.isInteger(t) &&
+      t - num(data.notRed) >= 0 &&
+      t - num(data.notGreen) >= 0 &&
+      t - num(data.notBlue) >= 0
+    ) {
+      return AllButCountScene;
+    }
   }
   return EquationScene;
 }
