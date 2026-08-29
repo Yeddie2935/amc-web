@@ -25062,13 +25062,23 @@ const amc2011Problems: Problem[] = [
     "shortAnswer": "$3.50",
     "solutionSteps": [
       {
+        "title": "Set up the purchase",
+        "body": "Margie buys 3 apples at $0.50 each and pays with a $5 bill.",
+        "equation": "3×$0.50, paid $5.00"
+      },
+      {
         "title": "Find the apple cost",
         "body": "Each apple costs $0.50, so 3 apples cost $1.50.",
         "equation": "3×$0.50=$1.50"
       },
       {
+        "title": "Watch the trap",
+        "body": "$1.50 is what Margie spent on apples - it is not the change she gets back."
+      },
+      {
         "title": "Subtract from five dollars",
-        "body": "Margie's change is $5.00-$1.50=$3.50."
+        "body": "Margie's change is $5.00-$1.50=$3.50.",
+        "equation": "$5.00-$1.50=$3.50"
       }
     ],
     "animationFrames": [
@@ -25089,9 +25099,12 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "purchase-change",
       "data": {
-        "answer": "E"
+        "itemPrice": 0.5,
+        "itemCount": 3,
+        "itemName": "apple",
+        "paid": 5
       }
     },
     "tags": [
@@ -25142,12 +25155,24 @@ const amc2011Problems: Problem[] = [
     "shortAnswer": "Makenna's garden is larger by 100 square feet.",
     "solutionSteps": [
       {
+        "title": "Set up both gardens",
+        "body": "Karl's garden is 20 ft by 45 ft, and Makenna's is 25 ft by 40 ft."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "Both gardens have the same perimeter, 2×(20+45)=2×(25+40)=130 feet - but equal fence length does not mean equal area."
+      },
+      {
         "title": "Compute Karl's area",
         "body": "Karl's garden has area 20×45=900 square feet."
       },
       {
         "title": "Compute Makenna's area",
-        "body": "Makenna's garden has area 25×40=1000 square feet, which is 100 more."
+        "body": "Makenna's garden has area 25×40=1000 square feet."
+      },
+      {
+        "title": "Compare the areas",
+        "body": "1000-900=100, so Makenna's garden is larger by 100 square feet."
       }
     ],
     "animationFrames": [
@@ -25168,9 +25193,14 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "rectangle-area-compare",
       "data": {
-        "answer": "E"
+        "aName": "Karl",
+        "aWidth": 20,
+        "aHeight": 45,
+        "bName": "Makenna",
+        "bWidth": 25,
+        "bHeight": 40
       }
     },
     "tags": [
@@ -25220,8 +25250,16 @@ const amc2011Problems: Problem[] = [
     "shortAnswer": "32:17",
     "solutionSteps": [
       {
+        "title": "Set up the pattern",
+        "body": "The original pattern is 5 by 5, with 8 black tiles and 17 white tiles."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "The ratio does not stay 8:17 - every tile the border adds is black, so the balance has to shift."
+      },
+      {
         "title": "Count the new border",
-        "body": "The original pattern is 5 by 5. Adding a one-tile border makes a 7 by 7 square, adding 49-25=24 black tiles."
+        "body": "Adding a one-tile border makes a 7 by 7 square, adding 49-25=24 black tiles."
       },
       {
         "title": "Add black tiles",
@@ -25250,9 +25288,10 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "black-border-grow",
       "data": {
-        "answer": "D"
+        "size": 5,
+        "blackCells": ["1,1", "1,2", "1,3", "2,1", "2,3", "3,1", "3,2", "3,3"]
       }
     },
     "tags": [
@@ -25307,16 +25346,28 @@ const amc2011Problems: Problem[] = [
     "shortAnswer": "mean < median < mode",
     "solutionSteps": [
       {
+        "title": "List the catches",
+        "body": "Tyler's catches over 9 outings were 2, 0, 1, 3, 0, 3, 3, 1, 2."
+      },
+      {
         "title": "Order the data",
         "body": "In increasing order the data are 0, 0, 1, 1, 2, 2, 3, 3, 3."
       },
       {
-        "title": "Find the statistics",
-        "body": "The mean is 15/9, the median is 2, and the mode is 3."
+        "title": "Find the median and mode",
+        "body": "The middle value is the median, 2. The value 3 appears most often (three outings), so the mode is 3."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "Miscounting only 8 outings (dropping the last one) gives a wrong median of 1.5 - but there are really 9 outings."
+      },
+      {
+        "title": "Find the mean",
+        "body": "The total catch is 15 fish over 9 outings, so the mean is 15/9=5/3, about 1.67."
       },
       {
         "title": "Compare",
-        "body": "Since 15/9 < 2 < 3, the correct order is mean < median < mode."
+        "body": "Since 5/3 < 2 < 3, the correct order is mean < median < mode."
       }
     ],
     "animationFrames": [
@@ -25337,9 +25388,9 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "ranking",
+      "type": "fish-catch-stats",
       "data": {
-        "answer": "C"
+        "catches": [2, 0, 1, 3, 0, 3, 3, 1, 2]
       }
     },
     "tags": [
@@ -25391,12 +25442,24 @@ const amc2011Problems: Problem[] = [
     "shortAnswer": "January 2 at 9:31AM",
     "solutionSteps": [
       {
+        "title": "Start at midnight",
+        "body": "Count 2011 minutes starting from midnight on January 1."
+      },
+      {
         "title": "Convert minutes to hours",
-        "body": "2011 minutes is 33 hours and 31 minutes."
+        "body": "2011 minutes is 2011/60=33 hours and 31 minutes."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "33 hours 31 minutes mod 12 gives the same 9:31 digits as 21 hours 31 minutes - the clock reading alone does not say AM or PM, or even which day."
       },
       {
         "title": "Move past one full day",
-        "body": "After 24 hours it is midnight on January 2. The remaining 9 hours and 31 minutes gives January 2 at 9:31AM."
+        "body": "The first 24 of those hours make one full day, landing at midnight on January 2, with 9 hours 31 minutes left."
+      },
+      {
+        "title": "Land on the time",
+        "body": "The remaining 9 hours and 31 minutes after that midnight give January 2 at 9:31AM."
       }
     ],
     "animationFrames": [
@@ -25417,9 +25480,10 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "clock-angle",
+      "type": "minute-rollover",
       "data": {
-        "answer": "D"
+        "totalMinutes": 2011,
+        "dateLabels": ["January 1", "January 2"]
       }
     },
     "tags": [
@@ -25470,8 +25534,24 @@ const amc2011Problems: Problem[] = [
     "shortAnswer": "306",
     "solutionSteps": [
       {
+        "title": "Set up the population",
+        "body": "351 adults, and every adult owns a car, a motorcycle, or both."
+      },
+      {
+        "title": "Mark the car owners",
+        "body": "331 adults own a car."
+      },
+      {
+        "title": "Mark the motorcycle owners",
+        "body": "45 adults own a motorcycle - since everyone owns at least one vehicle, the car and motorcycle owners must overlap."
+      },
+      {
         "title": "Find the overlap",
         "body": "By inclusion-exclusion, the number who own both is 331+45-351=25."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "25 is the number who own both vehicles - but the question asks for car owners who do not own a motorcycle."
       },
       {
         "title": "Subtract from car owners",
@@ -25496,9 +25576,11 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "venn",
+      "type": "vehicle-overlap",
       "data": {
-        "answer": "D"
+        "total": 351,
+        "carCount": 331,
+        "motoCount": 45
       }
     },
     "tags": [
@@ -25549,10 +25631,26 @@ const amc2011Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Use each square as area 1",
-        "body": "The four bolded areas are 1/4, 1/8, 3/8, and 1/4."
+        "body": "Each of the four large squares has area 1."
       },
       {
-        "title": "Add bolded area",
+        "title": "Square 1: a bolded strip",
+        "body": "The first square is split into 4 equal columns; one column is bolded, area 1/4."
+      },
+      {
+        "title": "Square 2: a corner triangle",
+        "body": "The second square is split into quarters, and the top-right quarter is split by a diagonal; the bolded corner triangle is half of that quarter, area 1/8."
+      },
+      {
+        "title": "Square 3: a triangle plus a quarter",
+        "body": "The third square is split into quarters, and the top-left quarter is split by a diagonal; the bolded region is half of that quarter plus the whole bottom-left quarter, area 1/8+1/4=3/8."
+      },
+      {
+        "title": "Square 4: a bolded quarter",
+        "body": "The fourth square is split into quarters; the bottom-left quarter is bolded, area 1/4."
+      },
+      {
+        "title": "Add the bolded areas",
         "body": "The total bolded area is 1/4+1/8+3/8+1/4=1."
       },
       {
@@ -25578,9 +25676,9 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "bolded-squares",
       "data": {
-        "answer": "C"
+        "areas": ["1/4", "1/8", "3/8", "1/4"]
       }
     },
     "tags": [
@@ -25635,6 +25733,22 @@ const amc2011Problems: Problem[] = [
     "shortAnswer": "5",
     "solutionSteps": [
       {
+        "title": "Set up the bags",
+        "body": "Bag A holds 1, 3, 5. Bag B holds 2, 4, 6."
+      },
+      {
+        "title": "List every draw",
+        "body": "There are 3x3=9 possible draws, each with its own sum."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "9 draws does not mean 9 different sums - some draws share the same sum."
+      },
+      {
+        "title": "Group equal sums",
+        "body": "Draws that sum the same way group together: 3 once, 5 twice, 7 three times, 9 twice, 11 once."
+      },
+      {
         "title": "List possible sums",
         "body": "The possible sums are 3, 5, 7, 9, and 11."
       },
@@ -25661,9 +25775,12 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "chip-sum-grid",
       "data": {
-        "answer": "B"
+        "aValues": [1, 3, 5],
+        "bValues": [2, 4, 6],
+        "aLabel": "Bag A",
+        "bLabel": "Bag B"
       }
     },
     "tags": [
@@ -25714,6 +25831,22 @@ const amc2011Problems: Problem[] = [
     "shortAnswer": "5",
     "solutionSteps": [
       {
+        "title": "Trace the ride",
+        "body": "The graph shows Carmen's distance over her 7-hour ride, with several hills of different steepness."
+      },
+      {
+        "title": "Read each hill's pace",
+        "body": "Each leg of the ride has its own speed, from 2.5 mph on the steepest climb up to 10 mph on the fastest stretch."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "2.5 mph is just the pace on one hill, not the average for the whole ride."
+      },
+      {
+        "title": "Collapse to start and finish",
+        "body": "Average speed only depends on where the ride started and ended, not on the hills in between."
+      },
+      {
         "title": "Read total distance and time",
         "body": "From the graph, Carmen travels 35 miles in 7 hours."
       },
@@ -25740,9 +25873,12 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "hilly-ride-pace",
       "data": {
-        "answer": "E"
+        "points": [[0, 0], [1, 5], [2, 15], [4, 20], [5, 25], [7, 35]],
+        "xUnit": "hours",
+        "yUnit": "miles",
+        "speedUnit": "mph"
       }
     },
     "tags": [
@@ -25797,12 +25933,24 @@ const amc2011Problems: Problem[] = [
     "shortAnswer": "3.3",
     "solutionSteps": [
       {
-        "title": "Account for base fare and tip",
-        "body": "After paying the $2.40 base fare and $2 tip, $5.60 remains for extra mileage."
+        "title": "The base fare",
+        "body": "The first 0.5 mile costs a flat $2.40."
       },
       {
-        "title": "Convert extra mileage cost",
-        "body": "At $0.20 per 0.1 mile, the extra mileage costs $2 per mile. So $5.60 buys 2.8 extra miles."
+        "title": "Set the budget",
+        "body": "Out of $10, $2 goes to the tip, leaving $8 for the fare."
+      },
+      {
+        "title": "Subtract the base fare",
+        "body": "$8-$2.40=$5.60 remains for extra mileage."
+      },
+      {
+        "title": "Convert the mileage rate",
+        "body": "At $0.20 per 0.1 mile, extra mileage costs $2 per mile. So $5.60 buys 2.8 extra miles."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "2.8 miles is just the extra distance - it forgets the free first 0.5 mile already ridden."
       },
       {
         "title": "Add the first half mile",
@@ -25827,9 +25975,14 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "taxi-fare-meter",
       "data": {
-        "answer": "C"
+        "baseFareCents": 240,
+        "baseMiles": 0.5,
+        "perTickCents": 20,
+        "tickMiles": 0.1,
+        "tipCents": 200,
+        "budgetCents": 1000
       }
     },
     "tags": [
@@ -25880,12 +26033,24 @@ const amc2011Problems: Problem[] = [
     "shortAnswer": "6",
     "solutionSteps": [
       {
+        "title": "Read the bars",
+        "body": "Each day has a black bar for Asha and a grey bar for Sasha."
+      },
+      {
         "title": "Find daily differences",
         "body": "Sasha minus Asha for the five days is 10, -10, 20, 30, and -20 minutes."
       },
       {
+        "title": "Watch the trap",
+        "body": "Adding only the days Sasha studied more (10+20+30=60) and dividing by 5 gives 12 - but that drops the days Asha studied more."
+      },
+      {
+        "title": "Add every day, negatives included",
+        "body": "The full sum is 10-10+20+30-20=30."
+      },
+      {
         "title": "Average the differences",
-        "body": "The sum is 30, and 30/5=6 minutes per day."
+        "body": "30/5=6 minutes per day."
       }
     ],
     "animationFrames": [
@@ -25906,9 +26071,13 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "study-gap-average",
       "data": {
-        "answer": "A"
+        "days": ["M", "Tu", "W", "Th", "F"],
+        "aValues": [60, 90, 100, 80, 70],
+        "bValues": [70, 80, 120, 110, 50],
+        "aLabel": "Asha",
+        "bLabel": "Sasha"
       }
     },
     "tags": [
@@ -25963,12 +26132,24 @@ const amc2011Problems: Problem[] = [
     "shortAnswer": "1/3",
     "solutionSteps": [
       {
+        "title": "Seat everyone at random",
+        "body": "Angie, Bridget, Carlos, and Diego take random seats around the square table."
+      },
+      {
         "title": "Fix Angie's seat",
-        "body": "Once Angie's seat is fixed, Carlos has 3 possible remaining seats."
+        "body": "Once Angie's seat is fixed, it no longer matters which seat it is."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "Counting all 4 seats (including Angie's own) as options for Carlos gives 1/4 - but Angie's seat is already taken."
+      },
+      {
+        "title": "Count the real options",
+        "body": "Carlos has only 3 remaining seats to choose from."
       },
       {
         "title": "Count favorable seats",
-        "body": "Only one of those seats is opposite Angie, so the probability is 1/3."
+        "body": "Only one of those 3 seats is opposite Angie, so the probability is 1/3."
       }
     ],
     "animationFrames": [
@@ -25989,9 +26170,11 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "opposite-seat",
       "data": {
-        "answer": "B"
+        "names": ["Angie", "Bridget", "Carlos", "Diego"],
+        "fixedIndex": 0,
+        "targetIndex": 2
       }
     },
     "tags": [
@@ -26042,12 +26225,24 @@ const amc2011Problems: Problem[] = [
     "shortAnswer": "20",
     "solutionSteps": [
       {
-        "title": "Find the overlap width",
-        "body": "The rectangle has width 25 while the two side-15 squares together would have width 30, so the overlap width is 5."
+        "title": "Slide the squares together",
+        "body": "Two 15×15 squares just touching would span 30, but the rectangle is only 25 wide."
       },
       {
-        "title": "Compare areas",
-        "body": "The shaded overlap area is 5×15=75. The rectangle area is 25×15=375."
+        "title": "Find the overlap width",
+        "body": "2×15-25=5, so the overlap width is 5."
+      },
+      {
+        "title": "Find the overlap area",
+        "body": "The shaded overlap area is 5×15=75."
+      },
+      {
+        "title": "Find the rectangle area",
+        "body": "The rectangle area is 25×15=375."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "75/225=33.3% divides by one square's area, not the rectangle - that's the wrong whole."
       },
       {
         "title": "Convert to percent",
@@ -26072,9 +26267,10 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "square-overlap-percent",
       "data": {
-        "answer": "C"
+        "squareSide": 15,
+        "rectWidth": 25
       }
     },
     "tags": [
@@ -26129,12 +26325,28 @@ const amc2011Problems: Problem[] = [
     "shortAnswer": "22/45",
     "solutionSteps": [
       {
-        "title": "Find girls at each school",
-        "body": "At Colfax, girls are 4/9 of 270, or 120. At Winthrop, girls are 5/9 of 180, or 100."
+        "title": "Set up both schools",
+        "body": "Colfax has 270 students at a 5:4 boy:girl ratio. Winthrop has 180 students at a 4:5 ratio."
+      },
+      {
+        "title": "Split Colfax",
+        "body": "270/9=30 per part, so Colfax has 4x30=120 girls."
+      },
+      {
+        "title": "Split Winthrop",
+        "body": "180/9=20 per part, so Winthrop has 5x20=100 girls."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "Averaging 4/9 and 5/9 gives 1/2 - but that ignores that the two schools are different sizes."
+      },
+      {
+        "title": "Combine both schools",
+        "body": "There are 120+100=220 girls out of 270+180=450 students total."
       },
       {
         "title": "Form the fraction",
-        "body": "There are 220 girls out of 450 students total. The fraction is 220/450=22/45."
+        "body": "The fraction is 220/450=22/45."
       }
     ],
     "animationFrames": [
@@ -26155,9 +26367,12 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "school-dance-ratio",
       "data": {
-        "answer": "C"
+        "schools": [
+          { "name": "Colfax", "total": 270, "boysRatio": 5, "girlsRatio": 4 },
+          { "name": "Winthrop", "total": 180, "boysRatio": 4, "girlsRatio": 5 }
+        ]
       }
     },
     "tags": [
@@ -26238,9 +26453,12 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "power-ten-pairing",
       "data": {
-        "answer": "D"
+        "leftBase": 4,
+        "leftExponent": 5,
+        "rightBase": 5,
+        "rightExponent": 10
       }
     },
     "tags": [
@@ -26321,9 +26539,10 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "isosceles-altitude-pair",
       "data": {
-        "answer": "C"
+        "equalSide": 25,
+        "bases": [30, 40]
       }
     },
     "tags": [
@@ -26375,11 +26594,15 @@ const amc2011Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Factor 588",
-        "body": "588=2^2·3^1·5^0·7^2."
+        "body": "Repeated prime division gives 588=2·2·3·7·7."
+      },
+      {
+        "title": "Read the exponents",
+        "body": "Sorting the prime factors gives 588=2^2·3^1·5^0·7^2, so w=2, x=1, y=0, and z=2."
       },
       {
         "title": "Substitute exponents",
-        "body": "w=2, x=1, y=0, z=2, so 2w+3x+5y+7z=4+3+0+14=21."
+        "body": "Therefore 2w+3x+5y+7z=4+3+0+14=21."
       }
     ],
     "animationFrames": [
@@ -26400,9 +26623,10 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "prime-exponent-weight",
       "data": {
-        "answer": "A"
+        "number": 588,
+        "primes": [2, 3, 5, 7]
       }
     },
     "tags": [
@@ -26483,9 +26707,10 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "ordered-dice-mirror",
       "data": {
-        "answer": "D"
+        "sides": 6,
+        "relation": "first-ge-second"
       }
     },
     "tags": [
@@ -26540,8 +26765,16 @@ const amc2011Problems: Problem[] = [
         "body": "The overlapping outlines divide the figure into useful rectangular sections."
       },
       {
-        "title": "Count by size",
-        "body": "There are 3 rectangles using one section, 5 using two sections, none using three sections, and 3 using four sections."
+        "title": "Count the original outlines",
+        "body": "The three drawn outlines themselves give 3 rectangles."
+      },
+      {
+        "title": "Count two-outline loops",
+        "body": "Combining boundary pieces from exactly two outlines gives 5 more rectangles."
+      },
+      {
+        "title": "Count the remaining loops",
+        "body": "There are 3 remaining rectangles whose boundaries use pieces from all three outlines."
       },
       {
         "title": "Add",
@@ -26566,9 +26799,10 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "overlap-rectangle-sweep",
       "data": {
-        "answer": "D"
+        "rectangles": ["1,5,0,3", "0,3,2,4", "2,4,1,5"],
+        "expectedGroups": [3, 5, 3]
       }
     },
     "tags": [
@@ -26623,8 +26857,12 @@ const amc2011Problems: Problem[] = [
     "shortAnswer": "750",
     "solutionSteps": [
       {
-        "title": "Find horizontal offsets",
-        "body": "The left right triangle has hypotenuse 15 and height 12, so its base is 9. The right triangle has hypotenuse 20 and height 12, so its base is 16."
+        "title": "Find the left offset",
+        "body": "Drop a perpendicular from A. The left right triangle has hypotenuse 15 and height 12, so its base is √(15²-12²)=9."
+      },
+      {
+        "title": "Find the right offset",
+        "body": "Drop a perpendicular from B. The right triangle has hypotenuse 20 and height 12, so its base is √(20²-12²)=16."
       },
       {
         "title": "Find the longer base",
@@ -26653,9 +26891,12 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "trapezoid-offset-area",
       "data": {
-        "answer": "D"
+        "topBase": 50,
+        "height": 12,
+        "leftLeg": 15,
+        "rightLeg": 20
       }
     },
     "tags": [
@@ -26740,9 +26981,11 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "ranking",
+      "type": "age-clue-sieve",
       "data": {
-        "answer": "C"
+        "guesses": [24, 28, 30, 32, 36, 38, 41, 44, 47, 49],
+        "minTooLow": 5,
+        "offBy": 1
       }
     },
     "tags": [
@@ -26823,9 +27066,11 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "last-two-digit-power-cycle",
       "data": {
-        "answer": "D"
+        "base": 7,
+        "exponent": 2011,
+        "modulus": 100
       }
     },
     "tags": [
@@ -26906,9 +27151,12 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "terminal-digit-case-count",
       "data": {
-        "answer": "D"
+        "digits": [0, 1, 2, 3, 4, 5],
+        "length": 4,
+        "requiredLargest": 5,
+        "terminalDigits": [0, 5]
       }
     },
     "tags": [
@@ -26965,11 +27213,7 @@ const amc2011Problems: Problem[] = [
       },
       {
         "title": "Check the only candidate",
-        "body": "10001-2=9999, but 9999 is divisible by 3, so it is not prime."
-      },
-      {
-        "title": "Conclude",
-        "body": "There are no ways."
+        "body": "10001-2=9999, but 9999=3·3333 is composite, so the only candidate fails and there are no ways."
       }
     ],
     "animationFrames": [
@@ -26990,9 +27234,11 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "odd-prime-sum-elimination",
       "data": {
-        "answer": "A"
+        "target": 10001,
+        "evenPrime": 2,
+        "witnessDivisor": 3
       }
     },
     "tags": [
@@ -27052,7 +27298,11 @@ const amc2011Problems: Problem[] = [
       },
       {
         "title": "Compare with the area between squares",
-        "body": "The outer square has side 2 and area 4, so the area between the squares is 4-2=2. The ratio is (π-2)/2≈0.57, closest to 1/2."
+        "body": "The outer square has side 2 and area 4, so the area between the squares is 4-2=2."
+      },
+      {
+        "title": "Form the ratio and choose",
+        "body": "The ratio is (π-2)/2≈0.57, which is closest to 1/2."
       }
     ],
     "animationFrames": [
@@ -27073,9 +27323,12 @@ const amc2011Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "circle-between-squares-ratio",
       "data": {
-        "answer": "A"
+        "radius": 1,
+        "diameter": 2,
+        "outerSide": 2,
+        "innerDiagonal": 2
       }
     },
     "tags": [

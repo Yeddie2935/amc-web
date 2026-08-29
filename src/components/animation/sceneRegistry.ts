@@ -1,6 +1,20 @@
 import type { Problem } from "../../types/amc";
 import type { AnimatedScene } from "./scenes/types";
 import { ClockAngleScene } from "./scenes/ClockAngleScene";
+import { SchoolDanceRatioScene } from "./scenes/SchoolDanceRatioScene";
+import { SquareOverlapPercentScene } from "./scenes/SquareOverlapPercentScene";
+import { OppositeSeatScene } from "./scenes/OppositeSeatScene";
+import { StudyGapAverageScene } from "./scenes/StudyGapAverageScene";
+import { TaxiFareMeterScene } from "./scenes/TaxiFareMeterScene";
+import { HillyRidePaceScene } from "./scenes/HillyRidePaceScene";
+import { ChipSumGridScene } from "./scenes/ChipSumGridScene";
+import { BoldedSquaresScene } from "./scenes/BoldedSquaresScene";
+import { VehicleOverlapScene } from "./scenes/VehicleOverlapScene";
+import { MinuteRolloverScene } from "./scenes/MinuteRolloverScene";
+import { FishCatchStatsScene } from "./scenes/FishCatchStatsScene";
+import { BlackBorderGrowScene } from "./scenes/BlackBorderGrowScene";
+import { RectangleAreaCompareScene } from "./scenes/RectangleAreaCompareScene";
+import { PurchaseChangeScene } from "./scenes/PurchaseChangeScene";
 import { AllButCountScene } from "./scenes/AllButCountScene";
 import { UnitFractionAnchorOrderScene } from "./scenes/UnitFractionAnchorOrderScene";
 import { PrimeFactorGateScene } from "./scenes/PrimeFactorGateScene";
@@ -42,6 +56,17 @@ import { StarsAndBarsScene } from "./scenes/StarsAndBarsScene";
 import { DigitSlotsScene } from "./scenes/DigitSlotsScene";
 import { Solid3DScene } from "./scenes/Solid3DScene";
 import { EquationScene } from "./scenes/EquationScene";
+import { PrimeExponentWeightScene } from "./scenes/PrimeExponentWeightScene";
+import { IsoscelesAltitudePairScene } from "./scenes/IsoscelesAltitudePairScene";
+import { PowerTenPairingScene } from "./scenes/PowerTenPairingScene";
+import { OrderedDiceMirrorScene } from "./scenes/OrderedDiceMirrorScene";
+import { OverlapRectangleSweepScene } from "./scenes/OverlapRectangleSweepScene";
+import { TrapezoidOffsetAreaScene } from "./scenes/TrapezoidOffsetAreaScene";
+import { AgeClueSieveScene } from "./scenes/AgeClueSieveScene";
+import { LastTwoDigitPowerCycleScene } from "./scenes/LastTwoDigitPowerCycleScene";
+import { TerminalDigitCaseCountScene } from "./scenes/TerminalDigitCaseCountScene";
+import { OddPrimeSumEliminationScene } from "./scenes/OddPrimeSumEliminationScene";
+import { CircleBetweenSquaresRatioScene } from "./scenes/CircleBetweenSquaresRatioScene";
 import { GroupedSumScene } from "./scenes/GroupedSumScene";
 import { NumberGridScene } from "./scenes/NumberGridScene";
 import { NestedMidpointGridScene } from "./scenes/NestedMidpointGridScene";
@@ -2748,6 +2773,188 @@ export function resolveScene(problem: Problem): AnimatedScene {
     ) {
       return AllButCountScene;
     }
+  }
+  // A unit circle tangent to the outer square and through all four inner-square
+  // vertices; equal positive diameter/side data keeps the construction exact.
+  if (type === "circle-between-squares-ratio") {
+    const radius = num(data.radius), diameter = num(data.diameter);
+    const outerSide = num(data.outerSide), innerDiagonal = num(data.innerDiagonal);
+    if (radius > 0 && radius <= 10 && diameter === 2 * radius && outerSide === diameter && innerDiagonal === diameter) return CircleBetweenSquaresRatioScene;
+  }
+  // One odd target, the unique even prime, and a proper factor witness for the
+  // forced partner; all values are bounded to keep the token labels drawable.
+  if (type === "odd-prime-sum-elimination") {
+    const target = num(data.target), evenPrime = num(data.evenPrime), divisor = num(data.witnessDivisor);
+    const partner = target - evenPrime;
+    if (Number.isInteger(target) && target > 3 && target <= 99999 && target % 2 === 1 && evenPrime === 2 && Number.isInteger(divisor) && divisor > 1 && divisor < partner && partner % divisor === 0) return OddPrimeSumEliminationScene;
+  }
+  // Exactly the six digits 0–5, four slots, and terminal branches 0/5 make the
+  // two distinct-digit case counts exhaustive and keep every digit card visible.
+  if (type === "terminal-digit-case-count" && Array.isArray(data.digits) && Array.isArray(data.terminalDigits)) {
+    const digits=data.digits.map(v=>num(v)), terminals=data.terminalDigits.map(v=>num(v));
+    if (num(data.length)===4 && num(data.requiredLargest)===5 && digits.length===6 && new Set(digits).size===6 && digits.every((v,i)=>v===i) && terminals.length===2 && terminals.includes(0) && terminals.includes(5)) return TerminalDigitCaseCountScene;
+  }
+  // A small integral base, positive exponent, and modulus 100 produce a short
+  // cycle of two-digit labels; this scene is specifically bounded to 4 states.
+  if (type === "last-two-digit-power-cycle") {
+    const base=num(data.base), exponent=num(data.exponent), modulus=num(data.modulus);
+    let cur=1;const seen:number[]=[];for(let i=0;i<8;i++){cur=(cur*base)%modulus;if(seen.includes(cur))break;seen.push(cur);if(cur===1)break;}
+    if(Number.isInteger(base)&&base>=2&&base<=20&&Number.isInteger(exponent)&&exponent>0&&exponent<=99999&&modulus===100&&seen.length===4&&seen[3]===1)return LastTwoDigitPowerCycleScene;
+  }
+  // Ten distinct bounded guesses, a literal half-count, and unit distance keep
+  // the sorted cards and every ±1 witness exact and readable.
+  if(type==="age-clue-sieve"&&Array.isArray(data.guesses)){
+    const guesses=data.guesses.map(v=>num(v));
+    if(guesses.length===10&&new Set(guesses).size===10&&guesses.every(v=>Number.isInteger(v)&&v>=1&&v<=99)&&num(data.minTooLow)===5&&num(data.offBy)===1)return AgeClueSieveScene;
+  }
+  // Integral legs and height must form two whole, positive horizontal offsets;
+  // their completed base is bounded to remain directly drawable.
+  if(type==="trapezoid-offset-area"){
+    const top=num(data.topBase),h=num(data.height),left=num(data.leftLeg),right=num(data.rightLeg),x=Math.sqrt(left*left-h*h),y=Math.sqrt(right*right-h*h);
+    if([top,h,left,right].every(v=>Number.isInteger(v)&&v>0)&&left>h&&right>h&&Number.isInteger(x)&&Number.isInteger(y)&&x+top+y<=80)return TrapezoidOffsetAreaScene;
+  }
+  // Three bounded, nondegenerate coordinate rectangles and the official four
+  // group counts keep exhaustive loop enumeration finite and visually legible.
+  if(type==="overlap-rectangle-sweep"&&Array.isArray(data.rectangles)&&Array.isArray(data.expectedGroups)){
+    const rs=data.rectangles.map(String).map(v=>v.split(",").map(n=>num(n))),groups=data.expectedGroups.map(v=>num(v));
+    if(rs.length===3&&rs.every(r=>r.length===4&&r.every(Number.isInteger)&&r[0]>=0&&r[1]>r[0]&&r[2]>=0&&r[3]>r[2]&&r[1]<=6&&r[3]<=6)&&groups.join(",")==="3,5,3")return OverlapRectangleSweepScene;
+  }
+  // A standard bounded fair die and the exact ordered comparison relation keep
+  // the complete square outcome board and every mirror pair directly drawable.
+  if(type==="ordered-dice-mirror"&&Number.isInteger(num(data.sides))&&num(data.sides)>=2&&num(data.sides)<=8&&data.relation==="first-ge-second")return OrderedDiceMirrorScene;
+  if(type==="prime-exponent-weight"&&Array.isArray(data.primes)){
+    const n=num(data.number),ps=data.primes.map(v=>num(v));
+    if(Number.isInteger(n)&&n>=2&&n<=9999&&ps.length===4&&new Set(ps).size===4&&ps.join(",")==="2,3,5,7")return PrimeExponentWeightScene;
+  }
+  // Two positive even bases shorter than twice the common side keep both
+  // altitude splits real, symmetric, and directly drawable.
+  if(type==="isosceles-altitude-pair"&&Array.isArray(data.bases)){
+    const side=num(data.equalSide),bases=data.bases.map(v=>num(v));
+    if(Number.isInteger(side)&&side>0&&side<=60&&bases.length===2&&bases.every(b=>Number.isInteger(b)&&b>0&&b%2===0&&b<2*side))return IsoscelesAltitudePairScene;
+  }
+  // This bounded token zipper requires a power of 2 on the left and exactly
+  // enough factors of 5 to pair with every derived factor of 2.
+  if(type==="power-ten-pairing"){
+    const lb=num(data.leftBase),le=num(data.leftExponent),rb=num(data.rightBase),re=num(data.rightExponent);
+    let p=1,k=0;while(p<lb&&k<=8){p*=2;k++;}
+    if(Number.isInteger(lb)&&lb>=2&&lb<=256&&p===lb&&Number.isInteger(le)&&le>0&&k*le<=12&&rb===5&&re===k*le)return PowerTenPairingScene;
+  }
+  if (
+    type === "purchase-change" &&
+    num(data.itemPrice) > 0 &&
+    num(data.itemCount) > 0 &&
+    num(data.paid) > num(data.itemPrice) * num(data.itemCount)
+  ) {
+    return PurchaseChangeScene;
+  }
+  if (
+    type === "rectangle-area-compare" &&
+    num(data.aWidth) > 0 &&
+    num(data.aHeight) > 0 &&
+    num(data.bWidth) > 0 &&
+    num(data.bHeight) > 0
+  ) {
+    return RectangleAreaCompareScene;
+  }
+  if (
+    type === "black-border-grow" &&
+    num(data.size) > 0 &&
+    Array.isArray(data.blackCells) &&
+    data.blackCells.length > 0
+  ) {
+    return BlackBorderGrowScene;
+  }
+  if (type === "fish-catch-stats" && Array.isArray(data.catches) && data.catches.length >= 3) {
+    return FishCatchStatsScene;
+  }
+  if (
+    type === "minute-rollover" &&
+    num(data.totalMinutes) > 0 &&
+    Array.isArray(data.dateLabels) &&
+    data.dateLabels.length >= 2
+  ) {
+    return MinuteRolloverScene;
+  }
+  if (
+    type === "vehicle-overlap" &&
+    num(data.total) > 0 &&
+    num(data.carCount) > 0 &&
+    num(data.motoCount) > 0
+  ) {
+    return VehicleOverlapScene;
+  }
+  if (type === "bolded-squares" && Array.isArray(data.areas) && data.areas.length === 4) {
+    return BoldedSquaresScene;
+  }
+  // every anti-diagonal (fixed i+j) must hold one constant sum, so the grouping
+  // the scene draws as "diagonals" really is geometrically a diagonal
+  if (
+    type === "chip-sum-grid" &&
+    Array.isArray(data.aValues) &&
+    Array.isArray(data.bValues) &&
+    data.aValues.length === data.bValues.length &&
+    data.aValues.length >= 2
+  ) {
+    const av = data.aValues.map((v) => num(v));
+    const bv = data.bValues.map((v) => num(v));
+    const nSides = av.length;
+    let diagonal = true;
+    for (let k = 0; k < 2 * nSides - 1 && diagonal; k++) {
+      let seen: number | null = null;
+      for (let i = 0; i < nSides; i++) {
+        const j = k - i;
+        if (j < 0 || j >= nSides) continue;
+        const s = av[i] + bv[j];
+        if (seen == null) seen = s;
+        else if (seen !== s) diagonal = false;
+      }
+    }
+    if (diagonal) return ChipSumGridScene;
+  }
+  if (type === "hilly-ride-pace" && Array.isArray(data.points) && data.points.length >= 3) {
+    return HillyRidePaceScene;
+  }
+  if (
+    type === "taxi-fare-meter" &&
+    num(data.baseFareCents) > 0 &&
+    num(data.perTickCents) > 0 &&
+    num(data.budgetCents) > 0
+  ) {
+    return TaxiFareMeterScene;
+  }
+  if (
+    type === "study-gap-average" &&
+    Array.isArray(data.days) &&
+    Array.isArray(data.aValues) &&
+    Array.isArray(data.bValues) &&
+    data.days.length >= 2 &&
+    data.days.length === data.aValues.length &&
+    data.days.length === data.bValues.length
+  ) {
+    return StudyGapAverageScene;
+  }
+  if (
+    type === "opposite-seat" &&
+    Array.isArray(data.names) &&
+    data.names.length === 4 &&
+    num(data.fixedIndex) !== num(data.targetIndex)
+  ) {
+    return OppositeSeatScene;
+  }
+  if (
+    type === "square-overlap-percent" &&
+    num(data.squareSide) > 0 &&
+    num(data.rectWidth) > num(data.squareSide) &&
+    num(data.rectWidth) < 2 * num(data.squareSide)
+  ) {
+    return SquareOverlapPercentScene;
+  }
+  if (
+    type === "school-dance-ratio" &&
+    Array.isArray(data.schools) &&
+    data.schools.length === 2
+  ) {
+    return SchoolDanceRatioScene;
   }
   return EquationScene;
 }
