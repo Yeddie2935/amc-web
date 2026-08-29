@@ -1,6 +1,22 @@
 import type { Problem } from "../../types/amc";
 import type { AnimatedScene } from "./scenes/types";
 import { ClockAngleScene } from "./scenes/ClockAngleScene";
+import { SquareCircleEqualAreaScene } from "./scenes/SquareCircleEqualAreaScene";
+import { PercentRecolorScene } from "./scenes/PercentRecolorScene";
+import { FactorCascadeSumScene } from "./scenes/FactorCascadeSumScene";
+import { ConsecutiveTriangleScene } from "./scenes/ConsecutiveTriangleScene";
+import { RedBallRemovalScene } from "./scenes/RedBallRemovalScene";
+import { TreeHeightRatioScene } from "./scenes/TreeHeightRatioScene";
+import { PepperoniCoverageScene } from "./scenes/PepperoniCoverageScene";
+import { WeightedTestAverageScene } from "./scenes/WeightedTestAverageScene";
+import { SightlinePursuitScene } from "./scenes/SightlinePursuitScene";
+import { CoinCoverageScene } from "./scenes/CoinCoverageScene";
+import { ShapeSymmetryScene } from "./scenes/ShapeSymmetryScene";
+import { StoolHeightScene } from "./scenes/StoolHeightScene";
+import { NumberListStatsScene } from "./scenes/NumberListStatsScene";
+import { GasPriceBarScene } from "./scenes/GasPriceBarScene";
+import { CustomOperationScene } from "./scenes/CustomOperationScene";
+import { ClassroomTallyScene } from "./scenes/ClassroomTallyScene";
 import { SchoolDanceRatioScene } from "./scenes/SchoolDanceRatioScene";
 import { SquareOverlapPercentScene } from "./scenes/SquareOverlapPercentScene";
 import { OppositeSeatScene } from "./scenes/OppositeSeatScene";
@@ -59,6 +75,15 @@ import { EquationScene } from "./scenes/EquationScene";
 import { PrimeExponentWeightScene } from "./scenes/PrimeExponentWeightScene";
 import { IsoscelesAltitudePairScene } from "./scenes/IsoscelesAltitudePairScene";
 import { PowerTenPairingScene } from "./scenes/PowerTenPairingScene";
+import { StairRouteRecurrenceScene } from "./scenes/StairRouteRecurrenceScene";
+import { CommonRootOrderScene } from "./scenes/CommonRootOrderScene";
+import { CoordinateSemicircleMergeScene } from "./scenes/CoordinateSemicircleMergeScene";
+import { OuterDigitReverseScene } from "./scenes/OuterDigitReverseScene";
+import { SuccessiveReadingRemainderScene } from "./scenes/SuccessiveReadingRemainderScene";
+import { MinimumSetOverlapScene } from "./scenes/MinimumSetOverlapScene";
+import { TangentChordAnnulusScene } from "./scenes/TangentChordAnnulusScene";
+import { CapsuleWindowAreaRatioScene } from "./scenes/CapsuleWindowAreaRatioScene";
+import { OctagonAreaBisectorScene } from "./scenes/OctagonAreaBisectorScene";
 import { OrderedDiceMirrorScene } from "./scenes/OrderedDiceMirrorScene";
 import { OverlapRectangleSweepScene } from "./scenes/OverlapRectangleSweepScene";
 import { TrapezoidOffsetAreaScene } from "./scenes/TrapezoidOffsetAreaScene";
@@ -2839,6 +2864,64 @@ export function resolveScene(problem: Problem): AnimatedScene {
     let p=1,k=0;while(p<lb&&k<=8){p*=2;k++;}
     if(Number.isInteger(lb)&&lb>=2&&lb<=256&&p===lb&&Number.isInteger(le)&&le>0&&k*le<=12&&rb===5&&re===k*le)return PowerTenPairingScene;
   }
+  // A short staircase and distinct positive jump sizes keep both the route
+  // enumeration and the recurrence sweep finite and readable.
+  if(type==="stair-route-recurrence"&&Array.isArray(data.jumpSizes)){
+    const stairs=num(data.stairs),jumps=data.jumpSizes.map(v=>num(v));
+    if(Number.isInteger(stairs)&&stairs>=3&&stairs<=9&&jumps.length===3&&new Set(jumps).size===3&&jumps.every(j=>Number.isInteger(j)&&j>0&&j<=stairs)&&jumps.slice().sort((a,b)=>a-b).join(",")==="1,2,3")return StairRouteRecurrenceScene;
+  }
+  // Three bounded positive powers sharing an integral root degree produce
+  // finite reduced values that fit the comparison line.
+  if(type==="common-root-order"&&Array.isArray(data.bases)&&Array.isArray(data.exponents)){
+    const bases=data.bases.map(v=>num(v)),exps=data.exponents.map(v=>num(v)),root=num(data.rootDegree);
+    const vals=bases.map((b,i)=>b**(exps[i]/root));
+    if(bases.length===3&&exps.length===3&&Number.isInteger(root)&&root>=2&&root<=12&&bases.every(b=>Number.isInteger(b)&&b>=2&&b<=20)&&exps.every(e=>Number.isInteger(e)&&e>0&&e%root===0)&&vals.every(v=>Number.isInteger(v)&&v<=1000))return CommonRootOrderScene;
+  }
+  // Symmetric nonzero coordinate endpoints define the two diameter chords and
+  // a bounded outer radius, keeping the faithful coordinate figure drawable.
+  if(type==="coordinate-semicircle-merge"){
+    const x=num(data.endpointX),y=num(data.endpointY),r=Math.hypot(x,y);
+    if(Number.isInteger(x)&&Number.isInteger(y)&&x>0&&y>0&&x<=5&&y<=5&&r<=7)return CoordinateSemicircleMergeScene;
+  }
+  // A base-10 three-digit reversal with a feasible positive outer-digit gap
+  // keeps every symbolic card and the derived difference exact.
+  if(type==="outer-digit-reverse"){
+    const base=num(data.base),gap=num(data.outerGap);
+    if(base===10&&Number.isInteger(gap)&&gap>0&&gap<=9)return OuterDigitReverseScene;
+  }
+  // Three bounded fractional-reading days with matching fixed bundles keep the
+  // symbolic remainder sequence exact and the segmented bars readable.
+  if(type==="successive-reading-remainder"&&Array.isArray(data.denominators)&&Array.isArray(data.extras)){
+    const ds=data.denominators.map(v=>num(v)),es=data.extras.map(v=>num(v)),last=num(data.finalPages);
+    if(ds.length===3&&es.length===3&&ds.every(d=>Number.isInteger(d)&&d>=2&&d<=8)&&es.every(e=>Number.isInteger(e)&&e>0&&e<=99)&&Number.isInteger(last)&&last>0&&last<=999)return SuccessiveReadingRemainderScene;
+  }
+  // Two proper fractions with a small common denominator keep the person grid
+  // integral and readable while the scene constructs the minimum overlap.
+  if(type==="minimum-set-overlap"){
+    const gn=num(data.gloveNumerator),gd=num(data.gloveDenominator),hn=num(data.hatNumerator),hd=num(data.hatDenominator);
+    const whole=(a:number,b:number)=>Number.isInteger(a)&&Number.isInteger(b)&&a>0&&b>1&&a<b;
+    const gcd=(a:number,b:number):number=>b?gcd(b,a%b):a;
+    const total=gd*hd/gcd(gd,hd);
+    if(whole(gn,gd)&&whole(hn,hd)&&Number.isInteger(total)&&total>=4&&total<=25&&(gn*total)%gd===0&&(hn*total)%hd===0)return MinimumSetOverlapScene;
+  }
+  // A chord shorter than the diameter creates a real tangent-radius triangle;
+  // bounded integral inputs keep the derived circles and labels readable.
+  if(type==="tangent-chord-annulus"){
+    const radius=num(data.outerRadius),chord=num(data.chordLength),half=chord/2,innerSq=radius*radius-half*half;
+    if(Number.isInteger(radius)&&radius>0&&radius<=30&&Number.isInteger(chord)&&chord>0&&chord<2*radius&&chord%2===0&&innerSq>0&&Number.isInteger(Math.sqrt(innerSq)))return TangentChordAnnulusScene;
+  }
+  // A bounded integral 3:2-style rectangle and even diameter keep both the
+  // source-faithful capsule and its recombined circular caps drawable.
+  if(type==="capsule-window-area-ratio"){
+    const width=num(data.rectangleWidth),long=num(data.ratioLong),short=num(data.ratioShort),height=width*long/short;
+    if(Number.isInteger(width)&&width>0&&width<=100&&width%2===0&&Number.isInteger(long)&&Number.isInteger(short)&&long>short&&short>0&&long<=10&&Number.isInteger(height))return CapsuleWindowAreaRatioScene;
+  }
+  // The source layout has ten unit cells, a five-unit triangular base, and one
+  // isolated unit square; these exact bounded counts keep its octagon faithful.
+  if(type==="octagon-area-bisector"){
+    const total=num(data.unitSquareCount),base=num(data.triangleBase),square=num(data.isolatedSquareArea);
+    if(total===10&&base===5&&square===1)return OctagonAreaBisectorScene;
+  }
   if (
     type === "purchase-change" &&
     num(data.itemPrice) > 0 &&
@@ -2955,6 +3038,85 @@ export function resolveScene(problem: Problem): AnimatedScene {
     data.schools.length === 2
   ) {
     return SchoolDanceRatioScene;
+  }
+  if (type === "classroom-tally" && Array.isArray(data.classes) && data.classes.length >= 2) {
+    return ClassroomTallyScene;
+  }
+  if (type === "custom-operation" && num(data.a) > 0 && num(data.b) > 0) {
+    return CustomOperationScene;
+  }
+  if (type === "gas-price-bar" && Array.isArray(data.prices) && data.prices.length >= 3) {
+    return GasPriceBarScene;
+  }
+  if (type === "number-list-stats" && Array.isArray(data.values) && data.values.length >= 4 && data.values.length % 2 === 0) {
+    return NumberListStatsScene;
+  }
+  if (
+    type === "stool-height" &&
+    num(data.ceilingCm) > 0 &&
+    num(data.heightCm) > 0 &&
+    num(data.reachCm) > 0
+  ) {
+    return StoolHeightScene;
+  }
+  if (type === "shape-symmetry" && Array.isArray(data.counts) && data.counts.length === 5) {
+    return ShapeSymmetryScene;
+  }
+  if (
+    type === "coin-coverage" &&
+    Array.isArray(data.coins) &&
+    data.coins.length >= 2 &&
+    Array.isArray(data.trapCoins) &&
+    data.trapCoins.length >= 2
+  ) {
+    return CoinCoverageScene;
+  }
+  if (
+    type === "sightline-pursuit" &&
+    num(data.gapMiles) > 0 &&
+    num(data.fastSpeed) > num(data.slowSpeed) &&
+    num(data.slowSpeed) > 0
+  ) {
+    return SightlinePursuitScene;
+  }
+  if (type === "weighted-test-average" && Array.isArray(data.tests) && data.tests.length >= 2) {
+    return WeightedTestAverageScene;
+  }
+  if (
+    type === "pepperoni-coverage" &&
+    num(data.pizzaDiameter) > 0 &&
+    num(data.acrossCount) > 0 &&
+    num(data.pepperoniCount) > 0
+  ) {
+    return PepperoniCoverageScene;
+  }
+  if (
+    type === "tree-height-ratio" &&
+    num(data.tallParts) > num(data.shortParts) &&
+    num(data.shortParts) > 0 &&
+    num(data.diffFeet) > 0
+  ) {
+    return TreeHeightRatioScene;
+  }
+  if (
+    type === "red-ball-removal" &&
+    num(data.total) > 0 &&
+    num(data.redPercent) > num(data.targetPercent) &&
+    num(data.targetPercent) > 0
+  ) {
+    return RedBallRemovalScene;
+  }
+  if (type === "consecutive-triangle" && num(data.percent) > 0 && num(data.percent) < 100 / 3) {
+    return ConsecutiveTriangleScene;
+  }
+  if (type === "factor-cascade-sum" && num(data.number) > 1) {
+    return FactorCascadeSumScene;
+  }
+  if (type === "percent-recolor" && num(data.bluePercent) > 0 && num(data.greenCount) > 0) {
+    return PercentRecolorScene;
+  }
+  if (type === "square-circle-equal-area" && num(data.radius) > 0) {
+    return SquareCircleEqualAreaScene;
   }
   return EquationScene;
 }

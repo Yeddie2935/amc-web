@@ -23054,13 +23054,26 @@ const amc2010Problems: Problem[] = [
     "shortAnswer": "28",
     "solutionSteps": [
       {
-        "title": "Add the classes",
-        "body": "The three class counts are separate groups of students, so add them.",
-        "equation": "11+8+9=28"
+        "title": "Mrs. Germain's class",
+        "body": "Mrs. Germain has 11 students taking the contest."
       },
       {
-        "title": "Conclude",
-        "body": "There are 28 students taking the contest, so the answer is C."
+        "title": "Mr. Newton's class",
+        "body": "Mr. Newton has 8 students taking the contest."
+      },
+      {
+        "title": "Mrs. Young's class",
+        "body": "Mrs. Young has 9 students taking the contest."
+      },
+      {
+        "title": "Add the first two classes",
+        "body": "11+8=19 students so far.",
+        "equation": "11+8=19"
+      },
+      {
+        "title": "Add the third class",
+        "body": "19+9=28 students taking the contest, so the answer is C.",
+        "equation": "19+9=28"
       }
     ],
     "animationFrames": [
@@ -23081,9 +23094,9 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "classroom-tally",
       "data": {
-        "answer": "C"
+        "classes": ["Mrs. Germain|11", "Mr. Newton|8", "Mrs. Young|9"]
       }
     },
     "tags": [
@@ -23133,13 +23146,28 @@ const amc2010Problems: Problem[] = [
     "shortAnswer": "10/3",
     "solutionSteps": [
       {
-        "title": "Substitute",
-        "body": "Use a=5 and b=10 in the definition.",
-        "equation": "5@10=(5×10)/(5+10)"
+        "title": "Read the definition",
+        "body": "a @ b = (a × b)/(a + b), using a=5 and b=10."
       },
       {
-        "title": "Simplify",
-        "body": "The value is 50/15, which reduces to 10/3."
+        "title": "Find the product",
+        "body": "5×10=50."
+      },
+      {
+        "title": "Find the sum",
+        "body": "5+10=15."
+      },
+      {
+        "title": "Form the fraction",
+        "body": "5@10=50/15."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "Flipping the fraction to 15/50 reduces to 3/10 - but the product belongs on top, not the sum."
+      },
+      {
+        "title": "Reduce",
+        "body": "50/15 reduces to 10/3."
       }
     ],
     "animationFrames": [
@@ -23160,9 +23188,10 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "custom-operation",
       "data": {
-        "answer": "D"
+        "a": 5,
+        "b": 10
       }
     },
     "tags": [
@@ -23213,11 +23242,27 @@ const amc2010Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Read the graph",
-        "body": "The highest price is 17 dollars and the lowest price is 10 dollars."
+        "body": "The bar graph shows the price of five gallons of gas over 10 months."
+      },
+      {
+        "title": "Find the highest price",
+        "body": "The highest price, in month 1, is $17."
+      },
+      {
+        "title": "Find the lowest price",
+        "body": "The lowest price, in month 3, is $10."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "Dividing the $7 increase by the higher price ($17) gives about 41% - but 'more than' means percent of the lower price."
+      },
+      {
+        "title": "Find the increase",
+        "body": "17-10=7 dollars more."
       },
       {
         "title": "Compare to the lowest price",
-        "body": "The increase is 7 dollars, and 7 is 70% of 10.",
+        "body": "7 is 70% of 10.",
         "equation": "(17-10)/10=70%"
       }
     ],
@@ -23239,9 +23284,9 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "gas-price-bar",
       "data": {
-        "answer": "C"
+        "prices": [17, 14, 10, 12, 12, 13, 11, 16, 14, 11]
       }
     },
     "tags": [
@@ -23296,12 +23341,28 @@ const amc2010Problems: Problem[] = [
     "shortAnswer": "7.5",
     "solutionSteps": [
       {
-        "title": "Find mode and median",
-        "body": "Ordered list: 0,0,1,2,3,3,3,4. The mode is 3 and the median is (2+3)/2=2.5."
+        "title": "List the numbers",
+        "body": "The numbers, in order given, are 2, 3, 0, 3, 1, 4, 0, 3."
       },
       {
-        "title": "Find mean and add",
-        "body": "The mean is 16/8=2, so the total is 3+2.5+2=7.5."
+        "title": "Sort the list",
+        "body": "In order: 0,0,1,2,3,3,3,4."
+      },
+      {
+        "title": "Find mode and median",
+        "body": "The mode is 3 (appears three times) and the median is (2+3)/2=2.5."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "Taking the middle two of the unsorted list gives (3+1)/2=2 - but the list must be sorted first."
+      },
+      {
+        "title": "Find the mean",
+        "body": "The mean is 16/8=2."
+      },
+      {
+        "title": "Add the three",
+        "body": "The total is 3+2.5+2=7.5."
       }
     ],
     "animationFrames": [
@@ -23322,9 +23383,9 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "number-list-stats",
       "data": {
-        "answer": "C"
+        "values": [2, 3, 0, 3, 1, 4, 0, 3]
       }
     },
     "tags": [
@@ -23380,8 +23441,24 @@ const amc2010Problems: Problem[] = [
         "body": "The ceiling is 240 cm high and Alice is 150 cm tall."
       },
       {
-        "title": "Subtract reach from bulb height",
-        "body": "The bulb is 10 cm below the ceiling, so its height is 230 cm. Alice reaches 150+46=196 cm from the floor, so the stool is 34 cm."
+        "title": "Find the bulb's height",
+        "body": "The bulb is 10 cm below the ceiling, so its height is 240-10=230 cm."
+      },
+      {
+        "title": "Find Alice's reach without a stool",
+        "body": "Alice reaches 150+46=196 cm from the floor."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "240-196=44 cm skips the fact that the bulb sits 10 cm below the ceiling, not at the ceiling itself."
+      },
+      {
+        "title": "Find the gap the stool must cover",
+        "body": "230-196=34 cm."
+      },
+      {
+        "title": "Conclude",
+        "body": "The stool is 34 cm tall."
       }
     ],
     "animationFrames": [
@@ -23402,9 +23479,12 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "stool-height",
       "data": {
-        "answer": "B"
+        "ceilingCm": 240,
+        "belowCeilingCm": 10,
+        "heightCm": 150,
+        "reachCm": 46
       }
     },
     "tags": [
@@ -23455,12 +23535,28 @@ const amc2010Problems: Problem[] = [
     "shortAnswer": "square",
     "solutionSteps": [
       {
-        "title": "Count symmetry lines",
-        "body": "An equilateral triangle has 3, a non-square rhombus has 2, a non-square rectangle has 2, and an isosceles trapezoid has 1."
+        "title": "Equilateral triangle",
+        "body": "An equilateral triangle has 3 lines of symmetry, one through each vertex."
       },
       {
-        "title": "Compare with square",
-        "body": "A square has 4 lines of symmetry, the greatest number listed."
+        "title": "Non-square rhombus",
+        "body": "A non-square rhombus has 2 lines of symmetry, along its two diagonals."
+      },
+      {
+        "title": "Watch the trap: non-square rectangle",
+        "body": "A rectangle's diagonal looks like it should be a mirror line, but folding along it doesn't match the halves - only the horizontal and vertical lines work, giving 2."
+      },
+      {
+        "title": "Isosceles trapezoid",
+        "body": "An isosceles trapezoid has just 1 line of symmetry, vertical through the middle."
+      },
+      {
+        "title": "Square",
+        "body": "A square has 4 lines of symmetry: horizontal, vertical, and both diagonals."
+      },
+      {
+        "title": "Compare all five",
+        "body": "The square's 4 lines of symmetry is the greatest number among the five figures."
       }
     ],
     "animationFrames": [
@@ -23481,9 +23577,9 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "shape-symmetry",
       "data": {
-        "answer": "E"
+        "counts": [3, 2, 2, 1, 4]
       }
     },
     "tags": [
@@ -23533,12 +23629,28 @@ const amc2010Problems: Problem[] = [
     "shortAnswer": "10",
     "solutionSteps": [
       {
-        "title": "Cover cents digits",
+        "title": "Set the goal",
+        "body": "Freddie needs to be able to pay any amount from 1 cent to 99 cents."
+      },
+      {
+        "title": "Cover the ones digit",
         "body": "Four pennies and one nickel can make any amount from 0 through 9 cents."
       },
       {
-        "title": "Cover tens values",
-        "body": "Three quarters make 75 cents and two dimes fill the missing tens. The total is 4+1+2+3=10 coins."
+        "title": "Watch the trap",
+        "body": "A purse with only one penny has plenty of value, but can't make 2, 3, or 4 cents - the coin count has to match too, not just the total value."
+      },
+      {
+        "title": "Cover the tens",
+        "body": "Dimes and quarters extend that coverage into every ten from 10 up through 90."
+      },
+      {
+        "title": "Add the coins",
+        "body": "The total is 4+1+2+3=10 coins."
+      },
+      {
+        "title": "Conclude",
+        "body": "10 coins can pay any amount from 1 cent to 99 cents."
       }
     ],
     "animationFrames": [
@@ -23559,9 +23671,10 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "coin-coverage",
       "data": {
-        "answer": "B"
+        "coins": ["penny|1|4", "nickel|5|1", "dime|10|2", "quarter|25|3"],
+        "trapCoins": ["penny|1|1", "nickel|5|1", "dime|10|2", "quarter|25|2"]
       }
     },
     "tags": [
@@ -23612,12 +23725,28 @@ const amc2010Problems: Problem[] = [
     "shortAnswer": "15",
     "solutionSteps": [
       {
-        "title": "Use relative speed",
+        "title": "Set up the gap",
+        "body": "Emily spots Emerson 1/2 mile ahead of her."
+      },
+      {
+        "title": "Find the relative speed",
         "body": "Emily gains on Emerson at 12-8=4 mph."
       },
       {
-        "title": "Distance seen",
-        "body": "She sees him while closing 1/2 mile and then gaining another 1/2 mile, for 1 mile total. At 4 mph, that takes 1/4 hour = 15 minutes."
+        "title": "Switch to Emily's view",
+        "body": "From Emily's point of view, Emerson drifts backward at a steady 4 mph, from 1/2 mile ahead to 1/2 mile behind."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "1/2 mile at 4 mph takes 7.5 minutes - but that's only the approach, up to the moment she passes him."
+      },
+      {
+        "title": "Find the total distance seen",
+        "body": "She sees him while closing 1/2 mile and then gaining another 1/2 mile, for 1 mile total."
+      },
+      {
+        "title": "Compute the time",
+        "body": "At 4 mph, 1 mile takes 1/4 hour = 15 minutes."
       }
     ],
     "animationFrames": [
@@ -23638,9 +23767,13 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "sightline-pursuit",
       "data": {
-        "answer": "D"
+        "gapMiles": 0.5,
+        "fastSpeed": 12,
+        "slowSpeed": 8,
+        "fastName": "Emily",
+        "slowName": "Emerson"
       }
     },
     "tags": [
@@ -23691,12 +23824,32 @@ const amc2010Problems: Problem[] = [
     "shortAnswer": "84",
     "solutionSteps": [
       {
-        "title": "Count correct answers",
-        "body": "Ryan got 20, 36, and 7 correct on the three tests."
+        "title": "First test",
+        "body": "80% of 25 problems is 20 correct."
       },
       {
-        "title": "Divide by total questions",
-        "body": "He got 63 correct out of 75 total, which is 84%."
+        "title": "Second test",
+        "body": "90% of 40 problems is 36 correct."
+      },
+      {
+        "title": "Third test",
+        "body": "70% of 10 problems is 7 correct."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "Averaging the three percentages (80+90+70)/3=80% ignores that the tests have different numbers of problems."
+      },
+      {
+        "title": "Add correct answers",
+        "body": "20+36+7=63 correct in all."
+      },
+      {
+        "title": "Add total questions",
+        "body": "25+40+10=75 problems in all."
+      },
+      {
+        "title": "Divide",
+        "body": "63 out of 75 total is 84%."
       }
     ],
     "animationFrames": [
@@ -23717,9 +23870,9 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "weighted-test-average",
       "data": {
-        "answer": "D"
+        "tests": ["25|80", "40|90", "10|70"]
       }
     },
     "tags": [
@@ -23770,12 +23923,28 @@ const amc2010Problems: Problem[] = [
     "shortAnswer": "2/3",
     "solutionSteps": [
       {
+        "title": "Set up the pizza",
+        "body": "6 pepperonis fit exactly across the 12-inch diameter."
+      },
+      {
         "title": "Find pepperoni size",
         "body": "Each pepperoni has diameter 12/6=2, so radius 1."
       },
       {
+        "title": "One pepperoni's area",
+        "body": "π×1²=π."
+      },
+      {
+        "title": "All 24 pepperonis",
+        "body": "24×π=24π total."
+      },
+      {
+        "title": "The pizza's area",
+        "body": "The pizza has radius 6, so its area is π×6²=36π."
+      },
+      {
         "title": "Compare areas",
-        "body": "The 24 pepperonis have total area 24π. The pizza has radius 6 and area 36π, so the fraction is 24π/36π=2/3."
+        "body": "The fraction covered is 24π/36π=2/3."
       }
     ],
     "animationFrames": [
@@ -23796,9 +23965,11 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "pepperoni-coverage",
       "data": {
-        "answer": "B"
+        "pizzaDiameter": 12,
+        "acrossCount": 6,
+        "pepperoniCount": 24
       }
     },
     "tags": [
@@ -23849,12 +24020,24 @@ const amc2010Problems: Problem[] = [
     "shortAnswer": "64",
     "solutionSteps": [
       {
-        "title": "Use ratio parts",
+        "title": "Set up the ratio",
+        "body": "The two trees' heights are in a 3:4 ratio, and their tops are 16 feet apart."
+      },
+      {
+        "title": "Find one part",
         "body": "The difference between 3 parts and 4 parts is 1 part, and that difference is 16 feet."
       },
       {
-        "title": "Find taller tree",
+        "title": "Watch the trap",
+        "body": "3×16=48 is the shorter tree's height - but the question asks for the taller tree."
+      },
+      {
+        "title": "Find the taller tree",
         "body": "The taller tree is 4 parts, so its height is 4×16=64 feet."
+      },
+      {
+        "title": "Conclude",
+        "body": "The taller tree is 64 feet tall."
       }
     ],
     "animationFrames": [
@@ -23875,9 +24058,11 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "tree-height-ratio",
       "data": {
-        "answer": "B"
+        "shortParts": 3,
+        "tallParts": 4,
+        "diffFeet": 16
       }
     },
     "tags": [
@@ -23931,8 +24116,24 @@ const amc2010Problems: Problem[] = [
         "body": "There are 400 red balls and 100 blue balls."
       },
       {
-        "title": "Use desired percentage",
-        "body": "If 75% are red, then 25% are blue. The 100 blue balls must be 25% of the bag, so 400 balls remain. Remove 100 red balls."
+        "title": "The blue balls never change",
+        "body": "Only red balls are removed, so the 100 blue balls stay fixed."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "80%-75%=5%, and 5% of 500 is 25 - but that ignores that removing balls shrinks the total too."
+      },
+      {
+        "title": "Use the target percentage",
+        "body": "If 75% are red, then 25% are blue. The 100 blue balls must be 25% of the new total, so 400 balls remain."
+      },
+      {
+        "title": "Subtract",
+        "body": "500-400=100 red balls must be removed."
+      },
+      {
+        "title": "Conclude",
+        "body": "Remove 100 red balls."
       }
     ],
     "animationFrames": [
@@ -23953,9 +24154,11 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "red-ball-removal",
       "data": {
-        "answer": "D"
+        "total": 500,
+        "redPercent": 80,
+        "targetPercent": 75
       }
     },
     "tags": [
@@ -24006,11 +24209,27 @@ const amc2010Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Set up sides",
-        "body": "Let the sides be n, n+1, and n+2. The perimeter is 3n+3."
+        "body": "Let the sides be n, n+1, and n+2."
       },
       {
-        "title": "Use 30 percent",
-        "body": "The shortest side is 30% of the perimeter: n=0.3(3n+3), so n=9. The longest side is 11."
+        "title": "Split the perimeter into tenths",
+        "body": "The perimeter divides into 10 equal tenths, and the shortest side is 3 of them (30%)."
+      },
+      {
+        "title": "Solve for n",
+        "body": "n=0.3(3n+3), so n=9."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "9 is the shortest side, n itself - not the longest side the question asks for."
+      },
+      {
+        "title": "Find the longest side",
+        "body": "n+2=9+2=11."
+      },
+      {
+        "title": "Conclude",
+        "body": "The longest side is 11."
       }
     ],
     "animationFrames": [
@@ -24031,9 +24250,9 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "consecutive-triangle",
       "data": {
-        "answer": "E"
+        "percent": 30
       }
     },
     "tags": [
@@ -24084,8 +24303,20 @@ const amc2010Problems: Problem[] = [
     "shortAnswer": "77",
     "solutionSteps": [
       {
-        "title": "Factor 2010",
-        "body": "2010=2×3×5×67."
+        "title": "Divide out 2",
+        "body": "2010=2×1005."
+      },
+      {
+        "title": "Divide out 3",
+        "body": "1005=3×335."
+      },
+      {
+        "title": "Divide out 5",
+        "body": "335=5×67."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "67 is the largest prime factor, but not the answer by itself."
       },
       {
         "title": "Add prime factors",
@@ -24110,9 +24341,9 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "factor-cascade-sum",
       "data": {
-        "answer": "C"
+        "number": 2010
       }
     },
     "tags": [
@@ -24162,12 +24393,28 @@ const amc2010Problems: Problem[] = [
     "shortAnswer": "42",
     "solutionSteps": [
       {
-        "title": "Find total gumdrops",
-        "body": "The listed percentages total 75%, so green is 25%. If 30 gumdrops are 25%, the jar has 120 gumdrops."
+        "title": "Read the jar",
+        "body": "Blue 30%, brown 20%, red 15%, yellow 10%, and the other 30 gumdrops are green."
       },
       {
-        "title": "Find new brown count",
-        "body": "Brown becomes 20% plus half of the 30% blue, or 35% of the jar. 35% of 120 is 42."
+        "title": "Find the total",
+        "body": "The four percents total 75%, so green is 25%. 30 = 25% of the jar, so there are 120 gumdrops."
+      },
+      {
+        "title": "Find the real counts",
+        "body": "36 blue, 24 brown, 18 red, 12 yellow, 30 green."
+      },
+      {
+        "title": "Shift half the blue",
+        "body": "Half of the 30% blue (15%) becomes brown: 20% + 15% = 35%."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "35 is a percent, not a gumdrop count — it isn't the answer by itself."
+      },
+      {
+        "title": "Convert to gumdrops",
+        "body": "35% of 120 is 42 brown gumdrops."
       }
     ],
     "animationFrames": [
@@ -24188,9 +24435,13 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "percent-recolor",
       "data": {
-        "answer": "C"
+        "bluePercent": 30,
+        "brownPercent": 20,
+        "redPercent": 15,
+        "yellowPercent": 10,
+        "greenCount": 30
       }
     },
     "tags": [
@@ -24240,12 +24491,28 @@ const amc2010Problems: Problem[] = [
     "shortAnswer": "sqrt(pi)",
     "solutionSteps": [
       {
-        "title": "Equate areas",
-        "body": "If the square side is s and the circle radius is r, then s^2=πr^2."
+        "title": "Draw equal areas",
+        "body": "A square of side s and a circle of radius r are given the same area."
       },
       {
-        "title": "Take square roots",
-        "body": "Dividing by r^2 gives (s/r)^2=π, so s/r=sqrt(π)."
+        "title": "Equate areas",
+        "body": "Square area s² equals circle area πr²: s² = πr²."
+      },
+      {
+        "title": "Divide by r²",
+        "body": "Dividing both sides by r² gives (s/r)² = π."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "s/r = π looks tempting, but that's the squared ratio (s/r)², not s/r itself."
+      },
+      {
+        "title": "Take the square root",
+        "body": "Taking the square root of both sides gives s/r = sqrt(π)."
+      },
+      {
+        "title": "Confirm the ratio",
+        "body": "With r=1, s=sqrt(π)≈1.77, and s² ≈ π ≈ the circle's area — the ratio checks out."
       }
     ],
     "animationFrames": [
@@ -24266,9 +24533,9 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "square-circle-equal-area",
       "data": {
-        "answer": "B"
+        "radius": 1
       }
     },
     "tags": [
@@ -24323,12 +24590,16 @@ const amc2010Problems: Problem[] = [
         "body": "The octagon has area 10, so the region below PQ must have area 5."
       },
       {
-        "title": "Solve for QY",
-        "body": "Below PQ is one unit square plus a triangle of base 5. The triangle must have area 4, so 5h/2=4 and h=8/5. Thus QY=8/5-1=3/5 and XQ=2/5."
+        "title": "Isolate the triangle",
+        "body": "Below PQ is one unit square plus a triangle of base 5. Since their total area is 5, the triangle must have area 4."
+      },
+      {
+        "title": "Find the triangle height",
+        "body": "If h is the altitude from Q to the bottom edge, then 5h/2=4, so h=8/5."
       },
       {
         "title": "Take the ratio",
-        "body": "XQ/QY=(2/5)/(3/5)=2/3."
+        "body": "Because Y is one unit above the bottom, QY=8/5-1=3/5 and XQ=1-3/5=2/5. Thus XQ/QY=(2/5)/(3/5)=2/3."
       }
     ],
     "animationFrames": [
@@ -24349,9 +24620,11 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "octagon-area-bisector",
       "data": {
-        "answer": "D"
+        "unitSquareCount": 10,
+        "triangleBase": 5,
+        "isolatedSquareArea": 1
       }
     },
     "tags": [
@@ -24410,8 +24683,12 @@ const amc2010Problems: Problem[] = [
         "body": "Since AD:AB=3:2 and AB=30, AD=45."
       },
       {
+        "title": "Combine the semicircles",
+        "body": "The two semicircular ends combine to make one circle. Its diameter is AB=30, so its radius is 15."
+      },
+      {
         "title": "Compare areas",
-        "body": "The rectangle area is 30×45=1350. The two semicircles combine to one circle of radius 15, area 225π. The ratio is 1350:225π=6:π."
+        "body": "The rectangle area is 30×45=1350, while the circle area is 15²π=225π. Their ratio is 1350:225π=6:π."
       }
     ],
     "animationFrames": [
@@ -24432,9 +24709,11 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "capsule-window-area-ratio",
       "data": {
-        "answer": "C"
+        "rectangleWidth": 30,
+        "ratioLong": 3,
+        "ratioShort": 2
       }
     },
     "tags": [
@@ -24489,8 +24768,12 @@ const amc2010Problems: Problem[] = [
     "shortAnswer": "64π",
     "solutionSteps": [
       {
-        "title": "Find inner radius",
-        "body": "The radius to a tangent chord bisects the chord, so AB=8. In right triangle ACB, AC=10 and AB=8, so CB=6."
+        "title": "Bisect the tangent chord",
+        "body": "The radius CB is perpendicular to tangent chord AD. A perpendicular from the center bisects a chord, so AB=BD=16÷2=8."
+      },
+      {
+        "title": "Find the inner radius",
+        "body": "Triangle ACB is right, with AC=10 and AB=8. Thus CB²+8²=10², so CB=6."
       },
       {
         "title": "Subtract circle areas",
@@ -24515,9 +24798,10 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "tangent-chord-annulus",
       "data": {
-        "answer": "C"
+        "outerRadius": 10,
+        "chordLength": 16
       }
     },
     "tags": [
@@ -24576,8 +24860,12 @@ const amc2010Problems: Problem[] = [
         "body": "The total number of people must be a multiple of 5 and 4, so use 20."
       },
       {
-        "title": "Use inclusion-exclusion",
-        "body": "Then 8 wear gloves and 15 wear hats. If everyone wears at least one item, overlap is 8+15-20=3."
+        "title": "Count each group",
+        "body": "Of 20 people, 3/4 of 20 = 15 wear hats and 2/5 of 20 = 8 wear gloves."
+      },
+      {
+        "title": "Minimize the overlap",
+        "body": "Give gloves to all 5 hatless people first. The other 3 pairs must go to hat-wearers, so the minimum overlap is 3."
       }
     ],
     "animationFrames": [
@@ -24598,9 +24886,12 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "venn",
+      "type": "minimum-set-overlap",
       "data": {
-        "answer": "A"
+        "gloveNumerator": 2,
+        "gloveDenominator": 5,
+        "hatNumerator": 3,
+        "hatDenominator": 4
       }
     },
     "tags": [
@@ -24655,8 +24946,12 @@ const amc2010Problems: Problem[] = [
         "body": "Let x be the total number of pages. After day 1, 4x/5-12 pages remain."
       },
       {
-        "title": "Continue the remaining pages",
-        "body": "After day 2, 3x/5-24 remain. After day 3, 2x/5-34 remain."
+        "title": "Continue on day 2",
+        "body": "Keeping 3/4 of the day-1 remainder and subtracting 15 leaves 3x/5-24 pages."
+      },
+      {
+        "title": "Continue on day 3",
+        "body": "Keeping 2/3 of the day-2 remainder and subtracting 18 leaves 2x/5-34 pages."
       },
       {
         "title": "Solve",
@@ -24681,9 +24976,11 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "successive-reading-remainder",
       "data": {
-        "answer": "C"
+        "denominators": [5, 4, 3],
+        "extras": [12, 15, 18],
+        "finalPages": 62
       }
     },
     "tags": [
@@ -24738,8 +25035,12 @@ const amc2010Problems: Problem[] = [
         "body": "Let the units digit be c. Then the hundreds digit is c+2."
       },
       {
-        "title": "Subtract reversed number",
-        "body": "The difference is 100(c+2)+10b+c - [100c+10b+(c+2)] = 198. The units digit is 8."
+        "title": "Cancel matching parts",
+        "body": "After reversal, the middle terms cancel. The outer digits leave 100×2-2."
+      },
+      {
+        "title": "Read the units digit",
+        "body": "The difference is 200-2=198, whose units digit is 8."
       }
     ],
     "animationFrames": [
@@ -24760,9 +25061,10 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "outer-digit-reverse",
       "data": {
-        "answer": "E"
+        "base": 10,
+        "outerGap": 2
       }
     },
     "tags": [
@@ -24843,9 +25145,10 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "coordinate-semicircle-merge",
       "data": {
-        "answer": "B"
+        "endpointX": 1,
+        "endpointY": 1
       }
     },
     "tags": [
@@ -24926,9 +25229,11 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "common-root-order",
       "data": {
-        "answer": "A"
+        "bases": [10, 5, 2],
+        "exponents": [8, 12, 24],
+        "rootDegree": 4
       }
     },
     "tags": [
@@ -24983,8 +25288,12 @@ const amc2010Problems: Problem[] = [
         "body": "Let f(n) be the number of ways to reach step n. Then f(n)=f(n-1)+f(n-2)+f(n-3)."
       },
       {
+        "title": "Count the first stairs",
+        "body": "Directly listing the short climbs gives f(1)=1, f(2)=2, and f(3)=4."
+      },
+      {
         "title": "Build up",
-        "body": "f(1)=1, f(2)=2, f(3)=4, so f(4)=7, f(5)=13, and f(6)=24."
+        "body": "Apply the recurrence: f(4)=7, f(5)=13, and f(6)=24."
       }
     ],
     "animationFrames": [
@@ -25005,9 +25314,10 @@ const amc2010Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "stair-route-recurrence",
       "data": {
-        "answer": "E"
+        "stairs": 6,
+        "jumpSizes": [1, 2, 3]
       }
     },
     "tags": [
