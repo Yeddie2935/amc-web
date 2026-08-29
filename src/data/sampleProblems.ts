@@ -20922,13 +20922,21 @@ const amc2009Problems: Problem[] = [
     "shortAnswer": "14",
     "solutionSteps": [
       {
-        "title": "Work backward",
-        "body": "After Bridget gave half the apples away, she still had the 3 apples for Cassie and the 4 apples for herself.",
+        "title": "Set up the giveaways",
+        "body": "Bridget gave half her apples to Ann, then gave Cassie 3 more, keeping 4 for herself. Ann's half is still unknown."
+      },
+      {
+        "title": "Add what's left after Ann",
+        "body": "Cassie's 3 apples plus Bridget's own 4 are exactly what remained once Ann's half was gone.",
         "equation": "3+4=7"
       },
       {
+        "title": "Spot the trap",
+        "body": "7 is one of the answer choices, but it's only the half that was left after Ann — not the whole bag."
+      },
+      {
         "title": "Undo giving away half",
-        "body": "Those 7 apples are half of the original bag, so the original number was twice as large.",
+        "body": "Those 7 apples are half of the original bag, so Ann's half must also be 7, and the original number was twice as large.",
         "equation": "2\\cdot 7=14"
       },
       {
@@ -20954,9 +20962,10 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "apple-bag-backtrack",
       "data": {
-        "answer": "E"
+        "cassie": 3,
+        "self": 4
       }
     },
     "tags": [
@@ -21007,10 +21016,19 @@ const amc2009Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Use the ratio",
-        "body": "The sports-car-to-sedan ratio is 4:7."
+        "body": "For every 4 sports cars sold, 7 sedans are sold — one batch of the ratio."
       },
       {
-        "title": "Scale the ratio",
+        "title": "Find the scale factor",
+        "body": "28 sports cars is 7 batches of 4, so 7 batches of the ratio are needed.",
+        "equation": "28\\div 4=7"
+      },
+      {
+        "title": "Spot the trap",
+        "body": "Multiplying 28 by 4 instead of dividing gives 112 — that scales the wrong number by the wrong factor."
+      },
+      {
+        "title": "Scale the sedans",
         "body": "Since 28 sports cars is 7 times 4 sports cars, multiply the sedan count by 7 too.",
         "equation": "7\\cdot 7=49"
       },
@@ -21037,9 +21055,15 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "ratio-batch",
       "data": {
-        "answer": "D"
+        "perA": 4,
+        "perB": 7,
+        "targetA": 28,
+        "labelA": "sports cars",
+        "labelB": "sedans",
+        "iconA": "🏎️",
+        "iconB": "🚙"
       }
     },
     "tags": [
@@ -21089,18 +21113,26 @@ const amc2009Problems: Problem[] = [
     "shortAnswer": "6",
     "solutionSteps": [
       {
+        "title": "Read the graph",
+        "body": "The graph is a straight line through the origin, so Suzanna's speed is constant."
+      },
+      {
         "title": "Read the slope",
         "body": "The graph shows 1 mile in 5 minutes, so her speed is 1/5 mile per minute.",
         "equation": "1\text{ mile}/5\text{ min}"
       },
       {
-        "title": "Use 30 minutes",
-        "body": "A half hour is 30 minutes.",
-        "equation": "30\\cdot \frac15=6"
+        "title": "Check it's constant",
+        "body": "The last stretch of the graph, from 15 to 20 minutes, also covers 1 mile, confirming the same rate."
       },
       {
-        "title": "Conclude",
-        "body": "Suzanna rides 6 miles."
+        "title": "Extend the line",
+        "body": "The graph only goes to 20 minutes, so extend the same line out to 30 minutes."
+      },
+      {
+        "title": "Use 30 minutes",
+        "body": "A half hour is 30 minutes, so multiply by the rate.",
+        "equation": "30\\cdot \frac15=6"
       }
     ],
     "animationFrames": [
@@ -21121,9 +21153,13 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "rate-graph-extrapolate",
       "data": {
-        "answer": "C"
+        "points": [[5, 1], [10, 2], [15, 3], [20, 4]],
+        "targetX": 30,
+        "xUnit": "min",
+        "yUnit": "mi",
+        "icon": "🚲"
       }
     },
     "tags": [
@@ -21178,11 +21214,19 @@ const amc2009Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Look at the pieces",
-        "body": "The pieces are straight bars of lengths 1, 2, 3, 4, and 5 unit squares."
+        "body": "The pieces are straight bars of lengths 1, 2, 3, 4, and 5 unit squares — 15 squares total, matching each figure's 15 cells."
+      },
+      {
+        "title": "Find each figure's longest line",
+        "body": "The 5-square bar needs 5 unit squares in a straight row or column, so check the longest such line in every figure."
       },
       {
         "title": "Test the longest piece",
-        "body": "Figure B has no place where the length-5 bar can fit without breaking the shape."
+        "body": "Figure B's longest straight line is only 4 squares, so the 5-bar always sticks out past the shape."
+      },
+      {
+        "title": "Every other figure has room",
+        "body": "Figures A, C, D, and E each have a line of exactly 5 squares somewhere, so the 5-bar fits."
       },
       {
         "title": "Conclude",
@@ -21207,9 +21251,40 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "straight-bar-fit",
       "data": {
-        "answer": "B"
+        "figures": [
+          {
+            "label": "A",
+            "cols": 4,
+            "rows": 5,
+            "cells": [[0,0],[3,0],[0,1],[3,1],[0,2],[1,2],[3,2],[0,3],[1,3],[2,3],[3,3],[0,4],[1,4],[2,4],[3,4]]
+          },
+          {
+            "label": "B",
+            "cols": 5,
+            "rows": 5,
+            "cells": [[0,0],[1,0],[2,0],[0,1],[1,1],[2,1],[1,2],[2,2],[3,2],[4,2],[2,3],[3,3],[4,3],[3,4],[4,4]]
+          },
+          {
+            "label": "C",
+            "cols": 5,
+            "rows": 5,
+            "cells": [[0,0],[1,0],[2,0],[3,0],[4,0],[0,1],[1,1],[2,1],[3,1],[0,2],[1,2],[2,2],[0,3],[1,3],[0,4]]
+          },
+          {
+            "label": "D",
+            "cols": 3,
+            "rows": 5,
+            "cells": [[0,0],[1,0],[2,0],[0,1],[1,1],[2,1],[0,2],[1,2],[2,2],[0,3],[1,3],[2,3],[0,4],[1,4],[2,4]]
+          },
+          {
+            "label": "E",
+            "cols": 5,
+            "rows": 5,
+            "cells": [[0,0],[1,0],[2,0],[3,0],[4,0],[1,1],[2,1],[3,1],[1,2],[2,2],[3,2],[1,3],[2,3],[3,3],[2,4]]
+          }
+        ]
       }
     },
     "tags": [
@@ -21263,18 +21338,32 @@ const amc2009Problems: Problem[] = [
     "shortAnswer": "68",
     "solutionSteps": [
       {
-        "title": "Generate terms",
+        "title": "Start the sequence",
+        "body": "The sequence begins 1, 2, 3."
+      },
+      {
+        "title": "Fourth term",
         "body": "Each new term is the sum of the previous three.",
-        "equation": "1,2,3,6"
+        "equation": "1+2+3=6"
       },
       {
-        "title": "Continue",
-        "body": "The next terms are 2+3+6=11, then 3+6+11=20, then 6+11+20=37.",
-        "equation": "1,2,3,6,11,20,37"
+        "title": "Fifth term",
+        "body": "Sum the three terms before it.",
+        "equation": "2+3+6=11"
       },
       {
-        "title": "Find the eighth",
-        "body": "The eighth term is 11+20+37=68.",
+        "title": "Sixth term",
+        "body": "Sum the three terms before it.",
+        "equation": "3+6+11=20"
+      },
+      {
+        "title": "Seventh term",
+        "body": "Sum the three terms before it.",
+        "equation": "6+11+20=37"
+      },
+      {
+        "title": "Eighth term",
+        "body": "The eighth term is the sum of the previous three.",
         "equation": "11+20+37=68"
       }
     ],
@@ -21296,9 +21385,10 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "tribonacci-train",
       "data": {
-        "answer": "D"
+        "seed": [1, 2, 3],
+        "count": 8
       }
     },
     "tags": [
@@ -21348,6 +21438,10 @@ const amc2009Problems: Problem[] = [
     "shortAnswer": "40",
     "solutionSteps": [
       {
+        "title": "Set up the hoses",
+        "body": "The pool needs 24,000 gallons, and 4 hoses each supply 2.5 gallons per minute."
+      },
+      {
         "title": "Find the total rate",
         "body": "Four hoses each supply 2.5 gallons per minute.",
         "equation": "4\\cdot 2.5=10"
@@ -21381,9 +21475,11 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "pool-fill-rate",
       "data": {
-        "answer": "A"
+        "gallons": 24000,
+        "hoseCount": 4,
+        "hoseRate": 2.5
       }
     },
     "tags": [
@@ -21433,12 +21529,20 @@ const amc2009Problems: Problem[] = [
     "shortAnswer": "4.5",
     "solutionSteps": [
       {
+        "title": "Look at the plot",
+        "body": "Plot ACD sits between Aspen Road, Brown Road, and the railroad, which crosses Main Street at B."
+      },
+      {
         "title": "Choose a base",
         "body": "Use CD as the base. The diagram shows CD = 3 miles."
       },
       {
         "title": "Find the height",
         "body": "The perpendicular distance from A to the railroad line is AB = 3 miles."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "Using the whole railroad span BD = 6 instead of just CD would give a different, wrong area."
       },
       {
         "title": "Compute area",
@@ -21464,9 +21568,11 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "road-triangle-area",
       "data": {
-        "answer": "C"
+        "roadDist": 3,
+        "bcDist": 3,
+        "cdDist": 3
       }
     },
     "tags": [
@@ -21524,8 +21630,16 @@ const amc2009Problems: Problem[] = [
         "body": "Let the old rectangle be 10 by 10, so its area is 100."
       },
       {
-        "title": "Apply the changes",
-        "body": "The new dimensions are 11 by 9."
+        "title": "Extend the length",
+        "body": "Increasing the length by 10 percent takes it from 10 to 11, adding a column of 10 squares."
+      },
+      {
+        "title": "Shrink the width",
+        "body": "Decreasing the width by 10 percent takes it from 10 to 9, but the rectangle is already 11 wide, so it removes a row of 11 squares."
+      },
+      {
+        "title": "Check against the trap",
+        "body": "Adding 10 and removing 11 does not cancel out, so the area is not back to 100 percent."
       },
       {
         "title": "Compare areas",
@@ -21551,9 +21665,12 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "stretch-squeeze-area",
       "data": {
-        "answer": "B"
+        "baseLength": 10,
+        "baseWidth": 10,
+        "lengthPercent": 10,
+        "widthPercent": -10
       }
     },
     "tags": [
@@ -21607,12 +21724,22 @@ const amc2009Problems: Problem[] = [
         "body": "The chain uses polygons with 3, 4, 5, 6, 7, and 8 sides."
       },
       {
+        "title": "Add every side",
+        "body": "Ignoring the gluing for now, the total number of sides is 3+4+5+6+7+8 = 33.",
+        "equation": "3+4+5+6+7+8=33"
+      },
+      {
         "title": "Account for glued sides",
-        "body": "The end shapes lose one side each to a neighbor, and the four middle shapes lose two sides each."
+        "body": "Each of the 5 places where two shapes meet removes 2 sides from the outer boundary, one from each neighbor."
+      },
+      {
+        "title": "Subtract the glued sides",
+        "body": "Subtract 2 sides for each of the 5 glued edges.",
+        "equation": "33-2\\cdot 5=23"
       },
       {
         "title": "Count outside sides",
-        "body": "The outside boundary has (3+8−2) + (4+5+6+7−8) = 9+14 = 23 sides.",
+        "body": "The outside boundary has 23 sides.",
         "equation": "23"
       }
     ],
@@ -21634,9 +21761,9 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "polygon-chain",
       "data": {
-        "answer": "B"
+        "sideCounts": [3, 4, 5, 6, 7, 8]
       }
     },
     "tags": [
@@ -21695,9 +21822,17 @@ const amc2009Problems: Problem[] = [
         "equation": "8^2=64"
       },
       {
+        "title": "Spot the border",
+        "body": "Every square touching an edge forms a ring around the whole board."
+      },
+      {
         "title": "Count interior squares",
         "body": "Squares not touching the edge form a 6 by 6 interior block.",
         "equation": "6^2=36"
+      },
+      {
+        "title": "Watch the trap",
+        "body": "Stripping only one side gives a 7 by 7 block, 49 squares — but both edges must be excluded."
       },
       {
         "title": "Find probability",
@@ -21723,9 +21858,9 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "checkerboard-interior",
       "data": {
-        "answer": "D"
+        "boardSize": 8
       }
     },
     "tags": [
@@ -21783,12 +21918,20 @@ const amc2009Problems: Problem[] = [
         "body": "The totals are 143 cents and 195 cents."
       },
       {
-        "title": "Find the pencil price",
-        "body": "The price must divide both totals. Since 143=11·13 and 195=3·5·13, the pencil costs 13 cents."
+        "title": "Factor both totals",
+        "body": "Break each total into prime factors: 143=11·13 and 195=3·5·13."
       },
       {
-        "title": "Count students",
-        "body": "The seventh graders were 143/13=11 students, and the sixth graders were 195/13=15 students. The difference is 4.",
+        "title": "Find the pencil price",
+        "body": "The price must divide both totals, so it's their shared prime factor: 13 cents."
+      },
+      {
+        "title": "Count each group",
+        "body": "The seventh graders were 143/13=11 students, and the sixth graders were 195/13=15 students."
+      },
+      {
+        "title": "Find the difference",
+        "body": "15 sixth graders minus 11 seventh graders is 4 more.",
         "equation": "15-11=4"
       }
     ],
@@ -21810,9 +21953,13 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "common-price-venn",
       "data": {
-        "answer": "D"
+        "totalA": 143,
+        "totalB": 195,
+        "labelA": "7th graders",
+        "labelB": "6th graders",
+        "unit": "¢"
       }
     },
     "tags": [
@@ -21862,12 +22009,20 @@ const amc2009Problems: Problem[] = [
     "shortAnswer": "7/9",
     "solutionSteps": [
       {
+        "title": "Spin both spinners",
+        "body": "The first spinner has 1, 3, 5 and the second has 2, 4, 6."
+      },
+      {
         "title": "List the possible sums",
-        "body": "The first spinner has 1, 3, 5 and the second has 2, 4, 6, giving 9 equally likely sums."
+        "body": "Every pair of sectors gives a sum, for 9 equally likely outcomes."
       },
       {
         "title": "Check primality",
-        "body": "The only non-prime sum is 3+6=9. The other 8? Wait, 1+2=3, 1+4=5, 1+6=7, 3+2=5, 3+4=7, 5+2=7, 5+6=11 are prime; 5+4=9 is also non-prime. There are 7 prime sums."
+        "body": "Color each sum by whether it is prime: 1+2=3, 1+4=5, 1+6=7, 3+2=5, 3+4=7, 5+2=7, and 5+6=11 are all prime."
+      },
+      {
+        "title": "Spot the non-prime sums",
+        "body": "Only 3+6=9 and 5+4=9 are not prime, so 7 of the 9 sums are prime."
       },
       {
         "title": "Find the probability",
@@ -21893,9 +22048,10 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "spinner-prime-sum",
       "data": {
-        "answer": "D"
+        "valuesA": [1, 3, 5],
+        "valuesB": [2, 4, 6]
       }
     },
     "tags": [
@@ -21949,12 +22105,20 @@ const amc2009Problems: Problem[] = [
     "shortAnswer": "1/3",
     "solutionSteps": [
       {
+        "title": "Arrange the digits",
+        "body": "The digits 1, 3, and 5 can form a three-digit number in several ways."
+      },
+      {
         "title": "Count all numbers",
         "body": "The three digits can be arranged in 3! = 6 ways."
       },
       {
         "title": "Use divisibility by 5",
-        "body": "The number must end in 5. Then the first two digits can be 1 and 3 in either order."
+        "body": "Whether a number is divisible by 5 depends only on its last digit."
+      },
+      {
+        "title": "Find the last digit",
+        "body": "The number must end in 5. Then the first two digits can be 1 and 3 in either order, giving 2 numbers."
       },
       {
         "title": "Find probability",
@@ -21980,9 +22144,10 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "digit-permute-divisible",
       "data": {
-        "answer": "B"
+        "digits": ["1", "3", "5"],
+        "divisor": 5
       }
     },
     "tags": [
@@ -22063,9 +22228,12 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "equal-distance-round-trip",
       "data": {
-        "answer": "B"
+        "distanceMiles": 50,
+        "speedsMph": [60, 40],
+        "modes": ["car", "bus"],
+        "places": ["Austin", "Temple"]
       }
     },
     "tags": [
@@ -22146,9 +22314,10 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "recipe-limiting-shelf",
       "data": {
-        "answer": "D"
+        "servingsPerBatch": 5,
+        "ingredients": ["chocolate|2|5|squares", "sugar|0.25|2|cups", "water|1|-1|cups", "milk|4|7|cups"]
       }
     },
     "tags": [
@@ -22229,9 +22398,11 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "digit-product-multiset-factory",
       "data": {
-        "answer": "D"
+        "targetProduct": 24,
+        "digitCount": 3,
+        "base": 10
       }
     },
     "tags": [
@@ -22290,7 +22461,12 @@ const amc2009Problems: Problem[] = [
       },
       {
         "title": "Make a cube",
-        "body": "To make exponents multiples of 3, multiply by 3·5^2, so y=75. Therefore x+y=85.",
+        "body": "To make exponents multiples of 3, multiply by 3·5^2, so y=75.",
+        "equation": "y=3\cdot5^2=75"
+      },
+      {
+        "title": "Add the multipliers",
+        "body": "The two smallest multipliers are x=10 and y=75, so x+y=85.",
         "equation": "10+75=85"
       }
     ],
@@ -22312,9 +22488,10 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "prime-exponent-completion",
       "data": {
-        "answer": "B"
+        "number": 360,
+        "primes": [2, 3, 5]
       }
     },
     "tags": [
@@ -22395,9 +22572,11 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "alternating-stripe-intersections",
       "data": {
-        "answer": "C"
+        "exampleSize": 7,
+        "targetSize": 15,
+        "cornersWhite": true
       }
     },
     "tags": [
@@ -22460,7 +22639,12 @@ const amc2009Problems: Problem[] = [
       },
       {
         "title": "Case 3",
-        "body": "If x is the vertex angle and 70° is a base angle, then x+140=180, so x=40. The sum is 70+55+40=165.",
+        "body": "If x is the vertex angle and 70° is a base angle, then the other base angle is also 70°. Thus x+140=180, so x=40.",
+        "equation": "x+140=180"
+      },
+      {
+        "title": "Add all possibilities",
+        "body": "The three possible values are 70, 55, and 40. Their sum is 165.",
         "equation": "70+55+40=165"
       }
     ],
@@ -22482,9 +22666,11 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "isosceles-angle-role-cases",
       "data": {
-        "answer": "D"
+        "givenAngle": 70,
+        "triangleSum": 180,
+        "roleCases": ["x-base-with-given", "given-vertex", "x-vertex"]
       }
     },
     "tags": [
@@ -22565,9 +22751,10 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "dot-triangle-congruence",
       "data": {
-        "answer": "D"
+        "points": ["0|0", "1|0", "2|0", "3|0", "0|1", "1|1", "2|1", "3|1"],
+        "baseLengths": [1, 2, 3]
       }
     },
     "tags": [
@@ -22653,9 +22840,11 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "row-column-shared-total",
       "data": {
-        "answer": "D"
+        "rows": 40,
+        "columns": 75,
+        "averageLabels": ["A", "B"]
       }
     },
     "tags": [
@@ -22706,7 +22895,7 @@ const amc2009Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Use three digit slots",
-        "body": "Count numbers from 000 to 999 that do not contain 1."
+        "body": "Write 1 through 999 as three-digit strings from 001 through 999. The endpoint 1000 already contains 1, so it is excluded. Temporarily include 000 to make three complete digit slots."
       },
       {
         "title": "Count choices",
@@ -22737,12 +22926,13 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "counting",
+      "type": "forbidden-digit-odometer",
       "data": {
+        "base": 10,
         "slots": 3,
-        "choices": 9,
-        "adjustment": -1,
-        "answer": "728"
+        "minValue": 1,
+        "maxValue": 1000,
+        "forbiddenDigits": [1]
       }
     },
     "tags": [
@@ -22802,7 +22992,12 @@ const amc2009Problems: Problem[] = [
       },
       {
         "title": "Solve",
-        "body": "This simplifies to x^2+2x=195, so x=13. Then there are 13 girls and 15 boys, for 28 students.",
+        "body": "Divide by 2 and simplify to x^2+2x=195. Completing the square gives (x+1)^2=196, so the positive solution is x=13.",
+        "equation": "(x+1)^2=196"
+      },
+      {
+        "title": "Count the class",
+        "body": "There are 13 girls and 15 boys, so the class has 28 students.",
         "equation": "13+15=28"
       }
     ],
@@ -22824,9 +23019,12 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "two-group-square-distribution",
       "data": {
-        "answer": "B"
+        "brought": 400,
+        "leftover": 6,
+        "groupDifference": 2,
+        "groupLabels": ["girls", "boys"]
       }
     },
     "tags": [
@@ -22876,16 +23074,21 @@ const amc2009Problems: Problem[] = [
     "shortAnswer": "9",
     "solutionSteps": [
       {
-        "title": "Use the subtraction ones column",
-        "body": "From B−A ending in A and the addition ones column B+A ending in A, B must be 0."
+        "title": "Use the addition ones column",
+        "body": "Because B+A has ones digit A, adding B changes nothing in the ones place. Therefore B=0."
       },
       {
         "title": "Find A",
         "body": "Since 0−A requires borrowing and gives A, we get A=5."
       },
       {
-        "title": "Find C and D",
-        "body": "Using the tens columns gives C=4 and D=5+C=9.",
+        "title": "Find C",
+        "body": "The subtraction borrowed 1 ten, so its tens column is A−1−C=0. With A=5, C=4.",
+        "equation": "5−1−C=0"
+      },
+      {
+        "title": "Find D",
+        "body": "The addition ones column creates no carry, so the tens column gives D=A+C=5+4=9.",
         "equation": "D=9"
       }
     ],
@@ -22907,9 +23110,11 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "dual-column-cryptarithm",
       "data": {
-        "answer": "E"
+        "base": 10,
+        "letters": ["A", "B", "C", "D"],
+        "equations": ["AB-CA=A", "AB+CA=DA"]
       }
     },
     "tags": [
@@ -22963,6 +23168,10 @@ const amc2009Problems: Problem[] = [
     "shortAnswer": "11",
     "solutionSteps": [
       {
+        "title": "Cut and reassemble",
+        "body": "The four slab heights are 1/2, 1/3, 1/17, and 11/102 foot. Place the full 1 by 1 slabs end to end in the shown order C, B, A, D."
+      },
+      {
         "title": "Top and bottom areas",
         "body": "Each piece has top area 1 and bottom area 1. The four top faces total 4 and the four bottom faces total 4, giving 8."
       },
@@ -22994,9 +23203,12 @@ const amc2009Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "solid-3d",
+      "type": "reassembled-slab-surface",
       "data": {
-        "answer": "E"
+        "labels": ["A", "B", "C", "D"],
+        "heightNumerators": [1, 1, 1, 11],
+        "heightDenominators": [2, 3, 17, 102],
+        "assemblyOrder": ["C", "B", "A", "D"]
       }
     },
     "tags": [

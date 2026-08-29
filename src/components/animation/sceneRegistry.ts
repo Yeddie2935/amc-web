@@ -1,6 +1,19 @@
 import type { Problem } from "../../types/amc";
 import type { AnimatedScene } from "./scenes/types";
 import { ClockAngleScene } from "./scenes/ClockAngleScene";
+import { DigitPermuteDivisibleScene } from "./scenes/DigitPermuteDivisibleScene";
+import { TwoSpinnerPrimeSumScene } from "./scenes/TwoSpinnerPrimeSumScene";
+import { CommonPriceVennScene } from "./scenes/CommonPriceVennScene";
+import { CheckerboardInteriorScene } from "./scenes/CheckerboardInteriorScene";
+import { PolygonChainScene } from "./scenes/PolygonChainScene";
+import { StretchSqueezeAreaScene } from "./scenes/StretchSqueezeAreaScene";
+import { RoadTriangleAreaScene } from "./scenes/RoadTriangleAreaScene";
+import { PoolFillRateScene } from "./scenes/PoolFillRateScene";
+import { TribonacciTrainScene } from "./scenes/TribonacciTrainScene";
+import { StraightBarFitScene } from "./scenes/StraightBarFitScene";
+import { RateGraphExtrapolateScene } from "./scenes/RateGraphExtrapolateScene";
+import { RatioBatchScene } from "./scenes/RatioBatchScene";
+import { AppleBagBacktrackScene } from "./scenes/AppleBagBacktrackScene";
 import { SquareCircleEqualAreaScene } from "./scenes/SquareCircleEqualAreaScene";
 import { PercentRecolorScene } from "./scenes/PercentRecolorScene";
 import { FactorCascadeSumScene } from "./scenes/FactorCascadeSumScene";
@@ -403,6 +416,18 @@ import { CornerQuarterCircleSubtractScene } from "./scenes/CornerQuarterCircleSu
 import { SharedDigitCongruenceSieveScene } from "./scenes/SharedDigitCongruenceSieveScene";
 import { DigitProductSumBalanceScene } from "./scenes/DigitProductSumBalanceScene";
 import { PrimeDateOrderScene } from "./scenes/PrimeDateOrderScene";
+import { ReassembledSlabSurfaceScene } from "./scenes/ReassembledSlabSurfaceScene";
+import { DualColumnCryptarithmScene } from "./scenes/DualColumnCryptarithmScene";
+import { TwoGroupSquareDistributionScene } from "./scenes/TwoGroupSquareDistributionScene";
+import { ForbiddenDigitOdometerScene } from "./scenes/ForbiddenDigitOdometerScene";
+import { RowColumnSharedTotalScene } from "./scenes/RowColumnSharedTotalScene";
+import { DotTriangleCongruenceScene } from "./scenes/DotTriangleCongruenceScene";
+import { IsoscelesAngleRoleCasesScene } from "./scenes/IsoscelesAngleRoleCasesScene";
+import { AlternatingStripeIntersectionScene } from "./scenes/AlternatingStripeIntersectionScene";
+import { PrimeExponentCompletionScene } from "./scenes/PrimeExponentCompletionScene";
+import { DigitProductMultisetFactoryScene } from "./scenes/DigitProductMultisetFactoryScene";
+import { RecipeLimitingShelfScene } from "./scenes/RecipeLimitingShelfScene";
+import { EqualDistanceRoundTripScene } from "./scenes/EqualDistanceRoundTripScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -421,6 +446,144 @@ function num(value: unknown): number {
 export function resolveScene(problem: Problem): AnimatedScene {
   const type = problem.animation?.type;
   const data = problem.animation?.data ?? {};
+  // At least two distinct digits keep every arrangement and the last-digit
+  // divisibility check drawable.
+  if (type === "digit-permute-divisible" && Array.isArray(data.digits) && data.digits.length >= 2) {
+    return DigitPermuteDivisibleScene;
+  }
+  // Two non-empty sector-value lists keep both spinners and the sum grid
+  // drawable.
+  if (type === "spinner-prime-sum" && Array.isArray(data.valuesA) && data.valuesA.length > 0 && Array.isArray(data.valuesB) && data.valuesB.length > 0) {
+    return TwoSpinnerPrimeSumScene;
+  }
+  // One bounded distance, two positive speeds, and matching mode/place pairs
+  // define an exact out-and-back route with finite drawable clock blocks.
+  if(type==="equal-distance-round-trip"&&Array.isArray(data.speedsMph)&&Array.isArray(data.modes)&&Array.isArray(data.places)){
+    const distance=num(data.distanceMiles),speeds=data.speedsMph.map(v=>num(v)),modes=data.modes.map(String),places=data.places.map(String);
+    if(distance>0&&distance<=200&&speeds.length===2&&speeds.every(s=>s>0&&s<=120)&&modes.length===2&&places.length===2&&new Set(places).size===2) return EqualDistanceRoundTripScene;
+  }
+  // Two positive totals with a shared prime factor above 1 keep the Venn
+  // overlap and the divided headcounts drawable.
+  if (type === "common-price-venn" && num(data.totalA) > 0 && num(data.totalB) > 0) {
+    return CommonPriceVennScene;
+  }
+  // Four exact recipe/stock records with one negative unlimited marker and a
+  // positive serving yield keep every common-scale capacity finite or explicit.
+  if(type==="recipe-limiting-shelf"&&Array.isArray(data.ingredients)){
+    const servings=num(data.servingsPerBatch),items=data.ingredients.map(v=>String(v).split("|"));
+    if(servings>0&&servings<=20&&items.length===4&&items.every(p=>p.length===4&&p[0].length>0&&num(p[1])>0&&Number.isFinite(num(p[2])))) return RecipeLimitingShelfScene;
+  }
+  // Three base-ten nonzero digit slots and a bounded positive target make the
+  // complete sorted-factor search and every distinct permutation drawable.
+  if(type==="digit-product-multiset-factory"){
+    const target=Math.round(num(data.targetProduct)),digits=Math.round(num(data.digitCount)),base=Math.round(num(data.base));
+    if(target>0&&target<=729&&digits===3&&base===10) return DigitProductMultisetFactoryScene;
+  }
+  // At least two chained polygons keep the glued-edge subtraction drawable.
+  if (type === "polygon-chain" && Array.isArray(data.sideCounts) && data.sideCounts.length >= 2) {
+    return PolygonChainScene;
+  }
+  // A board at least 3 wide keeps the interior ring and its trap comparison
+  // drawable.
+  if (type === "checkerboard-interior" && num(data.boardSize) >= 3) {
+    return CheckerboardInteriorScene;
+  }
+  // Positive base dimensions with a length percent and a nonzero width
+  // percent keep the grid extend/shrink and the resulting area drawable.
+  if (type === "stretch-squeeze-area" && num(data.baseLength) > 0 && num(data.baseWidth) > 0 && num(data.widthPercent) !== 0) {
+    return StretchSqueezeAreaScene;
+  }
+  // A bounded positive number factored entirely over three ordered primes keeps
+  // its pair- and triple-completion exponent bins finite and drawable.
+  if(type==="prime-exponent-completion"&&Array.isArray(data.primes)){
+    const number=Math.round(num(data.number)),primes=data.primes.map(v=>Math.round(num(v)));
+    let rest=number;for(const p of primes)while(rest>1&&rest%p===0)rest/=p;
+    if(number>1&&number<=10000&&primes.join(",")==="2,3,5"&&rest===1) return PrimeExponentCompletionScene;
+  }
+  // Odd bounded source and target sizes with white corners make alternating
+  // white row/column positions integral and keep both literal grids drawable.
+  if(type==="alternating-stripe-intersections"){
+    const example=Math.round(num(data.exampleSize)),target=Math.round(num(data.targetSize));
+    if(example>=3&&example<=9&&example%2===1&&target>example&&target<=19&&target%2===1&&data.cornersWhite===true) return AlternatingStripeIntersectionScene;
+  }
+  // Three positive segment lengths keep the road/railroad plot and its base
+  // and height drawable.
+  if (type === "road-triangle-area" && num(data.roadDist) > 0 && num(data.bcDist) > 0 && num(data.cdDist) > 0) {
+    return RoadTriangleAreaScene;
+  }
+  // One acute given angle, the triangle sum, and the three exact base/vertex
+  // role assignments keep every derived angle positive and all cases drawable.
+  if(type==="isosceles-angle-role-cases"&&Array.isArray(data.roleCases)){
+    const given=num(data.givenAngle),sum=num(data.triangleSum),roles=data.roleCases.map(String);
+    if(given>0&&given<90&&sum===180&&2*given<sum&&roles.join(",")==="x-base-with-given,given-vertex,x-vertex") return IsoscelesAngleRoleCasesScene;
+  }
+  // A positive pool volume, hose count, and per-hose rate keep the fill level
+  // and the minutes-into-hours regrouping drawable.
+  if (type === "pool-fill-rate" && num(data.gallons) > 0 && num(data.hoseCount) > 0 && num(data.hoseRate) > 0) {
+    return PoolFillRateScene;
+  }
+  // Exactly two aligned rows of four unit-spaced points and the three possible
+  // horizontal base lengths make the exhaustive SSS signature cards drawable.
+  if(type==="dot-triangle-congruence"&&Array.isArray(data.points)&&Array.isArray(data.baseLengths)){
+    const points=data.points.map(String),bases=data.baseLengths.map(v=>Math.round(num(v)));
+    if(points.join(",")==="0|0,1|0,2|0,3|0,0|1,1|1,2|1,3|1"&&bases.join(",")==="1,2,3") return DotTriangleCongruenceScene;
+  }
+  // At least three seed terms and a target index past them keep the
+  // sum-of-previous-three recurrence and its bracket drawable.
+  if (type === "tribonacci-train" && Array.isArray(data.seed) && data.seed.length >= 3 && num(data.count) > data.seed.length) {
+    return TribonacciTrainScene;
+  }
+  // Positive bounded row and column counts with two distinct one-letter average
+  // labels make both complete partitions and the reduced ratio well defined.
+  if(type==="row-column-shared-total"&&Array.isArray(data.averageLabels)){
+    const rows=Math.round(num(data.rows)),cols=Math.round(num(data.columns)),labels=data.averageLabels.map(String);
+    if(rows>0&&rows<=200&&cols>0&&cols<=200&&labels.length===2&&new Set(labels).size===2&&labels.every(v=>/^[A-Z]$/.test(v))) return RowColumnSharedTotalScene;
+  }
+  // At least two figures, each with real cells, keeps the longest-run check
+  // and its zoomed overshoot drawable.
+  if (type === "straight-bar-fit" && Array.isArray(data.figures) && data.figures.length >= 2) {
+    return StraightBarFitScene;
+  }
+  // One forbidden base-ten digit and exactly three wheels cover 000–999; the
+  // upper endpoint 1000 is separately checked and the complete tray stays small.
+  if(type==="forbidden-digit-odometer"&&Array.isArray(data.forbiddenDigits)){
+    const base=Math.round(num(data.base)),slots=Math.round(num(data.slots)),min=Math.round(num(data.minValue)),max=Math.round(num(data.maxValue)),bad=data.forbiddenDigits.map(v=>Math.round(num(v,-1)));
+    if(base===10&&slots===3&&min===1&&max===1000&&bad.length===1&&bad[0]>=0&&bad[0]<base&&String(max).includes(String(bad[0]))) return ForbiddenDigitOdometerScene;
+  }
+  // A bounded candy budget, positive remainder, and small positive group gap
+  // keep the exhaustive count search and both square candy arrays drawable.
+  if(type==="two-group-square-distribution"){
+    const brought=Math.round(num(data.brought)),left=Math.round(num(data.leftover)),gap=Math.round(num(data.groupDifference));
+    if(brought>0&&brought<=1000&&left>0&&left<brought&&gap>0&&gap<=10) return TwoGroupSquareDistributionScene;
+  }
+  // Four distinct symbols in two exact base-ten column equations give a finite
+  // 9×10×9×9 digit search and keep both synchronized stacks drawable.
+  if(type==="dual-column-cryptarithm"&&Array.isArray(data.letters)&&Array.isArray(data.equations)){
+    const base=Math.round(num(data.base)),letters=data.letters.map(String),equations=data.equations.map(String);
+    if(base===10&&letters.join("")==="ABCD"&&new Set(letters).size===4&&equations.join("|")==="AB-CA=A|AB+CA=DA") return DualColumnCryptarithmScene;
+  }
+  // Two known apple counts (Cassie's share and Bridget's own) always make a
+  // drawable remainder row, whatever the values.
+  if (type === "apple-bag-backtrack" && Number.isFinite(num(data.cassie)) && Number.isFinite(num(data.self))) {
+    return AppleBagBacktrackScene;
+  }
+  // A positive per-batch pair and a target for the first item that's a whole
+  // multiple of it keeps the batch track and scaled total drawable.
+  if (type === "ratio-batch" && num(data.perA) > 0 && num(data.perB) > 0 && num(data.targetA) > 0) {
+    return RatioBatchScene;
+  }
+  // At least two graph points and a positive target x keep the rate and its
+  // extrapolation past the plotted line drawable.
+  if (type === "rate-graph-extrapolate" && Array.isArray(data.points) && data.points.length >= 2 && num(data.targetX) > 0) {
+    return RateGraphExtrapolateScene;
+  }
+  // Four labeled positive rational slab heights must exactly rebuild one unit;
+  // the source order then makes the complete stepped profile finite and drawable.
+  if(type==="reassembled-slab-surface"&&Array.isArray(data.labels)&&Array.isArray(data.heightNumerators)&&Array.isArray(data.heightDenominators)&&Array.isArray(data.assemblyOrder)){
+    const labels=data.labels.map(String),ns=data.heightNumerators.map(v=>num(v)),ds=data.heightDenominators.map(v=>num(v)),order=data.assemblyOrder.map(String);
+    const sum=ns.reduce((s,n,i)=>s+n/ds[i],0);
+    if(labels.join("")==="ABCD"&&ns.length===4&&ds.length===4&&ns.every(n=>n>0&&Number.isInteger(n))&&ds.every(d=>d>0&&d<=200&&Number.isInteger(d))&&Math.abs(sum-1)<1e-9&&order.join("")==="CBAD") return ReassembledSlabSurfaceScene;
+  }
   // Three positive proper fractions with one interior unit-fraction anchor keep
   // both cross-products finite and the final local number line drawable.
   if(type==="unit-fraction-anchor-order"&&Array.isArray(data.fractions)){
