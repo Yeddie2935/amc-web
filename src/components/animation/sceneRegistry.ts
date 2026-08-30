@@ -1,6 +1,19 @@
 import type { Problem } from "../../types/amc";
 import type { AnimatedScene } from "./scenes/types";
 import { ClockAngleScene } from "./scenes/ClockAngleScene";
+import { PairwiseBoxWeighScene } from "./scenes/PairwiseBoxWeighScene";
+import { BouncingBallDecayScene } from "./scenes/BouncingBallDecayScene";
+import { PetOverlapLineScene } from "./scenes/PetOverlapLineScene";
+import { RoomAverageMergeScene } from "./scenes/RoomAverageMergeScene";
+import { InvestmentLossGainScene } from "./scenes/InvestmentLossGainScene";
+import { CandySalesAverageScene } from "./scenes/CandySalesAverageScene";
+import { EquivalentFractionChainScene } from "./scenes/EquivalentFractionChainScene";
+import { DiamondGraySquaresScene } from "./scenes/DiamondGraySquaresScene";
+import { OdometerPalindromeScene } from "./scenes/OdometerPalindromeScene";
+import { NestedTriangleTrapezoidScene } from "./scenes/NestedTriangleTrapezoidScene";
+import { FridayThirteenthScene } from "./scenes/FridayThirteenthScene";
+import { LetterDigitCodeScene } from "./scenes/LetterDigitCodeScene";
+import { CarnivalBudgetScene } from "./scenes/CarnivalBudgetScene";
 import { DigitPermuteDivisibleScene } from "./scenes/DigitPermuteDivisibleScene";
 import { TwoSpinnerPrimeSumScene } from "./scenes/TwoSpinnerPrimeSumScene";
 import { CommonPriceVennScene } from "./scenes/CommonPriceVennScene";
@@ -247,6 +260,10 @@ import { FormationDivisorCalendarScene } from "./scenes/FormationDivisorCalendar
 import { ConsecutiveCupPackingScene } from "./scenes/ConsecutiveCupPackingScene";
 import { DivisionScheduleSieveScene } from "./scenes/DivisionScheduleSieveScene";
 import { CornerCutSquareFitScene } from "./scenes/CornerCutSquareFitScene";
+import { FixedPerimeterAreaScene } from "./scenes/FixedPerimeterAreaScene";
+import { CubeCrossJoinScene } from "./scenes/CubeCrossJoinScene";
+import { SuccessiveIntegerAverageScene } from "./scenes/SuccessiveIntegerAverageScene";
+import { LatinGridBranchScene } from "./scenes/LatinGridBranchScene";
 import { SeatPairScene } from "./scenes/SeatPairScene";
 import { HalvingGapScene } from "./scenes/HalvingGapScene";
 import { BiteSplitScene } from "./scenes/BiteSplitScene";
@@ -428,11 +445,20 @@ import { PrimeExponentCompletionScene } from "./scenes/PrimeExponentCompletionSc
 import { DigitProductMultisetFactoryScene } from "./scenes/DigitProductMultisetFactoryScene";
 import { RecipeLimitingShelfScene } from "./scenes/RecipeLimitingShelfScene";
 import { EqualDistanceRoundTripScene } from "./scenes/EqualDistanceRoundTripScene";
+import { OffsetCircleBandsScene } from "./scenes/OffsetCircleBandsScene";
+import { SquareProductKernelGridScene } from "./scenes/SquareProductKernelGridScene";
+import { SquareCornerTriangleComplementScene } from "./scenes/SquareCornerTriangleComplementScene";
+import { ScaledThreeDigitOverlapScene } from "./scenes/ScaledThreeDigitOverlapScene";
+import { DiagonalCylinderHalfScene } from "./scenes/DiagonalCylinderHalfScene";
+import { EqualPassedPacketsScene } from "./scenes/EqualPassedPacketsScene";
+import { BoundaryUnitPairGraphScene } from "./scenes/BoundaryUnitPairGraphScene";
+import { ConcentricPathLedgerScene } from "./scenes/ConcentricPathLedgerScene";
 
 function num(value: unknown): number {
   const n = Number(value);
   return Number.isFinite(n) ? n : 0;
 }
+function gcdRegistry(a:number,b:number):number{return b?gcdRegistry(b,a%b):Math.abs(a)}
 
 /**
  * Faithfulness-only selection. A diagram is used only when it depicts the
@@ -446,6 +472,70 @@ function num(value: unknown): number {
 export function resolveScene(problem: Problem): AnimatedScene {
   const type = problem.animation?.type;
   const data = problem.animation?.data ?? {};
+  // Exactly three positive pair weights keep the triangle of boxes and
+  // edges drawable.
+  if (type === "pairwise-box-weigh" && Array.isArray(data.pairWeights) && data.pairWeights.length === 3) {
+    return PairwiseBoxWeighScene;
+  }
+  // A positive drop height with a real bounce ratio below 1 keeps the
+  // decaying bar sequence and threshold check drawable.
+  if (type === "bouncing-ball-decay" && num(data.dropHeight) > 0 && num(data.ratioNum) > 0 && num(data.ratioDen) > num(data.ratioNum)) {
+    return BouncingBallDecayScene;
+  }
+  // A positive total with both set counts keeps the row of students and
+  // both pushed-in ranges drawable.
+  if (type === "pet-overlap-line" && num(data.total) > 0 && num(data.aCount) > 0 && num(data.bCount) > 0) {
+    return PetOverlapLineScene;
+  }
+  // Two positive room headcounts keep every person figure and both totals
+  // drawable.
+  if (type === "room-average-merge" && num(data.countA) > 0 && num(data.countB) > 0) {
+    return RoomAverageMergeScene;
+  }
+  // A positive starting amount with real loss/gain percents keeps the
+  // dollar-stack bar and its reference-line gap drawable.
+  if (type === "investment-loss-gain" && num(data.initial) > 0 && num(data.lossPercent) >= 0 && num(data.gainPercent) >= 0) {
+    return InvestmentLossGainScene;
+  }
+  // At least two months of sales keep the bar-leveling average drawable.
+  if (type === "candy-sales-average" && Array.isArray(data.sales) && data.sales.length >= 2) {
+    return CandySalesAverageScene;
+  }
+  // Four positive terms of the fraction chain keep both scale factors and
+  // the three equal-proportion bars drawable.
+  if (type === "equivalent-fraction-chain" && num(data.baseNum) > 0 && num(data.baseDen) > 0 && num(data.midDen) > 0 && num(data.farNum) > 0) {
+    return EquivalentFractionChainScene;
+  }
+  // A real grid size with at least one gray cell keeps the rotated diamond
+  // and its gray/white unit counts drawable.
+  if (type === "diamond-gray-squares" && num(data.gridSize) >= 2 && Array.isArray(data.grayCells) && data.grayCells.length > 0) {
+    return DiamondGraySquaresScene;
+  }
+  // An end reading past the start reading keeps the odometer digits, the
+  // riding-time track, and the speed check drawable.
+  if (type === "odometer-palindrome" && num(data.endReading) > num(data.startReading) && Array.isArray(data.hours) && data.hours.length > 0) {
+    return OdometerPalindromeScene;
+  }
+  // A positive outer area strictly greater than the inner area keeps the
+  // concentric triangles and their three trapezoids drawable.
+  if (type === "nested-triangle-trapezoid" && num(data.outerArea) > num(data.innerArea) && num(data.innerArea) > 0) {
+    return NestedTriangleTrapezoidScene;
+  }
+  // A day past the 7th and a real weekday name keep the week-back jump and
+  // the day-by-day count-back drawable.
+  if (type === "friday-thirteenth-weekday" && num(data.day) > 7 && typeof data.weekday === "string" && data.weekday.length > 0) {
+    return FridayThirteenthScene;
+  }
+  // A non-empty code-phrase and target word keep the letter-to-digit lookup
+  // and result slots drawable.
+  if (type === "letter-digit-code" && Array.isArray(data.codeGroups) && data.codeGroups.length > 0 && typeof data.targetWord === "string" && data.targetWord.length > 0) {
+    return LetterDigitCodeScene;
+  }
+  // A positive budget and food cost keep the carved budget bar and its
+  // doubled ride segment drawable.
+  if (type === "carnival-budget-spend" && num(data.budget) > 0 && num(data.foodCost) > 0) {
+    return CarnivalBudgetScene;
+  }
   // At least two distinct digits keep every arrangement and the last-digit
   // divisibility check drawable.
   if (type === "digit-permute-divisible" && Array.isArray(data.digits) && data.digits.length >= 2) {
@@ -461,6 +551,55 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if(type==="equal-distance-round-trip"&&Array.isArray(data.speedsMph)&&Array.isArray(data.modes)&&Array.isArray(data.places)){
     const distance=num(data.distanceMiles),speeds=data.speedsMph.map(v=>num(v)),modes=data.modes.map(String),places=data.places.map(String);
     if(distance>0&&distance<=200&&speeds.length===2&&speeds.every(s=>s>0&&s<=120)&&modes.length===2&&places.length===2&&new Set(places).size===2) return EqualDistanceRoundTripScene;
+  }
+  // Six strictly increasing bounded radii and three alternating black bands
+  // reproduce the internally tangent source design without unsafe geometry.
+  if(type==="offset-circle-bands"&&Array.isArray(data.radii)&&Array.isArray(data.blackBands)&&data.tangentSide==="right"){
+    const radii=data.radii.map(v=>num(v)),bands=data.blackBands.map(v=>num(v));
+    if(radii.length===6&&radii.every((r,i)=>r>0&&r<=30&&(i===0||r>radii[i-1]))&&bands.length===3&&bands.every((b,i)=>Number.isInteger(b)&&b===i*2)) return OffsetCircleBandsScene;
+  }
+  // Exact consecutive tile and die lists keep the complete 10-by-6 grid
+  // equally likely, bounded, and readable while cores are derived in-scene.
+  if(type==="square-product-kernel-grid"&&Array.isArray(data.tileValues)&&Array.isArray(data.dieValues)){
+    const tiles=data.tileValues.map(v=>num(v)),dice=data.dieValues.map(v=>num(v));
+    if(tiles.length===10&&dice.length===6&&tiles.every((v,i)=>v===i+1)&&dice.every((v,i)=>v===i+1)) return SquareProductKernelGridScene;
+  }
+  // A bounded square and a positive two-part side ratio determine the two edge
+  // points and all four partition areas without invented coordinates.
+  if(type==="square-corner-triangle-complement"&&Array.isArray(data.segmentRatio)){
+    const side=num(data.sideLength),ratio=data.segmentRatio.map(v=>num(v));
+    if(side>0&&side<=30&&ratio.length===2&&ratio.every(v=>Number.isInteger(v)&&v>0&&v<=10)&&ratio[0]!==ratio[1]) return SquareCornerTriangleComplementScene;
+  }
+  // A bounded digit window and positive integer scaling operations produce a
+  // finite, nonempty overlap small enough to enumerate one-to-one on screen.
+  if(type==="scaled-three-digit-overlap"){
+    const min=num(data.threeDigitMin),max=num(data.threeDigitMax),divisor=num(data.divisor),multiplier=num(data.multiplier),scale=divisor*multiplier;
+    const low=Math.max(Math.ceil(min),Math.ceil(min/scale)),high=Math.min(Math.floor(max),Math.floor(max/scale));
+    if(Number.isInteger(min)&&Number.isInteger(max)&&min>=10&&max<=9999&&min<max&&Number.isInteger(divisor)&&divisor>0&&divisor<=12&&Number.isInteger(multiplier)&&multiplier>0&&multiplier<=12&&high>=low&&high-low<=30) return ScaledThreeDigitOverlapScene;
+  }
+  // Positive bounded cylinder dimensions and the source's center-diagonal cut
+  // determine a drawable pair of congruent half-volume wedges.
+  if(type==="diagonal-cylinder-half"&&data.cutSymmetry==="center-turn"){
+    const diameter=num(data.diameterCm),length=num(data.lengthCm);
+    if(diameter>0&&diameter<=40&&length>0&&length<=40&&Number.isInteger(diameter)&&diameter%2===0) return DiagonalCylinderHalfScene;
+  }
+  // Two proper reduced fractions with small denominators make finite student
+  // packets whose first equal selected count stays drawable.
+  if(type==="equal-passed-packets"&&Array.isArray(data.boyPassedFraction)&&Array.isArray(data.girlPassedFraction)){
+    const a=data.boyPassedFraction.map(v=>num(v)),b=data.girlPassedFraction.map(v=>num(v));
+    if(a.length===2&&b.length===2&&[a,b].every(([n,d])=>Number.isInteger(n)&&Number.isInteger(d)&&n>0&&n<d&&d<=8&&gcdRegistry(n,d)===1)) return EqualPassedPacketsScene;
+  }
+  // Eight unique integer boundary coordinates on a small square keep every
+  // unordered pair finite and its Euclidean unit-distance test exact.
+  if(type==="boundary-unit-pair-graph"&&Array.isArray(data.points)){
+    const side=num(data.squareSide),unit=num(data.unitDistance),points=data.points.map(v=>String(v).split("|").map(Number));
+    if(side>0&&side<=6&&unit>0&&unit<=side&&points.length===8&&new Set(data.points.map(String)).size===8&&points.every(p=>p.length===2&&p.every(Number.isInteger)&&p.every(v=>v>=0&&v<=side)&&(p[0]===0||p[0]===side||p[1]===0||p[1]===side))) return BoundaryUnitPairGraphScene;
+  }
+  // Two bounded concentric radii and the exact six-piece source path determine
+  // three finite quarter-arcs and three drawable straight segments.
+  if(type==="concentric-path-ledger"&&data.pathPattern==="outer-quarter,gap,inner-quarter,inner-diameter,inner-quarter,gap"){
+    const outer=num(data.outerRadius),inner=num(data.innerRadius);
+    if(outer>inner&&inner>0&&outer<=100&&Number.isInteger(outer)&&Number.isInteger(inner)) return ConcentricPathLedgerScene;
   }
   // Two positive totals with a shared prime factor above 1 keep the Venn
   // overlap and the divided headcounts drawable.
@@ -1205,6 +1344,36 @@ export function resolveScene(problem: Problem): AnimatedScene {
     data.outerSide === 5 && data.cutSide === 1 && data.cutCount === 4 &&
     num(data.outerSide, 0) > 2 * num(data.cutSide, 0)
   ) return CornerCutSquareFitScene;
+  // A positive even perimeter makes an integer half-perimeter; the modest bound
+  // keeps all unit divisions drawable while the endpoint and balanced pair exist.
+  if (
+    type === "fixed-perimeter-area" &&
+    Number.isInteger(num(data.perimeter)) && num(data.perimeter) >= 6 && num(data.perimeter) <= 60 &&
+    num(data.perimeter) % 2 === 0 && data.minimumSide === 1
+  ) return FixedPerimeterAreaScene;
+  // One center cube with exactly one unit-cube neighbor on each face creates
+  // six joins; the small fixed inventory keeps the exploded view drawable.
+  if (
+    type === "cube-cross-join" &&
+    data.cubeCount === 7 && data.facesPerCube === 6 &&
+    data.centerJoins === 6 && data.unitVolume === 1
+  ) return CubeCrossJoinScene;
+  // Eight nonnegative one-digit scores followed by games 9 and 10 make both
+  // finite candidate sweeps exact and keep all ten candidates drawable.
+  if (
+    type === "successive-integer-average" &&
+    Array.isArray(data.initialScores) && data.initialScores.length === 8 &&
+    data.initialScores.every((v) => Number.isInteger(num(v)) && num(v) >= 0 && num(v) < 10) &&
+    data.scoreLimitExclusive === 10 && data.firstAddedGame === 9 && data.secondAddedGame === 10
+  ) return SuccessiveIntegerAverageScene;
+  // The exhaustive branch scene owns the order-three ABC Latin grid with its
+  // given upper-left A; this bound keeps all completed grids simultaneously visible.
+  if (
+    type === "latin-grid-branch" && data.size === 3 &&
+    Array.isArray(data.letters) && data.letters.length === 3 &&
+    data.letters[0] === "A" && data.letters[1] === "B" && data.letters[2] === "C" &&
+    data.fixedCell === "A@0,0"
+  ) return LatinGridBranchScene;
   if (type === "paper-fold-cut" && Array.isArray(data.cutPoly) && data.cutPoly.length >= 6) {
     return PaperFoldCutScene;
   }

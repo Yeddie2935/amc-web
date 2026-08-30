@@ -18804,18 +18804,25 @@ const amc2008Problems: Problem[] = [
     "shortAnswer": "14",
     "solutionSteps": [
       {
+        "title": "Start with the budget",
+        "body": "Susan started with 50 dollars for the carnival."
+      },
+      {
+        "title": "Spend on food",
+        "body": "She spent 12 dollars on food."
+      },
+      {
         "title": "Find the ride cost",
         "body": "She spent twice as much on rides as on food, so rides cost 2 × 12 = 24 dollars.",
         "equation": "2×12=24"
       },
       {
-        "title": "Add spending",
-        "body": "Altogether she spent 12 + 24 = 36 dollars.",
-        "equation": "12+24=36"
+        "title": "Watch the trap",
+        "body": "Forgetting that rides cost twice as much would give the wrong remaining amount."
       },
       {
         "title": "Subtract from her budget",
-        "body": "She started with 50 dollars, so she had 50 − 36 = 14 dollars left.",
+        "body": "Altogether she spent 12 + 24 = 36 dollars, so she had 50 − 36 = 14 dollars left.",
         "equation": "50-36=14"
       }
     ],
@@ -18837,9 +18844,11 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "carnival-budget-spend",
       "data": {
-        "answer": "B"
+        "budget": 50,
+        "foodCost": 12,
+        "rideMultiplier": 2
       }
     },
     "tags": [
@@ -18893,12 +18902,20 @@ const amc2008Problems: Problem[] = [
         "body": "The letters B,E,S,T,O,F,L,U,C,K represent 0,1,2,3,4,5,6,7,8,9 in order."
       },
       {
-        "title": "Read CLUE",
-        "body": "C = 8, L = 6, U = 7, and E = 1."
+        "title": "Look up C",
+        "body": "C is the 9th letter of the code, so C = 8."
       },
       {
-        "title": "Form the number",
-        "body": "Therefore CLUE represents 8671."
+        "title": "Look up L",
+        "body": "L is the 7th letter of the code, so L = 6."
+      },
+      {
+        "title": "Look up U",
+        "body": "U is the 8th letter of the code, so U = 7."
+      },
+      {
+        "title": "Look up E and form the number",
+        "body": "E is the 2nd letter of the code, so E = 1. Therefore CLUE represents 8671."
       }
     ],
     "animationFrames": [
@@ -18919,9 +18936,10 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "letter-digit-code",
       "data": {
-        "answer": "A"
+        "codeGroups": ["BEST", "OF", "LUCK"],
+        "targetWord": "CLUE"
       }
     },
     "tags": [
@@ -18971,11 +18989,19 @@ const amc2008Problems: Problem[] = [
     "shortAnswer": "Sunday",
     "solutionSteps": [
       {
-        "title": "Go back by weeks",
+        "title": "Start with Friday the 13th",
+        "body": "February 13 is a Friday."
+      },
+      {
+        "title": "Go back by a week",
         "body": "If February 13 is Friday, then February 6 is also Friday."
       },
       {
-        "title": "Go back five days",
+        "title": "Count back day by day",
+        "body": "Counting back from February 6 through February 2 gets closer to February 1."
+      },
+      {
+        "title": "Land on February 1",
         "body": "February 1 is five days before Friday, February 6."
       },
       {
@@ -19001,9 +19027,11 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "friday-thirteenth-weekday",
       "data": {
-        "answer": "A"
+        "day": 13,
+        "weekday": "Friday",
+        "targetDay": 1
       }
     },
     "tags": [
@@ -19052,18 +19080,26 @@ const amc2008Problems: Problem[] = [
     "shortAnswer": "5",
     "solutionSteps": [
       {
+        "title": "Show the two triangles",
+        "body": "The outer equilateral triangle has area 16, and the inner one has area 1."
+      },
+      {
         "title": "Find the surrounding area",
         "body": "The area inside the large triangle but outside the small triangle is 16 − 1 = 15.",
         "equation": "16-1=15"
       },
       {
-        "title": "Split equally",
+        "title": "Split into three trapezoids",
         "body": "This area is divided into three congruent trapezoids."
       },
       {
         "title": "Divide by 3",
         "body": "Each trapezoid has area 15 ÷ 3 = 5.",
         "equation": "15/3=5"
+      },
+      {
+        "title": "Conclude",
+        "body": "One trapezoid has area 5."
       }
     ],
     "animationFrames": [
@@ -19084,9 +19120,10 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "nested-triangle-trapezoid",
       "data": {
-        "answer": "C"
+        "outerArea": 16,
+        "innerArea": 1
       }
     },
     "tags": [
@@ -19150,9 +19187,17 @@ const amc2008Problems: Problem[] = [
         "equation": "4+6=10"
       },
       {
+        "title": "Watch the trap",
+        "body": "Miscounting the two riding stretches as 11 hours instead of 10 gives the wrong speed."
+      },
+      {
         "title": "Compute speed",
         "body": "Average speed is distance divided by time: 220 ÷ 10 = 22 mph.",
         "equation": "220/10=22"
+      },
+      {
+        "title": "Conclude",
+        "body": "Barney's average speed was 22 miles per hour."
       }
     ],
     "animationFrames": [
@@ -19173,9 +19218,11 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "odometer-palindrome",
       "data": {
-        "answer": "E"
+        "startReading": 1441,
+        "endReading": 1661,
+        "hours": [4, 6]
       }
     },
     "tags": [
@@ -19225,12 +19272,20 @@ const amc2008Problems: Problem[] = [
     "shortAnswer": "3 : 5",
     "solutionSteps": [
       {
+        "title": "Look at the diamond",
+        "body": "The figure is a grid of unit squares, rotated to form a diamond."
+      },
+      {
         "title": "Use the same unit size",
         "body": "The large gray square can be split into four small squares of the same size as the surrounding tiles."
       },
       {
-        "title": "Count gray and white pieces",
-        "body": "There are 6 gray small-square units and 10 white small-square units."
+        "title": "Count the gray pieces",
+        "body": "There are 6 gray small-square units."
+      },
+      {
+        "title": "Count the white pieces",
+        "body": "There are 10 white small-square units."
       },
       {
         "title": "Simplify the ratio",
@@ -19256,9 +19311,13 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "diamond-gray-squares",
       "data": {
-        "answer": "D"
+        "gridSize": 4,
+        "grayCells": [[0, 3], [3, 0], [1, 1], [1, 2], [2, 1], [2, 2]],
+        "mergedRow": 1,
+        "mergedCol": 1,
+        "mergedSize": 2
       }
     },
     "tags": [
@@ -19312,6 +19371,10 @@ const amc2008Problems: Problem[] = [
     "shortAnswer": "127",
     "solutionSteps": [
       {
+        "title": "Start with the base ratio",
+        "body": "3/5 is the ratio every fraction in the chain must equal."
+      },
+      {
         "title": "Solve for M",
         "body": "Since M/45 = 3/5, M = 45 × 3/5 = 27.",
         "equation": "M=45*3/5=27"
@@ -19320,6 +19383,10 @@ const amc2008Problems: Problem[] = [
         "title": "Solve for N",
         "body": "Since 60/N = 3/5, cross multiply to get 3N = 300, so N = 100.",
         "equation": "3N=300 => N=100"
+      },
+      {
+        "title": "Watch the trap",
+        "body": "45 + 60 = 105 looks tempting, but those are the given numbers, not M and N."
       },
       {
         "title": "Add",
@@ -19345,9 +19412,12 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "equivalent-fraction-chain",
       "data": {
-        "answer": "E"
+        "baseNum": 3,
+        "baseDen": 5,
+        "midDen": 45,
+        "farNum": 60
       }
     },
     "tags": [
@@ -19406,6 +19476,14 @@ const amc2008Problems: Problem[] = [
         "equation": "100+60+40+120=320"
       },
       {
+        "title": "Level the bars",
+        "body": "Spreading the same total evenly across 4 months levels every bar to the same height."
+      },
+      {
+        "title": "Check the total",
+        "body": "4 months at that leveled height still add up to the same 320 dollars."
+      },
+      {
         "title": "Average over four months",
         "body": "320 ÷ 4 = 80 dollars per month.",
         "equation": "320/4=80"
@@ -19429,9 +19507,9 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "candy-sales-average",
       "data": {
-        "answer": "D"
+        "sales": [100, 60, 40, 120]
       }
     },
     "tags": [
@@ -19485,6 +19563,10 @@ const amc2008Problems: Problem[] = [
     "shortAnswer": "2% gain",
     "solutionSteps": [
       {
+        "title": "Start with $100",
+        "body": "Tammy invests 100 dollars in 2005."
+      },
+      {
         "title": "Apply the loss",
         "body": "After a 15% loss, 100 dollars becomes 85 dollars.",
         "equation": "100*0.85=85"
@@ -19493,6 +19575,10 @@ const amc2008Problems: Problem[] = [
         "title": "Apply the gain",
         "body": "A 20% gain changes 85 dollars to 85 × 1.20 = 102 dollars.",
         "equation": "85*1.2=102"
+      },
+      {
+        "title": "Watch the trap",
+        "body": "Subtracting the percents directly (20% − 15% = 5% gain) is tempting, but percent changes don't just subtract."
       },
       {
         "title": "Compare to the original",
@@ -19517,9 +19603,11 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "investment-loss-gain",
       "data": {
-        "answer": "D"
+        "initial": 100,
+        "lossPercent": 15,
+        "gainPercent": 20
       }
     },
     "tags": [
@@ -19578,6 +19666,14 @@ const amc2008Problems: Problem[] = [
         "equation": "4*25=100"
       },
       {
+        "title": "Watch the trap",
+        "body": "Averaging the two averages, (40 + 25) ÷ 2 = 32.5, ignores that the rooms have different headcounts."
+      },
+      {
+        "title": "Combine both rooms",
+        "body": "Together the two rooms have 240 + 100 = 340 total years among 10 people."
+      },
+      {
         "title": "Average all 10 people",
         "body": "The combined total is 340 over 10 people, so the average is 34.",
         "equation": "(240+100)/10=34"
@@ -19601,9 +19697,12 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "room-average-merge",
       "data": {
-        "answer": "D"
+        "countA": 6,
+        "avgA": 40,
+        "countB": 4,
+        "avgB": 25
       }
     },
     "tags": [
@@ -19652,13 +19751,20 @@ const amc2008Problems: Problem[] = [
     "shortAnswer": "7",
     "solutionSteps": [
       {
-        "title": "Use inclusion-exclusion",
-        "body": "Dog owners plus cat owners counts students with both pets twice."
+        "title": "Line up the students",
+        "body": "All 39 students have a dog or a cat or both, so no one is left out."
       },
       {
-        "title": "Set up the equation",
-        "body": "39 = 20 + 26 − both.",
-        "equation": "39=20+26-x"
+        "title": "Push in the dog owners",
+        "body": "20 students have a dog."
+      },
+      {
+        "title": "Push in the cat owners",
+        "body": "26 students have a cat — since 20 + 26 = 46 is more than 39, the two groups must overlap."
+      },
+      {
+        "title": "Count the overlap",
+        "body": "The overlap is exactly 46 − 39 = 7 students."
       },
       {
         "title": "Solve",
@@ -19684,9 +19790,15 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "venn",
+      "type": "pet-overlap-line",
       "data": {
-        "answer": "A"
+        "total": 39,
+        "aCount": 20,
+        "bCount": 26,
+        "aLabel": "dog",
+        "bLabel": "cat",
+        "aIcon": "🐶",
+        "bIcon": "🐱"
       }
     },
     "tags": [
@@ -19736,16 +19848,28 @@ const amc2008Problems: Problem[] = [
     "shortAnswer": "5",
     "solutionSteps": [
       {
-        "title": "List bounce heights",
-        "body": "The first bounce rises to 2 meters, and each later bounce is 2/3 of the previous height."
+        "title": "Drop and first bounce",
+        "body": "Dropped from 3 meters, the first bounce rises to 2 meters."
       },
       {
-        "title": "Compute until below 0.5",
-        "body": "The bounce heights are 2, 4/3, 8/9, 16/27, and 32/81."
+        "title": "Second bounce",
+        "body": "The second bounce rises to 2/3 of 2, which is 4/3 meters — still above 0.5."
       },
       {
-        "title": "Compare",
-        "body": "16/27 is still above 0.5, but 32/81 is below 0.5, so it happens on the 5th bounce."
+        "title": "Third bounce",
+        "body": "The third bounce rises to 8/9 meters — still above 0.5."
+      },
+      {
+        "title": "Fourth bounce",
+        "body": "The fourth bounce rises to 16/27 meters — still above 0.5."
+      },
+      {
+        "title": "Fifth bounce",
+        "body": "The fifth bounce rises to 32/81 meters, which is below 0.5."
+      },
+      {
+        "title": "Conclude",
+        "body": "The 5th bounce is the first one that does not reach 0.5 meters."
       }
     ],
     "animationFrames": [
@@ -19766,9 +19890,15 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "bouncing-ball-decay",
       "data": {
-        "answer": "C"
+        "dropHeight": 3,
+        "firstNum": 2,
+        "firstDen": 1,
+        "ratioNum": 2,
+        "ratioDen": 3,
+        "thresholdNum": 1,
+        "thresholdDen": 2
       }
     },
     "tags": [
@@ -19818,6 +19948,14 @@ const amc2008Problems: Problem[] = [
     "shortAnswer": "187",
     "solutionSteps": [
       {
+        "title": "Weigh in pairs",
+        "body": "Three boxes are weighed two at a time, in every possible pairing."
+      },
+      {
+        "title": "Read the three weighings",
+        "body": "The three pairings weigh 122, 125, and 127 pounds."
+      },
+      {
         "title": "Add the pair weights",
         "body": "Adding the three pair weights gives 122 + 125 + 127 = 374.",
         "equation": "122+125+127=374"
@@ -19850,9 +19988,9 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "pairwise-box-weigh",
       "data": {
-        "answer": "C"
+        "pairWeights": [122, 125, 127]
       }
     },
     "tags": [
@@ -19933,9 +20071,11 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "latin-grid-branch",
       "data": {
-        "answer": "C"
+        "size": 3,
+        "letters": ["A", "B", "C"],
+        "fixedCell": "A@0,0"
       }
     },
     "tags": [
@@ -19999,7 +20139,11 @@ const amc2008Problems: Problem[] = [
       },
       {
         "title": "Make the 10-game total divisible by 10",
-        "body": "The next 10-game total must be a multiple of 10, so she scored 5 points in game 10. The product is 8 × 5 = 40."
+        "body": "Starting from 45, the only score below 10 that makes the new total divisible by 10 is 5, giving a total of 50."
+      },
+      {
+        "title": "Multiply the two scores",
+        "body": "The product of the ninth- and tenth-game scores is 8 × 5 = 40."
       }
     ],
     "animationFrames": [
@@ -20020,9 +20164,12 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "successive-integer-average",
       "data": {
-        "answer": "B"
+        "initialScores": [7, 4, 3, 6, 8, 3, 1, 5],
+        "scoreLimitExclusive": 10,
+        "firstAddedGame": 9,
+        "secondAddedGame": 10
       }
     },
     "tags": [
@@ -20076,8 +20223,12 @@ const amc2008Problems: Problem[] = [
         "body": "The shape is made of seven unit cubes, so its volume is 7 cubic units."
       },
       {
-        "title": "Find exposed faces",
-        "body": "The shape has five protruding unit cubes around a central cube, giving 5 × 6 = 30 exposed unit faces in this arrangement."
+        "title": "Count separate faces",
+        "body": "Before joining, the seven cubes have 7 × 6 = 42 unit faces altogether."
+      },
+      {
+        "title": "Remove hidden faces",
+        "body": "Six cubes join the central cube. Each join hides two faces, so the surface area is 42 − 6 × 2 = 30 square units."
       },
       {
         "title": "Write the ratio",
@@ -20102,9 +20253,12 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "solid-3d",
+      "type": "cube-cross-join",
       "data": {
-        "answer": "D"
+        "cubeCount": 7,
+        "facesPerCube": 6,
+        "centerJoins": 6,
+        "unitVolume": 1
       }
     },
     "tags": [
@@ -20167,7 +20321,11 @@ const amc2008Problems: Problem[] = [
       },
       {
         "title": "Find the smallest area",
-        "body": "The smallest positive integer-sided rectangle is 1 by 24, giving area 24. The difference is 156 − 24 = 132."
+        "body": "The smallest positive integer-sided rectangle is 1 by 24, giving area 24."
+      },
+      {
+        "title": "Compare the extremes",
+        "body": "The difference between the largest and smallest areas is 156 − 24 = 132."
       }
     ],
     "animationFrames": [
@@ -20188,9 +20346,10 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "fixed-perimeter-area",
       "data": {
-        "answer": "D"
+        "perimeter": 50,
+        "minimumSide": 1
       }
     },
     "tags": [
@@ -20249,7 +20408,11 @@ const amc2008Problems: Problem[] = [
       },
       {
         "title": "Add straight parts",
-        "body": "The straight pieces total 10 + 20 + 10 = 40, so the path length is 20π + 40."
+        "body": "The two radial gaps and the small diameter total 10 + 20 + 10 = 40."
+      },
+      {
+        "title": "Combine the distances",
+        "body": "Adding the curved and straight distances gives a total path length of 20π + 40 meters."
       }
     ],
     "animationFrames": [
@@ -20270,9 +20433,11 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "concentric-path-ledger",
       "data": {
-        "answer": "E"
+        "outerRadius": 20,
+        "innerRadius": 10,
+        "pathPattern": "outer-quarter,gap,inner-quarter,inner-diameter,inner-quarter,gap"
       }
     },
     "tags": [
@@ -20357,9 +20522,11 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "boundary-unit-pair-graph",
       "data": {
-        "answer": "B"
+        "squareSide": 2,
+        "unitDistance": 1,
+        "points": ["0|0", "1|0", "2|0", "0|1", "2|1", "0|2", "1|2", "2|2"]
       }
     },
     "tags": [
@@ -20444,9 +20611,10 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "equal-passed-packets",
       "data": {
-        "answer": "B"
+        "boyPassedFraction": [2, 3],
+        "girlPassedFraction": [3, 4]
       }
     },
     "tags": [
@@ -20505,8 +20673,12 @@ const amc2008Problems: Problem[] = [
         "equation": "pi*4^2*6=96pi"
       },
       {
-        "title": "Take half",
-        "body": "The wedge is half the cylinder, so its volume is 48π, which is closest to 151."
+        "title": "Pair the two halves",
+        "body": "A 180-degree turn about the cylinder's center maps the wedge exactly onto its complement, so the wedge has half the cylinder's volume."
+      },
+      {
+        "title": "Compute and compare",
+        "body": "The wedge volume is 96π/2 = 48π ≈ 150.8 cubic centimeters, which is closest to 151."
       }
     ],
     "animationFrames": [
@@ -20527,9 +20699,11 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "diagonal-cylinder-half",
       "data": {
-        "answer": "C"
+        "diameterCm": 8,
+        "lengthCm": 6,
+        "cutSymmetry": "center-turn"
       }
     },
     "tags": [
@@ -20613,9 +20787,12 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "scaled-three-digit-overlap",
       "data": {
-        "answer": "A"
+        "threeDigitMin": 100,
+        "threeDigitMax": 999,
+        "divisor": 3,
+        "multiplier": 3
       }
     },
     "tags": [
@@ -20695,9 +20872,10 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "square-corner-triangle-complement",
       "data": {
-        "answer": "C"
+        "sideLength": 6,
+        "segmentRatio": [2, 1]
       }
     },
     "tags": [
@@ -20755,8 +20933,12 @@ const amc2008Problems: Problem[] = [
         "body": "There are 10 possible tiles and 6 possible die rolls, for 60 equally likely outcomes."
       },
       {
-        "title": "Count square products",
-        "body": "The favorable pairs are (1,1), (1,4), (2,2), (4,1), (3,3), (9,1), (4,4), (8,2), (5,5), (6,6), and (9,4)."
+        "title": "Find squarefree cores",
+        "body": "Remove pairs of equal prime factors from each value. A tile-die product is a square exactly when the two remaining squarefree cores match."
+      },
+      {
+        "title": "Count matching cores",
+        "body": "For die rolls 1 through 6, the numbers of matching tiles are 3, 2, 1, 3, 1, and 1, for 11 favorable outcomes."
       },
       {
         "title": "Compute probability",
@@ -20781,9 +20963,10 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "square-product-kernel-grid",
       "data": {
-        "answer": "C"
+        "tileValues": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        "dieValues": [1, 2, 3, 4, 5, 6]
       }
     },
     "tags": [
@@ -20833,8 +21016,12 @@ const amc2008Problems: Problem[] = [
     "shortAnswer": "42",
     "solutionSteps": [
       {
-        "title": "Use circle areas",
-        "body": "The circle radii are 2, 4, 6, 8, 10, and 12, so their areas are proportional to 4, 16, 36, 64, 100, and 144."
+        "title": "Mark the six circles",
+        "body": "The circle radii are 2, 4, 6, 8, 10, and 12 inches, alternating black and white from the center outward."
+      },
+      {
+        "title": "Recenter without changing area",
+        "body": "Slide the internally tangent circles to a common center. Translation preserves every circle's area, and the black regions become two annuli and the center disk."
       },
       {
         "title": "Add black rings",
@@ -20863,9 +21050,11 @@ const amc2008Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "offset-circle-bands",
       "data": {
-        "answer": "A"
+        "radii": [2, 4, 6, 8, 10, 12],
+        "blackBands": [0, 2, 4],
+        "tangentSide": "right"
       }
     },
     "tags": [
