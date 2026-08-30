@@ -1,0 +1,32 @@
+import { motion } from "motion/react";
+import type { AnimatedSceneProps } from "./types";
+import { num, sceneData, SvgAnswerBadge } from "./sceneKit";
+
+const FONT="ui-monospace, SFMono-Regular, Menlo, monospace";
+const INK="#1f2a44",IND="#4338ca",GREEN="#16a34a",RED="#dc2626",AMBER="#d97706",DIM="#64748b";
+
+/** Chop two patterned integers modulo a place-value window, multiply, and read selected digits. */
+export function ProductTailWindowScene({problem,step,totalSteps}:AnimatedSceneProps){
+  const data=sceneData(problem),digits=num(data.numberDigits,0),window=Math.round(num(data.windowDigits,0));
+  const tails=(Array.isArray(data.tails)?data.tails:[]).map(String),a=Number(tails[0]),b=Number(tails[1]);
+  const product=a*b,modulus=10**window,remainder=((product%modulus)+modulus)%modulus,tail=String(remainder).padStart(window,"0");
+  const thousands=Number(tail[0]),units=Number(tail[window-1]),answer=thousands+units;
+  const choice=problem.choices?.find(c=>Number(c.text)===answer)?.label;
+  const ok=digits===99&&window===4&&tails.join(",")==="0303,0505"&&product===153015&&tail==="3015"&&thousands===3&&units===5&&String(answer)===problem.shortAnswer&&choice===problem.answer;
+  const failure=tails.length!==2?`${tails.length} tails supplied`:!Number.isFinite(product)?"tail product is not finite":tail!=="3015"?`last ${window} digits are ${tail}`:String(answer)!==problem.shortAnswer?`computed ${answer}, stored ${problem.shortAnswer}`:`choice ${choice??"missing"}, stored ${problem.answer}`;
+  const final=step>=totalSteps-1,phase=final?2:Math.min(step,1);
+  const DigitRow=({value,y,tone=IND}:{value:string;y:number;tone?:string})=><g>{value.split("").map((d,i)=><motion.g key={i} initial={{opacity:0,y:-8}} animate={{opacity:1,y:0}} transition={{delay:i*.09}}><rect x={157+i*42} y={y} width="36" height="48" rx="7" fill="#fff" stroke={tone} strokeWidth="2"/><text x={175+i*42} y={y+32} textAnchor="middle" fontSize="20" fontWeight="950" fill={tone} fontFamily={FONT}>{d}</text></motion.g>)}</g>;
+  return <div style={{width:"100%",display:"flex",justifyContent:"center",minWidth:0,padding:"5px 2px",boxSizing:"border-box",overflow:"hidden"}}><svg viewBox="0 0 470 315" width="100%" style={{maxWidth:500,display:"block"}} aria-label="Four-digit windows retain exactly the product digits needed">
+    <text x="235" y="18" textAnchor="middle" fontSize="11.5" fontWeight="850" fill={INK}>{phase===0?"keep only each number's final four places":phase===1?"multiply the two four-digit tails":"open the final four-place window and read A and B"}</text>
+    {phase===0&&<><g transform="translate(29 53)"><rect width="412" height="71" rx="13" fill="#f8fafc" stroke="#cbd5e1"/><text x="17" y="28" fontSize="14" fontWeight="900" fill={DIM} fontFamily={FONT}>303,030,303,…,</text><rect x="245" y="10" width="145" height="50" rx="9" fill="#eef2ff" stroke={IND} strokeWidth="2.4"/><text x="317.5" y="42" textAnchor="middle" fontSize="23" fontWeight="950" fill={IND} fontFamily={FONT}>{tails[0]}</text><path d="M235 5V66" stroke={RED} strokeWidth="2.4" strokeDasharray="5 4"/><text x="235" y="69" textAnchor="middle" fontSize="8" fontWeight="900" fill={RED}>CUT</text></g><g transform="translate(29 145)"><rect width="412" height="71" rx="13" fill="#f8fafc" stroke="#cbd5e1"/><text x="17" y="28" fontSize="14" fontWeight="900" fill={DIM} fontFamily={FONT}>505,050,505,…,</text><rect x="245" y="10" width="145" height="50" rx="9" fill="#f0fdf4" stroke={GREEN} strokeWidth="2.4"/><text x="317.5" y="42" textAnchor="middle" fontSize="23" fontWeight="950" fill={GREEN} fontFamily={FONT}>{tails[1]}</text><path d="M235 5V66" stroke={RED} strokeWidth="2.4" strokeDasharray="5 4"/><text x="235" y="69" textAnchor="middle" fontSize="8" fontWeight="900" fill={RED}>CUT</text></g><g transform="translate(92 244)"><rect width="286" height="43" rx="12" fill="#fff7ed" stroke={AMBER}/><text x="143" y="27" textAnchor="middle" fontSize="14" fontWeight="950" fill={AMBER} fontFamily={FONT}>same remainder mod 10,{String(modulus).slice(2)}</text></g></>}
+    {phase===1&&<><g transform="translate(51 47)"><rect width="368" height="73" rx="14" fill="#f8fafc" stroke="#cbd5e1"/><text x="184" y="27" textAnchor="middle" fontSize="10" fontWeight="900" fill={DIM}>TAIL MULTIPLICATION</text><text x="184" y="57" textAnchor="middle" fontSize="23" fontWeight="950" fill={IND} fontFamily={FONT}>{a} × {b}</text></g><g transform="translate(70 145)"><rect width="330" height="103" rx="15" fill="#eef2ff" stroke={IND} strokeWidth="2"/><text x="165" y="26" textAnchor="middle" fontSize="14" fontWeight="950" fill={INK} fontFamily={FONT}>{a} × 500 = {a*500}</text><text x="165" y="51" textAnchor="middle" fontSize="14" fontWeight="950" fill={INK} fontFamily={FONT}>{a} × 5 = {a*5}</text><line x1="75" y1="62" x2="255" y2="62" stroke="#a5b4fc"/><text x="165" y="88" textAnchor="middle" fontSize="22" fontWeight="950" fill={IND} fontFamily={FONT}>= {product}</text></g><text x="235" y="282" textAnchor="middle" fontSize="10" fontWeight="850" fill={DIM}>only the rightmost {window} product digits continue</text></>}
+    {phase===2&&<>
+      <text x="235" y="48" textAnchor="middle" fontSize="10" fontWeight="900" fill={DIM}>{product} → LAST {window} DIGITS</text>
+      <DigitRow value={tail} y={61} tone={GREEN}/>
+      <g transform="translate(139 120)">{["1000s","100s","10s","1s"].map((label,i)=><text key={label} x={36+i*42} y="14" textAnchor="middle" fontSize="8" fontWeight="900" fill={i===0||i===3?GREEN:DIM}>{label}</text>)}</g>
+      <motion.path d="M175 139V158M301 139V158" stroke={GREEN} strokeWidth="2.5" initial={{pathLength:0}} animate={{pathLength:1}}/>
+      <g transform="translate(91 166)"><rect width="288" height="103" rx="15" fill={ok?"#f0fdf4":"#fef2f2"} stroke={ok?GREEN:RED} strokeWidth="2.6"/><text x="144" y="22" textAnchor="middle" fontSize="10" fontWeight="900" fill={DIM}>THOUSANDS + UNITS</text><text x="144" y="50" textAnchor="middle" fontSize="18" fontWeight="950" fill={INK} fontFamily={FONT}>A = {thousands}     B = {units}</text><text x="144" y="76" textAnchor="middle" fontSize="24" fontWeight="950" fill={ok?GREEN:RED} fontFamily={FONT}>A + B = {answer}</text><text x="144" y="94" textAnchor="middle" fontSize="8.5" fontWeight="850" fill={ok?GREEN:RED}>{ok?"four-place remainder and choice verified":failure}</text></g>
+      <SvgAnswerBadge show={ok} answer={problem.answer} cx={421} y={276} width={78}/>
+    </>}
+  </svg></div>;
+}

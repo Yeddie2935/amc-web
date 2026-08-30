@@ -16682,8 +16682,28 @@ const amc2007Problems: Problem[] = [
         "equation": "10\\times 6=60"
       },
       {
-        "title": "Add the first five weeks",
-        "body": "Her first five weeks total 8 + 11 + 7 + 12 + 10 = 48 hours.",
+        "title": "Week 1",
+        "body": "She worked 8 hours, 2 hours under the 10-hour target."
+      },
+      {
+        "title": "Week 2",
+        "body": "She worked 11 hours, 1 hour over target."
+      },
+      {
+        "title": "Week 3",
+        "body": "She worked 7 hours, 3 hours under target."
+      },
+      {
+        "title": "Week 4",
+        "body": "She worked 12 hours, 2 hours over target."
+      },
+      {
+        "title": "Week 5",
+        "body": "She worked 10 hours, exactly on target."
+      },
+      {
+        "title": "Total the shortfall",
+        "body": "Her first five weeks total 8 + 11 + 7 + 12 + 10 = 48 hours, 2 hours short of the 50 needed by week 5.",
         "equation": "8+11+7+12+10=48"
       },
       {
@@ -16710,9 +16730,11 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "weekly-average-deviation",
       "data": {
-        "answer": "D"
+        "knownHours": [8, 11, 7, 12, 10],
+        "target": 10,
+        "weekCount": 6
       }
     },
     "tags": [
@@ -16762,7 +16784,11 @@ const amc2007Problems: Problem[] = [
     "shortAnswer": "5/2",
     "solutionSteps": [
       {
-        "title": "Read the bars",
+        "title": "Read all four bars",
+        "body": "Lasagna 150, manicotti 100, ravioli 150, spaghetti 250 — 650 students in all."
+      },
+      {
+        "title": "Focus on spaghetti and manicotti",
         "body": "The spaghetti bar is 250 students, and the manicotti bar is 100 students.",
         "equation": "spaghetti=250,\\ manicotti=100"
       },
@@ -16772,8 +16798,12 @@ const amc2007Problems: Problem[] = [
         "equation": "250:100"
       },
       {
+        "title": "Break into equal blocks",
+        "body": "Both counts split evenly into blocks of 50: spaghetti makes 5 blocks, manicotti makes 2."
+      },
+      {
         "title": "Simplify",
-        "body": "Divide both numbers by 50 to get 5:2, so the ratio is 5/2.",
+        "body": "5 blocks to 2 blocks means the ratio is 5/2.",
         "equation": "250/100=5/2"
       }
     ],
@@ -16795,9 +16825,16 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "pasta-bar-ratio",
       "data": {
-        "answer": "E"
+        "categories": [
+          { "label": "Lasagna", "count": 150 },
+          { "label": "Manicotti", "count": 100 },
+          { "label": "Ravioli", "count": 150 },
+          { "label": "Spaghetti", "count": 250 }
+        ],
+        "askIndex": 3,
+        "ofIndex": 1
       }
     },
     "tags": [
@@ -16851,18 +16888,33 @@ const amc2007Problems: Problem[] = [
     "shortAnswer": "7",
     "solutionSteps": [
       {
-        "title": "Factor 250",
-        "body": "Break 250 into prime factors.",
+        "title": "Start with 250",
+        "body": "Look at 250 and start pulling out prime factors.",
+        "equation": "250"
+      },
+      {
+        "title": "Divide out a 2",
+        "body": "250 is even, so 2 is a factor.",
+        "equation": "250=2\\times125"
+      },
+      {
+        "title": "Divide out a 5",
+        "body": "125 is divisible by 5.",
+        "equation": "125=5\\times25"
+      },
+      {
+        "title": "Finish the factorization",
+        "body": "25 = 5 x 5, so 250 = 2 x 5 x 5 x 5.",
         "equation": "250=2\\times5^3"
       },
       {
-        "title": "Identify the two smallest prime factors",
-        "body": "The distinct prime factors are 2 and 5.",
+        "title": "Keep only distinct primes",
+        "body": "The repeated 5's aren't new primes - the distinct prime factors are just 2 and 5.",
         "equation": "2,5"
       },
       {
-        "title": "Add them",
-        "body": "Their sum is 2 + 5 = 7.",
+        "title": "Add the two smallest",
+        "body": "The two smallest prime factors sum to 2 + 5 = 7.",
         "equation": "2+5=7"
       }
     ],
@@ -16884,9 +16936,10 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "prime-factor-tree",
       "data": {
-        "answer": "C"
+        "n": 250,
+        "countSmallest": 2
       }
     },
     "tags": [
@@ -16935,12 +16988,28 @@ const amc2007Problems: Problem[] = [
     "shortAnswer": "30",
     "solutionSteps": [
       {
+        "title": "Six windows",
+        "body": "The haunted house has six windows Georgie could use."
+      },
+      {
         "title": "Choose an entrance",
-        "body": "There are 6 choices for the window Georgie enters."
+        "body": "Georgie can fly in through any of the 6 windows.",
+        "equation": "6"
       },
       {
         "title": "Choose a different exit",
-        "body": "After choosing the entrance, 5 windows remain for the exit."
+        "body": "The exit must be one of the other 5 windows.",
+        "equation": "5"
+      },
+      {
+        "title": "Watch the trap",
+        "body": "Reusing the entrance would double count: 6 x 6 = 36 isn't allowed since the exit must differ.",
+        "equation": "6\\times6=36"
+      },
+      {
+        "title": "Count every pair",
+        "body": "Every entrance pairs with 5 exits, giving 30 ordered pairs total.",
+        "equation": "6\\times5=30"
       },
       {
         "title": "Multiply",
@@ -16966,9 +17035,9 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "window-entry-exit",
       "data": {
-        "answer": "D"
+        "windowCount": 6
       }
     },
     "tags": [
@@ -17017,6 +17086,11 @@ const amc2007Problems: Problem[] = [
     "shortAnswer": "25",
     "solutionSteps": [
       {
+        "title": "Start the goal",
+        "body": "Chandler needs $500 for the mountain bike.",
+        "equation": "500"
+      },
+      {
         "title": "Add birthday money",
         "body": "His birthday money is 50 + 35 + 15 = 100 dollars.",
         "equation": "50+35+15=100"
@@ -17025,6 +17099,16 @@ const amc2007Problems: Problem[] = [
         "title": "Find the remaining amount",
         "body": "He needs 500 − 100 = 400 more dollars.",
         "equation": "500-100=400"
+      },
+      {
+        "title": "Fill the savings meter",
+        "body": "Earning $16 a week, the meter climbs toward the $500 target.",
+        "equation": "400/16=25"
+      },
+      {
+        "title": "Watch the trap",
+        "body": "If the $15 cousin gift were missed, only $85 would be saved up front, needing 500 − 85 = 415, which rounds up to 26 weeks.",
+        "equation": "500-85=415"
       },
       {
         "title": "Divide by weekly earnings",
@@ -17050,9 +17134,11 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "savings-meter-fill",
       "data": {
-        "answer": "B"
+        "giftAmounts": [50, 35, 15],
+        "target": 500,
+        "weeklyRate": 16
       }
     },
     "tags": [
@@ -17102,9 +17188,24 @@ const amc2007Problems: Problem[] = [
     "shortAnswer": "80",
     "solutionSteps": [
       {
+        "title": "The 1985 price",
+        "body": "Long-distance calls cost 41 cents per minute in 1985.",
+        "equation": "41"
+      },
+      {
+        "title": "The 2005 price",
+        "body": "By 2005, the cost had dropped to 7 cents per minute.",
+        "equation": "7"
+      },
+      {
         "title": "Find the decrease",
         "body": "The cost decreased by 41 − 7 = 34 cents.",
         "equation": "41-7=34"
+      },
+      {
+        "title": "Watch the trap",
+        "body": "34 cents saved isn't the percent decrease - that's choice C, but percent needs dividing by the original price.",
+        "equation": "34"
       },
       {
         "title": "Compare to the original",
@@ -17134,9 +17235,10 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "percent-drop-meter",
       "data": {
-        "answer": "E"
+        "before": 41,
+        "after": 7
       }
     },
     "tags": [
@@ -17190,12 +17292,27 @@ const amc2007Problems: Problem[] = [
         "equation": "5\\times30=150"
       },
       {
+        "title": "Spot the 18-year-old",
+        "body": "This person's actual age, 18, is below the group average.",
+        "equation": "18"
+      },
+      {
         "title": "Remove the 18-year-old",
         "body": "The remaining total is 150 − 18 = 132.",
         "equation": "150-18=132"
       },
       {
+        "title": "Watch the trap",
+        "body": "Dividing by the original 5 people gives 132 ÷ 5 ≈ 26 - that's choice B, but only 4 people remain.",
+        "equation": "132/5\\approx26"
+      },
+      {
         "title": "Average the remaining four",
+        "body": "There are only 4 people left, so divide the new total by 4.",
+        "equation": "132/4=33"
+      },
+      {
+        "title": "New average",
         "body": "132 ÷ 4 = 33, so the new average is 33 years.",
         "equation": "132/4=33"
       }
@@ -17218,9 +17335,11 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "average-after-leave",
       "data": {
-        "answer": "D"
+        "peopleCount": 5,
+        "avgBefore": 30,
+        "leaverAge": 18
       }
     },
     "tags": [
@@ -17269,6 +17388,10 @@ const amc2007Problems: Problem[] = [
     "shortAnswer": "4.5",
     "solutionSteps": [
       {
+        "title": "See the trapezoid",
+        "body": "AD is perpendicular to DC, with AD = AB = 3 and DC = 6."
+      },
+      {
         "title": "Recognize the square",
         "body": "Since AD = AB = 3 and BE is parallel to AD, ABED is a 3 by 3 square."
       },
@@ -17276,6 +17399,15 @@ const amc2007Problems: Problem[] = [
         "title": "Find EC",
         "body": "The whole base DC is 6, and DE is 3, so EC = 3.",
         "equation": "EC=6-3=3"
+      },
+      {
+        "title": "Watch the trap",
+        "body": "The square on the right (B, E, C, and the trapezoid's top-right corner) has area 3 x 3 = 9 - that's choice D, but triangle BEC is only half of it.",
+        "equation": "3\\times3=9"
+      },
+      {
+        "title": "Split by the diagonal",
+        "body": "Diagonal BC cuts that square into two equal triangles, and BEC is one of them."
       },
       {
         "title": "Use triangle area",
@@ -17301,9 +17433,10 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "trapezoid-square-split",
       "data": {
-        "answer": "B"
+        "ad": 3,
+        "dc": 6
       }
     },
     "tags": [
@@ -17357,12 +17490,27 @@ const amc2007Problems: Problem[] = [
     "shortAnswer": "2",
     "solutionSteps": [
       {
-        "title": "Use column restrictions",
-        "body": "The first row already has 1 and 2, and the second column already has 3, forcing the top-right part of the grid."
+        "title": "Read the grid",
+        "body": "Each row and column must contain 1, 2, 3, 4 exactly once. Find the lower-right square."
+      },
+      {
+        "title": "Fill the top-right",
+        "body": "Row 1 needs {3,4}, but column 4 already has a 4 in row 3, so row 1's last cell must be 3.",
+        "equation": "r1c4=3"
+      },
+      {
+        "title": "Fill the next column-4 cell",
+        "body": "Row 2 needs {1,4}; column 4 now has only {1,2} left, so row 2's cell is 1.",
+        "equation": "r2c4=1"
+      },
+      {
+        "title": "Watch the trap",
+        "body": "Guessing the lower-right is 4 would repeat column 4's existing 4 - that's choice D, but each column can only use 4 once.",
+        "equation": "4"
       },
       {
         "title": "Complete the last column",
-        "body": "The last column must contain 1, 2, 3, and 4 exactly once."
+        "body": "Column 4 now has 3, 1, and 4 - the only value left is 2."
       },
       {
         "title": "Determine the lower-right square",
@@ -17387,9 +17535,21 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "latin-square-deduce",
       "data": {
-        "answer": "B"
+        "size": 4,
+        "givens": [
+          { "r": 0, "c": 0, "v": 1 },
+          { "r": 0, "c": 2, "v": 2 },
+          { "r": 1, "c": 0, "v": 2 },
+          { "r": 1, "c": 1, "v": 3 },
+          { "r": 2, "c": 3, "v": 4 }
+        ],
+        "deductions": [
+          { "r": 0, "c": 3, "v": 3 },
+          { "r": 1, "c": 3, "v": 1 }
+        ],
+        "target": { "r": 3, "c": 3 }
       }
     },
     "tags": [
@@ -17443,9 +17603,23 @@ const amc2007Problems: Problem[] = [
     "shortAnswer": "28",
     "solutionSteps": [
       {
+        "title": "Read the definition",
+        "body": "[n] means the sum of all positive factors of n. Start with [11]."
+      },
+      {
         "title": "Evaluate the inner expression",
         "body": "Since 11 is prime, its positive factors are 1 and 11, so [11] = 12.",
         "equation": "[11]=1+11=12"
+      },
+      {
+        "title": "Feed the result back in",
+        "body": "Now [[11]] means [12] - find the sum of 12's factors.",
+        "equation": "[[11]]=[12]"
+      },
+      {
+        "title": "Watch the trap",
+        "body": "Skipping the factor 4 would give 1+2+3+6+12=24 - that's choice C, but 4 does divide 12.",
+        "equation": "1+2+3+6+12=24"
       },
       {
         "title": "Evaluate the outer expression",
@@ -17476,9 +17650,9 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "nested-factor-sum",
       "data": {
-        "answer": "D"
+        "n": 11
       }
     },
     "tags": [
@@ -17528,16 +17702,29 @@ const amc2007Problems: Problem[] = [
     "shortAnswer": "IV",
     "solutionSteps": [
       {
+        "title": "See the tiles and grid",
+        "body": "Four tiles must fill rectangles A, B, C, D so touching edges match."
+      },
+      {
         "title": "Start with unique numbers",
-        "body": "Tile III has a 0 and a 5, which do not match any other outside edge except in one forced position."
+        "body": "Tile III has a 0 and a 5, which do not match any other tile's edges, so they must face outward."
       },
       {
         "title": "Place Tile III",
-        "body": "Tile III must go in rectangle D so its unmatched 0 and 5 face the outside."
+        "body": "The only corner whose outside edges are its right and bottom is D, so Tile III goes there."
+      },
+      {
+        "title": "Watch the trap",
+        "body": "Matching III's top edge (7) to Tile I's bottom (7) would wrongly suggest C = I - but C shares III's left edge, not its top.",
+        "equation": "7"
       },
       {
         "title": "Match the left edge",
         "body": "Tile III has 1 on its left edge, so the tile in rectangle C must have 1 on its right edge. That tile is IV."
+      },
+      {
+        "title": "Complete the grid",
+        "body": "The rest falls into place (A = II, B = I), confirming C is filled by Tile IV."
       }
     ],
     "animationFrames": [
@@ -17558,9 +17745,15 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "tile-edge-match",
       "data": {
-        "answer": "D"
+        "tiles": {
+          "I": { "top": 8, "right": 9, "bottom": 7, "left": 3 },
+          "II": { "top": 6, "right": 3, "bottom": 2, "left": 4 },
+          "III": { "top": 7, "right": 5, "bottom": 0, "left": 1 },
+          "IV": { "top": 2, "right": 1, "bottom": 6, "left": 9 }
+        },
+        "target": "C"
       }
     },
     "tags": [
@@ -17614,16 +17807,24 @@ const amc2007Problems: Problem[] = [
     "shortAnswer": "1:1",
     "solutionSteps": [
       {
+        "title": "Look at the hexagram",
+        "body": "The star is a regular hexagon of side length 1 with an equilateral triangle attached to each of its 6 sides, pointing outward."
+      },
+      {
         "title": "Split the hexagon",
-        "body": "A regular hexagon of side length 1 can be divided into 6 congruent equilateral triangles."
+        "body": "A regular hexagon of side length 1 can be divided into 6 congruent equilateral triangles, each with side length 1."
       },
       {
         "title": "Compare to the extensions",
-        "body": "Each extension is also an equilateral triangle with side length 1."
+        "body": "Each of the 6 outward-pointing extensions is also an equilateral triangle with side length 1 — the same size as the hexagon's wedges."
+      },
+      {
+        "title": "Watch the classic trap",
+        "body": "It's tempting to compare the whole star to just the hexagon: the star is made of 12 such triangles total, twice the hexagon's 6, giving 2:1 — but that answers the wrong comparison."
       },
       {
         "title": "Compare total areas",
-        "body": "There are 6 extension triangles and 6 congruent triangles inside the hexagon, so the areas are equal: 1:1."
+        "body": "The question asks extensions vs. hexagon: 6 extension triangles and 6 hexagon triangles, so the areas are equal: 1:1."
       }
     ],
     "animationFrames": [
@@ -17644,9 +17845,9 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "hexagram-area",
       "data": {
-        "answer": "A"
+        "sides": 6
       }
     },
     "tags": [
@@ -17701,7 +17902,11 @@ const amc2007Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Let each set have x elements",
-        "body": "Since A and B have the same number of elements, call each size x."
+        "body": "Since A and B have the same number of elements, call each size x. Their overlap has 1001 elements, and their union has 2007."
+      },
+      {
+        "title": "Watch the classic trap",
+        "body": "It's tempting to compute |A ∪ B| − |A ∩ B| = 2007 − 1001 = 1006, but that's the two non-overlapping slivers combined, not the size of A alone."
       },
       {
         "title": "Use the union formula",
@@ -17712,6 +17917,10 @@ const amc2007Problems: Problem[] = [
         "title": "Solve",
         "body": "2x = 3008, so x = 1504.",
         "equation": "x=1504"
+      },
+      {
+        "title": "Check the pieces",
+        "body": "Only-A and only-B each have 1504 − 1001 = 503 elements, and 503 + 1001 + 503 = 2007 matches the given union."
       }
     ],
     "animationFrames": [
@@ -17732,9 +17941,10 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "venn",
+      "type": "twin-set-venn",
       "data": {
-        "answer": "C"
+        "union": 2007,
+        "intersection": 1001
       }
     },
     "tags": [
@@ -17788,9 +17998,17 @@ const amc2007Problems: Problem[] = [
     "shortAnswer": "13",
     "solutionSteps": [
       {
+        "title": "Set up the triangle",
+        "body": "Isosceles triangle ABC has base 24 and area 60; we want one of the two congruent sides."
+      },
+      {
         "title": "Find the height",
         "body": "Using area = 1/2 × base × height, 60 = 1/2 × 24 × h, so h = 5.",
         "equation": "60=12h\\Rightarrow h=5"
+      },
+      {
+        "title": "Watch the trap",
+        "body": "It's tempting to answer 5, the height just computed — but that's not a congruent side, just the altitude."
       },
       {
         "title": "Bisect the base",
@@ -17820,9 +18038,10 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "isosceles-area-to-side",
       "data": {
-        "answer": "C"
+        "base": 24,
+        "area": 60
       }
     },
     "tags": [
@@ -17907,9 +18126,13 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "positive-add-order",
       "data": {
-        "answer": "A"
+        "order": ["0", "a", "b", "c"],
+        "positiveTerm": "a",
+        "addTo": "c",
+        "compareTo": "b",
+        "targetChoice": "A"
       }
     },
     "tags": [
@@ -17958,12 +18181,16 @@ const amc2007Problems: Problem[] = [
     "shortAnswer": "Graph A",
     "solutionSteps": [
       {
-        "title": "Write the coordinates",
-        "body": "For radius r, C = 2πr and A = πr²."
+        "title": "Build the five circles",
+        "body": "For each radius r = 1, 2, 3, 4, 5, use C = 2πr and A = πr²."
       },
       {
-        "title": "Compare growth",
-        "body": "The C-values grow evenly, but the A-values grow faster and faster because of r²."
+        "title": "Plot the coordinates",
+        "body": "The five points are (2πr, πr²), one for each radius."
+      },
+      {
+        "title": "Compare consecutive gaps",
+        "body": "Every horizontal gap is 2π, while the vertical gaps are 3π, 5π, 7π, and 9π, so they grow larger."
       },
       {
         "title": "Choose the graph",
@@ -17988,9 +18215,13 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "circle-measure-growth",
       "data": {
-        "answer": "A"
+        "radii": [1, 2, 3, 4, 5],
+        "circumferenceFactor": 2,
+        "areaFactor": 1,
+        "choiceLabels": ["A", "B", "C", "D", "E"],
+        "choiceShapes": ["convex", "valley", "arch", "concave", "decreasing"]
       }
     },
     "tags": [
@@ -18075,9 +18306,12 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "mixture-pour-percent",
       "data": {
-        "answer": "C"
+        "startLiters": 30,
+        "kinds": ["red|25|#ef4444", "yellow|30|#eab308", "water|45|#38bdf8"],
+        "addedKind": "yellow",
+        "addedLiters": 5
       }
     },
     "tags": [
@@ -18159,9 +18393,11 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "product-tail-window",
       "data": {
-        "answer": "D"
+        "numberDigits": 99,
+        "windowDigits": 4,
+        "tails": ["0303", "0505"]
       }
     },
     "tags": [
@@ -18221,7 +18457,11 @@ const amc2007Problems: Problem[] = [
       },
       {
         "title": "Use the restriction",
-        "body": "Since n + (n + 1) < 100, the difference 2n + 1 is odd and less than 100. The only matching choice is 79."
+        "body": "Since n + (n + 1) < 100, the difference 2n + 1 must be odd and less than 100. Among the choices, only 79 survives."
+      },
+      {
+        "title": "Verify the surviving choice",
+        "body": "For 79, n = (79 − 1)/2 = 39. The consecutive integers 39 and 40 have sum 79 < 100 and 40² − 39² = 79."
       }
     ],
     "animationFrames": [
@@ -18242,9 +18482,11 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "consecutive-square-border",
       "data": {
-        "answer": "C"
+        "gap": 1,
+        "sumLimit": 100,
+        "candidates": [2, 64, 79, 96, 131]
       }
     },
     "tags": [
@@ -18295,16 +18537,21 @@ const amc2007Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Let x be games before district play",
-        "body": "Before district play, the Unicorns had won 0.45x games."
+        "body": "Before district play, wins were 45% of x and losses were 55% of x, so losses led wins by 10% of x."
       },
       {
         "title": "Add district play",
-        "body": "They won 6 and lost 2, so they played x + 8 total games and won 0.45x + 6."
+        "body": "The 6 district wins and 2 district losses give wins a relative gain of 6 − 2 = 4 games."
       },
       {
-        "title": "Set final wins to half",
-        "body": "Solve 0.45x + 6 = (x + 8)/2 to get x = 40, so the full season had 48 games.",
-        "equation": "0.45x+6=\\frac{x+8}{2}\\Rightarrow x=40"
+        "title": "Balance the record",
+        "body": "Finishing with half wins means wins and losses are tied. Thus 0.10x = 4, so x = 40 games before district play.",
+        "equation": "0.10x=4\\Rightarrow x=40"
+      },
+      {
+        "title": "Count the full season",
+        "body": "District play added 6 + 2 = 8 games, so the Unicorns played 40 + 8 = 48 games in all.",
+        "equation": "40+8=48"
       }
     ],
     "animationFrames": [
@@ -18325,9 +18572,12 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "season-record-balance",
       "data": {
-        "answer": "A"
+        "preWinPercent": 45,
+        "districtWins": 6,
+        "districtLosses": 2,
+        "finalWinPercent": 50
       }
     },
     "tags": [
@@ -18408,9 +18658,12 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "two-attribute-card-sort",
       "data": {
-        "answer": "D"
+        "colors": ["red", "green"],
+        "letters": ["A", "B", "C", "D"],
+        "fixedColor": "red",
+        "fixedLetter": "A"
       }
     },
     "tags": [
@@ -18460,6 +18713,10 @@ const amc2007Problems: Problem[] = [
     "shortAnswer": "5",
     "solutionSteps": [
       {
+        "title": "Follow the route",
+        "body": "The lemming runs 6.2 meters along the diagonal, turns 90° right, and runs 2 meters to a point inside the square."
+      },
+      {
         "title": "Use any point inside the square",
         "body": "For any point inside a 10 by 10 square, the distances to the left and right sides add to 10."
       },
@@ -18490,9 +18747,12 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "square-side-distance",
       "data": {
-        "answer": "C"
+        "squareSide": 10,
+        "diagonalRun": 6.2,
+        "turnRun": 2,
+        "turnDirection": "right"
       }
     },
     "tags": [
@@ -18550,12 +18810,16 @@ const amc2007Problems: Problem[] = [
         "body": "The 5 by 5 grid has area 25."
       },
       {
-        "title": "Count unshaded area",
-        "body": "The unshaded area consists of four 1 by 1 corner squares and four triangles with total area 15, for a total of 19."
+        "title": "Remove the corner squares",
+        "body": "The four unshaded 1 by 1 corner squares have total area 4."
+      },
+      {
+        "title": "Remove the side triangles",
+        "body": "Each of the four remaining unshaded triangles has base 3 and height 2.5, so together they have area 4 × (1/2)(3)(2.5) = 15."
       },
       {
         "title": "Subtract",
-        "body": "The shaded area is 25 − 19 = 6."
+        "body": "The shaded area is 25 − 4 − 15 = 6."
       }
     ],
     "animationFrames": [
@@ -18576,9 +18840,11 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "pinwheel-complement",
       "data": {
-        "answer": "B"
+        "gridSize": 5,
+        "sideInset": 1,
+        "center": [2.5, 2.5]
       }
     },
     "tags": [
@@ -18637,7 +18903,7 @@ const amc2007Problems: Problem[] = [
       },
       {
         "title": "Choose the digit sets",
-        "body": "The possible sets are {1,2,3} and {2,3,4}. These occur when 4 or 1 is left out."
+        "body": "Leaving out 1, 2, 3, or 4 gives digit sums 9, 8, 7, or 6. Only 9 and 6 are divisible by 3."
       },
       {
         "title": "Find the probability",
@@ -18662,9 +18928,11 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "digit-bag-omission",
       "data": {
-        "answer": "C"
+        "digits": [1, 2, 3, 4],
+        "drawCount": 3,
+        "divisor": 3
       }
     },
     "tags": [
@@ -18745,9 +19013,13 @@ const amc2007Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "dartboard-parity-area",
       "data": {
-        "answer": "B"
+        "outerRadius": 6,
+        "innerRadius": 3,
+        "sectorCount": 3,
+        "innerScores": [2, 2, 1],
+        "outerScores": [1, 1, 2]
       }
     },
     "tags": [

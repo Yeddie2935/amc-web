@@ -1,6 +1,20 @@
 import type { Problem } from "../../types/amc";
 import type { AnimatedScene } from "./scenes/types";
 import { ClockAngleScene } from "./scenes/ClockAngleScene";
+import { HexagramAreaScene } from "./scenes/HexagramAreaScene";
+import { TwinSetVennScene } from "./scenes/TwinSetVennScene";
+import { IsoscelesAreaToSideScene } from "./scenes/IsoscelesAreaToSideScene";
+import { TileEdgeMatchScene } from "./scenes/TileEdgeMatchScene";
+import { NestedFactorSumScene } from "./scenes/NestedFactorSumScene";
+import { LatinSquareDeduceScene } from "./scenes/LatinSquareDeduceScene";
+import { TrapezoidSquareSplitScene } from "./scenes/TrapezoidSquareSplitScene";
+import { AverageAfterLeaveScene } from "./scenes/AverageAfterLeaveScene";
+import { PercentDropScene } from "./scenes/PercentDropScene";
+import { SavingsMeterScene } from "./scenes/SavingsMeterScene";
+import { WindowEntryExitScene } from "./scenes/WindowEntryExitScene";
+import { PrimeFactorTreeScene } from "./scenes/PrimeFactorTreeScene";
+import { PastaBarRatioScene } from "./scenes/PastaBarRatioScene";
+import { WeeklyAverageDeviationScene } from "./scenes/WeeklyAverageDeviationScene";
 import { PairwiseBoxWeighScene } from "./scenes/PairwiseBoxWeighScene";
 import { BouncingBallDecayScene } from "./scenes/BouncingBallDecayScene";
 import { PetOverlapLineScene } from "./scenes/PetOverlapLineScene";
@@ -264,6 +278,15 @@ import { FixedPerimeterAreaScene } from "./scenes/FixedPerimeterAreaScene";
 import { CubeCrossJoinScene } from "./scenes/CubeCrossJoinScene";
 import { SuccessiveIntegerAverageScene } from "./scenes/SuccessiveIntegerAverageScene";
 import { LatinGridBranchScene } from "./scenes/LatinGridBranchScene";
+import { DartboardParityAreaScene } from "./scenes/DartboardParityAreaScene";
+import { DigitBagOmissionScene } from "./scenes/DigitBagOmissionScene";
+import { PinwheelComplementScene } from "./scenes/PinwheelComplementScene";
+import { SquareSideDistanceScene } from "./scenes/SquareSideDistanceScene";
+import { TwoAttributeCardSortScene } from "./scenes/TwoAttributeCardSortScene";
+import { SeasonRecordBalanceScene } from "./scenes/SeasonRecordBalanceScene";
+import { ConsecutiveSquareBorderScene } from "./scenes/ConsecutiveSquareBorderScene";
+import { ProductTailWindowScene } from "./scenes/ProductTailWindowScene";
+import { MixturePourPercentScene } from "./scenes/MixturePourPercentScene";
 import { SeatPairScene } from "./scenes/SeatPairScene";
 import { HalvingGapScene } from "./scenes/HalvingGapScene";
 import { BiteSplitScene } from "./scenes/BiteSplitScene";
@@ -453,6 +476,8 @@ import { DiagonalCylinderHalfScene } from "./scenes/DiagonalCylinderHalfScene";
 import { EqualPassedPacketsScene } from "./scenes/EqualPassedPacketsScene";
 import { BoundaryUnitPairGraphScene } from "./scenes/BoundaryUnitPairGraphScene";
 import { ConcentricPathLedgerScene } from "./scenes/ConcentricPathLedgerScene";
+import { CircleMeasureGrowthScene } from "./scenes/CircleMeasureGrowthScene";
+import { PositiveAddOrderScene } from "./scenes/PositiveAddOrderScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -472,6 +497,70 @@ function gcdRegistry(a:number,b:number):number{return b?gcdRegistry(b,a%b):Math.
 export function resolveScene(problem: Problem): AnimatedScene {
   const type = problem.animation?.type;
   const data = problem.animation?.data ?? {};
+  // One exact four-symbol strict order and named terms make the translated
+  // positive segment logically faithful and keep every marker drawable.
+  if (type === "positive-add-order" && Array.isArray(data.order)) {
+    const order = data.order.map(String);
+    if (order.join("|") === "0|a|b|c" && data.positiveTerm === "a" && data.addTo === "c" && data.compareTo === "b" && typeof data.targetChoice === "string" && /^[A-E]$/.test(data.targetChoice)) return PositiveAddOrderScene;
+  }
+  // Exactly five increasing positive radii and five named source-choice shapes
+  // keep the circle row and graph gallery faithful, finite, and readable.
+  if (type === "circle-measure-growth" && Array.isArray(data.radii) && Array.isArray(data.choiceLabels) && Array.isArray(data.choiceShapes)) {
+    const radii = data.radii.map(Number), labels = data.choiceLabels.map(String), shapes = data.choiceShapes.map(String);
+    const allowed = new Set(["convex", "valley", "arch", "concave", "decreasing"]);
+    if (radii.length === 5 && radii.every((r, i) => Number.isInteger(r) && r > 0 && r <= 10 && (i === 0 || r > radii[i - 1])) && Number(data.circumferenceFactor) === 2 && Number(data.areaFactor) === 1 && labels.length === 5 && new Set(labels).size === 5 && shapes.length === 5 && shapes.every((s) => allowed.has(s))) return CircleMeasureGrowthScene;
+  }
+  // At least 4 tiles and a target corner keep the tray, grid, and solver
+  // drawable.
+  if (type === "tile-edge-match" && data.tiles && Object.keys(data.tiles as object).length >= 4 && typeof data.target === "string") {
+    return TileEdgeMatchScene;
+  }
+  // n >= 2 keeps both factor rows and the nested-sum badges drawable.
+  if (type === "nested-factor-sum" && Number(data.n) >= 2) {
+    return NestedFactorSumScene;
+  }
+  // Real givens and at least 2 deductions keep the forced placements and
+  // target-cell computation drawable.
+  if (type === "latin-square-deduce" && Array.isArray(data.givens) && data.givens.length >= 3 && Array.isArray(data.deductions) && data.deductions.length >= 2) {
+    return LatinSquareDeduceScene;
+  }
+  // dc must exceed ad so EC and the right-hand square stay drawable.
+  if (type === "trapezoid-square-split" && Number(data.ad) > 0 && Number(data.dc) > Number(data.ad)) {
+    return TrapezoidSquareSplitScene;
+  }
+  // At least 3 people and a leaver age below the average keep the columns
+  // and redistribution drawable.
+  if (type === "average-after-leave" && Number(data.peopleCount) >= 3 && Number(data.avgBefore) > 0 && Number.isFinite(Number(data.leaverAge))) {
+    return AverageAfterLeaveScene;
+  }
+  // A positive before value greater than after keeps the shrinking bar and
+  // percent strip drawable.
+  if (type === "percent-drop-meter" && Number(data.before) > 0 && Number(data.after) >= 0 && Number(data.before) > Number(data.after)) {
+    return PercentDropScene;
+  }
+  // Real gift amounts and a positive target/rate keep the meter, gap
+  // bracket, and trap line drawable.
+  if (type === "savings-meter-fill" && Array.isArray(data.giftAmounts) && data.giftAmounts.length >= 2 && Number(data.target) > 0 && Number(data.weeklyRate) > 0) {
+    return SavingsMeterScene;
+  }
+  // At least 3 windows keep the entrance/exit fan and trap loop drawable.
+  if (type === "window-entry-exit" && Number.isFinite(Number(data.windowCount)) && Number(data.windowCount) >= 3) {
+    return WindowEntryExitScene;
+  }
+  // A whole number > 1 keeps the factor tree and leaf-collection row drawable.
+  if (type === "prime-factor-tree" && Number.isFinite(Number(data.n)) && Number(data.n) > 1) {
+    return PrimeFactorTreeScene;
+  }
+  // At least two categories keep every bar and the chopped-block ratio
+  // drawable.
+  if (type === "pasta-bar-ratio" && Array.isArray(data.categories) && data.categories.length >= 2) {
+    return PastaBarRatioScene;
+  }
+  // At least two known weeks and a positive target keep every deviation
+  // chip and the final week's makeup drawable.
+  if (type === "weekly-average-deviation" && Array.isArray(data.knownHours) && data.knownHours.length >= 2 && num(data.target) > 0) {
+    return WeeklyAverageDeviationScene;
+  }
   // Exactly three positive pair weights keep the triangle of boxes and
   // edges drawable.
   if (type === "pairwise-box-weigh" && Array.isArray(data.pairWeights) && data.pairWeights.length === 3) {
@@ -1374,6 +1463,58 @@ export function resolveScene(problem: Problem): AnimatedScene {
     data.letters[0] === "A" && data.letters[1] === "B" && data.letters[2] === "C" &&
     data.fixedCell === "A@0,0"
   ) return LatinGridBranchScene;
+  // Three equal sectors in a proper concentric disk/annulus, with one score
+  // on every drawable region, are exactly the invariants used by the area ledger.
+  if (
+    type === "dartboard-parity-area" && num(data.outerRadius) > num(data.innerRadius) && num(data.innerRadius) > 0 &&
+    data.sectorCount === 3 && Array.isArray(data.innerScores) && data.innerScores.length === 3 &&
+    Array.isArray(data.outerScores) && data.outerScores.length === 3 &&
+    [...data.innerScores, ...data.outerScores].every(v => v === 1 || v === 2)
+  ) return DartboardParityAreaScene;
+  // Four distinct nonzero digits with exactly three drawn create four equally
+  // weighted omission cases and keep the exhaustive divisibility display compact.
+  if (
+    type === "digit-bag-omission" && Array.isArray(data.digits) && data.digits.length === 4 &&
+    new Set(data.digits).size === 4 && data.digits.every(v => Number.isInteger(num(v)) && num(v) >= 1 && num(v) <= 9) &&
+    data.drawCount === 3 && data.divisor === 3
+  ) return DigitBagOmissionScene;
+  // A centered odd grid with equal one-unit side insets creates four disjoint
+  // corner squares and four congruent complement triangles inside the square.
+  if (
+    type === "pinwheel-complement" && data.gridSize === 5 && data.sideInset === 1 &&
+    Array.isArray(data.center) && data.center.length === 2 && data.center[0] === 2.5 && data.center[1] === 2.5
+  ) return PinwheelComplementScene;
+  // A positive diagonal run followed by a shorter right-angle run must leave
+  // the endpoint strictly inside the modest square for all four projections to draw.
+  if (type === "square-side-distance") {
+    const side=num(data.squareSide),diag=num(data.diagonalRun),turn=num(data.turnRun);
+    const x=(diag+turn)/Math.sqrt(2),y=(diag-turn)/Math.sqrt(2);
+    if (side>0&&side<=20&&diag>turn&&turn>0&&x>0&&x<side&&y>0&&y<side&&data.turnDirection==="right") return SquareSideDistanceScene;
+  }
+  // Two colors crossed with four unique labels create eight distinct cards;
+  // fixing one leaves exactly seven drawable, equally likely partner cards.
+  if (
+    type === "two-attribute-card-sort" && Array.isArray(data.colors) && data.colors.length === 2 &&
+    data.colors[0] === "red" && data.colors[1] === "green" && new Set(data.colors).size === 2 &&
+    Array.isArray(data.letters) && data.letters.length === 4 && data.letters.join(",") === "A,B,C,D" &&
+    new Set(data.letters).size === 4 && data.fixedColor === "red" && data.fixedLetter === "A"
+  ) return TwoAttributeCardSortScene;
+  // Complementary pre-season win/loss percentages and a positive district
+  // swing must yield a small whole-number schedule that the balance can draw.
+  if (type === "season-record-balance") {
+    const pre=num(data.preWinPercent),final=num(data.finalWinPercent),wins=num(data.districtWins),losses=num(data.districtLosses);
+    const gap=100-2*pre,swing=wins-losses,earlier=gap>0?swing/(gap/100):0;
+    if (pre===45&&final===50&&wins===6&&losses===2&&gap>0&&swing>0&&Number.isInteger(earlier)&&earlier<=100) return SeasonRecordBalanceScene;
+  }
+  // A unit gap makes the square difference a one-cell gnomon; a short distinct
+  // candidate list and positive sum bound keep the complete sieve drawable.
+  if (type==="consecutive-square-border"&&data.gap===1&&num(data.sumLimit)>3&&num(data.sumLimit)<=200&&Array.isArray(data.candidates)&&data.candidates.length===5&&new Set(data.candidates).size===5&&data.candidates.every(v=>Number.isInteger(num(v))&&num(v)>0&&num(v)<=250)) return ConsecutiveSquareBorderScene;
+  // Two fixed-width decimal tails determine a bounded product remainder; four
+  // places are exactly enough to expose both the thousands and units digits.
+  if(type==="product-tail-window"&&data.numberDigits===99&&data.windowDigits===4&&Array.isArray(data.tails)&&data.tails.length===2&&data.tails[0]==="0303"&&data.tails[1]==="0505") return ProductTailWindowScene;
+  // Three positive component shares must partition the original tank exactly;
+  // a modest pure-component pour keeps both tank states drawable.
+  if(type==="mixture-pour-percent"&&data.startLiters===30&&data.addedLiters===5&&data.addedKind==="yellow"&&Array.isArray(data.kinds)&&data.kinds.length===3&&data.kinds.join(",")==="red|25|#ef4444,yellow|30|#eab308,water|45|#38bdf8") return MixturePourPercentScene;
   if (type === "paper-fold-cut" && Array.isArray(data.cutPoly) && data.cutPoly.length >= 6) {
     return PaperFoldCutScene;
   }
@@ -3449,6 +3590,21 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "square-circle-equal-area" && num(data.radius) > 0) {
     return SquareCircleEqualAreaScene;
+  }
+  // A hexagram always has 6 wedges and 6 points; guard on that so partial data
+  // falls through to the text walkthrough instead.
+  if (type === "hexagram-area" && num(data.sides) === 6) {
+    return HexagramAreaScene;
+  }
+  // A real union that exceeds the intersection keeps both circles and every
+  // solved-region label drawable.
+  if (type === "twin-set-venn" && num(data.union) > num(data.intersection) && num(data.intersection) >= 0) {
+    return TwinSetVennScene;
+  }
+  // A positive base and area keep the solved altitude, bisected base, and
+  // right-triangle hypotenuse all drawable.
+  if (type === "isosceles-area-to-side" && num(data.base) > 0 && num(data.area) > 0) {
+    return IsoscelesAreaToSideScene;
   }
   return EquationScene;
 }
