@@ -6220,18 +6220,22 @@ const amc2002Problems: Problem[] = [
     "shortAnswer": "5",
     "solutionSteps": [
       {
+        "title": "Set the stage",
+        "body": "Draw one circle and two distinct lines on the page."
+      },
+      {
         "title": "Maximize line-circle intersections",
-        "body": "Each line can intersect the circle in at most two points.",
-        "equation": "2 + 2"
+        "body": "Each line can intersect the circle in at most two points, so two lines give at most 4 points.",
+        "equation": "2 + 2 = 4"
+      },
+      {
+        "title": "Check the trap",
+        "body": "If the two lines never crossed each other, the total would stop at 4 — a tempting but incomplete count."
       },
       {
         "title": "Add the line-line intersection",
-        "body": "The two distinct lines can intersect each other once if they are not parallel.",
-        "equation": "2 + 2 + 1 = 5"
-      },
-      {
-        "title": "Choose the answer",
-        "body": "The largest possible number of intersection points is 5, so the answer is D."
+        "body": "The two distinct lines can also intersect each other once, giving the largest possible total.",
+        "equation": "4 + 1 = 5"
       }
     ],
     "animationFrames": [
@@ -6252,9 +6256,13 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "circle-line-max-intersect",
       "data": {
-        "idea": "2+2+1 intersections"
+        "cx": 150,
+        "cy": 110,
+        "r": 70,
+        "lineA": [20, 150, 280, 60],
+        "lineB": [280, 170, 20, 50]
       }
     },
     "tags": [
@@ -6310,9 +6318,13 @@ const amc2002Problems: Problem[] = [
         "equation": "5f + 2t = 17"
       },
       {
-        "title": "Test possible $5 bills",
-        "body": "The number of $5 bills must be odd to leave an even amount for $2 bills: f = 1 or f = 3.",
+        "title": "Test every count of $5 bills",
+        "body": "Try f = 0, 1, 2, 3 and see which leftover amounts split evenly into $2 bills.",
         "equation": "f=1 → t=6;\  f=3 → t=1"
+      },
+      {
+        "title": "Check the trap",
+        "body": "All four tries look plausible at a glance, but only the ones with an even, nonnegative leftover actually work."
       },
       {
         "title": "Count combinations",
@@ -6337,9 +6349,11 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "bill-combination-sieve",
       "data": {
-        "equation": "5f+2t=17"
+        "total": 17,
+        "bigBill": 5,
+        "smallBill": 2
       }
     },
     "tags": [
@@ -6389,18 +6403,24 @@ const amc2002Problems: Problem[] = [
     "shortAnswer": "5",
     "solutionSteps": [
       {
+        "title": "Watch the trap",
+        "body": "It's tempting to start counting from 0, but 0 is not a positive integer, so it can't be used.",
+        "equation": "0+2+4+6 → invalid"
+      },
+      {
         "title": "Choose the smallest numbers",
-        "body": "To minimize the average, use the four smallest distinct positive even integers.",
+        "body": "To minimize the average, use the four smallest distinct positive even integers instead.",
         "equation": "2,4,6,8"
       },
       {
-        "title": "Average them",
-        "body": "Add the numbers and divide by 4.",
-        "equation": "(2+4+6+8)/4 = 20/4 = 5"
+        "title": "Add them up",
+        "body": "Sum the four integers.",
+        "equation": "2+4+6+8 = 20"
       },
       {
-        "title": "Choose the answer",
-        "body": "The smallest possible average is 5, so the answer is C."
+        "title": "Divide by 4",
+        "body": "The smallest possible average is 5, so the answer is C.",
+        "equation": "20/4 = 5"
       }
     ],
     "animationFrames": [
@@ -6421,9 +6441,9 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "even-integer-min-average",
       "data": {
-        "equation": "(2+4+6+8)/4=5"
+        "integers": [2, 4, 6, 8]
       }
     },
     "tags": [
@@ -6473,17 +6493,23 @@ const amc2002Problems: Problem[] = [
     "shortAnswer": "4",
     "solutionSteps": [
       {
-        "title": "Find the next palindrome",
-        "body": "The next year after 2002 that reads the same both ways is 2112."
+        "title": "Check the starting year",
+        "body": "2002 reads the same forward and backward — it's a palindrome."
+      },
+      {
+        "title": "Bump the first half",
+        "body": "A four-digit palindrome is just its first half mirrored, so increase the first two digits by 1.",
+        "equation": "20 + 1 = 21"
+      },
+      {
+        "title": "Mirror to build the next palindrome",
+        "body": "Reflect 21 to build the next year that reads the same both ways: 2112.",
+        "equation": "21 → 2112"
       },
       {
         "title": "Multiply the digits",
-        "body": "Multiply its digits.",
+        "body": "The product of the digits is 4, so the answer is B.",
         "equation": "2×1×1×2=4"
-      },
-      {
-        "title": "Choose the answer",
-        "body": "The product is 4, so the answer is B."
       }
     ],
     "animationFrames": [
@@ -6504,9 +6530,9 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "palindrome-year-flip",
       "data": {
-        "equation": "2×1×1×2=4"
+        "startYear": 2002
       }
     },
     "tags": [
@@ -6556,13 +6582,17 @@ const amc2002Problems: Problem[] = [
     "shortAnswer": "Friday",
     "solutionSteps": [
       {
-        "title": "Use the weekly cycle",
-        "body": "Days of the week repeat every 7 days.",
-        "equation": "706 = 7×100 + 6"
+        "title": "Start the week cycle",
+        "body": "Carlos is born on Saturday, and the days of the week repeat every 7 days."
       },
       {
-        "title": "Move six days forward",
-        "body": "Starting from Saturday, six days later is Friday."
+        "title": "Remove full weeks",
+        "body": "706 days is 100 full weeks plus a remainder — the full weeks land back on Saturday.",
+        "equation": "706 = 100×7 + 6"
+      },
+      {
+        "title": "Hop the remaining days",
+        "body": "Advance 6 days forward from Saturday, one day at a time."
       },
       {
         "title": "Choose the answer",
@@ -6587,9 +6617,10 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "week-cycle-hop",
       "data": {
-        "steps": 6
+        "weekLabels": ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "totalDays": 706
       }
     },
     "tags": [
@@ -10329,8 +10360,12 @@ const amc2003Problems: Problem[] = [
     "shortAnswer": "C only",
     "solutionSteps": [
       {
-        "title": "Figures A and B",
-        "body": "In both A and B, the shaded area is the square area minus the total circle area, which is 4-π."
+        "title": "Figure A",
+        "body": "The square has area 4 and the radius-1 circle has area π, so figure A has shaded area 4-π."
+      },
+      {
+        "title": "Figure B",
+        "body": "Each small circle has radius 1/2 and area π/4. The four circles have total area π, so figure B also has shaded area 4-π."
       },
       {
         "title": "Figure C",

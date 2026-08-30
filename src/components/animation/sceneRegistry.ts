@@ -1,6 +1,11 @@
 import type { Problem } from "../../types/amc";
 import type { AnimatedScene } from "./scenes/types";
 import { ClockAngleScene } from "./scenes/ClockAngleScene";
+import { CircleLineMaxIntersectScene } from "./scenes/CircleLineMaxIntersectScene";
+import { BillCombinationSieveScene } from "./scenes/BillCombinationSieveScene";
+import { EvenIntegerMinAverageScene } from "./scenes/EvenIntegerMinAverageScene";
+import { PalindromeYearFlipScene } from "./scenes/PalindromeYearFlipScene";
+import { WeekCycleHopScene } from "./scenes/WeekCycleHopScene";
 import { ClockHandDriftAngleScene } from "./scenes/ClockHandDriftAngleScene";
 import { CubePartCountScene } from "./scenes/CubePartCountScene";
 import { SmallestPrimeFactorRaceScene } from "./scenes/SmallestPrimeFactorRaceScene";
@@ -4066,6 +4071,21 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "friendship-graph-invite" && Array.isArray(data.sarahFriends) && data.sarahFriends.length > 0 && Array.isArray(data.edges)) {
     return FriendshipGraphInviteScene;
+  }
+  if (type === "circle-line-max-intersect" && Array.isArray(data.lineA) && Array.isArray(data.lineB)) {
+    return CircleLineMaxIntersectScene;
+  }
+  if (type === "bill-combination-sieve" && num(data.total) > 0 && num(data.bigBill) > 0 && num(data.smallBill) > 0) {
+    return BillCombinationSieveScene;
+  }
+  if (type === "even-integer-min-average" && Array.isArray(data.integers) && data.integers.length > 0) {
+    return EvenIntegerMinAverageScene;
+  }
+  if (type === "palindrome-year-flip" && num(data.startYear) > 0) {
+    return PalindromeYearFlipScene;
+  }
+  if (type === "week-cycle-hop" && Array.isArray(data.weekLabels) && data.weekLabels.length > 0) {
+    return WeekCycleHopScene;
   }
   return EquationScene;
 }

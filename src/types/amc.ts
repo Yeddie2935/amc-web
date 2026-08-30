@@ -16,6 +16,11 @@ export type ProblemStatus = "unsolved" | "solved" | "missed" | "bookmarked";
 
 export type AnimationTemplateType =
   | "equation"
+  | "circle-line-max-intersect"
+  | "bill-combination-sieve"
+  | "even-integer-min-average"
+  | "palindrome-year-flip"
+  | "week-cycle-hop"
   | "cube-part-count"
   | "smallest-prime-factor-race"
   | "burger-filler-percent"
