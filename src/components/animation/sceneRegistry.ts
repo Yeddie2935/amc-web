@@ -1,6 +1,21 @@
 import type { Problem } from "../../types/amc";
 import type { AnimatedScene } from "./scenes/types";
 import { ClockAngleScene } from "./scenes/ClockAngleScene";
+import { MapScaleStretchScene } from "./scenes/MapScaleStretchScene";
+import { FoodShareScaleScene } from "./scenes/FoodShareScaleScene";
+import { BenchOneComplementScene } from "./scenes/BenchOneComplementScene";
+import { SingleEliminationBracketScene } from "./scenes/SingleEliminationBracketScene";
+import { PercentMakeUpgradeScene } from "./scenes/PercentMakeUpgradeScene";
+import { HeartRateZoneScene } from "./scenes/HeartRateZoneScene";
+import { DigitSumPairListScene } from "./scenes/DigitSumPairListScene";
+import { AverageSplitGroupsScene } from "./scenes/AverageSplitGroupsScene";
+import { WeekTimePayScene } from "./scenes/WeekTimePayScene";
+import { RestrictedSlotsAverageScene } from "./scenes/RestrictedSlotsAverageScene";
+import { BatteryDualRateScene } from "./scenes/BatteryDualRateScene";
+import { SoleTrueStatementScene } from "./scenes/SoleTrueStatementScene";
+import { PickTheoremGeoboardScene } from "./scenes/PickTheoremGeoboardScene";
+import { HexTileBorderScene } from "./scenes/HexTileBorderScene";
+import { PitcherMixtureCombineScene } from "./scenes/PitcherMixtureCombineScene";
 import { PriceRoundSnapScene } from "./scenes/PriceRoundSnapScene";
 import { QuizBubbleScoreScene } from "./scenes/QuizBubbleScoreScene";
 import { LapPaceCompareScene } from "./scenes/LapPaceCompareScene";
@@ -97,6 +112,15 @@ import { ClassroomTallyScene } from "./scenes/ClassroomTallyScene";
 import { SchoolDanceRatioScene } from "./scenes/SchoolDanceRatioScene";
 import { SquareOverlapPercentScene } from "./scenes/SquareOverlapPercentScene";
 import { OverlapAreaCancellationScene } from "./scenes/OverlapAreaCancellationScene";
+import { OverlappingSquaresCircleScene } from "./scenes/OverlappingSquaresCircleScene";
+import { CornerCutParallelogramHeightScene } from "./scenes/CornerCutParallelogramHeightScene";
+import { RectangleHomeDistanceScene } from "./scenes/RectangleHomeDistanceScene";
+import { PartyCoupleFractionScene } from "./scenes/PartyCoupleFractionScene";
+import { SpinnerOddComplementScene } from "./scenes/SpinnerOddComplementScene";
+import { ChairPeopleScaleScene } from "./scenes/ChairPeopleScaleScene";
+import { RemainderLcmRangeScene } from "./scenes/RemainderLcmRangeScene";
+import { DartPairEliminationScene } from "./scenes/DartPairEliminationScene";
+import { PencilStarsBarsScene } from "./scenes/PencilStarsBarsScene";
 import { TwoKeyReversePathScene } from "./scenes/TwoKeyReversePathScene";
 import { SemicircleSquareDoublingScene } from "./scenes/SemicircleSquareDoublingScene";
 import { DetergentUnitPriceRankScene } from "./scenes/DetergentUnitPriceRankScene";
@@ -547,6 +571,59 @@ function gcdRegistry(a:number,b:number):number{return b?gcdRegistry(b,a%b):Math.
 export function resolveScene(problem: Problem): AnimatedScene {
   const type = problem.animation?.type;
   const data = problem.animation?.data ?? {};
+  // A bounded pencil total, friend count, and positive integral baseline must
+  // leave a small nonnegative remainder whose compositions fit on screen.
+  if(type==="pencil-stars-bars"){
+    const t=Number(data.totalPencils),p=Number(data.people),m=Number(data.minimumEach),left=t-p*m;
+    if([t,p,m].every(Number.isInteger)&&t>0&&t<=15&&p>=2&&p<=5&&m>=1&&left>=0&&left<=8)return PencilStarsBarsScene;
+  }
+  // Ten unique region values, five distinct names, five bounded scores, and a
+  // real queried region keep the exhaustive disjoint-pair search finite.
+  if(type==="dart-pair-elimination"&&Array.isArray(data.regions)&&Array.isArray(data.deductionOrder)&&Array.isArray(data.scores)){
+    const rs=data.regions.map(Number),ns=data.deductionOrder.map(String),ss=data.scores.map(Number),q=Number(data.queryRegion);
+    if(rs.length===10&&new Set(rs).size===10&&rs.every(v=>Number.isInteger(v)&&v>=1&&v<=20)&&ns.length===5&&new Set(ns).size===5&&ns.every(n=>n.length>0&&n.length<=12)&&ss.length===5&&ss.every(v=>Number.isInteger(v)&&v>0&&v<=40)&&rs.includes(q))return DartPairEliminationScene;
+  }
+  // Distinct bounded divisors and one nonnegative remainder smaller than each
+  // divisor keep the complete multiple tracks and shifted result drawable.
+  if(type==="remainder-lcm-range"&&Array.isArray(data.divisors)){
+    const ds=data.divisors.map(Number),r=Number(data.remainder);
+    if(ds.length===4&&new Set(ds).size===4&&ds.every(d=>Number.isInteger(d)&&d>=2&&d<=12)&&Number.isInteger(r)&&r>=0&&ds.every(d=>r<d))return RemainderLcmRangeScene;
+  }
+  // Proper chair and seated-person fractions plus a bounded empty-chair count
+  // must expand to integral, drawable chair and people groups.
+  if(type==="chair-people-scale"){
+    const e=Number(data.emptyChairs),on=Number(data.occupiedNumerator),od=Number(data.occupiedDenominator),sn=Number(data.seatedNumerator),sd=Number(data.seatedDenominator),chairs=e*od/(od-on),taken=chairs-e,group=taken/sn;
+    if([e,on,od,sn,sd].every(Number.isInteger)&&e>0&&on>0&&on<od&&sn>0&&sn<sd&&chairs<=32&&Number.isInteger(chairs)&&Number.isInteger(group)&&group*sd<=36)return ChairPeopleScaleScene;
+  }
+  // Two exact small lists of distinct positive integers keep all equally likely
+  // sectors and their complete product grid faithful, finite, and readable.
+  if(type==="spinner-odd-complement"&&Array.isArray(data.spinnerA)&&Array.isArray(data.spinnerB)){
+    const a=data.spinnerA.map(Number),b=data.spinnerB.map(Number),valid=(xs:number[])=>xs.length>=2&&xs.length<=6&&new Set(xs).size===xs.length&&xs.every(v=>Number.isInteger(v)&&v>0&&v<=12);
+    if(valid(a)&&valid(b)&&a.length*b.length<=24)return SpinnerOddComplementScene;
+  }
+  // A proper small single-woman fraction creates an integral, bounded party:
+  // every nonsingle woman contributes exactly one wife and one husband.
+  if(type==="party-couple-fraction"){
+    const sn=Number(data.singleNumerator),wd=Number(data.womenDenominator),wives=wd-sn;
+    if(Number.isInteger(sn)&&Number.isInteger(wd)&&sn>0&&sn<wd&&wd<=12&&Number.isInteger(wives)&&wives>0&&wd+wives<=20)return PartyCoupleFractionScene;
+  }
+  // The exact closed corner route and five qualitative corner distances keep
+  // Tess's tether and the five source graph profiles faithful and finite.
+  if(type==="rectangle-home-distance"&&Array.isArray(data.route)&&Array.isArray(data.cornerTrends)){
+    if(data.route.map(String).join(",")==="J,K,L,M,J"&&data.cornerTrends.map(String).join(",")==="zero,up,max,down,zero"&&data.correctGraph==="D") return RectangleHomeDistanceScene;
+  }
+  // A bounded rectangle whose four positive side partitions close exactly
+  // determines the corner triangles, inner parallelogram, and drawable height.
+  if (type === "corner-cut-parallelogram-height") {
+    const w=Number(data.rectangleWidth),h=Number(data.rectangleHeight),tl=Number(data.topLeft),rb=Number(data.rightBottom),br=Number(data.bottomRight),lt=Number(data.leftTop);
+    if(w>0&&w<=20&&h>0&&h<=20&&tl>0&&tl<w&&rb>0&&rb<h&&br>0&&br<w&&lt>0&&lt<h&&tl===br&&rb===h-lt&&h-rb===lt) return CornerCutParallelogramHeightScene;
+  }
+  // Two congruent bounded squares with a half-side overlap make the hidden
+  // overlap square, its diagonal diameter, and the clipped union drawable.
+  if (type === "overlapping-squares-circle") {
+    const side = Number(data.squareSide), overlapSide = Number(data.overlapSide);
+    if (side > 0 && side <= 20 && overlapSide > 0 && overlapSide === side / 2) return OverlappingSquaresCircleScene;
+  }
   // The exact six-point 3-by-2 lattice makes all twenty triples enumerable and
   // guarantees that only the two complete horizontal rows are degenerate.
   if(type==="two-row-dot-triangle-count"&&Array.isArray(data.points)){
@@ -3840,6 +3917,51 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "circle-meet-modular" && num(data.points) > 0 && num(data.aliceStep) > 0 && num(data.bobStep) > 0) {
     return CircleMeetModularScene;
+  }
+  if (type === "map-scale-stretch" && num(data.mapCm) > 0 && num(data.targetCm) > num(data.mapCm) && num(data.realKm) > 0) {
+    return MapScaleStretchScene;
+  }
+  if (type === "food-share-scale" && num(data.meals) > 0 && num(data.fedPeople) > 0 && num(data.targetPeople) > 0) {
+    return FoodShareScaleScene;
+  }
+  if (type === "bench-one-complement" && Array.isArray(data.names) && data.names.length >= 2) {
+    return BenchOneComplementScene;
+  }
+  if (type === "single-elim-bracket" && num(data.teams) > 0 && Number.isInteger(Math.log2(num(data.teams)))) {
+    return SingleEliminationBracketScene;
+  }
+  if (type === "percent-make-upgrade" && num(data.firstAttempts) > 0 && num(data.addedAttempts) > 0) {
+    return PercentMakeUpgradeScene;
+  }
+  if (type === "heart-rate-zone" && num(data.baseRate) > 0 && num(data.age) > 0 && num(data.age) < num(data.baseRate)) {
+    return HeartRateZoneScene;
+  }
+  if (type === "digit-sum-pair-list" && num(data.targetSum) >= 1 && num(data.targetSum) <= 17) {
+    return DigitSumPairListScene;
+  }
+  if (type === "average-split-groups" && num(data.total) > num(data.firstCount) && num(data.firstCount) > 0) {
+    return AverageSplitGroupsScene;
+  }
+  if (type === "week-time-pay-chain" && Array.isArray(data.days) && data.days.length >= 2) {
+    return WeekTimePayScene;
+  }
+  if (type === "restricted-slots-average" && Array.isArray(data.numbers) && data.numbers.length === 5) {
+    return RestrictedSlotsAverageScene;
+  }
+  if (type === "battery-dual-rate" && num(data.idleHours) > 0 && num(data.activeHours) > 0 && num(data.elapsedTotal) > 0) {
+    return BatteryDualRateScene;
+  }
+  if (type === "sole-true-statement" && Array.isArray(data.people) && data.people.length >= 3 && Array.isArray(data.statements) && data.statements.length >= 2) {
+    return SoleTrueStatementScene;
+  }
+  if (type === "pick-theorem-geoboard" && Array.isArray(data.vertices) && data.vertices.length >= 3) {
+    return PickTheoremGeoboardScene;
+  }
+  if (type === "hex-tile-border" && Array.isArray(data.ringColors) && data.ringColors.length >= 2) {
+    return HexTileBorderScene;
+  }
+  if (type === "pitcher-mixture-combine" && num(data.pitcherSize) > 0 && Array.isArray(data.fractions) && data.fractions.length >= 2) {
+    return PitcherMixtureCombineScene;
   }
   return EquationScene;
 }

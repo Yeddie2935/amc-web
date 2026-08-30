@@ -10468,13 +10468,21 @@ const amc2004Problems: Problem[] = [
     "shortAnswer": "102",
     "solutionSteps": [
       {
+        "title": "Read the map",
+        "body": "A 12-centimeter length on the map represents 72 kilometers in reality."
+      },
+      {
         "title": "Find the scale",
         "body": "Divide the real distance by the map distance to find kilometers per centimeter.",
         "equation": "72 ÷ 12 = 6"
       },
       {
-        "title": "Scale 17 centimeters",
-        "body": "Each centimeter represents 6 kilometers.",
+        "title": "Spot the trap",
+        "body": "6 km/cm is only the rate, not the distance asked for — the question wants the real distance for 17 centimeters."
+      },
+      {
+        "title": "Scale to 17 centimeters",
+        "body": "Each centimeter represents 6 kilometers, so stretch the map length to 17 centimeters.",
         "equation": "17 × 6 = 102"
       },
       {
@@ -10500,9 +10508,11 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "map-scale-stretch",
       "data": {
-        "answer": "B"
+        "mapCm": 12,
+        "realKm": 72,
+        "targetCm": 17
       }
     },
     "tags": [
@@ -10551,17 +10561,29 @@ const amc2004Problems: Problem[] = [
     "shortAnswer": "6",
     "solutionSteps": [
       {
-        "title": "Choose the first digit",
-        "body": "The first digit cannot be 0, so it must be 2 or 4."
+        "title": "Lay out the digits",
+        "body": "2004 has the digits 2, 0, 0, 4 — a repeated 0 among four tiles."
       },
       {
-        "title": "Arrange the remaining digits",
-        "body": "After choosing the first digit, the other nonzero digit can go in any of the three remaining positions."
+        "title": "The leading-zero trap",
+        "body": "Every arrangement of the four tiles counts 24 orderings, but any that start with 0 aren't real four-digit numbers."
       },
       {
-        "title": "Multiply",
-        "body": "There are 2 choices for the first digit and 3 positions for the other nonzero digit.",
-        "equation": "2 × 3 = 6"
+        "title": "Case: starts with 2",
+        "body": "With 2 fixed first, the remaining 0, 0, 4 arrange in 3 distinct ways."
+      },
+      {
+        "title": "Case: starts with 4",
+        "body": "With 4 fixed first, the remaining 0, 0, 2 arrange in 3 distinct ways."
+      },
+      {
+        "title": "Add the cases",
+        "body": "Add the two cases together.",
+        "equation": "3 + 3 = 6"
+      },
+      {
+        "title": "Conclude",
+        "body": "There are 6 different four-digit numbers."
       }
     ],
     "animationFrames": [
@@ -10582,9 +10604,9 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "leading-zero-permute",
       "data": {
-        "answer": "B"
+        "digits": ["2", "0", "0", "4"]
       }
     },
     "tags": [
@@ -10633,13 +10655,22 @@ const amc2004Problems: Problem[] = [
     "shortAnswer": "8",
     "solutionSteps": [
       {
-        "title": "Set the rate",
-        "body": "Twelve meals feed 18 people, so one meal feeds 18/12 people."
+        "title": "Read the meals",
+        "body": "Twelve meals were ordered, but the oversized portions were enough to feed 18 people."
+      },
+      {
+        "title": "Find each diner's real share",
+        "body": "Divide the meals by the people they fed to get the share per diner.",
+        "equation": "12 ÷ 18 = 2/3"
+      },
+      {
+        "title": "Spot the trap",
+        "body": "18 is how many the original food fed, not how many meals the 12 friends need."
       },
       {
         "title": "Scale to 12 people",
-        "body": "The number of meals needed is 12 divided by 18/12.",
-        "equation": "12 ÷ (18/12) = 8"
+        "body": "Give each of the 12 friends that same 2/3-meal share.",
+        "equation": "12 × 2/3 = 8"
       },
       {
         "title": "Conclude",
@@ -10664,9 +10695,11 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "food-share-scale",
       "data": {
-        "answer": "A"
+        "meals": 12,
+        "fedPeople": 18,
+        "targetPeople": 12
       }
     },
     "tags": [
@@ -10715,12 +10748,16 @@ const amc2004Problems: Problem[] = [
     "shortAnswer": "4",
     "solutionSteps": [
       {
+        "title": "Read the roster",
+        "body": "Lance, Sally, Joy, and Fred are all on the team."
+      },
+      {
         "title": "Choose who sits out",
         "body": "Choosing 3 starters from 4 people is the same as choosing the 1 person who does not start."
       },
       {
-        "title": "Count choices",
-        "body": "There are 4 possible people to leave out."
+        "title": "Enumerate the benches",
+        "body": "Each of the 4 people could be the one left out, one case at a time."
       },
       {
         "title": "Conclude",
@@ -10745,9 +10782,9 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "bench-one-complement",
       "data": {
-        "answer": "B"
+        "names": ["Lance", "Sally", "Joy", "Fred"]
       }
     },
     "tags": [
@@ -10796,16 +10833,25 @@ const amc2004Problems: Problem[] = [
     "shortAnswer": "15",
     "solutionSteps": [
       {
-        "title": "Use eliminations",
-        "body": "Each game eliminates exactly one team."
+        "title": "Sixteen teams enter",
+        "body": "Each game eliminates exactly one team, since it's single elimination."
       },
       {
-        "title": "Leave one champion",
-        "body": "To go from 16 teams to 1 champion, 15 teams must be eliminated."
+        "title": "Round of 16",
+        "body": "Sixteen teams pair up; each game eliminates exactly one team, leaving 8 winners."
       },
       {
-        "title": "Conclude",
-        "body": "Therefore, 15 games are played."
+        "title": "Round of 8",
+        "body": "The 8 winners pair up, leaving 4 winners."
+      },
+      {
+        "title": "Round of 4",
+        "body": "The 4 winners pair up, leaving 2 winners."
+      },
+      {
+        "title": "Championship game",
+        "body": "The last 2 teams play, leaving 1 champion — but the trap is counting the 4 rounds instead of the games.",
+        "equation": "8 + 4 + 2 + 1 = 15"
       }
     ],
     "animationFrames": [
@@ -10826,9 +10872,9 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "single-elim-bracket",
       "data": {
-        "answer": "D"
+        "teams": 16
       }
     },
     "tags": [
@@ -10877,9 +10923,17 @@ const amc2004Problems: Problem[] = [
     "shortAnswer": "3",
     "solutionSteps": [
       {
+        "title": "Read the shots",
+        "body": "Sally has taken 20 shots, making 55% of them."
+      },
+      {
         "title": "Find original makes",
         "body": "Sally made 55% of 20 shots.",
         "equation": "0.55 × 20 = 11"
+      },
+      {
+        "title": "Spot the trap",
+        "body": "56% − 55% = 1% is tempting, but the two percentages are of different totals."
       },
       {
         "title": "Find final makes",
@@ -10909,9 +10963,12 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "percent-make-upgrade",
       "data": {
-        "answer": "C"
+        "firstAttempts": 20,
+        "firstPercent": 55,
+        "addedAttempts": 5,
+        "finalPercent": 56
       }
     },
     "tags": [
@@ -10960,9 +11017,17 @@ const amc2004Problems: Problem[] = [
     "shortAnswer": "155",
     "solutionSteps": [
       {
+        "title": "Read the formula",
+        "body": "The maximum heart rate is 220 minus the athlete's age, and the target is 80% of that."
+      },
+      {
         "title": "Find maximum heart rate",
         "body": "Subtract the athlete’s age from 220.",
         "equation": "220 − 26 = 194"
+      },
+      {
+        "title": "Spot the trap",
+        "body": "Taking 80% of 220 directly skips the subtraction and gives the wrong number."
       },
       {
         "title": "Take 80%",
@@ -10992,9 +11057,11 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "heart-rate-zone",
       "data": {
-        "answer": "B"
+        "baseRate": 220,
+        "age": 26,
+        "percent": 80
       }
     },
     "tags": [
@@ -11044,11 +11111,19 @@ const amc2004Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "List possible tens digits",
-        "body": "The tens digit can be 1, 2, 3, 4, 5, 6, or 7."
+        "body": "The tens digit can be 1, 2, 3, 4, 5, 6, 7, 8, or 9."
       },
       {
         "title": "Determine units digit",
         "body": "For each tens digit, the units digit is forced so the sum is 7."
+      },
+      {
+        "title": "Rule out 8 and 9",
+        "body": "A tens digit of 8 or 9 would need a negative units digit, so those don't work."
+      },
+      {
+        "title": "Don't forget 70",
+        "body": "70 has a units digit of 0, which still counts — it's easy to skip."
       },
       {
         "title": "Count",
@@ -11073,9 +11148,9 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "digit-sum-pair-list",
       "data": {
-        "answer": "B"
+        "targetSum": 7
       }
     },
     "tags": [
@@ -11134,8 +11209,18 @@ const amc2004Problems: Problem[] = [
         "equation": "2 × 48 = 96"
       },
       {
-        "title": "Average the last three",
-        "body": "The last three sum to 270 − 96 = 174, so their average is 174 ÷ 3 = 58."
+        "title": "Subtract",
+        "body": "The last three numbers sum to the total minus the first two.",
+        "equation": "270 − 96 = 174"
+      },
+      {
+        "title": "Divide",
+        "body": "Divide that sum by the 3 remaining numbers.",
+        "equation": "174 ÷ 3 = 58"
+      },
+      {
+        "title": "Conclude",
+        "body": "The average of the last three numbers is 58."
       }
     ],
     "animationFrames": [
@@ -11156,9 +11241,12 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "average-split-groups",
       "data": {
-        "answer": "D"
+        "total": 5,
+        "avg": 54,
+        "firstCount": 2,
+        "firstAvg": 48
       }
     },
     "tags": [
@@ -11212,11 +11300,22 @@ const amc2004Problems: Problem[] = [
       },
       {
         "title": "Add the time",
-        "body": "The total is 75 + 50 + 145 + 30 = 300 minutes = 5 hours."
+        "body": "Add up all four days.",
+        "equation": "75 + 50 + 145 + 30 = 300"
+      },
+      {
+        "title": "Convert to hours",
+        "body": "300 minutes is 5 hours.",
+        "equation": "300 ÷ 60 = 5"
       },
       {
         "title": "Multiply by pay rate",
-        "body": "At $3 per hour, he earns 5 × 3 = $15."
+        "body": "At $3 per hour, he earns 5 × 3 = $15.",
+        "equation": "5 × 3 = 15"
+      },
+      {
+        "title": "Conclude",
+        "body": "Handy Aaron earned $15 for the week."
       }
     ],
     "animationFrames": [
@@ -11237,9 +11336,15 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "week-time-pay-chain",
       "data": {
-        "answer": "E"
+        "days": [
+          { "label": "Mon", "raw": "1¼ hr", "minutes": 75 },
+          { "label": "Tue", "raw": "50 min", "minutes": 50 },
+          { "label": "Wed", "raw": "8:20–10:45", "minutes": 145 },
+          { "label": "Fri", "raw": "½ hr", "minutes": 30 }
+        ],
+        "rate": 3
       }
     },
     "tags": [
@@ -11288,16 +11393,24 @@ const amc2004Problems: Problem[] = [
     "shortAnswer": "6.5",
     "solutionSteps": [
       {
-        "title": "Place restricted numbers",
-        "body": "The largest 12, smallest −2, and median 6 must all be in the middle three positions."
+        "title": "Read the numbers",
+        "body": "Five numbers, five slots — which two can be at the ends?"
       },
       {
-        "title": "Find the endpoints",
-        "body": "That leaves 4 and 9 as the first and last numbers in some order."
+        "title": "Confine the largest",
+        "body": "12 (the largest) can't be first, but it's in the first three — so it can't be at either end."
       },
       {
-        "title": "Average endpoints",
-        "body": "Their average is (4 + 9)/2 = 6.5."
+        "title": "Confine the smallest",
+        "body": "−2 (the smallest) can't be last, but it's in the last three — so it can't be at either end."
+      },
+      {
+        "title": "Confine the median",
+        "body": "6 (the median) can't be first or last, either."
+      },
+      {
+        "title": "Average the endpoints",
+        "body": "That leaves 4 and 9 as the first and last numbers, in some order. Their average is (4 + 9)/2 = 6.5."
       }
     ],
     "animationFrames": [
@@ -11318,9 +11431,9 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "ranking",
+      "type": "restricted-slots-average",
       "data": {
-        "answer": "C"
+        "numbers": [-2, 4, 6, 9, 12]
       }
     },
     "tags": [
@@ -11373,6 +11486,14 @@ const amc2004Problems: Problem[] = [
         "body": "Idle use drains 1/24 of the battery per hour, and active use drains 1/3 per hour."
       },
       {
+        "title": "Split the elapsed time",
+        "body": "Of the 9 hours since the last charge, 1 hour was active use and 8 hours were idle."
+      },
+      {
+        "title": "Spot the trap",
+        "body": "Treating all 9 hours as idle ignores that active use drains the battery much faster."
+      },
+      {
         "title": "Compute used battery",
         "body": "There were 8 idle hours and 1 active hour.",
         "equation": "8/24 + 1/3 = 1/3 + 1/3 = 2/3"
@@ -11400,9 +11521,12 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "battery-dual-rate",
       "data": {
-        "answer": "B"
+        "idleHours": 24,
+        "activeHours": 3,
+        "elapsedTotal": 9,
+        "activeUsed": 1
       }
     },
     "tags": [
@@ -11451,12 +11575,20 @@ const amc2004Problems: Problem[] = [
     "shortAnswer": "Amy, Celine, Bill",
     "solutionSteps": [
       {
-        "title": "Test Bill oldest",
-        "body": "If Bill were oldest, then Amy is not oldest too, making two statements true. So Bill is not oldest."
+        "title": "Read the statements",
+        "body": "Exactly one of the three statements is true."
       },
       {
-        "title": "Test Amy not oldest",
-        "body": "If Amy were not oldest, then Celine would be oldest, making Celine not youngest also true. Again two statements would be true."
+        "title": "Test every ordering",
+        "body": "Check each of the 6 possible orderings of Amy, Bill, and Celine against all three statements."
+      },
+      {
+        "title": "Cross out the contradictions",
+        "body": "If Bill were oldest, Amy-not-oldest would also be true — two statements true, not one. Several orderings fail this way."
+      },
+      {
+        "title": "Isolate the survivor",
+        "body": "Only one ordering has exactly one true statement."
       },
       {
         "title": "Conclude",
@@ -11481,9 +11613,14 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "ranking",
+      "type": "sole-true-statement",
       "data": {
-        "answer": "E"
+        "people": ["Amy", "Bill", "Celine"],
+        "statements": [
+          { "type": "oldest", "person": "Bill", "negate": false },
+          { "type": "oldest", "person": "Amy", "negate": true },
+          { "type": "youngest", "person": "Celine", "negate": true }
+        ]
       }
     },
     "tags": [
@@ -11532,12 +11669,20 @@ const amc2004Problems: Problem[] = [
     "shortAnswer": "22 1/2",
     "solutionSteps": [
       {
-        "title": "Use Pick’s Theorem",
+        "title": "Draw the polygon",
+        "body": "The quadrilateral sits on a geoboard with vertices at lattice points."
+      },
+      {
+        "title": "Recall Pick's Theorem",
         "body": "For a polygon on lattice points, area = I + B/2 − 1, where I is the number of interior lattice points and B is the number of boundary lattice points."
       },
       {
-        "title": "Count points",
-        "body": "The figure has 21 interior points and 5 boundary points."
+        "title": "Count boundary points",
+        "body": "The figure has 5 boundary points — the 4 vertices plus one more lattice point along an edge."
+      },
+      {
+        "title": "Count interior points",
+        "body": "The figure has 21 interior points."
       },
       {
         "title": "Calculate",
@@ -11562,9 +11707,10 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "pick-theorem-geoboard",
       "data": {
-        "answer": "C"
+        "vertices": [[0, 5], [3, 4], [10, 10], [4, 0]],
+        "gridSize": 10
       }
     },
     "tags": [
@@ -11618,15 +11764,23 @@ const amc2004Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Recognize rings",
-        "body": "The first ring around the center has 6 tiles, and the second ring has 12 tiles."
+        "body": "The center tile is dark, the first ring around it (6 tiles) is bright, and the second ring (12 tiles) is dark."
+      },
+      {
+        "title": "Confirm the 6k pattern",
+        "body": "Ring k always holds 6k tiles — ring 1 has 6, ring 2 has 12."
       },
       {
         "title": "Add the new border",
-        "body": "The next ring has 18 bright tiles."
+        "body": "The next ring, ring 3, has 6 × 3 = 18 bright tiles."
+      },
+      {
+        "title": "Tally each color",
+        "body": "Bright tiles: 6 + 18 = 24. Dark tiles: 1 + 12 = 13."
       },
       {
         "title": "Compare totals",
-        "body": "Bright tiles: 6 + 18 = 24. Dark tiles: 1 + 12 = 13. The difference is 11."
+        "body": "The difference is 24 − 13 = 11."
       }
     ],
     "animationFrames": [
@@ -11647,9 +11801,10 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "hex-tile-border",
       "data": {
-        "answer": "C"
+        "ringColors": ["dark", "bright", "dark"],
+        "newRingColor": "bright"
       }
     },
     "tags": [
@@ -11702,8 +11857,16 @@ const amc2004Problems: Problem[] = [
     "shortAnswer": "11/30",
     "solutionSteps": [
       {
+        "title": "Read the pitchers",
+        "body": "Two 600 mL pitchers, one filled 1/3 with orange juice, the other 2/5 full."
+      },
+      {
         "title": "Find orange juice amounts",
         "body": "The first pitcher has 600 × 1/3 = 200 mL of orange juice. The second has 600 × 2/5 = 240 mL."
+      },
+      {
+        "title": "Top up with water",
+        "body": "Water fills the rest of each pitcher to 600 mL: 400 mL and 360 mL."
       },
       {
         "title": "Find total mixture",
@@ -11732,9 +11895,11 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "pitcher-mixture-combine",
       "data": {
-        "answer": "C"
+        "pitcherSize": 600,
+        "fractions": [0.3333333333333333, 0.4],
+        "fractionLabels": ["1/3", "2/5"]
       }
     },
     "tags": [
@@ -11813,9 +11978,11 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "pencil-stars-bars",
       "data": {
-        "answer": "D"
+        "totalPencils": 6,
+        "people": 3,
+        "minimumEach": 1
       }
     },
     "tags": [
@@ -11868,8 +12035,12 @@ const amc2004Problems: Problem[] = [
         "body": "Ben’s score 4 must be 1 + 3 because no two throws hit the same region."
       },
       {
-        "title": "Force Cindy and Dave",
-        "body": "Cindy’s 7 must be 2 + 5 after 1 and 3 are used. Dave’s 11 must be 4 + 7."
+        "title": "Force Cindy",
+        "body": "After 1 and 3 are used, Cindy’s score 7 must be 2 + 5."
+      },
+      {
+        "title": "Force Dave",
+        "body": "After 1, 2, 3, and 5 are used, Dave’s score 11 must be 4 + 7."
       },
       {
         "title": "Finish the remaining scores",
@@ -11894,9 +12065,12 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "ranking",
+      "type": "dart-pair-elimination",
       "data": {
-        "answer": "A"
+        "regions": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        "deductionOrder": ["Ben", "Cindy", "Dave", "Alice", "Ellen"],
+        "scores": [4, 7, 11, 16, 17],
+        "queryRegion": 6
       }
     },
     "tags": [
@@ -11979,9 +12153,10 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "remainder-lcm-range",
       "data": {
-        "answer": "B"
+        "divisors": [3, 4, 5, 6],
+        "remainder": 2
       }
     },
     "tags": [
@@ -12030,8 +12205,12 @@ const amc2004Problems: Problem[] = [
     "shortAnswer": "27",
     "solutionSteps": [
       {
+        "title": "Find all the chairs",
+        "body": "If 3/4 of the chairs are taken, then 1/4 are empty. Six empty chairs means there are 6 × 4 = 24 chairs."
+      },
+      {
         "title": "Find taken chairs",
-        "body": "If 3/4 of the chairs are taken, then 1/4 are empty. Six empty chairs means 18 chairs are taken."
+        "body": "Of the 24 chairs, 6 are empty, so 24 − 6 = 18 chairs are taken."
       },
       {
         "title": "Relate seated people",
@@ -12060,9 +12239,13 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "chair-people-scale",
       "data": {
-        "answer": "D"
+        "emptyChairs": 6,
+        "occupiedNumerator": 3,
+        "occupiedDenominator": 4,
+        "seatedNumerator": 2,
+        "seatedDenominator": 3
       }
     },
     "tags": [
@@ -12141,9 +12324,10 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "spinner-odd-complement",
       "data": {
-        "answer": "D"
+        "spinnerA": [1, 2, 3, 4],
+        "spinnerB": [1, 2, 3]
       }
     },
     "tags": [
@@ -12226,9 +12410,10 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "party-couple-fraction",
       "data": {
-        "answer": "B"
+        "singleNumerator": 2,
+        "womenDenominator": 5
       }
     },
     "tags": [
@@ -12277,16 +12462,16 @@ const amc2004Problems: Problem[] = [
     "shortAnswer": "Graph D",
     "solutionSteps": [
       {
-        "title": "Start at home",
-        "body": "At corner J, Tess’s distance from home starts at 0."
+        "title": "Run from J to K",
+        "body": "At home corner J, Tess’s distance starts at 0. As she runs down side JK, her straight-line distance increases."
       },
       {
-        "title": "Track the rectangle",
-        "body": "As she runs along the first side, distance increases. Around the far corner near L, her distance is greatest, then it decreases as she returns."
+        "title": "Pass the far corner",
+        "body": "Her distance continues increasing from K to the opposite corner L, where it is greatest. It decreases from L to M but remains positive."
       },
       {
-        "title": "Choose the shape",
-        "body": "The only graph with one middle maximum and ending back at 0 is graph D."
+        "title": "Return home and match",
+        "body": "From M to J her distance decreases to 0. The only graph that starts at 0, has one maximum, and returns to 0 is graph D."
       }
     ],
     "animationFrames": [
@@ -12307,9 +12492,11 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "rectangle-home-distance",
       "data": {
-        "answer": "D"
+        "route": ["J", "K", "L", "M", "J"],
+        "cornerTrends": ["zero", "up", "max", "down", "zero"],
+        "correctGraph": "D"
       }
     },
     "tags": [
@@ -12362,8 +12549,12 @@ const amc2004Problems: Problem[] = [
     "shortAnswer": "7.6",
     "solutionSteps": [
       {
+        "title": "Identify the corner triangles",
+        "body": "The four regions outside EFGH are two 3 by 4 right triangles and two 5 by 6 right triangles."
+      },
+      {
         "title": "Find the parallelogram area",
-        "body": "The rectangle is 10 by 8, so its area is 80. Subtract the four corner triangles: two with area (1/2)(3)(4) and two with area (1/2)(6)(5).",
+        "body": "The rectangle is 10 by 8, so its area is 80. Subtract the four corner triangles.",
         "equation": "80 − 12 − 30 = 38"
       },
       {
@@ -12393,9 +12584,14 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "corner-cut-parallelogram-height",
       "data": {
-        "answer": "C"
+        "rectangleWidth": 10,
+        "rectangleHeight": 8,
+        "topLeft": 4,
+        "rightBottom": 5,
+        "bottomRight": 4,
+        "leftTop": 3
       }
     },
     "tags": [
@@ -12448,8 +12644,12 @@ const amc2004Problems: Problem[] = [
     "shortAnswer": "28 − 2π",
     "solutionSteps": [
       {
+        "title": "Reveal the overlap",
+        "body": "Because the intersecting sides are bisected, the common region is a 2 by 2 square, with area 4."
+      },
+      {
         "title": "Find area of the union",
-        "body": "Two 4 by 4 squares have total area 32, but their overlap is a 2 by 2 square, area 4. The union area is 32 − 4 = 28."
+        "body": "The two 4 by 4 squares total 32, but the overlap was counted twice. Subtract it once: 32 − 4 = 28."
       },
       {
         "title": "Find circle area",
@@ -12478,9 +12678,10 @@ const amc2004Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "overlapping-squares-circle",
       "data": {
-        "answer": "D"
+        "squareSide": 4,
+        "overlapSide": 2
       }
     },
     "tags": [
