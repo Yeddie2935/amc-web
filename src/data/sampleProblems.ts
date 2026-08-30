@@ -14612,13 +14612,22 @@ const amc2006Problems: Problem[] = [
     "shortAnswer": "17",
     "solutionSteps": [
       {
+        "title": "List the three purchases",
+        "body": "Mindy paid $1.98, $5.04, and $9.89 for her three items."
+      },
+      {
         "title": "Round each price",
         "body": "To the nearest dollar, $1.98 rounds to $2, $5.04 rounds to $5, and $9.89 rounds to $10.",
+        "equation": "1.98→2, 5.04→5, 9.89→10"
+      },
+      {
+        "title": "Add the rounded amounts",
+        "body": "Adding the rounded prices gives the total.",
         "equation": "2+5+10=17"
       },
       {
-        "title": "Choose the nearest total",
-        "body": "The rounded total is 17 dollars."
+        "title": "Watch the rounding trap",
+        "body": "Rounding every price up instead of to the nearest dollar would overshoot to 18. The correct nearest-dollar total is 17."
       }
     ],
     "animationFrames": [
@@ -14639,8 +14648,10 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "price-round-snap",
       "data": {
+        "prices": [1.98, 5.04, 9.89],
+        "rounded": [2, 5, 10],
         "answer": "D"
       }
     },
@@ -14690,12 +14701,22 @@ const amc2006Problems: Problem[] = [
     "shortAnswer": "13",
     "solutionSteps": [
       {
-        "title": "Use AMC 8 scoring",
-        "body": "The AMC 8 gives 1 point for each correct answer and 0 points for incorrect or blank answers."
+        "title": "Tally Billy's answers",
+        "body": "13 correct, 7 incorrect, and 5 blank make up all 25 questions on the contest.",
+        "equation": "13+7+5=25"
       },
       {
-        "title": "Count correct answers",
-        "body": "Billy answered 13 questions correctly, so his score is 13."
+        "title": "Mark the correct answers",
+        "body": "The AMC 8 gives 1 point for each correct answer, so the 13 correct answers are worth 13 points."
+      },
+      {
+        "title": "Mark the rest as zero",
+        "body": "Incorrect and blank answers both earn 0 points, so the 7 incorrect and 5 blank answers add nothing."
+      },
+      {
+        "title": "Read the score",
+        "body": "Only the correct answers count, so Billy's score is 13.",
+        "equation": "13×1=13"
       }
     ],
     "animationFrames": [
@@ -14716,9 +14737,11 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "quiz-bubble-score",
       "data": {
         "correct": 13,
+        "incorrect": 7,
+        "blank": 5,
         "answer": "C"
       }
     },
@@ -14768,6 +14791,10 @@ const amc2006Problems: Problem[] = [
     "shortAnswer": "1/2",
     "solutionSteps": [
       {
+        "title": "Compare the two sessions",
+        "body": "At first Elisa swam 10 laps in 25 minutes. Now she swims 12 laps in 24 minutes."
+      },
+      {
         "title": "Find the old lap time",
         "body": "At first, Elisa took 25 minutes for 10 laps.",
         "equation": "25/10=2.5"
@@ -14800,10 +14827,12 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "lap-pace-compare",
       "data": {
-        "oldTime": 2.5,
-        "newTime": 2,
+        "oldLaps": 10,
+        "oldMinutes": 25,
+        "newLaps": 12,
+        "newMinutes": 24,
         "answer": "A"
       }
     },
@@ -14853,12 +14882,20 @@ const amc2006Problems: Problem[] = [
     "shortAnswer": "east",
     "solutionSteps": [
       {
-        "title": "Find the net turn",
-        "body": "The counterclockwise turn exceeds the clockwise turn by 3 3/4−2 1/4=1 1/2 revolutions."
+        "title": "Start west",
+        "body": "The spinner begins pointing west."
       },
       {
-        "title": "Apply the turn",
-        "body": "Starting west, a net 1 full revolution returns to west, and another 1/2 revolution points east."
+        "title": "Turn clockwise",
+        "body": "Chenille turns it clockwise 2 1/4 revolutions. Two full turns return it to west, and the extra quarter turn clockwise from west points north."
+      },
+      {
+        "title": "Turn counterclockwise",
+        "body": "She then turns it counterclockwise 3 3/4 revolutions. Three full turns return it to north, and the extra three-quarter turn counterclockwise from north points east."
+      },
+      {
+        "title": "Check with the net turn",
+        "body": "The counterclockwise turn exceeds the clockwise turn by 3 3/4−2 1/4=1 1/2 revolutions. A net 1 full revolution from west returns to west, and the extra 1/2 revolution points east — matching the step-by-step result."
       }
     ],
     "animationFrames": [
@@ -14879,8 +14916,11 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "spinner-net-turn",
       "data": {
+        "startDeg": 270,
+        "cwRevolutions": 2.25,
+        "ccwRevolutions": 3.75,
         "answer": "B"
       }
     },
@@ -14934,16 +14974,22 @@ const amc2006Problems: Problem[] = [
     "shortAnswer": "30",
     "solutionSteps": [
       {
-        "title": "Use midpoint geometry",
-        "body": "Connecting the side midpoints forms a smaller square whose diagonals are the side lengths of the larger square."
+        "title": "Connect the midpoints",
+        "body": "Points A, B, C, and D are the midpoints of the larger square's sides. Connecting them forms a smaller, tilted square ABCD."
       },
       {
-        "title": "Compare areas",
-        "body": "The four corner triangles together have the same area as the inner square, so the inner square is half the large square."
+        "title": "Mark the four corner triangles",
+        "body": "The larger square splits into the inner square ABCD plus four corner right triangles, each with two legs of half a side."
+      },
+      {
+        "title": "Pair each corner with a wedge",
+        "body": "Slicing the inner square along its own diagonals gives four wedges from its center, each congruent to one corner triangle — same two legs, same right angle.",
+        "equation": "4 corners = 4 wedges = inner square"
       },
       {
         "title": "Calculate",
-        "body": "Half of 60 is 30."
+        "body": "Since the corner triangles together equal the inner square, the inner square is half of 60.",
+        "equation": "60/2=30"
       }
     ],
     "animationFrames": [
@@ -14964,8 +15010,9 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "midpoint-diamond-half",
       "data": {
+        "squareArea": 60,
         "answer": "D"
       }
     },
@@ -15020,15 +15067,22 @@ const amc2006Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Start with two separate rectangles",
-        "body": "One 2 by 4 rectangle has perimeter 2(2+4)=12, so two separate rectangles have perimeter 24."
+        "body": "One 2 by 4 rectangle has perimeter 2(2+4)=12.",
+        "equation": "2(2+4)=12"
+      },
+      {
+        "title": "Double it",
+        "body": "Two separate rectangles would have a combined perimeter of 24.",
+        "equation": "2×12=24"
       },
       {
         "title": "Remove the shared edge",
-        "body": "When joined, the shared length 2 is counted twice in the separate perimeters, so subtract 4."
+        "body": "When joined into a T, the shared length 2 sits inside the shape and is counted twice in the separate perimeters, so subtract it twice."
       },
       {
         "title": "Compute",
-        "body": "24−4=20."
+        "body": "24−2×2=20.",
+        "equation": "24−4=20"
       }
     ],
     "animationFrames": [
@@ -15049,8 +15103,12 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "t-perimeter-cancel",
       "data": {
+        "topW": 4,
+        "topH": 2,
+        "stemW": 2,
+        "stemH": 4,
         "answer": "C"
       }
     },
@@ -15104,16 +15162,22 @@ const amc2006Problems: Problem[] = [
     "shortAnswer": "Z, X, Y",
     "solutionSteps": [
       {
+        "title": "Circle X's radius is given directly",
+        "body": "Circle X has radius π, about 3.14."
+      },
+      {
         "title": "Find Y's radius",
-        "body": "For circle Y, 2πr=8π, so r=4."
+        "body": "For circle Y, 2πr=8π, so r=4.",
+        "equation": "2πr=8π → r=4"
       },
       {
         "title": "Find Z's radius",
-        "body": "For circle Z, πr²=9π, so r=3."
+        "body": "For circle Z, πr²=9π, so r=3.",
+        "equation": "πr²=9π → r=3"
       },
       {
-        "title": "Compare with X",
-        "body": "Circle X has radius π, which is between 3 and 4. The order is Z, X, Y."
+        "title": "Compare all three",
+        "body": "Circle X has radius π ≈ 3.14, which is between Z's radius 3 and Y's radius 4. The order smallest to largest is Z, X, Y."
       }
     ],
     "animationFrames": [
@@ -15134,8 +15198,11 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "circle-radius-order",
       "data": {
+        "rX": 3.14159,
+        "circumferenceY": 25.13274,
+        "areaZ": 28.27433,
         "answer": "B"
       }
     },
@@ -15185,16 +15252,23 @@ const amc2006Problems: Problem[] = [
     "shortAnswer": "75%",
     "solutionSteps": [
       {
+        "title": "Read the table",
+        "body": "The survey table gives 136 total listeners, 58 female listeners, 26 male non-listeners, 96 total females, and 200 people surveyed in all."
+      },
+      {
         "title": "Find male listeners",
-        "body": "Total listeners are 136 and female listeners are 58, so male listeners are 136−58=78."
+        "body": "Total listeners are 136 and female listeners are 58, so male listeners are 136−58=78.",
+        "equation": "136−58=78"
       },
       {
         "title": "Find total males",
-        "body": "Males consist of 78 listeners and 26 non-listeners, for a total of 104 males."
+        "body": "Males consist of 78 listeners and 26 non-listeners, for a total of 104 males.",
+        "equation": "78+26=104"
       },
       {
         "title": "Convert to a percent",
-        "body": "78/104=3/4=75%."
+        "body": "78/104=3/4=75%.",
+        "equation": "78/104=75%"
       }
     ],
     "animationFrames": [
@@ -15215,8 +15289,13 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "survey-table-percent",
       "data": {
+        "totalListen": 136,
+        "femaleListen": 58,
+        "maleDontListen": 26,
+        "femaleTotal": 96,
+        "grandTotal": 200,
         "answer": "E"
       }
     },
@@ -15271,7 +15350,11 @@ const amc2006Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Look for cancellation",
-        "body": "Each denominator cancels with the previous or next numerator."
+        "body": "Each denominator matches the previous term's numerator, so they cancel: 3/2 × 4/3 × 5/4 × ⋯"
+      },
+      {
+        "title": "Cancel each pair",
+        "body": "Every numerator cancels with the denominator right after it, all the way down the chain."
       },
       {
         "title": "Keep only the endpoints",
@@ -15279,7 +15362,8 @@ const amc2006Problems: Problem[] = [
       },
       {
         "title": "Compute",
-        "body": "2006/2=1003."
+        "body": "2006/2=1003. Picking 2006 alone would forget to divide by the leftover 2.",
+        "equation": "2006/2=1003"
       }
     ],
     "animationFrames": [
@@ -15300,8 +15384,10 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "telescope-cancel-chain",
       "data": {
+        "start": 2,
+        "end": 2006,
         "answer": "C"
       }
     },
@@ -15351,16 +15437,20 @@ const amc2006Problems: Problem[] = [
     "shortAnswer": "A",
     "solutionSteps": [
       {
-        "title": "Write the area relationship",
-        "body": "A rectangle with area 12 satisfies wl=12."
+        "title": "List the whole-number factor pairs",
+        "body": "A rectangle with area 12 satisfies wl=12, so (w,l) can be (1,12), (2,6), (3,4), (4,3), (6,2), or (12,1)."
       },
       {
-        "title": "Solve for l",
-        "body": "The length is l=12/w, so as w increases, l decreases."
+        "title": "Plot the pairs",
+        "body": "As w increases, l=12/w decreases — plotting the pairs traces a curve that drops sharply at first, then levels off."
+      },
+      {
+        "title": "Rule out the other shapes",
+        "body": "An increasing curve, a straight declining line, and a flat row of points don't match this shape."
       },
       {
         "title": "Match the graph",
-        "body": "Only graph A shows this inverse relationship using positive integer points."
+        "body": "Only graph A shows this curved, decreasing pattern of positive integer points."
       }
     ],
     "animationFrames": [
@@ -15381,8 +15471,9 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "factor-pair-curve",
       "data": {
+        "area": 12,
         "answer": "A"
       }
     },
@@ -15440,12 +15531,17 @@ const amc2006Problems: Problem[] = [
         "body": "Two digits can sum to at most 18, so the possible positive square sums are 1, 4, 9, and 16."
       },
       {
-        "title": "Count each case",
-        "body": "There is 1 number with digit sum 1, 4 numbers with digit sum 4, 9 with digit sum 9, and 3 with digit sum 16."
+        "title": "Count the small sums",
+        "body": "There is 1 number with digit sum 1 (10), and 4 numbers with digit sum 4 (13, 22, 31, 40)."
+      },
+      {
+        "title": "Count the large sums",
+        "body": "There are 9 numbers with digit sum 9, and 3 numbers with digit sum 16 (79, 88, 97)."
       },
       {
         "title": "Add",
-        "body": "1+4+9+3=17."
+        "body": "1+4+9+3=17.",
+        "equation": "1+4+9+3=17"
       }
     ],
     "animationFrames": [
@@ -15466,8 +15562,9 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "digit-sum-square-grid",
       "data": {
+        "max": 16,
         "answer": "C"
       }
     },
@@ -15517,16 +15614,23 @@ const amc2006Problems: Problem[] = [
     "shortAnswer": "83",
     "solutionSteps": [
       {
-        "title": "Find correct answers",
-        "body": "70% of 10 is 7, 80% of 20 is 16, and 90% of 30 is 27."
+        "title": "Three tests, three percentages",
+        "body": "Antonette scores 70% on 10 problems, 80% on 20 problems, and 90% on 30 problems."
       },
       {
-        "title": "Add correct answers",
-        "body": "Antonette got 7+16+27=50 correct out of 60."
+        "title": "Find correct answers on each test",
+        "body": "70% of 10 is 7, 80% of 20 is 16, and 90% of 30 is 27.",
+        "equation": "7, 16, 27"
+      },
+      {
+        "title": "Combine into 60 problems",
+        "body": "Antonette got 7+16+27=50 correct out of 60.",
+        "equation": "7+16+27=50"
       },
       {
         "title": "Convert to percent",
-        "body": "50/60≈83.3%, so the closest choice is 83."
+        "body": "50/60≈83.3%, so the closest choice is 83.",
+        "equation": "50/60≈83%"
       }
     ],
     "animationFrames": [
@@ -15547,8 +15651,13 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "combined-test-percent",
       "data": {
+        "tests": [
+          { "count": 10, "pct": 70 },
+          { "count": 20, "pct": 80 },
+          { "count": 30, "pct": 90 }
+        ],
         "answer": "D"
       }
     },
@@ -15598,16 +15707,23 @@ const amc2006Problems: Problem[] = [
     "shortAnswer": "11:00",
     "solutionSteps": [
       {
+        "title": "Cassie leaves first",
+        "body": "Cassie leaves Escanaba at 8:30 AM at 12 mph. Brian leaves Marquette at 9:00 AM at 16 mph, 62 miles away."
+      },
+      {
         "title": "Account for Cassie's head start",
-        "body": "By 9:00 AM, Cassie has ridden 0.5×12=6 miles, leaving 62−6=56 miles between them."
+        "body": "By 9:00 AM, Cassie has ridden 0.5×12=6 miles, leaving 62−6=56 miles between them.",
+        "equation": "62−6=56"
       },
       {
         "title": "Use combined speed",
-        "body": "Together they close the distance at 12+16=28 miles per hour."
+        "body": "Together they close the distance at 12+16=28 miles per hour.",
+        "equation": "12+16=28"
       },
       {
         "title": "Find the meeting time",
-        "body": "56/28=2 hours after 9:00 AM, so they meet at 11:00 AM."
+        "body": "56/28=2 hours after 9:00 AM, so they meet at 11:00 AM.",
+        "equation": "56/28=2"
       }
     ],
     "animationFrames": [
@@ -15628,8 +15744,12 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "meeting-point-road",
       "data": {
+        "distance": 62,
+        "speedA": 12,
+        "speedB": 16,
+        "startGapMinutes": 30,
         "answer": "D"
       }
     },
@@ -15679,12 +15799,22 @@ const amc2006Problems: Problem[] = [
     "shortAnswer": "11,400",
     "solutionSteps": [
       {
+        "title": "Both read all 760 pages",
+        "body": "Bob reads a page in 45 seconds; Chandra reads a page in 30 seconds."
+      },
+      {
         "title": "Compare seconds per page",
-        "body": "Bob takes 45 seconds per page and Chandra takes 30 seconds per page, a difference of 15 seconds per page."
+        "body": "Bob takes 45 seconds per page and Chandra takes 30 seconds per page, a difference of 15 seconds per page.",
+        "equation": "45−30=15"
       },
       {
         "title": "Apply to 760 pages",
-        "body": "Over 760 pages, the time difference is 760×15=11,400 seconds."
+        "body": "Over 760 pages, the time difference is 760×15=11,400 seconds.",
+        "equation": "760×15=11,400"
+      },
+      {
+        "title": "Watch the trap",
+        "body": "The question asks for the difference, not Chandra's own total (22,800 seconds, choice E)."
       }
     ],
     "animationFrames": [
@@ -15705,8 +15835,11 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "reading-race-gap",
       "data": {
+        "pages": 760,
+        "bobRate": 45,
+        "chandraRate": 30,
         "answer": "B"
       }
     },
@@ -15756,16 +15889,22 @@ const amc2006Problems: Problem[] = [
     "shortAnswer": "456",
     "solutionSteps": [
       {
+        "title": "Split 760 pages for equal time",
+        "body": "Chandra and Bob will split the 760-page book so both spend the same amount of time reading."
+      },
+      {
         "title": "Compare their reading speeds",
         "body": "Chandra takes 30 seconds per page and Bob takes 45 seconds per page. For equal time, Bob reads 2 pages for every 3 pages Chandra reads."
       },
       {
         "title": "Use the 3:2 page ratio",
-        "body": "Chandra should read 3/(3+2)=3/5 of the book."
+        "body": "Chandra should read 3/(3+2)=3/5 of the book.",
+        "equation": "3/(3+2)=3/5"
       },
       {
         "title": "Compute pages",
-        "body": "(3/5)×760=456, so Chandra should finish page 456."
+        "body": "(3/5)×760=456, so Chandra should finish page 456.",
+        "equation": "(3/5)×760=456"
       }
     ],
     "animationFrames": [
@@ -15786,8 +15925,11 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "team-reading-split",
       "data": {
+        "pages": 760,
+        "chandraRate": 30,
+        "bobRate": 45,
         "answer": "C"
       }
     },
@@ -15837,16 +15979,23 @@ const amc2006Problems: Problem[] = [
     "shortAnswer": "7200",
     "solutionSteps": [
       {
+        "title": "Three readers, one equal time",
+        "body": "Alice reads a page in 20 seconds, Bob in 45 seconds, and Chandra in 30 seconds. All three should read for the same length of time."
+      },
+      {
         "title": "Use reading speeds",
-        "body": "In the same amount of time, the page counts are inversely proportional to seconds per page: Alice:Chandra:Bob = 1/20:1/30:1/45."
+        "body": "In the same amount of time, the page counts are inversely proportional to seconds per page: Alice:Chandra:Bob = 1/20:1/30:1/45, which simplifies to 9:6:4.",
+        "equation": "1/20:1/30:1/45 = 9:6:4"
       },
       {
-        "title": "Simplify the ratio",
-        "body": "The ratio is 9:6:4, so Bob reads 4/(9+6+4)=4/19 of 760 pages, which is 160 pages."
+        "title": "Split 760 pages in that ratio",
+        "body": "Alice reads 9/19×760=360 pages, Chandra reads 6/19×760=240 pages, and Bob reads 4/19×760=160 pages.",
+        "equation": "360, 240, 160"
       },
       {
-        "title": "Find the equal time",
-        "body": "Bob takes 45 seconds per page, so 160×45=7200 seconds."
+        "title": "Check every reader's time",
+        "body": "Alice: 360×20=7200s. Chandra: 240×30=7200s. Bob: 160×45=7200s — all equal, as required.",
+        "equation": "7200 = 7200 = 7200"
       }
     ],
     "animationFrames": [
@@ -15867,8 +16016,10 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "three-way-split-equal-time",
       "data": {
+        "pages": 760,
+        "rates": { "alice": 20, "chandra": 30, "bob": 45 },
         "answer": "E"
       }
     },
@@ -15918,16 +16069,22 @@ const amc2006Problems: Problem[] = [
     "shortAnswer": "1/3",
     "solutionSteps": [
       {
+        "title": "Spin all three",
+        "body": "Jeff spins P, Q, and R, and adds the three results together."
+      },
+      {
         "title": "Use parity",
         "body": "Spinner Q always lands on an even number, and spinner R always lands on an odd number."
       },
       {
         "title": "Decide what P must be",
-        "body": "Even + odd is odd, so P must also be even to make the total odd."
+        "body": "Even + odd is odd, so P must also be even to make the total odd.",
+        "equation": "even + odd = odd"
       },
       {
         "title": "Find the probability",
-        "body": "Spinner P has one even sector, 2, out of three equal sectors, so the probability is 1/3."
+        "body": "Spinner P has one even sector, 2, out of three equal sectors, so the probability is 1/3.",
+        "equation": "1/3"
       }
     ],
     "animationFrames": [
@@ -15948,8 +16105,11 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "spinner-parity-sum",
       "data": {
+        "p": [1, 2, 3],
+        "q": [2, 4, 8, 6],
+        "r": [1, 3, 5, 7, 9, 11],
         "answer": "B"
       }
     },
@@ -16033,10 +16193,12 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "solid-3d",
+      "type": "cube-corner-surface-fraction",
       "data": {
-        "n": 3,
-        "answer": "D"
+        "edgeLength": 3,
+        "faceCount": 6,
+        "cornerCubes": 8,
+        "exposedFacesPerCorner": 3
       }
     },
     "tags": [
@@ -16115,9 +16277,13 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "congruence-length-relay",
       "data": {
-        "answer": "D"
+        "congruence": "ABD=ECD",
+        "isosceles": "AB=BC",
+        "midpoints": ["BC", "AE"],
+        "givenSide": "CE",
+        "givenLength": 11
       }
     },
     "tags": [
@@ -16200,9 +16366,11 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "tournament-win-ledger",
       "data": {
-        "answer": "C"
+        "names": ["Helen", "Ines", "Janet", "Kendra", "Lara", "Monica"],
+        "knownWins": [4, 3, 2, 2, 2],
+        "unknownIndex": 5
       }
     },
     "tags": [
@@ -16281,9 +16449,13 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "aquarium-displacement-layer",
       "data": {
-        "answer": "A"
+        "length": 100,
+        "width": 40,
+        "tankHeight": 50,
+        "waterDepth": 37,
+        "objectVolume": 1000
       }
     },
     "tags": [
@@ -16340,8 +16512,12 @@ const amc2006Problems: Problem[] = [
         "body": "The center number counts twice, so put 1 in the center and 2 and 3 on the outside: 2+2(1)+3=7."
       },
       {
-        "title": "Maximize and subtract",
-        "body": "Put 9 in the center and 7 and 8 on the outside: 7+2(9)+8=33. The difference is 33−7=26."
+        "title": "Maximize",
+        "body": "Put 9 in the center and 7 and 8 on the outside: 7+2(9)+8=33."
+      },
+      {
+        "title": "Compare the extremes",
+        "body": "The difference between the largest and smallest top values is 33−7=26."
       }
     ],
     "animationFrames": [
@@ -16362,9 +16538,9 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "additive-pyramid-extrema",
       "data": {
-        "answer": "D"
+        "digits": [1, 2, 3, 4, 5, 6, 7, 8, 9]
       }
     },
     "tags": [
@@ -16447,9 +16623,11 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "shared-shortfall-coins",
       "data": {
-        "answer": "A"
+        "divisors": [6, 5],
+        "remainders": [4, 3],
+        "finalDivisor": 7
       }
     },
     "tags": [
@@ -16528,9 +16706,12 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "repeated-two-digit-factor",
       "data": {
-        "answer": "A"
+        "multiplicand": "ABA",
+        "block": "CD",
+        "product": "CDCD",
+        "shift": 100
       }
     },
     "tags": [
@@ -16583,12 +16764,16 @@ const amc2006Problems: Problem[] = [
     "shortAnswer": "14",
     "solutionSteps": [
       {
-        "title": "Use parity",
-        "body": "The visible numbers 44 and 38 are even, while 59 is odd. To make the common sum work with three different primes, the hidden prime behind 59 must be the only even prime, 2."
+        "title": "Set up the equal card sums",
+        "body": "Each visible number plus the hidden prime on its card must give the same total."
       },
       {
-        "title": "Find the common sum",
-        "body": "The common sum is 59+2=61."
+        "title": "Use parity on the even cards",
+        "body": "The primes behind 44 and 38 have the same parity. Because the hidden primes are different, they cannot both be 2, so both are odd and the common sum is odd."
+      },
+      {
+        "title": "Force the even prime",
+        "body": "Since 59 is odd, its hidden prime must be even. The only even prime is 2, so the common sum is 59+2=61."
       },
       {
         "title": "Find the other hidden primes",
@@ -16617,9 +16802,10 @@ const amc2006Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "equal-sum-prime-cards",
       "data": {
-        "answer": "B"
+        "visible": [44, 59, 38],
+        "evenPrime": 2
       }
     },
     "tags": [

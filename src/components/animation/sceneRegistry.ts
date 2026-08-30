@@ -1,6 +1,23 @@
 import type { Problem } from "../../types/amc";
 import type { AnimatedScene } from "./scenes/types";
 import { ClockAngleScene } from "./scenes/ClockAngleScene";
+import { PriceRoundSnapScene } from "./scenes/PriceRoundSnapScene";
+import { QuizBubbleScoreScene } from "./scenes/QuizBubbleScoreScene";
+import { LapPaceCompareScene } from "./scenes/LapPaceCompareScene";
+import { SpinnerNetTurnScene } from "./scenes/SpinnerNetTurnScene";
+import { MidpointDiamondHalfScene } from "./scenes/MidpointDiamondHalfScene";
+import { TPerimeterCancelScene } from "./scenes/TPerimeterCancelScene";
+import { CircleRadiusOrderScene } from "./scenes/CircleRadiusOrderScene";
+import { SurveyTablePercentScene } from "./scenes/SurveyTablePercentScene";
+import { TelescopeCancelChainScene } from "./scenes/TelescopeCancelChainScene";
+import { FactorPairCurveScene } from "./scenes/FactorPairCurveScene";
+import { DigitSumSquareGridScene } from "./scenes/DigitSumSquareGridScene";
+import { CombinedTestPercentScene } from "./scenes/CombinedTestPercentScene";
+import { MeetingPointRoadScene } from "./scenes/MeetingPointRoadScene";
+import { ReadingRaceGapScene } from "./scenes/ReadingRaceGapScene";
+import { TeamReadingSplitScene } from "./scenes/TeamReadingSplitScene";
+import { ThreeWaySplitEqualTimeScene } from "./scenes/ThreeWaySplitEqualTimeScene";
+import { SpinnerParitySumScene } from "./scenes/SpinnerParitySumScene";
 import { HexagramAreaScene } from "./scenes/HexagramAreaScene";
 import { TwinSetVennScene } from "./scenes/TwinSetVennScene";
 import { IsoscelesAreaToSideScene } from "./scenes/IsoscelesAreaToSideScene";
@@ -75,6 +92,7 @@ import { AllButCountScene } from "./scenes/AllButCountScene";
 import { UnitFractionAnchorOrderScene } from "./scenes/UnitFractionAnchorOrderScene";
 import { PrimeFactorGateScene } from "./scenes/PrimeFactorGateScene";
 import { CubeFacePaintBorderScene } from "./scenes/CubeFacePaintBorderScene";
+import { CubeCornerSurfaceFractionScene } from "./scenes/CubeCornerSurfaceFractionScene";
 import { SquareDissectScene } from "./scenes/SquareDissectScene";
 import { DigitPairPlaceScene } from "./scenes/DigitPairPlaceScene";
 import { MultipleLadderScene } from "./scenes/MultipleLadderScene";
@@ -478,6 +496,13 @@ import { BoundaryUnitPairGraphScene } from "./scenes/BoundaryUnitPairGraphScene"
 import { ConcentricPathLedgerScene } from "./scenes/ConcentricPathLedgerScene";
 import { CircleMeasureGrowthScene } from "./scenes/CircleMeasureGrowthScene";
 import { PositiveAddOrderScene } from "./scenes/PositiveAddOrderScene";
+import { EqualSumPrimeCardsScene } from "./scenes/EqualSumPrimeCardsScene";
+import { RepeatedTwoDigitFactorScene } from "./scenes/RepeatedTwoDigitFactorScene";
+import { SharedShortfallCoinScene } from "./scenes/SharedShortfallCoinScene";
+import { AdditivePyramidExtremaScene } from "./scenes/AdditivePyramidExtremaScene";
+import { AquariumDisplacementLayerScene } from "./scenes/AquariumDisplacementLayerScene";
+import { TournamentWinLedgerScene } from "./scenes/TournamentWinLedgerScene";
+import { CongruenceLengthRelayScene } from "./scenes/CongruenceLengthRelayScene";
 
 function num(value: unknown): number {
   const n = Number(value);
@@ -497,6 +522,47 @@ function gcdRegistry(a:number,b:number):number{return b?gcdRegistry(b,a%b):Math.
 export function resolveScene(problem: Problem): AnimatedScene {
   const type = problem.animation?.type;
   const data = problem.animation?.data ?? {};
+  // Exact named congruence, isosceles pair, midpoint segments, and a positive
+  // side length keep the half-turn and length relay faithful and drawable.
+  if(type==="congruence-length-relay"&&Array.isArray(data.midpoints)){const mids=data.midpoints.map(String).sort();if(data.congruence==="ABD=ECD"&&data.isosceles==="AB=BC"&&mids.join(",")==="AE,BC"&&data.givenSide==="CE"&&Number(data.givenLength)>0&&Number(data.givenLength)<=100)return CongruenceLengthRelayScene;}
+  // Six unique player names, five bounded known win counts, and one valid
+  // unknown index keep the complete graph and every ledger token drawable.
+  if (type === "tournament-win-ledger" && Array.isArray(data.names) && Array.isArray(data.knownWins)) {
+    const names = data.names.map(String), wins = data.knownWins.map(Number), ui = Number(data.unknownIndex);
+    if (names.length === 6 && new Set(names).size === 6 && names.every((v) => v.length >= 2 && v.length <= 12) && wins.length === 5 && wins.every((v) => Number.isInteger(v) && v >= 0 && v <= 5) && Number.isInteger(ui) && ui >= 0 && ui < 6) return TournamentWinLedgerScene;
+  }
+  // Positive bounded aquarium dimensions, a valid initial depth, and a rock
+  // that does not overflow the tank keep the true-scale layer drawable.
+  if (type === "aquarium-displacement-layer") {
+    const l = Number(data.length), w = Number(data.width), th = Number(data.tankHeight), wd = Number(data.waterDepth), v = Number(data.objectVolume);
+    const rise = v / (l * w);
+    if ([l, w, th, wd, v].every(Number.isFinite) && l > 0 && l <= 500 && w > 0 && w <= 500 && th > 0 && th <= 200 && wd > 0 && wd < th && v > 0 && rise > 0 && wd + rise < th) return AquariumDisplacementLayerScene;
+  }
+  // Exactly the nine positive one-digit integers make the exhaustive 1,2,1
+  // weighted placement sweep finite and keep the pyramid cells readable.
+  if (type === "additive-pyramid-extrema" && Array.isArray(data.digits)) {
+    const digits = data.digits.map(Number);
+    if (digits.join(",") === "1,2,3,4,5,6,7,8,9") return AdditivePyramidExtremaScene;
+  }
+  // Two small division rows with one common positive shortfall and a bounded
+  // final divisor keep every coin, synchronized multiple, and regroup drawable.
+  if (type === "shared-shortfall-coins" && Array.isArray(data.divisors) && Array.isArray(data.remainders)) {
+    const ds = data.divisors.map(Number), rs = data.remainders.map(Number), fd = Number(data.finalDivisor);
+    const gaps = ds.map((d, i) => d - rs[i]);
+    if (ds.length === 2 && rs.length === 2 && ds.every((d) => Number.isInteger(d) && d >= 2 && d <= 10) && rs.every((r, i) => Number.isInteger(r) && r >= 0 && r < ds[i]) && gaps[0] > 0 && gaps.every((g) => g === gaps[0]) && Number.isInteger(fd) && fd >= 2 && fd <= 10) return SharedShortfallCoinScene;
+  }
+  // Exact three-letter/two-letter patterns and the matching decimal shift keep
+  // the block split, cancellation, and digit read-off symbolic and faithful.
+  if (type === "repeated-two-digit-factor" && typeof data.multiplicand === "string" && typeof data.block === "string" && typeof data.product === "string") {
+    const multiplicand = data.multiplicand, block = data.block, product = data.product, shift = Number(data.shift);
+    if (multiplicand === "ABA" && block === "CD" && product === block.repeat(2) && shift === 100) return RepeatedTwoDigitFactorScene;
+  }
+  // Exactly three distinct positive fronts with two even and one odd, plus
+  // the unique even prime, keep the parity deduction and card flips exact.
+  if (type === "equal-sum-prime-cards" && Array.isArray(data.visible)) {
+    const visible = data.visible.map(Number), evenPrime = Number(data.evenPrime);
+    if (visible.length === 3 && new Set(visible).size === 3 && visible.every((v) => Number.isInteger(v) && v > 0 && v <= 999) && visible.filter((v) => v % 2 === 0).length === 2 && evenPrime === 2) return EqualSumPrimeCardsScene;
+  }
   // One exact four-symbol strict order and named terms make the translated
   // positive segment logically faithful and keep every marker drawable.
   if (type === "positive-add-order" && Array.isArray(data.order)) {
@@ -823,6 +889,12 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if(type==="cube-face-paint-border"){
     const edge=num(data.edgeLength),paint=num(data.paintArea),faces=Math.round(num(data.faceCount));
     if(edge>0&&edge<=100&&faces===6&&paint>0&&paint<faces*edge*edge&&paint/faces<edge*edge) return CubeFacePaintBorderScene;
+  }
+  // A 3×3×3 cube has six 3×3 surface grids, while its eight corner cubes
+  // expose exactly three faces each; these invariants define the pictured count.
+  if(type==="cube-corner-surface-fraction"){
+    const edge=Math.round(num(data.edgeLength)),faces=Math.round(num(data.faceCount)),corners=Math.round(num(data.cornerCubes)),exposed=Math.round(num(data.exposedFacesPerCorner));
+    if(edge===3&&faces===6&&corners===8&&exposed===3) return CubeCornerSurfaceFractionScene;
   }
   // Six distinct fixed integers plus three unknowns make exactly nine ordered
   // slots; bounded values keep the complete median interval readable.
@@ -3605,6 +3677,57 @@ export function resolveScene(problem: Problem): AnimatedScene {
   // right-triangle hypotenuse all drawable.
   if (type === "isosceles-area-to-side" && num(data.base) > 0 && num(data.area) > 0) {
     return IsoscelesAreaToSideScene;
+  }
+  if (type === "price-round-snap" && Array.isArray(data.prices) && data.prices.length > 0) {
+    return PriceRoundSnapScene;
+  }
+  if (type === "quiz-bubble-score" && num(data.correct) > 0) {
+    return QuizBubbleScoreScene;
+  }
+  if (type === "lap-pace-compare" && num(data.oldLaps) > 0 && num(data.newLaps) > 0) {
+    return LapPaceCompareScene;
+  }
+  if (type === "spinner-net-turn" && num(data.cwRevolutions) >= 0 && num(data.ccwRevolutions) >= 0) {
+    return SpinnerNetTurnScene;
+  }
+  if (type === "midpoint-diamond-half" && num(data.squareArea) > 0) {
+    return MidpointDiamondHalfScene;
+  }
+  if (type === "t-perimeter-cancel" && num(data.topW) > 0 && num(data.stemW) > 0) {
+    return TPerimeterCancelScene;
+  }
+  if (type === "circle-radius-order" && num(data.rX) > 0 && num(data.circumferenceY) > 0 && num(data.areaZ) > 0) {
+    return CircleRadiusOrderScene;
+  }
+  if (type === "survey-table-percent" && num(data.grandTotal) > 0) {
+    return SurveyTablePercentScene;
+  }
+  if (type === "telescope-cancel-chain" && num(data.end) > num(data.start) && num(data.start) > 0) {
+    return TelescopeCancelChainScene;
+  }
+  if (type === "factor-pair-curve" && num(data.area) > 0) {
+    return FactorPairCurveScene;
+  }
+  if (type === "digit-sum-square-grid" && num(data.max) > 0) {
+    return DigitSumSquareGridScene;
+  }
+  if (type === "combined-test-percent" && Array.isArray(data.tests) && data.tests.length > 0) {
+    return CombinedTestPercentScene;
+  }
+  if (type === "meeting-point-road" && num(data.distance) > 0 && num(data.speedA) > 0 && num(data.speedB) > 0) {
+    return MeetingPointRoadScene;
+  }
+  if (type === "reading-race-gap" && num(data.pages) > 0 && num(data.bobRate) > 0 && num(data.chandraRate) > 0) {
+    return ReadingRaceGapScene;
+  }
+  if (type === "team-reading-split" && num(data.pages) > 0 && num(data.chandraRate) > 0 && num(data.bobRate) > 0) {
+    return TeamReadingSplitScene;
+  }
+  if (type === "three-way-split-equal-time" && num(data.pages) > 0 && data.rates && typeof data.rates === "object") {
+    return ThreeWaySplitEqualTimeScene;
+  }
+  if (type === "spinner-parity-sum" && Array.isArray(data.p) && Array.isArray(data.q) && Array.isArray(data.r)) {
+    return SpinnerParitySumScene;
   }
   return EquationScene;
 }
