@@ -252,6 +252,8 @@ export type AnimationTemplateType =
   | "inscribed-square-corner-area"
   | "treadmill-pace"
   | "friend-cover-share"
+  | "equal-gift-units"
+  | "shaded-remainder-compare"
   | "weight-median-mean"
   | "product-pyramid"
   | "train-timeline"

@@ -189,6 +189,8 @@ import { RecipeScaleScene } from "./scenes/RecipeScaleScene";
 import { InscribedSquareCornerAreaScene } from "./scenes/InscribedSquareCornerAreaScene";
 import { TreadmillPaceScene } from "./scenes/TreadmillPaceScene";
 import { FriendCoverShareScene } from "./scenes/FriendCoverShareScene";
+import { EqualGiftUnitsScene } from "./scenes/EqualGiftUnitsScene";
+import { ShadedRemainderCompareScene } from "./scenes/ShadedRemainderCompareScene";
 import { WeightMedianMeanScene } from "./scenes/WeightMedianMeanScene";
 import { ProductPyramidScene } from "./scenes/ProductPyramidScene";
 import { TrainTimelineScene } from "./scenes/TrainTimelineScene";
@@ -3294,6 +3296,31 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if (type === "friend-cover-share") {
     const friendCount = Math.round(num(data.friendCount)), extraPayers = Math.round(num(data.extraPayers)), extraAmount = num(data.extraAmount);
     if (friendCount >= 3 && friendCount <= 12 && extraPayers === friendCount - 1 && extraAmount > 0 && extraAmount <= 50) return FriendCoverShareScene;
+  }
+  // Exactly three named donors with positive, bounded unit counts keep the
+  // equal-gift rows complete and drawable; the gift count must match them.
+  if (
+    type === "equal-gift-units" &&
+    Array.isArray(data.names) &&
+    data.names.length === 3 &&
+    data.names.every((name) => typeof name === "string" && name.length > 0) &&
+    Array.isArray(data.denominators) &&
+    data.denominators.length === 3 &&
+    data.denominators.every((value) => Number.isInteger(Number(value)) && num(value) >= 2 && num(value) <= 8) &&
+    num(data.giftCount) === data.names.length
+  ) {
+    return EqualGiftUnitsScene;
+  }
+  // The three exact figure constructions and a bounded positive common side
+  // preserve the source diagram's area relationships and remain drawable.
+  if (
+    type === "shaded-remainder-compare" &&
+    num(data.side) > 0 &&
+    num(data.side) <= 10 &&
+    Array.isArray(data.figureKinds) &&
+    data.figureKinds.join("|") === "square-circle|square-four-circles|circle-square"
+  ) {
+    return ShadedRemainderCompareScene;
   }
   // The weights must already be sorted with an odd count so the middle
   // index is a well-defined median to compare against the computed mean.

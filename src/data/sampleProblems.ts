@@ -8337,9 +8337,11 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "equal-gift-units",
       "data": {
-        "equation": "3x/(5x+4x+3x)=1/4"
+        "names": ["Moe", "Loki", "Nick"],
+        "denominators": [5, 4, 3],
+        "giftCount": 3
       }
     },
     "tags": [
@@ -10394,9 +10396,10 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "shaded-remainder-compare",
       "data": {
-        "answer": "C"
+        "side": 2,
+        "figureKinds": ["square-circle", "square-four-circles", "circle-square"]
       }
     },
     "tags": [
