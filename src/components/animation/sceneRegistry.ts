@@ -1,6 +1,23 @@
 import type { Problem } from "../../types/amc";
 import type { AnimatedScene } from "./scenes/types";
 import { ClockAngleScene } from "./scenes/ClockAngleScene";
+import { ClockHandDriftAngleScene } from "./scenes/ClockHandDriftAngleScene";
+import { CubePartCountScene } from "./scenes/CubePartCountScene";
+import { SmallestPrimeFactorRaceScene } from "./scenes/SmallestPrimeFactorRaceScene";
+import { BurgerFillerPercentScene } from "./scenes/BurgerFillerPercentScene";
+import { VehicleWheelSwapScene } from "./scenes/VehicleWheelSwapScene";
+import { PercentUnitSliceScene } from "./scenes/PercentUnitSliceScene";
+import { SquaresOnTriangleAreaScene } from "./scenes/SquaresOnTriangleAreaScene";
+import { TestScoreDiffBarScene } from "./scenes/TestScoreDiffBarScene";
+import { CookieDoughAreaScene } from "./scenes/CookieDoughAreaScene";
+import { PriceMarkupDiscountScene } from "./scenes/PriceMarkupDiscountScene";
+import { HiddenFaceProductScene } from "./scenes/HiddenFaceProductScene";
+import { PaintedCubeGridScene } from "./scenes/PaintedCubeGridScene";
+import { DoubledWordSumScene } from "./scenes/DoubledWordSumScene";
+import { MinimumCubesFromViewsScene } from "./scenes/MinimumCubesFromViewsScene";
+import { CarSeatPermutationScene } from "./scenes/CarSeatPermutationScene";
+import { SiblingTraitMatchScene } from "./scenes/SiblingTraitMatchScene";
+import { FriendshipGraphInviteScene } from "./scenes/FriendshipGraphInviteScene";
 import { MapScaleStretchScene } from "./scenes/MapScaleStretchScene";
 import { FoodShareScaleScene } from "./scenes/FoodShareScaleScene";
 import { BenchOneComplementScene } from "./scenes/BenchOneComplementScene";
@@ -52,6 +69,7 @@ import { PigeonholeSockScene } from "./scenes/PigeonholeSockScene";
 import { SlopeRaceGraphScene } from "./scenes/SlopeRaceGraphScene";
 import { MultipleRangeCountScene } from "./scenes/MultipleRangeCountScene";
 import { TrapezoidAltitudeDropScene } from "./scenes/TrapezoidAltitudeDropScene";
+import { TrapezoidBaseSolveScene } from "./scenes/TrapezoidBaseSolveScene";
 import { CircleMeetModularScene } from "./scenes/CircleMeetModularScene";
 import { HexagramAreaScene } from "./scenes/HexagramAreaScene";
 import { TwinSetVennScene } from "./scenes/TwinSetVennScene";
@@ -65,6 +83,7 @@ import { PercentDropScene } from "./scenes/PercentDropScene";
 import { SavingsMeterScene } from "./scenes/SavingsMeterScene";
 import { WindowEntryExitScene } from "./scenes/WindowEntryExitScene";
 import { PrimeFactorTreeScene } from "./scenes/PrimeFactorTreeScene";
+import { LcmIntervalCountScene } from "./scenes/LcmIntervalCountScene";
 import { PastaBarRatioScene } from "./scenes/PastaBarRatioScene";
 import { WeeklyAverageDeviationScene } from "./scenes/WeeklyAverageDeviationScene";
 import { PairwiseBoxWeighScene } from "./scenes/PairwiseBoxWeighScene";
@@ -244,6 +263,7 @@ import { FoldPairsScene } from "./scenes/FoldPairsScene";
 import { PairedChoiceScene } from "./scenes/PairedChoiceScene";
 import { FlowGraphScene } from "./scenes/FlowGraphScene";
 import { CircleSquareShadeScene } from "./scenes/CircleSquareShadeScene";
+import { ThreeShadeComplementScene } from "./scenes/ThreeShadeComplementScene";
 import { SpeedZoneMeetScene } from "./scenes/SpeedZoneMeetScene";
 import { InverseTimeSpeedScene } from "./scenes/InverseTimeSpeedScene";
 import { HalvingShareScene } from "./scenes/HalvingShareScene";
@@ -264,6 +284,7 @@ import { RatioUnitScene } from "./scenes/RatioUnitScene";
 import { BuddyPairRatioScene } from "./scenes/BuddyPairRatioScene";
 import { LinearTrendScene } from "./scenes/LinearTrendScene";
 import { TriangleBaseHeightScene } from "./scenes/TriangleBaseHeightScene";
+import { FoldedTriangleAltitudeScene } from "./scenes/FoldedTriangleAltitudeScene";
 import { LevelBarsScene } from "./scenes/LevelBarsScene";
 import { HopPathScene } from "./scenes/HopPathScene";
 import { ShortestRouteScene } from "./scenes/ShortestRouteScene";
@@ -412,6 +433,7 @@ import { IdenticalTilesScene } from "./scenes/IdenticalTilesScene";
 import { SharedRemainderScene } from "./scenes/SharedRemainderScene";
 import { RhombusDiagonalScene } from "./scenes/RhombusDiagonalScene";
 import { GraphMatchStoryScene } from "./scenes/GraphMatchStoryScene";
+import { ShipRadiusGraphScene } from "./scenes/ShipRadiusGraphScene";
 import { SymmetryLineGridScene } from "./scenes/SymmetryLineGridScene";
 import { CapFillScene } from "./scenes/CapFillScene";
 import { RemainingGridScene } from "./scenes/RemainingGridScene";
@@ -421,6 +443,7 @@ import { TwoSetOverlapScene } from "./scenes/TwoSetOverlapScene";
 import { CubeViewsScene } from "./scenes/CubeViewsScene";
 import { PalindromeSumScene } from "./scenes/PalindromeSumScene";
 import { ModularCycleScene } from "./scenes/ModularCycleScene";
+import { CatMouseDualCycleScene } from "./scenes/CatMouseDualCycleScene";
 import { ConditionalSwapScene } from "./scenes/ConditionalSwapScene";
 import { PaceCarChaseScene } from "./scenes/PaceCarChaseScene";
 import { ScaleModelScene } from "./scenes/ScaleModelScene";
@@ -571,6 +594,27 @@ function gcdRegistry(a:number,b:number):number{return b?gcdRegistry(b,a%b):Math.
 export function resolveScene(problem: Problem): AnimatedScene {
   const type = problem.animation?.type;
   const data = problem.animation?.data ?? {};
+  // Three distinct bounded divisors and a bounded interval must yield a short, nonempty multiple list.
+  if(type==="lcm-interval-count"&&Array.isArray(data.divisors)){
+    const ds=data.divisors.map(Number),lo=Number(data.rangeMin),hi=Number(data.rangeMax),g=(a:number,b:number):number=>b?g(b,a%b):Math.abs(a),L=ds.reduce((a,b)=>a/g(a,b)*b,1),count=Math.floor(hi/L)-Math.ceil(lo/L)+1;
+    if(ds.length===3&&new Set(ds).size===3&&ds.every(v=>Number.isInteger(v)&&v>=2&&v<=100)&&Number.isInteger(lo)&&Number.isInteger(hi)&&lo>=0&&hi>lo&&hi<=100000&&count>=1&&count<=12)return LcmIntervalCountScene;
+  }
+  // A valid clock time with a nonzero acute hand separation keeps the drift ruler meaningful.
+  if(type==="clock-hand-drift-angle"){
+    const h=Number(data.hour),m=Number(data.minute),ma=m*6,ha=(h%12)*30+m/2,diff=Math.min(Math.abs(ha-ma),360-Math.abs(ha-ma));
+    if(Number.isInteger(h)&&h>=0&&h<=11&&Number.isInteger(m)&&m>=0&&m<60&&diff>0&&diff<90)return ClockHandDriftAngleScene;
+  }
+  // Area, height, and both slanted legs must derive integral offsets and positive integral bases.
+  if(type==="trapezoid-base-solve"){
+    const ar=Number(data.area),h=Number(data.height),l=Number(data.leftLeg),r=Number(data.rightLeg),x=Math.sqrt(l*l-h*h),y=Math.sqrt(r*r-h*h),sum=2*ar/h,top=(sum-x-y)/2;
+    if([ar,h,l,r].every(Number.isInteger)&&ar>0&&ar<=1000&&h>0&&l>h&&r>h&&Number.isInteger(x)&&Number.isInteger(y)&&Number.isInteger(sum)&&Number.isInteger(top)&&top>0&&x+top+y<=100)return TrapezoidBaseSolveScene;
+  }
+  // The five source graphs must have unique labels and exactly one required flat-then-dip signature.
+  if (type === "ship-radius-graph" && Array.isArray(data.candidates)) {
+    const cs = data.candidates.map(String).map(v => v.split("|"));
+    const allowed = new Set(["hump-dip-rise", "flat-dip", "peak", "flat-hump", "flat-rise"]);
+    if (cs.length === 5 && new Set(cs.map(v => v[0])).size === 5 && cs.every(v => v.length === 2 && allowed.has(v[1])) && cs.filter(v => v[1] === "flat-dip").length === 1) return ShipRadiusGraphScene;
+  }
   // A bounded pencil total, friend count, and positive integral baseline must
   // leave a small nonnegative remainder whose compositions fit on screen.
   if(type==="pencil-stars-bars"){
@@ -1400,6 +1444,8 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if (type === "circle-square-shade" && num(data.r ?? 0) > 0) {
     return CircleSquareShadeScene;
   }
+  // The source construction uses one diameter-wide square and exactly four half-radius circles.
+  if(type==="three-shade-complement"&&num(data.side)>0&&num(data.side)<=20&&num(data.smallCircleCount)===4)return ThreeShadeComplementScene;
   if (type === "speed-zone-meet" && Array.isArray(data.zones) && data.zones.length > 0) {
     return SpeedZoneMeetScene;
   }
@@ -1472,6 +1518,10 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "triangle-base-height" && num(data.area ?? 0) > 0 && num(data.bx ?? 0) !== num(data.ax ?? 0)) {
     return TriangleBaseHeightScene;
+  }
+  // A positive square and two drawable unit offsets must leave a real hinge segment.
+  if (type === "folded-triangle-altitude" && num(data.squareArea) > 0 && num(data.squareArea) <= 100 && num(data.smallSide) > 0 && Math.sqrt(num(data.squareArea)) > 2 * num(data.smallSide)) {
+    return FoldedTriangleAltitudeScene;
   }
   if (type === "level-bars" && num(data.total ?? 0) > 0 && Array.isArray(data.deltas) && data.deltas.length > 0) {
     return LevelBarsScene;
@@ -2497,6 +2547,12 @@ export function resolveScene(problem: Problem): AnimatedScene {
       num(data.count ?? 0) <= names.length &&
       names.includes(String(data.avoid ?? "").toLowerCase());
     if (ok) return ModularCycleScene;
+  }
+  // One bounded move and five source choices must produce exactly one valid pair of cycle slots.
+  if (type === "cat-mouse-dual-cycle" && Array.isArray(data.choices)) {
+    const move=Number(data.move), cc=Number(data.catCycle), mc=Number(data.mouseCycle), cs=data.choices.map(String).map(v=>v.split("|"));
+    const cr=move%cc||cc, mr=move%mc||mc;
+    if(Number.isInteger(move)&&move>0&&move<=10000&&cc===4&&mc===8&&cs.length===5&&new Set(cs.map(v=>v[0])).size===5&&cs.every(v=>v.length===3&&Number(v[1])>=1&&Number(v[1])<=cc&&Number(v[2])>=1&&Number(v[2])<=mc)&&cs.filter(v=>Number(v[1])===cr&&Number(v[2])===mr).length===1)return CatMouseDualCycleScene;
   }
   // the overlap must come out a whole number of people, fit inside the other
   // group, and both crowds must be small enough to draw one figure each
@@ -3962,6 +4018,54 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "pitcher-mixture-combine" && num(data.pitcherSize) > 0 && Array.isArray(data.fractions) && data.fractions.length >= 2) {
     return PitcherMixtureCombineScene;
+  }
+  if (type === "cube-part-count" && num(data.edges) > 0 && num(data.corners) > 0 && num(data.faces) > 0) {
+    return CubePartCountScene;
+  }
+  if (type === "smallest-prime-factor-race" && Array.isArray(data.testPrimes) && data.testPrimes.length > 0) {
+    return SmallestPrimeFactorRaceScene;
+  }
+  if (type === "burger-filler-percent" && num(data.total) > 0 && num(data.filler) > 0) {
+    return BurgerFillerPercentScene;
+  }
+  if (type === "vehicle-wheel-swap" && num(data.totalChildren) > 0 && num(data.targetWheels) > 0) {
+    return VehicleWheelSwapScene;
+  }
+  if (type === "percent-unit-slice" && num(data.givenPercent) > 0 && num(data.givenValue) > 0 && num(data.targetPercent) > 0) {
+    return PercentUnitSliceScene;
+  }
+  if (type === "squares-on-triangle-area" && Array.isArray(data.squareAreas) && data.squareAreas.length === 3) {
+    return SquaresOnTriangleAreaScene;
+  }
+  if (type === "test-score-diff-bar" && Array.isArray(data.differences) && data.differences.length > 0) {
+    return TestScoreDiffBarScene;
+  }
+  if (type === "cookie-dough-area" && num(data.artCount) > 0 && num(data.artTop) > 0) {
+    return CookieDoughAreaScene;
+  }
+  if (type === "price-markup-discount" && num(data.start) > 0 && Array.isArray(data.factors) && data.factors.length > 0) {
+    return PriceMarkupDiscountScene;
+  }
+  if (type === "hidden-face-product" && Array.isArray(data.faces) && data.faces.length === 6) {
+    return HiddenFaceProductScene;
+  }
+  if (type === "painted-cube-grid" && Array.isArray(data.raised) && data.raised.length > 0) {
+    return PaintedCubeGridScene;
+  }
+  if (type === "doubled-word-sum" && num(data.T) > 0) {
+    return DoubledWordSumScene;
+  }
+  if (type === "minimum-cubes-from-views" && Array.isArray(data.frontCells) && Array.isArray(data.sideCells)) {
+    return MinimumCubesFromViewsScene;
+  }
+  if (type === "car-seat-permutation" && Array.isArray(data.people) && data.people.length > 0 && Array.isArray(data.driversAllowed) && data.driversAllowed.length > 0) {
+    return CarSeatPermutationScene;
+  }
+  if (type === "sibling-trait-match" && Array.isArray(data.children) && data.children.length === 6) {
+    return SiblingTraitMatchScene;
+  }
+  if (type === "friendship-graph-invite" && Array.isArray(data.sarahFriends) && data.sarahFriends.length > 0 && Array.isArray(data.edges)) {
+    return FriendshipGraphInviteScene;
   }
   return EquationScene;
 }

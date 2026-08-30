@@ -8361,8 +8361,16 @@ const amc2003Problems: Problem[] = [
     "shortAnswer": "26",
     "solutionSteps": [
       {
-        "title": "Count edges, corners, and faces",
-        "body": "A cube has 12 edges, 8 corners, and 6 faces."
+        "title": "Count the edges",
+        "body": "A cube has 12 edges."
+      },
+      {
+        "title": "Count the corners",
+        "body": "A cube has 8 corners."
+      },
+      {
+        "title": "Count the faces",
+        "body": "A cube has 6 faces."
       },
       {
         "title": "Add them",
@@ -8392,9 +8400,11 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "cube-part-count",
       "data": {
-        "answer": "E"
+        "edges": 12,
+        "corners": 8,
+        "faces": 6
       }
     },
     "tags": [
@@ -8443,16 +8453,24 @@ const amc2003Problems: Problem[] = [
     "shortAnswer": "58",
     "solutionSteps": [
       {
-        "title": "Look for factor 2",
-        "body": "The smallest prime number is 2, so any even choice has the smallest possible prime factor."
+        "title": "Test each choice for a factor of 2",
+        "body": "The smallest prime is 2. Among 55, 57, 58, 59, and 61, only 58 is even, so it already has the smallest possible prime factor."
       },
       {
-        "title": "Find the even number",
-        "body": "Among the choices, only 58 is even."
+        "title": "Test the odd choices for a factor of 3",
+        "body": "55, 57, 59, and 61 remain. 57 = 3 x 19, so 57's smallest prime factor is 3."
       },
       {
-        "title": "Conclude",
-        "body": "Therefore 58 has the smallest prime factor, so the answer is C."
+        "title": "Test the remaining choices for a factor of 5",
+        "body": "55, 59, and 61 remain. 55 = 5 x 11, so 55's smallest prime factor is 5."
+      },
+      {
+        "title": "Test the remaining choices for a factor of 7",
+        "body": "59 and 61 remain, and neither is divisible by 7. Since both are less than 11 x 11, they are prime, so each is its own smallest prime factor."
+      },
+      {
+        "title": "Compare and conclude",
+        "body": "The smallest prime factor found is 2, for 58, so the answer is C."
       }
     ],
     "animationFrames": [
@@ -8473,9 +8491,9 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "smallest-prime-factor-race",
       "data": {
-        "answer": "C"
+        "testPrimes": [2, 3, 5, 7]
       }
     },
     "tags": [
@@ -8525,6 +8543,10 @@ const amc2003Problems: Problem[] = [
     "shortAnswer": "75%",
     "solutionSteps": [
       {
+        "title": "Look at the whole burger",
+        "body": "The burger weighs 120 grams in total."
+      },
+      {
         "title": "Find the non-filler mass",
         "body": "Subtract the filler from the total mass.",
         "equation": "120-30=90"
@@ -8557,9 +8579,11 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "burger-filler-percent",
       "data": {
-        "answer": "D"
+        "total": 120,
+        "filler": 30,
+        "unit": "g"
       }
     },
     "tags": [
@@ -8609,19 +8633,33 @@ const amc2003Problems: Problem[] = [
     "shortAnswer": "5",
     "solutionSteps": [
       {
-        "title": "Set up variables",
-        "body": "Let b be bicycles and t be tricycles. There are 7 riders total.",
-        "equation": "b+t=7"
+        "title": "Assume every child rides a bicycle",
+        "body": "If all 7 children were on bicycles, there would be 7 x 2 = 14 wheels.",
+        "equation": "7x2=14"
       },
       {
-        "title": "Count wheels",
-        "body": "Bicycles have 2 wheels and tricycles have 3 wheels.",
-        "equation": "2b+3t=19"
+        "title": "Find the gap",
+        "body": "19 wheels are needed, but all-bicycles gives only 14 -- that's 5 wheels short.",
+        "equation": "19-14=5"
       },
       {
-        "title": "Solve",
-        "body": "Subtract 2(b+t)=14 from the wheel equation to get t=5.",
-        "equation": "2b+3t-(2b+2t)=19-14=5"
+        "title": "Swap bicycles for tricycles",
+        "body": "Each swap from a bicycle to a tricycle adds exactly 1 wheel, so 5 swaps are needed.",
+        "equation": "5/1=5"
+      },
+      {
+        "title": "Count the bicycles",
+        "body": "5 children swapped to tricycles, leaving 7-5=2 on bicycles.",
+        "equation": "7-5=2"
+      },
+      {
+        "title": "Check the totals",
+        "body": "2 bicycles and 5 tricycles give 2x2+5x3=19 wheels and 2+5=7 children.",
+        "equation": "2x2+5x3=19"
+      },
+      {
+        "title": "Conclude",
+        "body": "There are 5 tricycles, so the answer is C."
       }
     ],
     "animationFrames": [
@@ -8642,9 +8680,12 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "vehicle-wheel-swap",
       "data": {
-        "answer": "C"
+        "totalChildren": 7,
+        "targetWheels": 19,
+        "fewWheels": 2,
+        "manyWheels": 3
       }
     },
     "tags": [
@@ -8693,14 +8734,19 @@ const amc2003Problems: Problem[] = [
     "shortAnswer": "18",
     "solutionSteps": [
       {
+        "title": "Slice the number into 10% pieces",
+        "body": "20% is 2 of the 10 equal 10% pieces, and together they're 12, so each piece is 6.",
+        "equation": "12/2=6"
+      },
+      {
         "title": "Find the whole number",
-        "body": "If 20% is 12, then the whole number is five times as large.",
-        "equation": "12÷5=60"
+        "body": "All 10 pieces make the whole number.",
+        "equation": "10x6=60"
       },
       {
         "title": "Find 30%",
-        "body": "30% of 60 is 18.",
-        "equation": "0.30×60=18"
+        "body": "30% is 3 of the 10 pieces.",
+        "equation": "3x6=18"
       },
       {
         "title": "Choose the answer",
@@ -8725,9 +8771,11 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "percent-unit-slice",
       "data": {
-        "answer": "B"
+        "givenPercent": 20,
+        "givenValue": 12,
+        "targetPercent": 30
       }
     },
     "tags": [
@@ -8782,12 +8830,17 @@ const amc2003Problems: Problem[] = [
       },
       {
         "title": "Identify the triangle legs",
-        "body": "The interior triangle has legs 5 and 12; the 13-side square confirms a 5-12-13 right triangle."
+        "body": "The interior triangle has legs 5 and 12; the 13-side square confirms a 5-12-13 right triangle.",
+        "equation": "25+144=169"
       },
       {
         "title": "Find the area",
         "body": "Use one-half base times height.",
         "equation": "(1/2)(5)(12)=30"
+      },
+      {
+        "title": "Choose the answer",
+        "body": "The area of the interior triangle is 30, so the answer is B."
       }
     ],
     "animationFrames": [
@@ -8808,9 +8861,9 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "squares-on-triangle-area",
       "data": {
-        "answer": "B"
+        "squareAreas": [144, 25, 169]
       }
     },
     "tags": [
@@ -8863,14 +8916,24 @@ const amc2003Problems: Problem[] = [
     "shortAnswer": "10",
     "solutionSteps": [
       {
-        "title": "Add Jenny's differences",
-        "body": "Compared with Blake, Jenny's total score changes by +10, -10, +20, and +20.",
-        "equation": "10-10+20+20=40"
+        "title": "Test 1: Jenny scores 10 more",
+        "body": "On the first test, Jenny scores 10 points higher than Blake.",
+        "equation": "+10"
+      },
+      {
+        "title": "Test 2: Jenny scores 10 less",
+        "body": "On the second test, Jenny scores 10 points lower than Blake.",
+        "equation": "10-10=0"
+      },
+      {
+        "title": "Tests 3 and 4: Jenny scores 20 more each",
+        "body": "On both the third and fourth tests, Jenny scores 20 points higher than Blake.",
+        "equation": "0+20+20=40"
       },
       {
         "title": "Convert total change to average change",
         "body": "The 40 extra points are spread over 4 tests.",
-        "equation": "40÷4=10"
+        "equation": "40/4=10"
       },
       {
         "title": "Conclude",
@@ -8895,9 +8958,9 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "test-score-diff-bar",
       "data": {
-        "answer": "A"
+        "differences": [10, -10, 20, 20]
       }
     },
     "tags": [
@@ -8946,8 +9009,16 @@ const amc2003Problems: Problem[] = [
     "shortAnswer": "Art",
     "solutionSteps": [
       {
-        "title": "Compare areas",
+        "title": "Look at the four cookie shapes",
+        "body": "Art's cookies are trapezoids, Roger's are rectangles, Paul's are parallelograms, and Trisha's are triangles."
+      },
+      {
+        "title": "Find each cookie's area",
         "body": "Art's trapezoid has area (3+5)/2 times 3 = 12 square inches. Roger's rectangle has area 8, and Paul and Trisha each have area 6."
+      },
+      {
+        "title": "Compare the areas",
+        "body": "Art's cookie (12 in²) is the largest of the four."
       },
       {
         "title": "Connect area to number of cookies",
@@ -8976,9 +9047,19 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "cookie-dough-area",
       "data": {
-        "answer": "A"
+        "artTop": 3,
+        "artBottom": 5,
+        "artHeight": 3,
+        "artCount": 12,
+        "rogerWidth": 4,
+        "rogerHeight": 2,
+        "paulBase": 3,
+        "paulHeight": 2,
+        "trishaBase": 3,
+        "trishaHeight": 4,
+        "mode": "fewest"
       }
     },
     "tags": [
@@ -9031,17 +9112,26 @@ const amc2003Problems: Problem[] = [
     "shortAnswer": "40",
     "solutionSteps": [
       {
+        "title": "Look at the four cookie shapes",
+        "body": "Art's cookies are trapezoids, Roger's are rectangles, Paul's are parallelograms, and Trisha's are triangles."
+      },
+      {
+        "title": "Find each cookie's area",
+        "body": "Art's trapezoid has area (3+5)/2 times 3 = 12 square inches. Roger's rectangle has area 4 by 2, or 8 square inches."
+      },
+      {
         "title": "Find the batch area",
         "body": "Art's cookie area is 12 square inches and he makes 12 cookies, so each batch uses 144 square inches of dough.",
-        "equation": "12×12=144"
+        "equation": "12x12=144"
       },
       {
         "title": "Find Roger's cookie count",
-        "body": "Roger's rectangle area is 4 by 2, or 8 square inches. He makes 144/8=18 cookies."
+        "body": "Roger's rectangle area is 8 square inches. He makes 144/8=18 cookies.",
+        "equation": "144/8=18"
       },
       {
         "title": "Match the revenue",
-        "body": "Art earns 12×60=720 cents. Roger needs 720/18=40 cents per cookie."
+        "body": "Art earns 12x60=720 cents. Roger needs 720/18=40 cents per cookie."
       }
     ],
     "animationFrames": [
@@ -9062,9 +9152,20 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "cookie-dough-area",
       "data": {
-        "answer": "C"
+        "artTop": 3,
+        "artBottom": 5,
+        "artHeight": 3,
+        "artCount": 12,
+        "rogerWidth": 4,
+        "rogerHeight": 2,
+        "paulBase": 3,
+        "paulHeight": 2,
+        "trishaBase": 3,
+        "trishaHeight": 4,
+        "mode": "price",
+        "artPrice": 60
       }
     },
     "tags": [
@@ -9117,16 +9218,21 @@ const amc2003Problems: Problem[] = [
     "shortAnswer": "24",
     "solutionSteps": [
       {
-        "title": "Use Art's batch area",
-        "body": "Art makes 12 cookies of area 12, so the batch area is 144 square inches."
+        "title": "Look at the four cookie shapes",
+        "body": "Art's cookies are trapezoids, Roger's are rectangles, Paul's are parallelograms, and Trisha's are triangles."
       },
       {
-        "title": "Find Trisha's cookie area",
-        "body": "Trisha's triangle has base 3 and height 4.",
+        "title": "Find each cookie's area",
+        "body": "Art's trapezoid has area (3+5)/2 times 3 = 12 square inches. Trisha's triangle has base 3 and height 4, so its area is (1/2)(3)(4)=6.",
         "equation": "(1/2)(3)(4)=6"
       },
       {
-        "title": "Divide dough by cookie area",
+        "title": "Use Art's batch area",
+        "body": "Art makes 12 cookies of area 12, so the batch area is 144 square inches.",
+        "equation": "12x12=144"
+      },
+      {
+        "title": "Divide dough by Trisha's cookie area",
         "body": "Trisha makes 144/6=24 cookies."
       }
     ],
@@ -9148,9 +9254,19 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "cookie-dough-area",
       "data": {
-        "answer": "E"
+        "artTop": 3,
+        "artBottom": 5,
+        "artHeight": 3,
+        "artCount": 12,
+        "rogerWidth": 4,
+        "rogerHeight": 2,
+        "paulBase": 3,
+        "paulHeight": 2,
+        "trishaBase": 3,
+        "trishaHeight": 4,
+        "mode": "count"
       }
     },
     "tags": [
@@ -9203,14 +9319,18 @@ const amc2003Problems: Problem[] = [
     "shortAnswer": "$39.60",
     "solutionSteps": [
       {
+        "title": "Start with Thursday's price",
+        "body": "A pair of shoes costs $40 on Thursday."
+      },
+      {
         "title": "Increase by 10%",
         "body": "A $40 price becomes 110% of $40.",
-        "equation": "40×1.10=44"
+        "equation": "40x1.10=44"
       },
       {
         "title": "Take 10% off the new price",
-        "body": "The sale price is 90% of $44.",
-        "equation": "44×0.90=39.60"
+        "body": "The sale price is 90% of $44, not 90% of the original $40.",
+        "equation": "44x0.90=39.60"
       },
       {
         "title": "Conclude",
@@ -9235,9 +9355,11 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "price-markup-discount",
       "data": {
-        "answer": "B"
+        "start": 40,
+        "factors": [1.1, 0.9],
+        "labels": ["Thursday", "Friday (+10%)", "Monday (-10%)"]
       }
     },
     "tags": [
@@ -9288,15 +9410,36 @@ const amc2003Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Think about the hidden face",
-        "body": "The visible product is the product of five of the six numbers 1 through 6."
+        "body": "The die's six faces multiply to 1x2x3x4x5x6=720. Whichever face lands on the bottom, the visible product is 720 divided by that face.",
+        "equation": "1x2x3x4x5x6=720"
       },
       {
-        "title": "Check divisibility by 6",
-        "body": "A product divisible by 6 needs factors 2 and 3. No matter which one face is hidden, the visible faces still include enough factors to make 6."
+        "title": "Hide face 1",
+        "body": "Visible product is 720/1=720, which is divisible by 6."
+      },
+      {
+        "title": "Hide face 2",
+        "body": "Visible product is 720/2=360, which is divisible by 6."
+      },
+      {
+        "title": "Hide face 3",
+        "body": "Visible product is 720/3=240, which is divisible by 6."
+      },
+      {
+        "title": "Hide face 4",
+        "body": "Visible product is 720/4=180, which is divisible by 6."
+      },
+      {
+        "title": "Hide face 5",
+        "body": "Visible product is 720/5=144, which is divisible by 6."
+      },
+      {
+        "title": "Hide face 6",
+        "body": "Visible product is 720/6=120, which is divisible by 6."
       },
       {
         "title": "Probability",
-        "body": "Every possible hidden face works, so the probability is 1."
+        "body": "Every possible hidden face gives a product divisible by 6, so the probability is 1."
       }
     ],
     "animationFrames": [
@@ -9317,9 +9460,9 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "hidden-face-product",
       "data": {
-        "answer": "E"
+        "faces": [1, 2, 3, 4, 5, 6]
       }
     },
     "tags": [
@@ -9369,11 +9512,15 @@ const amc2003Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Translate red faces to hidden faces",
-        "body": "A cube has exactly four red faces if exactly two of its faces were touching other cubes."
+        "body": "A cube has exactly four red faces if exactly two of its faces were touching other cubes (a cube's 6 faces minus its touching neighbors gives its red faces)."
       },
       {
-        "title": "Inspect the structure",
-        "body": "The cubes in the middle positions touch exactly two neighboring cubes."
+        "title": "Count each cube's neighbors",
+        "body": "For every one of the 14 cubes, count how many other cubes it touches face to face."
+      },
+      {
+        "title": "Find the ones with exactly two neighbors",
+        "body": "The cubes with exactly two touching neighbors are exactly the ones with exactly four red faces."
       },
       {
         "title": "Count them",
@@ -9398,9 +9545,11 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "solid-3d",
+      "type": "painted-cube-grid",
       "data": {
-        "answer": "B"
+        "cols": 5,
+        "rows": 2,
+        "raised": [[1, 1], [2, 1], [4, 2], [5, 2]]
       }
     },
     "tags": [
@@ -9453,16 +9602,26 @@ const amc2003Problems: Problem[] = [
     "shortAnswer": "3",
     "solutionSteps": [
       {
-        "title": "Ones column",
-        "body": "Since T=7, the thousands digit F must come from the carry. The solution starts by forcing O=4 because 7+7 gives a carry pattern ending in 4 in the sum."
+        "title": "Set up the columns",
+        "body": "T=7 is given. Since a 3-digit number plus itself needs a carry to become a 4-digit number, F=1."
       },
       {
-        "title": "Use the O column",
-        "body": "With O=4, the ones digit R is 8."
+        "title": "Hundreds column",
+        "body": "7+7 plus a possible carry equals O plus 10 (for the carry into F). That gives O=4 (if no carry from the tens) or O=5 (if there is one); since O must be even, O=4.",
+        "equation": "7+7=14"
+      },
+      {
+        "title": "Ones column",
+        "body": "O+O=4+4=8, which is less than 10, so R=8 with no carry.",
+        "equation": "4+4=8"
       },
       {
         "title": "Test possible W values",
-        "body": "W must be less than 5 and cannot repeat a used digit. The only possible value that keeps all letters different and the addition valid is W=3."
+        "body": "The tens column needs 2W to have no carry (matching the hundreds column), and W, U cannot repeat T=7, O=4, F=1, or R=8. Checking W=0,1,2,3,4 in turn, only W=3 (giving U=6) uses no repeated digit."
+      },
+      {
+        "title": "Conclude",
+        "body": "W=3 is the only possible value, so the answer is D."
       }
     ],
     "animationFrames": [
@@ -9483,9 +9642,9 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "doubled-word-sum",
       "data": {
-        "answer": "D"
+        "T": 7
       }
     },
     "tags": [
@@ -9539,15 +9698,27 @@ const amc2003Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Use the views as constraints",
-        "body": "The front view requires two stacked cubes in one column and one cube beside the lower cube."
+        "body": "The front view is an L-shape (two stacked cubes plus one beside the bottom cube), and the side view is the mirrored L-shape."
       },
       {
-        "title": "Match cubes across views",
-        "body": "The side view has the same L-shape, so some cubes can satisfy both views at once."
+        "title": "Try the fewest cubes that could work",
+        "body": "3 cubes can be placed to match both views exactly, but none of those 3 cubes end up touching each other, which the problem forbids."
       },
       {
-        "title": "Minimum construction",
-        "body": "A 4-cube arrangement can produce both views, and fewer cannot satisfy the height and width requirements."
+        "title": "Place a connected cube",
+        "body": "Start over: place a cube covering the bottom-left of both views."
+      },
+      {
+        "title": "Add a cube beside it",
+        "body": "Add a second cube next to the first, extending the front view's bottom row."
+      },
+      {
+        "title": "Add a cube behind it",
+        "body": "Add a third cube behind the first, extending the side view's bottom row and staying connected."
+      },
+      {
+        "title": "Stack the last cube",
+        "body": "Add a fourth cube on top of the third, completing the tops of both views. All 4 cubes are connected and both views match, so the answer is B."
       }
     ],
     "animationFrames": [
@@ -9568,9 +9739,10 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "solid-3d",
+      "type": "minimum-cubes-from-views",
       "data": {
-        "answer": "B"
+        "frontCells": [[1, 1], [1, 2], [2, 1]],
+        "sideCells": [[1, 1], [2, 1], [2, 2]]
       }
     },
     "tags": [
@@ -9623,16 +9795,20 @@ const amc2003Problems: Problem[] = [
     "shortAnswer": "12",
     "solutionSteps": [
       {
+        "title": "Look at the seats",
+        "body": "The car has 4 seats: driver, front passenger, and 2 back seats."
+      },
+      {
         "title": "Choose the driver",
         "body": "Only Bonnie or Carlo can drive, giving 2 choices."
       },
       {
         "title": "Arrange the other seats",
-        "body": "After the driver is chosen, the remaining 3 people can fill the passenger seats in 3×2×1 ways."
+        "body": "After the driver is chosen, the remaining 3 people can fill the passenger seats in 3x2x1=6 ways."
       },
       {
         "title": "Multiply",
-        "body": "The total is 2×3×2=12 arrangements."
+        "body": "The total is 2x6=12 arrangements."
       }
     ],
     "animationFrames": [
@@ -9653,9 +9829,10 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "car-seat-permutation",
       "data": {
-        "answer": "D"
+        "people": ["Ali", "Bonnie", "Carlo", "Dianna"],
+        "driversAllowed": ["Bonnie", "Carlo"]
       }
     },
     "tags": [
@@ -9704,12 +9881,16 @@ const amc2003Problems: Problem[] = [
     "shortAnswer": "Austin and Sue",
     "solutionSteps": [
       {
-        "title": "List Jim's possible siblings",
-        "body": "Jim has brown eyes and blond hair, so a sibling must share brown eyes or blond hair with him."
+        "title": "Look at Jim's traits",
+        "body": "Jim has brown eyes and blond hair."
       },
       {
-        "title": "Check groups of three",
-        "body": "Austin and Sue both share blond hair with Jim, and they also share a characteristic with each other."
+        "title": "List Jim's possible siblings",
+        "body": "A sibling must share brown eyes or blond hair with Jim. Nadeen, Austin, and Sue each share one trait with him; Benjamin and Tevyn share nothing with him, so they can't be his siblings."
+      },
+      {
+        "title": "Check the candidates against each other",
+        "body": "Every pair in a family must also share a trait with each other. Nadeen shares nothing with Austin or Sue, but Austin and Sue share both eye and hair color."
       },
       {
         "title": "Conclude",
@@ -9734,9 +9915,17 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "ranking",
+      "type": "sibling-trait-match",
       "data": {
-        "answer": "E"
+        "children": [
+          { "name": "Benjamin", "eye": "Blue", "hair": "Black" },
+          { "name": "Jim", "eye": "Brown", "hair": "Blonde" },
+          { "name": "Nadeen", "eye": "Brown", "hair": "Black" },
+          { "name": "Austin", "eye": "Blue", "hair": "Blonde" },
+          { "name": "Tevyn", "eye": "Blue", "hair": "Black" },
+          { "name": "Sue", "eye": "Blue", "hair": "Blonde" }
+        ],
+        "jim": "Jim"
       }
     },
     "tags": [
@@ -9789,12 +9978,16 @@ const amc2003Problems: Problem[] = [
     "shortAnswer": "6",
     "solutionSteps": [
       {
+        "title": "Look at the friendship graph",
+        "body": "20 classmates are connected by friendship lines; some are connected to Sarah, and some are not connected to her group at all."
+      },
+      {
         "title": "Invite direct friends",
-        "body": "Start with every dot connected directly to Sarah."
+        "body": "Start with every dot connected directly to Sarah -- 9 classmates."
       },
       {
         "title": "Invite friends of friends",
-        "body": "Then include every dot connected to one of Sarah's friends."
+        "body": "Then include every dot connected to one of Sarah's friends -- 5 more classmates."
       },
       {
         "title": "Count the leftovers",
@@ -9819,9 +10012,11 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "friendship-graph-invite",
       "data": {
-        "answer": "D"
+        "totalNodes": 20,
+        "sarahFriends": [1, 3, 4, 6, 7, 9, 13, 14, 16],
+        "edges": [[0, 2], [0, 5], [2, 5], [4, 8], [8, 11], [11, 19], [7, 9], [9, 12], [14, 15], [14, 16], [14, 18], [16, 17], [17, 19]]
       }
     },
     "tags": [
@@ -9906,9 +10101,11 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "lcm-interval-count",
       "data": {
-        "answer": "C"
+        "divisors": [15, 20, 25],
+        "rangeMin": 1000,
+        "rangeMax": 2000
       }
     },
     "tags": [
@@ -9987,9 +10184,10 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "clock-angle",
+      "type": "clock-hand-drift-angle",
       "data": {
-        "answer": "D"
+        "hour": 4,
+        "minute": 20
       }
     },
     "tags": [
@@ -10047,8 +10245,12 @@ const amc2003Problems: Problem[] = [
         "body": "With height 8, side AB=10 gives a 6-unit horizontal offset, and side CD=17 gives a 15-unit offset."
       },
       {
-        "title": "Relate the bases",
-        "body": "Therefore AD = BC + 6 + 15 = BC + 21. So BC + AD = BC + BC + 21 = 41, giving BC=10."
+        "title": "Build the long base",
+        "body": "The long base consists of the 6-unit offset, a segment equal to BC, and the 15-unit offset. Therefore AD=BC+6+15=BC+21."
+      },
+      {
+        "title": "Combine the base equations",
+        "body": "Substitute AD=BC+21 into BC+AD=41. Then 2BC+21=41, so BC=10."
       }
     ],
     "animationFrames": [
@@ -10069,9 +10271,12 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "trapezoid-base-solve",
       "data": {
-        "answer": "B"
+        "area": 164,
+        "height": 8,
+        "leftLeg": 10,
+        "rightLeg": 17
       }
     },
     "tags": [
@@ -10239,9 +10444,18 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "cat-mouse-dual-cycle",
       "data": {
-        "answer": "A"
+        "move": 247,
+        "catCycle": 4,
+        "mouseCycle": 8,
+        "choices": [
+          "A|3|7",
+          "B|2|7",
+          "C|3|6",
+          "D|4|6",
+          "E|1|1"
+        ]
       }
     },
     "tags": [
@@ -10324,9 +10538,15 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "ship-radius-graph",
       "data": {
-        "answer": "B"
+        "candidates": [
+          "A|hump-dip-rise",
+          "B|flat-dip",
+          "C|peak",
+          "D|flat-hump",
+          "E|flat-rise"
+        ]
       }
     },
     "tags": [
@@ -10383,8 +10603,12 @@ const amc2003Problems: Problem[] = [
         "body": "Since the large square has area 25, its side length is 5. The points B and C are each 1 cm from the top and bottom, so BC=5-1-1=3."
       },
       {
-        "title": "Find the altitude",
-        "body": "Folding sends A to the center O, so the altitude from A to BC equals the distance from BC to O. That distance is 1+1+5/2=9/2."
+        "title": "Measure from BC to O",
+        "body": "From BC to O, cross two 1 cm widths and then half of the 5 cm square, so the distance is 1+1+5/2=9/2."
+      },
+      {
+        "title": "Unfold the altitude",
+        "body": "Folding across BC sends A to O. Reflection preserves perpendicular distance from the fold, so the altitude from A to BC is also 9/2."
       },
       {
         "title": "Compute area",
@@ -10410,9 +10634,10 @@ const amc2003Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "folded-triangle-altitude",
       "data": {
-        "answer": "C"
+        "squareArea": 25,
+        "smallSide": 1
       }
     },
     "tags": [
