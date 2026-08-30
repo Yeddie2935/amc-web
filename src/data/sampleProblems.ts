@@ -12536,18 +12536,23 @@ const amc2005Problems: Problem[] = [
     "shortAnswer": "15",
     "solutionSteps": [
       {
-        "title": "Find the original number",
-        "body": "If x is the number, Connie computed 2x=60.",
-        "equation": "2x=60 ⇒ x=30"
+        "title": "Connie's mistake",
+        "body": "Connie multiplied a number x by 2 and got 60.",
+        "equation": "2x=60"
       },
       {
-        "title": "Use the correct operation",
-        "body": "She should divide the number by 2 instead.",
-        "equation": "30÷2=15"
+        "title": "Undo the wrong operation",
+        "body": "Divide 60 by 2 to recover the original number.",
+        "equation": "60÷2=30"
+      },
+      {
+        "title": "Apply the correct operation",
+        "body": "She should have divided the number by 2 instead of multiplying."
       },
       {
         "title": "Conclude",
-        "body": "The correct answer is 15."
+        "body": "30÷2=15, so the correct answer is 15.",
+        "equation": "30÷2=15"
       }
     ],
     "animationFrames": [
@@ -12568,8 +12573,10 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "wrong-operation-undo",
       "data": {
+        "wrongResult": 60,
+        "factor": 2,
         "answer": "B"
       }
     },
@@ -12619,6 +12626,10 @@ const amc2005Problems: Problem[] = [
     "shortAnswer": "$2.50",
     "solutionSteps": [
       {
+        "title": "Five folders at $2.50 each",
+        "body": "Karl bought five folders at $2.50 each, the day before the sale."
+      },
+      {
         "title": "Find the original total",
         "body": "Five folders cost $2.50 each.",
         "equation": "5×2.50=$12.50"
@@ -12651,8 +12662,11 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "folder-sale-savings",
       "data": {
+        "count": 5,
+        "price": 2.5,
+        "discountPct": 20,
         "answer": "C"
       }
     },
@@ -12702,12 +12716,16 @@ const amc2005Problems: Problem[] = [
     "shortAnswer": "4",
     "solutionSteps": [
       {
+        "title": "Look at the black squares",
+        "body": "Square ABCD has a few small squares already colored black, in a 4-by-4 grid."
+      },
+      {
         "title": "Use reflection",
         "body": "For BD to be a line of symmetry, every black square must have a matching reflected black square across diagonal BD."
       },
       {
         "title": "Find unmatched partners",
-        "body": "Checking the grid, four reflected partner squares are missing."
+        "body": "Checking the grid, four black squares have no reflected partner across BD."
       },
       {
         "title": "Conclude",
@@ -12732,8 +12750,10 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "diagonal-symmetry-grid",
       "data": {
+        "size": 4,
+        "black": [[0, 0], [0, 2], [0, 3], [2, 3], [3, 1]],
         "answer": "D"
       }
     },
@@ -12787,6 +12807,10 @@ const amc2005Problems: Problem[] = [
     "shortAnswer": "36",
     "solutionSteps": [
       {
+        "title": "A triangle with three given sides",
+        "body": "The triangle's sides are 6.1 cm, 8.2 cm, and 9.7 cm."
+      },
+      {
         "title": "Find the triangle perimeter",
         "body": "Add the three side lengths.",
         "equation": "6.1+8.2+9.7=24"
@@ -12820,8 +12844,9 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "perimeter-reshape-square",
       "data": {
+        "sides": [6.1, 8.2, 9.7],
         "answer": "C"
       }
     },
@@ -12871,8 +12896,12 @@ const amc2005Problems: Problem[] = [
     "shortAnswer": "5",
     "solutionSteps": [
       {
+        "title": "90 cans, packs of 6, 12, and 24",
+        "body": "Soda is sold in packs of 6, 12, and 24 cans."
+      },
+      {
         "title": "Use large packs first",
-        "body": "Three 24-packs give 72 cans.",
+        "body": "Three 24-packs give 72 cans, leaving 18.",
         "equation": "90-3×24=18"
       },
       {
@@ -12903,8 +12932,10 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "pack-greedy-fill",
       "data": {
+        "target": 90,
+        "packSizes": [24, 12, 6],
         "answer": "B"
       }
     },
@@ -12954,12 +12985,16 @@ const amc2005Problems: Problem[] = [
     "shortAnswer": "5",
     "solutionSteps": [
       {
+        "title": "Line up the digits",
+        "body": "Write both numbers with the same number of decimal places: 2.00d5 and 2.0050."
+      },
+      {
         "title": "Compare place values",
-        "body": "The numbers agree through the thousandths place until the digit d is compared with 5."
+        "body": "The numbers agree through the hundredths place until the digit d is compared with 5."
       },
       {
         "title": "Find possible digits",
-        "body": "The inequality works when d is 5, 6, 7, 8, or 9."
+        "body": "The inequality works when d is 5, 6, 7, 8, or 9 — even d=5 works, since the extra 5 in the ten-thousandths place tips it over."
       },
       {
         "title": "Count them",
@@ -12984,8 +13019,9 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "decimal-digit-compare",
       "data": {
+        "extraDigit": 5,
         "answer": "C"
       }
     },
@@ -13035,6 +13071,10 @@ const amc2005Problems: Problem[] = [
     "shortAnswer": "1 1/4",
     "solutionSteps": [
       {
+        "title": "Trace the path",
+        "body": "Bill walks 1/2 mile south, then 3/4 mile east, then 1/2 mile south again."
+      },
+      {
         "title": "Combine vertical movement",
         "body": "He walks south 1/2 mile and then another 1/2 mile, for 1 mile south total."
       },
@@ -13066,8 +13106,11 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "walk-pythagorean",
       "data": {
+        "southLeg1": 0.5,
+        "eastLeg": 0.75,
+        "southLeg2": 0.5,
         "answer": "B"
       }
     },
@@ -13117,12 +13160,16 @@ const amc2005Problems: Problem[] = [
     "shortAnswer": "3mn",
     "solutionSteps": [
       {
-        "title": "Use parity",
-        "body": "Odd times odd is odd, so mn is odd and 3mn is odd."
+        "title": "Five candidate expressions",
+        "body": "m and n are positive odd integers; five expressions are built from them."
       },
       {
-        "title": "Check the others",
-        "body": "The other expressions are even when m and n are odd."
+        "title": "Test with a sample",
+        "body": "Try m=1, n=1: four of the five expressions come out even."
+      },
+      {
+        "title": "Use parity",
+        "body": "Odd times odd is odd, so mn is odd and 3mn is odd."
       },
       {
         "title": "Conclude",
@@ -13147,8 +13194,17 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "parity-expression-eliminate",
       "data": {
+        "m": 1,
+        "n": 1,
+        "expressions": [
+          { "label": "m + 3n", "value": 4, "survives": false },
+          { "label": "3m − n", "value": 2, "survives": false },
+          { "label": "3m² + 3n²", "value": 6, "survives": false },
+          { "label": "(nm + 3)²", "value": 16, "survives": false },
+          { "label": "3mn", "value": 3, "survives": true }
+        ],
         "answer": "E"
       }
     },
@@ -13198,6 +13254,10 @@ const amc2005Problems: Problem[] = [
     "shortAnswer": "17",
     "solutionSteps": [
       {
+        "title": "Draw diagonal AC",
+        "body": "Quadrilateral ABCD has AB=BC=10, CD=DA=17, and angle ADC=60°."
+      },
+      {
         "title": "Focus on triangle ADC",
         "body": "Since AD=CD=17, triangle ADC is isosceles."
       },
@@ -13228,8 +13288,13 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "isosceles-apex-equilateral",
       "data": {
+        "AB": 10,
+        "BC": 10,
+        "CD": 17,
+        "DA": 17,
+        "angleD": 60,
         "answer": "D"
       }
     },
@@ -13283,6 +13348,10 @@ const amc2005Problems: Problem[] = [
     "shortAnswer": "8",
     "solutionSteps": [
       {
+        "title": "Joe walks, then runs",
+        "body": "Joe walked half way to school, then ran the rest of the way at 3 times his walking speed."
+      },
+      {
         "title": "Use the walking time",
         "body": "Joe took 6 minutes to walk half the distance."
       },
@@ -13315,8 +13384,10 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "walk-run-split-pace",
       "data": {
+        "walkTime": 6,
+        "speedMultiplier": 3,
         "answer": "D"
       }
     },
@@ -13366,6 +13437,10 @@ const amc2005Problems: Problem[] = [
     "shortAnswer": "$0",
     "solutionSteps": [
       {
+        "title": "Two clerks, two orders",
+        "body": "A $90 coat gets a 6% tax and a 20% discount, applied in opposite orders by Jack and Jill."
+      },
+      {
         "title": "Write Jack’s calculation",
         "body": "Jack multiplies by 1.06 and then by 0.80.",
         "equation": "90(1.06)(0.80)"
@@ -13398,8 +13473,11 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "order-swap-equal",
       "data": {
+        "price": 90,
+        "taxRate": 0.06,
+        "discountRate": 0.2,
         "answer": "C"
       }
     },
@@ -13449,6 +13527,10 @@ const amc2005Problems: Problem[] = [
     "shortAnswer": "32",
     "solutionSteps": [
       {
+        "title": "Five growing days",
+        "body": "Over 5 days, Big Al ate 100 bananas total, eating 6 more each day than the day before."
+      },
+      {
         "title": "Let May 5 be n",
         "body": "The amounts over the five days are n−24, n−18, n−12, n−6, and n."
       },
@@ -13480,8 +13562,11 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "arithmetic-sequence-solve",
       "data": {
+        "days": 5,
+        "step": 6,
+        "total": 100,
         "answer": "D"
       }
     },
@@ -13531,6 +13616,10 @@ const amc2005Problems: Problem[] = [
     "shortAnswer": "9",
     "solutionSteps": [
       {
+        "title": "An L-shaped polygon",
+        "body": "Polygon ABCDEF has AB=8, BC=9, FA=5, and area 52."
+      },
+      {
         "title": "Find DE",
         "body": "The full height BC is 9 and AF is 5, so DE=9−5=4."
       },
@@ -13561,8 +13650,12 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "l-shape-notch-area",
       "data": {
+        "AB": 8,
+        "BC": 9,
+        "FA": 5,
+        "area": 52,
         "answer": "C"
       }
     },
@@ -13616,16 +13709,20 @@ const amc2005Problems: Problem[] = [
     "shortAnswer": "96",
     "solutionSteps": [
       {
-        "title": "Games within one division",
-        "body": "Six teams have C(6,2)=15 pairings. Each pairing plays twice, so one division has 30 games."
+        "title": "Two divisions of six",
+        "body": "The conference has two divisions, each with six teams."
       },
       {
-        "title": "Both divisions",
-        "body": "There are two divisions, so within-division games total 60."
+        "title": "Games within each division",
+        "body": "Six teams have C(6,2)=15 pairings. Each pairing plays twice, so each division has 30 games, 60 for both."
       },
       {
         "title": "Add cross-division games",
-        "body": "Each of 6 teams in one division plays each of 6 in the other: 36 games. Total is 60+36=96."
+        "body": "Each of 6 teams in one division plays each of 6 in the other: 36 games."
+      },
+      {
+        "title": "Add it all up",
+        "body": "Total is 60+36=96."
       }
     ],
     "animationFrames": [
@@ -13646,8 +13743,9 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "conference-games-count",
       "data": {
+        "teamsPerDivision": 6,
         "answer": "B"
       }
     },
@@ -13705,8 +13803,12 @@ const amc2005Problems: Problem[] = [
         "body": "We need 2a>b. Since b=23−2a, this gives 2a>23−2a, so a>5.75."
       },
       {
+        "title": "Bound a from above",
+        "body": "Also b≥1, so 23−2a≥1, giving a≤11."
+      },
+      {
         "title": "Count possibilities",
-        "body": "Also b≥1, so a≤11. Thus a can be 6,7,8,9,10,11, giving 6 triangles."
+        "body": "Thus a can be 6,7,8,9,10,11, giving 6 triangles."
       }
     ],
     "animationFrames": [
@@ -13727,8 +13829,9 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "isosceles-count-range",
       "data": {
+        "perimeter": 23,
         "answer": "C"
       }
     },
@@ -13778,16 +13881,22 @@ const amc2005Problems: Problem[] = [
     "shortAnswer": "13",
     "solutionSteps": [
       {
+        "title": "Three colors, five needed",
+        "body": "Socks come in red, white, or blue, and the Martian needs to guarantee 5 of one color."
+      },
+      {
         "title": "Worst case before success",
-        "body": "The Martian could pull out 4 red, 4 white, and 4 blue socks without having five of any color."
+        "body": "The Martian could pull out 4 red, 4 white, and 4 blue socks without having five of any color.",
+        "equation": "3×4=12"
       },
       {
-        "title": "Count that case",
-        "body": "That is 12 socks total."
+        "title": "One more sock",
+        "body": "Every color already has 4, so the next sock must match one of them."
       },
       {
-        "title": "One more forces five",
-        "body": "The 13th sock must make one color reach 5."
+        "title": "That forces five",
+        "body": "The 13th sock guarantees a fifth of some color.",
+        "equation": "12+1=13"
       }
     ],
     "animationFrames": [
@@ -13808,8 +13917,10 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "pigeonhole-sock-fill",
       "data": {
+        "colorCount": 3,
+        "target": 5,
         "answer": "D"
       }
     },
@@ -13859,6 +13970,10 @@ const amc2005Problems: Problem[] = [
     "shortAnswer": "Evelyn",
     "solutionSteps": [
       {
+        "title": "Five points on a graph",
+        "body": "Each student's training run is plotted as a (time, distance) point."
+      },
+      {
         "title": "Use slope",
         "body": "Average speed is distance divided by time, which is the slope of the line from the origin to the student’s point."
       },
@@ -13889,8 +14004,15 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "slope-race-graph",
       "data": {
+        "students": [
+          { "name": "Evelyn", "time": 1, "distance": 4 },
+          { "name": "Carla", "time": 3, "distance": 5 },
+          { "name": "Briana", "time": 2, "distance": 2 },
+          { "name": "Debra", "time": 4, "distance": 3 },
+          { "name": "Angela", "time": 6, "distance": 1 }
+        ],
         "answer": "E"
       }
     },
@@ -13944,6 +14066,10 @@ const amc2005Problems: Problem[] = [
     "shortAnswer": "69",
     "solutionSteps": [
       {
+        "title": "Count multiples of 13",
+        "body": "Three-digit numbers range from 100 to 999."
+      },
+      {
         "title": "Find first multiple",
         "body": "The first three-digit multiple of 13 is 104, which is 13×8."
       },
@@ -13975,8 +14101,11 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "multiple-range-count",
       "data": {
+        "divisor": 13,
+        "rangeMin": 100,
+        "rangeMax": 999,
         "answer": "C"
       }
     },
@@ -14030,8 +14159,14 @@ const amc2005Problems: Problem[] = [
         "body": "Drop perpendiculars from B and C to the bottom base. This creates a rectangle and two right triangles."
       },
       {
-        "title": "Find base pieces",
-        "body": "On the left, a 30-24 right triangle has horizontal leg 18. On the right, a 25-24 right triangle has horizontal leg 7."
+        "title": "Left triangle",
+        "body": "On the left, a 30-24 right triangle has horizontal leg 18.",
+        "equation": "√(30²−24²)=18"
+      },
+      {
+        "title": "Right triangle",
+        "body": "On the right, a 25-24 right triangle has horizontal leg 7.",
+        "equation": "√(25²−24²)=7"
       },
       {
         "title": "Find perimeter",
@@ -14056,8 +14191,12 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "trapezoid-altitude-drop",
       "data": {
+        "AB": 30,
+        "BC": 50,
+        "CD": 25,
+        "height": 24,
         "answer": "A"
       }
     },
@@ -14111,6 +14250,10 @@ const amc2005Problems: Problem[] = [
     "shortAnswer": "6",
     "solutionSteps": [
       {
+        "title": "Both start at 12",
+        "body": "Alice moves 5 points clockwise and Bob moves 9 points counterclockwise each turn, on a 12-point circle."
+      },
+      {
         "title": "Measure closing distance",
         "body": "Each turn, Alice and Bob move toward coincidence by a combined 5+9=14 point-steps around a 12-point circle."
       },
@@ -14141,8 +14284,11 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "circle-meet-modular",
       "data": {
+        "points": 12,
+        "aliceStep": 5,
+        "bobStep": 9,
         "answer": "A"
       }
     },
@@ -14222,9 +14368,9 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "two-row-dot-triangle-count",
       "data": {
-        "answer": "C"
+        "points": ["0|0", "1|0", "2|0", "0|1", "1|1", "2|1"]
       }
     },
     "tags": [
@@ -14307,9 +14453,14 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "ranking",
+      "type": "detergent-unit-price-rank",
       "data": {
-        "answer": "E"
+        "smallPrice": 1,
+        "smallAmount": 5,
+        "mediumPriceFactor": 1.5,
+        "mediumAmountFractionOfLarge": 0.8,
+        "largeAmountFactor": 2,
+        "largePriceFactorOfMedium": 1.3
       }
     },
     "tags": [
@@ -14367,7 +14518,11 @@ const amc2005Problems: Problem[] = [
       },
       {
         "title": "Use symmetry",
-        "body": "Doubling the isosceles right triangle makes a square of side 4 and area 16. The original triangle has half that area: 8."
+        "body": "The center lies halfway between the equal legs, and its perpendicular distance to each leg is r=2. Thus each leg is 2r=4."
+      },
+      {
+        "title": "Double to a square",
+        "body": "Reflecting the isosceles right triangle across its hypotenuse makes a 4 by 4 square of area 16. The original triangle has half that area: 8."
       }
     ],
     "animationFrames": [
@@ -14388,9 +14543,10 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "semicircle-square-doubling",
       "data": {
-        "answer": "B"
+        "semicircleAreaCoefficient": 2,
+        "triangleType": "isosceles-right"
       }
     },
     "tags": [
@@ -14473,9 +14629,11 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "two-key-reverse-path",
       "data": {
-        "answer": "B"
+        "start": 1,
+        "target": 200,
+        "reversePath": [200, 100, 50, 25, 24, 12, 6, 3, 2, 1]
       }
     },
     "tags": [
@@ -14554,9 +14712,10 @@ const amc2005Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "overlap-area-cancellation",
       "data": {
-        "answer": "A"
+        "squareSide": 2,
+        "overlapSymbol": "a"
       }
     },
     "tags": [

@@ -18,6 +18,26 @@ import { ReadingRaceGapScene } from "./scenes/ReadingRaceGapScene";
 import { TeamReadingSplitScene } from "./scenes/TeamReadingSplitScene";
 import { ThreeWaySplitEqualTimeScene } from "./scenes/ThreeWaySplitEqualTimeScene";
 import { SpinnerParitySumScene } from "./scenes/SpinnerParitySumScene";
+import { WrongOperationUndoScene } from "./scenes/WrongOperationUndoScene";
+import { FolderSaleSavingsScene } from "./scenes/FolderSaleSavingsScene";
+import { DiagonalSymmetryGridScene } from "./scenes/DiagonalSymmetryGridScene";
+import { PerimeterReshapeSquareScene } from "./scenes/PerimeterReshapeSquareScene";
+import { PackGreedyFillScene } from "./scenes/PackGreedyFillScene";
+import { DecimalDigitCompareScene } from "./scenes/DecimalDigitCompareScene";
+import { WalkPythagoreanScene } from "./scenes/WalkPythagoreanScene";
+import { ParityExpressionEliminateScene } from "./scenes/ParityExpressionEliminateScene";
+import { IsoscelesApexEquilateralScene } from "./scenes/IsoscelesApexEquilateralScene";
+import { WalkRunSplitPaceScene } from "./scenes/WalkRunSplitPaceScene";
+import { OrderSwapEqualScene } from "./scenes/OrderSwapEqualScene";
+import { ArithmeticSequenceSolveScene } from "./scenes/ArithmeticSequenceSolveScene";
+import { LShapeNotchAreaScene } from "./scenes/LShapeNotchAreaScene";
+import { ConferenceGamesCountScene } from "./scenes/ConferenceGamesCountScene";
+import { IsoscelesCountRangeScene } from "./scenes/IsoscelesCountRangeScene";
+import { PigeonholeSockScene } from "./scenes/PigeonholeSockScene";
+import { SlopeRaceGraphScene } from "./scenes/SlopeRaceGraphScene";
+import { MultipleRangeCountScene } from "./scenes/MultipleRangeCountScene";
+import { TrapezoidAltitudeDropScene } from "./scenes/TrapezoidAltitudeDropScene";
+import { CircleMeetModularScene } from "./scenes/CircleMeetModularScene";
 import { HexagramAreaScene } from "./scenes/HexagramAreaScene";
 import { TwinSetVennScene } from "./scenes/TwinSetVennScene";
 import { IsoscelesAreaToSideScene } from "./scenes/IsoscelesAreaToSideScene";
@@ -76,6 +96,11 @@ import { CustomOperationScene } from "./scenes/CustomOperationScene";
 import { ClassroomTallyScene } from "./scenes/ClassroomTallyScene";
 import { SchoolDanceRatioScene } from "./scenes/SchoolDanceRatioScene";
 import { SquareOverlapPercentScene } from "./scenes/SquareOverlapPercentScene";
+import { OverlapAreaCancellationScene } from "./scenes/OverlapAreaCancellationScene";
+import { TwoKeyReversePathScene } from "./scenes/TwoKeyReversePathScene";
+import { SemicircleSquareDoublingScene } from "./scenes/SemicircleSquareDoublingScene";
+import { DetergentUnitPriceRankScene } from "./scenes/DetergentUnitPriceRankScene";
+import { TwoRowDotTriangleCountScene } from "./scenes/TwoRowDotTriangleCountScene";
 import { OppositeSeatScene } from "./scenes/OppositeSeatScene";
 import { StudyGapAverageScene } from "./scenes/StudyGapAverageScene";
 import { TaxiFareMeterScene } from "./scenes/TaxiFareMeterScene";
@@ -522,6 +547,33 @@ function gcdRegistry(a:number,b:number):number{return b?gcdRegistry(b,a%b):Math.
 export function resolveScene(problem: Problem): AnimatedScene {
   const type = problem.animation?.type;
   const data = problem.animation?.data ?? {};
+  // The exact six-point 3-by-2 lattice makes all twenty triples enumerable and
+  // guarantees that only the two complete horizontal rows are degenerate.
+  if(type==="two-row-dot-triangle-count"&&Array.isArray(data.points)){
+    const pts=data.points.map(String).sort();
+    if(pts.join(",")==="0|0,0|1,1|0,1|1,2|0,2|1") return TwoRowDotTriangleCountScene;
+  }
+  // Positive bounded baseline values and the four exact source multipliers keep
+  // every linked amount, price, and unit-rate comparison finite and drawable.
+  if(type==="detergent-unit-price-rank"){
+    const sp=Number(data.smallPrice),sa=Number(data.smallAmount),mp=Number(data.mediumPriceFactor),ma=Number(data.mediumAmountFractionOfLarge),la=Number(data.largeAmountFactor),lp=Number(data.largePriceFactorOfMedium);
+    if(sp>0&&sp<=100&&sa>0&&sa<=100&&mp===1.5&&ma===.8&&la===2&&lp===1.3) return DetergentUnitPriceRankScene;
+  }
+  // A positive bounded semicircle coefficient and the exact isosceles-right
+  // symmetry keep the recovered circle, tangent radii, and square finite.
+  if(type==="semicircle-square-doubling"){
+    const coeff=Number(data.semicircleAreaCoefficient);
+    if(coeff>0&&coeff<=100&&Number.isFinite(Math.sqrt(2*coeff))&&data.triangleType==="isosceles-right") return SemicircleSquareDoublingScene;
+  }
+  // The complete bounded path must begin at the target, end at the start, and
+  // obey the forced inverse rule at every edge before it can be drawn.
+  if(type==="two-key-reverse-path"&&Array.isArray(data.reversePath)){
+    const path=data.reversePath.map(Number),start=Number(data.start),target=Number(data.target);
+    if(path.length>=2&&path.length<=16&&path[0]===target&&path[path.length-1]===start&&start===1&&target===200&&path.every(Number.isInteger)&&path.slice(0,-1).every((v,i)=>(v%2===0?v/2:v-1)===path[i+1])) return TwoKeyReversePathScene;
+  }
+  // The source square has side 2 and names its single shared region a; these
+  // exact values keep the exclusive-region cancellation faithful and drawable.
+  if(type==="overlap-area-cancellation"&&Number(data.squareSide)===2&&data.overlapSymbol==="a") return OverlapAreaCancellationScene;
   // Exact named congruence, isosceles pair, midpoint segments, and a positive
   // side length keep the half-turn and length relay faithful and drawable.
   if(type==="congruence-length-relay"&&Array.isArray(data.midpoints)){const mids=data.midpoints.map(String).sort();if(data.congruence==="ABD=ECD"&&data.isosceles==="AB=BC"&&mids.join(",")==="AE,BC"&&data.givenSide==="CE"&&Number(data.givenLength)>0&&Number(data.givenLength)<=100)return CongruenceLengthRelayScene;}
@@ -3728,6 +3780,66 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "spinner-parity-sum" && Array.isArray(data.p) && Array.isArray(data.q) && Array.isArray(data.r)) {
     return SpinnerParitySumScene;
+  }
+  if (type === "wrong-operation-undo" && num(data.wrongResult) > 0 && num(data.factor) > 0) {
+    return WrongOperationUndoScene;
+  }
+  if (type === "folder-sale-savings" && num(data.count) > 0 && num(data.price) > 0) {
+    return FolderSaleSavingsScene;
+  }
+  if (type === "diagonal-symmetry-grid" && num(data.size) > 0 && Array.isArray(data.black)) {
+    return DiagonalSymmetryGridScene;
+  }
+  if (type === "perimeter-reshape-square" && Array.isArray(data.sides) && data.sides.length === 3) {
+    return PerimeterReshapeSquareScene;
+  }
+  if (type === "pack-greedy-fill" && num(data.target) > 0 && Array.isArray(data.packSizes)) {
+    return PackGreedyFillScene;
+  }
+  if (type === "decimal-digit-compare" && num(data.extraDigit) >= 0) {
+    return DecimalDigitCompareScene;
+  }
+  if (type === "walk-pythagorean" && num(data.southLeg1) > 0 && num(data.eastLeg) > 0) {
+    return WalkPythagoreanScene;
+  }
+  if (type === "parity-expression-eliminate" && Array.isArray(data.expressions) && data.expressions.length > 0) {
+    return ParityExpressionEliminateScene;
+  }
+  if (type === "isosceles-apex-equilateral" && num(data.CD) > 0 && num(data.DA) > 0 && num(data.angleD) > 0) {
+    return IsoscelesApexEquilateralScene;
+  }
+  if (type === "walk-run-split-pace" && num(data.walkTime) > 0 && num(data.speedMultiplier) > 0) {
+    return WalkRunSplitPaceScene;
+  }
+  if (type === "order-swap-equal" && num(data.price) > 0 && num(data.taxRate) > 0 && num(data.discountRate) > 0) {
+    return OrderSwapEqualScene;
+  }
+  if (type === "arithmetic-sequence-solve" && num(data.days) > 0 && num(data.step) > 0) {
+    return ArithmeticSequenceSolveScene;
+  }
+  if (type === "l-shape-notch-area" && num(data.AB) > 0 && num(data.BC) > 0 && num(data.FA) > 0) {
+    return LShapeNotchAreaScene;
+  }
+  if (type === "conference-games-count" && num(data.teamsPerDivision) > 0) {
+    return ConferenceGamesCountScene;
+  }
+  if (type === "isosceles-count-range" && num(data.perimeter) > 0) {
+    return IsoscelesCountRangeScene;
+  }
+  if (type === "pigeonhole-sock-fill" && num(data.colorCount) > 0 && num(data.target) > 0) {
+    return PigeonholeSockScene;
+  }
+  if (type === "slope-race-graph" && Array.isArray(data.students) && data.students.length > 0) {
+    return SlopeRaceGraphScene;
+  }
+  if (type === "multiple-range-count" && num(data.divisor) > 0 && num(data.rangeMax) > num(data.rangeMin)) {
+    return MultipleRangeCountScene;
+  }
+  if (type === "trapezoid-altitude-drop" && num(data.AB) > 0 && num(data.CD) > 0 && num(data.height) > 0) {
+    return TrapezoidAltitudeDropScene;
+  }
+  if (type === "circle-meet-modular" && num(data.points) > 0 && num(data.aliceStep) > 0 && num(data.bobStep) > 0) {
+    return CircleMeetModularScene;
   }
   return EquationScene;
 }
