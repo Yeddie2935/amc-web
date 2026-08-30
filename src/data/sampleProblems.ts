@@ -6039,6 +6039,10 @@ const amc2001Problems: Problem[] = [
     "shortAnswer": "5",
     "solutionSteps": [
       {
+        "title": "Fold equal inventories together",
+        "body": "Each half begins with 3 red, 5 blue, and 8 white triangles. Folding pairs one triangle from the upper half with one from the lower half."
+      },
+      {
         "title": "Remove same-color pairs",
         "body": "On each half, 2 red-red pairs use 2 red triangles and 3 blue-blue pairs use 3 blue triangles."
       },
@@ -6069,12 +6073,16 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "folded-color-pair-ledger",
       "data": {
         "red": 3,
         "blue": 5,
         "white": 8,
-        "whitePairs": 5
+        "redRedPairs": 2,
+        "blueBluePairs": 3,
+        "redWhitePairs": 2,
+        "whitePairs": 5,
+        "imagePath": "/amc8-diagrams/2001/problem-24-folded-triangles.png"
       }
     },
     "tags": [
@@ -6133,8 +6141,12 @@ const amc2001Problems: Problem[] = [
         "body": "If a listed number is a multiple of another permutation, dividing by 2 or 3 is the most useful quick check because larger factors would make the partner too small or not four digits with the required digits."
       },
       {
-        "title": "Test likely divisions",
-        "body": "The key successful check is 7425 divided by 3.",
+        "title": "Test division by 2",
+        "body": "Send each answer choice through the division-by-2 check. None of the whole-number quotients uses exactly the same four digits."
+      },
+      {
+        "title": "Test division by 3",
+        "body": "Dividing each choice by 3 leaves exactly one quotient with the required digits.",
         "equation": "7425 ÷ 3 = 2475"
       },
       {
@@ -6160,9 +6172,11 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "permutation-multiple-sieve",
       "data": {
-        "equation": "7425 ÷ 3 = 2475"
+        "digits": [2, 4, 5, 7],
+        "candidates": [5724, 7245, 7254, 7425, 7542],
+        "factors": [2, 3]
       }
     },
     "tags": [
@@ -6679,6 +6693,10 @@ const amc2002Problems: Problem[] = [
         "body": "Once the birdbath is full, extra water spills out, so the volume stays constant."
       },
       {
+        "title": "Eliminate the wrong graphs",
+        "body": "Every graph that stays flat the whole time, keeps climbing forever, or drops back down contradicts the physics."
+      },
+      {
         "title": "Choose the graph",
         "body": "Graph A rises at first and then levels off, so the answer is A."
       }
@@ -6701,8 +6719,16 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "birdbath-overflow-graph",
       "data": {
+        "fillRate": 20,
+        "drainRate": 18,
+        "axisPath": "M35 140V20 M35 140H145",
+        "graphA": "M35 140L92 82H145",
+        "graphB": "M35 55H70L145 140",
+        "graphC": "M35 140L145 28",
+        "graphD": "M35 45H145",
+        "graphE": "M35 140L90 85L145 140",
         "correct": "A"
       }
     },
@@ -6761,6 +6787,10 @@ const amc2002Problems: Problem[] = [
         "body": "The bars show A=6, B=8, C=4, D=2, and E=5 students."
       },
       {
+        "title": "Check the trap",
+        "body": "Misreading candy E's bar as 4 instead of 5 would give a different, tempting percent."
+      },
+      {
         "title": "Find the total",
         "body": "Add the bar heights to get the class size.",
         "equation": "6+8+4+2+5=25"
@@ -6789,15 +6819,10 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "candy-bar-percent-sieve",
       "data": {
-        "values": [
-          6,
-          8,
-          4,
-          2,
-          5
-        ]
+        "values": [6, 8, 4, 2, 5],
+        "labels": ["A", "B", "C", "D", "E"]
       }
     },
     "tags": [
@@ -6856,6 +6881,10 @@ const amc2002Problems: Problem[] = [
         "body": "France and Spain are the European countries in the table."
       },
       {
+        "title": "Check the trap",
+        "body": "Summing the whole 80s column across all four countries counts South American stamps too."
+      },
+      {
         "title": "Read the 80s column",
         "body": "France has 15 stamps from the 80s, and Spain has 9.",
         "equation": "15+9=24"
@@ -6883,9 +6912,14 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "stamp-table-region-sum",
       "data": {
-        "cells": "France 80s + Spain 80s"
+        "countries": ["Brazil", "France", "Peru", "Spain"],
+        "regions": ["South America", "Europe", "South America", "Europe"],
+        "decades": ["50s", "60s", "70s", "80s"],
+        "counts": [4, 7, 12, 8, 8, 4, 12, 15, 6, 4, 6, 10, 3, 9, 13, 9],
+        "targetRegion": "Europe",
+        "targetDecade": "80s"
       }
     },
     "tags": [
@@ -6943,6 +6977,10 @@ const amc2002Problems: Problem[] = [
         "body": "Use Brazil and Peru, and only the 50s and 60s columns."
       },
       {
+        "title": "Check the trap",
+        "body": "Computing only Peru's cost and forgetting Brazil gives a much smaller, tempting total."
+      },
+      {
         "title": "Count the stamps",
         "body": "Brazil has 4+7=11 stamps at 6 cents each. Peru has 6+4=10 stamps at 4 cents each."
       },
@@ -6970,9 +7008,15 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "stamp-table-decade-cost",
       "data": {
-        "equation": "11(0.06)+10(0.04)=1.06"
+        "countries": ["Brazil", "France", "Peru", "Spain"],
+        "regions": ["South America", "Europe", "South America", "Europe"],
+        "decades": ["50s", "60s", "70s", "80s"],
+        "counts": [4, 7, 12, 8, 8, 4, 12, 15, 6, 4, 6, 10, 3, 9, 13, 9],
+        "prices": [6, 6, 4, 5],
+        "targetRegion": "South America",
+        "targetDecades": ["50s", "60s"]
       }
     },
     "tags": [
@@ -7030,13 +7074,18 @@ const amc2002Problems: Problem[] = [
         "body": "The 70s counts are Brazil 12, France 12, Peru 6, and Spain 13."
       },
       {
-        "title": "Compute total cost",
+        "title": "Weight each count by its price",
         "body": "Brazil and France cost 6 cents each, Peru 4 cents, and Spain 5 cents.",
-        "equation": "12(6)+12(6)+6(4)+13(5)=233"
+        "equation": "12×6=72; 12×6=72; 6×4=24; 13×5=65"
+      },
+      {
+        "title": "Add the totals",
+        "body": "Sum the costs and the stamp counts separately.",
+        "equation": "72+72+24+65=233; 12+12+6+13=43"
       },
       {
         "title": "Divide by total stamps",
-        "body": "There are 12+12+6+13=43 stamps, so the average is about 5.42 cents, closest to 5.5 cents.",
+        "body": "The average is about 5.42 cents, closest to 5.5 cents, so the answer is E.",
         "equation": "233/43≈5.42"
       }
     ],
@@ -7058,9 +7107,13 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "stamp-table-weighted-average",
       "data": {
-        "equation": "233/43≈5.42"
+        "countries": ["Brazil", "France", "Peru", "Spain"],
+        "decades": ["50s", "60s", "70s", "80s"],
+        "counts": [4, 7, 12, 8, 8, 4, 12, 15, 6, 4, 6, 10, 3, 9, 13, 9],
+        "prices": [6, 6, 4, 5],
+        "targetDecade": "70s"
       }
     },
     "tags": [
@@ -7145,9 +7198,11 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "square-border-growth",
       "data": {
-        "equation": "7^2-6^2=13"
+        "exampleSides": [1, 2, 3],
+        "compareSides": [6, 7],
+        "imagePath": "/amc8-diagrams/2002/problem-11-square-tiles.svg"
       }
     },
     "tags": [
@@ -7205,13 +7260,14 @@ const amc2002Problems: Problem[] = [
         "body": "The spinner must land in A, B, or C, so the probabilities add to 1."
       },
       {
-        "title": "Subtract A and B",
-        "body": "Find the remaining probability for C.",
-        "equation": "1-1/3-1/2 = 1/6"
+        "title": "Mark A and B in sixths",
+        "body": "Since sixths work for both fractions, A uses 2 of the 6 equal shares and B uses 3 of them.",
+        "equation": "1/3=2/6; 1/2=3/6"
       },
       {
-        "title": "Choose the answer",
-        "body": "The probability is 1/6, so the answer is B."
+        "title": "Reveal the remaining probability",
+        "body": "Removing A's 2 shares and B's 3 shares leaves 1 of the 6 shares for C, so the answer is B.",
+        "equation": "6/6-2/6-3/6=1/6"
       }
     ],
     "animationFrames": [
@@ -7232,9 +7288,11 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "spinner-sixth-remainder",
       "data": {
-        "equation": "1-1/3-1/2=1/6"
+        "numerators": [1, 1],
+        "denominators": [3, 2],
+        "labels": ["A", "B", "C"]
       }
     },
     "tags": [
@@ -7315,10 +7373,11 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "solid-3d",
+      "type": "dimension-doubling-box-array",
       "data": {
-        "scale": 2,
-        "factor": 8
+        "startCapacity": 125,
+        "dimensionScale": 2,
+        "dimensions": ["height", "width", "length"]
       }
     },
     "tags": [
@@ -7400,9 +7459,11 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "successive-discount-grid",
       "data": {
-        "equation": "100(0.70)(0.80)=56"
+        "startPrice": 100,
+        "firstPercentOff": 30,
+        "secondPercentOff": 20
       }
     },
     "tags": [
@@ -7482,15 +7543,18 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "lattice-polygon-area-race",
       "data": {
-        "areas": [
-          5,
-          5,
-          5,
-          4.5,
-          5.5
-        ]
+        "labels": ["A", "B", "C", "D", "E"],
+        "polygons": [
+          "0,4 4,4 3,3 3,1 2,1 2,3 1,3",
+          "0,2 1,3 2,3 3,2 3,3 4,3 4,4 0,4",
+          "0,0 1,1 1,3 3,1 3,2 1,4 0,3",
+          "0,2 1,2 1,1 2,2 3,1 3,4 2,3 0,3",
+          "0,0 3,0 3,2 2,1 2,3 1,4 1,1"
+        ],
+        "areas": [5, 5, 5, 4.5, 5.5],
+        "imagePath": "/amc8-diagrams/2002/problem-15-polygons.png"
       }
     },
     "tags": [
@@ -7574,9 +7638,12 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "right-isosceles-area-relay",
       "data": {
-        "equation": "3^2/2+4^2/2=5^2/2"
+        "sideLengths": [3, 4, 5],
+        "areaLabels": ["X", "Y", "Z"],
+        "centralLabel": "W",
+        "imagePath": "/amc8-diagrams/2002/problem-16-right-isosceles-triangles.png"
       }
     },
     "tags": [
@@ -7662,9 +7729,12 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "score-card-flip",
       "data": {
-        "equation": "5c-2(10-c)=29"
+        "totalProblems": 10,
+        "correctPoints": 5,
+        "incorrectPenalty": 2,
+        "finalScore": 29
       }
     },
     "tags": [
@@ -7746,9 +7816,12 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "average-missing-day-fill",
       "data": {
-        "equation": "9(85)-5(75)-3(90)=120"
+        "counts": [5, 3],
+        "minutes": [75, 90],
+        "totalDays": 9,
+        "targetAverage": 85
       }
     },
     "tags": [
@@ -7830,9 +7903,11 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "zero-slot-case-grid",
       "data": {
-        "equation": "9×9+9×9=162"
+        "places": 3,
+        "exactZeros": 1,
+        "nonzeroDigits": [1, 2, 3, 4, 5, 6, 7, 8, 9]
       }
     },
     "tags": [
@@ -7913,9 +7988,11 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "triangle-midpoint-trapezoid",
       "data": {
-        "equation": "4-1=3"
+        "totalArea": 8,
+        "midpointFraction": 0.5,
+        "imagePath": "/amc8-diagrams/2002/problem-20-shaded-triangle.svg"
       }
     },
     "tags": [
@@ -8001,9 +8078,11 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "coin-head-count-buckets",
       "data": {
-        "equation": "(6+4+1)/16=11/16"
+        "tosses": 4,
+        "minHeads": 2,
+        "symbols": ["H", "T"]
       }
     },
     "tags": [
@@ -8083,9 +8162,11 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "solid-3d",
+      "type": "cube-join-cancellation",
       "data": {
-        "equation": "6×6-5×2=26"
+        "cubeCount": 6,
+        "positions": ["0,0,0", "0,0,1", "0,0,2", "-1,0,0", "-2,0,0", "1,0,1"],
+        "imagePath": "/amc8-diagrams/2002/problem-22-cubes.png"
       }
     },
     "tags": [
@@ -8169,9 +8250,12 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "symmetric-tile-window",
       "data": {
-        "equation": "4/9"
+        "imagePath": "/amc8-diagrams/2002/problem-23-tiled-floor.png",
+        "repeatSize": 6,
+        "sampleSize": 3,
+        "darkCount": 4
       }
     },
     "tags": [
@@ -8255,9 +8339,12 @@ const amc2002Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "equal-fruit-blend",
       "data": {
-        "equation": "(8/3)/(8/3+4)=0.40"
+        "pearBatch": 3,
+        "orangeBatch": 2,
+        "batchOunces": 8,
+        "equalCounts": true
       }
     },
     "tags": [

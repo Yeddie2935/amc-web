@@ -1,6 +1,11 @@
 import type { Problem } from "../../types/amc";
 import type { AnimatedScene } from "./scenes/types";
 import { ClockAngleScene } from "./scenes/ClockAngleScene";
+import { BirdbathOverflowGraphScene } from "./scenes/BirdbathOverflowGraphScene";
+import { CandyBarPercentSieveScene } from "./scenes/CandyBarPercentSieveScene";
+import { StampTableRegionSumScene } from "./scenes/StampTableRegionSumScene";
+import { StampTableDecadeCostScene } from "./scenes/StampTableDecadeCostScene";
+import { StampTableWeightedAverageScene } from "./scenes/StampTableWeightedAverageScene";
 import { CircleLineMaxIntersectScene } from "./scenes/CircleLineMaxIntersectScene";
 import { BillCombinationSieveScene } from "./scenes/BillCombinationSieveScene";
 import { EvenIntegerMinAverageScene } from "./scenes/EvenIntegerMinAverageScene";
@@ -191,6 +196,22 @@ import { TreadmillPaceScene } from "./scenes/TreadmillPaceScene";
 import { FriendCoverShareScene } from "./scenes/FriendCoverShareScene";
 import { EqualGiftUnitsScene } from "./scenes/EqualGiftUnitsScene";
 import { ShadedRemainderCompareScene } from "./scenes/ShadedRemainderCompareScene";
+import { EqualFruitBlendScene } from "./scenes/EqualFruitBlendScene";
+import { SymmetricTileWindowScene } from "./scenes/SymmetricTileWindowScene";
+import { CubeJoinCancellationScene } from "./scenes/CubeJoinCancellationScene";
+import { CoinHeadCountBucketsScene } from "./scenes/CoinHeadCountBucketsScene";
+import { TriangleMidpointTrapezoidScene } from "./scenes/TriangleMidpointTrapezoidScene";
+import { ZeroSlotCaseGridScene } from "./scenes/ZeroSlotCaseGridScene";
+import { AverageMissingDayFillScene } from "./scenes/AverageMissingDayFillScene";
+import { ScoreCardFlipScene } from "./scenes/ScoreCardFlipScene";
+import { RightIsoscelesAreaRelayScene } from "./scenes/RightIsoscelesAreaRelayScene";
+import { LatticePolygonAreaRaceScene } from "./scenes/LatticePolygonAreaRaceScene";
+import { SuccessiveDiscountGridScene } from "./scenes/SuccessiveDiscountGridScene";
+import { DimensionDoublingBoxArrayScene } from "./scenes/DimensionDoublingBoxArrayScene";
+import { SpinnerSixthRemainderScene } from "./scenes/SpinnerSixthRemainderScene";
+import { SquareBorderGrowthScene } from "./scenes/SquareBorderGrowthScene";
+import { PermutationMultipleSieveScene } from "./scenes/PermutationMultipleSieveScene";
+import { FoldedColorPairLedgerScene } from "./scenes/FoldedColorPairLedgerScene";
 import { WeightMedianMeanScene } from "./scenes/WeightMedianMeanScene";
 import { ProductPyramidScene } from "./scenes/ProductPyramidScene";
 import { TrainTimelineScene } from "./scenes/TrainTimelineScene";
@@ -3322,6 +3343,208 @@ export function resolveScene(problem: Problem): AnimatedScene {
   ) {
     return ShadedRemainderCompareScene;
   }
+  // Two small positive whole-fruit batches with the same positive output and
+  // an explicit equal-count blend keep every fruit and juice part drawable.
+  if (
+    type === "equal-fruit-blend" &&
+    Number.isInteger(num(data.pearBatch)) &&
+    num(data.pearBatch) >= 2 &&
+    num(data.pearBatch) <= 6 &&
+    Number.isInteger(num(data.orangeBatch)) &&
+    num(data.orangeBatch) >= 2 &&
+    num(data.orangeBatch) <= 6 &&
+    num(data.batchOunces) > 0 &&
+    num(data.batchOunces) <= 24 &&
+    data.equalCounts === true
+  ) {
+    return EqualFruitBlendScene;
+  }
+  // The supplied floor corner, a 6×6 repeat, and its 3×3 symmetry window are
+  // exact structural invariants; the dark count must fit inside that window.
+  if (
+    type === "symmetric-tile-window" &&
+    data.imagePath === "/amc8-diagrams/2002/problem-23-tiled-floor.png" &&
+    num(data.repeatSize) === 6 &&
+    num(data.sampleSize) === 3 &&
+    Number.isInteger(num(data.darkCount)) &&
+    num(data.darkCount) > 0 &&
+    num(data.darkCount) < num(data.sampleSize) ** 2
+  ) {
+    return SymmetricTileWindowScene;
+  }
+  // Six unique integer lattice positions forming exactly a five-edge connected
+  // tree reproduce the source solid and keep the isometric assembly drawable.
+  if (type === "cube-join-cancellation" && num(data.cubeCount) === 6 && Array.isArray(data.positions) && data.positions.length === 6) {
+    const positions = data.positions.map((raw) => String(raw).split(",").map(Number));
+    const validPositions = positions.every((p) => p.length === 3 && p.every((v) => Number.isInteger(v) && Math.abs(v) <= 3));
+    const unique = new Set(data.positions.map(String)).size === 6;
+    const joins = positions.reduce((count, p, i) => count + positions.slice(i + 1).filter((q) => Math.abs(p[0] - q[0]) + Math.abs(p[1] - q[1]) + Math.abs(p[2] - q[2]) === 1).length, 0);
+    if (validPositions && unique && joins === 5 && data.imagePath === "/amc8-diagrams/2002/problem-22-cubes.png") return CubeJoinCancellationScene;
+  }
+  // Four fair binary tosses keep the complete 16-card sample space readable;
+  // the threshold must be a valid whole head count and symbols exactly H/T.
+  if (
+    type === "coin-head-count-buckets" &&
+    num(data.tosses) === 4 &&
+    Number.isInteger(num(data.minHeads)) &&
+    num(data.minHeads) >= 0 &&
+    num(data.minHeads) <= 4 &&
+    Array.isArray(data.symbols) &&
+    data.symbols.join("|") === "H|T"
+  ) {
+    return CoinHeadCountBucketsScene;
+  }
+  // The given positive total area and exact midpoint scale reproduce the
+  // source triangle's equal halves and quarter-area top triangle.
+  if (
+    type === "triangle-midpoint-trapezoid" &&
+    num(data.totalArea) > 0 &&
+    num(data.totalArea) <= 100 &&
+    num(data.midpointFraction) === 0.5 &&
+    data.imagePath === "/amc8-diagrams/2002/problem-20-shaded-triangle.svg"
+  ) {
+    return TriangleMidpointTrapezoidScene;
+  }
+  // Exactly one zero in three base-ten places leaves two legal zero slots;
+  // the nonzero deck must contain each digit 1–9 exactly once.
+  if (
+    type === "zero-slot-case-grid" &&
+    num(data.places) === 3 &&
+    num(data.exactZeros) === 1 &&
+    Array.isArray(data.nonzeroDigits) &&
+    data.nonzeroDigits.map(Number).join("|") === "1|2|3|4|5|6|7|8|9"
+  ) {
+    return ZeroSlotCaseGridScene;
+  }
+  // Two positive grouped durations must account for exactly the known days;
+  // bounded totals keep all nine bars and the missing-day fill drawable.
+  if (
+    type === "average-missing-day-fill" &&
+    Array.isArray(data.counts) &&
+    data.counts.length === 2 &&
+    data.counts.every((v) => Number.isInteger(Number(v)) && num(v) > 0 && num(v) <= 9) &&
+    Array.isArray(data.minutes) &&
+    data.minutes.length === 2 &&
+    data.minutes.every((v) => num(v) > 0 && num(v) <= 180) &&
+    Number.isInteger(num(data.totalDays)) &&
+    num(data.totalDays) >= 3 &&
+    num(data.totalDays) <= 12 &&
+    data.counts.map(Number).reduce((a, b) => a + b, 0) === num(data.totalDays) - 1 &&
+    num(data.targetAverage) > 0 &&
+    num(data.targetAverage) <= 180
+  ) {
+    return AverageMissingDayFillScene;
+  }
+  // A bounded positive problem count, positive correct score, positive wrong
+  // penalty, and integer in-range solution keep every score-card flip valid.
+  if (
+    type === "score-card-flip" &&
+    Number.isInteger(num(data.totalProblems)) &&
+    num(data.totalProblems) >= 2 &&
+    num(data.totalProblems) <= 12 &&
+    num(data.correctPoints) > 0 &&
+    num(data.correctPoints) <= 20 &&
+    num(data.incorrectPenalty) > 0 &&
+    num(data.incorrectPenalty) <= 20 &&
+    Number.isInteger((num(data.finalScore) + num(data.totalProblems) * num(data.incorrectPenalty)) / (num(data.correctPoints) + num(data.incorrectPenalty))) &&
+    (num(data.finalScore) + num(data.totalProblems) * num(data.incorrectPenalty)) / (num(data.correctPoints) + num(data.incorrectPenalty)) >= 0 &&
+    (num(data.finalScore) + num(data.totalProblems) * num(data.incorrectPenalty)) / (num(data.correctPoints) + num(data.incorrectPenalty)) <= num(data.totalProblems)
+  ) {
+    return ScoreCardFlipScene;
+  }
+  // Three bounded positive integer sides must form a right triangle, with the
+  // source's exact area labels and diagram path preserving the construction.
+  if (type === "right-isosceles-area-relay" && Array.isArray(data.sideLengths) && data.sideLengths.length === 3) {
+    const sides = data.sideLengths.map(Number);
+    if (
+      sides.every((v) => Number.isInteger(v) && v > 0 && v <= 8) &&
+      sides[0] ** 2 + sides[1] ** 2 === sides[2] ** 2 &&
+      Array.isArray(data.areaLabels) &&
+      data.areaLabels.join("|") === "X|Y|Z" &&
+      data.centralLabel === "W" &&
+      data.imagePath === "/amc8-diagrams/2002/problem-16-right-isosceles-triangles.png"
+    ) return RightIsoscelesAreaRelayScene;
+  }
+  // Five bounded lattice polygons must have the supplied exact areas; this
+  // keeps the half-unit decomposition finite and faithful to the source art.
+  if (
+    type === "lattice-polygon-area-race" &&
+    Array.isArray(data.labels) && data.labels.join("|") === "A|B|C|D|E" &&
+    Array.isArray(data.polygons) && data.polygons.length === 5 &&
+    data.polygons.every((value) => typeof value === "string" && /^(?:[0-4],[0-4])(?: [0-4],[0-4]){2,9}$/.test(value)) &&
+    Array.isArray(data.areas) && data.areas.length === 5 &&
+    data.areas.every((value) => Number(value) > 0 && Number(value) <= 8) &&
+    data.imagePath === "/amc8-diagrams/2002/problem-15-polygons.png"
+  ) {
+    return LatticePolygonAreaRaceScene;
+  }
+  // A $100 hundred-cell model requires whole-cell cuts at both discount
+  // stages, while bounded percentages keep the grid meaningful and drawable.
+  if (
+    type === "successive-discount-grid" &&
+    num(data.startPrice) === 100 &&
+    Number.isInteger(num(data.firstPercentOff)) && num(data.firstPercentOff) > 0 && num(data.firstPercentOff) < 100 &&
+    Number.isInteger(num(data.secondPercentOff)) && num(data.secondPercentOff) > 0 && num(data.secondPercentOff) < 100 &&
+    Number.isInteger(100 * (1 - num(data.firstPercentOff) / 100) * num(data.secondPercentOff) / 100)
+  ) {
+    return SuccessiveDiscountGridScene;
+  }
+  // A small integer dimension scale yields a bounded whole 3D box array, and
+  // positive capacity keeps the derived jellybean count meaningful.
+  if (
+    type === "dimension-doubling-box-array" &&
+    Number.isInteger(num(data.startCapacity)) && num(data.startCapacity) > 0 && num(data.startCapacity) <= 1000 &&
+    Number.isInteger(num(data.dimensionScale)) && num(data.dimensionScale) >= 2 && num(data.dimensionScale) <= 3 &&
+    Array.isArray(data.dimensions) && data.dimensions.join("|") === "height|width|length"
+  ) {
+    return DimensionDoublingBoxArrayScene;
+  }
+  // Two proper source fractions must share a small drawable denominator and
+  // leave a positive remainder for the third spinner region.
+  if (
+    type === "spinner-sixth-remainder" &&
+    Array.isArray(data.numerators) && data.numerators.length === 2 && data.numerators.every((v) => Number.isInteger(Number(v)) && Number(v) > 0) &&
+    Array.isArray(data.denominators) && data.denominators.length === 2 && data.denominators.every((v, i) => Number.isInteger(Number(v)) && Number(v) >= 2 && Number(v) <= 12 && Number(data.numerators[i]) < Number(v)) &&
+    Array.isArray(data.labels) && data.labels.join("|") === "A|B|C"
+  ) {
+    const d1 = Number(data.denominators[0]), d2 = Number(data.denominators[1]);
+    const common = d1 * d2 / gcdRegistry(d1, d2);
+    const used = Number(data.numerators[0]) * common / d1 + Number(data.numerators[1]) * common / d2;
+    if (Number.isInteger(common) && common <= 12 && Number.isInteger(used) && used < common) return SpinnerSixthRemainderScene;
+  }
+  // Consecutive bounded square sizes keep both the source examples and the
+  // larger tile grids finite, with an exact L-border difference.
+  if (
+    type === "square-border-growth" &&
+    Array.isArray(data.exampleSides) && data.exampleSides.join("|") === "1|2|3" &&
+    Array.isArray(data.compareSides) && data.compareSides.length === 2 &&
+    data.compareSides.every((v) => Number.isInteger(Number(v)) && Number(v) >= 2 && Number(v) <= 9) &&
+    Number(data.compareSides[1]) === Number(data.compareSides[0]) + 1 &&
+    data.imagePath === "/amc8-diagrams/2002/problem-11-square-tiles.svg"
+  ) {
+    return SquareBorderGrowthScene;
+  }
+  // Four distinct nonzero digits create exactly 24 four-digit permutations;
+  // five supplied candidates and the only possible small factors stay drawable.
+  if (
+    type === "permutation-multiple-sieve" &&
+    Array.isArray(data.digits) && data.digits.length === 4 && data.digits.every((v) => Number.isInteger(Number(v)) && Number(v) >= 1 && Number(v) <= 9) && new Set(data.digits.map(Number)).size === 4 &&
+    Array.isArray(data.candidates) && data.candidates.length === 5 && data.candidates.every((v) => Number.isInteger(Number(v)) && Number(v) >= 1000 && Number(v) <= 9999) &&
+    Array.isArray(data.factors) && data.factors.join("|") === "2|3"
+  ) {
+    return PermutationMultipleSieveScene;
+  }
+  // Small whole color inventories and pair counts must leave identical,
+  // nonnegative residual inventories on both folded halves.
+  if (
+    type === "folded-color-pair-ledger" &&
+    [data.red, data.blue, data.white, data.redRedPairs, data.blueBluePairs, data.redWhitePairs, data.whitePairs].every((v) => Number.isInteger(num(v)) && num(v) >= 0 && num(v) <= 12) &&
+    num(data.redRedPairs) <= num(data.red) && num(data.blueBluePairs) <= num(data.blue) &&
+    num(data.redWhitePairs) % 2 === 0 && num(data.redWhitePairs) / 2 <= num(data.red) - num(data.redRedPairs) &&
+    data.imagePath === "/amc8-diagrams/2001/problem-24-folded-triangles.png"
+  ) {
+    return FoldedColorPairLedgerScene;
+  }
   // The weights must already be sorted with an odd count so the middle
   // index is a well-defined median to compare against the computed mean.
   if (type === "weight-median-mean" && Array.isArray(data.weights)) {
@@ -4113,6 +4336,21 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "week-cycle-hop" && Array.isArray(data.weekLabels) && data.weekLabels.length > 0) {
     return WeekCycleHopScene;
+  }
+  if (type === "birdbath-overflow-graph" && typeof data.graphA === "string" && typeof data.correct === "string") {
+    return BirdbathOverflowGraphScene;
+  }
+  if (type === "candy-bar-percent-sieve" && Array.isArray(data.values) && data.values.length > 0) {
+    return CandyBarPercentSieveScene;
+  }
+  if (type === "stamp-table-region-sum" && Array.isArray(data.countries) && data.countries.length > 0) {
+    return StampTableRegionSumScene;
+  }
+  if (type === "stamp-table-decade-cost" && Array.isArray(data.countries) && data.countries.length > 0) {
+    return StampTableDecadeCostScene;
+  }
+  if (type === "stamp-table-weighted-average" && Array.isArray(data.countries) && data.countries.length > 0) {
+    return StampTableWeightedAverageScene;
   }
   return EquationScene;
 }
