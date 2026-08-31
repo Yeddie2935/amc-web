@@ -1,6 +1,29 @@
 import type { Problem } from "../../types/amc";
 import type { AnimatedScene } from "./scenes/types";
 import { ClockAngleScene } from "./scenes/ClockAngleScene";
+import { PennyMatchTreeScene } from "./scenes/PennyMatchTreeScene";
+import { CubeStackSurfaceScene } from "./scenes/CubeStackSurfaceScene";
+import { OverlapWindowSumScene } from "./scenes/OverlapWindowSumScene";
+import { BackyardAreaFromWalksScene } from "./scenes/BackyardAreaFromWalksScene";
+import { NonAssociativeOperationScene } from "./scenes/NonAssociativeOperationScene";
+import { GeoboardTwoShapeCompareScene } from "./scenes/GeoboardTwoShapeCompareScene";
+import { ThreeArcRegionScene } from "./scenes/ThreeArcRegionScene";
+import { NineCoinsDiophantineScene } from "./scenes/NineCoinsDiophantineScene";
+import { DivisibleByUnitsDigitScene } from "./scenes/DivisibleByUnitsDigitScene";
+import { BlockWallStaggerScene } from "./scenes/BlockWallStaggerScene";
+import { IsoscelesBisectorAngleScene } from "./scenes/IsoscelesBisectorAngleScene";
+import { UnitsDigitPowerCycleSumScene } from "./scenes/UnitsDigitPowerCycleSumScene";
+import { NestedEquilateralPerimeterScene } from "./scenes/NestedEquilateralPerimeterScene";
+import { ShadedLSquareScene } from "./scenes/ShadedLSquareScene";
+import { MinimumProductScene } from "./scenes/MinimumProductScene";
+import { HiddenDiceDotsScene } from "./scenes/HiddenDiceDotsScene";
+import { CrossNumberPowerScene } from "./scenes/CrossNumberPowerScene";
+import { HeightGrowthPercentScene } from "./scenes/HeightGrowthPercentScene";
+import { AgeChainScene } from "./scenes/AgeChainScene";
+import { ReciprocalCompareScene } from "./scenes/ReciprocalCompareScene";
+import { WholeNumberIntervalCountScene } from "./scenes/WholeNumberIntervalCountScene";
+import { WorkAtHomeGrowthGraphScene } from "./scenes/WorkAtHomeGrowthGraphScene";
+import { PrincipalTermWindowScene } from "./scenes/PrincipalTermWindowScene";
 import { MaximizeLargestFromMedianScene } from "./scenes/MaximizeLargestFromMedianScene";
 import { ImpossibleScoreGapScene } from "./scenes/ImpossibleScoreGapScene";
 import { EquilateralMidpointShapeCountScene } from "./scenes/EquilateralMidpointShapeCountScene";
@@ -505,6 +528,8 @@ import { SignPairSumScene } from "./scenes/SignPairSumScene";
 import { AlternatingPairScaleScene } from "./scenes/AlternatingPairScaleScene";
 import { RollingBallOffsetScene } from "./scenes/RollingBallOffsetScene";
 import { TriangleSwapAreaScene } from "./scenes/TriangleSwapAreaScene";
+import { RectangleMidpointTriangleAreaScene } from "./scenes/RectangleMidpointTriangleAreaScene";
+import { StarIsoscelesAngleTransferScene } from "./scenes/StarIsoscelesAngleTransferScene";
 import { SemicircleDiameterTriangleScene } from "./scenes/SemicircleDiameterTriangleScene";
 import { ToothpickBoundaryCountScene } from "./scenes/ToothpickBoundaryCountScene";
 import { FixedBridgeRouteProductScene } from "./scenes/FixedBridgeRouteProductScene";
@@ -1161,6 +1186,18 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if (type === "triangle-swap-area") {
     const count = Math.round(num(data.squareCount)), side = num(data.sideLength), midpoint = num(data.midpointFraction);
     if (count === 3 && side > 0 && side <= 10 && midpoint === 0.5) return TriangleSwapAreaScene;
+  }
+  // A positive bounded rectangle area and two true side midpoints make the
+  // three complementary right-triangle fractions exact and drawable.
+  if (type === "rectangle-midpoint-triangle-area") {
+    const area = num(data.rectangleArea), bc = num(data.bcMidpointFraction), cd = num(data.cdMidpointFraction);
+    if (area > 0 && area <= 10000 && bc === 0.5 && cd === 0.5 && Number.isInteger(area * 3 / 8)) return RectangleMidpointTriangleAreaScene;
+  }
+  // One acute apex, an explicit equal-angle pair, and ordinary 180° triangle
+  // and straight-line sums keep both transferred angles positive and drawable.
+  if (type === "star-isosceles-angle-transfer") {
+    const apex = num(data.apexAngle), tri = num(data.triangleAngleSum), straight = num(data.straightAngle), base = (tri - apex) / 2, inner = straight - base;
+    if (data.equalAngles === "AFG=AGF" && data.intersectionLines === "AFD|BFGE" && apex > 0 && apex < 90 && tri === 180 && straight === 180 && Number.isInteger(base) && base > 0 && inner > 0 && inner < 180) return StarIsoscelesAngleTransferScene;
   }
   // Positive bounded π-coefficients must decode to finite diameters that form
   // a genuine right triangle, keeping all three semicircles safely drawable.
@@ -4443,6 +4480,75 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "equilateral-midpoint-shape-count" && Array.isArray(data.points) && data.points.length === 6) {
     return EquilateralMidpointShapeCountScene;
+  }
+  if (type === "age-chain" && num(data.knownAge) > 0) {
+    return AgeChainScene;
+  }
+  if (type === "reciprocal-compare" && Array.isArray(data.values) && data.values.length > 0) {
+    return ReciprocalCompareScene;
+  }
+  if (type === "whole-number-interval-count" && data.leftValue !== undefined && data.rightValue !== undefined) {
+    return WholeNumberIntervalCountScene;
+  }
+  if (type === "work-at-home-growth-graph" && Array.isArray(data.values) && data.values.length > 0) {
+    return WorkAtHomeGrowthGraphScene;
+  }
+  if (type === "principal-term-window" && num(data.termLength) > 0 && num(data.windowLength) > 0) {
+    return PrincipalTermWindowScene;
+  }
+  if (type === "shaded-l-square" && Array.isArray(data.segments) && data.segments.length === 3) {
+    return ShadedLSquareScene;
+  }
+  if (type === "minimum-product" && Array.isArray(data.numbers) && data.numbers.length > 0) {
+    return MinimumProductScene;
+  }
+  if (type === "hidden-dice-dots" && Array.isArray(data.visibleFaces) && data.visibleFaces.length > 0) {
+    return HiddenDiceDotsScene;
+  }
+  if (type === "cross-number-power" && num(data.downBase) > 0 && num(data.acrossBase) > 0) {
+    return CrossNumberPowerScene;
+  }
+  if (type === "height-growth-percent" && num(data.finalHeight) > 0 && num(data.growPercent) > 0) {
+    return HeightGrowthPercentScene;
+  }
+  if (type === "divisible-by-units-digit" && num(data.lo) > 0 && num(data.hi) > 0) {
+    return DivisibleByUnitsDigitScene;
+  }
+  if (type === "block-wall-stagger" && num(data.wallLength) > 0 && num(data.wallHeight) > 0) {
+    return BlockWallStaggerScene;
+  }
+  if (type === "isosceles-bisector-angle" && num(data.apexAngle) > 0) {
+    return IsoscelesBisectorAngleScene;
+  }
+  if (type === "units-digit-power-cycle-sum" && num(data.base1) > 0 && num(data.base2) > 0) {
+    return UnitsDigitPowerCycleSumScene;
+  }
+  if (type === "nested-equilateral-perimeter" && num(data.side) > 0) {
+    return NestedEquilateralPerimeterScene;
+  }
+  if (type === "backyard-area-from-walks" && num(data.targetMeters) > 0 && num(data.lengthWalks) > 0 && num(data.perimeterWalks) > 0) {
+    return BackyardAreaFromWalksScene;
+  }
+  if (type === "non-associative-operation" && num(data.a) !== 0 && num(data.b) !== 0 && num(data.c) !== 0) {
+    return NonAssociativeOperationScene;
+  }
+  if (type === "geoboard-two-shape-compare" && Array.isArray(data.shapeI) && Array.isArray(data.shapeII)) {
+    return GeoboardTwoShapeCompareScene;
+  }
+  if (type === "three-arc-region" && num(data.radius) > 0) {
+    return ThreeArcRegionScene;
+  }
+  if (type === "nine-coins-diophantine" && num(data.coinCount) > 0 && num(data.totalCents) > 0) {
+    return NineCoinsDiophantineScene;
+  }
+  if (type === "penny-match-tree") {
+    return PennyMatchTreeScene;
+  }
+  if (type === "cube-stack-surface") {
+    return CubeStackSurfaceScene;
+  }
+  if (type === "overlap-window-sum" && num(data.total) > 0 && num(data.frontCount) > 0 && num(data.backCount) > 0) {
+    return OverlapWindowSumScene;
   }
   return EquationScene;
 }

@@ -2058,6 +2058,10 @@ const legacySampleProblems: Problem[] = [
         "equation": "42 ÷ 2 = 21"
       },
       {
+        "title": "Check the trap",
+        "body": "Subtracting 5 from Aunt Anna's age instead of Brianna's gives a tempting but wrong number."
+      },
+      {
         "title": "Find Caitlin's age",
         "body": "Caitlin is 5 years younger than Brianna.",
         "equation": "21 − 5 = 16"
@@ -2084,6 +2088,17 @@ const legacySampleProblems: Problem[] = [
         "visualHint": "21 − 5 = 16, then choice B is circled."
       }
     ],
+    "animation": {
+      "type": "age-chain",
+      "data": {
+        "knownAge": 42,
+        "knownName": "Aunt Anna",
+        "midName": "Brianna",
+        "midFactor": 0.5,
+        "finalName": "Caitlin",
+        "finalOffset": -5
+      }
+    },
     "tags": [
       "AMC 8",
       "2000",
@@ -2140,6 +2155,10 @@ const legacySampleProblems: Problem[] = [
         "body": "−1 equals its reciprocal, 0 has no reciprocal, 1 equals its reciprocal, and 2 is greater than 1/2."
       },
       {
+        "title": "Check the trap",
+        "body": "Flipping the sign of −1's reciprocal by mistake makes it look like −1 works too, but it doesn't."
+      },
+      {
         "title": "Conclude",
         "body": "Only −2 is less than its reciprocal, so the answer is A."
       }
@@ -2161,6 +2180,12 @@ const legacySampleProblems: Problem[] = [
         "visualHint": "Choice A is circled."
       }
     ],
+    "animation": {
+      "type": "reciprocal-compare",
+      "data": {
+        "values": [-2, -1, 0, 1, 2]
+      }
+    },
     "tags": [
       "AMC 8",
       "2000",
@@ -2213,6 +2238,10 @@ const legacySampleProblems: Problem[] = [
         "equation": "5/3 ≈ 1.67, 2π ≈ 6.28"
       },
       {
+        "title": "Check the trap",
+        "body": "It's tempting to stop counting at 5, but 6 is still less than 6.28."
+      },
+      {
         "title": "List the whole numbers",
         "body": "The whole numbers strictly between these values are 2, 3, 4, 5, and 6."
       },
@@ -2238,6 +2267,15 @@ const legacySampleProblems: Problem[] = [
         "visualHint": "The five dots are counted and choice D is circled."
       }
     ],
+    "animation": {
+      "type": "whole-number-interval-count",
+      "data": {
+        "leftValue": 1.6666666667,
+        "rightValue": 6.2831853072,
+        "leftLabel": "5/3",
+        "rightLabel": "2π"
+      }
+    },
     "tags": [
       "AMC 8",
       "2000",
@@ -2289,12 +2327,16 @@ const legacySampleProblems: Problem[] = [
         "body": "The graph should be near 5 in 1960, 8 in 1970, 15 in 1980, and 30 in 1990."
       },
       {
-        "title": "Look for increasing growth",
-        "body": "The increases are about 3, then 7, then 15, so the graph should rise faster over time."
+        "title": "Check the trap",
+        "body": "A graph can curve upward dramatically and still miss one of the real data points."
+      },
+      {
+        "title": "Check every graph",
+        "body": "Compare each candidate's own plotted points against the real 5, 8, 15, 30 data."
       },
       {
         "title": "Conclude",
-        "body": "Graph E best matches the four data points and the accelerating increase."
+        "body": "Graph E matches the four data points and the accelerating increase exactly."
       }
     ],
     "animationFrames": [
@@ -2314,6 +2356,15 @@ const legacySampleProblems: Problem[] = [
         "visualHint": "Choice E is highlighted."
       }
     ],
+    "animation": {
+      "type": "work-at-home-growth-graph",
+      "data": {
+        "years": [1960, 1970, 1980, 1990],
+        "values": [5, 8, 15, 30],
+        "correct": "E",
+        "graphs": ["A:10,12,20,30", "B:5,10,20,25", "C:5,8,25,30", "D:5,10,28,30", "E:5,8,15,30"]
+      }
+    },
     "tags": [
       "AMC 8",
       "2000",
@@ -2368,6 +2419,10 @@ const legacySampleProblems: Problem[] = [
         "body": "An 8-year period can include parts of terms at the beginning and end, not only full terms."
       },
       {
+        "title": "Check the trap",
+        "body": "Lining the window up with a term boundary only counts the terms it fully contains, undercounting the real maximum."
+      },
+      {
         "title": "Build the maximum",
         "body": "For example, the 8-year period could include the end of one 3-year term, two complete 3-year terms, and the beginning of another term."
       },
@@ -2393,6 +2448,14 @@ const legacySampleProblems: Problem[] = [
         "visualHint": "The four terms are numbered, then choice C is circled."
       }
     ],
+    "animation": {
+      "type": "principal-term-window",
+      "data": {
+        "termLength": 3,
+        "windowLength": 8,
+        "termCount": 6
+      }
+    },
     "tags": [
       "AMC 8",
       "2000",
@@ -2445,6 +2508,10 @@ const legacySampleProblems: Problem[] = [
         "equation": "1 + 3 + 1 = 5"
       },
       {
+        "title": "Check the trap",
+        "body": "Forgetting to subtract one of the two small squares gives a tempting but wrong area."
+      },
+      {
         "title": "Subtract the unshaded squares",
         "body": "The unshaded squares have side lengths 1, 3, and 1, so their total area is 1 + 9 + 1 = 11.",
         "equation": "1² + 3² + 1² = 11"
@@ -2472,6 +2539,12 @@ const legacySampleProblems: Problem[] = [
         "visualHint": "25 − (1 + 9 + 1) = 14, then choice D is circled."
       }
     ],
+    "animation": {
+      "type": "shaded-l-square",
+      "data": {
+        "segments": [1, 3, 1]
+      }
+    },
     "tags": [
       "AMC 8",
       "2000",
@@ -2526,6 +2599,10 @@ const legacySampleProblems: Problem[] = [
         "body": "The minimum product should be as negative as possible."
       },
       {
+        "title": "Check the trap",
+        "body": "Multiplying the three most negative numbers feels like it should give the most negative product, but it isn't the smallest."
+      },
+      {
         "title": "Use one negative and two large positives",
         "body": "Choosing −8, 7, and 5 gives a large negative product.",
         "equation": "−8 × 7 × 5 = −280"
@@ -2552,6 +2629,12 @@ const legacySampleProblems: Problem[] = [
         "visualHint": "−8 × 7 × 5 = −280, then choice B is circled."
       }
     ],
+    "animation": {
+      "type": "minimum-product",
+      "data": {
+        "numbers": [-8, -6, -4, 0, 3, 5, 7]
+      }
+    },
     "tags": [
       "AMC 8",
       "2000",
@@ -2605,6 +2688,10 @@ const legacySampleProblems: Problem[] = [
         "equation": "3 × 21 = 63"
       },
       {
+        "title": "Check the trap",
+        "body": "Reporting just one die's total forgets the other two dice and skips subtracting the visible faces entirely."
+      },
+      {
         "title": "Add the visible dots",
         "body": "From the drawing, the visible faces show 1, 2, 3, 4, 6, 5, and 1 dots.",
         "equation": "1 + 2 + 3 + 4 + 6 + 5 + 1 = 22"
@@ -2632,6 +2719,13 @@ const legacySampleProblems: Problem[] = [
         "visualHint": "63 − 22 = 41, then choice D is circled."
       }
     ],
+    "animation": {
+      "type": "hidden-dice-dots",
+      "data": {
+        "dieCount": 3,
+        "visibleFaces": [1, 2, 3, 4, 6, 5, 1]
+      }
+    },
     "tags": [
       "AMC 8",
       "2000",
@@ -2686,6 +2780,10 @@ const legacySampleProblems: Problem[] = [
         "body": "The three-digit powers of 5 are 125 and 625. In either case, the middle digit is 2."
       },
       {
+        "title": "Check the trap",
+        "body": "Picking any three-digit power of 2 without checking its first digit can give the wrong outlined digit."
+      },
+      {
         "title": "Use the crossing digit",
         "body": "That crossing digit is the first digit of the across entry, so the three-digit power of 2 must start with 2."
       },
@@ -2711,6 +2809,17 @@ const legacySampleProblems: Problem[] = [
         "visualHint": "The outlined square fills with 6, then choice D is circled."
       }
     ],
+    "animation": {
+      "type": "cross-number-power",
+      "data": {
+        "downBase": 5,
+        "acrossBase": 2,
+        "downDigits": 3,
+        "acrossDigits": 3,
+        "sharedDownIndex": 1,
+        "outlinedAcrossIndex": 2
+      }
+    },
     "tags": [
       "AMC 8",
       "2000",
@@ -2766,6 +2875,10 @@ const legacySampleProblems: Problem[] = [
         "equation": "60 ÷ 1.2 = 50"
       },
       {
+        "title": "Check the trap",
+        "body": "Subtracting 20% from 60 instead of dividing it out gives a tempting but wrong original height."
+      },
+      {
         "title": "Find Shea's growth",
         "body": "Shea grew from 50 to 60, so she grew 10 inches.",
         "equation": "60 − 50 = 10"
@@ -2793,6 +2906,16 @@ const legacySampleProblems: Problem[] = [
         "visualHint": "Ara's bar ends at 55, then choice E is circled."
       }
     ],
+    "animation": {
+      "type": "height-growth-percent",
+      "data": {
+        "finalHeight": 60,
+        "growPercent": 20,
+        "shareFactor": 0.5,
+        "growerName": "Shea",
+        "otherName": "Ara"
+      }
+    },
     "tags": [
       "AMC 8",
       "2000",
@@ -2845,6 +2968,10 @@ const legacySampleProblems: Problem[] = [
         "body": "Ignore numbers ending in 0. For each number from 10 to 50, test divisibility by its units digit."
       },
       {
+        "title": "Check the trap",
+        "body": "A less obvious case, like division by 8, is easy to overlook and miscount."
+      },
+      {
         "title": "List the working numbers",
         "body": "The numbers are 11, 12, 15, 21, 22, 24, 25, 31, 32, 33, 35, 36, 41, 42, 44, 45, and 48."
       },
@@ -2870,6 +2997,13 @@ const legacySampleProblems: Problem[] = [
         "visualHint": "The count reaches 17 and choice C is circled."
       }
     ],
+    "animation": {
+      "type": "divisible-by-units-digit",
+      "data": {
+        "lo": 10,
+        "hi": 50
+      }
+    },
     "tags": [
       "AMC 8",
       "2000",
@@ -2922,6 +3056,10 @@ const legacySampleProblems: Problem[] = [
         "equation": "100 ÷ 2 = 50"
       },
       {
+        "title": "Check the trap",
+        "body": "Repeating this same row for all seven rows lines up every vertical join, breaking the staggering rule."
+      },
+      {
         "title": "Stagger adjacent rows",
         "body": "Two adjacent rows cannot both have joins every 2 feet in the same places. Alternating rows can use a 1-foot block at each end and forty-nine 2-foot blocks, for 51 blocks."
       },
@@ -2948,6 +3086,15 @@ const legacySampleProblems: Problem[] = [
         "visualHint": "4 rows of 50 and 3 rows of 51 sum to 353, then choice D is circled."
       }
     ],
+    "animation": {
+      "type": "block-wall-stagger",
+      "data": {
+        "wallLength": 100,
+        "wallHeight": 7,
+        "blockLong": 2,
+        "blockShort": 1
+      }
+    },
     "tags": [
       "AMC 8",
       "2000",
@@ -3008,6 +3155,10 @@ const legacySampleProblems: Problem[] = [
         "equation": "72° ÷ 2 = 36°"
       },
       {
+        "title": "Check the trap",
+        "body": "∠CRT is not the same as the bisected 36° angle — triangle CRT has its own angle sum to work out."
+      },
+      {
         "title": "Use triangle CRT",
         "body": "In triangle CRT, angle C is 72° and angle T is 36°, so angle R is 72°.",
         "equation": "180° − 72° − 36° = 72°"
@@ -3030,6 +3181,12 @@ const legacySampleProblems: Problem[] = [
         "visualHint": "180 − 72 − 36 = 72, then choice C is circled."
       }
     ],
+    "animation": {
+      "type": "isosceles-bisector-angle",
+      "data": {
+        "apexAngle": 36
+      }
+    },
     "tags": [
       "AMC 8",
       "2000",
@@ -3084,6 +3241,10 @@ const legacySampleProblems: Problem[] = [
         "body": "Both 19 and 99 have units digit 9, so only powers of 9 matter for the units digit."
       },
       {
+        "title": "Check the trap",
+        "body": "Mistaking both exponents for even instead of odd flips which units digit each power actually ends in."
+      },
+      {
         "title": "Use the 9-cycle",
         "body": "Odd powers of 9 end in 9, while even powers end in 1. Both exponents are odd."
       },
@@ -3109,6 +3270,15 @@ const legacySampleProblems: Problem[] = [
         "visualHint": "9 + 9 = 18, then choice D is circled."
       }
     ],
+    "animation": {
+      "type": "units-digit-power-cycle-sum",
+      "data": {
+        "base1": 19,
+        "exp1": 19,
+        "base2": 99,
+        "exp2": 99
+      }
+    },
     "tags": [
       "AMC 8",
       "2000",
@@ -3161,6 +3331,10 @@ const legacySampleProblems: Problem[] = [
         "body": "Since ABC is equilateral and AB = 4, we have AC = BC = 4."
       },
       {
+        "title": "Check the trap",
+        "body": "Summing all three triangles' full perimeters double-counts the shared inner edges AC and AE."
+      },
+      {
         "title": "Use the midpoints",
         "body": "D is the midpoint of AC, so AD = DC = 2. Triangle ADE is equilateral, so DE = AE = 2. G is the midpoint of AE, so AG = GE = 1. Triangle EFG is equilateral, so EF = FG = 1."
       },
@@ -3187,6 +3361,12 @@ const legacySampleProblems: Problem[] = [
         "visualHint": "4 + 4 + 2 + 2 + 1 + 1 + 1 = 15, then choice C is circled."
       }
     ],
+    "animation": {
+      "type": "nested-equilateral-perimeter",
+      "data": {
+        "side": 4
+      }
+    },
     "tags": [
       "AMC 8",
       "2000",
@@ -3242,13 +3422,17 @@ const legacySampleProblems: Problem[] = [
         "equation": "1000 ÷ 25 = 40"
       },
       {
-        "title": "Find the perimeter",
-        "body": "Walking the perimeter 10 times gives 1000 meters, so the perimeter is 100 meters.",
+        "title": "Check the trap",
+        "body": "1000 meters is the raw walking distance, not the area — choice E is that same number in disguise, but it's a distance, not square meters."
+      },
+      {
+        "title": "Find the perimeter and width",
+        "body": "Walking the perimeter 10 times gives 1000 meters, so the perimeter is 100 meters. Then L + W = 50, and with L = 40, W = 10.",
         "equation": "1000 ÷ 10 = 100"
       },
       {
-        "title": "Find the width and area",
-        "body": "For a rectangle, 2(L + W) = 100, so L + W = 50. With L = 40, W = 10, and the area is 400.",
+        "title": "Find the area",
+        "body": "Multiply length by width to get the area.",
         "equation": "40 × 10 = 400"
       }
     ],
@@ -3279,7 +3463,15 @@ const legacySampleProblems: Problem[] = [
       "perimeter"
     ],
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 2000 AMC 8 PDF",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "animation": {
+      "type": "backyard-area-from-walks",
+      "data": {
+        "targetMeters": 1000,
+        "lengthWalks": 25,
+        "perimeterWalks": 10
+      }
+    }
   },
   {
     "id": "amc8-2000-17",
@@ -3323,6 +3515,10 @@ const legacySampleProblems: Problem[] = [
         "equation": "(1/2)² ÷ 3 = 1/12"
       },
       {
+        "title": "Check the trap",
+        "body": "It's tempting to assume ⊗ is associative, so both bracketings would give the same value and the difference would be 0 — choice C. But ⊗ is not associative."
+      },
+      {
         "title": "Evaluate the right bracket",
         "body": "First 2 ⊗ 3 = 4/3. Then 1 ⊗ (4/3) = 1 ÷ (4/3) = 3/4.",
         "equation": "1 ⊗ (4/3) = 3/4"
@@ -3358,7 +3554,15 @@ const legacySampleProblems: Problem[] = [
       "fractions"
     ],
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 2000 AMC 8 PDF",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "animation": {
+      "type": "non-associative-operation",
+      "data": {
+        "a": 1,
+        "b": 2,
+        "c": 3
+      }
+    }
   },
   {
     "id": "amc8-2000-18",
@@ -3397,16 +3601,20 @@ const legacySampleProblems: Problem[] = [
     "shortAnswer": "Same area, but perimeter of I is less than perimeter of II",
     "solutionSteps": [
       {
+        "title": "Plot both shapes on the grid",
+        "body": "Place both quadrilaterals on the same geoboard grid using their real vertex coordinates."
+      },
+      {
+        "title": "Check the trap",
+        "body": "Quadrilateral II looks more spread out, tempting the eye into thinking it has more area — but a shape that looks bigger doesn't always enclose more grid area."
+      },
+      {
         "title": "Compare areas",
-        "body": "Using the grid, both quadrilaterals occupy the same base-height area. Each has area 1 square unit."
+        "body": "Using the shoelace formula on the actual grid coordinates, both quadrilaterals have area 1 square unit."
       },
       {
-        "title": "Compare side lengths",
-        "body": "Quadrilateral I has shorter slanted sides than quadrilateral II. Quadrilateral II has a longer slanted side across a 2-by-1 step."
-      },
-      {
-        "title": "Conclude",
-        "body": "They have the same area, but the perimeter of I is less than the perimeter of II, so the answer is E."
+        "title": "Compare perimeters",
+        "body": "Quadrilateral I has shorter slanted sides than quadrilateral II, whose longer slanted side crosses a 2-by-1 step. So the perimeter of I is less than the perimeter of II, and the answer is E."
       }
     ],
     "animationFrames": [
@@ -3438,7 +3646,14 @@ const legacySampleProblems: Problem[] = [
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 2000 AMC 8 PDF",
     "license": "CC BY-NC-SA",
     "imageUrls": ["/amc8-diagrams/2000/problem-18-geoboard-quadrilaterals.png"],
-    "needsDiagram": true
+    "needsDiagram": true,
+    "animation": {
+      "type": "geoboard-two-shape-compare",
+      "data": {
+        "shapeI": ["0,4", "1,3", "1,2", "0,3"],
+        "shapeII": ["2,3", "4,2", "3,3", "3,4"]
+      }
+    }
   },
   {
     "id": "amc8-2000-19",
@@ -3481,8 +3696,13 @@ const legacySampleProblems: Problem[] = [
         "body": "The top boundary is a semicircle of radius 5. The two lower boundaries are quarter-circles of the same radius."
       },
       {
+        "title": "Check the trap",
+        "body": "Measuring the bounding box (10 by 5 = 50, choice C) treats the curved boundary as if it were straight — but the real boundary curves."
+      },
+      {
         "title": "Add the arc portions",
-        "body": "A semicircle plus two quarter-circles makes one full circle."
+        "body": "A semicircle plus two quarter-circles makes one full circle.",
+        "equation": "1/2 + 1/4 + 1/4 = 1"
       },
       {
         "title": "Find the area",
@@ -3518,7 +3738,13 @@ const legacySampleProblems: Problem[] = [
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 2000 AMC 8 PDF",
     "license": "CC BY-NC-SA",
     "imageUrls": ["/amc8-diagrams/2000/problem-19-three-circular-arcs.png"],
-    "needsDiagram": true
+    "needsDiagram": true,
+    "animation": {
+      "type": "three-arc-region",
+      "data": {
+        "radius": 5
+      }
+    }
   },
   {
     "id": "amc8-2000-20",
@@ -3566,8 +3792,12 @@ const legacySampleProblems: Problem[] = [
         "equation": "4n + 9d + 24q = 93"
       },
       {
-        "title": "Use at least one of each",
-        "body": "Testing possible positive values gives q = 3, n = 3, d = 1, and p = 2. Therefore there must be 1 dime."
+        "title": "Test every quarter count",
+        "body": "With at least one of each coin required, try q = 1, 2, 3, ... and check whether a valid n, d, p exists for each."
+      },
+      {
+        "title": "Read off the unique solution",
+        "body": "Only q = 3 works, giving n = 3, d = 1, p = 2. Therefore there must be 1 dime."
       }
     ],
     "animationFrames": [
@@ -3596,7 +3826,16 @@ const legacySampleProblems: Problem[] = [
       "logic"
     ],
     "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 2000 AMC 8 PDF",
-    "license": "CC BY-NC-SA"
+    "license": "CC BY-NC-SA",
+    "animation": {
+      "type": "nine-coins-diophantine",
+      "data": {
+        "coinCount": 9,
+        "totalCents": 102,
+        "values": [1, 5, 10, 25],
+        "labels": ["penny", "nickel", "dime", "quarter"]
+      }
+    }
   },
   {
     "id": "amc8-2000-21",
@@ -3635,14 +3874,24 @@ const legacySampleProblems: Problem[] = [
     "shortAnswer": "3/8",
     "solutionSteps": [
       {
+        "title": "Set up both tosses",
+        "body": "Keiko's 1 penny has 2 equally likely outcomes; Ephraim's 2 pennies have 4. They match only if their head counts are equal.",
+        "equation": "match Keiko's heads to Ephraim's heads"
+      },
+      {
         "title": "Case 1: Keiko gets 0 heads",
-        "body": "This has probability 1/2. Ephraim gets 0 heads with probability 1/4.",
+        "body": "This has probability 1/2. Of Ephraim's 4 outcomes, only TT also has 0 heads.",
         "equation": "(1/2)(1/4) = 1/8"
       },
       {
         "title": "Case 2: Keiko gets 1 head",
-        "body": "This has probability 1/2. Ephraim gets exactly 1 head with probability 1/2.",
-        "equation": "(1/2)(1/2) = 1/4"
+        "body": "This has probability 1/2. Of Ephraim's 4 outcomes, HT and TH also have 1 head.",
+        "equation": "(1/2)(2/4) = 1/4"
+      },
+      {
+        "title": "Watch the trap",
+        "body": "Stopping after case 2 alone gives 1/4, which is choice A — but the 0-heads case still needs to be added.",
+        "equation": "1/4 ≠ final answer"
       },
       {
         "title": "Add the cases",
@@ -3650,6 +3899,10 @@ const legacySampleProblems: Problem[] = [
         "equation": "1/8 + 2/8 = 3/8"
       }
     ],
+    "animation": {
+      "type": "penny-match-tree",
+      "data": {}
+    },
     "animationFrames": [
       {
         "title": "Draw outcome branches",
@@ -3719,6 +3972,16 @@ const legacySampleProblems: Problem[] = [
         "equation": "6 × 2² = 24"
       },
       {
+        "title": "Glue on the small cube",
+        "body": "The small cube rests on top. Its own bottom face and the 1×1 patch of the big cube it covers are both hidden.",
+        "equation": "2 squares hidden"
+      },
+      {
+        "title": "Watch the trap",
+        "body": "Forgetting to hide those 2 squares and adding all 6 of the small cube's faces gives 6/24 = 25%, which is choice E.",
+        "equation": "6/24 = 25% (wrong)"
+      },
+      {
         "title": "Net added area",
         "body": "The small cube contributes 6 square units, but its bottom face and the covered part of the large cube are not exposed. That removes 2 square units, so the net increase is 4.",
         "equation": "6 − 2 = 4"
@@ -3729,6 +3992,10 @@ const legacySampleProblems: Problem[] = [
         "equation": "4/24 ≈ 16.7%"
       }
     ],
+    "animation": {
+      "type": "cube-stack-surface",
+      "data": { "bigEdge": 2, "smallEdge": 1 }
+    },
     "animationFrames": [
       {
         "title": "Show the big cube",
@@ -3796,9 +4063,24 @@ const legacySampleProblems: Problem[] = [
     "shortAnswer": "6",
     "solutionSteps": [
       {
-        "title": "Find the two four-number sums",
-        "body": "The first four numbers sum to 20, and the last four numbers sum to 32.",
-        "equation": "4 × 5 = 20, 4 × 8 = 32"
+        "title": "Set up the list",
+        "body": "Seven numbers in a row. The 4th number belongs to both the first four and the last four.",
+        "equation": "7 numbers, slot 4 shared"
+      },
+      {
+        "title": "Sum the first four",
+        "body": "The average of the first four numbers is 5, so they sum to 20.",
+        "equation": "4 × 5 = 20"
+      },
+      {
+        "title": "Sum the last four",
+        "body": "The average of the last four numbers is 8, so they sum to 32. The 4th number is now counted in both sums.",
+        "equation": "4 × 8 = 32"
+      },
+      {
+        "title": "Watch the trap",
+        "body": "Averaging 20 + 32 over all seven numbers gives 7 3/7, which is choice E — but that ignores that the shared number was counted twice.",
+        "equation": "52 ÷ 7 = 7 3/7 (wrong)"
       },
       {
         "title": "Find the total sum",
@@ -3811,6 +4093,10 @@ const legacySampleProblems: Problem[] = [
         "equation": "52 − 46 = 6"
       }
     ],
+    "animation": {
+      "type": "overlap-window-sum",
+      "data": { "total": 7, "frontCount": 4, "frontSum": 20, "backCount": 4, "backSum": 32, "totalSum": 46 }
+    },
     "animationFrames": [
       {
         "title": "Show seven slots",
@@ -3884,8 +4170,13 @@ const legacySampleProblems: Problem[] = [
         "equation": "(180° − 20°) ÷ 2 = 80°"
       },
       {
+        "title": "Transfer across the straight line",
+        "body": "Since A, F, D are collinear, the 80° angle AFG and angle BFD form a supplementary pair. Therefore ∠BFD = 180° − 80° = 100°.",
+        "equation": "180° − 80° = 100°"
+      },
+      {
         "title": "Use triangle BFD",
-        "body": "At F, the angle inside triangle BFD is supplementary to 80°, so it is 100°. Thus ∠B + ∠D = 180° − 100° = 80°.",
+        "body": "The angles in triangle BFD total 180°, so ∠B + ∠D = 180° − 100° = 80°.",
         "equation": "180° − 100° = 80°"
       }
     ],
@@ -3906,6 +4197,16 @@ const legacySampleProblems: Problem[] = [
         "visualHint": "∠B + ∠D = 80°, then choice D is circled."
       }
     ],
+    "animation": {
+      "type": "star-isosceles-angle-transfer",
+      "data": {
+        "apexAngle": 20,
+        "equalAngles": "AFG=AGF",
+        "intersectionLines": "AFD|BFGE",
+        "triangleAngleSum": 180,
+        "straightAngle": 180
+      }
+    },
     "tags": [
       "AMC 8",
       "2000",
@@ -3960,8 +4261,12 @@ const legacySampleProblems: Problem[] = [
         "body": "Let the rectangle have width w and height h, so wh = 72."
       },
       {
-        "title": "Place the triangle vertices",
-        "body": "The triangle uses A, the midpoint of BC, and the midpoint of CD. Relative to the rectangle, its area is 3/8 of the rectangle's area."
+        "title": "Find the three corner areas",
+        "body": "Joining A to the midpoints leaves three right triangles. Their areas are 1/4, 1/8, and 1/4 of the rectangle."
+      },
+      {
+        "title": "Find the triangle's fraction",
+        "body": "The three corners total 1/4 + 1/8 + 1/4 = 5/8 of the rectangle, so the middle triangle is 1 - 5/8 = 3/8."
       },
       {
         "title": "Compute the area",
@@ -3986,6 +4291,14 @@ const legacySampleProblems: Problem[] = [
         "visualHint": "3/8 × 72 = 27, then choice B is circled."
       }
     ],
+    "animation": {
+      "type": "rectangle-midpoint-triangle-area",
+      "data": {
+        "rectangleArea": 72,
+        "bcMidpointFraction": 0.5,
+        "cdMidpointFraction": 0.5
+      }
+    },
     "tags": [
       "AMC 8",
       "2000",
