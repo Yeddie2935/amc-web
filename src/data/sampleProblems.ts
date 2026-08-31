@@ -43,20 +43,34 @@ const legacySampleProblems: Problem[] = [
     "shortAnswer": "÷",
     "solutionSteps": [
       {
-        "title": "Test division",
-        "body": "Use the operation from choice A and simplify inside the parentheses first.",
-        "equation": "(6 ÷ 3) + 4 − (2 − 1)"
+        "title": "Set up the blank",
+        "body": "The expression (6 ? 3) + 4 − (2 − 1) = 5 has one missing operation to find.",
+        "equation": "(6 ? 3) + 4 − 1 = 5"
       },
       {
-        "title": "Simplify",
-        "body": "Since 6 ÷ 3 = 2 and 2 − 1 = 1, the expression becomes 2 + 4 − 1.",
-        "equation": "2 + 4 − 1 = 5"
+        "title": "Try all four operations",
+        "body": "Plug each of ÷, ×, +, − between 6 and 3.",
+        "equation": "6÷3=2, 6×3=18, 6+3=9, 6−3=3"
+      },
+      {
+        "title": "Finish the expression",
+        "body": "Add 4 and subtract 1 for each candidate result.",
+        "equation": "2+4−1=5, 18+4−1=21, 9+4−1=12, 3+4−1=6"
+      },
+      {
+        "title": "Watch the trap",
+        "body": "Subtraction gives 6, which is one off from 5 — an easy number to mistake for correct.",
+        "equation": "6 ≠ 5"
       },
       {
         "title": "Conclude",
-        "body": "Division makes the statement true, so the answer is A."
+        "body": "Only division makes the statement true, so the answer is A."
       }
     ],
+    "animation": {
+      "type": "operator-slot-test",
+      "data": { "a": 6, "b": 3, "tailAdd": 4, "tailSub": 1, "target": 5 }
+    },
     "animationFrames": [
       {
         "title": "Show the blank operation",
@@ -121,20 +135,34 @@ const legacySampleProblems: Problem[] = [
     "shortAnswer": "60°",
     "solutionSteps": [
       {
-        "title": "Use clock spacing",
-        "body": "A clock has 12 equal spaces around 360 degrees, so each hour mark is 30 degrees apart.",
+        "title": "See the 12 equal spaces",
+        "body": "A clock face is split into 12 equal spaces around 360 degrees.",
+        "equation": "12 spaces around the face"
+      },
+      {
+        "title": "Measure one space",
+        "body": "Each hour mark is 30 degrees from the next.",
         "equation": "360° ÷ 12 = 30°"
       },
       {
         "title": "Count the spaces",
         "body": "At 10:00, the minute hand points to 12 and the hour hand points to 10. The smaller angle spans 2 hour spaces.",
-        "equation": "2 × 30° = 60°"
+        "equation": "2 spaces from 10 to 12"
+      },
+      {
+        "title": "Add them up",
+        "body": "Two 30-degree spaces make the smaller angle.",
+        "equation": "30° + 30° = 60°"
       },
       {
         "title": "Conclude",
         "body": "The smaller angle is 60 degrees, so the answer is C."
       }
     ],
+    "animation": {
+      "type": "clock-gap-count",
+      "data": { "hour": 10 }
+    },
     "animationFrames": [
       {
         "title": "Draw the clock",
@@ -201,6 +229,11 @@ const legacySampleProblems: Problem[] = [
     "shortAnswer": "(1.1, −2.1, 1.0)",
     "solutionSteps": [
       {
+        "title": "List all five triplets",
+        "body": "Five candidate triplets, each needing to be checked against a sum of 1.",
+        "equation": "which one is NOT 1?"
+      },
+      {
         "title": "Check the easy sums",
         "body": "Choices A, B, and C each add to 1.",
         "equation": "1/2 + 1/3 + 1/6 = 1; 2 − 2 + 1 = 1; 0.1 + 0.3 + 0.6 = 1"
@@ -211,10 +244,28 @@ const legacySampleProblems: Problem[] = [
         "equation": "1.1 − 2.1 + 1.0 = 0"
       },
       {
+        "title": "Check choice E too",
+        "body": "Choice E also sums to 1, confirming D is the only one that differs.",
+        "equation": "−3/2 − 5/2 + 5 = 1"
+      },
+      {
         "title": "Conclude",
         "body": "Choice D has sum 0, not 1. Therefore the answer is D."
       }
     ],
+    "animation": {
+      "type": "triplet-sum-outlier",
+      "data": {
+        "target": 1,
+        "triplets": [
+          { "label": "A", "text": "1/2, 1/3, 1/6", "values": [0.5, 0.3333333333, 0.1666666667] },
+          { "label": "B", "text": "2, −2, 1", "values": [2, -2, 1] },
+          { "label": "C", "text": "0.1, 0.3, 0.6", "values": [0.1, 0.3, 0.6] },
+          { "label": "D", "text": "1.1, −2.1, 1.0", "values": [1.1, -2.1, 1.0] },
+          { "label": "E", "text": "−3/2, −5/2, 5", "values": [-1.5, -2.5, 5] }
+        ]
+      }
+    },
     "animationFrames": [
       {
         "title": "List the triplets",
@@ -280,6 +331,10 @@ const legacySampleProblems: Problem[] = [
     "shortAnswer": "25 miles",
     "solutionSteps": [
       {
+        "title": "Both start at zero",
+        "body": "Alberto and Bjorn both begin the graph at 0 miles, 0 hours."
+      },
+      {
         "title": "Read Alberto's distance",
         "body": "At 4 hours, Alberto's line is near 60 miles."
       },
@@ -288,11 +343,19 @@ const legacySampleProblems: Problem[] = [
         "body": "At 4 hours, Bjorn's line is near 35 miles."
       },
       {
+        "title": "Mark hour 4 on both lines",
+        "body": "A vertical line at 4 hours crosses Alberto's line at 60 and Bjorn's line at 35."
+      },
+      {
         "title": "Subtract",
         "body": "The difference is about 60 − 35 = 25 miles, so the answer is C.",
         "equation": "60 − 35 = 25"
       }
     ],
+    "animation": {
+      "type": "two-rider-distance-graph",
+      "data": { "hours": 5, "maxMiles": 75, "readAt": 4, "aName": "Alberto", "aMiles": 60, "bName": "Bjorn", "bMiles": 35 }
+    },
     "animationFrames": [
       {
         "title": "Show the graph",
@@ -365,16 +428,30 @@ const legacySampleProblems: Problem[] = [
         "equation": "50 × 10 = 500"
       },
       {
-        "title": "Use the same fence",
-        "body": "The rectangle's perimeter is 2(50 + 10) = 120 feet. A square with perimeter 120 has side length 30.",
+        "title": "Trace the fence",
+        "body": "The same fence encloses the rectangle's perimeter.",
+        "equation": "2(50 + 10) = 120"
+      },
+      {
+        "title": "Reshape into a square",
+        "body": "The same 120 feet of fence, split into four equal sides, gives a square with side length 30.",
         "equation": "120 ÷ 4 = 30"
       },
       {
+        "title": "Find the square's area",
+        "body": "The square area is side squared.",
+        "equation": "30 × 30 = 900"
+      },
+      {
         "title": "Find the increase",
-        "body": "The square area is 30 × 30 = 900, so the increase is 900 − 500 = 400.",
+        "body": "The increase in area is the square's area minus the rectangle's area.",
         "equation": "900 − 500 = 400"
       }
     ],
+    "animation": {
+      "type": "rectangle-to-square-gain",
+      "data": { "length": 50, "width": 10 }
+    },
     "animationFrames": [
       {
         "title": "Draw the rectangle",
@@ -441,18 +518,40 @@ const legacySampleProblems: Problem[] = [
     "shortAnswer": "Moe",
     "solutionSteps": [
       {
-        "title": "Translate the clues",
-        "body": "Neither Jo nor Bo has as much as Flo, so Flo has more than Jo and Bo. Bo and Coe both have more than Moe. Jo is also more than Moe but less than Bo."
+        "title": "Set up the five people",
+        "body": "Five people with different amounts of money, compared only through clues."
       },
       {
-        "title": "Focus on Moe",
-        "body": "The clues directly say Bo > Moe, Coe > Moe, and Jo > Moe. Also Flo is greater than Bo and Jo, so Flo is not least."
+        "title": "Clue 1: Flo is above Bo and Joe",
+        "body": "Neither Joe nor Bo has as much money as Flo."
+      },
+      {
+        "title": "Clue 2: Bo and Coe are above Moe",
+        "body": "Both Bo and Coe have more than Moe."
+      },
+      {
+        "title": "Clue 3: Joe is above Moe but below Bo",
+        "body": "Joe has more than Moe, but less than Bo."
       },
       {
         "title": "Conclude",
-        "body": "Every other named person is above Moe, so Moe has the least money."
+        "body": "Bo, Coe, Joe, and Flo are each shown to be above someone, but Moe is never shown to be above anyone. So Moe has the least money."
       }
     ],
+    "animation": {
+      "type": "inequality-clues-least",
+      "data": {
+        "people": ["Flo", "Bo", "Coe", "Joe", "Moe"],
+        "edges": [
+          { "gt": "Flo", "lt": "Bo", "clue": 1 },
+          { "gt": "Flo", "lt": "Joe", "clue": 1 },
+          { "gt": "Bo", "lt": "Moe", "clue": 2 },
+          { "gt": "Coe", "lt": "Moe", "clue": 2 },
+          { "gt": "Joe", "lt": "Moe", "clue": 3 },
+          { "gt": "Bo", "lt": "Joe", "clue": 3 }
+        ]
+      }
+    },
     "animationFrames": [
       {
         "title": "Make a ranking board",
@@ -517,14 +616,23 @@ const legacySampleProblems: Problem[] = [
     "shortAnswer": "130",
     "solutionSteps": [
       {
+        "title": "Mark the two exits",
+        "body": "The third exit is at milepost 40 and the tenth exit is at milepost 160."
+      },
+      {
         "title": "Find the distance between exits",
         "body": "The distance from milepost 40 to milepost 160 is 120 miles.",
         "equation": "160 − 40 = 120"
       },
       {
+        "title": "Split into fourths",
+        "body": "Divide the 120-mile gap into four equal 30-mile parts.",
+        "equation": "120 ÷ 4 = 30"
+      },
+      {
         "title": "Take three-fourths",
-        "body": "Three-fourths of 120 is 90.",
-        "equation": "3/4 × 120 = 90"
+        "body": "Three of the four parts is three-fourths of the way.",
+        "equation": "3 × 30 = 90"
       },
       {
         "title": "Add to the starting milepost",
@@ -532,6 +640,10 @@ const legacySampleProblems: Problem[] = [
         "equation": "40 + 90 = 130"
       }
     ],
+    "animation": {
+      "type": "interval-fraction-mark",
+      "data": { "start": 40, "end": 160, "num": 3, "den": 4 }
+    },
     "animationFrames": [
       {
         "title": "Draw a number line",
@@ -596,18 +708,40 @@ const legacySampleProblems: Problem[] = [
     "shortAnswer": "B",
     "solutionSteps": [
       {
-        "title": "Use the net layout",
-        "body": "Think of G as a central face. Y folds to one side of G, and B folds to another side of G."
+        "title": "Read the net",
+        "body": "G is the center. B is above G, R is left of B, Y is right of G, O is right of Y, and W is below Y."
       },
       {
-        "title": "Track W",
-        "body": "Because W is attached below Y, when Y folds up, W folds around to become the face opposite B."
+        "title": "Fold from G toward W",
+        "body": "Trace the path across the net from G, through Y, to W."
+      },
+      {
+        "title": "Roll along that path",
+        "body": "Rolling a die keeps its top and bottom faces opposite at every step, so tracking top and bottom along the path pins down what ends up opposite W."
+      },
+      {
+        "title": "See all three opposite pairs",
+        "body": "The whole net resolves into three pairs of opposite faces once every square has been folded into place."
       },
       {
         "title": "Conclude",
         "body": "The face opposite W is B, so the answer is A."
       }
     ],
+    "animation": {
+      "type": "cube-net-opposite-face",
+      "data": {
+        "target": "W",
+        "cells": [
+          { "id": "G", "label": "G", "color": "#16a34a", "col": 0, "row": 0 },
+          { "id": "B", "label": "B", "color": "#2563eb", "col": 0, "row": 1 },
+          { "id": "R", "label": "R", "color": "#dc2626", "col": -1, "row": 1 },
+          { "id": "Y", "label": "Y", "color": "#ca8a04", "col": 1, "row": 0 },
+          { "id": "O", "label": "O", "color": "#f97316", "col": 2, "row": 0 },
+          { "id": "W", "label": "W", "color": "#475569", "col": 1, "row": -1 }
+        ]
+      }
+    },
     "animationFrames": [
       {
         "title": "Show the cube net",
@@ -674,21 +808,33 @@ const legacySampleProblems: Problem[] = [
     "shortAnswer": "1150",
     "solutionSteps": [
       {
+        "title": "See the three beds",
+        "body": "Bed A overlaps both B and C, but B and C do not overlap each other."
+      },
+      {
         "title": "Add the bed totals",
         "body": "Start by adding all three bed counts.",
         "equation": "500 + 450 + 350 = 1300"
       },
       {
-        "title": "Subtract double-counted plants",
-        "body": "Plants in the overlaps A∩B and A∩C were counted twice, so subtract them once.",
+        "title": "Spot the double-counted plants",
+        "body": "Plants in the overlaps A∩B and A∩C were counted twice.",
         "equation": "50 + 100 = 150"
       },
       {
-        "title": "Compute total",
-        "body": "The total is 1300 − 150 = 1150, so the answer is C.",
+        "title": "Subtract the overlaps",
+        "body": "Remove the double-counted plants once.",
         "equation": "1300 − 150 = 1150"
+      },
+      {
+        "title": "Conclude",
+        "body": "The total is 1150 plants, so the answer is C."
       }
     ],
+    "animation": {
+      "type": "overlap-flower-beds",
+      "data": { "a": 500, "b": 450, "c": 350, "ab": 50, "ac": 100, "bc": 0 }
+    },
     "animationFrames": [
       {
         "title": "Show three regions",
@@ -756,8 +902,16 @@ const legacySampleProblems: Problem[] = [
     "shortAnswer": "7/12",
     "solutionSteps": [
       {
+        "title": "See the full cycle",
+        "body": "A complete cycle takes 60 seconds."
+      },
+      {
+        "title": "Split into three segments",
+        "body": "Green lasts 25 seconds, yellow lasts 5 seconds, and red lasts 30 seconds."
+      },
+      {
         "title": "Find non-green time",
-        "body": "Not green means yellow or red. Yellow lasts 5 seconds and red lasts 30 seconds.",
+        "body": "Not green means yellow or red.",
         "equation": "5 + 30 = 35"
       },
       {
@@ -771,6 +925,10 @@ const legacySampleProblems: Problem[] = [
         "equation": "35/60 = 7/12"
       }
     ],
+    "animation": {
+      "type": "traffic-light-not-green",
+      "data": { "green": 25, "yellow": 5, "red": 30 }
+    },
     "animationFrames": [
       {
         "title": "Draw a 60-second timeline",
@@ -853,6 +1011,12 @@ const legacySampleProblems: Problem[] = [
           "body": "The remaining numbers can pair as 1 + 10 = 11 and 4 + 7 = 11, so both arms can have sum 11 plus the center 13. The common sum is 24."
         }
       ],
+      "animation": {
+        "type": "equal-cross-sum",
+        "data": {
+          "numbers": [1, 4, 7, 10, 13]
+        }
+      },
       "animationFrames": [
         {
           "title": "Show the cross",
@@ -934,6 +1098,13 @@ const legacySampleProblems: Problem[] = [
           "body": "About 26.67% rounds to 27%, so the answer is B."
         }
       ],
+      "animation": {
+        "type": "season-loss-percent",
+        "data": {
+          "wins": 11,
+          "losses": 4
+        }
+      },
       "animationFrames": [
         {
           "title": "Build a ratio bar",
@@ -1003,8 +1174,13 @@ const legacySampleProblems: Problem[] = [
           "equation": "40 × 17 = 680"
         },
         {
-          "title": "Subtract girls and boys",
+          "title": "Find the known group totals",
           "body": "The girls total 20 × 15 = 300 years, and the boys total 15 × 16 = 240 years.",
+          "equation": "20 × 15 = 300, 15 × 16 = 240"
+        },
+        {
+          "title": "Isolate the adults' total",
+          "body": "Remove the girls' 300 years and the boys' 240 years from the camp's 680 years, leaving 140 years for the adults.",
           "equation": "680 − 300 − 240 = 140"
         },
         {
@@ -1013,6 +1189,18 @@ const legacySampleProblems: Problem[] = [
           "equation": "140 ÷ 5 = 28"
         }
       ],
+      "animation": {
+        "type": "camp-adult-average",
+        "data": {
+          "totalCount": 40,
+          "totalAverage": 17,
+          "knownGroups": [
+            "Girls|20|15",
+            "Boys|15|16"
+          ],
+          "adultCount": 5
+        }
+      },
       "animationFrames": [
         {
           "title": "Show total age",
@@ -1077,8 +1265,12 @@ const legacySampleProblems: Problem[] = [
       "shortAnswer": "34",
       "solutionSteps": [
         {
+          "title": "Drop the heights",
+          "body": "Draw perpendiculars from B and C to the longer base. This forms a central rectangle and two congruent right triangles."
+        },
+        {
           "title": "Use symmetry",
-          "body": "Because the trapezoid has equal legs, the extra length of the longer base is split evenly on the two sides.",
+          "body": "The extra length of the longer base is split evenly between the two congruent side triangles.",
           "equation": "16 − 8 = 8, so each side offset is 4"
         },
         {
@@ -1120,7 +1312,15 @@ const legacySampleProblems: Problem[] = [
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
       "license": "CC BY-NC-SA",
       "imageUrls": ["/amc8-diagrams/1999/problem-14-isosceles-trapezoid.png"],
-      "needsDiagram": true
+      "needsDiagram": true,
+      "animation": {
+        "type": "isosceles-trapezoid-perimeter",
+        "data": {
+          "topBase": 8,
+          "bottomBase": 16,
+          "height": 3
+        }
+      }
     },
     {
       "id": "amc8-1999-15",
@@ -1164,9 +1364,14 @@ const legacySampleProblems: Problem[] = [
           "equation": "5 × 3 × 4 = 60"
         },
         {
-          "title": "Add letters where they help most",
-          "body": "Adding to the smaller sets usually helps more. If the two new letters are added to the second set, the count becomes 5 × 5 × 4 = 100. If one is added to the second and one to the third, the count is also 5 × 4 × 5 = 100.",
-          "equation": "5 × 5 × 4 = 100"
+          "title": "Test every placement",
+          "body": "Distribute the two new letters among the three sets in every possible way and compute each new product.",
+          "equation": "84, 96, 90, 100, 100, 90"
+        },
+        {
+          "title": "Find the maximum",
+          "body": "The largest total is 100. It occurs either by adding both letters to the second set or by adding one to the second and one to the third.",
+          "equation": "5 × 5 × 4 = 5 × 4 × 5 = 100"
         },
         {
           "title": "Find the increase",
@@ -1199,7 +1404,14 @@ const legacySampleProblems: Problem[] = [
         "optimization"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "CC BY-NC-SA"
+      "license": "CC BY-NC-SA",
+      "animation": {
+        "type": "slot-product-upgrade",
+        "data": {
+          "sets": ["CHLPR", "AIO", "DMNT"],
+          "additions": 2
+        }
+      }
     },
     {
       "id": "amc8-1999-16",
@@ -1249,8 +1461,13 @@ const legacySampleProblems: Problem[] = [
         },
         {
           "title": "Find passing score",
-          "body": "Sixty percent of 75 is 45, so she needed 45 correct answers. She had 40, so she needed 5 more.",
-          "equation": "0.60 × 75 = 45; 45 − 40 = 5"
+          "body": "Sixty percent of the 75 problems is 45, so 45 correct answers are needed to pass.",
+          "equation": "0.60 × 75 = 45"
+        },
+        {
+          "title": "Measure the gap",
+          "body": "Tori had 40 correct answers and needed 45, so she needed 5 more.",
+          "equation": "45 − 40 = 5"
         }
       ],
       "animationFrames": [
@@ -1278,7 +1495,14 @@ const legacySampleProblems: Problem[] = [
         "arithmetic"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "CC BY-NC-SA"
+      "license": "CC BY-NC-SA",
+      "animation": {
+        "type": "passing-score-gap",
+        "data": {
+          "topics": ["Arithmetic|10|70", "Algebra|30|40", "Geometry|35|60"],
+          "passPercent": 60
+        }
+      }
     },
     {
       "id": "amc8-1999-17",
@@ -1328,8 +1552,13 @@ const legacySampleProblems: Problem[] = [
         },
         {
           "title": "Count eggs",
-          "body": "Each recipe uses 2 eggs, so 15 recipes need 30 eggs. Since a half-dozen is 6 eggs, they need 5 half-dozens.",
-          "equation": "15 × 2 = 30; 30 ÷ 6 = 5"
+          "body": "Each of the 15 full recipes uses 2 eggs.",
+          "equation": "15 × 2 = 30 eggs"
+        },
+        {
+          "title": "Fill half-dozen cartons",
+          "body": "Each half-dozen contains 6 eggs, so 30 eggs fill 5 half-dozens.",
+          "equation": "30 ÷ 6 = 5"
         }
       ],
       "animationFrames": [
@@ -1358,7 +1587,17 @@ const legacySampleProblems: Problem[] = [
         "cookies"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "CC BY-NC-SA"
+      "license": "CC BY-NC-SA",
+      "animation": {
+        "type": "cookie-egg-cartons",
+        "data": {
+          "students": 108,
+          "cookiesPerStudent": 2,
+          "cookiesPerRecipe": 15,
+          "eggsPerRecipe": 2,
+          "eggsPerHalfDozen": 6
+        }
+      }
     },
     {
       "id": "amc8-1999-18",
@@ -1438,7 +1677,16 @@ const legacySampleProblems: Problem[] = [
         "cookies"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "CC BY-NC-SA"
+      "license": "CC BY-NC-SA",
+      "animation": {
+        "type": "attendance-cookie-recipes",
+        "data": {
+          "originalStudents": 108,
+          "decreasePercent": 25,
+          "cookiesPerStudent": 2,
+          "cookiesPerRecipe": 15
+        }
+      }
     },
     {
       "id": "amc8-1999-19",
@@ -1518,7 +1766,16 @@ const legacySampleProblems: Problem[] = [
         "cookies"
       ],
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
-      "license": "CC BY-NC-SA"
+      "license": "CC BY-NC-SA",
+      "animation": {
+        "type": "cookie-batch-butter",
+        "data": {
+          "cookiesNeeded": 216,
+          "cookiesPerRecipe": 15,
+          "tbspPerRecipe": 3,
+          "tbspPerStick": 8
+        }
+      }
     },
     {
       "id": "amc8-1999-20",
@@ -1598,7 +1855,14 @@ const legacySampleProblems: Problem[] = [
       "sourceName": "Mathematical Association of America, American Mathematics Competitions; extracted from uploaded 1999 AMC 8 PDF",
       "license": "CC BY-NC-SA",
       "imageUrls": ["/amc8-diagrams/1999/problem-20-stack-map.png"],
-      "needsDiagram": true
+      "needsDiagram": true,
+      "animation": {
+        "type": "stack-map-front-projection",
+        "data": {
+          "backRow": [2, 2, 4],
+          "frontRow": [1, 3, 1]
+        }
+      }
     },
     {
       "id": "amc8-1999-21",
@@ -1647,11 +1911,7 @@ const legacySampleProblems: Problem[] = [
         },
         {
           "title": "Use the 110° crossing",
-          "body": "At the central crossing, the acute angle is 70°. So the line from A down to the lower right is 70° away from the 40° line, which puts it 30° below the horizontal."
-        },
-        {
-          "title": "Conclude",
-          "body": "Angle A is the angle between the horizontal line and that downward line, so A = 30°."
+          "body": "At the central crossing, the acute angle is 70°. So the line from A down to the lower right is 70° away from the 40° line, which puts it 30° below the horizontal. Therefore A = 30°."
         }
       ],
       "animationFrames": [
@@ -1671,6 +1931,14 @@ const legacySampleProblems: Problem[] = [
           "visualHint": "The diagonal is 30° below the horizontal, so choice B is circled."
         }
       ],
+      "animation": {
+        "type": "star-direction-angle-chase",
+        "data": {
+          "tipAngle": 40,
+          "crossingAngles": [100, 110],
+          "straightAngle": 180
+        }
+      },
       "tags": [
         "AMC 8",
         "1999",
@@ -1752,6 +2020,14 @@ const legacySampleProblems: Problem[] = [
           "visualHint": "8/3 = 2 2/3, then choice D is circled."
         }
       ],
+      "animation": {
+        "type": "barter-chain-share",
+        "data": {
+          "fishCount": 3,
+          "breadCount": 2,
+          "riceBagsPerBread": 4
+        }
+      },
       "tags": [
         "AMC 8",
         "1999",
@@ -1836,6 +2112,14 @@ const legacySampleProblems: Problem[] = [
           "visualHint": "CM = √13, then choice C is circled."
         }
       ],
+      "animation": {
+        "type": "equal-area-square-distance",
+        "data": {
+          "sideLength": 3,
+          "equalRegionCount": 3,
+          "dividingSegments": ["CM", "CN"]
+        }
+      },
       "tags": [
         "AMC 8",
         "1999",
@@ -1918,6 +2202,14 @@ const legacySampleProblems: Problem[] = [
           "visualHint": "Choice B is circled."
         }
       ],
+      "animation": {
+        "type": "negative-one-power-remainder",
+        "data": {
+          "base": 1999,
+          "exponent": 2000,
+          "divisor": 5
+        }
+      },
       "tags": [
         "AMC 8",
         "1999",
@@ -1982,7 +2274,7 @@ const legacySampleProblems: Problem[] = [
         },
         {
           "title": "Conclude",
-          "body": "After 100 steps, the total is essentially 6, so the nearest answer is A."
+          "body": "The 100-term total is less than 6 by exactly 6(1/4)^100, which is far below 1/2. Therefore its nearest answer value is 6, choice A."
         }
       ],
       "animationFrames": [
@@ -2002,6 +2294,14 @@ const legacySampleProblems: Problem[] = [
           "visualHint": "4.5 + 1.125 + 0.28125 + ... approaches 6, then choice A is circled."
         }
       ],
+      "animation": {
+        "type": "midpoint-shaded-geometric-series",
+        "data": {
+          "legs": [6, 6],
+          "midpointFactor": 0.5,
+          "iterations": 100
+        }
+      },
       "tags": [
         "AMC 8",
         "1999",

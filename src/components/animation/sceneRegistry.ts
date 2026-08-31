@@ -4,6 +4,16 @@ import { ClockAngleScene } from "./scenes/ClockAngleScene";
 import { PennyMatchTreeScene } from "./scenes/PennyMatchTreeScene";
 import { CubeStackSurfaceScene } from "./scenes/CubeStackSurfaceScene";
 import { OverlapWindowSumScene } from "./scenes/OverlapWindowSumScene";
+import { OperatorSlotTestScene } from "./scenes/OperatorSlotTestScene";
+import { ClockGapCountScene } from "./scenes/ClockGapCountScene";
+import { TripletSumOutlierScene } from "./scenes/TripletSumOutlierScene";
+import { TwoRiderDistanceGraphScene } from "./scenes/TwoRiderDistanceGraphScene";
+import { RectangleToSquareGainScene } from "./scenes/RectangleToSquareGainScene";
+import { InequalityCluesLeastScene } from "./scenes/InequalityCluesLeastScene";
+import { CubeNetOppositeFaceScene } from "./scenes/CubeNetOppositeFaceScene";
+import { OverlapFlowerBedsScene } from "./scenes/OverlapFlowerBedsScene";
+import { TrafficLightNotGreenScene } from "./scenes/TrafficLightNotGreenScene";
+import { IntervalFractionMarkScene } from "./scenes/IntervalFractionMarkScene";
 import { BackyardAreaFromWalksScene } from "./scenes/BackyardAreaFromWalksScene";
 import { NonAssociativeOperationScene } from "./scenes/NonAssociativeOperationScene";
 import { GeoboardTwoShapeCompareScene } from "./scenes/GeoboardTwoShapeCompareScene";
@@ -66,11 +76,15 @@ import { PercentUnitSliceScene } from "./scenes/PercentUnitSliceScene";
 import { SquaresOnTriangleAreaScene } from "./scenes/SquaresOnTriangleAreaScene";
 import { TestScoreDiffBarScene } from "./scenes/TestScoreDiffBarScene";
 import { CookieDoughAreaScene } from "./scenes/CookieDoughAreaScene";
+import { CookieBatchButterScene } from "./scenes/CookieBatchButterScene";
+import { AttendanceCookieRecipesScene } from "./scenes/AttendanceCookieRecipesScene";
+import { CookieEggCartonsScene } from "./scenes/CookieEggCartonsScene";
 import { PriceMarkupDiscountScene } from "./scenes/PriceMarkupDiscountScene";
 import { HiddenFaceProductScene } from "./scenes/HiddenFaceProductScene";
 import { PaintedCubeGridScene } from "./scenes/PaintedCubeGridScene";
 import { DoubledWordSumScene } from "./scenes/DoubledWordSumScene";
 import { MinimumCubesFromViewsScene } from "./scenes/MinimumCubesFromViewsScene";
+import { StackMapFrontProjectionScene } from "./scenes/StackMapFrontProjectionScene";
 import { CarSeatPermutationScene } from "./scenes/CarSeatPermutationScene";
 import { SiblingTraitMatchScene } from "./scenes/SiblingTraitMatchScene";
 import { FriendshipGraphInviteScene } from "./scenes/FriendshipGraphInviteScene";
@@ -82,6 +96,9 @@ import { PercentMakeUpgradeScene } from "./scenes/PercentMakeUpgradeScene";
 import { HeartRateZoneScene } from "./scenes/HeartRateZoneScene";
 import { DigitSumPairListScene } from "./scenes/DigitSumPairListScene";
 import { AverageSplitGroupsScene } from "./scenes/AverageSplitGroupsScene";
+import { CampAdultAverageScene } from "./scenes/CampAdultAverageScene";
+import { SeasonLossPercentScene } from "./scenes/SeasonLossPercentScene";
+import { EqualCrossSumScene } from "./scenes/EqualCrossSumScene";
 import { WeekTimePayScene } from "./scenes/WeekTimePayScene";
 import { RestrictedSlotsAverageScene } from "./scenes/RestrictedSlotsAverageScene";
 import { BatteryDualRateScene } from "./scenes/BatteryDualRateScene";
@@ -101,6 +118,7 @@ import { TelescopeCancelChainScene } from "./scenes/TelescopeCancelChainScene";
 import { FactorPairCurveScene } from "./scenes/FactorPairCurveScene";
 import { DigitSumSquareGridScene } from "./scenes/DigitSumSquareGridScene";
 import { CombinedTestPercentScene } from "./scenes/CombinedTestPercentScene";
+import { PassingScoreGapScene } from "./scenes/PassingScoreGapScene";
 import { MeetingPointRoadScene } from "./scenes/MeetingPointRoadScene";
 import { ReadingRaceGapScene } from "./scenes/ReadingRaceGapScene";
 import { TeamReadingSplitScene } from "./scenes/TeamReadingSplitScene";
@@ -125,6 +143,7 @@ import { PigeonholeSockScene } from "./scenes/PigeonholeSockScene";
 import { SlopeRaceGraphScene } from "./scenes/SlopeRaceGraphScene";
 import { MultipleRangeCountScene } from "./scenes/MultipleRangeCountScene";
 import { TrapezoidAltitudeDropScene } from "./scenes/TrapezoidAltitudeDropScene";
+import { IsoscelesTrapezoidPerimeterScene } from "./scenes/IsoscelesTrapezoidPerimeterScene";
 import { TrapezoidBaseSolveScene } from "./scenes/TrapezoidBaseSolveScene";
 import { CircleMeetModularScene } from "./scenes/CircleMeetModularScene";
 import { HexagramAreaScene } from "./scenes/HexagramAreaScene";
@@ -530,6 +549,11 @@ import { RollingBallOffsetScene } from "./scenes/RollingBallOffsetScene";
 import { TriangleSwapAreaScene } from "./scenes/TriangleSwapAreaScene";
 import { RectangleMidpointTriangleAreaScene } from "./scenes/RectangleMidpointTriangleAreaScene";
 import { StarIsoscelesAngleTransferScene } from "./scenes/StarIsoscelesAngleTransferScene";
+import { MidpointShadedGeometricSeriesScene } from "./scenes/MidpointShadedGeometricSeriesScene";
+import { NegativeOnePowerRemainderScene } from "./scenes/NegativeOnePowerRemainderScene";
+import { EqualAreaSquareDistanceScene } from "./scenes/EqualAreaSquareDistanceScene";
+import { BarterChainShareScene } from "./scenes/BarterChainShareScene";
+import { StarDirectionAngleChaseScene } from "./scenes/StarDirectionAngleChaseScene";
 import { SemicircleDiameterTriangleScene } from "./scenes/SemicircleDiameterTriangleScene";
 import { ToothpickBoundaryCountScene } from "./scenes/ToothpickBoundaryCountScene";
 import { FixedBridgeRouteProductScene } from "./scenes/FixedBridgeRouteProductScene";
@@ -611,6 +635,7 @@ import { TrianglePerimeterCeilingScene } from "./scenes/TrianglePerimeterCeiling
 import { OddLayerSquareScene } from "./scenes/OddLayerSquareScene";
 import { DistinctFourDigitCountScene } from "./scenes/DistinctFourDigitCountScene";
 import { LicensePlateFactoryScene } from "./scenes/LicensePlateFactoryScene";
+import { SlotProductUpgradeScene } from "./scenes/SlotProductUpgradeScene";
 import { CubeParallelEdgePairsScene } from "./scenes/CubeParallelEdgePairsScene";
 import { RemovePairMeanScene } from "./scenes/RemovePairMeanScene";
 import { FourOddSumSieveScene } from "./scenes/FourOddSumSieveScene";
@@ -1198,6 +1223,36 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if (type === "star-isosceles-angle-transfer") {
     const apex = num(data.apexAngle), tri = num(data.triangleAngleSum), straight = num(data.straightAngle), base = (tri - apex) / 2, inner = straight - base;
     if (data.equalAngles === "AFG=AGF" && data.intersectionLines === "AFD|BFGE" && apex > 0 && apex < 90 && tri === 180 && straight === 180 && Number.isInteger(base) && base > 0 && inner > 0 && inner < 180) return StarIsoscelesAngleTransferScene;
+  }
+  // Two positive bounded legs, a true midpoint scale, and a finite drawable
+  // iteration count guarantee a convergent nested-triangle area series.
+  if (type === "midpoint-shaded-geometric-series" && Array.isArray(data.legs)) {
+    const legs = data.legs.map(Number), iterations = Number(data.iterations), midpoint = Number(data.midpointFactor), ratio = midpoint * midpoint;
+    if (legs.length === 2 && legs.every((v) => Number.isFinite(v) && v > 0 && v <= 100) && Number.isInteger(iterations) && iterations >= 1 && iterations <= 1000 && midpoint === 0.5 && ratio > 0 && ratio < 1) return MidpointShadedGeometricSeriesScene;
+  }
+  // A bounded base one below a divisor multiple and a positive even exponent
+  // guarantee the complete −1 pairing argument and a finite remainder dial.
+  if (type === "negative-one-power-remainder") {
+    const base = Number(data.base), exponent = Number(data.exponent), divisor = Number(data.divisor);
+    if (Number.isInteger(base) && base > 0 && base <= 100000 && Number.isInteger(exponent) && exponent > 0 && exponent <= 10000 && exponent % 2 === 0 && Number.isInteger(divisor) && divisor >= 2 && divisor <= 12 && base % divisor === divisor - 1) return NegativeOnePowerRemainderScene;
+  }
+  // A bounded square, exactly three equal regions, and the two named rays
+  // produce positive side splits and a finite drawable distance triangle.
+  if (type === "equal-area-square-distance" && Array.isArray(data.dividingSegments)) {
+    const side = Number(data.sideLength), count = Number(data.equalRegionCount), segments = data.dividingSegments.map(String), region = side * side / count, split = 2 * region / side;
+    if (Number.isFinite(side) && side > 0 && side <= 50 && count === 3 && segments.join(",") === "CM,CN" && split > 0 && split < side && Number.isFinite(Math.hypot(side, split))) return EqualAreaSquareDistanceScene;
+  }
+  // Three bounded positive barter counts produce a small integral rice total
+  // and a proper nonzero fractional share that remains drawable.
+  if (type === "barter-chain-share") {
+    const fish = Number(data.fishCount), bread = Number(data.breadCount), rice = Number(data.riceBagsPerBread), total = bread * rice;
+    if ([fish,bread,rice].every((v) => Number.isInteger(v) && v > 0 && v <= 12) && total <= 24 && total % fish > 0) return BarterChainShareScene;
+  }
+  // One acute tip and two bounded obtuse crossings must yield positive acute
+  // supplements and a positive final direction angle inside the star.
+  if (type === "star-direction-angle-chase" && Array.isArray(data.crossingAngles)) {
+    const tip=Number(data.tipAngle),angles=data.crossingAngles.map(Number),straight=Number(data.straightAngle),a=straight-angles[0],b=straight-angles[1],middle=a-tip,target=b-middle;
+    if (Number.isFinite(tip)&&tip>0&&tip<90&&angles.length===2&&angles.every((v)=>v>90&&v<180)&&straight===180&&a>tip&&middle>0&&target>0&&target<90) return StarDirectionAngleChaseScene;
   }
   // Positive bounded π-coefficients must decode to finite diameters that form
   // a genuine right triangle, keeping all three semicircles safely drawable.
@@ -3304,6 +3359,12 @@ export function resolveScene(problem: Problem): AnimatedScene {
     const counts=data.counts.map(v=>num(v)),target=String(data.target??"");
     if(counts.length===4&&counts.every(v=>Number.isInteger(v)&&v>=2&&v<=30)&&target.length===4) return LicensePlateFactoryScene;
   }
+  // Three short distinct letter sets and exactly two added choices give the six
+  // finite distributions that the scene enumerates and keeps legible.
+  if(type==="slot-product-upgrade"&&Array.isArray(data.sets)){
+    const sets=data.sets.map(String),additions=Number(data.additions);
+    if(sets.length===3&&sets.every(s=>s.length>=2&&s.length<=8&&/^[A-Z]+$/.test(s)&&new Set(s).size===s.length)&&additions===2)return SlotProductUpgradeScene;
+  }
   // Three encoded four-edge families must partition the cube's twelve labeled
   // edges, keeping every parallel pair literal and uniquely countable.
   if(type==="cube-parallel-edge-pairs"&&Array.isArray(data.groups)){
@@ -4211,6 +4272,12 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if (type === "digit-sum-square-grid" && num(data.max) > 0) {
     return DigitSumSquareGridScene;
   }
+  // Exactly three bounded topic records must produce whole correct counts and
+  // a whole passing threshold so every question cell and meter mark is honest.
+  if (type === "passing-score-gap" && Array.isArray(data.topics) && data.topics.length === 3) {
+    const topics=data.topics.map(v=>String(v).split("|")),counts=topics.map(v=>Number(v[1])),percentages=topics.map(v=>Number(v[2])),total=counts.reduce((a,b)=>a+b,0),pass=Number(data.passPercent);
+    if(topics.every(v=>v.length===3&&v[0].length>0)&&counts.every(v=>Number.isInteger(v)&&v>0&&v<=50)&&percentages.every(v=>Number.isFinite(v)&&v>=0&&v<=100)&&counts.every((v,i)=>Number.isInteger(v*percentages[i]/100))&&total<=100&&Number.isFinite(pass)&&pass>0&&pass<=100&&Number.isInteger(total*pass/100))return PassingScoreGapScene;
+  }
   if (type === "combined-test-percent" && Array.isArray(data.tests) && data.tests.length > 0) {
     return CombinedTestPercentScene;
   }
@@ -4286,6 +4353,12 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if (type === "trapezoid-altitude-drop" && num(data.AB) > 0 && num(data.CD) > 0 && num(data.height) > 0) {
     return TrapezoidAltitudeDropScene;
   }
+  // Parallel bases with a positive even difference and a whole Pythagorean leg
+  // produce two congruent, bounded side triangles that the scene can draw exactly.
+  if(type==="isosceles-trapezoid-perimeter"){
+    const top=Number(data.topBase),bottom=Number(data.bottomBase),height=Number(data.height),offset=(bottom-top)/2,leg=Math.sqrt(height*height+offset*offset);
+    if([top,bottom,height].every(v=>Number.isInteger(v)&&v>0&&v<=60)&&bottom>top&&Number.isInteger(offset)&&Number.isInteger(leg))return IsoscelesTrapezoidPerimeterScene;
+  }
   if (type === "circle-meet-modular" && num(data.points) > 0 && num(data.aliceStep) > 0 && num(data.bobStep) > 0) {
     return CircleMeetModularScene;
   }
@@ -4312,6 +4385,42 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "average-split-groups" && num(data.total) > num(data.firstCount) && num(data.firstCount) > 0) {
     return AverageSplitGroupsScene;
+  }
+  if (type === "camp-adult-average" && Array.isArray(data.knownGroups) && data.knownGroups.length === 2) {
+    const totalCount = Number(data.totalCount);
+    const totalAverage = Number(data.totalAverage);
+    const adultCount = Number(data.adultCount);
+    const groups = data.knownGroups.map((raw) => String(raw).split("|")).map(([label, count, average]) => ({ label, count: Number(count), average: Number(average) }));
+    const valuesAreSafe = [totalCount, totalAverage, adultCount, ...groups.flatMap((group) => [group.count, group.average])].every((value) => Number.isInteger(value) && value > 0 && value <= 100);
+    const groupShapeIsSafe = groups.every((group) => group.label.length > 0 && group.label.length <= 12);
+    const countsFit = groups.reduce((sum, group) => sum + group.count, adultCount) === totalCount;
+    const adultTotal = totalCount * totalAverage - groups.reduce((sum, group) => sum + group.count * group.average, 0);
+    if (valuesAreSafe && groupShapeIsSafe && countsFit && adultTotal > 0 && adultTotal % adultCount === 0 && adultTotal / adultCount === Number(problem.shortAnswer)) {
+      return CampAdultAverageScene;
+    }
+  }
+  // Two bounded positive ratio parts must form a short drawable season, and
+  // their rounded loss share must agree with both the stored value and choice.
+  if (type === "season-loss-percent") {
+    const wins = Number(data.wins), losses = Number(data.losses), total = wins + losses;
+    const rounded = Math.round(losses / total * 100);
+    const choice = problem.choices?.find((item) => Number(item.text) === rounded)?.label;
+    if ([wins, losses].every((value) => Number.isInteger(value) && value > 0) && total <= 30 && rounded === Number((problem.shortAnswer ?? "").replace("%", "")) && choice === problem.answer) return SeasonLossPercentScene;
+  }
+  // Five distinct bounded integers must admit at least one true equal pairing;
+  // the largest resulting cross sum must match the stored value and choice.
+  if (type === "equal-cross-sum" && Array.isArray(data.numbers)) {
+    const values = data.numbers.map(Number);
+    const total = values.reduce((sum, value) => sum + value, 0);
+    const validSums = values.flatMap((center) => {
+      const outside = values.filter((value) => value !== center), target = (total - center) / 2;
+      const pairable = outside.some((a, i) => outside.slice(i + 1).some((b) => a + b === target));
+      const common = (total + center) / 2;
+      return Number.isInteger(common) && pairable ? [common] : [];
+    });
+    const best = Math.max(...validSums);
+    const choice = problem.choices?.find((item) => Number(item.text) === best)?.label;
+    if (values.length === 5 && new Set(values).size === 5 && values.every((value) => Number.isInteger(value) && value > 0 && value <= 99) && validSums.length > 0 && best === Number(problem.shortAnswer) && choice === problem.answer) return EqualCrossSumScene;
   }
   if (type === "week-time-pay-chain" && Array.isArray(data.days) && data.days.length >= 2) {
     return WeekTimePayScene;
@@ -4358,6 +4467,32 @@ export function resolveScene(problem: Problem): AnimatedScene {
   if (type === "cookie-dough-area" && num(data.artCount) > 0 && num(data.artTop) > 0) {
     return CookieDoughAreaScene;
   }
+  // Positive bounded whole-unit rates keep both ceiling conversions exact and
+  // the recipe pans, tablespoon dots, and butter-stick slots safely drawable.
+  if (type === "cookie-batch-butter") {
+    const values = [data.cookiesNeeded, data.cookiesPerRecipe, data.tbspPerRecipe, data.tbspPerStick].map(Number);
+    const [needed, perRecipe, tbspRecipe, tbspStick] = values;
+    const recipes = Math.ceil(needed / perRecipe);
+    const sticks = Math.ceil((recipes * tbspRecipe) / tbspStick);
+    if (values.every((v) => Number.isInteger(v) && v > 0) && recipes <= 20 && sticks <= 9 && tbspStick <= 12) return CookieBatchButterScene;
+  }
+  // A whole post-decrease attendance and bounded positive cookie rates keep
+  // the quarter groups, serving trays, and recipe pans exact and drawable.
+  if (type === "attendance-cookie-recipes") {
+    const values = [data.originalStudents, data.decreasePercent, data.cookiesPerStudent, data.cookiesPerRecipe].map(Number);
+    const [original, decrease, each, perRecipe] = values;
+    const attending = original * (100 - decrease) / 100;
+    const recipes = Math.ceil((attending * each) / perRecipe);
+    if (values.every(Number.isInteger) && original > 0 && original <= 200 && decrease > 0 && decrease < 100 && Number.isInteger(attending) && each > 0 && each <= 6 && perRecipe > 0 && perRecipe <= 20 && recipes <= 16) return AttendanceCookieRecipesScene;
+  }
+  // Small positive whole-unit rates keep every cookie pan, egg pair, and
+  // half-dozen carton count exact and bounded for the four-stage chain.
+  if (type === "cookie-egg-cartons") {
+    const values = [data.students, data.cookiesPerStudent, data.cookiesPerRecipe, data.eggsPerRecipe, data.eggsPerHalfDozen].map(Number);
+    const [students, each, perRecipe, eggsRecipe, eggsCarton] = values;
+    const recipes = Math.ceil((students * each) / perRecipe), eggs = recipes * eggsRecipe, cartons = Math.ceil(eggs / eggsCarton);
+    if (values.every((v) => Number.isInteger(v) && v > 0) && students <= 200 && each <= 6 && perRecipe <= 20 && eggsRecipe <= 6 && eggsCarton <= 12 && recipes <= 16 && cartons <= 8) return CookieEggCartonsScene;
+  }
   if (type === "price-markup-discount" && num(data.start) > 0 && Array.isArray(data.factors) && data.factors.length > 0) {
     return PriceMarkupDiscountScene;
   }
@@ -4372,6 +4507,14 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "minimum-cubes-from-views" && Array.isArray(data.frontCells) && Array.isArray(data.sideCells)) {
     return MinimumCubesFromViewsScene;
+  }
+  // Exactly two equally wide, bounded rows: every front sightline must have one
+  // back and one front stack, and all towers must fit the scene's four-cube grid.
+  if (type === "stack-map-front-projection" && Array.isArray(data.backRow) && Array.isArray(data.frontRow)) {
+    const back = data.backRow.map(Number);
+    const front = data.frontRow.map(Number);
+    const ok = back.length === 3 && front.length === back.length && [...back, ...front].every((h) => Number.isInteger(h) && h >= 1 && h <= 4);
+    if (ok) return StackMapFrontProjectionScene;
   }
   if (type === "car-seat-permutation" && Array.isArray(data.people) && data.people.length > 0 && Array.isArray(data.driversAllowed) && data.driversAllowed.length > 0) {
     return CarSeatPermutationScene;
@@ -4549,6 +4692,36 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "overlap-window-sum" && num(data.total) > 0 && num(data.frontCount) > 0 && num(data.backCount) > 0) {
     return OverlapWindowSumScene;
+  }
+  if (type === "operator-slot-test" && num(data.a) > 0 && num(data.b) > 0) {
+    return OperatorSlotTestScene;
+  }
+  if (type === "clock-gap-count" && num(data.hour) > 0) {
+    return ClockGapCountScene;
+  }
+  if (type === "triplet-sum-outlier" && Array.isArray(data.triplets) && data.triplets.length > 0) {
+    return TripletSumOutlierScene;
+  }
+  if (type === "two-rider-distance-graph" && num(data.hours) > 0 && num(data.aMiles) > 0) {
+    return TwoRiderDistanceGraphScene;
+  }
+  if (type === "rectangle-to-square-gain" && num(data.length) > 0 && num(data.width) > 0) {
+    return RectangleToSquareGainScene;
+  }
+  if (type === "inequality-clues-least" && Array.isArray(data.people) && data.people.length > 0 && Array.isArray(data.edges) && data.edges.length > 0) {
+    return InequalityCluesLeastScene;
+  }
+  if (type === "cube-net-opposite-face" && Array.isArray(data.cells) && data.cells.length > 0) {
+    return CubeNetOppositeFaceScene;
+  }
+  if (type === "overlap-flower-beds" && num(data.a) > 0 && num(data.b) > 0 && num(data.c) > 0) {
+    return OverlapFlowerBedsScene;
+  }
+  if (type === "traffic-light-not-green" && num(data.green) > 0 && num(data.red) > 0) {
+    return TrafficLightNotGreenScene;
+  }
+  if (type === "interval-fraction-mark" && num(data.end) > num(data.start) && num(data.den) > 0) {
+    return IntervalFractionMarkScene;
   }
   return EquationScene;
 }
