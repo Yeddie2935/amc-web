@@ -1,6 +1,29 @@
 import type { Problem } from "../../types/amc";
 import type { AnimatedScene } from "./scenes/types";
 import { ClockAngleScene } from "./scenes/ClockAngleScene";
+import { MaximizeLargestFromMedianScene } from "./scenes/MaximizeLargestFromMedianScene";
+import { ImpossibleScoreGapScene } from "./scenes/ImpossibleScoreGapScene";
+import { EquilateralMidpointShapeCountScene } from "./scenes/EquilateralMidpointShapeCountScene";
+import { FoldedRectanglePerimeterScene } from "./scenes/FoldedRectanglePerimeterScene";
+import { MillionairePercentIncreaseScene } from "./scenes/MillionairePercentIncreaseScene";
+import { DiceFiveComplementScene } from "./scenes/DiceFiveComplementScene";
+import { CarSpeedAreaGraphScene } from "./scenes/CarSpeedAreaGraphScene";
+import { HiddenScoreLogicOrderScene } from "./scenes/HiddenScoreLogicOrderScene";
+import { CoordinateTrapezoidAreaScene } from "./scenes/CoordinateTrapezoidAreaScene";
+import { ChainedFractionOperationScene } from "./scenes/ChainedFractionOperationScene";
+import { PieChartRemainderDegreeScene } from "./scenes/PieChartRemainderDegreeScene";
+import { BuffetComboCountScene } from "./scenes/BuffetComboCountScene";
+import { PotatoJoinRateScene } from "./scenes/PotatoJoinRateScene";
+import { TreeGapFencePostScene } from "./scenes/TreeGapFencePostScene";
+import { KiteDiagonalAreaScene } from "./scenes/KiteDiagonalAreaScene";
+import { KiteScaledBracingScene } from "./scenes/KiteScaledBracingScene";
+import { KiteBoundingWasteScene } from "./scenes/KiteBoundingWasteScene";
+import { QuarterCollectorPercentScene } from "./scenes/QuarterCollectorPercentScene";
+import { PaintTimeConversionScene } from "./scenes/PaintTimeConversionScene";
+import { FactorPairSumMatchScene } from "./scenes/FactorPairSumMatchScene";
+import { MoneyThirdSharePlusExtraScene } from "./scenes/MoneyThirdSharePlusExtraScene";
+import { SmallestEvenDigitSlotScene } from "./scenes/SmallestEvenDigitSlotScene";
+import { LightningThunderDistanceScene } from "./scenes/LightningThunderDistanceScene";
 import { BirdbathOverflowGraphScene } from "./scenes/BirdbathOverflowGraphScene";
 import { CandyBarPercentSieveScene } from "./scenes/CandyBarPercentSieveScene";
 import { StampTableRegionSumScene } from "./scenes/StampTableRegionSumScene";
@@ -4351,6 +4374,75 @@ export function resolveScene(problem: Problem): AnimatedScene {
   }
   if (type === "stamp-table-weighted-average" && Array.isArray(data.countries) && data.countries.length > 0) {
     return StampTableWeightedAverageScene;
+  }
+  if (type === "paint-time-conversion" && num(data.count) > 0 && num(data.perItemSeconds) > 0) {
+    return PaintTimeConversionScene;
+  }
+  if (type === "factor-pair-sum-match" && num(data.product) > 0) {
+    return FactorPairSumMatchScene;
+  }
+  if (type === "money-third-share-plus-extra" && num(data.total) > 0 && num(data.parts) > 0) {
+    return MoneyThirdSharePlusExtraScene;
+  }
+  if (type === "smallest-even-digit-slot" && Array.isArray(data.digits) && data.digits.length > 0) {
+    return SmallestEvenDigitSlotScene;
+  }
+  if (type === "lightning-thunder-distance" && num(data.delaySeconds) > 0 && num(data.speedFtPerSec) > 0) {
+    return LightningThunderDistanceScene;
+  }
+  if (type === "tree-gap-fence-post" && num(data.treeCount) > 0 && num(data.knownDistance) > 0) {
+    return TreeGapFencePostScene;
+  }
+  if (type === "kite-diagonal-area" && num(data.bottomY) > 0) {
+    return KiteDiagonalAreaScene;
+  }
+  if (type === "kite-scaled-bracing" && num(data.diagonal1) > 0 && num(data.diagonal2) > 0) {
+    return KiteScaledBracingScene;
+  }
+  if (type === "kite-bounding-waste" && num(data.rectWidth) > 0 && num(data.rectHeight) > 0) {
+    return KiteBoundingWasteScene;
+  }
+  if (type === "quarter-collector-percent" && num(data.coinCount) > 0 && num(data.percent) > 0) {
+    return QuarterCollectorPercentScene;
+  }
+  if (type === "coordinate-trapezoid-area" && data.ax !== undefined && data.dy !== undefined) {
+    return CoordinateTrapezoidAreaScene;
+  }
+  if (type === "chained-fraction-operation" && num(data.a) > 0 && num(data.c) > 0) {
+    return ChainedFractionOperationScene;
+  }
+  if (type === "pie-chart-remainder-degree" && num(data.total) > 0 && Array.isArray(data.named)) {
+    return PieChartRemainderDegreeScene;
+  }
+  if (type === "buffet-combo-count" && num(data.meats) > 0 && num(data.vegetables) > 0) {
+    return BuffetComboCountScene;
+  }
+  if (type === "potato-join-rate" && num(data.total) > 0 && num(data.homerRate) > 0) {
+    return PotatoJoinRateScene;
+  }
+  if (type === "folded-rectangle-perimeter" && num(data.side) > 0) {
+    return FoldedRectanglePerimeterScene;
+  }
+  if (type === "millionaire-percent-increase" && Array.isArray(data.values) && data.values.length > 0) {
+    return MillionairePercentIncreaseScene;
+  }
+  if (type === "dice-five-complement" && num(data.sides) > 0) {
+    return DiceFiveComplementScene;
+  }
+  if (type === "car-speed-area-graph" && Array.isArray(data.graphs) && data.graphs.length > 0) {
+    return CarSpeedAreaGraphScene;
+  }
+  if (type === "hidden-score-logic-order") {
+    return HiddenScoreLogicOrderScene;
+  }
+  if (type === "maximize-largest-from-median" && num(data.count) > 0 && num(data.mean) > 0) {
+    return MaximizeLargestFromMedianScene;
+  }
+  if (type === "impossible-score-gap" && num(data.questions) > 0 && num(data.correctPts) > 0) {
+    return ImpossibleScoreGapScene;
+  }
+  if (type === "equilateral-midpoint-shape-count" && Array.isArray(data.points) && data.points.length === 6) {
+    return EquilateralMidpointShapeCountScene;
   }
   return EquationScene;
 }

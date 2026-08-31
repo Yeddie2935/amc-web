@@ -4048,6 +4048,10 @@ const amc2001Problems: Problem[] = [
         "equation": "300 × 2 = 600 seconds"
       },
       {
+        "title": "Check the trap",
+        "body": "Dividing by 100 like a metric reflex instead of 60 gives a tempting but wrong answer."
+      },
+      {
         "title": "Convert seconds to minutes",
         "body": "One minute is 60 seconds, so divide by 60.",
         "equation": "600 ÷ 60 = 10"
@@ -4075,9 +4079,11 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "paint-time-conversion",
       "data": {
-        "equation": "300 × 2 ÷ 60 = 10"
+        "count": 300,
+        "perItemSeconds": 2,
+        "secondsPerMinute": 60
       }
     },
     "tags": [
@@ -4136,6 +4142,10 @@ const amc2001Problems: Problem[] = [
         "equation": "3 + 8 = 11"
       },
       {
+        "title": "Check the trap",
+        "body": "The smaller number, 3, is a tempting answer, but the question asks for the larger one."
+      },
+      {
         "title": "Pick the larger number",
         "body": "The larger of the two numbers is 8, so the answer is D."
       }
@@ -4158,9 +4168,10 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "factor-pair-sum-match",
       "data": {
-        "equation": "3 × 8 = 24, 3 + 8 = 11"
+        "product": 24,
+        "targetSum": 11
       }
     },
     "tags": [
@@ -4214,6 +4225,10 @@ const amc2001Problems: Problem[] = [
         "equation": "63 ÷ 3 = 21"
       },
       {
+        "title": "Check the trap",
+        "body": "Anjou's $21 alone is a real answer choice, but the question asks for Elberta's amount."
+      },
+      {
         "title": "Add Elberta's extra money",
         "body": "Elberta has $2 more than Anjou.",
         "equation": "21 + 2 = 23"
@@ -4241,7 +4256,7 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "money-third-share-plus-extra",
       "data": {
         "total": 63,
         "parts": 3,
@@ -4295,16 +4310,20 @@ const amc2001Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Reserve an even ones digit",
-        "body": "The number must end in 2 or 4. To make the whole number as small as possible, use the smaller digits at the front and save 4 for the ones place."
+        "body": "The number must end in 2 or 4, since those are the only even digits available."
       },
       {
-        "title": "Build the smallest number",
-        "body": "Use 1, 2, and 3 in the first three positions, then put 9 in the tens place and 4 in the ones place.",
-        "equation": "12394"
+        "title": "Build both candidates",
+        "body": "Try each even digit as the ones digit, filling the rest in ascending order.",
+        "equation": "ones=2 → 13492; ones=4 → 12394"
+      },
+      {
+        "title": "Check the trap",
+        "body": "Saving the smaller even digit, 2, feels right but actually gives the bigger number, 13492."
       },
       {
         "title": "Read the tens digit",
-        "body": "The tens digit is 9, so the answer is E."
+        "body": "The smallest number is 12394, so the tens digit is 9 and the answer is E."
       }
     ],
     "animationFrames": [
@@ -4325,10 +4344,10 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "ranking",
+      "type": "smallest-even-digit-slot",
       "data": {
-        "number": "12394",
-        "highlight": "tens digit 9"
+        "digits": [1, 2, 3, 4, 9],
+        "targetPlace": "tens"
       }
     },
     "tags": [
@@ -4378,18 +4397,22 @@ const amc2001Problems: Problem[] = [
     "shortAnswer": "2 miles",
     "solutionSteps": [
       {
+        "title": "Wait for the gap",
+        "body": "The flash is instant, but the thunder arrives 10 seconds later."
+      },
+      {
         "title": "Find the distance in feet",
         "body": "The sound traveled for 10 seconds at 1088 feet per second.",
         "equation": "1088 × 10 = 10880 feet"
       },
       {
-        "title": "Convert to miles",
-        "body": "Divide by 5280 feet per mile.",
-        "equation": "10880 ÷ 5280 ≈ 2.06"
+        "title": "Check the trap",
+        "body": "Rounding up out of habit gives 2 1/2 miles, but 2.06 is actually closer to 2."
       },
       {
         "title": "Round to the nearest half-mile",
-        "body": "2.06 miles rounds to 2 miles, so the answer is C."
+        "body": "2.06 miles rounds to 2 miles, so the answer is C.",
+        "equation": "10880 ÷ 5280 ≈ 2.06"
       }
     ],
     "animationFrames": [
@@ -4410,10 +4433,12 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "lightning-thunder-distance",
       "data": {
-        "value": 2.06,
-        "roundTo": "nearest half-mile"
+        "delaySeconds": 10,
+        "speedFtPerSec": 1088,
+        "feetPerMile": 5280,
+        "roundTo": 0.5
       }
     },
     "tags": [
@@ -4472,6 +4497,10 @@ const amc2001Problems: Problem[] = [
         "equation": "60 ÷ 3 = 20"
       },
       {
+        "title": "Check the trap",
+        "body": "Multiplying by the number of trees instead of the number of gaps gives a tempting but wrong distance."
+      },
+      {
         "title": "Use all five spaces",
         "body": "From the 1st tree to the 6th tree there are 5 spaces.",
         "equation": "5 × 20 = 100"
@@ -4495,10 +4524,13 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "tree-gap-fence-post",
       "data": {
-        "gaps": 5,
-        "gapLength": 20
+        "treeCount": 6,
+        "fromTree": 1,
+        "toTree": 4,
+        "knownDistance": 60,
+        "targetTree": 6
       }
     },
     "tags": [
@@ -4551,8 +4583,13 @@ const amc2001Problems: Problem[] = [
         "body": "From the grid, the horizontal diagonal is 6 inches and the vertical diagonal is 7 inches."
       },
       {
+        "title": "Split into two triangles",
+        "body": "The horizontal diagonal splits the kite into a top and a bottom triangle.",
+        "equation": "6 + 15 = 21"
+      },
+      {
         "title": "Use the kite area formula",
-        "body": "The area of a kite is half the product of its diagonals.",
+        "body": "The area of a kite is half the product of its diagonals, matching the triangle sum.",
         "equation": "(6 × 7) ÷ 2 = 21"
       },
       {
@@ -4578,11 +4615,16 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "kite-diagonal-area",
       "data": {
-        "diagonal1": 6,
-        "diagonal2": 7,
-        "area": 21
+        "topY": 1,
+        "midY": 3,
+        "bottomY": 8,
+        "cx": 4,
+        "leftX": 1,
+        "rightX": 7,
+        "gridWidth": 7,
+        "gridHeight": 8
       }
     },
     "tags": [
@@ -4641,6 +4683,10 @@ const amc2001Problems: Problem[] = [
         "body": "The small kite diagonals are 6 and 7 inches. Tripling the grid triples both diagonal lengths."
       },
       {
+        "title": "Check the trap",
+        "body": "Scaling only one diagonal by the full factor and shorting the other gives a tempting but wrong total."
+      },
+      {
         "title": "Find the large diagonals",
         "body": "The large kite diagonals are 18 inches and 21 inches.",
         "equation": "3 × 6 = 18, 3 × 7 = 21"
@@ -4669,12 +4715,11 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "kite-scaled-bracing",
       "data": {
-        "smallDiagonals": "6,7",
-        "scale": 3,
-        "largeDiagonals": "18,21",
-        "total": 39
+        "diagonal1": 6,
+        "diagonal2": 7,
+        "scale": 3
       }
     },
     "tags": [
@@ -4733,6 +4778,10 @@ const amc2001Problems: Problem[] = [
         "body": "The small grid is 6 inches wide and 7 inches tall, so the large grid is 18 inches by 21 inches."
       },
       {
+        "title": "Check the trap",
+        "body": "Scaling the small kite's area by the linear factor of 3 misses that area scales by the square of that factor."
+      },
+      {
         "title": "Find the rectangle area",
         "body": "The rectangular foil piece has area 18 × 21.",
         "equation": "18 × 21 = 378"
@@ -4761,10 +4810,13 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "kite-bounding-waste",
       "data": {
-        "rectangleArea": 378,
-        "waste": 189
+        "rectWidth": 18,
+        "rectHeight": 21,
+        "midY": 6,
+        "smallArea": 21,
+        "scale": 3
       }
     },
     "tags": [
@@ -4824,6 +4876,10 @@ const amc2001Problems: Problem[] = [
         "equation": "4 × $0.25 = $1"
       },
       {
+        "title": "Check the trap",
+        "body": "Multiplying the raw number 2000 straight into the price skips converting the percent first."
+      },
+      {
         "title": "Convert the percent",
         "body": "2000% means 20 times the original value.",
         "equation": "2000% = 20"
@@ -4852,9 +4908,11 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "quarter-collector-percent",
       "data": {
-        "equation": "2000% × $1 = 20 × $1 = $20"
+        "coinCount": 4,
+        "coinValue": 0.25,
+        "percent": 2000
       }
     },
     "tags": [
@@ -4903,13 +4961,16 @@ const amc2001Problems: Problem[] = [
     "shortAnswer": "18",
     "solutionSteps": [
       {
+        "title": "Plot the points",
+        "body": "Place A, B, C, and D on the coordinate grid and connect them."
+      },
+      {
         "title": "Identify parallel sides",
         "body": "AB and CD are vertical, so they are parallel. Their lengths are 4 and 2."
       },
       {
-        "title": "Find the distance between them",
-        "body": "The parallel sides lie on x = 3 and x = −3, so the distance between them is 6.",
-        "equation": "3 − (−3) = 6"
+        "title": "Check the trap",
+        "body": "Multiplying one base by the height like a rectangle skips averaging the two parallel sides."
       },
       {
         "title": "Use trapezoid area",
@@ -4935,13 +4996,16 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "coordinate-trapezoid-area",
       "data": {
-        "A": "(3,2)",
-        "B": "(3,-2)",
-        "C": "(-3,-2)",
-        "D": "(-3,0)",
-        "area": 18
+        "ax": 3,
+        "ay": 2,
+        "bx": 3,
+        "by": -2,
+        "cx": -3,
+        "cy": -2,
+        "dx": -3,
+        "dy": 0
       }
     },
     "tags": [
@@ -5002,6 +5066,10 @@ const amc2001Problems: Problem[] = [
         "equation": "6 ⊗ 4 = (6 + 4)/(6 − 4) = 10/2 = 5"
       },
       {
+        "title": "Check the trap",
+        "body": "Dumping all three numbers into one shared fraction isn't how a chained operation works."
+      },
+      {
         "title": "Use the result with 3",
         "body": "Now evaluate 5 ⊗ 3.",
         "equation": "5 ⊗ 3 = (5 + 3)/(5 − 3) = 8/2 = 4"
@@ -5029,9 +5097,11 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "equation",
+      "type": "chained-fraction-operation",
       "data": {
-        "equation": "(6 ⊗ 4) ⊗ 3 = 5 ⊗ 3 = 4"
+        "a": 6,
+        "b": 4,
+        "c": 3
       }
     },
     "tags": [
@@ -5090,6 +5160,10 @@ const amc2001Problems: Problem[] = [
         "equation": "10 ÷ 2 = 5"
       },
       {
+        "title": "Check every slice",
+        "body": "Turn every group's count into degrees and confirm they all add back up to a full circle."
+      },
+      {
         "title": "Convert to degrees",
         "body": "Cherry is 5/36 of the circle.",
         "equation": "(5/36) × 360° = 50°"
@@ -5113,11 +5187,11 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "pie-chart-remainder-degree",
       "data": {
-        "part": 5,
         "total": 36,
-        "degrees": 50
+        "named": [12, 8, 6],
+        "namedLabels": ["chocolate", "apple", "blueberry"]
       }
     },
     "tags": [
@@ -5172,6 +5246,10 @@ const amc2001Problems: Problem[] = [
         "equation": "3 × 4 = 12"
       },
       {
+        "title": "Check the trap",
+        "body": "Counting vegetable picks as first-then-second (ordered) double-counts every pair."
+      },
+      {
         "title": "Choose two vegetables",
         "body": "Choose 2 different vegetables from 4, with order not important.",
         "equation": "C(4,2) = 6"
@@ -5200,12 +5278,11 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "buffet-combo-count",
       "data": {
         "meats": 3,
-        "vegetablesChoose2": 6,
         "desserts": 4,
-        "total": 72
+        "vegetables": 4
       }
     },
     "tags": [
@@ -5256,18 +5333,22 @@ const amc2001Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Homer works alone first",
-        "body": "For 4 minutes, Homer peels 3 potatoes per minute.",
-        "equation": "4 × 3 = 12"
+        "body": "For 4 minutes, Homer peels 3 potatoes per minute, leaving 32 potatoes.",
+        "equation": "44 − 4 × 3 = 32"
       },
       {
-        "title": "Find the remaining potatoes",
-        "body": "After that, 32 potatoes remain.",
-        "equation": "44 − 12 = 32"
+        "title": "Check the trap",
+        "body": "Homer's own grand total counts his head start too, but the question asks about Christen."
       },
       {
         "title": "Use the combined rate",
-        "body": "Together they peel 3 + 5 = 8 potatoes per minute, so 32 potatoes take 4 minutes. Christen peels 5 per minute for 4 minutes.",
-        "equation": "4 × 5 = 20"
+        "body": "Together they peel 3 + 5 = 8 potatoes per minute, so the remaining 32 potatoes take 4 more minutes.",
+        "equation": "32 ÷ 8 = 4"
+      },
+      {
+        "title": "Count Christen's potatoes",
+        "body": "Christen peels 5 per minute for those 4 minutes.",
+        "equation": "5 × 4 = 20"
       }
     ],
     "animationFrames": [
@@ -5288,12 +5369,12 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "potato-join-rate",
       "data": {
         "total": 44,
-        "homerFirst": 12,
-        "combinedRate": 8,
-        "christenPeeled": 20
+        "homerRate": 3,
+        "headStart": 4,
+        "christenRate": 5
       }
     },
     "tags": [
@@ -5350,6 +5431,10 @@ const amc2001Problems: Problem[] = [
         "body": "A small rectangle has perimeter 2(4 + 1) = 10, and the large rectangle has perimeter 2(4 + 2) = 12."
       },
       {
+        "title": "Check the trap",
+        "body": "Comparing the areas instead of the perimeters gives a different, tempting ratio."
+      },
+      {
         "title": "Form the ratio",
         "body": "The ratio is 10/12, which simplifies to 5/6.",
         "equation": "10/12 = 5/6"
@@ -5373,11 +5458,9 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "area-model",
+      "type": "folded-rectangle-perimeter",
       "data": {
-        "small": "4×1",
-        "large": "4×2",
-        "ratio": "5/6"
+        "side": 4
       }
     },
     "tags": [
@@ -5436,6 +5519,10 @@ const amc2001Problems: Problem[] = [
         "body": "From 1 to 2 and from 14 to 15, the value doubles, which is a 100% increase."
       },
       {
+        "title": "Check the trap",
+        "body": "By raw dollar jump alone, 1→2 and 2→3 both look tied at +$100 — but percent tells a very different story."
+      },
+      {
         "title": "Compare the smaller-looking jumps",
         "body": "From 2 to 3, the value goes from 200 to 300, a 50% increase. From 3 to 4, it goes from 300 to 500, a 66 2/3% increase. From 11 to 12, it goes from 64K to 125K, almost a 95% increase."
       },
@@ -5463,10 +5550,10 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "millionaire-percent-increase",
       "data": {
-        "smallest": "From 2 to 3",
-        "percent": 50
+        "values": [100, 200, 300, 500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000, 250000, 500000, 1000000],
+        "candidatePairs": ["0,1", "1,2", "2,3", "10,11", "13,14"]
       }
     },
     "tags": [
@@ -5525,6 +5612,10 @@ const amc2001Problems: Problem[] = [
         "body": "The product is a multiple of 5 exactly when at least one die shows 5."
       },
       {
+        "title": "Check the trap",
+        "body": "Counting the 5-row and 5-column separately double-counts the (5,5) outcome."
+      },
+      {
         "title": "Find no fives",
         "body": "The probability that neither die shows 5 is (5/6)(5/6).",
         "equation": "(5/6)^2 = 25/36"
@@ -5553,11 +5644,9 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "probability",
+      "type": "dice-five-complement",
       "data": {
-        "totalOutcomes": 36,
-        "favorable": 11,
-        "probability": "11/36"
+        "sides": 6
       }
     },
     "tags": [
@@ -5611,6 +5700,10 @@ const amc2001Problems: Problem[] = [
         "body": "On a speed-time graph, twice the speed means N must be twice as high as M."
       },
       {
+        "title": "Check the trap",
+        "body": "Doubling only the height while keeping the same width doubles the area — meaning double the distance, not the same distance."
+      },
+      {
         "title": "Use same distance",
         "body": "Distance is speed times time, or area under the speed-time graph. If speed doubles and distance stays the same, time must be cut in half."
       },
@@ -5637,11 +5730,16 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "graph-read",
+      "type": "car-speed-area-graph",
       "data": {
         "correct": "D",
         "speedFactor": 2,
-        "timeFactor": "1/2"
+        "timeFactor": 0.5,
+        "yM": 70,
+        "xStartM": 22,
+        "xEndM": 70,
+        "xBaseline": 105,
+        "graphs": ["A|30|70", "B|30|105", "C|90|70", "D|30|44", "E|90|105"]
       }
     },
     "tags": [
@@ -5705,6 +5803,10 @@ const amc2001Problems: Problem[] = [
         "body": "Marty knows he is not lowest, so he must be above Kaleana. Shana knows she is not highest, so she must be below Kaleana."
       },
       {
+        "title": "Test every answer choice",
+        "body": "Check each listed order against S < K = Q < M and keep only the one that survives."
+      },
+      {
         "title": "Order the three hidden scores",
         "body": "Since Quay equals Kaleana, the order is Shana, Quay, Marty.",
         "equation": "S < Q < M"
@@ -5728,10 +5830,8 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "ranking",
-      "data": {
-        "order": "S < Q < M"
-      }
+      "type": "hidden-score-logic-order",
+      "data": {}
     },
     "tags": [
       "AMC 8",
@@ -5781,12 +5881,16 @@ const amc2001Problems: Problem[] = [
     "solutionSteps": [
       {
         "title": "Find the total sum",
-        "body": "Five integers with mean 15 have total sum 75.",
+        "body": "Five integers with mean 15 have total sum 75. The median 18 fixes the middle slot.",
         "equation": "5 × 15 = 75"
       },
       {
-        "title": "Make the other numbers small",
-        "body": "The median is 18, so the ordered list is _, _, 18, _, _. To maximize the largest number, make the other four values as small as possible: 1, 2, 18, and 19."
+        "title": "Minimize below the median",
+        "body": "The two values below the median must be distinct positive integers, so use the smallest possible: 1 and 2."
+      },
+      {
+        "title": "Minimize above the median",
+        "body": "The value just above the median must be distinct from 18, so use the smallest possible: 19."
       },
       {
         "title": "Find the largest value",
@@ -5812,11 +5916,11 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "bar-model",
+      "type": "maximize-largest-from-median",
       "data": {
-        "sum": 75,
-        "known": "1,2,18,19",
-        "largest": 35
+        "count": 5,
+        "mean": 15,
+        "median": 18
       }
     },
     "tags": [
@@ -5877,6 +5981,10 @@ const amc2001Problems: Problem[] = [
         "equation": "19 × 5 + 1 = 96"
       },
       {
+        "title": "Check the trap",
+        "body": "Scores below 96 aren't automatically impossible too — each one needs its own check."
+      },
+      {
         "title": "Identify the gap",
         "body": "No score between 96 and 100 is possible, so 97 is not possible. The answer is E."
       }
@@ -5899,10 +6007,11 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "number-line",
+      "type": "impossible-score-gap",
       "data": {
-        "impossible": 97,
-        "gap": "97-99"
+        "questions": 20,
+        "correctPts": 5,
+        "blankPts": 1
       }
     },
     "tags": [
@@ -5956,8 +6065,12 @@ const amc2001Problems: Problem[] = [
         "body": "The six points form an equilateral triangle with midpoints, so many choices of three points make congruent triangles."
       },
       {
+        "title": "Check the trap",
+        "body": "Not every choice of 3 points forms a real triangle — some lie on the same side."
+      },
+      {
         "title": "Group by size and shape",
-        "body": "There is the large triangle RST, the middle equilateral triangles like SYZ, and two different sizes/shapes of smaller triangles from using vertices and midpoints."
+        "body": "Removing the collinear cases leaves the large triangle RST, the medial equilateral triangles, and two more shapes from mixing vertices and midpoints."
       },
       {
         "title": "Count the types",
@@ -5982,9 +6095,9 @@ const amc2001Problems: Problem[] = [
       }
     ],
     "animation": {
-      "type": "generic",
+      "type": "equilateral-midpoint-shape-count",
       "data": {
-        "types": 4
+        "points": ["R|0|1.732", "S|-1|0", "T|1|0", "X|0|0", "Y|0.5|0.866", "Z|-0.5|0.866"]
       }
     },
     "tags": [
