@@ -56067,4 +56067,47 @@ export const sampleProblems: Problem[] = [
   ...amc2026Problems,
 ];
 
+const concludingStepTitle = /^(answer|check|conclude|conclusion|finish|final|state the answer)/i;
+
+const hintsFromSolutionRoadmap = (problem: Problem): string[] => {
+  const roadmap = problem.solutionSteps
+    .map((step) => step.title.trim())
+    .filter((title) => title.length > 0 && !concludingStepTitle.test(title));
+
+  const hints = roadmap.slice(0, 3);
+
+  // A few short solutions have a concluding title among their first three steps.
+  // Use it only when necessary to keep the hint button's three-stage progression.
+  if (hints.length < 3) {
+    for (const step of problem.solutionSteps) {
+      const title = step.title.trim();
+      if (title && !hints.includes(title)) hints.push(title);
+      if (hints.length === 3) break;
+    }
+  }
+
+  return hints;
+};
+
+const archiveHintOverrides: Record<string, string[]> = {
+  "amc8-2010-24": ["All three exponents share a common factor of 4.", "Take the positive fourth root of each number; this preserves their order.", "Compare the simpler values 2⁶, 10², and 5³."],
+  "amc8-2011-24": ["Use parity: two odd primes have an even sum.", "Because 10001 is odd, one of the two primes would have to be the only even prime.", "Subtract that prime from 10001, then use a divisibility test to decide whether the remainder is prime."],
+  "amc8-2014-05": ["Convert the $20 budget into gallons before using the mileage rate.", "Divide the budget by the cost per gallon.", "Multiply the resulting number of gallons by 32 miles per gallon."],
+  "amc8-2014-10": ["Count contest years inclusively: the first contest year is term 1, not term 0.", "The seventh contest occurs 6 years after 1985.", "Once you have that year, subtract Samantha's age to find her birth year."],
+  "amc8-2017-04": ["Estimate both factors using nearby numbers that are easy to multiply.", "Round 0.000315 to about 0.0003 and 7,928,564 to about 8,000,000.", "Multiply the estimates, keeping careful track of the decimal places."],
+  "amc8-2017-05": ["Evaluate the denominator before expanding the large numerator.", "Recognize the numerator as 8! and the denominator as the sum from 1 through 8.", "Factor the denominator and cancel its factors directly from 8!."],
+};
+
+sampleProblems.forEach((problem) => {
+  const isRequestedArchiveYear =
+    problem.year !== undefined &&
+    problem.year >= 1999 &&
+    problem.year <= 2024 &&
+    problem.year !== 2021;
+
+  if (isRequestedArchiveYear && (!problem.hints || problem.hints.length === 0)) {
+    problem.hints = archiveHintOverrides[problem.id] ?? hintsFromSolutionRoadmap(problem);
+  }
+});
+
 export { legacySampleProblems, amc2001Problems, amc2002Problems, amc2003Problems, amc2004Problems, amc2005Problems, amc2006Problems, amc2007Problems, amc2008Problems, amc2009Problems, amc2010Problems, amc2011Problems, amc2012Problems, amc2013Problems, amc2014Problems, amc2015Problems, amc2016Problems, amc2017Problems, amc2018Problems, amc2019Problems, amc2020Problems, amc2022Problems, amc2023Problems, amc2024Problems, amc2025Problems, amc2026Problems };
