@@ -54764,6 +54764,38 @@ const amc2025Problems: Problem[] = [
   }
 ];
 
+const amc2025Hints: Record<number, string[]> = {
+  1: ["Count the star's area in unit squares, then compare it with the area of the 4 × 4 grid.", "Separate the star into the completely covered 2 × 2 center and the triangular points.", "Each of the 8 points covers half a unit square; pair the half-squares before finding the percent."],
+  2: ["This numeral system is additive: repeated symbols contribute repeated copies of their listed values.", "Group identical symbols first: there is 1 finger, 4 coils, 2 heel bones, and 3 strokes.", "Write each group's contribution by place value, remembering that a missing thousands symbol creates a zero in that place."],
+  3: ["The number of cards in the deck stays fixed when more players join.", "First use Annika plus 3 friends and 15 cards each to find the total number of cards.", "The next game has 6 players, so divide the unchanged deck equally among them."],
+  4: ["Treat the list as an arithmetic sequence with first term 100 and common difference −7.", "Moving from the 1st term to the 10th term takes 9 steps, not 10.", "Subtract 9 groups of 7 from 100."],
+  5: ["On a rectangular street grid, shortest distance is the horizontal change plus the vertical change.", "Find the shortest distance separately for F→A, A→B, B→C, and C→F.", "The legs have horizontal/vertical changes (1,2), (7,3), (2,4), and (4,1); add all eight changes."],
+  6: ["For a sum to be divisible by 4, focus on remainders modulo 4.", "Find the sum of all five numbers and its remainder when divided by 4.", "Erase a number with the same remainder as the total, making the remaining remainder 0."],
+  7: ["The 'at least' groups are nested: the ≥90% group is already included in the ≥80% group.", "The desired interval starts at the 80% cutoff and stops just before the 90% cutoff.", "Subtract the number scoring at least 90% from the number scoring at least 80%; the other counts are not needed."],
+  8: ["The flat net consists of all 6 congruent square faces of the cube.", "Divide the net's total area by 6, then take a square root to get the edge length.", "Use volume = edge³ and simplify the radical."],
+  9: ["List the six pairs of numbers that lie opposite each other on a 12-hour clock.", "Opposite numbers differ by 6, so their pair averages form a consecutive sequence.", "Each number from 1 through 12 occurs in one pair, so the requested average is also the average of 1 through 12."],
+  10: ["Use inclusion-exclusion: union area = the two rectangle areas minus their overlap.", "Each rectangle has area 5 × 3; locate the overlap after the quarter-turn about the midpoint of DC.", "The overlap is a square whose side is half the 5-inch side. Subtract its area once."],
+  11: ["A 3 × 4 rectangle has area 12, so exactly three tetrominoes must cover it.", "Place the required S tetromino and examine the two remaining four-square gaps.", "Each gap has three squares in a line with one turning off an end. Which tetromino has that shape?"],
+  12: ["By symmetry, center the largest circle at the center of the cross.", "The circle is limited by the nearest inward step-corners, not the flat outer edges.", "A nearest step-corner is 2 units across and 1 unit up; use the Pythagorean theorem to find r²."],
+  13: ["Compute the remainders modulo 7 of consecutive even numbers and look for a cycle.", "Every 7 consecutive even numbers hit all seven remainders exactly once.", "Split the 25 numbers into 3 complete cycles and 4 leftovers; find the remainders of 44, 46, 48, and 50."],
+  14: ["With 6 values, the median is the average of the 3rd and 4th values in sorted order.", "In the valid case, the two middle values remain 7 and 7, fixing the median.", "Turn the required mean into a total for 6 numbers, then subtract the sum of the five given numbers."],
+  15: ["The fold creates 18 overlapping pairs of squares, one from each half of the grid.", "A gold-gold pair contains no silver square, so count how many pairs the 13 silvers spoil.", "For the minimum, spread silvers across pairs; for the maximum, place two silvers together whenever possible."],
+  16: ["Pair each number from 1 to 10 with the number 10 greater: (1,11), …, (10,20).", "Choosing 10 legal numbers forces exactly one choice from every pair.", "Start with 1 + 2 + ⋯ + 10; each of the 5 choices from 11–20 adds an extra 10."],
+  17: ["Workers in A are A-residents who stay plus commuters from B and C.", "Find how many A-residents remain after subtracting both outgoing commuter groups.", "Add the incoming groups: one-third of B's population and one-eighth of C's population."],
+  18: ["Use the diameter as the diagonal of an inscribed square to express its area in terms of r².", "The area inside the circle but outside the square is (π − 2)r², split into four equal corners.", "The left shades all four corners for radius 1; the right shades one corner for radius R. Set the areas equal."],
+  19: ["Track the cars at the times when either one crosses a speed-zone boundary.", "The A-car leaves its first zone after 5/25 hour; next track both cars until the B-car finishes its first 5 miles.", "Then both cars are in the 40-mph zone. Find their remaining gap and use their combined closing speed."],
+  20: ["Track one full round of three turns and note what fraction remains afterward.", "Sarika's portions are 1/2, then 1/16, then 1/128, and so on.", "These form an infinite geometric series; identify its first term and common ratio, then use a/(1 − r)."],
+  21: ["Connected pods cannot receive consecutive grades, so start with the pods having the most connections.", "Pods C and F each have 5 neighbors; try assigning the two extreme grades to them.", "After placing 1 and 7 at C and F in either order, enforce a difference of at least 2 to determine E."],
+  22: ["If there are n coats, there are n + 1 equal gaps, including the two end gaps.", "If each gap has g hooks, then n + (n + 1)g = 35.", "Rewrite this as (n + 1)(g + 1) = 36, then count factor pairs with n ≥ 1 and g ≥ 1."],
+  23: ["Write one less than a square as k² − 1 = (k − 1)(k + 1).", "Ending in 99 makes k a multiple of 10; use the four-digit restriction to list the possible k values.", "Both neighboring factors k − 1 and k + 1 must be prime."],
+  24: ["Let the equal legs have length L and the parallel bases have lengths a and b.", "Dropping perpendiculars creates 60° right triangles and shows that b − a = L.", "Substitute b = a + L into the perimeter equation, then use positivity and parity to list possible integer L."],
+  25: ["Each path has 10 steps: exactly 5 northeast and 5 northwest. Count paths by choosing step positions.", "Pair every path with its left-right reflection instead of computing every area.", "A path's area and its reflection's area add to 25; multiply that by half the number of paths."]
+};
+
+amc2025Problems.forEach((problem) => {
+  problem.hints = amc2025Hints[problem.problemNumber];
+});
+
 const amc2026Problems: Problem[] = [
   {
     "id": "amc8-2026-01",
@@ -54785,6 +54817,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "A",
     "shortAnswer": "18",
+    "hints": [
+      "Look at the pattern of signs — every third term is subtracted. Try grouping the terms in sets of three.",
+      "Each group of three (like 1 + 2 − 3) simplifies to a single small number — find that number for each group.",
+      "Add up the four group totals to get the final value."
+    ],
     "solutionSteps": [
       {
         "title": "Group terms in threes",
@@ -54827,6 +54864,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "C",
     "shortAnswer": "53",
+    "hints": [
+      "Break the array into its 5 rows and add each row separately.",
+      "Notice the array is symmetric top-to-bottom — the top and bottom rows match, and so do the 2nd and 4th rows.",
+      "Add the five row sums together for the total."
+    ],
     "solutionSteps": [
       {
         "title": "Count each layer",
@@ -54871,6 +54913,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "D",
     "shortAnswer": "Square and triangle only",
+    "hints": [
+      "The wire is 24 cm long — figure out the perimeter each shape actually needs.",
+      "Compute the hexagon's perimeter (6 × side), the square's side length from its area, and the triangle's hypotenuse from its two legs.",
+      "Compare each shape's perimeter to 24 cm — only the shapes that match exactly can be made."
+    ],
     "solutionSteps": [
       {
         "title": "Check each shape's perimeter",
@@ -54913,6 +54960,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "E",
     "shortAnswer": "120%",
+    "hints": [
+      "Represent each percent change as a multiplier rather than adding or subtracting the percentages directly.",
+      "A 20% decrease multiplies the amount by 0.8; a 50% increase multiplies it by 1.5.",
+      "Multiply the two factors together, then convert the result to a percent."
+    ],
     "solutionSteps": [
       {
         "title": "Apply percent changes",
@@ -54955,6 +55007,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "B",
     "shortAnswer": "30 minutes",
+    "hints": [
+      "Separate the total trip time into driving time and lunch-break time.",
+      "Use distance = speed × time to find how long Casey actually spent driving.",
+      "Subtract the driving time from the total 3 hours, then convert the remainder to minutes."
+    ],
     "solutionSteps": [
       {
         "title": "Find driving time",
@@ -54997,6 +55054,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "E",
     "shortAnswer": "2/5",
+    "hints": [
+      "It's easier to find the region Peter can't reach than the region he can.",
+      "The unreachable region is a smaller rectangle, shrunk by 1 meter on every side.",
+      "Subtract the inner rectangle's area from the total area, then write that reachable area as a fraction of the whole field."
+    ],
     "solutionSteps": [
       {
         "title": "Find reachable area",
@@ -55041,6 +55103,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "C",
     "shortAnswer": "50 miles",
+    "hints": [
+      "Add the two battery fractions used on the two trips.",
+      "Give both fractions a common denominator so you can combine them into one fraction of the full battery.",
+      "If that combined fraction of the battery equals 40 miles, divide to find what a full (100%) battery equals."
+    ],
     "solutionSteps": [
       {
         "title": "Find total battery used",
@@ -55083,6 +55150,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "D",
     "shortAnswer": "50",
+    "hints": [
+      "Write 74% as a fraction and reduce it to lowest terms.",
+      "Once reduced, the denominator tells you the smallest group size for which 74% can be a whole number of people.",
+      "Check whether the reduced numerator is prime — if so, the fraction can't be simplified further, and the denominator alone gives the answer."
+    ],
     "solutionSteps": [
       {
         "title": "Set up the fraction",
@@ -55125,6 +55197,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "B",
     "shortAnswer": "2/3",
+    "hints": [
+      "Simplify the innermost square roots first, working from the inside out.",
+      "Compute √81 and √16 individually before multiplying under the outer radicals.",
+      "Once you have clean numbers under each outer square root, simplify the numerator and denominator separately, then divide."
+    ],
     "solutionSteps": [
       {
         "title": "Simplify the numerator",
@@ -55174,6 +55251,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "A",
     "shortAnswer": "Luke",
+    "hints": [
+      "Pick one runner's time as a reference variable and express everyone else's time relative to it.",
+      "Turn each sentence into an equation using that reference variable — watch the signs for 'ahead' versus 'behind'.",
+      "Once every runner has a value in terms of the reference, sort them from smallest to largest to get the finishing order."
+    ],
     "solutionSteps": [
       {
         "title": "Set up time differences",
@@ -55216,6 +55298,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "B",
     "shortAnswer": "6π",
+    "hints": [
+      "Each quarter circle's radius equals the side length of the square it's inscribed in.",
+      "Recall the arc length formula for a quarter circle: one-fourth of the full circumference, 2πr.",
+      "Since every quarter arc shares the same factor of π/2, factor that out and just add the five radii before multiplying."
+    ],
     "solutionSteps": [
       {
         "title": "Find each arc length",
@@ -55260,6 +55347,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "D",
     "shortAnswer": "5",
+    "hints": [
+      "List the digits 1 through 6 and remember that each digit is used exactly once.",
+      "Look at the given neighbor-sums — some sums can only be formed by one specific pair of digits from 1–6, so start there.",
+      "Once you fix a pair from a uniquely-determined sum, work around the figure filling in the rest using the remaining sum constraints."
+    ],
     "solutionSteps": [
       {
         "title": "Analyze parity constraints",
@@ -55304,6 +55396,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "A",
     "shortAnswer": "10",
+    "hints": [
+      "Assign coordinates to the grid, keeping in mind that alternate rows are shifted by half a unit.",
+      "Find the horizontal and vertical distance between two adjacent vertices of the shaded square.",
+      "For a square, area equals side length squared — you can use the squared distance directly without ever taking a square root."
+    ],
     "solutionSteps": [
       {
         "title": "Use coordinate geometry",
@@ -55348,6 +55445,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "B",
     "shortAnswer": "75",
+    "hints": [
+      "Let the three numbers be a − d, a, and a + d for some common difference d.",
+      "Write the two given sums as equations in a and d, then add the two equations together.",
+      "Notice d cancels out when you add the equations — solve directly for a, then find 3a."
+    ],
     "solutionSteps": [
       {
         "title": "Set up equations",
@@ -55390,6 +55492,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "A",
     "shortAnswer": "4",
+    "hints": [
+      "Think about which faces of each cube must be hidden: either glued to a neighboring cube or turned to face inward.",
+      "A cube's two gray faces share an edge — try to find a small cluster shape where every gray face touches another cube.",
+      "Try a compact block shape rather than a straight row, and check whether it can hide every gray face at once."
+    ],
     "solutionSteps": [
       {
         "title": "Understand the constraint",
@@ -55434,6 +55541,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "D",
     "shortAnswer": "3/5",
+    "hints": [
+      "Recall the rule for divisibility by 4: only the last two digits of a number matter.",
+      "Since every digit must be even, think about whether the tens digit can ever affect the outcome.",
+      "With the tens digit always even, test each of the 5 possible ones digits (0, 2, 4, 6, 8) to see which ones make the last two digits a multiple of 4."
+    ],
     "solutionSteps": [
       {
         "title": "Identify the key divisibility rule",
@@ -55476,6 +55588,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "A",
     "shortAnswer": "2",
+    "hints": [
+      "Label the original seats A, B, C, D and note exactly who was adjacent to whom before.",
+      "In the new seating, no two students who were neighbors before can be neighbors again.",
+      "Systematically list arrangements of A, B, C, D and cross off any where a former neighbor pair still sits together."
+    ],
     "solutionSteps": [
       {
         "title": "Set up the problem",
@@ -55520,6 +55637,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "B",
     "shortAnswer": "2",
+    "hints": [
+      "Write the sum of n consecutive odd integers starting at a in terms of n and a.",
+      "Set that expression equal to 60, then think about what parity n must have, given that a itself is odd.",
+      "Test the possible even values of n one at a time to see which give a positive odd value for a."
+    ],
     "solutionSteps": [
       {
         "title": "Express the sum algebraically",
@@ -55562,6 +55684,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "D",
     "shortAnswer": "1/3",
+    "hints": [
+      "Assign a variable to the distance Miguel walks during the whole event, and remember Luna's speed is 5 times his.",
+      "Figure out the total distance Luna covers: she runs all the way to the tree, then runs back to meet Miguel partway.",
+      "Set Luna's total distance equal to 5 times Miguel's distance and solve for Miguel's distance as a fraction of the distance to the tree."
+    ],
     "solutionSteps": [
       {
         "title": "Set up variables",
@@ -55606,6 +55733,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "D",
     "shortAnswer": "13",
+    "hints": [
+      "Set up an equation relating the number of gold and silver coins to the total stack height.",
+      "Find all whole-number combinations of gold and silver coins that add up to exactly 8 mm.",
+      "For each combination, count the distinct orderings (since order matters), then add the counts from all combinations together."
+    ],
     "solutionSteps": [
       {
         "title": "Find the coin combinations",
@@ -55653,6 +55785,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "B",
     "shortAnswer": "1/4",
+    "hints": [
+      "By symmetry, you only need to track whether Charlotte is on an outer point or an inner point after each move — not which specific point.",
+      "Figure out the probability of moving outer→inner versus inner→outer/inner, based on how many neighbors each type of point has.",
+      "Track the probability of being on each type of point move by move, from move 1 through move 3."
+    ],
     "solutionSteps": [
       {
         "title": "Two kinds of points",
@@ -55707,6 +55844,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "A",
     "shortAnswer": "9",
+    "hints": [
+      "In any group of 5 numbers, exactly 3 of them are less than or equal to that group's median.",
+      "Think about how many numbers total must be ≤ M if M is to be the median of the five medians — how many groups need a small median, and how many numbers does each contribute?",
+      "Once you have a lower bound for M, try to actually construct five groups of 1–25 that achieve it."
+    ],
     "solutionSteps": [
       {
         "title": "Lower bound: M ≥ 9",
@@ -55754,6 +55896,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "C",
     "shortAnswer": "4π + 20",
+    "hints": [
+      "Split the band into its straight segments and its curved arcs, and handle each part separately.",
+      "Each straight segment connects the centers of two touching coins — add up those center-to-center distances.",
+      "The curved parts together sweep out exactly one full turn (360°), so they form a single circle's circumference — add that to the straight-segment total."
+    ],
     "solutionSteps": [
       {
         "title": "Split the band into straights and arcs",
@@ -55803,6 +55950,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "E",
     "shortAnswer": "171",
+    "hints": [
+      "Use the fact that the power of 7 in k! is ⌊k/7⌋ + ⌊k/49⌋, and think about how this count changes as k runs from 1 to 51.",
+      "The count of 7s in k! stays constant over each run of 7 consecutive k-values, then jumps up — figure out the width and height of each block.",
+      "Multiply each block's width by its height and add all the blocks — don't forget the extra jump once k reaches 49."
+    ],
     "solutionSteps": [
       {
         "title": "Count the 7s in one factorial",
@@ -55850,6 +56002,11 @@ const amc2026Problems: Problem[] = [
     ],
     "answer": "E",
     "shortAnswer": "8",
+    "hints": [
+      "Picture inscribing the hexagon as cutting a small equilateral triangle off each corner of the big triangle.",
+      "Let the three corner cuts be a, b, c — write inequalities so that every hexagon side (both the cut sides and the sides lying on the triangle) comes out as a positive integer.",
+      "Count the unordered triples {a, b, c} satisfying those inequalities, since rotating or reflecting the triangle makes some triples equivalent."
+    ],
     "solutionSteps": [
       {
         "title": "Inscribing = cutting three corners",
