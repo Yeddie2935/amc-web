@@ -1,0 +1,80 @@
+{
+  "version": "1.0.0",
+  "target": {
+    "competition": "AMC 8 / middle-school competition math",
+    "positioning": "Contest-math-first and prealgebra-accessible; teach contest-useful conceptual machinery rather than reproducing a full Grade 6–8 textbook.",
+    "expectedNodeCount": 50
+  },
+  "strandOrder": [
+    "foundations",
+    "algebra",
+    "numberTheory",
+    "countingProbability",
+    "geometry",
+    "problemSolving"
+  ],
+  "strandLabels": {
+    "foundations": "Foundations & Quantitative Reasoning",
+    "algebra": "Algebra & Patterns",
+    "numberTheory": "Number Theory",
+    "countingProbability": "Counting & Probability",
+    "geometry": "Geometry & Spatial Reasoning",
+    "problemSolving": "Problem-Solving Tools"
+  },
+  "lessonTypeDefinitions": {
+    "foundation": "A substantial concept students should understand deeply and reuse broadly.",
+    "technique": "A reusable problem-solving method best motivated by a situation where an earlier method strains or fails.",
+    "connector": "A shorter bridge that explicitly links existing ideas and prevents the curriculum from feeling like isolated topics."
+  },
+  "edgeSemantics": {
+    "hardPrerequisites": "Concepts the lesson may assume without reteaching.",
+    "narrativePredecessor": "The earlier lesson whose idea or limitation should most naturally motivate this lesson. It may be a continuity edge without being a hard prerequisite.",
+    "unlocks": "Reverse hard-prerequisite edges, stored explicitly and validated for consistency.",
+    "transferConnections": "Ideas that should reappear unexpectedly across strands or contexts without being mandatory prerequisites."
+  },
+  "problemRoles": {
+    "anchor": "The lesson grows out of this problem or scenario. Its diagram, data, or animation may appear before the full contest question is revealed.",
+    "guided": "A real problem is solved inside the lesson with pauses, predictions, and targeted intervention.",
+    "contrast": "A problem is chosen because it exposes a misconception or makes an earlier method awkward enough to motivate a better one.",
+    "transfer": "A later, mostly independent problem checks whether the learner can recognize the concept when it is disguised or combined with other ideas."
+  },
+  "authoringPrinciples": [
+    "Start from a concrete puzzle, pattern, or tension before naming a technique.",
+    "When a visual or interaction can make the reason discoverable, let the learner see or manipulate it before explaining it in prose.",
+    "Prefer concrete model -> learner attempt -> noticed structure -> concept name -> guided application -> independent transfer.",
+    "Use an existing AMC problem only when it advances the lesson's narrative role; never insert a question merely because a topic tag matches.",
+    "Existing problem animations may be controlled beat-by-beat by the lesson timeline rather than embedded as an isolated full player.",
+    "Make new techniques feel necessary by showing where an earlier strategy becomes cumbersome, overlapping, incomplete, or conceptually insufficient.",
+    "Keep explanatory prose short enough that animations and interactions remain the primary explanatory medium.",
+    "Treat common misconceptions as design inputs: surface a plausible wrong idea, make its failure visible, and repair the model.",
+    "Do not introduce a formula before the learner has a model for why the formula counts or measures what it claims to.",
+    "End with transfer: at least one problem should require recognizing the idea in a less obvious form."
+  ],
+  "preferredLessonBeats": [
+    "puzzle",
+    "try",
+    "notice",
+    "name",
+    "play",
+    "competition_application",
+    "guided_problem",
+    "independent_transfer",
+    "mastery_check"
+  ],
+  "goldNarrativeEdges": [
+    ["F2", "F3"],
+    ["F3", "F4"],
+    ["F3", "G6"],
+    ["A1", "A2"],
+    ["A2", "A3"],
+    ["N1", "N2"],
+    ["N2", "N3"],
+    ["C2", "C4"],
+    ["C4", "C5"],
+    ["C3", "C6"],
+    ["C6", "C7"],
+    ["C8", "C9"],
+    ["G3", "G4"],
+    ["G10", "G11"]
+  ]
+}
