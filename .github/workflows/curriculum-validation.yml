@@ -5,7 +5,10 @@ on:
     paths:
       - "src/data/curriculum/**"
       - "src/types/curriculum.ts"
+      - "src/types/curriculumProblemMapping.ts"
+      - "src/lib/curriculumProblemMapper.ts"
       - "tools/validate-curriculum.mjs"
+      - "tools/validate-problem-mapping.mjs"
       - "package.json"
   push:
     branches:
@@ -13,7 +16,10 @@ on:
     paths:
       - "src/data/curriculum/**"
       - "src/types/curriculum.ts"
+      - "src/types/curriculumProblemMapping.ts"
+      - "src/lib/curriculumProblemMapper.ts"
       - "tools/validate-curriculum.mjs"
+      - "tools/validate-problem-mapping.mjs"
       - "package.json"
 
 jobs:
@@ -24,4 +30,4 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm run validate:curriculum
+      - run: npm run validate:learn
