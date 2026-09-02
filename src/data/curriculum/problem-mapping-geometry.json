@@ -1,0 +1,233 @@
+[
+  {
+    "lessonId": "G1",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "An angle measures turn/separation between rays, not ray length or visual size, and intersecting/parallel-line relationships constrain angles predictably.",
+    "bestBankCandidate": {
+      "problemId": "amc8-1999-02",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.88, "conceptPurity": 0.86, "animationFit": 0.91, "discoveryValue": 0.75, "transferValue": 0.78, "prerequisiteLoad": 0.04},
+      "whyNow": "A clock face gives a natural fixed partition of 360 degrees and makes angle measurement concrete once ray rotation has been introduced.",
+      "entryBridge": "Keep the rotating-ray dial from the opening and add clock numerals around the same circle.",
+      "reusedRepresentation": "A central pivot with two rays and a degree arc.",
+      "animationPlan": "Snap rays to clock-hand positions, count 30-degree sectors, and emphasize the smaller angle without changing ray lengths.",
+      "learnerPrompts": ["How much turn is one hour mark?", "Would making the hands longer change the angle?"],
+      "exitBridge": "Move from one central angle to intersecting lines and triangle angle relationships."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2000-13", "recommendedRole": "transfer", "fitScore": 0.86, "reason": "Isosceles and angle-bisector structure requires chaining several angle relationships rather than reading one angle."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "A dynamic ray model is better for addressing the foundational misconception that angle size depends on side length and for deriving vertical/supplementary relationships.", "targetLearnerRealization": "Angle is amount of turn; straight and full turns give 180 and 360-degree reference structures.", "suggestedShape": "Two draggable rays with live degree measure, then two intersecting lines where changing one angle forces its vertical and supplementary partners.", "constraints": ["Change ray lengths while holding angle fixed.", "Derive vertical/supplementary relationships visually.", "Use parallel-line rules only after parallelism is explicitly established."]},
+    "searchCues": ["angles", "parallel lines", "clock angle", "vertical angles", "supplementary", "bisector"],
+    "avoidCues": ["advanced circle theorem"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "G2",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Triangle angle and side relationships constrain one another; special triangles are consequences of defining properties rather than visual appearance.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2014-09",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.9, "conceptPurity": 0.86, "animationFit": 0.92, "discoveryValue": 0.78, "transferValue": 0.85, "prerequisiteLoad": 0.05},
+      "whyNow": "The BD=DC condition creates an isosceles triangle and then a straight-line supplement, making a compact chain of triangle properties.",
+      "entryBridge": "Use the same equal-side tick marks from the generated triangle explorer, then reveal the contest diagram with BD and DC already marked equal.",
+      "reusedRepresentation": "A mutable triangle with equal-side ticks and live angle labels.",
+      "animationPlan": "Highlight equal sides, transfer equality to base angles, compute the third angle, then extend to the supplementary angle at D.",
+      "learnerPrompts": ["What does BD=DC force about the opposite angles?", "Which angle relationship appears because A-D-C is a straight line?"],
+      "exitBridge": "Use special-triangle structure as a prerequisite for right triangles, similarity, and polygons."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2009-19", "recommendedRole": "transfer", "fitScore": 0.9, "reason": "Multiple possible roles for the 70-degree angles force genuine case reasoning within an isosceles triangle."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "A draggable triangle can establish angle sum and property-based classification more cleanly than an already constrained contest diagram.", "targetLearnerRealization": "Triangle angles always total 180 degrees, and equal sides imply equal opposite angles regardless of orientation.", "suggestedShape": "Drag one vertex while three angle wedges detach and rearrange into a straight angle; toggle equal side lengths to make corresponding angles lock together.", "constraints": ["Include non-prototype orientations.", "Distinguish properties from appearance.", "Connect exterior angle to straight-line plus triangle sum rather than adding a disconnected rule."]},
+    "searchCues": ["triangles", "isosceles", "equilateral", "triangle angle", "exterior angle"],
+    "avoidCues": ["similarity as primary", "Pythagorean as primary"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "G3",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Perimeter measures boundary while area measures coverage; changing shape can preserve one while changing the other.",
+    "bestBankCandidate": {
+      "problemId": "amc8-1999-05",
+      "role": "contrast",
+      "metrics": {"conceptFit": 0.96, "conceptPurity": 0.94, "animationFit": 0.94, "discoveryValue": 0.91, "transferValue": 0.8, "prerequisiteLoad": 0.04},
+      "whyNow": "Changing a 50-by-10 rectangle into a square with the same fence cleanly destroys the misconception that fixed perimeter fixes area.",
+      "entryBridge": "After tracing boundary and tiling coverage separately, keep a fixed-length virtual fence and let it reshape from rectangle to square.",
+      "reusedRepresentation": "A boundary rope with constant length surrounding a unit-square grid.",
+      "animationPlan": "Lock perimeter, morph dimensions, and update the count of enclosed unit squares live; then reveal the authentic values.",
+      "learnerPrompts": ["What stayed exactly the same during the reshape?", "What changed even though the same fence was used?"],
+      "exitBridge": "Once standard rectangles are understood, present an irregular region with no memorized formula to motivate decomposition."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": true, "reason": "Unit-square coverage and boundary tracing should establish the meanings before the authentic fixed-perimeter contrast problem.", "targetLearnerRealization": "Area counts square units inside; perimeter counts linear units around.", "suggestedShape": "Let learners trace the boundary of two tiled shapes and separately click/count their covered unit squares; include equal-area/different-perimeter and equal-perimeter/different-area pairs.", "constraints": ["Keep units explicit.", "Do not present formulas before unit-square models.", "Include a non-axis-aligned height later only after base-height meaning is secure."]},
+    "searchCues": ["area and perimeter", "perimeter", "area", "same fence", "rectangle square"],
+    "avoidCues": ["volume", "similarity only"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "G4",
+    "preferredSource": "bank",
+    "targetLearnerRealization": "Area is additive, so a complicated region can be cut, rearranged, or subtracted into simple pieces without changing the total coverage.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2000-06",
+      "role": "anchor",
+      "metrics": {"conceptFit": 0.98, "conceptPurity": 0.96, "animationFit": 0.96, "discoveryValue": 0.94, "transferValue": 0.78, "prerequisiteLoad": 0.04},
+      "whyNow": "The shaded L-shaped region has no special formula but is immediately approachable as a large region minus smaller squares or as rectangles, making decomposition the actual insight.",
+      "entryBridge": "Show the shaded region before any dimensions are calculated and ask learners to draw one cut or identify one enclosing shape.",
+      "reusedRepresentation": "Translucent area pieces that can be cut, moved, and subtracted while a total area meter remains invariant.",
+      "animationPlan": "Offer two valid decompositions, animate each into rectangles/squares, and show both totals agree.",
+      "learnerPrompts": ["What simple shape could contain this whole region?", "Which pieces would we subtract or rearrange?", "Why must two different decompositions agree?"],
+      "exitBridge": "Name decomposition as a general geometry strategy and later reuse it in circles, similar figures, and coordinate area."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2000-25", "recommendedRole": "transfer", "fitScore": 0.9, "reason": "A midpoint triangle inside a rectangle rewards subtracting corner regions rather than seeking a direct formula."}],
+    "generatedTeachingPlan": {"needed": false, "reason": "The authentic L-shaped shaded region isolates area decomposition exceptionally well.", "targetLearnerRealization": "The same area can be computed through multiple valid partitions.", "suggestedShape": "No generated anchor needed; generated practice should use novel cut/rearrange shapes.", "constraints": []},
+    "searchCues": ["area decomposition", "shaded region", "L-shaped", "subtract area", "rearrange"],
+    "avoidCues": ["formula-only rectangle"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "G5",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "For a right triangle, the square on the hypotenuse has area equal to the sum of the squares on the legs, which yields a^2+b^2=c^2.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2005-07",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.94, "conceptPurity": 0.91, "animationFit": 0.93, "discoveryValue": 0.77, "transferValue": 0.9, "prerequisiteLoad": 0.06},
+      "whyNow": "The walking path produces perpendicular net displacements, turning a real movement problem directly into a right triangle after the theorem has been motivated geometrically.",
+      "entryBridge": "Collapse the south/east/south route into total horizontal and vertical displacement on the same square-grid model used for the theorem.",
+      "reusedRepresentation": "A square grid with right-triangle legs and squares constructed on each side.",
+      "animationPlan": "Combine the two southward legs, draw the direct displacement as hypotenuse, and apply the area-square relationship rather than merely substituting into a formula.",
+      "learnerPrompts": ["What are the total perpendicular displacements?", "Which side is the hypotenuse, and how do you know?"],
+      "exitBridge": "Use the resulting distance as a bridge to coordinate distance and later similarity applications."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2007-14", "recommendedRole": "transfer", "fitScore": 0.92, "reason": "Area first determines the altitude of an isosceles triangle, then Pythagorean theorem finds the equal side, combining ideas naturally."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "A visual dissection or area model should explain why the theorem is true before contest problems use it as a tool.", "targetLearnerRealization": "The relationship is about squares/areas on the sides and only applies to right triangles.", "suggestedShape": "Construct squares on a 3-4-5 triangle; animate unit-square counts or a rearrangement showing the two leg squares exactly fill the hypotenuse square.", "constraints": ["Make the right-angle condition visually explicit.", "Identify hypotenuse by opposite the right angle, not orientation.", "Require taking a square root after solving for c^2."]},
+    "searchCues": ["Pythagorean", "right triangle", "direct distance", "3-4-5", "hypotenuse"],
+    "avoidCues": ["non-right triangle", "similarity primary"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "G6",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Similar figures preserve shape while every corresponding length scales by one factor; area therefore scales by the square of that factor.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2001-09",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.9, "conceptPurity": 0.82, "animationFit": 0.9, "discoveryValue": 0.72, "transferValue": 0.89, "prerequisiteLoad": 0.1},
+      "whyNow": "Tripling both dimensions of a kite/grid turns linear scale into an area consequence and makes the difference between k and k^2 visible.",
+      "entryBridge": "Keep the lesson's resizable shape and set its scale slider to 3, then reveal the small and large kite grids from the contest problem.",
+      "reusedRepresentation": "A shape overlaid on a grid with a single scale-factor control and live length/area readouts.",
+      "animationPlan": "Scale all lengths by 3, show the bounding rectangle area expand by 9, then compute the waste corners using decomposition.",
+      "learnerPrompts": ["What happened to every length?", "Why did the number of square units grow by 9 rather than 3?"],
+      "exitBridge": "Generalize to similar triangles and correspondence; later use hidden similarity in harder AMC transfer."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2023-19", "recommendedRole": "transfer", "fitScore": 0.94, "reason": "An inner equilateral triangle scaled by 2/3 forces area-ratio reasoning inside a less obvious geometry setup."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "The key connection from ratios to whole-shape scaling is best made with a draggable dilation before an area/waste contest problem.", "targetLearnerRealization": "One common scale factor controls all corresponding lengths, and area counts two dimensions so it scales by k^2.", "suggestedShape": "Resize a triangle with a scale slider while corresponding side ratios stay fixed; tile a square/rectangle to make area scaling emerge visually.", "constraints": ["Reuse F3's ratio-batch language explicitly.", "Force matching corresponding sides by color.", "Contrast similarity with congruence."]},
+    "searchCues": ["similar triangles", "scale factor", "similar figures", "area ratio", "scaled"],
+    "avoidCues": ["ratio word problem without geometry"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "G7",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Polygon families are defined by properties, often nested, and interior-angle structure can be understood by decomposing polygons into triangles.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2009-09",
+      "role": "transfer",
+      "metrics": {"conceptFit": 0.84, "conceptPurity": 0.7, "animationFit": 0.91, "discoveryValue": 0.58, "transferValue": 0.95, "prerequisiteLoad": 0.16},
+      "whyNow": "The regular-polygon chain is a strong contest transfer involving polygon side structure, but it is too specialized to introduce quadrilateral/polygon families.",
+      "entryBridge": "After the property/classification explorer, reveal the chained regular polygons and track which sides become internal versus remain on the boundary.",
+      "reusedRepresentation": "Polygon outlines whose defining properties and boundary edges highlight dynamically.",
+      "animationPlan": "Attach each regular polygon one at a time, mark shared sides as internal, and update total outer side count.",
+      "learnerPrompts": ["Which sides are still on the outside boundary?", "Which defining properties make each polygon regular?"],
+      "exitBridge": "Return from the contest construction to the broader strategy of reasoning from properties rather than appearance."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": true, "reason": "A morphing property explorer is much better for nested quadrilateral categories and triangle-based polygon angle sums than a specific contest polygon chain.", "targetLearnerRealization": "A square satisfies the definition of rectangle and rhombus; polygon angle sums come from n-2 triangles.", "suggestedShape": "Drag vertices while property badges turn on/off; separately fan-diagonal an n-gon from one vertex and count triangles.", "constraints": ["Explicitly address nested classifications.", "Use property badges, not prototype pictures.", "Derive angle-sum formula from triangle decomposition."]},
+    "searchCues": ["polygons", "quadrilateral", "regular polygon", "interior angles", "sides"],
+    "avoidCues": ["area-only quadrilateral"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "G8",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Radius controls circle measurements; arcs and sectors are fractions of the whole determined by central angle, while circumference and area scale differently.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2024-18",
+      "role": "transfer",
+      "metrics": {"conceptFit": 0.91, "conceptPurity": 0.8, "animationFit": 0.96, "discoveryValue": 0.68, "transferValue": 0.96, "prerequisiteLoad": 0.14},
+      "whyNow": "Concentric annuli plus a sector force learners to combine circle area and central-angle fractions after those ideas are understood.",
+      "entryBridge": "Keep the lesson's sector fraction wheel and add concentric rings one at a time until it becomes the contest diagram.",
+      "reusedRepresentation": "Concentric circles with radial area bands and a central-angle sector slider.",
+      "animationPlan": "Compute full annular areas first, then shade a chosen angular fraction and solve the equal shaded/unshaded condition.",
+      "learnerPrompts": ["What fraction of a full turn is this sector?", "Does doubling radius double area?"],
+      "exitBridge": "Connect area fractions to geometric probability as a later cross-node application."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2010-19", "recommendedRole": "guided", "fitScore": 0.84, "reason": "Area between concentric circles is a cleaner first authentic application of radius and circle area."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "The core circumference/area and sector-fraction relationships should be discovered with a manipulable circle before a multi-region contest problem.", "targetLearnerRealization": "A central angle selects the same fraction of circumference and area as it does of 360 degrees.", "suggestedShape": "Unroll circumference into a line, then slice a circle into sectors with a central-angle slider; show radius doubling effects on circumference and tiled area.", "constraints": ["Keep radius and diameter visually distinct.", "Separate circumference from area units.", "Use central angle as fraction-of-whole rather than formula memorization first."]},
+    "searchCues": ["circles", "sector", "arc", "concentric", "radius", "circumference", "circle area"],
+    "avoidCues": ["advanced tangent theorem"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "G9",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Rigid transformations preserve distance and angle while moving or reflecting a figure; symmetry describes transformations that leave the overall figure unchanged.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2010-06",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.87, "conceptPurity": 0.84, "animationFit": 0.9, "discoveryValue": 0.72, "transferValue": 0.8, "prerequisiteLoad": 0.03},
+      "whyNow": "Comparing lines of symmetry is a clean authentic application after reflection has been experienced as a transformation rather than a visual-guessing task.",
+      "entryBridge": "Keep the lesson's mirror line tool and place it over each contest figure rather than switching to static inspection.",
+      "reusedRepresentation": "A draggable reflection axis that overlays the reflected copy onto the original.",
+      "animationPlan": "Test candidate axes by reflecting the figure and measuring whether every point lands on the figure; count only exact matches.",
+      "learnerPrompts": ["Would folding across this line make the two halves coincide?", "What properties stayed unchanged under reflection?"],
+      "exitBridge": "Move from 2D rotations/reflections to mentally rotating and folding cube nets in G11."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2005-03", "recommendedRole": "transfer", "fitScore": 0.88, "reason": "Diagonal symmetry on a grid requires constructing missing reflected cells rather than merely recognizing a symmetric figure."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "The broader transformation/invariant concept requires interactive motion beyond the bank's mostly symmetry-specific problems.", "targetLearnerRealization": "Moving, rotating, or reflecting a figure can change position/orientation without changing lengths or angles.", "suggestedShape": "Drag a triangle through translation, rotation, and reflection while side lengths/angles remain pinned; then test symmetry as a transformation mapping the figure to itself.", "constraints": ["Distinguish reflection from rotation.", "Include non-prototype orientations.", "Reserve dilation as a contrast because it is not rigid."]},
+    "searchCues": ["symmetry", "reflection", "rotation", "transformation", "line of symmetry"],
+    "avoidCues": ["scale factor as primary"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "G10",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Volume measures 3D filling while surface area measures exposed 2D boundary; joining solids can hide faces without changing volume additivity.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2000-22",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.91, "conceptPurity": 0.84, "animationFit": 0.95, "discoveryValue": 0.76, "transferValue": 0.9, "prerequisiteLoad": 0.1},
+      "whyNow": "Attaching a cube changes exposed surface area in a way that makes hidden contact faces visible and contrasts surface with volume.",
+      "entryBridge": "After building cubes from unit layers, attach one new cube to the lesson model exactly as in the contest setup.",
+      "reusedRepresentation": "A rotatable unit-cube model with exposed faces highlighted and hidden contact faces faded.",
+      "animationPlan": "Show six faces on the new cube, then hide the touching face and the old face it covers; compare net surface-area increase with volume increase.",
+      "learnerPrompts": ["Which faces are actually exposed after the cubes touch?", "What happens to volume when a face becomes hidden?"],
+      "exitBridge": "Ask how the same solid can be represented flat, creating the transition to nets/spatial visualization."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2019-09", "recommendedRole": "transfer", "fitScore": 0.87, "reason": "Cylinder volume scaling tests recognition that volume responds to multiple dimensions rather than a single length scale."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "Unit cubes and face tiles provide a clearer first distinction between volume and surface area than a percent-change surface problem.", "targetLearnerRealization": "Volume counts cubes; surface area counts only exposed square faces.", "suggestedShape": "Build rectangular prisms layer by layer from unit cubes while separate counters track cube count and exposed-face count.", "constraints": ["Use cubic versus square units explicitly.", "Hide internal/contact faces visibly.", "Include scaling one dimension versus all dimensions."]},
+    "searchCues": ["volume", "surface area", "cube", "solid", "cylinder", "exposed faces"],
+    "avoidCues": ["net-only"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "G11",
+    "preferredSource": "bank",
+    "targetLearnerRealization": "A cube net encodes 3D adjacency and orientation; folding can be tracked as a sequence of rotations rather than guessed from the flat picture.",
+    "bestBankCandidate": {
+      "problemId": "amc8-1999-08",
+      "role": "anchor",
+      "metrics": {"conceptFit": 1.0, "conceptPurity": 0.99, "animationFit": 1.0, "discoveryValue": 0.98, "transferValue": 0.8, "prerequisiteLoad": 0.04},
+      "whyNow": "The problem is literally a labeled cube net asking for an opposite face, and the existing animation already folds the net into the cube.",
+      "entryBridge": "Begin with the authentic net itself but initially hide the multiple-choice question; ask learners to predict where one highlighted face will travel when folding begins.",
+      "reusedRepresentation": "The exact labeled net and its foldable 3D counterpart.",
+      "animationPlan": "Fold one hinge at a time, pause after each fold for orientation predictions, then resolve all three opposite-face pairs before revealing the answer choice.",
+      "learnerPrompts": ["Which edge acts as the hinge for this fold?", "Which face should end up opposite W?", "How can we track orientation without relying on the final picture?"],
+      "exitBridge": "Extract reusable strategies—track adjacency, roll along paths, identify opposite pairs—and finish with a fresh generated net."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": false, "reason": "This is exactly the kind of authentic problem whose existing animation should become the lesson medium rather than be appended as practice.", "targetLearnerRealization": "Flat adjacency plus fold rotations determine 3D face relationships.", "suggestedShape": "No generated anchor needed; generated practice can produce many fresh valid cube nets and target-face questions.", "constraints": []},
+    "searchCues": ["cube net", "spatial reasoning", "opposite face", "fold", "net"],
+    "avoidCues": ["surface area net only"],
+    "reviewStatus": "approved"
+  }
+]
