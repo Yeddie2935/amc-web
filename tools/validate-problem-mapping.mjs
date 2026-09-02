@@ -20,9 +20,19 @@ const nodeFiles = [
   "problem-solving.json",
 ];
 
-const mappings = mappingFiles.flatMap((file) =>
+const baseMappings = mappingFiles.flatMap((file) =>
   JSON.parse(fs.readFileSync(path.join(curriculumDir, file), "utf8"))
 );
+const overrides = JSON.parse(
+  fs.readFileSync(path.join(curriculumDir, "problem-mapping-review-overrides.json"), "utf8")
+);
+const overridesByLesson = Object.fromEntries(
+  overrides.map((override) => [override.lessonId, override])
+);
+const mappings = baseMappings.map((mapping) => ({
+  ...mapping,
+  ...(overridesByLesson[mapping.lessonId] ?? {}),
+}));
 const nodes = nodeFiles.flatMap((file) =>
   JSON.parse(fs.readFileSync(path.join(curriculumDir, file), "utf8"))
 );
@@ -41,6 +51,12 @@ const seenLessons = new Set();
 
 if (mappings.length !== nodes.length) {
   errors.push(`Expected ${nodes.length} mappings, found ${mappings.length}.`);
+}
+
+for (const override of overrides) {
+  if (!nodeIds.has(override.lessonId)) {
+    errors.push(`Review override references unknown lesson ${override.lessonId}.`);
+  }
 }
 
 for (const mapping of mappings) {
@@ -69,13 +85,7 @@ for (const mapping of mappings) {
       continue;
     }
     if (!bankIds.has(candidate.problemId)) {
-      // A needs-review secondary candidate may be intentionally provisional, but
-      // it can never authorize lesson integration.
-      if (mapping.reviewStatus === "needs-review" && candidate !== mapping.bestBankCandidate) {
-        warnings.push(`${mapping.lessonId}: provisional candidate ${candidate.problemId} not found in bank.`);
-      } else {
-        errors.push(`${mapping.lessonId}: bank problem ${candidate.problemId} not found in sampleProblems.ts.`);
-      }
+      errors.push(`${mapping.lessonId}: bank problem ${candidate.problemId} not found in sampleProblems.ts.`);
     }
   }
 
