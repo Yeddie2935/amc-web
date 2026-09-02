@@ -1,0 +1,128 @@
+[
+  {
+    "id": "N1",
+    "title": "Divisibility",
+    "strand": "numberTheory",
+    "lessonType": "foundation",
+    "coreInsight": "Divisibility asks whether a quantity can be partitioned into equal groups with no remainder; digit tests are consequences of place-value structure rather than magic rules.",
+    "hardPrerequisites": ["F1"],
+    "narrativePredecessor": "F1",
+    "narrativeTransition": "Repeatedly sort quantities into equal groups and ask what property distinguishes the cases with no leftovers.",
+    "unlocks": ["N2", "N5", "S3"],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "Divisor, factor, and multiple are interchangeable words.",
+      "1 is prime.",
+      "A divisibility test can be applied outside the condition under which it was derived.",
+      "The remainder can be ignored when discussing divisibility."
+    ]
+  },
+  {
+    "id": "N2",
+    "title": "Primes & Prime Factorization",
+    "strand": "numberTheory",
+    "lessonType": "foundation",
+    "coreInsight": "Every positive integer greater than 1 decomposes uniquely into prime building blocks.",
+    "hardPrerequisites": ["N1"],
+    "narrativePredecessor": "N1",
+    "narrativeTransition": "Keep splitting composite factors until every branch ends in an indivisible prime, then compare different-looking factor trees of the same number.",
+    "unlocks": ["N3", "N4"],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "1 is prime.",
+      "Every odd number is prime.",
+      "Different orders of factoring produce different prime factorizations.",
+      "A composite number must have many distinct prime factors."
+    ]
+  },
+  {
+    "id": "N3",
+    "title": "GCD & LCM",
+    "strand": "numberTheory",
+    "lessonType": "foundation",
+    "coreInsight": "Prime factorization lets us compare multiplicative structure: the GCD keeps the prime powers shared by both numbers, while the LCM contains every prime power required by either.",
+    "hardPrerequisites": ["N2"],
+    "narrativePredecessor": "N2",
+    "narrativeTransition": "Line up two prime-factor inventories and physically form the shared collection and the smallest collection large enough to contain both.",
+    "unlocks": [],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "GCD and LCM are easily swapped.",
+      "The LCM always equals the product of the two numbers.",
+      "Common factors and common multiples are the same kind of object.",
+      "Prime multiplicities can be ignored."
+    ]
+  },
+  {
+    "id": "N4",
+    "title": "Factors & Divisor Counting",
+    "strand": "numberTheory",
+    "lessonType": "technique",
+    "coreInsight": "Choosing a divisor means independently choosing how many copies of each prime factor to include, so divisor counts arise from multiplying exponent-choice counts.",
+    "hardPrerequisites": ["N2", "A8"],
+    "narrativePredecessor": "N2",
+    "narrativeTransition": "Move from listing factor pairs to building every factor by selecting exponents from the prime factorization.",
+    "unlocks": [],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "Only factor pairs need to be counted.",
+      "1 and the number itself can be omitted.",
+      "Exponent-choice counts should be added rather than multiplied.",
+      "Different construction orders create different divisors."
+    ]
+  },
+  {
+    "id": "N5",
+    "title": "Remainders & Modular Arithmetic",
+    "strand": "numberTheory",
+    "lessonType": "foundation",
+    "coreInsight": "When division repeats in fixed groups, only the leftover position matters; numbers with the same remainder therefore behave alike for many purposes.",
+    "hardPrerequisites": ["N1"],
+    "narrativePredecessor": "N1",
+    "narrativeTransition": "Treat divisibility as the special remainder-zero case, then place all other numbers into repeating remainder classes or positions on a clock.",
+    "unlocks": ["N6"],
+    "transferConnections": ["N3"],
+    "commonMisconceptions": [
+      "A remainder may equal or exceed the divisor.",
+      "Congruence means ordinary equality.",
+      "The quotient is more important than the remainder class.",
+      "Equivalent remainder descriptions represent different modular states."
+    ]
+  },
+  {
+    "id": "N6",
+    "title": "Units Digits & Cycles",
+    "strand": "numberTheory",
+    "lessonType": "technique",
+    "coreInsight": "The last digits of repeated powers often form periodic residue cycles, so a huge exponent can be replaced by its position in a short cycle.",
+    "hardPrerequisites": ["N5", "A8"],
+    "narrativePredecessor": "N5",
+    "narrativeTransition": "Compute several successive units digits until repetition becomes visible, then use the cycle position instead of continuing the power.",
+    "unlocks": [],
+    "transferConnections": ["A7"],
+    "commonMisconceptions": [
+      "The cycle length can be assumed without checking.",
+      "Cycle positions are indexed from zero in every setup.",
+      "Every base has the same cycle length.",
+      "The exponent itself is the units digit pattern."
+    ]
+  },
+  {
+    "id": "N7",
+    "title": "Digits, Place Value & Number Bases",
+    "strand": "numberTheory",
+    "lessonType": "foundation",
+    "coreInsight": "A numeral is a weighted sum of its digits; changing the base changes the place-value weights but not the underlying positional idea.",
+    "hardPrerequisites": ["F1"],
+    "narrativePredecessor": "F1",
+    "narrativeTransition": "Decompose a familiar decimal numeral into hundreds, tens, and ones, then replace 10 with a general base to reveal the structure.",
+    "unlocks": [],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "A digit and the number it appears in are the same kind of object.",
+      "A leading zero creates a genuinely new place-value length.",
+      "Digit optimization can ignore positional weights.",
+      "Base-b numerals should still be interpreted with powers of 10."
+    ]
+  }
+]
