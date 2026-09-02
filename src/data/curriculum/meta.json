@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "target": {
     "competition": "AMC 8 / middle-school competition math",
     "positioning": "Contest-math-first and prealgebra-accessible; teach contest-useful conceptual machinery rather than reproducing a full Grade 6–8 textbook.",
@@ -38,18 +38,47 @@
     "contrast": "A problem is chosen because it exposes a misconception or makes an earlier method awkward enough to motivate a better one.",
     "transfer": "A later, mostly independent problem checks whether the learner can recognize the concept when it is disguised or combined with other ideas."
   },
+  "teachingExamplePolicy": {
+    "principle": "Choose the problem that best teaches the concept at that exact lesson beat, regardless of whether it comes from the authentic bank or is Mathinking-original.",
+    "sourcePriority": [
+      "Use an authentic bank problem when its mathematical structure, representation, difficulty, and existing animation naturally support the intended discovery or guided beat.",
+      "Do not force an authentic bank problem into a lesson merely to maximize bank reuse.",
+      "When no bank problem explains the concept cleanly enough, generate a purpose-built Mathinking-original teaching problem designed around the lesson's core insight, narrative transition, and target misconception.",
+      "A generated teaching problem may be simpler or more artificial than a contest problem when that simplicity isolates the concept and produces a clearer discovery.",
+      "After the concept is established, authentic bank problems can re-enter as guided applications or transfer to show how the idea appears in real contest settings."
+    ],
+    "generatedTeachingProblemRules": [
+      "Design backward from the exact learner realization the beat needs to produce, not from a desire to imitate an AMC surface style.",
+      "Prefer small numbers, clean cases, manipulable objects, and visual structures when they make the underlying reason visible.",
+      "Reuse representations from the preceding lesson beat so the generated problem feels continuous rather than inserted.",
+      "Generated teaching problems should be independently solved and validated before inclusion, even when they are simple.",
+      "Do not label Mathinking-original teaching examples as AMC or imply historical contest provenance.",
+      "Avoid lightly paraphrasing a bank problem; the purpose-built example should exist because it teaches the concept more cleanly than the available bank options.",
+      "The generator must record why a generated problem was preferred over the strongest bank candidate."
+    ],
+    "mapperDecisionFields": [
+      "preferredSource",
+      "bestBankCandidate",
+      "bankCandidateFit",
+      "generationNeeded",
+      "generationReason",
+      "targetLearnerRealization"
+    ]
+  },
   "integratedProblemPolicy": {
-    "principle": "An integrated bank problem must feel like the next natural beat of the lesson, not a worksheet interruption.",
+    "principle": "An integrated problem must feel like the next natural beat of the lesson, not a worksheet interruption.",
     "requirements": [
-      "The preceding lesson beat must create the question, representation, tension, or partial setup that the bank problem continues.",
-      "Prefer reusing the problem's objects, diagram, data, or animation before revealing the full contest prompt when this makes the transition smoother.",
-      "The lesson timeline may pause, skip, or interleave individual animation steps; do not embed the full animation player as an isolated block unless the problem is intentionally independent practice.",
+      "The preceding lesson beat must create the question, representation, tension, or partial setup that the problem continues.",
+      "For an authentic bank problem, prefer reusing the problem's objects, diagram, data, or animation before revealing the full contest prompt when this makes the transition smoother.",
+      "For a generated teaching problem, build directly from the representation, objects, or tension already established in the lesson.",
+      "The lesson timeline may pause, skip, or interleave individual bank-animation steps; do not embed the full animation player as an isolated block unless the problem is intentionally independent practice.",
       "Do not reset vocabulary, visual language, or representation at the problem boundary without a pedagogical reason.",
-      "The learner should understand why this problem appears now. If the generator cannot articulate that reason, the problem is not integrated and should be moved to practice or omitted.",
+      "The learner should understand why this problem appears now. If the generator cannot articulate that reason, the problem is not integrated and should be redesigned, moved to practice, or omitted.",
       "After the problem, explicitly harvest the mathematical idea it revealed and connect that idea to the next lesson beat rather than simply announcing the answer.",
       "Authentic contest provenance may be shown, but source labeling should not interrupt the conceptual flow."
     ],
     "mapperFields": [
+      "source",
       "role",
       "whyNow",
       "entryBridge",
@@ -89,6 +118,7 @@
     "When a visual or interaction can make the reason discoverable, let the learner see or manipulate it before explaining it in prose.",
     "Prefer concrete model -> learner attempt -> noticed structure -> concept name -> guided application -> independent transfer.",
     "Use an existing AMC problem only when it advances the lesson's narrative role; never insert a question merely because a topic tag matches.",
+    "If no authentic bank problem teaches the intended idea cleanly, generate a purpose-built Mathinking example rather than compromising the lesson flow.",
     "Existing problem animations may be controlled beat-by-beat by the lesson timeline rather than embedded as an isolated full player.",
     "Make new techniques feel necessary by showing where an earlier strategy becomes cumbersome, overlapping, incomplete, or conceptually insufficient.",
     "Keep explanatory prose short enough that animations and interactions remain the primary explanatory medium.",
