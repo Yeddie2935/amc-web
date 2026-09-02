@@ -8,7 +8,9 @@
     "build": "vite build",
     "postbuild": "node tools/prerender.mjs",
     "preview": "vite preview",
-    "validate:curriculum": "node tools/validate-curriculum.mjs"
+    "validate:curriculum": "node tools/validate-curriculum.mjs",
+    "validate:mapping": "node tools/validate-problem-mapping.mjs",
+    "validate:learn": "npm run validate:curriculum && npm run validate:mapping"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
