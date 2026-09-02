@@ -1,0 +1,149 @@
+[
+  {
+    "lessonId": "N1",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Divisibility means forming equal groups with no remainder; familiar digit tests are shortcuts that come from place-value structure rather than arbitrary rules.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2014-08",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.91, "conceptPurity": 0.89, "animationFit": 0.82, "discoveryValue": 0.72, "transferValue": 0.82, "prerequisiteLoad": 0.04},
+      "whyNow": "Once learners understand why a digit-sum test can encode divisibility, the missing-digit problem turns that principle into a concrete constraint instead of a memorized checklist.",
+      "entryBridge": "Keep the place-value/digit-sum tiles from the divisibility discovery and replace the digits with the contest number containing A.",
+      "reusedRepresentation": "Place-value blocks that collapse modulo the divisor into a smaller residue calculation.",
+      "animationPlan": "Show the known digits' contribution, leave one adjustable A tile, and highlight which choice makes the total divisible by 11.",
+      "learnerPrompts": ["What must be true of the whole number if eleven people split the cost equally?", "How does the missing digit affect that condition?"],
+      "exitBridge": "Use the solution to distinguish factor, divisor, and multiple, then ask what numbers cannot be factored further to motivate primes."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2018-07", "recommendedRole": "transfer", "fitScore": 0.86, "reason": "Combines a divisibility-by-9 digit condition with a remainder mod 8, showing divisibility tests inside a broader number-theory problem."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "The core meaning of divisibility and the reason behind simple tests should be built visually before an authentic digit puzzle.", "targetLearnerRealization": "Divisibility by d is exactly remainder 0 after grouping by d.", "suggestedShape": "Drag objects into equal groups, then move to base-10 place-value tiles and show why certain powers of 10 have predictable remainders.", "constraints": ["Begin from grouping, not from a list of tests.", "Explain at least divisibility by 2/5/10 structurally and one digit-sum test conceptually.", "Do not overload the first lesson with every common divisibility rule."]},
+    "searchCues": ["divisibility", "divisible", "missing digit", "multiple", "factor", "digit sum"],
+    "avoidCues": ["LCM as primary", "advanced modular arithmetic"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "N2",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Composite numbers can be broken into factors until only prime building blocks remain, and the final prime multiset is the number's multiplicative structure.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2007-03",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.92, "conceptPurity": 0.91, "animationFit": 0.84, "discoveryValue": 0.62, "transferValue": 0.75, "prerequisiteLoad": 0.03},
+      "whyNow": "After a factor-tree discovery, identifying the smallest prime factors of 250 is a clean authentic application with almost no unrelated load.",
+      "entryBridge": "Let the lesson's factor tree continue growing from 250 rather than switching to a new representation.",
+      "reusedRepresentation": "Branching factor tree with prime leaves visually locked.",
+      "animationPlan": "Offer several ways to split 250, show that all complete trees end with the same prime leaves, then answer the contest question from those leaves.",
+      "learnerPrompts": ["Can this factor split any further?", "If we start with a different factor pair, do we end with different prime building blocks?"],
+      "exitBridge": "Line up prime-factor inventories from two numbers to create the need for GCD and LCM."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2009-17", "recommendedRole": "transfer", "fitScore": 0.94, "reason": "Making 360 into a square/cube uses prime exponents as structural information and is an excellent advanced transfer."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "A purpose-built factor-tree opening can establish why primes are terminal building blocks and why different split paths converge before the bank asks students to use the idea.", "targetLearnerRealization": "Prime factorization captures multiplicative structure independent of the factor-tree path.", "suggestedShape": "Let learners split the same composite number in two different ways; animate both trees collapsing to the same sorted prime tiles.", "constraints": ["Explicitly address why 1 is not prime.", "Use at least one number with repeated prime factors.", "Connect exponents to repeated prime tiles after the visual is established."]},
+    "searchCues": ["prime factor", "prime factorization", "smallest prime", "factor tree", "prime exponents"],
+    "avoidCues": ["prime probability", "prime age logic"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "N3",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "GCD is the prime structure two numbers share, while LCM is the smallest prime inventory sufficient to build both numbers.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2003-19",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.94, "conceptPurity": 0.92, "animationFit": 0.91, "discoveryValue": 0.73, "transferValue": 0.84, "prerequisiteLoad": 0.06},
+      "whyNow": "The problem asks for numbers divisible by 15, 20, and 25, making LCM exactly the minimal common prime inventory the lesson just constructed.",
+      "entryBridge": "Place the three contest numbers as prime-factor stacks beside the same 'merge maximum stacks' visual used in the discovery.",
+      "reusedRepresentation": "Color-coded prime stacks where GCD takes intersections and LCM takes coordinate-wise maxima.",
+      "animationPlan": "Factor the three numbers, merge the required prime stacks into 300, then stamp multiples of 300 across the 1000–2000 interval.",
+      "learnerPrompts": ["What prime powers must a number contain to be divisible by all three?", "Why is 300 the smallest inventory that works?"],
+      "exitBridge": "Contrast with GCD using the same stacks, then connect common cycles to future remainder problems."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2013-10", "recommendedRole": "transfer", "fitScore": 0.9, "reason": "Asks for the ratio of LCM to GCF, forcing both operations from the same prime factorizations."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "The distinction between shared inventory and sufficient inventory is clearer with side-by-side prime tiles before an interval-counting application.", "targetLearnerRealization": "For each prime, GCD uses the smaller exponent and LCM uses the larger exponent.", "suggestedShape": "Build two numbers from colored prime blocks; drag common blocks into a GCD tray and enough blocks to reconstruct both into an LCM tray.", "constraints": ["Use the same visual language for GCD and LCM.", "Include a case where LCM is not the product.", "Tie each exponent choice back to reconstruction of the original numbers."]},
+    "searchCues": ["LCM", "GCF", "GCD", "least common multiple", "greatest common factor", "common multiple"],
+    "avoidCues": ["simple multiple without comparison"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "N4",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Every divisor corresponds to an independent choice of prime exponent from 0 up to the exponent available in the number.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2020-17",
+      "role": "transfer",
+      "metrics": {"conceptFit": 0.9, "conceptPurity": 0.78, "animationFit": 0.87, "discoveryValue": 0.58, "transferValue": 0.96, "prerequisiteLoad": 0.18},
+      "whyNow": "The 2020 divisor problem is excellent after divisor-count structure is secure because it asks about factors that themselves have more than three factors, layering the concept rather than introducing it.",
+      "entryBridge": "Reuse the exponent-choice grid from the lesson to enumerate factors of 2020, then inspect the divisor structure of each surviving factor.",
+      "reusedRepresentation": "A Cartesian grid of allowed prime exponents, each cell representing one divisor.",
+      "animationPlan": "Generate divisors from exponent choices, then classify which generated factors have enough internal factor structure.",
+      "learnerPrompts": ["Why does each exponent pair create exactly one divisor?", "Which generated factors can have only one, two, or three divisors?"],
+      "exitBridge": "Return to the product-of-choice-counts formula as a compressed version of the grid."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2022-03", "recommendedRole": "guided", "fitScore": 0.77, "reason": "Factor triples of 100 encourage systematic use of multiplicative structure, though not the divisor-count formula directly."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "No authentic problem is as clean for discovering why (a+1)(b+1)... counts divisors as an explicit exponent-choice construction.", "targetLearnerRealization": "Choosing a divisor of p^a q^b means choosing one of a+1 exponents for p and one of b+1 for q.", "suggestedShape": "For 2^3*3^2, give dropdown/slider choices for each exponent and populate a 4-by-3 grid of all 12 divisors.", "constraints": ["Build the formula only after every grid cell is visible.", "Include exponent 0 explicitly to explain the +1.", "Check for duplicates to demonstrate unique prime factorization."]},
+    "searchCues": ["divisors", "factors", "number of factors", "prime exponents", "factor count"],
+    "avoidCues": ["GCD only", "factorial only"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "N5",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Numbers with the same remainder occupy the same repeating position after grouping, so many calculations can track only that position instead of the entire number.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2016-05",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.9, "conceptPurity": 0.86, "animationFit": 0.86, "discoveryValue": 0.72, "transferValue": 0.84, "prerequisiteLoad": 0.06},
+      "whyNow": "A small two-remainder problem makes learners use the remainder condition as a structural filter immediately after the modular clock/grouping model.",
+      "entryBridge": "Keep the remainder clock visible and place candidate numbers around it instead of introducing congruence notation first.",
+      "reusedRepresentation": "Circular residue positions and equal-group remainder bins.",
+      "animationPlan": "Filter candidates by one remainder condition, then the second, highlighting that only residue position matters for each divisor.",
+      "learnerPrompts": ["Which numbers land on the same remainder position?", "What information about the quotient can we safely ignore?"],
+      "exitBridge": "Introduce concise congruence notation only after the repeated-position idea is secure, then look for repeated powers to motivate units-digit cycles."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2006-23", "recommendedRole": "transfer", "fitScore": 0.93, "reason": "The gold-coin problem combines two remainder conditions and then asks for a third, a strong hidden modular-structure transfer."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "A physical grouping/clock model can explain what a remainder class is before authentic problems ask learners to manipulate multiple conditions.", "targetLearnerRealization": "For a fixed divisor, the remainder repeats periodically and must be smaller than the divisor.", "suggestedShape": "March integers around a clock with d positions; numbers landing on the same spot share a remainder, then connect that to equal-group leftovers.", "constraints": ["Start with a small modulus such as 4 or 5.", "Explicitly reject remainder equal to the divisor.", "Delay formal congruence notation until after the visual model."]},
+    "searchCues": ["remainder", "mod", "leaves a remainder", "divided by", "congruence"],
+    "avoidCues": ["units digit only", "LCM-only problem"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "N6",
+    "preferredSource": "bank",
+    "targetLearnerRealization": "The units digit of repeated powers follows a cycle, so a huge exponent only determines a position within that short cycle.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2012-12",
+      "role": "anchor",
+      "metrics": {"conceptFit": 0.99, "conceptPurity": 0.98, "animationFit": 0.94, "discoveryValue": 0.94, "transferValue": 0.74, "prerequisiteLoad": 0.04},
+      "whyNow": "The units digit of 13^2012 looks impossible by direct computation but becomes trivial once the first few powers expose a four-step cycle.",
+      "entryBridge": "Ask learners to compute only the units digits of the first few powers, not the full powers, and let the repeated sequence emerge before revealing the giant exponent.",
+      "reusedRepresentation": "A four-position cycle ring labeled by successive units digits.",
+      "animationPlan": "Generate 3,9,7,1, then snap back to 3; map exponent 2012 to its cycle position using remainder reasoning from N5.",
+      "learnerPrompts": ["What repeats even though the powers themselves keep growing?", "Where does exponent 2012 land in a cycle of length 4?"],
+      "exitBridge": "Connect the cycle explicitly to modular arithmetic and sequences, then use a harder sum-of-powers transfer."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2000-14", "recommendedRole": "transfer", "fitScore": 0.91, "reason": "A sum of two large powers requires tracking two units-digit cycles and combining them."}],
+    "generatedTeachingPlan": {"needed": false, "reason": "The authentic 13^2012 problem naturally creates the need for a cycle and has almost no unrelated prerequisite load.", "targetLearnerRealization": "Large exponents can be reduced to cycle positions.", "suggestedShape": "Not needed for the main discovery; generated checks can vary cycle lengths and off-by-one cases.", "constraints": []},
+    "searchCues": ["units digit", "last digit", "power cycle", "powers", "cycle"],
+    "avoidCues": ["last two digits", "advanced modulus"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "N7",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "A numeral is a weighted sum of its digits, so digit constraints and alternate bases can be translated into algebraic place-value structure.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2012-16",
+      "role": "transfer",
+      "metrics": {"conceptFit": 0.85, "conceptPurity": 0.77, "animationFit": 0.84, "discoveryValue": 0.58, "transferValue": 0.93, "prerequisiteLoad": 0.14},
+      "whyNow": "Maximizing the sum of two five-digit numbers makes place-value weights—not digit values alone—the decisive structure.",
+      "entryBridge": "Keep the lesson's place-value columns visible and let the ten digits become draggable tiles into the two contest numbers.",
+      "reusedRepresentation": "Place-value columns with weights 10^4, 10^3, ... and digit tiles.",
+      "animationPlan": "Highlight that the largest digits should occupy the highest-weight positions, then test candidate arrangements against that principle.",
+      "learnerPrompts": ["Which positions influence the total most?", "Why does swapping two digits between place values change the sum?"],
+      "exitBridge": "Write a numeral as a weighted sum and then replace powers of 10 with powers of b to introduce number bases."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2025-02", "recommendedRole": "guided", "fitScore": 0.78, "reason": "A place-value reading problem is a low-load authentic application before harder digit optimization."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "The foundational weighted-sum meaning and extension to bases are cleaner with manipulable place-value blocks than with an optimization problem.", "targetLearnerRealization": "abc in base 10 means 100a+10b+c, and the same idea in base b uses b^2, b, and 1.", "suggestedShape": "Drag digit tiles across hundreds/tens/ones columns while a weighted-sum expression updates live; then relabel the column weights for base 5.", "constraints": ["Distinguish digit from numerical value.", "Show why leading zero does not create a new place.", "Treat alternate bases as the same positional idea, not as a separate trick."]},
+    "searchCues": ["place value", "digits", "five-digit", "missing digit", "number base", "numeral"],
+    "avoidCues": ["divisibility as primary", "permutation only"],
+    "reviewStatus": "approved"
+  }
+]
