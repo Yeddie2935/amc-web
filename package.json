@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "validate:curriculum": "node tools/validate-curriculum.mjs",
     "validate:mapping": "node tools/validate-problem-mapping.mjs",
-    "validate:learn": "npm run validate:curriculum && npm run validate:mapping"
+    "validate:lessons": "node tools/validate-lesson-spec.mjs",
+    "validate:learn": "npm run validate:curriculum && npm run validate:mapping && npm run validate:lessons"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
