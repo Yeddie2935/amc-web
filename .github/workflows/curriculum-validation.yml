@@ -4,22 +4,30 @@ on:
   pull_request:
     paths:
       - "src/data/curriculum/**"
+      - "src/data/lessons/**"
       - "src/types/curriculum.ts"
       - "src/types/curriculumProblemMapping.ts"
+      - "src/types/lesson.ts"
       - "src/lib/curriculumProblemMapper.ts"
+      - "docs/lesson-generator-contract.md"
       - "tools/validate-curriculum.mjs"
       - "tools/validate-problem-mapping.mjs"
+      - "tools/validate-lesson-spec.mjs"
       - "package.json"
   push:
     branches:
       - main
     paths:
       - "src/data/curriculum/**"
+      - "src/data/lessons/**"
       - "src/types/curriculum.ts"
       - "src/types/curriculumProblemMapping.ts"
+      - "src/types/lesson.ts"
       - "src/lib/curriculumProblemMapper.ts"
+      - "docs/lesson-generator-contract.md"
       - "tools/validate-curriculum.mjs"
       - "tools/validate-problem-mapping.mjs"
+      - "tools/validate-lesson-spec.mjs"
       - "package.json"
 
 jobs:
