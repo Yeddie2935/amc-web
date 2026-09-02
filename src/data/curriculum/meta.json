@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "target": {
     "competition": "AMC 8 / middle-school competition math",
     "positioning": "Contest-math-first and prealgebra-accessible; teach contest-useful conceptual machinery rather than reproducing a full Grade 6–8 textbook.",
@@ -38,6 +38,52 @@
     "contrast": "A problem is chosen because it exposes a misconception or makes an earlier method awkward enough to motivate a better one.",
     "transfer": "A later, mostly independent problem checks whether the learner can recognize the concept when it is disguised or combined with other ideas."
   },
+  "integratedProblemPolicy": {
+    "principle": "An integrated bank problem must feel like the next natural beat of the lesson, not a worksheet interruption.",
+    "requirements": [
+      "The preceding lesson beat must create the question, representation, tension, or partial setup that the bank problem continues.",
+      "Prefer reusing the problem's objects, diagram, data, or animation before revealing the full contest prompt when this makes the transition smoother.",
+      "The lesson timeline may pause, skip, or interleave individual animation steps; do not embed the full animation player as an isolated block unless the problem is intentionally independent practice.",
+      "Do not reset vocabulary, visual language, or representation at the problem boundary without a pedagogical reason.",
+      "The learner should understand why this problem appears now. If the generator cannot articulate that reason, the problem is not integrated and should be moved to practice or omitted.",
+      "After the problem, explicitly harvest the mathematical idea it revealed and connect that idea to the next lesson beat rather than simply announcing the answer.",
+      "Authentic contest provenance may be shown, but source labeling should not interrupt the conceptual flow."
+    ],
+    "mapperFields": [
+      "role",
+      "whyNow",
+      "entryBridge",
+      "reusedRepresentation",
+      "animationSteps",
+      "learnerPrompts",
+      "exitBridge"
+    ]
+  },
+  "practicePolicy": {
+    "principle": "Every lesson ends with a distinct practice phase after the teaching narrative is complete.",
+    "defaultCount": 5,
+    "defaultMix": {
+      "generatedNearTransfer": 2,
+      "generatedMixedTransfer": 2,
+      "authenticBankTransfer": 1
+    },
+    "generatedProblemRules": [
+      "Generated problems are Mathinking-original practice, never presented as AMC or as historical contest problems.",
+      "Generate from the lesson's core insight and misconception profile, not by lightly paraphrasing a bank problem.",
+      "Vary context, numerical structure, representation, and surface form while preserving the intended mathematical demand.",
+      "At least one generated problem should be near transfer so the learner can consolidate the newly learned idea.",
+      "At least one generated problem should require recognizing the idea in a less obvious or combined form.",
+      "Generated problems must have independently recomputed answers and validated solution paths before entering the practice pool.",
+      "Reject ambiguous wording, accidental multiple answers, impossible diagrams, or solutions that require concepts outside the declared prerequisite graph unless explicitly marked as challenge transfer.",
+      "Prefer pre-generated and validated practice pools or parameterized templates over unvalidated live generation during a student session."
+    ],
+    "bankProblemRules": [
+      "Use the authentic bank primarily for transfer, challenge, and contest calibration after the concept is understood.",
+      "A bank problem already used as an integrated anchor, guided, or contrast problem should not immediately reappear as final practice.",
+      "Do not exhaust the finite bank merely to make every practice set authentic; generated material should provide repeatability and freshness."
+    ],
+    "masteryCheck": "Use performance across the final practice set, with extra weight on independent mixed-transfer items, as one input to mastery rather than treating lesson completion itself as mastery."
+  },
   "authoringPrinciples": [
     "Start from a concrete puzzle, pattern, or tension before naming a technique.",
     "When a visual or interaction can make the reason discoverable, let the learner see or manipulate it before explaining it in prose.",
@@ -48,6 +94,7 @@
     "Keep explanatory prose short enough that animations and interactions remain the primary explanatory medium.",
     "Treat common misconceptions as design inputs: surface a plausible wrong idea, make its failure visible, and repair the model.",
     "Do not introduce a formula before the learner has a model for why the formula counts or measures what it claims to.",
+    "End the teaching narrative before the final practice phase, then use fresh near-transfer and mixed-transfer problems to test independent understanding.",
     "End with transfer: at least one problem should require recognizing the idea in a less obvious form."
   ],
   "preferredLessonBeats": [
@@ -59,6 +106,7 @@
     "competition_application",
     "guided_problem",
     "independent_transfer",
+    "practice_set",
     "mastery_check"
   ],
   "goldNarrativeEdges": [
