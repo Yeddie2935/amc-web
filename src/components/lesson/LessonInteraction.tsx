@@ -33,7 +33,7 @@ function UnsupportedResponse({
   disabled,
   onResolved,
 }: {
-  kind: "sort" | "match";
+  kind: "match";
   disabled: boolean;
   onResolved: () => void;
 }) {
@@ -81,6 +81,7 @@ export function LessonInteraction({
   onResolved,
 }: LessonInteractionProps) {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [bucketByItem, setBucketByItem] = useState<Record<string, string>>({});
   const [input, setInput] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const response = beat.response;
@@ -269,7 +270,86 @@ export function LessonInteraction({
         );
       }
 
-      case "sort":
+      case "sort": {
+        const allAssigned = responseSpec.items.every(
+          (item) => bucketByItem[item.id]
+        );
+        const correct =
+          allAssigned &&
+          responseSpec.items.every(
+            (item) =>
+              bucketByItem[item.id] === responseSpec.correctBucketByItem[item.id]
+          );
+        const locked = completed || (submitted && (correct || !beat.allowRetry));
+        const feedback = correct
+          ? beat.correctFeedback ??
+            responseSpec.feedback ??
+            "Every item has exactly one correct home."
+          : beat.incorrectFeedback ?? "At least one item belongs in a different case.";
+
+        return (
+          <>
+            <div className="fmj-lesson-sort" aria-label="Sort items into cases">
+              {responseSpec.items.map((item) => (
+                <section key={item.id} className="fmj-lesson-sort-item">
+                  <strong>{item.text}</strong>
+                  <div className="fmj-lesson-sort-buckets">
+                    {responseSpec.buckets.map((bucket) => {
+                      const selected = bucketByItem[item.id] === bucket.id;
+                      return (
+                        <button
+                          key={bucket.id}
+                          type="button"
+                          className={selected ? "selected" : ""}
+                          aria-pressed={selected}
+                          disabled={locked}
+                          onClick={() => {
+                            setBucketByItem((current) => ({
+                              ...current,
+                              [item.id]: bucket.id,
+                            }));
+                            if (beat.allowRetry) setSubmitted(false);
+                          }}
+                        >
+                          {bucket.text}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </section>
+              ))}
+            </div>
+            <div className="fmj-lesson-case-grid fmj-lesson-sort-result" aria-live="polite">
+              {responseSpec.buckets.map((bucket) => {
+                const assignedItems = responseSpec.items.filter(
+                  (item) => bucketByItem[item.id] === bucket.id
+                );
+                return (
+                  <section key={bucket.id}>
+                    <h4>{bucket.text}</h4>
+                    {assignedItems.length > 0 ? (
+                      <ul>
+                        {assignedItems.map((item) => (
+                          <li key={item.id}>{item.text}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="fmj-lesson-sort-empty">No items yet</p>
+                    )}
+                  </section>
+                );
+              })}
+            </div>
+            <div className="fmj-lesson-response-actions">
+              <Button disabled={!allAssigned || locked} onClick={() => finish(correct)}>
+                Check cases
+              </Button>
+            </div>
+            {submitted && <Feedback correct={correct}>{feedback}</Feedback>}
+          </>
+        );
+      }
+
       case "match":
         return (
           <UnsupportedResponse

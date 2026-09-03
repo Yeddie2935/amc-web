@@ -16,6 +16,7 @@ interface LessonProblemBeatProps {
   beat: LessonProblemBeatSpec;
   generatedProblemArtifacts: readonly GeneratedProblemArtifact[];
   completed: boolean;
+  onResolved: () => void;
 }
 
 type AnimationStepSelection =
@@ -180,7 +181,10 @@ export function LessonProblemBeat({
   beat,
   generatedProblemArtifacts,
   completed,
+  onResolved,
 }: LessonProblemBeatProps) {
+  const [selectedAnswer, setSelectedAnswer] = useState("");
+  const [submitted, setSubmitted] = useState(false);
   const problem =
     beat.source === "bank"
       ? bankProblemById.get(beat.problemId)
@@ -198,6 +202,11 @@ export function LessonProblemBeat({
               ? `No bank problem was found for ${beat.problemId}.`
               : `No generated problem artifact was supplied for ${beat.problemId}.`}
           </p>
+          {!completed && (
+            <Button variant="secondary" onClick={onResolved}>
+              Continue without problem
+            </Button>
+          )}
         </div>
       </div>
     );
@@ -216,6 +225,74 @@ export function LessonProblemBeat({
     />
   );
   const statement = <ProblemStatement problem={problem} />;
+  const normalizedAnswer = selectedAnswer.trim().toLowerCase();
+  const acceptedAnswers = [problem.answer, problem.shortAnswer]
+    .filter((answer): answer is string => Boolean(answer))
+    .map((answer) => answer.trim().toLowerCase());
+  const correct = acceptedAnswers.includes(normalizedAnswer);
+
+  function checkAnswer() {
+    if (!selectedAnswer.trim()) return;
+    setSubmitted(true);
+    if (correct || beat.role !== "transfer") onResolved();
+  }
+
+  const answerPicker = (
+    <section className="fmj-lesson-problem-answer" aria-label="Problem response">
+      <h3>Your answer</h3>
+      {problem.choices ? (
+        <div className="fmj-answer-buttons">
+          {problem.choices.map((choice) => (
+            <button
+              key={choice.label}
+              type="button"
+              className={selectedAnswer === choice.label ? "selected" : ""}
+              aria-pressed={selectedAnswer === choice.label}
+              disabled={completed || (submitted && correct)}
+              onClick={() => {
+                setSelectedAnswer(choice.label);
+                setSubmitted(false);
+              }}
+            >
+              {choice.label}
+            </button>
+          ))}
+        </div>
+      ) : (
+        <label className="fmj-lesson-input-label">
+          <span>Enter your answer</span>
+          <input
+            value={selectedAnswer}
+            disabled={completed || (submitted && correct)}
+            onChange={(event) => {
+              setSelectedAnswer(event.target.value);
+              setSubmitted(false);
+            }}
+          />
+        </label>
+      )}
+      <div className="fmj-lesson-response-actions">
+        <Button
+          disabled={!selectedAnswer.trim() || completed || (submitted && correct)}
+          onClick={checkAnswer}
+        >
+          Check answer
+        </Button>
+      </div>
+      {submitted && (
+        <p
+          className={`fmj-lesson-feedback ${correct ? "correct" : "incorrect"}`}
+          role="status"
+        >
+          {correct
+            ? "Correct. Compare your reasoning with the lesson's next step."
+            : beat.role === "transfer"
+              ? "Not yet. Recheck your reasoning and calculation."
+              : "Keep this attempt. You can revise it or continue to compare."}
+        </p>
+      )}
+    </section>
+  );
 
   return (
     <div className="fmj-lesson-problem-shell">
@@ -234,6 +311,7 @@ export function LessonProblemBeat({
         </>
       )}
 
+      {answerPicker}
       {showSourceAfter && <SourceLabel problem={problem} />}
       {showSourceOnCompletion && <SourceLabel problem={problem} />}
       {completed && (

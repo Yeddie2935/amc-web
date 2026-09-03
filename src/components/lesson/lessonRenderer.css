@@ -178,9 +178,19 @@
 
 .fmj-lesson-interaction,
 .fmj-lesson-problem-shell,
-.fmj-lesson-animation {
+.fmj-lesson-animation,
+.fmj-lesson-problem-answer {
   display: grid;
   gap: 14px;
+}
+
+.fmj-lesson-problem-answer {
+  padding-top: 16px;
+  border-top: 1px solid var(--fmj-border);
+}
+
+.fmj-lesson-problem-answer h3 {
+  margin: 0;
 }
 
 .fmj-lesson-choice-buttons {
@@ -210,6 +220,56 @@
 
 .fmj-lesson-choice-buttons button:disabled {
   cursor: default;
+}
+
+.fmj-lesson-sort {
+  display: grid;
+  gap: 10px;
+}
+
+.fmj-lesson-sort-item {
+  display: grid;
+  grid-template-columns: minmax(110px, 0.7fr) minmax(0, 1.3fr);
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--fmj-border);
+  border-radius: 14px;
+  background: var(--fmj-surface-soft);
+}
+
+.fmj-lesson-sort-buckets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+  gap: 7px;
+}
+
+.fmj-lesson-sort-buckets button {
+  padding: 8px 9px;
+  border: 1px solid var(--fmj-border);
+  border-radius: 10px;
+  background: var(--fmj-surface);
+  color: var(--fmj-text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.fmj-lesson-sort-buckets button.selected {
+  border-color: var(--fmj-primary);
+  background: #eff6ff;
+  color: var(--fmj-primary-dark);
+}
+
+.fmj-lesson-sort-result {
+  margin-top: 4px;
+}
+
+.fmj-lesson-sort-empty {
+  margin: 0;
+  color: var(--fmj-muted);
+  font-style: italic;
 }
 
 .fmj-lesson-input-label {
@@ -408,5 +468,9 @@
 
   .fmj-lesson-advance {
     justify-content: flex-start;
+  }
+
+  .fmj-lesson-sort-item {
+    grid-template-columns: 1fr;
   }
 }

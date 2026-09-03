@@ -132,6 +132,7 @@ function BeatContent({
           beat={beat}
           generatedProblemArtifacts={generatedProblemArtifacts}
           completed={completed}
+          onResolved={onResolved}
         />
       );
 
@@ -160,6 +161,7 @@ function BeatFrame({
 }: BeatFrameProps) {
   const requiresResolution =
     beat.kind === "interaction" ||
+    beat.kind === "problem" ||
     (beat.kind === "reflection" && Boolean(beat.takeaway));
   const [resolved, setResolved] = useState(completed || !requiresResolution);
 
@@ -262,7 +264,6 @@ export function LessonRenderer({
       <header className="fmj-lesson-heading">
         <p className="fmj-eyebrow">Interactive lesson</p>
         <h2 id={`${lesson.lessonId}-title`}>{lesson.title}</h2>
-        <p>{lesson.coreInsight}</p>
         <div
           className="fmj-lesson-progress"
           role="progressbar"

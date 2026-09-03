@@ -1,0 +1,555 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "C4",
+  "curriculumNodeId": "C4",
+  "title": "Did We Find Them All?",
+  "lessonType": "technique",
+  "status": "draft",
+  "estimatedMinutes": 24,
+  "coreInsight": "A difficult universe can be partitioned into cases that are exhaustive, non-overlapping, and easier to count.",
+  "targetLearnerRealization": "Good casework partitions every possibility exactly once into categories that are easier to count.",
+  "learningObjectives": [
+    "Recognize when an unstructured list does not prove completeness.",
+    "Choose a case variable that creates exhaustive, non-overlapping groups.",
+    "Count within manageable cases and combine their totals."
+  ],
+  "hardPrerequisites": [
+    "C2"
+  ],
+  "narrativePredecessor": "C2",
+  "continuity": {
+    "openingCallback": "You already know how to make a systematic list. Now we will ask what makes that list trustworthy.",
+    "closingSeeds": [
+      "A clean case split can become cumbersome when natural cases overlap."
+    ],
+    "nextLessonIds": [
+      "C5",
+      "C9"
+    ]
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "Cases may overlap without adjustment.",
+      "beatIds": [
+        "sort-by-move-count",
+        "guided-zero-position",
+        "next-question"
+      ]
+    },
+    {
+      "misconception": "A few natural cases are automatically exhaustive.",
+      "beatIds": [
+        "prove-completeness",
+        "sort-by-move-count",
+        "notice-three-tests"
+      ]
+    },
+    {
+      "misconception": "Cases are useful even when each is as difficult as the original problem.",
+      "beatIds": [
+        "choose-case-variable",
+        "guided-zero-position"
+      ]
+    },
+    {
+      "misconception": "The best case split need not reflect the problem's actual constraint.",
+      "beatIds": [
+        "choose-case-variable",
+        "guided-zero-position",
+        "practice-bank-transfer"
+      ]
+    }
+  ],
+  "beats": [
+    {
+      "id": "step-sequence-puzzle",
+      "phase": "puzzle",
+      "kind": "problem",
+      "purpose": "Give the learner a small space where informal listing feels plausible before structure is imposed.",
+      "expectedRealization": "Several sequences work, but finding a count is not the same as proving completeness.",
+      "transitionIn": "In systematic listing, organization helped you keep track. First, try this one without any suggested categories.",
+      "transitionOut": "You found a count. Now ask the harder question: why should anyone trust that the list is complete?",
+      "estimatedSeconds": 90,
+      "source": "generated",
+      "problemId": "original-c4-step-sequences",
+      "role": "anchor",
+      "presentation": "full-prompt",
+      "whyNow": "A four-outcome movement puzzle makes it easy to start listing and hard to justify stopping without a structure.",
+      "entryBridge": "Write the sequences in whatever order they occur to you. Do not sort them yet.",
+      "exitBridge": "Four is the right count, but the number alone does not prove that nothing was missed or counted twice.",
+      "animation": {
+        "mode": "none",
+        "controlledByLesson": true,
+        "autoplay": false,
+        "showPlayerControls": false
+      },
+      "learnerPrompts": [
+        "List each sequence before entering the total."
+      ],
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "unsorted-possibilities",
+      "phase": "try",
+      "kind": "visual",
+      "purpose": "Reveal the complete outcome set in an intentionally unstructured order so completeness still feels uncertain.",
+      "expectedRealization": "Seeing four plausible outcomes still does not explain why there cannot be another.",
+      "transitionIn": "Here are the four sequences we found, left in discovery order.",
+      "estimatedSeconds": 35,
+      "visual": {
+        "primitive": "choice-grid",
+        "data": {
+          "groups": [
+            {
+              "label": "Possibilities found",
+              "choices": [
+                "1 + 2",
+                "3",
+                "1 + 1 + 1",
+                "2 + 1"
+              ]
+            }
+          ]
+        },
+        "continuityKey": "c4-step-outcome-cards",
+        "ariaLabel": "Four unsorted movement sequences"
+      },
+      "caption": "A list can look finished without proving that it is finished."
+    },
+    {
+      "id": "prove-completeness",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Turn completeness into a genuine learner question before offering the organizing method.",
+      "expectedRealization": "A convincing count needs a reason every possibility appears exactly once.",
+      "estimatedSeconds": 70,
+      "prompt": "Are these all of them? What would prove that we did not miss a sequence or count one twice?",
+      "response": {
+        "kind": "free-response",
+        "rubric": "The learner should seek a systematic organization or another completeness argument.",
+        "revealAfterSubmit": "A longer list is not yet a proof. We need a structure that gives every valid sequence exactly one place to go."
+      }
+    },
+    {
+      "id": "sort-by-move-count",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Let the learner create exhaustive, non-overlapping cases by assigning every outcome to one move-count bucket.",
+      "expectedRealization": "Number of moves gives each sequence one and only one bucket, and each bucket is easy to finish.",
+      "transitionIn": "Sort every card by one feature that each sequence has exactly once: its number of moves.",
+      "estimatedSeconds": 110,
+      "prompt": "Put each sequence into its move-count case.",
+      "response": {
+        "kind": "sort",
+        "items": [
+          {
+            "id": "path-12",
+            "text": "1 + 2"
+          },
+          {
+            "id": "path-3",
+            "text": "3"
+          },
+          {
+            "id": "path-111",
+            "text": "1 + 1 + 1"
+          },
+          {
+            "id": "path-21",
+            "text": "2 + 1"
+          }
+        ],
+        "buckets": [
+          {
+            "id": "one-move",
+            "text": "1 move"
+          },
+          {
+            "id": "two-moves",
+            "text": "2 moves"
+          },
+          {
+            "id": "three-moves",
+            "text": "3 moves"
+          }
+        ],
+        "correctBucketByItem": {
+          "path-12": "two-moves",
+          "path-3": "one-move",
+          "path-111": "three-moves",
+          "path-21": "two-moves"
+        },
+        "feedback": "The buckets contain 1, 2, and 1 sequences. Every card has exactly one home."
+      },
+      "correctFeedback": "Every sequence has exactly one move count, so the cases cannot overlap. Because positive moves totaling 3 use 1, 2, or 3 moves, the cases also cover everything.",
+      "incorrectFeedback": "Count the addends on each card. A card belongs in exactly one move-count bucket.",
+      "allowRetry": true
+    },
+    {
+      "id": "notice-three-tests",
+      "phase": "notice",
+      "kind": "copy",
+      "purpose": "Extract the three properties the learner's organization just demonstrated.",
+      "expectedRealization": "Useful cases cover all outcomes, do not overlap, and simplify the remaining count.",
+      "estimatedSeconds": 45,
+      "heading": "What the bins proved",
+      "body": "They cover every possible move count. They never overlap. Inside each smaller bin, we can finish the list systematically.",
+      "math": [
+        "1 + 2 + 1 = 4 sequences"
+      ]
+    },
+    {
+      "id": "name-casework",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name the structure only after the learner has built and justified it.",
+      "expectedRealization": "Casework is the name for the organizing move already used.",
+      "transitionIn": "You have already used the technique. Now give it a name.",
+      "estimatedSeconds": 45,
+      "name": "Casework",
+      "conciseDefinition": "Split all possibilities into exhaustive, non-overlapping cases that are each easier to count.",
+      "memoryHook": "Every outcome, exactly one case."
+    },
+    {
+      "id": "choose-case-variable",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Shift attention from executing casework to choosing a split that follows the problem's constraint.",
+      "expectedRealization": "The best case variable often comes directly from the strongest restriction.",
+      "transitionIn": "The hardest part is often not counting the cases. It is choosing the right case headers.",
+      "transitionOut": "Keep those position-based case headers. We are about to swap in a different digit condition.",
+      "estimatedSeconds": 75,
+      "prompt": "Using 1, 2, 3, and 4 without repetition, we want to count three-digit even numbers. Which first split makes the remaining work cleanest?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {
+            "id": "hundreds",
+            "text": "Split by the hundreds digit"
+          },
+          {
+            "id": "tens",
+            "text": "Split by the tens digit"
+          },
+          {
+            "id": "ones",
+            "text": "Split by whether the ones digit is 2 or 4"
+          },
+          {
+            "id": "size",
+            "text": "Split into numbers below or above 300"
+          }
+        ],
+        "correctId": "ones",
+        "feedback": {
+          "hundreds": "The hundreds digit does not decide whether the number is even.",
+          "tens": "The tens digit does not carry the even-number restriction.",
+          "ones": "Exactly. Every even number ends in either 2 or 4, never both.",
+          "size": "That split is possible, but it does not simplify the even-number condition."
+        }
+      },
+      "correctFeedback": "The ones digit is the useful case variable because the condition itself restricts that position.",
+      "incorrectFeedback": "Look for the position that determines whether the whole number is even.",
+      "allowRetry": true
+    },
+    {
+      "id": "carry-position-bins",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Carry the position-bin representation into the bank problem and let the learner choose its case headers before seeing the solution animation.",
+      "expectedRealization": "Exactly one zero can be classified by its legal position, giving two labeled, disjoint bins.",
+      "estimatedSeconds": 65,
+      "prompt": "Now make zero the special digit. For a three-digit number with exactly one zero, which case headers keep the organizer complete and non-overlapping?",
+      "visual": {
+        "primitive": "sort-into-cases",
+        "data": {
+          "cases": [
+            {
+              "label": "Ones digit is 2",
+              "items": [
+                "_ _ 2"
+              ]
+            },
+            {
+              "label": "Ones digit is 4",
+              "items": [
+                "_ _ 4"
+              ]
+            }
+          ]
+        },
+        "continuityKey": "c4-position-case-bins",
+        "ariaLabel": "Two cases classified by the restricted digit position"
+      },
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {
+            "id": "all-positions",
+            "text": "Zero in hundreds, tens, or ones"
+          },
+          {
+            "id": "legal-positions",
+            "text": "Zero in tens or zero in ones"
+          },
+          {
+            "id": "number-size",
+            "text": "Number below 500 or at least 500"
+          },
+          {
+            "id": "digit-types",
+            "text": "Zero digits or nonzero digits"
+          }
+        ],
+        "correctId": "legal-positions",
+        "feedback": {
+          "all-positions": "A zero in the hundreds place would not produce a three-digit number.",
+          "legal-positions": "Exactly. The one zero must be in one of these two positions, never both.",
+          "number-size": "Those bins cover the numbers, but they do not simplify the zero condition.",
+          "digit-types": "Those labels classify digits, not the three-digit outcomes we need to count."
+        }
+      },
+      "correctFeedback": "Keep two bins: zero in tens and zero in ones. Every valid number belongs to exactly one.",
+      "incorrectFeedback": "Use the zero's legal position, and remember that the leading digit cannot be zero.",
+      "allowRetry": true
+    },
+    {
+      "id": "guided-zero-position",
+      "phase": "competition-application",
+      "kind": "problem",
+      "purpose": "Apply the learner's case-quality tests to the approved authentic problem while preserving the position-bin representation.",
+      "expectedRealization": "Exactly one zero creates two exhaustive and non-overlapping position cases, each with a simple product count.",
+      "transitionIn": "Keep the same two-bin organizer, but let the special digit be zero.",
+      "transitionOut": "The exact-one condition made the bins clean. Changing that condition will test how well this strategy scales.",
+      "estimatedSeconds": 210,
+      "source": "bank",
+      "problemId": "amc8-2002-19",
+      "role": "guided",
+      "presentation": "animation-first",
+      "whyNow": "Exactly one zero in a three-digit number splits naturally by the zero's position, making the case partition concrete and checkable.",
+      "entryBridge": "After the lesson's 1/2/3-move warmup, keep the case headers visible and replace them with 'zero in tens' and 'zero in ones'.",
+      "exitBridge": "Immediately mutate the condition from exactly one zero to at least one zero so the clean case split starts to strain, launching C5.",
+      "reusedRepresentation": "Outcome cards that physically sort into labeled, non-overlapping bins.",
+      "animation": {
+        "mode": "slice",
+        "stepIndices": [
+          0,
+          1,
+          2
+        ],
+        "controlledByLesson": true,
+        "autoplay": false,
+        "showPlayerControls": false
+      },
+      "learnerPrompts": [
+        "What feature could every valid number be classified by?",
+        "Could any valid number land in both cases?",
+        "Could any valid number land in neither?"
+      ],
+      "sourceLabelTiming": "completion"
+    },
+    {
+      "id": "harvest-bank-idea",
+      "phase": "notice",
+      "kind": "copy",
+      "purpose": "Harvest the general method from the bank problem instead of ending on its numerical answer.",
+      "expectedRealization": "The success came from the partition, not from an isolated digit trick.",
+      "estimatedSeconds": 40,
+      "heading": "The answer was not the main prize",
+      "body": "The zero's position forced two complete, separate cases. Each case reduced to two independent choices, so 81 + 81 counted every valid number once.",
+      "math": [
+        "zero in tens: 9 × 9",
+        "zero in ones: 9 × 9"
+      ],
+      "transitionOut": "Now use the same three tests without guidance: complete, separate, manageable."
+    },
+    {
+      "id": "practice-introduction",
+      "phase": "independent-transfer",
+      "kind": "copy",
+      "purpose": "Clearly end the teaching narrative and begin independent evidence.",
+      "estimatedSeconds": 20,
+      "heading": "Independent practice",
+      "body": "For each problem, choose the case headers before doing the arithmetic. Ask whether every outcome appears exactly once."
+    },
+    {
+      "id": "practice-near-parity",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check a direct transfer in which parity supplies two clean cases.",
+      "expectedRealization": "Even sums split into odd-odd and even-even cases.",
+      "estimatedSeconds": 100,
+      "source": "generated",
+      "problemId": "original-c4-practice-parity-codes",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This checks whether the learner can construct exhaustive cases from a familiar condition without copying the movement example.",
+      "entryBridge": "Let the sum condition choose the cases.",
+      "exitBridge": "Odd-odd and even-even are exhaustive and cannot overlap, giving 4 + 4 = 8 codes.",
+      "animation": {
+        "mode": "none",
+        "controlledByLesson": true
+      },
+      "learnerPrompts": [
+        "Which parity pairings make an even sum?"
+      ],
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "practice-near-ordered-cards",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check systematic case completion when case sizes decrease.",
+      "expectedRealization": "Fixing the left card makes the legal right-card choices easy to exhaust.",
+      "estimatedSeconds": 100,
+      "source": "generated",
+      "problemId": "original-c4-practice-ordered-cards",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The cases are unequal, so the learner must count inside each rather than multiply one repeated case size.",
+      "entryBridge": "Choose one position to fix, then finish each smaller count.",
+      "exitBridge": "Fixing the left card gives case sizes 4, 3, 2, 1, and 0, totaling 10.",
+      "animation": {
+        "mode": "none",
+        "controlledByLesson": true
+      },
+      "learnerPrompts": [
+        "If the left card is fixed, how many larger right cards remain?"
+      ],
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "practice-mixed-counters",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Mix casework with a constrained distribution representation.",
+      "expectedRealization": "Fixing one labeled box's count turns the remaining distribution into a short list.",
+      "estimatedSeconds": 120,
+      "source": "generated",
+      "problemId": "original-c4-practice-counter-boxes",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This changes surface context and representation while preserving the need for exhaustive, disjoint cases.",
+      "entryBridge": "Find a quantity whose possible values create a short, complete set of cases.",
+      "exitBridge": "Box A can hold 1, 2, or 3 counters; those cases contribute 3, 2, and 1 distributions, totaling 6.",
+      "animation": {
+        "mode": "none",
+        "controlledByLesson": true
+      },
+      "learnerPrompts": [
+        "What values can Box A have while leaving at least one counter for each other box?"
+      ],
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "practice-mixed-rectangles",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Mix casework with translating a perimeter condition and removing rotational duplicates.",
+      "expectedRealization": "Ordering the shorter side creates a complete, non-duplicated dimension list.",
+      "estimatedSeconds": 120,
+      "source": "generated",
+      "problemId": "original-c4-practice-rectangle-dimensions",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The learner must choose a convention that prevents the same rectangle from entering two cases.",
+      "entryBridge": "Build the cases so a rotated rectangle cannot be counted twice.",
+      "exitBridge": "Taking the shorter side as 1, 2, 3, or 4 gives four distinct rectangles and prevents reversals from duplicating them.",
+      "animation": {
+        "mode": "none",
+        "controlledByLesson": true
+      },
+      "learnerPrompts": [
+        "How can you order the side lengths so each rectangle appears once?"
+      ],
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "practice-bank-transfer",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check authentic transfer where the learner must identify the terminal digit as the useful case variable.",
+      "expectedRealization": "The multiple-of-5 condition creates the exhaustive final-digit cases 0 and 5, with different counts inside them.",
+      "estimatedSeconds": 180,
+      "source": "bank",
+      "problemId": "amc8-2011-23",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The problem disguises casework among several digit restrictions and requires the learner to choose the split independently.",
+      "entryBridge": "One condition in this problem offers exactly two useful case headers. Find it before counting.",
+      "exitBridge": "A multiple of 5 ends in 0 or 5. Those disjoint cases contribute 36 and 48 numbers, for 84 total.",
+      "animation": {
+        "mode": "none",
+        "controlledByLesson": true
+      },
+      "learnerPrompts": [
+        "Write the case headers before calculating; then check that they cover every multiple of 5."
+      ],
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "next-question",
+      "phase": "reflection",
+      "kind": "reflection",
+      "purpose": "Seed the limitation that motivates complementary counting without teaching the next technique.",
+      "expectedRealization": "Casework is strongest when its cases stay clean; overlapping conditions can make the split cumbersome.",
+      "transitionIn": "One last stress test for the organizer you built.",
+      "estimatedSeconds": 55,
+      "prompt": "Exactly one zero gave each number one case. If the condition became at least one zero, would 'zero in tens' and 'zero in ones' still be non-overlapping?",
+      "takeaway": "No. A number such as 100 belongs to both descriptions. Casework still works in principle, but the bookkeeping is getting ugly. What might we do when the opposite set is cleaner?"
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {
+      "near": 6,
+      "mixed": 6,
+      "challenge": 2
+    },
+    "sessionSelection": [
+      {
+        "source": "generated",
+        "transferLevel": "near",
+        "count": 2
+      },
+      {
+        "source": "generated",
+        "transferLevel": "mixed",
+        "count": 2
+      },
+      {
+        "source": "bank",
+        "transferLevel": "mixed",
+        "count": 1,
+        "difficulty": 4
+      }
+    ],
+    "excludeProblemIds": [
+      "original-c4-step-sequences",
+      "amc8-2002-19"
+    ],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "C4",
+    "evidenceBeatIds": [
+      "practice-near-parity",
+      "practice-near-ordered-cards",
+      "practice-mixed-counters",
+      "practice-mixed-rectangles",
+      "practice-bank-transfer"
+    ],
+    "minIndependentPracticeItems": 5,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.2.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "manual-gold-benchmark-1.0.0",
+    "notes": [
+      "Manually authored gold benchmark; no automated lesson generation was used.",
+      "The generated teaching problem was preferred because it creates the completeness question more cleanly than the mapped bank problem.",
+      "The fixed authentic final transfer is amc8-2011-23."
+    ]
+  }
+}
