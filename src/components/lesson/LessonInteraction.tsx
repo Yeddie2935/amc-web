@@ -4,6 +4,7 @@ import type {
   LessonResponseSpec,
 } from "../../types/lesson";
 import { Button } from "../common/Button";
+import { LessonResolution } from "./LessonResolution";
 import { VisualPrimitiveHost } from "./VisualPrimitiveHost";
 
 interface LessonInteractionProps {
@@ -109,6 +110,9 @@ export function LessonInteraction({
             {submitted && beat.correctFeedback && (
               <Feedback correct>{beat.correctFeedback}</Feedback>
             )}
+            {(submitted || completed) && beat.resolution && (
+              <LessonResolution resolution={beat.resolution} />
+            )}
           </div>
         );
       }
@@ -149,6 +153,9 @@ export function LessonInteraction({
               </Button>
             </div>
             {submitted && <Feedback correct={correct}>{feedback}</Feedback>}
+            {(completed || (submitted && correct)) && beat.resolution && (
+              <LessonResolution resolution={beat.resolution} />
+            )}
           </>
         );
       }
@@ -198,6 +205,9 @@ export function LessonInteraction({
               </Button>
             </div>
             {submitted && <Feedback correct={correct}>{feedback}</Feedback>}
+            {(completed || (submitted && correct)) && beat.resolution && (
+              <LessonResolution resolution={beat.resolution} />
+            )}
           </>
         );
       }
@@ -234,6 +244,9 @@ export function LessonInteraction({
               </Button>
             </div>
             {submitted && <Feedback correct={correct}>{feedback}</Feedback>}
+            {(completed || (submitted && correct)) && beat.resolution && (
+              <LessonResolution resolution={beat.resolution} />
+            )}
           </>
         );
       }
@@ -265,6 +278,9 @@ export function LessonInteraction({
               <p className="fmj-lesson-reveal" role="status">
                 {responseSpec.revealAfterSubmit}
               </p>
+            )}
+            {(submitted || completed) && beat.resolution && (
+              <LessonResolution resolution={beat.resolution} />
             )}
           </>
         );
@@ -346,6 +362,9 @@ export function LessonInteraction({
               </Button>
             </div>
             {submitted && <Feedback correct={correct}>{feedback}</Feedback>}
+            {(completed || (submitted && correct)) && beat.resolution && (
+              <LessonResolution resolution={beat.resolution} />
+            )}
           </>
         );
       }

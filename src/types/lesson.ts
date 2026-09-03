@@ -27,6 +27,7 @@ export type LessonBeatKind =
 
 export type LessonVisualPrimitive =
   | "choice-grid"
+  | "path-walk"
   | "branch-tree"
   | "sort-into-cases"
   | "outcome-grid"
@@ -55,6 +56,21 @@ export interface LessonVisualSpec {
   /** Optional stable key for carrying visual state/objects across adjacent beats. */
   continuityKey?: string;
   ariaLabel?: string;
+}
+
+export interface LessonResolutionStep {
+  title?: string;
+  body: string;
+  math?: string;
+}
+
+export interface LessonResolutionSpec {
+  /** Static or self-animating visual that explains this exact question. */
+  visual?: LessonVisualSpec;
+  /** Uses the problem beat's existing controlled animation plan and prompts. */
+  animation?: { kind: "problem-animation" };
+  steps?: LessonResolutionStep[];
+  takeaway?: string;
 }
 
 export interface LessonChoiceOption {
@@ -139,6 +155,7 @@ export interface InteractionLessonBeat extends LessonBeatBase {
   correctFeedback?: string;
   incorrectFeedback?: string;
   allowRetry?: boolean;
+  resolution?: LessonResolutionSpec;
 }
 
 export interface ConceptLessonBeat extends LessonBeatBase {
@@ -178,6 +195,9 @@ export interface LessonProblemBeat extends LessonBeatBase {
   reusedRepresentation?: string;
   animation: LessonProblemAnimationPlan;
   learnerPrompts: string[];
+  correctFeedback?: string;
+  incorrectFeedback?: string;
+  resolution?: LessonResolutionSpec;
   /** Authentic provenance should be visible without interrupting discovery. */
   sourceLabelTiming?: "before" | "after" | "completion" | "hidden";
 }

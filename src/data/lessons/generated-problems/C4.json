@@ -31,8 +31,8 @@
           "body": "The only three-move sequence is 1, 1, 1."
         },
         {
-          "title": "Check completeness",
-          "body": "Every move is positive, so a sequence totaling 3 has one, two, or three moves. Those cases cannot overlap. The total is 1 + 2 + 1 = 4."
+          "title": "Check every possible length",
+          "body": "Every move is positive, so a sequence totaling 3 has one, two, or three moves. Four moves would total at least 4. Each path has one length, so the total is 1 + 2 + 1 = 4."
         }
       ],
       "tags": ["casework", "ordered sequences", "systematic listing"],
@@ -89,8 +89,8 @@
       ],
       "solutionSteps": [
         {
-          "title": "Choose exhaustive cases",
-          "body": "An even sum occurs exactly when both digits are odd or both digits are even."
+          "title": "Find the two ways",
+          "body": "An even sum occurs when both digits are odd or both digits are even."
         },
         {
           "title": "Count odd-odd",
@@ -102,7 +102,7 @@
         },
         {
           "title": "Combine",
-          "body": "The cases do not overlap, so the total is 4 + 4 = 8."
+          "body": "Every code belongs to one of these two groups, never both, so the total is 4 + 4 = 8."
         }
       ],
       "tags": ["casework", "parity", "ordered codes"],
@@ -218,7 +218,7 @@
       "answer": "C",
       "shortAnswer": "6",
       "hints": [
-        "Use the number in box A as a case variable.",
+        "Split by how many counters are in Box A.",
         "Once A is fixed, count the positive splits between B and C."
       ],
       "solutionSteps": [
@@ -236,7 +236,7 @@
         },
         {
           "title": "Combine",
-          "body": "A cannot contain more than 3 because B and C must remain nonempty. The cases are exhaustive and disjoint, so the total is 3 + 2 + 1 = 6."
+          "body": "A cannot contain more than 3 because B and C must remain nonempty. Every distribution appears in exactly one of these groups, so the total is 3 + 2 + 1 = 6."
         }
       ],
       "tags": ["casework", "distributions", "positive integers"],
@@ -271,42 +271,42 @@
     "schemaVersion": "1.0.0",
     "lessonId": "C4",
     "problem": {
-      "id": "original-c4-practice-rectangle-dimensions",
-      "title": "Integer-Sided Rectangles",
+      "id": "original-c4-practice-score-tokens",
+      "title": "A Six-Point Score",
       "sourceType": "Original",
       "contest": "Original",
       "category": "Counting & Probability",
       "subcategory": "Casework",
       "difficulty": 2,
-      "statement": "A rectangle has positive integer side lengths and perimeter 18. Rectangles that differ only by rotation are considered the same. How many different pairs of side lengths are possible?",
+      "statement": "A game score of exactly 6 points is made using any number of 1-point, 2-point, and 5-point tokens. Only the number of each type matters. How many different token collections can make the score?",
       "choices": [
         { "label": "A", "text": "3" },
         { "label": "B", "text": "4" },
         { "label": "C", "text": "5" },
-        { "label": "D", "text": "8" },
-        { "label": "E", "text": "9" }
+        { "label": "D", "text": "6" },
+        { "label": "E", "text": "7" }
       ],
-      "answer": "B",
-      "shortAnswer": "4",
+      "answer": "C",
+      "shortAnswer": "5",
       "hints": [
-        "Translate the perimeter condition into a sum of two side lengths.",
-        "How can you avoid counting a rotated rectangle twice?"
+        "How many 5-point tokens could the score contain?",
+        "After fixing the number of 5-point tokens, list the possible numbers of 2-point tokens."
       ],
       "solutionSteps": [
         {
-          "title": "Use the perimeter",
-          "body": "If the side lengths are a and b, then 2a + 2b = 18, so a + b = 9."
+          "title": "Use one 5-point token",
+          "body": "Then one 1-point token is forced, giving the collection 5 + 1."
         },
         {
-          "title": "Choose non-overlapping cases",
-          "body": "Take the shorter side to be no longer than the other side. It can be 1, 2, 3, or 4."
+          "title": "Use no 5-point tokens",
+          "body": "The number of 2-point tokens can be 0, 1, 2, or 3. The remaining points are filled by 1-point tokens, giving four collections."
         },
         {
-          "title": "List the pairs",
-          "body": "The four pairs are (1, 8), (2, 7), (3, 6), and (4, 5). Thus there are 4 rectangles."
+          "title": "Combine the groups",
+          "body": "The groups contain 1 and 4 collections, so the total is 1 + 4 = 5."
         }
       ],
-      "tags": ["casework", "rectangles", "integer solutions"],
+      "tags": ["casework", "tokens", "integer combinations"],
       "sourceName": "Mathinking",
       "license": "Original"
     },
@@ -323,14 +323,14 @@
       "wordingReviewed": true,
       "notParaphraseOfBank": true,
       "validationMethods": [
-        "exhaustive integer-pair enumeration",
-        "independent sum-equation check",
+        "exhaustive nonnegative integer-solution enumeration",
+        "independent five-token case split",
         "answer-choice uniqueness audit",
         "manual wording and novelty review"
       ],
       "notes": [
-        "Recomputed answer: 4.",
-        "The shorter-side convention prevents rotational duplicates."
+        "Recomputed answer: 5.",
+        "The number of 5-point tokens is either 0 or 1; the two groups list every collection exactly once."
       ]
     }
   }

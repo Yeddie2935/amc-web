@@ -2,6 +2,7 @@ import { useState } from "react";
 import type {
   GeneratedProblemArtifact,
   LessonBeat,
+  LessonPhase,
   LessonSpec,
   ReflectionLessonBeat,
 } from "../../types/lesson";
@@ -27,8 +28,30 @@ interface BeatFrameProps {
   onComplete: () => void;
 }
 
-function humanize(value: string) {
-  return value.replaceAll("-", " ");
+function learnerPhaseLabel(phase: LessonPhase) {
+  switch (phase) {
+    case "puzzle":
+      return "Puzzle";
+    case "try":
+      return "Try it";
+    case "notice":
+      return "Notice";
+    case "name":
+      return "Name the idea";
+    case "play":
+      return "Try the idea";
+    case "competition-application":
+    case "guided-problem":
+      return "Work it through";
+    case "independent-transfer":
+      return "Practice";
+    case "reflection":
+      return "Look back";
+    default: {
+      const exhaustivePhase: never = phase;
+      return exhaustivePhase;
+    }
+  }
 }
 
 function ReflectionBeat({
@@ -170,13 +193,14 @@ function BeatFrame({
       className={`fmj-lesson-beat ${isActive ? "active" : ""} ${
         completed ? "completed" : ""
       }`}
+      data-beat-id={beat.id}
       data-beat-kind={beat.kind}
       data-phase={beat.phase}
       aria-current={isActive ? "step" : undefined}
     >
       <header className="fmj-lesson-beat-header">
         <span>{index + 1}</span>
-        <p>{humanize(beat.phase)}</p>
+        <p>{learnerPhaseLabel(beat.phase)}</p>
       </header>
 
       {beat.transitionIn && (

@@ -114,6 +114,42 @@ for (const file of lessonFiles) {
     beatIds.add(beat.id);
     if (!beat.purpose?.trim()) errors.push(`${label}/${beat.id}: beat requires purpose.`);
 
+    if (beat.resolution !== undefined) {
+      const resolution = beat.resolution;
+      const hasVisual = resolution?.visual !== undefined;
+      const hasAnimation = resolution?.animation !== undefined;
+      const hasSteps = Array.isArray(resolution?.steps) && resolution.steps.length > 0;
+      const hasTakeaway = Boolean(resolution?.takeaway?.trim());
+      if (!hasVisual && !hasAnimation && !hasSteps && !hasTakeaway) {
+        errors.push(`${label}/${beat.id}: resolution must contain a visual, animation, steps, or takeaway.`);
+      }
+      if (resolution?.steps !== undefined) {
+        if (!Array.isArray(resolution.steps) || resolution.steps.length === 0) {
+          errors.push(`${label}/${beat.id}: resolution steps must be a nonempty array when supplied.`);
+        } else {
+          for (const [stepIndex, step] of resolution.steps.entries()) {
+            if (!step?.body?.trim()) {
+              errors.push(`${label}/${beat.id}: resolution step ${stepIndex + 1} requires body text.`);
+            }
+          }
+        }
+      }
+      if (hasVisual && (!resolution.visual?.primitive || !resolution.visual?.data)) {
+        errors.push(`${label}/${beat.id}: resolution visual requires a primitive and data.`);
+      }
+      if (hasAnimation) {
+        if (beat.kind !== "problem") {
+          errors.push(`${label}/${beat.id}: only problem beats may use a problem-animation resolution.`);
+        }
+        if (resolution.animation?.kind !== "problem-animation") {
+          errors.push(`${label}/${beat.id}: resolution animation kind must be problem-animation.`);
+        }
+        if (beat.animation?.mode === "none") {
+          errors.push(`${label}/${beat.id}: problem-animation resolution requires a renderable animation plan.`);
+        }
+      }
+    }
+
     if (beat.kind === "problem") {
       if (!beat.whyNow?.trim() || !beat.entryBridge?.trim() || !beat.exitBridge?.trim()) {
         errors.push(`${label}/${beat.id}: problem beats require whyNow, entryBridge, and exitBridge.`);

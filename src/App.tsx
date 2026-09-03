@@ -7,6 +7,7 @@ import { DashboardPage } from "./pages/DashboardPage";
 import { ProblemBankPage } from "./pages/ProblemBankPage";
 import { LicensePage } from "./pages/LicensePage";
 import { TipsPage } from "./pages/TipsPage";
+import { LessonPage } from "./pages/LessonPage";
 import "./styles/amcComponents.css";
 import "./styles/amcDiagramPatch.css";
 import "./styles/fmjAnimations.css";
@@ -15,9 +16,20 @@ import "./styles/fmjAnimationFix.css";
 
 function App() {
   const path = window.location.pathname;
+  const lessonPathMatch = path.match(/^\/learn\/([^/]+)\/?$/);
+  let lessonId: string | null = null;
+
+  if (lessonPathMatch) {
+    try {
+      lessonId = decodeURIComponent(lessonPathMatch[1]);
+    } catch {
+      lessonId = lessonPathMatch[1];
+    }
+  }
 
   let page;
-  if (path.startsWith("/learn")) page = <LearnPage />;
+  if (lessonId) page = <LessonPage lessonId={lessonId} />;
+  else if (path.startsWith("/learn")) page = <LearnPage />;
   else if (path.startsWith("/practice")) page = <PracticePage />;
   else if (path.startsWith("/archive")) page = <ArchivePage />;
   else if (path.startsWith("/dashboard")) page = <DashboardPage />;

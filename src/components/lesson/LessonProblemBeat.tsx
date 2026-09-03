@@ -11,6 +11,7 @@ import { ProblemAnimationStage } from "../animation/ProblemAnimationStage";
 import { getExplanationSteps } from "../animation/explanation";
 import { Button } from "../common/Button";
 import { ProblemStatement } from "../problem/ProblemStatement";
+import { LessonResolution } from "./LessonResolution";
 
 interface LessonProblemBeatProps {
   beat: LessonProblemBeatSpec;
@@ -215,9 +216,7 @@ export function LessonProblemBeat({
   const sourceLabelTiming = beat.sourceLabelTiming ?? "after";
   const showSourceBefore = sourceLabelTiming === "before";
   const showSourceAfter = sourceLabelTiming === "after";
-  const showSourceOnCompletion =
-    sourceLabelTiming === "completion" && completed;
-  const animation = (
+  const problemAnimation = (
     <LessonAnimation
       problem={problem}
       animation={beat.animation}
@@ -230,6 +229,13 @@ export function LessonProblemBeat({
     .filter((answer): answer is string => Boolean(answer))
     .map((answer) => answer.trim().toLowerCase());
   const correct = acceptedAnswers.includes(normalizedAnswer);
+  const showResolution =
+    Boolean(beat.resolution) &&
+    (completed || (submitted && (correct || beat.role !== "transfer")));
+  const animationBelongsToResolution =
+    beat.resolution?.animation?.kind === "problem-animation";
+  const showSourceOnCompletion =
+    sourceLabelTiming === "completion" && (completed || showResolution);
 
   function checkAnswer() {
     if (!selectedAnswer.trim()) return;
@@ -285,10 +291,13 @@ export function LessonProblemBeat({
           role="status"
         >
           {correct
-            ? "Correct. Compare your reasoning with the lesson's next step."
+            ? beat.correctFeedback ??
+              "Correct. Compare your reasoning with the worked explanation."
             : beat.role === "transfer"
-              ? "Not yet. Recheck your reasoning and calculation."
-              : "Keep this attempt. You can revise it or continue to compare."}
+              ? beat.incorrectFeedback ??
+                "Not yet. Recheck your reasoning and calculation."
+              : beat.incorrectFeedback ??
+                "Keep this attempt. Now compare it with the worked explanation."}
         </p>
       )}
     </section>
@@ -299,19 +308,26 @@ export function LessonProblemBeat({
       {showSourceBefore && <SourceLabel problem={problem} />}
       <p className="fmj-lesson-problem-bridge">{beat.entryBridge}</p>
 
-      {beat.presentation === "animation-first" ? (
+      {beat.presentation === "animation-first" &&
+      !animationBelongsToResolution ? (
         <>
-          {animation}
+          {problemAnimation}
           {statement}
         </>
       ) : (
         <>
           {statement}
-          {animation}
+          {!animationBelongsToResolution && problemAnimation}
         </>
       )}
 
       {answerPicker}
+      {showResolution && beat.resolution && (
+        <LessonResolution
+          resolution={beat.resolution}
+          problemAnimation={problemAnimation}
+        />
+      )}
       {showSourceAfter && <SourceLabel problem={problem} />}
       {showSourceOnCompletion && <SourceLabel problem={problem} />}
       {completed && (
