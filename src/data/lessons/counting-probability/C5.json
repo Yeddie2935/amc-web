@@ -1,0 +1,643 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "C5",
+  "curriculumNodeId": "C5",
+  "title": "Count What You Don't Want",
+  "lessonType": "technique",
+  "status": "draft",
+  "estimatedMinutes": 28,
+  "coreInsight": "When the desired set is awkward but its opposite is simple, count the complete universe and remove the complement.",
+  "targetLearnerRealization": "When the desired outcomes overlap or are awkward to classify, counting the easier opposite and subtracting from the whole can collapse the work.",
+  "learningObjectives": [
+    "Recognize when direct groups overlap or become harder than the original count.",
+    "Describe the complete opposite of a desired set and choose the correct whole universe.",
+    "Count the whole, count the opposite, and subtract to find the desired number of outcomes."
+  ],
+  "hardPrerequisites": ["C4"],
+  "narrativePredecessor": "C4",
+  "continuity": {
+    "openingCallback": "Remember the problem with exactly one zero? Change just one phrase and the clean case split starts to overlap.",
+    "closingSeeds": [
+      "An event and its opposite may offer two different routes to the same probability."
+    ],
+    "nextLessonIds": ["P3"]
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "The complement is just one undesirable case rather than every outcome outside the event.",
+      "beatIds": ["find-clean-opposite", "play-code", "practice-mixed-repeat"]
+    },
+    {
+      "misconception": "The subtraction universe can be chosen arbitrarily.",
+      "beatIds": ["choose-whole", "finish-zero-count", "practice-bank-transfer", "complement-recap"]
+    },
+    {
+      "misconception": "At least one and exactly one are interchangeable.",
+      "beatIds": ["change-one-thing", "finish-zero-count"]
+    },
+    {
+      "misconception": "Complementary counting always requires probability notation.",
+      "beatIds": ["name-complement", "play-code", "practice-near-lanterns", "probability-hook"]
+    }
+  ],
+  "beats": [
+    {
+      "id": "change-one-thing",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Resume C4's zero-position representation and make the overlap caused by changing exactly one to at least one visible.",
+      "expectedRealization": "The old position groups now overlap because a number may contain zero in both positions.",
+      "transitionIn": "Remember the problem with exactly one zero? Now change just one thing: we want at least one zero.",
+      "estimatedSeconds": 80,
+      "prompt": "Can we still add the 'zero in tens' and 'zero in ones' groups as they are?",
+      "visual": {
+        "primitive": "slot-filler",
+        "data": {
+          "groups": [
+            { "label": "Zero in tens", "pattern": "_  0  _", "calculation": "one obvious group" },
+            { "label": "Zero in ones", "pattern": "_  _  0", "calculation": "another obvious group" }
+          ]
+        },
+        "continuityKey": "c4-c5-zero-position-slots",
+        "ariaLabel": "The same three-digit zero-position patterns used in the casework lesson"
+      },
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          { "id": "yes-add", "text": "Yes. Every number goes in one group." },
+          { "id": "no-overlap", "text": "No. Some numbers go in both groups." }
+        ],
+        "correctId": "no-overlap",
+        "feedback": {
+          "yes-add": "Try 100. Which groups contain it?",
+          "no-overlap": "Exactly. The number 100 lands in both groups."
+        }
+      },
+      "correctFeedback": "Right. The old split now counts some numbers twice.",
+      "incorrectFeedback": "Test 100 in both patterns.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              { "label": "Zero in tens", "choices": ["100", "101", "102", "…"] },
+              { "label": "Zero in ones", "choices": ["100", "110", "120", "…"] }
+            ]
+          },
+          "continuityKey": "c4-c5-zero-position-slots",
+          "ariaLabel": "The number 100 appearing in both zero-position groups"
+        },
+        "steps": [
+          {
+            "title": "What changed?",
+            "body": "With exactly one zero, every number had one zero-position group. With at least one zero, a number can fit both."
+          },
+          {
+            "title": "Why adding fails",
+            "body": "The number 100 appears once in each displayed group, so adding the two group counts would count it twice."
+          }
+        ],
+        "takeaway": "Casework can be repaired, but these obvious groups are no longer clean. Let's look for an easier set to count."
+      }
+    },
+    {
+      "id": "find-clean-opposite",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Let the learner identify the complete opposite as one non-overlapping product block.",
+      "expectedRealization": "No zeros is the exact opposite of at least one zero and is easy to count by slots.",
+      "transitionIn": "Instead of fixing the overlap, look across the line at what we do not want.",
+      "estimatedSeconds": 70,
+      "prompt": "Which set is one clean block and includes every number outside 'at least one zero'?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          { "id": "exactly-one", "text": "Exactly one zero" },
+          { "id": "zero-in-tens", "text": "Zero in the tens place" },
+          { "id": "no-zeros", "text": "No zeros anywhere" },
+          { "id": "two-zeros", "text": "Exactly two zeros" }
+        ],
+        "correctId": "no-zeros",
+        "feedback": {
+          "exactly-one": "Exactly one zero is part of what we want, and it misses numbers with two zeros. It is not the opposite.",
+          "zero-in-tens": "This is part of the set we want, not everything outside it.",
+          "no-zeros": "Yes. Every three-digit number has either at least one zero or no zeros.",
+          "two-zeros": "This is still part of the set we want."
+        }
+      },
+      "correctFeedback": "Yes—'no zeros' is the whole opposite, not just one unwanted case.",
+      "incorrectFeedback": "The opposite must include every three-digit number that does not have at least one zero.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              { "label": "No zeros", "pattern": "_  _  _", "calculation": "9 choices × 9 choices × 9 choices" }
+            ]
+          },
+          "continuityKey": "c4-c5-zero-position-slots",
+          "ariaLabel": "Three digit slots, each restricted to a nonzero digit"
+        },
+        "steps": [
+          {
+            "body": "The first digit can be 1–9. If zeros are forbidden, the tens and ones digits also each have the same 9 choices."
+          }
+        ],
+        "takeaway": "'No zeros' is one simple block, and together the two sets cover every three-digit number."
+      }
+    },
+    {
+      "id": "choose-whole",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Require the learner to identify the exact universe before subtracting.",
+      "expectedRealization": "The whole is the 900 three-digit numbers, not an arbitrary round number or all digit strings.",
+      "transitionIn": "We have the part to remove. What whole should we remove it from?",
+      "estimatedSeconds": 70,
+      "prompt": "Which whole set contains every answer we want and every no-zero number we will remove?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          { "id": "all-three-digit", "text": "All three-digit numbers, 100 through 999" },
+          { "id": "all-codes", "text": "All strings from 000 through 999" },
+          { "id": "positive-to-999", "text": "All positive numbers from 1 through 999" },
+          { "id": "round-thousand", "text": "Any convenient set of 1000 numbers" }
+        ],
+        "correctId": "all-three-digit",
+        "feedback": {
+          "all-three-digit": "Right. Both the wanted and unwanted numbers live inside 100 through 999.",
+          "all-codes": "Strings beginning with 0 are not three-digit numbers.",
+          "positive-to-999": "One- and two-digit numbers were never part of the question.",
+          "round-thousand": "The whole must match the question exactly, not just be a convenient size."
+        }
+      },
+      "correctFeedback": "Right—the whole is exactly the set of three-digit numbers.",
+      "incorrectFeedback": "Use the set named by the original question.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              { "label": "All three-digit numbers", "pattern": "_  _  _", "calculation": "9 × 10 × 10 = 900" }
+            ]
+          },
+          "continuityKey": "c4-c5-zero-position-slots",
+          "ariaLabel": "Three digit slots with nine first-digit choices and ten choices in each remaining slot"
+        },
+        "steps": [
+          {
+            "body": "A three-digit number starts with 1–9, then has 10 choices for each remaining digit."
+          }
+        ],
+        "takeaway": "The subtraction only works when the whole matches the original question exactly."
+      }
+    },
+    {
+      "id": "finish-zero-count",
+      "phase": "try",
+      "kind": "problem",
+      "purpose": "Let the learner finish the preserved zero problem using the whole-minus-opposite structure they discovered.",
+      "expectedRealization": "Subtracting 729 no-zero numbers from 900 three-digit numbers gives all 171 numbers with at least one zero.",
+      "transitionIn": "Now finish the count with the two pieces you just built.",
+      "transitionOut": "The overlapping set appeared as one clean remainder.",
+      "estimatedSeconds": 105,
+      "source": "generated",
+      "problemId": "original-c5-at-least-one-zero",
+      "role": "anchor",
+      "presentation": "full-prompt",
+      "whyNow": "The learner has already exposed the direct overlap, chosen the complete opposite, and identified the correct universe; only the subtraction remains.",
+      "entryBridge": "Count the no-zero block, then remove it from all three-digit numbers.",
+      "exitBridge": "We counted 900 in the whole, removed the 729 with no zero, and kept the 171 with at least one zero.",
+      "reusedRepresentation": "The same three-digit slots and zero-position patterns carried forward from C4.",
+      "animation": { "mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false },
+      "learnerPrompts": ["How many no-zero numbers are there?", "What should you subtract that count from?"],
+      "correctFeedback": "Yes—171 three-digit numbers contain at least one zero.",
+      "incorrectFeedback": "Keep your attempt. Check the 9 × 9 × 9 no-zero block and the 900-number whole.",
+      "resolution": {
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              { "label": "All three-digit numbers", "pattern": "_  _  _", "calculation": "9 × 10 × 10 = 900" },
+              { "label": "No zeros", "pattern": "_  _  _", "calculation": "9 × 9 × 9 = 729" }
+            ],
+            "total": "900 − 729 = 171 with at least one zero"
+          },
+          "continuityKey": "c4-c5-zero-position-slots",
+          "ariaLabel": "All three-digit numbers minus the block of three-digit numbers with no zero"
+        },
+        "steps": [
+          { "title": "Count the whole", "body": "There are 9 choices for the first digit and 10 for each remaining digit.", "math": "9 × 10 × 10 = 900" },
+          { "title": "Count the complete opposite", "body": "With no zeros, every slot has 9 choices.", "math": "9 × 9 × 9 = 729" },
+          { "title": "Keep what is left", "body": "Every three-digit number is in exactly one of these sets: at least one zero or no zeros.", "math": "900 − 729 = 171" }
+        ],
+        "takeaway": "Instead of untangling overlapping zero cases, we counted the clean opposite and subtracted it from the whole."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "notice-whole-minus-opposite",
+      "phase": "notice",
+      "kind": "copy",
+      "purpose": "Extract the reusable move in plain student language before introducing terminology.",
+      "expectedRealization": "A hard desired set can be found as everything minus its easier opposite.",
+      "transitionIn": "Look at what made that shorter than repairing the overlapping groups.",
+      "estimatedSeconds": 40,
+      "heading": "Count the other side",
+      "body": "The numbers we wanted were awkward to split. The numbers with no zero formed one clean block. Since those two sets fill the same whole without overlap, removing one leaves the other.",
+      "math": ["wanted = whole − opposite"]
+    },
+    {
+      "id": "name-complement",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name complementary counting only after the learner has built and used it.",
+      "expectedRealization": "Complementary counting names the whole-minus-opposite move the learner just made.",
+      "transitionIn": "You just used a counting move worth naming.",
+      "estimatedSeconds": 45,
+      "name": "Complementary counting",
+      "conciseDefinition": "When the outcomes you want are messy, count every outcome, count the complete opposite, and subtract.",
+      "formalization": "wanted = whole − complement",
+      "memoryHook": "Count everything. Count the other side. Subtract."
+    },
+    {
+      "id": "play-code",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Ask the learner to recognize the useful opposite in a new non-probability setting.",
+      "expectedRealization": "At least one A is easier to count through the complete opposite, no As.",
+      "transitionIn": "Try the same idea here, but choose the plan before doing any arithmetic.",
+      "estimatedSeconds": 95,
+      "prompt": "A three-character code uses A, B, C, or D, with repetition allowed. We want codes with at least one A. Which plan is cleanest?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          { "id": "positions", "text": "Add A-first, A-second, and A-third codes" },
+          { "id": "list", "text": "List codes until no new ones appear" },
+          { "id": "complement", "text": "Count all codes, then subtract codes with no A" },
+          { "id": "exactly-one", "text": "Count only codes with exactly one A" }
+        ],
+        "correctId": "complement",
+        "feedback": {
+          "positions": "AAA belongs to all three position groups, so those groups overlap.",
+          "list": "There are 64 codes; a complete list would hide the structure.",
+          "complement": "Yes. No A means three choices in every slot.",
+          "exactly-one": "That misses codes with two or three As."
+        }
+      },
+      "correctFeedback": "Right. 'No A' is the complete, easy opposite.",
+      "incorrectFeedback": "Look for one set that includes every code outside 'at least one A.'",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              { "label": "All codes", "pattern": "_  _  _", "calculation": "4 × 4 × 4 = 64" },
+              { "label": "No A", "pattern": "_  _  _", "calculation": "3 × 3 × 3 = 27" }
+            ],
+            "total": "64 − 27 = 37 codes with at least one A"
+          },
+          "ariaLabel": "All three-character codes minus the codes with no letter A"
+        },
+        "steps": [
+          { "title": "Count the whole", "body": "Each of the three slots has 4 choices.", "math": "4³ = 64" },
+          { "title": "Count the other side", "body": "Without A, each slot has only B, C, or D.", "math": "3³ = 27" },
+          { "title": "Subtract", "body": "Every code either has at least one A or has no A.", "math": "64 − 27 = 37" }
+        ],
+        "takeaway": "The complete opposite can turn several overlapping position groups into one multiplication."
+      }
+    },
+    {
+      "id": "prepare-dice-grid",
+      "phase": "notice",
+      "kind": "copy",
+      "purpose": "Carry the whole-minus-opposite representation naturally from slots to the mapped authentic outcome grid.",
+      "expectedRealization": "The same subtraction picture works when the whole is a grid rather than digit slots.",
+      "transitionIn": "The code used slots. Now keep the same whole-minus-opposite picture and change only the objects.",
+      "estimatedSeconds": 30,
+      "heading": "From slots to a grid",
+      "body": "Two dice make a 6 by 6 grid of ordered outcomes. If the outcomes we want form overlapping rows and columns, their opposite might still be one clean rectangle."
+    },
+    {
+      "id": "guided-dice-complement",
+      "phase": "competition-application",
+      "kind": "problem",
+      "purpose": "Use the approved authentic dice problem to transfer whole-minus-opposite from digit slots to an outcome grid.",
+      "expectedRealization": "Products divisible by 5 are the remainder after removing the 5 by 5 block where neither die is 5.",
+      "transitionIn": "Same strategy, new picture: a product is a multiple of 5 exactly when at least one die shows 5.",
+      "transitionOut": "The slots became a grid, but the move stayed the same: whole minus a clean opposite.",
+      "estimatedSeconds": 210,
+      "source": "bank",
+      "problemId": "amc8-2001-18",
+      "role": "guided",
+      "presentation": "full-prompt",
+      "whyNow": "For two dice, counting products that are multiples of 5 is cleaner by excluding the no-5 rectangle, reinforcing the just-discovered operation in an authentic setting.",
+      "entryBridge": "Which side is easier to mark on the 6 by 6 grid?",
+      "exitBridge": "Removing the 25 no-5 outcomes from all 36 left 11 favorable outcomes, so the probability is 11/36.",
+      "reusedRepresentation": "An outcome grid where the complement is selected first and the target appears as the remainder.",
+      "animation": { "mode": "slice", "stepIndices": [2, 3], "controlledByLesson": true, "autoplay": false, "showPlayerControls": false },
+      "learnerPrompts": [
+        "Which is easier to describe: product is a multiple of 5, or neither die shows 5?",
+        "What is the whole universe we subtract from?"
+      ],
+      "correctFeedback": "Correct—11 of the 36 outcomes work, so the probability is 11/36.",
+      "incorrectFeedback": "Keep your attempt. Let's mark the no-5 rectangle first.",
+      "resolution": {
+        "animation": { "kind": "problem-animation" },
+        "steps": [
+          { "title": "Find the easier side", "body": "A product is not a multiple of 5 when neither die shows 5. Each die then has 5 choices.", "math": "5 × 5 = 25" },
+          { "title": "Use the whole grid", "body": "Two six-sided dice have 6 × 6 = 36 ordered outcomes." },
+          { "title": "Subtract and compare", "body": "The other 11 outcomes have at least one 5, so their products are multiples of 5.", "math": "36 − 25 = 11; probability = 11/36" }
+        ],
+        "takeaway": "The no-5 rectangle is the complement. Counting it first makes the desired L-shaped region appear as the remainder."
+      },
+      "sourceLabelTiming": "completion"
+    },
+    {
+      "id": "harvest-grid-idea",
+      "phase": "notice",
+      "kind": "copy",
+      "purpose": "Harvest the mapped problem as a reusable operation and separate counting from probability notation.",
+      "expectedRealization": "Complementary counting produced the favorable count; the fraction came afterward because the grid had equally likely outcomes.",
+      "estimatedSeconds": 40,
+      "heading": "What stayed the same?",
+      "body": "With digits, we removed the no-zero block. With dice, we removed the no-5 rectangle. In both problems, complementary counting found the number we wanted. The dice problem then wrote that count over 36 equally likely outcomes.",
+      "math": ["whole − complement = wanted"]
+    },
+    {
+      "id": "practice-introduction",
+      "phase": "independent-transfer",
+      "kind": "copy",
+      "purpose": "Start independent practice with a short recognition checklist rather than another worked imitation.",
+      "estimatedSeconds": 20,
+      "heading": "Your turn",
+      "body": "For each problem, ask: What is the exact whole? What is the complete opposite? Is that opposite easier to count?"
+    },
+    {
+      "id": "practice-near-lanterns",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check direct transfer to independent color choices with an at-least-one condition.",
+      "expectedRealization": "At least one red pattern is all patterns minus patterns using only blue and green.",
+      "estimatedSeconds": 105,
+      "source": "generated",
+      "problemId": "original-c5-practice-lanterns",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This preserves the at-least-one structure while changing from digits and dice to color patterns.",
+      "entryBridge": "Try the same idea with colors. What does 'no red' look like?",
+      "exitBridge": "Removing the blue-or-green-only patterns left every pattern with at least one red light.",
+      "animation": { "mode": "none", "controlledByLesson": true },
+      "learnerPrompts": ["How many patterns are possible altogether?", "How many use no red at all?"],
+      "correctFeedback": "Correct—65 patterns contain at least one red light.",
+      "incorrectFeedback": "Count all 3⁴ patterns, then subtract the 2⁴ patterns with only blue and green.",
+      "resolution": {
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              { "label": "All light patterns", "pattern": "○  ○  ○  ○", "calculation": "3⁴ = 81" },
+              { "label": "No red", "pattern": "B/G  B/G  B/G  B/G", "calculation": "2⁴ = 16" }
+            ],
+            "total": "81 − 16 = 65"
+          },
+          "ariaLabel": "All four-light color patterns minus patterns using only blue and green"
+        },
+        "steps": [
+          { "body": "Each of four lights has 3 color choices, while a no-red pattern has only blue or green at each light." },
+          { "body": "Every pattern is either no-red or has at least one red light.", "math": "81 − 16 = 65" }
+        ],
+        "takeaway": "For an at-least-one condition, the no-target side is often one clean product."
+      },
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "practice-near-spinner",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check direct transfer when the opposite must be translated from at least one even to all odd.",
+      "expectedRealization": "The complete opposite of at least one even result is that all three results are odd.",
+      "estimatedSeconds": 105,
+      "source": "generated",
+      "problemId": "original-c5-practice-spinner",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This checks whether the learner can state the complement precisely rather than subtract an incomplete unwanted case.",
+      "entryBridge": "Translate the opposite carefully: what must happen if no result is even?",
+      "exitBridge": "No even results means all three results are odd, giving one simple block to remove.",
+      "animation": { "mode": "none", "controlledByLesson": true },
+      "learnerPrompts": ["What is the complete opposite of at least one even result?"],
+      "correctFeedback": "Correct—56 ordered result sequences contain at least one even number.",
+      "incorrectFeedback": "There are 4³ total sequences. Which sequences have no even result?",
+      "resolution": {
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              { "label": "All three spins", "pattern": "_  _  _", "calculation": "4³ = 64" },
+              { "label": "All odd", "pattern": "1/3  1/3  1/3", "calculation": "2³ = 8" }
+            ],
+            "total": "64 − 8 = 56"
+          },
+          "ariaLabel": "All three-spin sequences minus sequences in which every result is odd"
+        },
+        "steps": [
+          { "body": "Each spin has 4 possible results. To have no even result, every spin must be 1 or 3." },
+          { "body": "Removing the 8 all-odd sequences leaves every sequence with at least one even result.", "math": "64 − 8 = 56" }
+        ],
+        "takeaway": "The complement of 'at least one even' is 'all odd'—not merely 'one odd.'"
+      },
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "practice-mixed-repeat",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Test recognition when the desired repeated-symbol cases are awkward but the all-distinct complement is simple.",
+      "expectedRealization": "At least one repeated symbol is all strings minus strings whose symbols are all different.",
+      "estimatedSeconds": 120,
+      "source": "generated",
+      "problemId": "original-c5-practice-repeat",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The desired set is no longer phrased as an obvious at-least-one target; the learner must invent the clean opposite.",
+      "entryBridge": "The repeated-symbol cases split many ways. What happens on the other side?",
+      "exitBridge": "All-different badges formed the one clean block to remove.",
+      "animation": { "mode": "none", "controlledByLesson": true },
+      "learnerPrompts": ["What is the exact opposite of at least one repeated symbol?"],
+      "correctFeedback": "Correct—65 badges use at least one symbol more than once.",
+      "incorrectFeedback": "Count all badges, then subtract those with three different symbols.",
+      "resolution": {
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              { "label": "All badges", "pattern": "_  _  _", "calculation": "5 × 5 × 5 = 125" },
+              { "label": "All symbols different", "pattern": "_  _  _", "calculation": "5 × 4 × 3 = 60" }
+            ],
+            "total": "125 − 60 = 65"
+          },
+          "ariaLabel": "All three-symbol badges minus badges with three different symbols"
+        },
+        "steps": [
+          { "body": "There are 5 choices in every slot when repetition is allowed." },
+          { "body": "On the opposite side, choose 5 symbols for the first slot, then 4 different choices, then 3.", "math": "5 × 4 × 3 = 60" },
+          { "body": "Everything not all-different has at least one repeat.", "math": "125 − 60 = 65" }
+        ],
+        "takeaway": "When the desired cases branch into many shapes, try describing their complete opposite."
+      },
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "practice-mixed-officers",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Test choosing the complement in an ordered selection where direct special-person cases overlap.",
+      "expectedRealization": "Assignments with Maya or Noah are all ordered assignments minus those using neither student.",
+      "estimatedSeconds": 125,
+      "source": "generated",
+      "problemId": "original-c5-practice-officers",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This combines complementary counting with ordered choices and recreates the overlap tension in a less obvious setting.",
+      "entryBridge": "Counting Maya's assignments and Noah's assignments separately overlaps when both serve. Can you find a cleaner side?",
+      "exitBridge": "Removing assignments that use neither Maya nor Noah avoided every overlapping special-person case.",
+      "animation": { "mode": "none", "controlledByLesson": true },
+      "learnerPrompts": ["How many captain-recorder assignments are possible?", "How many use neither Maya nor Noah?"],
+      "correctFeedback": "Correct—18 assignments include Maya or Noah in at least one role.",
+      "incorrectFeedback": "Start with all 6 × 5 ordered assignments, then use only the other four students.",
+      "resolution": {
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              { "label": "All officer assignments", "pattern": "captain  |  recorder", "calculation": "6 × 5 = 30" },
+              { "label": "Neither Maya nor Noah", "pattern": "captain  |  recorder", "calculation": "4 × 3 = 12" }
+            ],
+            "total": "30 − 12 = 18"
+          },
+          "ariaLabel": "All ordered officer assignments minus those using neither Maya nor Noah"
+        },
+        "steps": [
+          { "body": "The two roles are different, so the whole has 6 choices for captain and then 5 for recorder." },
+          { "body": "If neither Maya nor Noah serves, only four students remain, then three for the second role." },
+          { "body": "Subtracting those assignments leaves every assignment with at least one of the two students.", "math": "30 − 12 = 18" }
+        ],
+        "takeaway": "The 'neither' side can remove overlap before it ever appears."
+      },
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "practice-bank-transfer",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check authentic transfer where the forbidden block is easier to count than all allowed passwords.",
+      "expectedRealization": "Allowed passwords are all four-digit strings minus the ten strings beginning with 911.",
+      "estimatedSeconds": 170,
+      "source": "bank",
+      "problemId": "amc8-2016-17",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The authentic problem removes a precisely described forbidden block and checks whether the learner chooses the exact code universe independently.",
+      "entryBridge": "Now the problem gives the unwanted block directly. Name the whole before you subtract.",
+      "exitBridge": "All 10,000 passwords minus the 10 beginning with 911 left 9,990 allowed passwords.",
+      "animation": { "mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false },
+      "learnerPrompts": [
+        "How many four-digit passwords are in the whole set?",
+        "Once 911 is fixed, how many last digits are possible?",
+        "What remains after the forbidden block is removed?"
+      ],
+      "correctFeedback": "Correct—9,990 passwords are allowed.",
+      "incorrectFeedback": "A password may begin with zero. Count all four-digit strings, then the strings beginning with 911.",
+      "resolution": {
+        "animation": { "kind": "problem-animation" },
+        "steps": [
+          { "title": "Count the exact whole", "body": "Passwords are four-digit strings, so every slot—including the first—has 10 choices.", "math": "10⁴ = 10,000" },
+          { "title": "Count the forbidden block", "body": "Fixing 9, 1, 1 leaves 10 choices for the last digit: 9110 through 9119." },
+          { "title": "Remove it", "body": "Every password is either allowed or in that forbidden block.", "math": "10,000 − 10 = 9,990" }
+        ],
+        "takeaway": "Complementary counting also works when the problem states the unwanted set instead of an at-least-one condition."
+      },
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "complement-recap",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate recognition, correctness conditions, and order of operations before the forward hook.",
+      "expectedRealization": "A valid complement plan uses the exact whole and removes every outcome outside the desired set.",
+      "transitionIn": "Before we carry the idea forward, keep the three questions that made every subtraction trustworthy.",
+      "estimatedSeconds": 70,
+      "prompt": "Which checks belong in a complementary-counting plan? Select all three.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          { "id": "whole", "text": "Did I count the exact whole?" },
+          { "id": "opposite", "text": "Did I count everything outside what I want?" },
+          { "id": "easier", "text": "Is the opposite actually easier to count?" },
+          { "id": "round", "text": "Did I subtract from a convenient round number?" }
+        ],
+        "correctIds": ["whole", "opposite", "easier"]
+      },
+      "correctFeedback": "Exactly. Whole, complete opposite, easier count.",
+      "incorrectFeedback": "The starting number must match the problem's exact universe, even when it is not round.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              { "label": "1. Count the whole", "choices": ["match the question exactly"] },
+              { "label": "2. Count the other side", "choices": ["include everything you do not want"] },
+              { "label": "3. Subtract", "choices": ["whole − complement"] }
+            ]
+          },
+          "ariaLabel": "Three-part checklist for complementary counting"
+        },
+        "takeaway": "Use complementary counting when the complete opposite is simpler—not just because subtraction is available."
+      }
+    },
+    {
+      "id": "probability-hook",
+      "phase": "reflection",
+      "kind": "reflection",
+      "purpose": "Seed complementary probability as a continuation of the dice conversation without teaching the successor lesson.",
+      "expectedRealization": "The whole-minus-opposite relationship should have a probability version, but the meaning of the whole changes.",
+      "transitionIn": "Remember the dice grid? Counting left 11 of the 36 equally likely outcomes.",
+      "estimatedSeconds": 55,
+      "prompt": "If a probability problem gives the opposite chance more easily than the chance we want, what should play the role of the whole?",
+      "takeaway": "The same whole-minus-opposite idea should survive—but probability has its own way to write the whole. We'll pick up the conversation there."
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": { "near": 6, "mixed": 6, "challenge": 2 },
+    "sessionSelection": [
+      { "source": "generated", "transferLevel": "near", "count": 2 },
+      { "source": "generated", "transferLevel": "mixed", "count": 2 },
+      { "source": "bank", "transferLevel": "mixed", "count": 1, "difficulty": 2 }
+    ],
+    "excludeProblemIds": ["original-c5-at-least-one-zero", "amc8-2001-18"],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "C5",
+    "evidenceBeatIds": ["practice-near-lanterns", "practice-near-spinner", "practice-mixed-repeat", "practice-mixed-officers", "practice-bank-transfer"],
+    "minIndependentPracticeItems": 5,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.2.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "mathinking-lesson-skill-1.0.0",
+    "notes": [
+      "Draft benchmark authored with the repo-local mathinking-lesson Skill.",
+      "C4's zero-position representation is preserved so overlap appears before complementary counting is named.",
+      "The approved dice problem uses a lesson-controlled animation slice; final practice uses four independently verified originals and one separate authentic transfer."
+    ]
+  }
+}
