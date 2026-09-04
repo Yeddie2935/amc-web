@@ -2,10 +2,12 @@ import type {
   GeneratedProblemArtifact,
   LessonSpec,
 } from "../../types/lesson";
+import c1LessonData from "./counting-probability/C1.json";
 import c4LessonData from "./counting-probability/C4.json";
 import c5LessonData from "./counting-probability/C5.json";
 import c6LessonData from "./counting-probability/C6.json";
 import c7LessonData from "./counting-probability/C7.json";
+import c1GeneratedProblemData from "./generated-problems/C1.json";
 import c4GeneratedProblemData from "./generated-problems/C4.json";
 import c5GeneratedProblemData from "./generated-problems/C5.json";
 import c6GeneratedProblemData from "./generated-problems/C6.json";
@@ -16,6 +18,9 @@ export interface LessonBundle {
   generatedProblemArtifacts: readonly GeneratedProblemArtifact[];
 }
 
+const c1Lesson = c1LessonData as LessonSpec;
+const c1GeneratedProblemArtifacts =
+  c1GeneratedProblemData as GeneratedProblemArtifact[];
 const c4Lesson = c4LessonData as LessonSpec;
 const c4GeneratedProblemArtifacts =
   c4GeneratedProblemData as GeneratedProblemArtifact[];
@@ -34,6 +39,13 @@ const c7GeneratedProblemArtifacts =
  * its spec and generated artifacts here; rendering remains lesson-agnostic.
  */
 const lessonRegistry = new Map<string, LessonBundle>([
+  [
+    c1Lesson.lessonId,
+    {
+      lesson: c1Lesson,
+      generatedProblemArtifacts: c1GeneratedProblemArtifacts,
+    },
+  ],
   [
     c4Lesson.lessonId,
     {
