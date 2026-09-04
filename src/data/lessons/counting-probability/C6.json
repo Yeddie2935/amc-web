@@ -1,0 +1,510 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "C6",
+  "curriculumNodeId": "C6",
+  "title": "When Two Lists Mean One Thing",
+  "lessonType": "connector",
+  "status": "draft",
+  "estimatedMinutes": 22,
+  "coreInsight": "One mathematical outcome may have several descriptions or orderings; when every true outcome is represented the same number of times, divide by that multiplicity.",
+  "targetLearnerRealization": "If different ordered descriptions represent the same outcome, raw counting overcounts; division is valid only when each true outcome appears the same number of times.",
+  "learningObjectives": [
+    "Decide whether two ordered descriptions represent different outcomes or the same outcome.",
+    "Group duplicate descriptions and identify how many represent each true outcome.",
+    "Divide an overcount only after checking that the multiplicity is uniform."
+  ],
+  "hardPrerequisites": ["C3"],
+  "narrativePredecessor": "C3",
+  "continuity": {
+    "openingCallback": "Ordered lineups distinguish first from second. A team with no roles changes what counts as the same outcome.",
+    "closingSeeds": [
+      "A group of three can have more than two ordered descriptions, so the duplicate factor must be found rather than guessed."
+    ],
+    "nextLessonIds": ["C7"]
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "Overcounting can always be fixed by dividing by 2.",
+      "beatIds": ["unequal-ice-cream-multiplicity", "practice-mixed-two-scoops", "uniform-multiplicity-recap"]
+    },
+    {
+      "misconception": "Every outcome is automatically overcounted equally often.",
+      "beatIds": ["why-division-works", "unequal-ice-cream-multiplicity", "practice-mixed-two-scoops", "uniform-multiplicity-recap"]
+    },
+    {
+      "misconception": "Different descriptions necessarily represent different mathematical outcomes.",
+      "beatIds": ["two-person-team-puzzle", "why-division-works", "guided-round-robin"]
+    },
+    {
+      "misconception": "Symmetry can be invoked without checking that the multiplicity is uniform.",
+      "beatIds": ["unequal-ice-cream-multiplicity", "harvest-round-robin", "practice-bank-transfer", "uniform-multiplicity-recap"]
+    }
+  ],
+  "beats": [
+    {
+      "id": "two-person-team-puzzle",
+      "phase": "puzzle",
+      "kind": "problem",
+      "purpose": "Reuse C3's ordered count in a setting where order no longer changes the mathematical outcome.",
+      "expectedRealization": "The ordered count of six describes only three teams because reversing the names does not create a new team.",
+      "transitionIn": "In a lineup, Ava-Ben and Ben-Ava were different. Keep that ordered count, but change the object: now the two people form a team with no roles.",
+      "transitionOut": "The count of six was not wrong. It counted descriptions instead of teams.",
+      "estimatedSeconds": 120,
+      "source": "generated",
+      "problemId": "original-c6-two-person-team",
+      "role": "anchor",
+      "presentation": "full-prompt",
+      "whyNow": "The smallest nontrivial pair selection preserves C3's 3×2 ordered count while making reversed orders visibly name the same team.",
+      "entryBridge": "Try the shrinking-choice count you already know, then ask what its six results actually describe.",
+      "exitBridge": "The six ordered name lists collapse into three pairs of descriptions.",
+      "reusedRepresentation": "Ordered name cards from a lineup grouped by the team they describe.",
+      "animation": { "mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false },
+      "learnerPrompts": ["Does reversing the two names create a different team?"],
+      "correctFeedback": "Right—there are 3 teams, even though the ordered count produces 6 descriptions.",
+      "incorrectFeedback": "Keep the ordered count. Now pair each name order with its reversal.",
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              { "label": "Team Ava-Ben", "items": ["Ava → Ben", "Ben → Ava"] },
+              { "label": "Team Ava-Cleo", "items": ["Ava → Cleo", "Cleo → Ava"] },
+              { "label": "Team Ben-Cleo", "items": ["Ben → Cleo", "Cleo → Ben"] }
+            ]
+          },
+          "continuityKey": "c6-paired-description-cards",
+          "ariaLabel": "Six ordered name cards grouped into three two-person teams"
+        },
+        "steps": [
+          {
+            "title": "Count the descriptions",
+            "body": "Three choices for the first name and two for the second give six ordered name lists.",
+            "math": "3 × 2 = 6"
+          },
+          {
+            "title": "Ask what stays the same",
+            "body": "Ava-Ben and Ben-Ava contain the same two people. Each team appears in exactly two name orders."
+          },
+          {
+            "title": "Count the teams",
+            "body": "The six descriptions form three equal bundles of two.",
+            "math": "6 ÷ 2 = 3"
+          }
+        ],
+        "takeaway": "Before counting, decide what makes two descriptions the same outcome."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "why-division-works",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Make uniform multiplicity, rather than a memorized divide-by-two move, the reason division is valid.",
+      "expectedRealization": "Division works because every true team has exactly two ordered descriptions.",
+      "transitionIn": "Look at the three bundles again. Why is dividing by 2 trustworthy here?",
+      "estimatedSeconds": 70,
+      "prompt": "Which fact justifies 6 ÷ 2?",
+      "visual": {
+        "primitive": "sort-into-cases",
+        "data": {
+          "cases": [
+            { "label": "Ava-Ben", "items": ["A→B", "B→A"] },
+            { "label": "Ava-Cleo", "items": ["A→C", "C→A"] },
+            { "label": "Ben-Cleo", "items": ["B→C", "C→B"] }
+          ]
+        },
+        "continuityKey": "c6-paired-description-cards",
+        "ariaLabel": "Three teams, each represented by exactly two reversed ordered descriptions"
+      },
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          { "id": "six-even", "text": "Six is even." },
+          { "id": "all-two", "text": "Every team has exactly two descriptions." },
+          { "id": "pairs-use-two", "text": "Every problem about pairs should be divided by 2." }
+        ],
+        "correctId": "all-two",
+        "feedback": {
+          "six-even": "An even raw count does not tell us how its descriptions are distributed among outcomes.",
+          "all-two": "Exactly. Equal bundle size is what makes one division correct.",
+          "pairs-use-two": "Some pair problems include repeated objects or roles, so the bundle sizes can differ."
+        }
+      },
+      "correctFeedback": "Exactly—each true outcome has the same multiplicity: 2.",
+      "incorrectFeedback": "Look inside every bundle. What shared fact do all three have?",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          { "body": "Division counts equal-sized bundles. If one outcome had one description and another had two, one division could not correct both." }
+        ],
+        "takeaway": "Find the actual multiplicity and check that it is the same for every outcome."
+      }
+    },
+    {
+      "id": "name-overcounting",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name overcounting and symmetry only after the learner has seen equal duplicate bundles.",
+      "expectedRealization": "Overcounting is corrected by dividing by a verified uniform multiplicity.",
+      "transitionIn": "You counted valid descriptions, then noticed that equal bundles described the same thing.",
+      "estimatedSeconds": 45,
+      "name": "Overcounting and symmetry",
+      "conciseDefinition": "Overcounting happens when several descriptions represent one outcome. Symmetry lets us divide only when every outcome has the same number of descriptions.",
+      "formalization": "true outcomes = descriptions ÷ descriptions per outcome",
+      "memoryHook": "Same thing? Same number of times? Then divide."
+    },
+    {
+      "id": "unequal-ice-cream-multiplicity",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Break the tempting always-divide-by-two rule with a tiny visible nonuniform example.",
+      "expectedRealization": "Mixed-flavor cups have two ordered descriptions, but double-flavor cups have only one, so 4÷2 is invalid.",
+      "transitionIn": "Now keep two positions, but allow the same choice twice.",
+      "estimatedSeconds": 105,
+      "prompt": "A two-scoop cup uses vanilla or chocolate, repeats are allowed, and scoop order does not matter. The grid has 4 ordered descriptions. Can we divide all 4 by 2?",
+      "visual": {
+        "primitive": "outcome-grid",
+        "data": {
+          "rows": ["First V", "First C"],
+          "columns": ["Second V", "Second C"],
+          "cells": [["VV", "VC"], ["CV", "CC"]],
+          "highlightedCells": ["0:1", "1:0"]
+        },
+        "continuityKey": "c6-scoop-description-grid",
+        "ariaLabel": "A two by two grid of vanilla and chocolate ordered scoop descriptions with the mixed pair highlighted"
+      },
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          { "id": "yes-two", "text": "Yes. Two scoops means divide by 2." },
+          { "id": "no-unequal", "text": "No. The outcomes do not all have two descriptions." }
+        ],
+        "correctId": "no-unequal",
+        "feedback": {
+          "yes-two": "Check VV and CC. Reversing either description produces no second grid cell.",
+          "no-unequal": "Right. The mixed cup appears twice, but each double-flavor cup appears once."
+        }
+      },
+      "correctFeedback": "Right—the multiplicity is not uniform.",
+      "incorrectFeedback": "Compare the diagonal cells VV and CC with the mirrored pair VC and CV.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              { "label": "Vanilla-vanilla", "items": ["VV: 1 description"] },
+              { "label": "Mixed", "items": ["VC", "CV: 2 descriptions"] },
+              { "label": "Chocolate-chocolate", "items": ["CC: 1 description"] }
+            ]
+          },
+          "continuityKey": "c6-scoop-description-grid",
+          "ariaLabel": "Three ice cream outcomes with multiplicities one, two, and one"
+        },
+        "steps": [
+          { "body": "There are three actual cups: vanilla-vanilla, mixed, and chocolate-chocolate." },
+          { "body": "Their description counts are 1, 2, and 1. Dividing all four ordered descriptions by 2 would incorrectly give 2 cups." }
+        ],
+        "takeaway": "Do not divide until every true outcome is represented equally often."
+      }
+    },
+    {
+      "id": "guided-round-robin",
+      "phase": "competition-application",
+      "kind": "problem",
+      "purpose": "Transfer paired descriptions to the approved round-robin problem, where every game appears from both teams' perspectives.",
+      "expectedRealization": "Team-opponent listings count every game exactly twice, so n(n−1)÷2 counts games.",
+      "transitionIn": "Replace each two-person team with a game between two conference teams. The same reversed pair is still one outcome.",
+      "transitionOut": "The division worked because every edge had exactly two endpoint descriptions—one from each team.",
+      "estimatedSeconds": 230,
+      "source": "bank",
+      "problemId": "amc8-2012-14",
+      "role": "guided",
+      "presentation": "full-prompt",
+      "whyNow": "Every round-robin game can be listed from either team's perspective, directly scaling the paired duplicate-card structure from three people to an authentic contest setting.",
+      "entryBridge": "Imagine every team writing down all of its opponents. Then decide how many times one actual game enters those lists.",
+      "exitBridge": "Seven teams create 7×6 team-opponent descriptions, grouped two per game, for 21 games.",
+      "reusedRepresentation": "Ordered-pair cards collapsing into one unordered object.",
+      "animation": { "mode": "slice", "stepIndices": [0, 2, 4], "controlledByLesson": true, "autoplay": false, "showPlayerControls": false },
+      "learnerPrompts": [
+        "Why does game A-B appear once from A's perspective and once from B's?",
+        "What equal multiplicity corrects the team-opponent count?",
+        "Are all games overcounted by the same factor?"
+      ],
+      "correctFeedback": "Correct—7 teams produce 21 games.",
+      "incorrectFeedback": "Keep your choice. Count team-opponent descriptions, then pair the two descriptions of each game.",
+      "resolution": {
+        "animation": { "kind": "problem-animation" },
+        "steps": [
+          { "title": "Count from every team", "body": "With n teams, each team lists n−1 opponents.", "math": "n(n−1) descriptions" },
+          { "title": "Check the bundle size", "body": "Game A-B appears on A's list and B's list. Every game appears exactly twice.", "math": "n(n−1) ÷ 2 games" },
+          { "title": "Match 21 games", "body": "Doubling 21 gives 42 descriptions. The consecutive factors 7 and 6 make 42, so n = 7.", "math": "7 × 6 ÷ 2 = 21" }
+        ],
+        "takeaway": "The ÷2 is justified by two endpoint descriptions per game, not by a rule that every pair problem uses 2."
+      },
+      "sourceLabelTiming": "completion"
+    },
+    {
+      "id": "harvest-round-robin",
+      "phase": "notice",
+      "kind": "copy",
+      "purpose": "Harvest the invariant behind the authentic problem before independent practice.",
+      "expectedRealization": "A valid correction identifies the same outcome relation and verifies one common multiplicity.",
+      "estimatedSeconds": 40,
+      "heading": "What made the correction legal?",
+      "body": "We defined one game as one pair of teams. Then we checked every game had exactly two team-opponent descriptions. Only after both checks did we divide.",
+      "math": ["descriptions ÷ 2 descriptions per game = games"],
+      "transitionOut": "On your own, name the true outcome and its multiplicity before calculating."
+    },
+    {
+      "id": "practice-introduction",
+      "phase": "independent-transfer",
+      "kind": "copy",
+      "purpose": "Begin independent evidence with the two decisions that prevent blind division.",
+      "estimatedSeconds": 20,
+      "heading": "Your turn",
+      "body": "Ask two questions first: What counts as the same outcome? Does every outcome have the same number of descriptions?"
+    },
+    {
+      "id": "practice-near-beacons",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check direct transfer from reversed ordered descriptions to undirected physical connections.",
+      "expectedRealization": "Each cord is represented by its two endpoint orders.",
+      "estimatedSeconds": 105,
+      "source": "generated",
+      "problemId": "original-c6-practice-beacon-cords",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The physical cord makes the sameness of reversed endpoint descriptions concrete without repeating the team context.",
+      "entryBridge": "A cord has two endpoints. Decide whether reversing them creates a new cord.",
+      "exitBridge": "Twenty directed endpoint descriptions formed ten equal reversal pairs.",
+      "animation": { "mode": "none", "controlledByLesson": true },
+      "learnerPrompts": ["How many directed descriptions name each physical cord?"],
+      "correctFeedback": "Correct—10 cords connect all five pairs of beacons.",
+      "incorrectFeedback": "Count directed endpoint descriptions, then group each one with its reversal.",
+      "resolution": {
+        "steps": [
+          { "body": "Five choices for a starting endpoint and four for a different ending endpoint give 20 directed descriptions." },
+          { "body": "A→B and B→A name the same cord, and every cord has exactly those two descriptions.", "math": "20 ÷ 2 = 10" }
+        ],
+        "takeaway": "Reversal symmetry is useful only after the two descriptions are shown to name one physical object."
+      },
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "practice-near-duets",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check the same multiplicity with a larger roster and a different object definition.",
+      "expectedRealization": "Two name orders represent each role-free duet.",
+      "estimatedSeconds": 105,
+      "source": "generated",
+      "problemId": "original-c6-practice-duets",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The learner must define a duet as an unordered outcome and verify the factor stays two as the roster grows.",
+      "entryBridge": "The performers have no first and second roles. What does that do to the ordered name lists?",
+      "exitBridge": "Thirty ordered name lists became fifteen two-description bundles.",
+      "animation": { "mode": "none", "controlledByLesson": true },
+      "learnerPrompts": ["Would reversing the two musicians change the performance?"],
+      "correctFeedback": "Correct—there are 15 duet performances.",
+      "incorrectFeedback": "Start with 6×5 ordered lists and check how many describe each duet.",
+      "resolution": {
+        "steps": [
+          { "body": "The ordered name count is 6×5 = 30." },
+          { "body": "Every duet appears in exactly two orders, so 30÷2 = 15." }
+        ],
+        "takeaway": "The roster changed, but the two-description symmetry did not."
+      },
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "practice-mixed-identical-flags",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Mix C3 factorial counting with duplicate descriptions created by identical objects.",
+      "expectedRealization": "Temporarily labeling identical objects creates two descriptions of every visible arrangement.",
+      "estimatedSeconds": 130,
+      "source": "generated",
+      "problemId": "original-c6-practice-identical-flags",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This reconnects to factorial arrangements while changing the symmetry from reversing a pair to swapping temporary labels on identical objects.",
+      "entryBridge": "Use the factorial count from ordered lineups—but watch what happens if the two identical red flags are temporarily labeled.",
+      "exitBridge": "Swapping the two red labels paired all 120 labeled rows into 60 visible rows.",
+      "animation": { "mode": "none", "controlledByLesson": true },
+      "learnerPrompts": ["How many labeled rows collapse to one visible row after the red subscripts are erased?"],
+      "correctFeedback": "Correct—60 visibly different rows remain.",
+      "incorrectFeedback": "Label the red flags R₁ and R₂, count all five distinct flags, then erase the labels.",
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              { "label": "Temporarily labeled", "choices": ["5! = 120 rows"] },
+              { "label": "Same visible row", "choices": ["R₁/R₂ order", "R₂/R₁ order"] }
+            ]
+          },
+          "ariaLabel": "A factorial count of labeled flags grouped in pairs that differ only by swapping the two red labels"
+        },
+        "steps": [
+          { "body": "Treating R₁, R₂, blue, green, and yellow as distinct gives 5! = 120 labeled rows." },
+          { "body": "Every visible row has exactly two labeled versions, formed by swapping R₁ and R₂.", "math": "120 ÷ 2 = 60" }
+        ],
+        "takeaway": "A symmetry can be a label swap as well as a reversal; the same uniform-multiplicity check still controls the division."
+      },
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "practice-mixed-two-scoops",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Require the learner to repair a nonuniform overcount rather than apply one global division.",
+      "expectedRealization": "Repeated-flavor and mixed-flavor outcomes must be handled separately because their multiplicities differ.",
+      "estimatedSeconds": 135,
+      "source": "generated",
+      "problemId": "original-c6-practice-two-scoops",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This is the independent version of the lesson's counterexample and makes choosing the correct representation more important than repeating a calculation.",
+      "entryBridge": "This time there are four flavors. Check the diagonal and off-diagonal descriptions before deciding whether one division works.",
+      "exitBridge": "The four double-flavor outcomes stayed single while the twelve mixed descriptions paired into six outcomes.",
+      "animation": { "mode": "none", "controlledByLesson": true },
+      "learnerPrompts": ["Which outcomes have one description, and which have two?"],
+      "correctFeedback": "Correct—there are 10 flavor selections.",
+      "incorrectFeedback": "Do not divide all 16 ordered descriptions at once. Separate repeated-flavor cups from mixed cups.",
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              { "label": "Same flavor", "items": ["4 outcomes", "1 description each"] },
+              { "label": "Two different flavors", "items": ["12 ordered descriptions", "2 descriptions each", "6 outcomes"] }
+            ]
+          },
+          "ariaLabel": "Two kinds of ice cream outcomes separated by multiplicity one and multiplicity two"
+        },
+        "steps": [
+          { "body": "The four same-flavor cups lie on the grid's diagonal and each has one description." },
+          { "body": "The twelve mixed descriptions pair with their reversals, giving 12÷2 = 6 mixed cups." },
+          { "body": "Add the two kinds.", "math": "4 + 6 = 10" }
+        ],
+        "takeaway": "When multiplicity is not uniform, separate the outcomes into parts where it is uniform."
+      },
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "practice-bank-transfer",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check authentic transfer where home/away changes which reversed descriptions are distinct outcomes.",
+      "expectedRealization": "Home and away turn the two orders of a team pair into two actual games, so the conference ledger should not be divided twice.",
+      "estimatedSeconds": 190,
+      "source": "bank",
+      "problemId": "amc8-2014-16",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The additional mapped bank problem tests whether the learner defines the true outcome before dividing: home-versus-away order matters, while the two team perspectives on one scheduled game still do not.",
+      "entryBridge": "Read carefully: one matchup now creates a home game and an away game. Decide which reversals are duplicates and which are genuinely different games.",
+      "exitBridge": "The 28 unordered matchups produced 56 distinct home/away games, then 32 outside games brought the total to 88.",
+      "reusedRepresentation": "Ordered-pair cards checked against the problem's definition of one game.",
+      "animation": { "mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false },
+      "learnerPrompts": [
+        "Why does the pairing board use only one triangle?",
+        "Which two distinct games come from each conference matchup?",
+        "Why is each outside game counted once for a Middle School Eight team?",
+        "Which two disjoint game ledgers combine at the end?"
+      ],
+      "correctFeedback": "Correct—88 games involve the conference teams.",
+      "incorrectFeedback": "Separate conference games from outside games, and check whether home-away creates duplicates or distinct games.",
+      "resolution": {
+        "animation": { "kind": "problem-animation" },
+        "steps": [
+          { "title": "Count conference matchups once", "body": "The 8×7 ordered team descriptions pair by reversal, giving 8×7÷2 = 28 matchups." },
+          { "title": "Restore home and away", "body": "Each matchup creates two genuinely different games, so 28×2 = 56 conference games." },
+          { "title": "Count outside games", "body": "Each of the 8 conference teams plays 4 non-conference games. Those opponents are outside the conference, so no such game belongs to two conference-team schedules.", "math": "8 × 4 = 32" },
+          { "title": "Combine", "body": "Conference and non-conference games are disjoint.", "math": "56 + 32 = 88" }
+        ],
+        "takeaway": "Whether reversal creates a duplicate depends on what the problem calls one outcome. Home-away order matters here."
+      },
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "uniform-multiplicity-recap",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate sameness, actual multiplicity, and uniformity before opening the successor tension.",
+      "expectedRealization": "All three checks are required before dividing an overcount.",
+      "transitionIn": "Before the group size changes, keep the checks that made every correction trustworthy.",
+      "estimatedSeconds": 75,
+      "prompt": "Which checks must happen before dividing an overcount? Select all three.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          { "id": "same-outcome", "text": "Define when descriptions mean the same outcome." },
+          { "id": "actual-number", "text": "Find how many descriptions represent each outcome." },
+          { "id": "uniform", "text": "Check that this number is the same for every outcome." },
+          { "id": "always-two", "text": "Use 2 whenever the objects come in pairs." }
+        ],
+        "correctIds": ["same-outcome", "actual-number", "uniform"]
+      },
+      "correctFeedback": "Exactly. Same outcome, actual multiplicity, uniform multiplicity.",
+      "incorrectFeedback": "The correction factor comes from the descriptions, not from a keyword such as pair.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              { "label": "1. Same outcome?", "choices": ["decide what order or labels change"] },
+              { "label": "2. How many descriptions?", "choices": ["find the real multiplicity"] },
+              { "label": "3. Same for all?", "choices": ["divide only when uniform"] }
+            ]
+          },
+          "ariaLabel": "Three-part checklist for correcting an overcount"
+        },
+        "takeaway": "Do not guess the divisor. Prove the bundle size."
+      }
+    },
+    {
+      "id": "three-person-group-hook",
+      "phase": "reflection",
+      "kind": "reflection",
+      "purpose": "Change pairs to three-person groups and leave the larger multiplicity unresolved for C7.",
+      "expectedRealization": "A three-person group has several ordered lineups, so a systematic way to remove order is needed.",
+      "transitionIn": "Now change one feature: choose three people for a role-free group, but count them first as an ordered lineup.",
+      "estimatedSeconds": 55,
+      "prompt": "ABC, ACB, BAC, BCA, CAB, and CBA all use the same three people. For a larger roster, how could we remove all those artificial orders without listing every group?",
+      "takeaway": "The same group can hide behind several lineups—not just two. Next we will turn that duplicate structure into a general way to choose without order."
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": { "near": 6, "mixed": 6, "challenge": 2 },
+    "sessionSelection": [
+      { "source": "generated", "transferLevel": "near", "count": 2 },
+      { "source": "generated", "transferLevel": "mixed", "count": 2 },
+      { "source": "bank", "transferLevel": "mixed", "count": 1, "difficulty": 2 }
+    ],
+    "excludeProblemIds": ["original-c6-two-person-team", "amc8-2012-14"],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "C6",
+    "evidenceBeatIds": ["practice-near-beacons", "practice-near-duets", "practice-mixed-identical-flags", "practice-mixed-two-scoops", "practice-bank-transfer"],
+    "minIndependentPracticeItems": 5,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.2.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "mathinking-lesson-skill-1.0.0",
+    "notes": [
+      "Draft connector authored with the repo-local mathinking-lesson Skill.",
+      "The generated three-person example is preferred for discovery because it isolates duplicate ordered descriptions before the authentic round-robin arithmetic.",
+      "The lesson uses existing generic primitives and the approved bank animation; no lesson-specific renderer behavior was added.",
+      "The nonuniform ice-cream example explicitly blocks an always-divide-by-two rule before final practice."
+    ]
+  }
+}

@@ -1,0 +1,328 @@
+[
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C6",
+    "problem": {
+      "id": "original-c6-two-person-team",
+      "title": "One Team, Two Orders",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Overcounting",
+      "difficulty": 1,
+      "statement": "Ava, Ben, and Cleo are available. Two different people are chosen to form one team, and the team has no special roles. How many different teams are possible?",
+      "choices": [
+        { "label": "A", "text": "2" },
+        { "label": "B", "text": "3" },
+        { "label": "C", "text": "4" },
+        { "label": "D", "text": "6" },
+        { "label": "E", "text": "9" }
+      ],
+      "answer": "B",
+      "shortAnswer": "3",
+      "hints": [
+        "The ordered count gives 3 × 2 descriptions.",
+        "Do Ava-Ben and Ben-Ava form different teams?"
+      ],
+      "solutionSteps": [
+        {
+          "title": "Count ordered descriptions",
+          "body": "There are 3 choices for the first name and 2 remaining choices for the second, giving 3 × 2 = 6 ordered descriptions."
+        },
+        {
+          "title": "Group descriptions of the same team",
+          "body": "Ava-Ben and Ben-Ava name the same team. The same is true for Ava-Cleo and Cleo-Ava, and for Ben-Cleo and Cleo-Ben."
+        },
+        {
+          "title": "Remove the equal duplication",
+          "body": "Each actual team appears in exactly 2 ordered descriptions, so 6 ÷ 2 = 3 teams."
+        }
+      ],
+      "tags": ["overcounting", "ordered descriptions", "unordered pairs", "symmetry"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "purpose": "teaching",
+    "transferLevel": "discovery",
+    "targetConcepts": ["C6"],
+    "inspirationProblemIds": [],
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive enumeration of the three unordered teams",
+        "independent ordered-count-and-pairing calculation 3×2÷2",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": [
+        "The teams are Ava-Ben, Ava-Cleo, and Ben-Cleo.",
+        "The no-roles condition makes reversed name orders descriptions of one outcome, not different outcomes."
+      ]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C6",
+    "problem": {
+      "id": "original-c6-practice-beacon-cords",
+      "title": "Beacon Cords",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Overcounting",
+      "difficulty": 1,
+      "statement": "Five labeled beacons stand in a field. One cord is stretched between every pair of beacons. How many cords are used?",
+      "choices": [
+        { "label": "A", "text": "5" },
+        { "label": "B", "text": "8" },
+        { "label": "C", "text": "10" },
+        { "label": "D", "text": "15" },
+        { "label": "E", "text": "20" }
+      ],
+      "answer": "C",
+      "shortAnswer": "10",
+      "hints": [
+        "Count a direction from one endpoint to another first.",
+        "How many times does the same cord appear in that directed count?"
+      ],
+      "solutionSteps": [
+        {
+          "title": "Count directed descriptions",
+          "body": "Choose a starting beacon in 5 ways and a different ending beacon in 4 ways, giving 5 × 4 = 20 directed descriptions."
+        },
+        {
+          "title": "Pair the reversals",
+          "body": "The descriptions A→B and B→A refer to the same physical cord. Every cord has exactly two endpoints, so every cord appears exactly twice."
+        },
+        {
+          "title": "Correct the count",
+          "body": "Dividing the 20 descriptions by the uniform multiplicity 2 gives 20 ÷ 2 = 10 cords."
+        }
+      ],
+      "tags": ["overcounting", "pairs", "connections", "uniform multiplicity"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["C6"],
+    "inspirationProblemIds": [],
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive enumeration of the ten unordered beacon pairs",
+        "independent directed-edge count 5×4÷2",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: 10 cords."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C6",
+    "problem": {
+      "id": "original-c6-practice-duets",
+      "title": "Festival Duets",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Overcounting",
+      "difficulty": 1,
+      "statement": "Six musicians attend a festival. Each possible two-person duet performs once. How many duet performances are there?",
+      "choices": [
+        { "label": "A", "text": "6" },
+        { "label": "B", "text": "12" },
+        { "label": "C", "text": "15" },
+        { "label": "D", "text": "18" },
+        { "label": "E", "text": "30" }
+      ],
+      "answer": "C",
+      "shortAnswer": "15",
+      "hints": [
+        "A first-name, second-name list has 6 × 5 entries.",
+        "Does reversing the names create a new duet?"
+      ],
+      "solutionSteps": [
+        {
+          "title": "Build an ordered list",
+          "body": "There are 6 choices for the first listed musician and 5 for the second, giving 30 ordered name lists."
+        },
+        {
+          "title": "Check the multiplicity",
+          "body": "For every duet, the two name orders describe the same performers. No duet has more or fewer than these two descriptions."
+        },
+        {
+          "title": "Divide once",
+          "body": "The 30 ordered descriptions form pairs, so there are 30 ÷ 2 = 15 duet performances."
+        }
+      ],
+      "tags": ["overcounting", "duets", "unordered pairs", "symmetry"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["C6"],
+    "inspirationProblemIds": [],
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "independent alphabetical-first duet sum 5+4+3+2+1",
+        "ordered-name count 6×5 divided by two",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Both methods give 15 performances."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C6",
+    "problem": {
+      "id": "original-c6-practice-identical-flags",
+      "title": "Two Identical Flags",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Overcounting",
+      "difficulty": 2,
+      "statement": "Five flags are arranged in a row. Two flags are identical red flags; the other three are distinct blue, green, and yellow flags. How many visibly different rows are possible?",
+      "choices": [
+        { "label": "A", "text": "24" },
+        { "label": "B", "text": "40" },
+        { "label": "C", "text": "60" },
+        { "label": "D", "text": "100" },
+        { "label": "E", "text": "120" }
+      ],
+      "answer": "C",
+      "shortAnswer": "60",
+      "hints": [
+        "Temporarily label the red flags R₁ and R₂.",
+        "How many labeled rows collapse to each visible row?"
+      ],
+      "solutionSteps": [
+        {
+          "title": "Temporarily distinguish the flags",
+          "body": "If the red flags are labeled R₁ and R₂, all 5 flags are distinct and can be arranged in 5! = 120 rows."
+        },
+        {
+          "title": "Find the duplicate descriptions",
+          "body": "Swapping R₁ and R₂ changes the labeled row but not the visible color row. Every visible row has exactly these two labeled descriptions."
+        },
+        {
+          "title": "Remove the labels",
+          "body": "Because the multiplicity is uniformly 2, the number of visible rows is 120 ÷ 2 = 60."
+        }
+      ],
+      "tags": ["overcounting", "factorial", "identical objects", "arrangements"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["C6", "C3"],
+    "inspirationProblemIds": [],
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "enumeration of 120 labeled permutations followed by erasing red subscripts",
+        "independent choice of two red positions times 3! orders of the other flags: 10×6",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Both methods give 60 visibly different rows."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C6",
+    "problem": {
+      "id": "original-c6-practice-two-scoops",
+      "title": "Two-Scoop Cups",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Overcounting",
+      "difficulty": 2,
+      "statement": "An ice cream shop has four flavors. A cup gets two scoops, flavors may repeat, and top-versus-bottom order does not matter. How many different flavor selections are possible?",
+      "choices": [
+        { "label": "A", "text": "6" },
+        { "label": "B", "text": "8" },
+        { "label": "C", "text": "10" },
+        { "label": "D", "text": "12" },
+        { "label": "E", "text": "16" }
+      ],
+      "answer": "C",
+      "shortAnswer": "10",
+      "hints": [
+        "The 4 × 4 ordered scoop list has both mixed cups and double-flavor cups.",
+        "Do those two kinds have the same number of ordered descriptions?"
+      ],
+      "solutionSteps": [
+        {
+          "title": "Separate the unequal multiplicities",
+          "body": "There are 4 double-flavor cups. Each, such as vanilla-vanilla, has only one ordered description."
+        },
+        {
+          "title": "Pair the mixed descriptions",
+          "body": "The ordered grid has 12 mixed-flavor descriptions. Reversing the two flavors pairs them uniformly, giving 12 ÷ 2 = 6 mixed selections."
+        },
+        {
+          "title": "Combine the two kinds",
+          "body": "The total is 4 double-flavor selections plus 6 mixed selections, or 10. Dividing all 16 descriptions by 2 would fail because the multiplicity is not uniform."
+        }
+      ],
+      "tags": ["overcounting", "nonuniform multiplicity", "repetition", "unordered selections"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["C6"],
+    "inspirationProblemIds": [],
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive enumeration of the ten unordered flavor multisets",
+        "independent split into 4 repeated-flavor selections and 12÷2 mixed selections",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": [
+        "Recomputed answer: 4 + 6 = 10.",
+        "The four diagonal ordered pairs have multiplicity one; the six off-diagonal orbits have multiplicity two."
+      ]
+    }
+  }
+]

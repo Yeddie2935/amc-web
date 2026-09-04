@@ -4,8 +4,10 @@ import type {
 } from "../../types/lesson";
 import c4LessonData from "./counting-probability/C4.json";
 import c5LessonData from "./counting-probability/C5.json";
+import c6LessonData from "./counting-probability/C6.json";
 import c4GeneratedProblemData from "./generated-problems/C4.json";
 import c5GeneratedProblemData from "./generated-problems/C5.json";
+import c6GeneratedProblemData from "./generated-problems/C6.json";
 
 export interface LessonBundle {
   lesson: LessonSpec;
@@ -18,6 +20,9 @@ const c4GeneratedProblemArtifacts =
 const c5Lesson = c5LessonData as LessonSpec;
 const c5GeneratedProblemArtifacts =
   c5GeneratedProblemData as GeneratedProblemArtifact[];
+const c6Lesson = c6LessonData as LessonSpec;
+const c6GeneratedProblemArtifacts =
+  c6GeneratedProblemData as GeneratedProblemArtifact[];
 
 /**
  * Declarative lesson catalog. Adding another lesson only requires registering
@@ -36,6 +41,13 @@ const lessonRegistry = new Map<string, LessonBundle>([
     {
       lesson: c5Lesson,
       generatedProblemArtifacts: c5GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    c6Lesson.lessonId,
+    {
+      lesson: c6Lesson,
+      generatedProblemArtifacts: c6GeneratedProblemArtifacts,
     },
   ],
 ]);
