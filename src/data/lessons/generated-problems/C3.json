@@ -1,0 +1,522 @@
+[
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C3",
+    "purpose": "teaching",
+    "transferLevel": "discovery",
+    "targetConcepts": [
+      "C3",
+      "C1"
+    ],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c3-five-friend-lineup",
+      "title": "Five Friends in a Row",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Ordered Arrangements",
+      "difficulty": 1,
+      "statement": "Ava, Ben, Chen, Dia, and Eli will stand in five numbered positions from left to right. Each friend occupies exactly one position. How many different lineups are possible?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "25"
+        },
+        {
+          "label": "B",
+          "text": "60"
+        },
+        {
+          "label": "C",
+          "text": "100"
+        },
+        {
+          "label": "D",
+          "text": "120"
+        },
+        {
+          "label": "E",
+          "text": "125"
+        }
+      ],
+      "answer": "D",
+      "shortAnswer": "120",
+      "hints": [
+        "Choose who stands first, then update the pool of people still available.",
+        "How many choices remain for the second position after the first is filled?"
+      ],
+      "solutionSteps": [
+        {
+          "title": "Fill the first two positions",
+          "body": "Any of 5 friends can stand first. After that person is used, 4 friends remain for second."
+        },
+        {
+          "title": "Continue the shrinking choices",
+          "body": "The last three positions have 3, then 2, then 1 remaining choice."
+        },
+        {
+          "title": "Multiply successive choices",
+          "body": "Every finished lineup follows exactly one branch, so 5 × 4 × 3 × 2 × 1 = 120 lineups."
+        }
+      ],
+      "tags": [
+        "factorials",
+        "ordered arrangements",
+        "multiplication principle"
+      ],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "independent recursive enumeration into five first-person groups of 24 suffix orders",
+        "slot-product calculation 5×4×3×2×1=120",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": [
+        "Both the grouped enumeration and shrinking-position product give 120."
+      ]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C3",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": [
+      "C3"
+    ],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c3-practice-books",
+      "title": "Six Books on a Shelf",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Factorials",
+      "difficulty": 1,
+      "statement": "Six distinct books are placed in a row on a shelf. How many different left-to-right arrangements are possible?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "36"
+        },
+        {
+          "label": "B",
+          "text": "120"
+        },
+        {
+          "label": "C",
+          "text": "360"
+        },
+        {
+          "label": "D",
+          "text": "720"
+        },
+        {
+          "label": "E",
+          "text": "1296"
+        }
+      ],
+      "answer": "D",
+      "shortAnswer": "720",
+      "hints": [
+        "The books are distinct and every shelf position matters.",
+        "How many choices remain after one book is placed?"
+      ],
+      "solutionSteps": [
+        {
+          "title": "Fill the shelf",
+          "body": "The six positions have 6, 5, 4, 3, 2, and 1 choices in order."
+        },
+        {
+          "title": "Use factorial notation",
+          "body": "Thus the number of arrangements is 6! = 6 × 5 × 4 × 3 × 2 × 1 = 720."
+        }
+      ],
+      "tags": [
+        "factorials",
+        "ordered arrangements",
+        "distinct objects"
+      ],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "recursive arrangement count 6×(number of five-book arrangements)=6×120",
+        "factorial evaluation 6!=720",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": [
+        "The recursive count and direct factorial evaluation both give 720."
+      ]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C3",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": [
+      "C3"
+    ],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c3-practice-medals",
+      "title": "Three Medals",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Ordered Selections",
+      "difficulty": 1,
+      "statement": "Five finalists compete for gold, silver, and bronze medals. No finalist can win more than one medal. How many different medal assignments are possible?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "12"
+        },
+        {
+          "label": "B",
+          "text": "20"
+        },
+        {
+          "label": "C",
+          "text": "30"
+        },
+        {
+          "label": "D",
+          "text": "60"
+        },
+        {
+          "label": "E",
+          "text": "120"
+        }
+      ],
+      "answer": "D",
+      "shortAnswer": "60",
+      "hints": [
+        "Gold, silver, and bronze are different roles.",
+        "The shrinking product stops after the third medal is assigned."
+      ],
+      "solutionSteps": [
+        {
+          "title": "Assign gold",
+          "body": "Any of the 5 finalists can win gold."
+        },
+        {
+          "title": "Assign the remaining medals",
+          "body": "There are 4 remaining choices for silver and then 3 for bronze."
+        },
+        {
+          "title": "Multiply",
+          "body": "The number of medal assignments is 5 × 4 × 3 = 60."
+        }
+      ],
+      "tags": [
+        "ordered selections",
+        "partial permutations",
+        "multiplication principle"
+      ],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "direct role-by-role product 5×4×3=60",
+        "independent choose-then-order check: 10 finalist triples, each with 6 medal orders",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": [
+        "Both methods give 60, and the product correctly stops after three roles."
+      ]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C3",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": [
+      "C3"
+    ],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c3-practice-flags",
+      "title": "Four Signal Flags",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Arrangements with Identical Objects",
+      "difficulty": 2,
+      "statement": "Four flags are placed in a row. Two flags are identical red flags, one is blue, and one is green. How many visibly different color arrangements are possible?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "6"
+        },
+        {
+          "label": "B",
+          "text": "8"
+        },
+        {
+          "label": "C",
+          "text": "10"
+        },
+        {
+          "label": "D",
+          "text": "12"
+        },
+        {
+          "label": "E",
+          "text": "24"
+        }
+      ],
+      "answer": "D",
+      "shortAnswer": "12",
+      "hints": [
+        "Choose a position for blue and then a different position for green.",
+        "Once blue and green are placed, do the identical red flags create another visible choice?"
+      ],
+      "solutionSteps": [
+        {
+          "title": "Place blue",
+          "body": "The blue flag has 4 possible positions."
+        },
+        {
+          "title": "Place green",
+          "body": "After blue is placed, green has 3 possible positions."
+        },
+        {
+          "title": "Fill with red",
+          "body": "The two remaining positions both receive identical red flags, so there is only one visible completion. Thus 4 × 3 × 1 = 12."
+        }
+      ],
+      "tags": [
+        "identical objects",
+        "ordered arrangements",
+        "visible outcomes"
+      ],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "direct placement count using 4 blue positions and 3 remaining green positions",
+        "independent labeled-count correction 4!/2!=12",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": [
+        "Both methods give 12; swapping the red flags never changes the visible outcome."
+      ]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C3",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": [
+      "C3"
+    ],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c3-practice-committee",
+      "title": "Committee of Three",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Order Relevance",
+      "difficulty": 2,
+      "statement": "Ava, Ben, Chen, and Dia will choose a three-person committee. The committee has no special roles. How many different committees are possible?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "3"
+        },
+        {
+          "label": "B",
+          "text": "4"
+        },
+        {
+          "label": "C",
+          "text": "6"
+        },
+        {
+          "label": "D",
+          "text": "12"
+        },
+        {
+          "label": "E",
+          "text": "24"
+        }
+      ],
+      "answer": "B",
+      "shortAnswer": "4",
+      "hints": [
+        "Changing the order of the same three names does not create a new committee.",
+        "Each committee can be identified by the one person who sits out."
+      ],
+      "solutionSteps": [
+        {
+          "title": "Describe an outcome once",
+          "body": "A three-person committee from four people is determined by the one person not chosen."
+        },
+        {
+          "title": "List the disjoint cases",
+          "body": "Ava, Ben, Chen, or Dia can be the person who sits out, giving 4 committees."
+        },
+        {
+          "title": "Check order",
+          "body": "Reordering the three chosen names does not change membership, so those name orders must not be counted again."
+        }
+      ],
+      "tags": [
+        "unordered selection",
+        "order relevance",
+        "complementary description"
+      ],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive list of the four committees ABC, ABD, ACD, and BCD",
+        "independent bijection with the four possible omitted people",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": [
+        "Both independent descriptions give 4 committees and count each membership set once."
+      ]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C3",
+    "purpose": "practice",
+    "transferLevel": "challenge",
+    "targetConcepts": [
+      "C3",
+      "C1"
+    ],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c3-practice-endpoints",
+      "title": "Artifacts at the Ends",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Constrained Arrangements",
+      "difficulty": 3,
+      "statement": "Six distinct artifacts are arranged in a row. The Sun artifact and the Moon artifact must occupy the two end positions, in either order. How many arrangements are possible?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "24"
+        },
+        {
+          "label": "B",
+          "text": "36"
+        },
+        {
+          "label": "C",
+          "text": "48"
+        },
+        {
+          "label": "D",
+          "text": "120"
+        },
+        {
+          "label": "E",
+          "text": "240"
+        }
+      ],
+      "answer": "C",
+      "shortAnswer": "48",
+      "hints": [
+        "First count the possible left-right orders of Sun and Moon on the ends.",
+        "For each end order, arrange the other four distinct artifacts in the middle."
+      ],
+      "solutionSteps": [
+        {
+          "title": "Fill the ends",
+          "body": "Sun and Moon can occupy the left and right ends in 2 orders."
+        },
+        {
+          "title": "Fill the middle",
+          "body": "For each end order, the other four distinct artifacts can fill the middle in 4! = 24 ways."
+        },
+        {
+          "title": "Multiply the stages",
+          "body": "The total is 2 × 24 = 48 arrangements."
+        }
+      ],
+      "tags": [
+        "constrained arrangements",
+        "factorials",
+        "multiplication principle"
+      ],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "two disjoint end-order cases with 24 middle permutations in each",
+        "independent position-first calculation 2 choices for the left special artifact followed by 4! middle orders",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": [
+        "Both counts give 2×4!=48, and the two end orders are disjoint."
+      ]
+    }
+  }
+]

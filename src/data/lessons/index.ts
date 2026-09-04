@@ -4,12 +4,14 @@ import type {
 } from "../../types/lesson";
 import c1LessonData from "./counting-probability/C1.json";
 import c2LessonData from "./counting-probability/C2.json";
+import c3LessonData from "./counting-probability/C3.json";
 import c4LessonData from "./counting-probability/C4.json";
 import c5LessonData from "./counting-probability/C5.json";
 import c6LessonData from "./counting-probability/C6.json";
 import c7LessonData from "./counting-probability/C7.json";
 import c1GeneratedProblemData from "./generated-problems/C1.json";
 import c2GeneratedProblemData from "./generated-problems/C2.json";
+import c3GeneratedProblemData from "./generated-problems/C3.json";
 import c4GeneratedProblemData from "./generated-problems/C4.json";
 import c5GeneratedProblemData from "./generated-problems/C5.json";
 import c6GeneratedProblemData from "./generated-problems/C6.json";
@@ -26,6 +28,9 @@ const c1GeneratedProblemArtifacts =
 const c2Lesson = c2LessonData as LessonSpec;
 const c2GeneratedProblemArtifacts =
   c2GeneratedProblemData as GeneratedProblemArtifact[];
+const c3Lesson = c3LessonData as LessonSpec;
+const c3GeneratedProblemArtifacts =
+  c3GeneratedProblemData as GeneratedProblemArtifact[];
 const c4Lesson = c4LessonData as LessonSpec;
 const c4GeneratedProblemArtifacts =
   c4GeneratedProblemData as GeneratedProblemArtifact[];
@@ -56,6 +61,13 @@ const lessonRegistry = new Map<string, LessonBundle>([
     {
       lesson: c2Lesson,
       generatedProblemArtifacts: c2GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    c3Lesson.lessonId,
+    {
+      lesson: c3Lesson,
+      generatedProblemArtifacts: c3GeneratedProblemArtifacts,
     },
   ],
   [
