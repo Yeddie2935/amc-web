@@ -37,6 +37,13 @@ function asObjectList(value: JsonValue | undefined): JsonObject[] | null {
   return value as JsonObject[];
 }
 
+function asObject(value: JsonValue | undefined): JsonObject | null {
+  if (value === null || Array.isArray(value) || typeof value !== "object") {
+    return null;
+  }
+  return value as JsonObject;
+}
+
 function VisualFallback({ message }: { message: string }) {
   return (
     <div className="fmj-lesson-fallback" role="alert">
@@ -320,6 +327,58 @@ function OutcomeGrid({ data }: { data: JsonObject }) {
   );
 }
 
+function VennBuilder({ data }: { data: JsonObject }) {
+  const leftLabel = asString(data.leftLabel);
+  const rightLabel = asString(data.rightLabel);
+  const universeLabel = asString(data.universeLabel) ?? "Universe";
+  const regions = asObject(data.regions);
+  const leftOnly = regions ? asStringList(regions.leftOnly) : null;
+  const intersection = regions ? asStringList(regions.intersection) : null;
+  const rightOnly = regions ? asStringList(regions.rightOnly) : null;
+  const neither = regions ? asStringList(regions.neither) : null;
+
+  if (!leftLabel || !rightLabel || !regions || !leftOnly || !intersection || !rightOnly || !neither) {
+    return (
+      <VisualFallback message='A venn-builder requires set labels and string arrays for the leftOnly, intersection, rightOnly, and neither regions.' />
+    );
+  }
+
+  const region = (label: string, items: string[], className: string) => (
+    <section className={className}>
+      <strong>{label}</strong>
+      {items.length > 0 ? (
+        <ul>
+          {items.map((item, index) => (
+            <li key={`${item}-${index}`}>{item}</li>
+          ))}
+        </ul>
+      ) : (
+        <span className="fmj-lesson-venn-empty">place items here</span>
+      )}
+    </section>
+  );
+
+  return (
+    <div className="fmj-lesson-venn-builder">
+      <p className="fmj-lesson-venn-universe">{universeLabel}</p>
+      <div className="fmj-lesson-venn-stage">
+        <svg viewBox="0 0 600 300" aria-hidden="true" focusable="false">
+          <circle cx="230" cy="150" r="132" className="fmj-lesson-venn-left-circle" />
+          <circle cx="370" cy="150" r="132" className="fmj-lesson-venn-right-circle" />
+        </svg>
+        <strong className="fmj-lesson-venn-left-label">{leftLabel}</strong>
+        <strong className="fmj-lesson-venn-right-label">{rightLabel}</strong>
+        <div className="fmj-lesson-venn-regions">
+          {region(`Only ${leftLabel}`, leftOnly, "fmj-lesson-venn-left-only")}
+          {region("Both", intersection, "fmj-lesson-venn-intersection")}
+          {region(`Only ${rightLabel}`, rightOnly, "fmj-lesson-venn-right-only")}
+        </div>
+      </div>
+      {region("Neither", neither, "fmj-lesson-venn-neither")}
+    </div>
+  );
+}
+
 /**
  * Runtime host for the small visual subset needed by the first lesson
  * benchmarks. Lesson data stays serializable and malformed data fails visibly.
@@ -337,6 +396,8 @@ export function VisualPrimitiveHost({ visual }: VisualPrimitiveHostProps) {
         return <SortIntoCases data={visual.data} />;
       case "outcome-grid":
         return <OutcomeGrid data={visual.data} />;
+      case "venn-builder":
+        return <VennBuilder data={visual.data} />;
       case "slot-filler":
         return <SlotFiller data={visual.data} />;
       default:

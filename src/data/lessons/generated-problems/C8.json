@@ -1,0 +1,364 @@
+[
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C8",
+    "purpose": "teaching",
+    "transferLevel": "discovery",
+    "targetConcepts": ["C8"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c8-badge-board",
+      "title": "Badge Board",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Sets",
+      "difficulty": 1,
+      "statement": "A board sorts 10 badges by two properties. There are 3 red-only badges, 2 badges that are both red and triangular, 4 triangular-only badges, and 1 badge that is neither red nor triangular. How many badges are red or triangular?",
+      "choices": [
+        {"label": "A", "text": "5"},
+        {"label": "B", "text": "7"},
+        {"label": "C", "text": "8"},
+        {"label": "D", "text": "9"},
+        {"label": "E", "text": "10"}
+      ],
+      "answer": "D",
+      "shortAnswer": "9",
+      "hints": [
+        "Mathematical or includes badges satisfying both properties.",
+        "Add the three non-overlapping regions inside at least one circle."
+      ],
+      "solutionSteps": [
+        {"title": "Identify the union", "body": "Red or triangular includes red only, both, and triangular only."},
+        {"title": "Add the regions", "body": "The region counts are disjoint, so 3 + 2 + 4 = 9."},
+        {"title": "Check the universe", "body": "The 9 union badges and 1 neither badge account for all 10 badges."}
+      ],
+      "tags": ["sets", "union", "inclusive or", "Venn diagram"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "direct disjoint-region sum 3+2+4=9",
+        "independent universe-complement check 10−1=9",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Both independent counts give a nine-badge inclusive union."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C8",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["C8"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c8-practice-pet-register",
+      "title": "Pet Register",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Sets",
+      "difficulty": 1,
+      "statement": "A neighborhood register shows 5 households with only a cat, 3 with both a cat and a dog, 4 with only a dog, and 2 with neither. How many households are in the intersection of the cat and dog sets?",
+      "choices": [
+        {"label": "A", "text": "2"},
+        {"label": "B", "text": "3"},
+        {"label": "C", "text": "4"},
+        {"label": "D", "text": "7"},
+        {"label": "E", "text": "12"}
+      ],
+      "answer": "B",
+      "shortAnswer": "3",
+      "hints": ["Intersection means both conditions.", "Use only the shared region."],
+      "solutionSteps": [
+        {"title": "Locate the intersection", "body": "The intersection contains households with both a cat and a dog."},
+        {"title": "Read its count", "body": "That shared region has 3 households."}
+      ],
+      "tags": ["sets", "intersection", "Venn diagram"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "definition check that intersection selects the both region",
+        "independent four-region table lookup locating count 3",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["The question asks for one explicitly stated region, whose count is 3."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C8",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["C8"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c8-practice-recreation-union",
+      "title": "Recreation Center",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Sets",
+      "difficulty": 1,
+      "statement": "At a recreation center, 6 members take only swimming, 2 take both swimming and tennis, 5 take only tennis, and 3 take neither class. How many members take swimming or tennis?",
+      "choices": [
+        {"label": "A", "text": "8"},
+        {"label": "B", "text": "11"},
+        {"label": "C", "text": "13"},
+        {"label": "D", "text": "14"},
+        {"label": "E", "text": "16"}
+      ],
+      "answer": "C",
+      "shortAnswer": "13",
+      "hints": ["Or includes members taking both classes.", "Add each region inside at least one class circle once."],
+      "solutionSteps": [
+        {"title": "Choose the union regions", "body": "Swimming or tennis includes swimming only, both, and tennis only."},
+        {"title": "Add once", "body": "6 + 2 + 5 = 13 members."}
+      ],
+      "tags": ["sets", "union", "inclusive or"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "disjoint union-region calculation 6+2+5=13",
+        "independent universe-complement calculation (6+2+5+3)−3=13",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["The two methods confirm the inclusive union count 13."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C8",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["C8"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c8-practice-set-size",
+      "title": "Marker Sets",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Sets",
+      "difficulty": 1,
+      "statement": "A Venn diagram has 7 markers in A only, 4 in both A and B, 6 in B only, and 1 in neither set. How many markers are in set A?",
+      "choices": [
+        {"label": "A", "text": "7"},
+        {"label": "B", "text": "10"},
+        {"label": "C", "text": "11"},
+        {"label": "D", "text": "17"},
+        {"label": "E", "text": "18"}
+      ],
+      "answer": "C",
+      "shortAnswer": "11",
+      "hints": ["Set A includes its exclusive region and the intersection.", "Do not include B only or neither."],
+      "solutionSteps": [
+        {"title": "Trace circle A", "body": "Circle A contains the 7 A-only markers and the 4 shared markers."},
+        {"title": "Add its regions", "body": "7 + 4 = 11 markers are in A."}
+      ],
+      "tags": ["sets", "set cardinality", "intersection"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "direct circle-region sum 7+4=11",
+        "independent exclusion from the 18-marker universe: 18−6−1=11",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Both direct inclusion and outside-A exclusion give 11."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C8",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["C8"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c8-practice-integer-board",
+      "title": "Integer Property Board",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Sets",
+      "difficulty": 2,
+      "statement": "The integers from 1 through 12 are sorted into set A, the even integers, and set B, the multiples of 3. How many integers are in neither A nor B?",
+      "choices": [
+        {"label": "A", "text": "2"},
+        {"label": "B", "text": "3"},
+        {"label": "C", "text": "4"},
+        {"label": "D", "text": "6"},
+        {"label": "E", "text": "8"}
+      ],
+      "answer": "C",
+      "shortAnswer": "4",
+      "hints": ["Test each number for both properties.", "Neither means odd and not divisible by 3."],
+      "solutionSteps": [
+        {"title": "Find the outside values", "body": "The integers 1, 5, 7, and 11 are odd and not multiples of 3."},
+        {"title": "Count and check", "body": "There are 4 such integers. The other eight appear in at least one set."}
+      ],
+      "tags": ["sets", "neither", "divisibility", "Venn diagram"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive property testing of all integers 1 through 12",
+        "independent four-region partition counts 4+2+2+4=12",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Both enumeration and the complete partition give four outside values."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C8",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["C8"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c8-practice-library-outside",
+      "title": "Library Activity Survey",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Sets",
+      "difficulty": 2,
+      "statement": "A survey of 28 students places 9 in reading club only, 5 in both reading club and puzzle club, and 8 in puzzle club only. The remaining students are in neither club. How many students are in neither club?",
+      "choices": [
+        {"label": "A", "text": "5"},
+        {"label": "B", "text": "6"},
+        {"label": "C", "text": "8"},
+        {"label": "D", "text": "14"},
+        {"label": "E", "text": "22"}
+      ],
+      "answer": "B",
+      "shortAnswer": "6",
+      "hints": ["First count the three disjoint regions inside the union.", "Subtract that union from the full survey universe."],
+      "solutionSteps": [
+        {"title": "Count the union", "body": "The three inside regions contain 9 + 5 + 8 = 22 students."},
+        {"title": "Find neither", "body": "The remaining 28 − 22 = 6 students are outside both clubs."}
+      ],
+      "tags": ["sets", "neither", "universe", "complement"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "disjoint inside-region sum 9+5+8=22 followed by 28−22=6",
+        "independent whole-board equation 9+5+8+n=28 solved as n=6",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Both methods account for all 28 students and give 6 in neither."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C8",
+    "purpose": "practice",
+    "transferLevel": "challenge",
+    "targetConcepts": ["C8"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c8-practice-divisible-or",
+      "title": "Divisible by Four or Six",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Sets",
+      "difficulty": 2,
+      "statement": "How many integers from 1 through 20 are divisible by 4 or divisible by 6?",
+      "choices": [
+        {"label": "A", "text": "5"},
+        {"label": "B", "text": "6"},
+        {"label": "C", "text": "7"},
+        {"label": "D", "text": "8"},
+        {"label": "E", "text": "9"}
+      ],
+      "answer": "C",
+      "shortAnswer": "7",
+      "hints": ["List the multiples of each divisor through 20.", "The shared multiple 12 belongs in the union only once."],
+      "solutionSteps": [
+        {"title": "List both sets", "body": "Multiples of 4 are 4, 8, 12, 16, 20. Multiples of 6 are 6, 12, 18."},
+        {"title": "Merge the lists", "body": "The union is 4, 6, 8, 12, 16, 18, 20, with 12 written once."},
+        {"title": "Count", "body": "The merged list contains 7 integers."}
+      ],
+      "tags": ["sets", "union", "divisibility", "overlap"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive enumeration of the seven-element merged union",
+        "independent region count: four multiples of 4 only, one shared multiple, and two multiples of 6 only",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Enumeration and the 4+1+2 region count independently give 7."]
+    }
+  }
+]

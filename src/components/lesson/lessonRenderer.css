@@ -565,6 +565,125 @@
   font-weight: 800;
 }
 
+.fmj-lesson-venn-builder {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.fmj-lesson-venn-universe {
+  margin: 0 0 4px;
+  color: var(--fmj-muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.fmj-lesson-venn-stage {
+  position: relative;
+  min-height: 300px;
+}
+
+.fmj-lesson-venn-stage > svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.fmj-lesson-venn-stage circle {
+  stroke-width: 3;
+}
+
+.fmj-lesson-venn-left-circle {
+  fill: rgb(79 70 229 / 10%);
+  stroke: #4f46e5;
+}
+
+.fmj-lesson-venn-right-circle {
+  fill: rgb(13 148 136 / 10%);
+  stroke: #0d9488;
+}
+
+.fmj-lesson-venn-left-label,
+.fmj-lesson-venn-right-label {
+  position: absolute;
+  top: 7%;
+  z-index: 1;
+  max-width: 34%;
+  text-align: center;
+}
+
+.fmj-lesson-venn-left-label {
+  left: 13%;
+  color: #3730a3;
+}
+
+.fmj-lesson-venn-right-label {
+  right: 13%;
+  color: #0f766e;
+}
+
+.fmj-lesson-venn-regions {
+  position: absolute;
+  inset: 29% 6% 16%;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 0.85fr 1fr;
+  align-items: center;
+  gap: 5px;
+}
+
+.fmj-lesson-venn-regions section,
+.fmj-lesson-venn-neither {
+  min-width: 0;
+  padding: 8px;
+  border-radius: 12px;
+  background: rgb(255 255 255 / 88%);
+  text-align: center;
+}
+
+.fmj-lesson-venn-regions section > strong,
+.fmj-lesson-venn-neither > strong {
+  display: block;
+  font-size: 0.78rem;
+}
+
+.fmj-lesson-venn-regions ul,
+.fmj-lesson-venn-neither ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  margin: 7px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fmj-lesson-venn-regions li,
+.fmj-lesson-venn-neither li {
+  padding: 4px 7px;
+  border: 1px solid var(--fmj-border);
+  border-radius: 999px;
+  background: var(--fmj-surface);
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.fmj-lesson-venn-empty {
+  display: block;
+  margin-top: 7px;
+  color: var(--fmj-muted);
+  font-size: 0.72rem;
+  font-style: italic;
+}
+
+.fmj-lesson-venn-neither {
+  width: min(260px, 80%);
+  margin: 0 auto;
+  border: 1px dashed var(--fmj-border);
+}
+
 .fmj-lesson-complete {
   padding: 18px 20px;
   border-color: #bbf7d0;
@@ -588,5 +707,25 @@
 
   .fmj-lesson-sort-item {
     grid-template-columns: 1fr;
+  }
+
+  .fmj-lesson-venn-stage {
+    min-height: 250px;
+  }
+
+  .fmj-lesson-venn-regions {
+    right: 2%;
+    left: 2%;
+    gap: 2px;
+  }
+
+  .fmj-lesson-venn-regions section {
+    padding: 5px 3px;
+  }
+
+  .fmj-lesson-venn-regions li,
+  .fmj-lesson-venn-neither li {
+    padding: 3px 5px;
+    font-size: 0.7rem;
   }
 }

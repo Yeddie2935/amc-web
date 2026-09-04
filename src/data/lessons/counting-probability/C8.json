@@ -1,0 +1,474 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "C8",
+  "curriculumNodeId": "C8",
+  "title": "Sets, Intersections & Venn Diagrams",
+  "lessonType": "connector",
+  "status": "draft",
+  "estimatedMinutes": 24,
+  "coreInsight": "Sets represent membership in conditions, and intersections make simultaneous membership and overlap explicit.",
+  "targetLearnerRealization": "Set regions represent membership in conditions; intersection means satisfying both and mathematical union includes the overlap.",
+  "learningObjectives": [
+    "Place objects into the four regions determined by two set conditions.",
+    "Distinguish intersection from inclusive union and include the overlap in mathematical or.",
+    "Read set, union, intersection, and outside counts from a Venn diagram."
+  ],
+  "hardPrerequisites": ["C1"],
+  "narrativePredecessor": "C1",
+  "continuity": {
+    "openingCallback": "C1 allowed direct addition only across cases that did not overlap; now one object will satisfy two conditions at once.",
+    "closingSeeds": [
+      "Adding two set totals counts their shared intersection twice, so one copy must be removed."
+    ],
+    "nextLessonIds": ["C9"]
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "Union and intersection are reversed.",
+      "beatIds": ["which-regions-count", "name-set-regions", "c8-consolidate"]
+    },
+    {
+      "misconception": "Mathematical 'or' must be exclusive.",
+      "beatIds": ["which-regions-count", "badge-board-union", "c8-consolidate"]
+    },
+    {
+      "misconception": "Everything belongs to at least one displayed set.",
+      "beatIds": ["sort-property-cards", "count-the-universe", "practice-integer-board"]
+    },
+    {
+      "misconception": "The region outside both sets can be ignored when it is part of the universe.",
+      "beatIds": ["count-the-universe", "practice-integer-board", "c8-consolidate"]
+    }
+  ],
+  "beats": [
+    {
+      "id": "sort-property-cards",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Reactivate C1's disjoint-case check while making simultaneous membership and the outside region unavoidable.",
+      "expectedRealization": "Two yes-or-no properties create four distinct membership regions, including both and neither.",
+      "transitionIn": "C1 said we may add separate cases only after checking that they overlap nowhere. This time, some cards deliberately satisfy two descriptions.",
+      "transitionOut": "The middle is not a bookkeeping mistake: it is the home of every card satisfying both conditions.",
+      "estimatedSeconds": 120,
+      "prompt": "Sort each card by the conditions it satisfies: red, triangle, both, or neither.",
+      "visual": {
+        "primitive": "venn-builder",
+        "data": {
+          "universeLabel": "Four shape cards",
+          "leftLabel": "Red",
+          "rightLabel": "Triangle",
+          "regions": {"leftOnly": [], "intersection": [], "rightOnly": [], "neither": []}
+        },
+        "continuityKey": "c8-red-triangle-venn",
+        "ariaLabel": "Empty two-set board for red cards and triangle cards, with an outside region"
+      },
+      "response": {
+        "kind": "sort",
+        "items": [
+          {"id": "blue-triangle", "text": "blue triangle"},
+          {"id": "red-circle", "text": "red circle"},
+          {"id": "blue-square", "text": "blue square"},
+          {"id": "red-triangle", "text": "red triangle"}
+        ],
+        "buckets": [
+          {"id": "red-only", "text": "red only"},
+          {"id": "both", "text": "red and triangle"},
+          {"id": "triangle-only", "text": "triangle only"},
+          {"id": "neither", "text": "neither"}
+        ],
+        "correctBucketByItem": {
+          "blue-triangle": "triangle-only",
+          "red-circle": "red-only",
+          "blue-square": "neither",
+          "red-triangle": "both"
+        },
+        "feedback": "Test each property separately; a card may pass zero, one, or both tests."
+      },
+      "correctFeedback": "Exactly—each card has one home determined by its two membership answers.",
+      "incorrectFeedback": "Ask two independent questions about each card: Is it red? Is it a triangle? Use the pair of answers.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "venn-builder",
+          "data": {
+            "universeLabel": "Four shape cards",
+            "leftLabel": "Red",
+            "rightLabel": "Triangle",
+            "regions": {
+              "leftOnly": ["red circle"],
+              "intersection": ["red triangle"],
+              "rightOnly": ["blue triangle"],
+              "neither": ["blue square"]
+            }
+          },
+          "continuityKey": "c8-red-triangle-venn",
+          "ariaLabel": "Four cards correctly placed by red and triangle membership"
+        },
+        "steps": [
+          {"title": "Run both tests", "body": "The red triangle answers yes to both conditions, while the blue square answers no to both."},
+          {"title": "Check coverage and non-overlap", "body": "Every card gives exactly one of the four answer pairs: yes-no, yes-yes, no-yes, or no-no. So every card is placed once."}
+        ],
+        "takeaway": "Two conditions split the whole universe into four complete, non-overlapping regions."
+      }
+    },
+    {
+      "id": "which-regions-count",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Let the learner discover inclusive mathematical or from the completed concrete sort before formal vocabulary appears.",
+      "expectedRealization": "Red or triangle includes the shared red-triangle region as well as both exclusive regions.",
+      "transitionIn": "Keep the same four homes. Now a machine accepts any card that is red or is a triangle.",
+      "transitionOut": "The accepted collection uses three regions; only the card outside both conditions is rejected.",
+      "estimatedSeconds": 80,
+      "prompt": "Which regions feed the machine? Select every region that contains an accepted card.",
+      "visual": {
+        "primitive": "venn-builder",
+        "data": {
+          "universeLabel": "Four shape cards",
+          "leftLabel": "Red",
+          "rightLabel": "Triangle",
+          "regions": {
+            "leftOnly": ["red circle"],
+            "intersection": ["red triangle"],
+            "rightOnly": ["blue triangle"],
+            "neither": ["blue square"]
+          }
+        },
+        "continuityKey": "c8-red-triangle-venn",
+        "ariaLabel": "The same red and triangle Venn board with one card in each region"
+      },
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "red-only", "text": "red only"},
+          {"id": "both", "text": "red and triangle"},
+          {"id": "triangle-only", "text": "triangle only"},
+          {"id": "neither", "text": "neither"}
+        ],
+        "correctIds": ["red-only", "both", "triangle-only"],
+        "feedback": "A card passes if at least one condition is true."
+      },
+      "correctFeedback": "Yes—the middle passes both tests, so it certainly passes at least one.",
+      "incorrectFeedback": "Check the middle card directly: is the red triangle red or a triangle? It is actually both.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Test the three inside regions", "body": "Red-only cards pass the red test, triangle-only cards pass the triangle test, and middle cards pass both tests."},
+          {"title": "Exclude exactly the opposite", "body": "Only the neither region fails both conditions."}
+        ],
+        "takeaway": "In mathematics, A or B means at least one of the two—including both."
+      }
+    },
+    {
+      "id": "name-set-regions",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Attach set, intersection, and union language only after the learner has constructed and interpreted the regions.",
+      "expectedRealization": "Intersection names the both region, while union names all three regions inside at least one set.",
+      "transitionIn": "You have already built the objects. Now give the board its mathematical names.",
+      "transitionOut": "The notation is a compact way to specify which visible regions belong in a count.",
+      "estimatedSeconds": 70,
+      "name": "Sets, intersection, and union",
+      "conciseDefinition": "A set collects objects satisfying a condition. A ∩ B is the intersection—objects in both. A ∪ B is the union—objects in A or B or both.",
+      "formalization": "x ∈ A means x belongs to A; A ∩ B means both conditions; A ∪ B means at least one condition.",
+      "memoryHook": "Intersection is the shared middle; union unites every region inside either circle."
+    },
+    {
+      "id": "badge-board-union",
+      "phase": "play",
+      "kind": "problem",
+      "purpose": "Translate the concrete four-region sort into a numerical union count without invoking inclusion-exclusion.",
+      "expectedRealization": "A union is counted once by adding its three disjoint Venn regions.",
+      "transitionIn": "Replace each card by a region count. Because the regions themselves do not overlap, C1's addition rule works again.",
+      "transitionOut": "The three inside regions form the union; the outside count belongs to the universe but not to this union.",
+      "estimatedSeconds": 130,
+      "source": "generated",
+      "problemId": "original-c8-badge-board",
+      "role": "anchor",
+      "presentation": "full-prompt",
+      "whyNow": "Small explicit region counts make inclusive union numerical while preserving the board built in the discovery activity.",
+      "entryBridge": "Count the red-only, both, and triangle-only regions exactly once each.",
+      "exitBridge": "Three plus two plus four gives nine badges in the union; the one outside badge is not silently discarded.",
+      "reusedRepresentation": "The same two-condition Venn board, now holding counts instead of individual cards.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["Which three disjoint regions make up red or triangular?", "Why is the middle included exactly once?"],
+      "correctFeedback": "Correct—9 badges are red or triangular.",
+      "incorrectFeedback": "Add the three regions inside at least one circle. Do not include neither, and do not omit the middle.",
+      "resolution": {
+        "visual": {
+          "primitive": "venn-builder",
+          "data": {
+            "universeLabel": "10 badges",
+            "leftLabel": "Red",
+            "rightLabel": "Triangular",
+            "regions": {"leftOnly": ["3"], "intersection": ["2"], "rightOnly": ["4"], "neither": ["1"]}
+          },
+          "continuityKey": "c8-count-venn",
+          "ariaLabel": "Badge Venn diagram with counts 3, 2, 4, and 1 across the four regions"
+        },
+        "steps": [
+          {"title": "Identify the union", "body": "Red or triangular covers red only, both, and triangular only."},
+          {"title": "Add disjoint regions", "body": "Those three regions share no badge, so add them once each.", "math": "3 + 2 + 4 = 9"}
+        ],
+        "takeaway": "A union is the three inside regions, with the intersection included once."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "count-the-universe",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Make the outside region operational and distinguish the universe from the union.",
+      "expectedRealization": "The universe contains all four regions, while the union omits only neither.",
+      "transitionIn": "Nine counted the union. The board itself promised ten badges, so one region still matters.",
+      "transitionOut": "A Venn diagram has a boundary as well as circles: outside both is still inside the stated universe.",
+      "estimatedSeconds": 70,
+      "prompt": "How many badges are in the entire universe shown by the board?",
+      "visual": {
+        "primitive": "venn-builder",
+        "data": {
+          "universeLabel": "All badges on the board",
+          "leftLabel": "Red",
+          "rightLabel": "Triangular",
+          "regions": {"leftOnly": ["3"], "intersection": ["2"], "rightOnly": ["4"], "neither": ["1"]}
+        },
+        "continuityKey": "c8-count-venn",
+        "ariaLabel": "The badge Venn board including the one badge outside both circles"
+      },
+      "response": {"kind": "numeric", "answer": 10, "feedback": "The whole board contains all four non-overlapping regions."},
+      "correctFeedback": "Right—the outside badge is not in either set, but it is still in the universe.",
+      "incorrectFeedback": "The question asks for the whole board, so include the neither region along with the union.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Count all four regions", "body": "The universe is partitioned into red only, both, triangular only, and neither.", "math": "3 + 2 + 4 + 1 = 10"},
+          {"title": "Compare", "body": "The union has 9; its exact opposite inside this universe has 1."}
+        ],
+        "takeaway": "Outside both can be ignored only when the question's universe excludes it."
+      }
+    },
+    {
+      "id": "guided-equal-sets",
+      "phase": "competition-application",
+      "kind": "problem",
+      "purpose": "Use the approved authentic problem to infer unknown region sizes from equal set totals, a known union, and a known intersection.",
+      "expectedRealization": "Equal set sizes force equal exclusive regions; splitting the non-overlap and restoring the intersection gives each set size.",
+      "transitionIn": "Now the four-region board hides two of its counts. Equality between the circles supplies the missing structure.",
+      "transitionOut": "The region method gives 1504 and reveals why subtracting the overlap from the union gives both outer slivers, not one set.",
+      "estimatedSeconds": 240,
+      "source": "bank",
+      "problemId": "amc8-2007-13",
+      "role": "guided",
+      "presentation": "full-prompt",
+      "whyNow": "Equal-size sets turn membership regions into inferable quantities immediately after the learner can read union and intersection from a Venn board.",
+      "entryBridge": "Keep the overlap fixed at 1001, then decide what the remaining 1006 union elements represent.",
+      "exitBridge": "Each outer sliver has 503 elements, so one set contains 503 + 1001 = 1504 elements.",
+      "reusedRepresentation": "The same two-circle board with the overlap fixed first and the exclusive regions solved next.",
+      "animation": {"mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "Which region belongs to both sets, and what does x represent?",
+        "Why is 2007 − 1001 the two outer slivers combined rather than one whole set?",
+        "When x + x counts the overlap twice, what correction leaves the union?",
+        "What value of x makes the corrected count equal 2007?",
+        "How do the three disjoint region counts check the union and one set?"
+      ],
+      "correctFeedback": "Correct—each set contains 1504 elements.",
+      "incorrectFeedback": "Keep your attempt, then split the union into left only, both, and right only. Equal set sizes make the two outer regions equal.",
+      "resolution": {
+        "steps": [
+          {"title": "Remove the shared middle from the union", "body": "What remains is both exclusive regions together.", "math": "2007 − 1001 = 1006"},
+          {"title": "Use equal set sizes", "body": "The sets share the same middle, so equal total sizes force equal outer slivers.", "math": "1006 ÷ 2 = 503"},
+          {"title": "Rebuild one set", "body": "Set A contains its exclusive sliver and the entire intersection.", "math": "503 + 1001 = 1504"}
+        ],
+        "animation": {"kind": "problem-animation", "placement": "after-steps"},
+        "takeaway": "A set consists of its exclusive region plus the intersection; the union consists of three disjoint regions."
+      },
+      "sourceLabelTiming": "completion"
+    },
+    {
+      "id": "practice-set-size",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check independently that a set includes its exclusive region and the intersection, but not the other set's exclusive region.",
+      "expectedRealization": "Set A has 7 + 4 = 11 members.",
+      "transitionIn": "The contest problem hid the outer counts. First practice the simpler reading task with all four regions visible.",
+      "transitionOut": "A circle total uses exactly two regions: that circle's exclusive part and the shared middle.",
+      "estimatedSeconds": 115,
+      "source": "generated",
+      "problemId": "original-c8-practice-set-size",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "A direct set-size read isolates the distinction between one set and the full union after the guided problem.",
+      "entryBridge": "Trace only the regions inside circle A.",
+      "exitBridge": "Seven A-only markers plus four shared markers give eleven in A.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["Which two regions lie inside A?", "Which displayed counts do not belong to A?"],
+      "correctFeedback": "Correct—set A has 11 markers.",
+      "incorrectFeedback": "Include A-only and both. Exclude B-only and neither.",
+      "resolution": {
+        "visual": {
+          "primitive": "venn-builder",
+          "data": {"universeLabel": "18 markers", "leftLabel": "A", "rightLabel": "B", "regions": {"leftOnly": ["7"], "intersection": ["4"], "rightOnly": ["6"], "neither": ["1"]}},
+          "ariaLabel": "Marker Venn diagram with 7 in A only, 4 in both, 6 in B only, and 1 in neither"
+        },
+        "steps": [{"body": "A includes A only and both.", "math": "|A| = 7 + 4 = 11"}],
+        "takeaway": "A circle total includes its share of the middle."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-integer-board",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Transfer membership decisions to number properties and require explicit accounting for neither.",
+      "expectedRealization": "Among 1 through 12, 1, 5, 7, and 11 are neither even nor multiples of 3.",
+      "transitionIn": "Membership need not describe colors or clubs. Let arithmetic properties decide the four regions.",
+      "transitionOut": "Testing both conditions places every integer once, including four outside both circles.",
+      "estimatedSeconds": 145,
+      "source": "generated",
+      "problemId": "original-c8-practice-integer-board",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "Number properties require fresh membership reasoning rather than merely reading supplied Venn counts.",
+      "entryBridge": "For each integer, test evenness and divisibility by 3 separately.",
+      "exitBridge": "The complete partition is four even-only, two both, two multiple-of-3-only, and four neither.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["Which numbers pass neither divisibility test?", "Do your four region counts add back to all 12 integers?"],
+      "correctFeedback": "Correct—4 integers are in neither set.",
+      "incorrectFeedback": "List 1 through 12 and test each number for both properties; do not stop after finding the union.",
+      "resolution": {
+        "visual": {
+          "primitive": "venn-builder",
+          "data": {
+            "universeLabel": "Integers 1 through 12",
+            "leftLabel": "Even",
+            "rightLabel": "Multiple of 3",
+            "regions": {"leftOnly": ["2", "4", "8", "10"], "intersection": ["6", "12"], "rightOnly": ["3", "9"], "neither": ["1", "5", "7", "11"]}
+          },
+          "ariaLabel": "Integers 1 through 12 partitioned by evenness and divisibility by 3"
+        },
+        "steps": [
+          {"title": "Test both properties", "body": "The numbers 1, 5, 7, and 11 are odd and are not multiples of 3."},
+          {"title": "Check completeness", "body": "The four region sizes account for the whole universe.", "math": "4 + 2 + 2 + 4 = 12"}
+        ],
+        "takeaway": "A complete Venn partition includes objects satisfying neither condition."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-divisible-or",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Require a fresh inclusive-union count in a larger arithmetic universe without giving region counts in advance.",
+      "expectedRealization": "The multiples of 4 or 6 from 1 through 20 form a seven-element union with 12 counted once.",
+      "transitionIn": "Finish with an 'or' question whose overlap must be found rather than shown.",
+      "transitionOut": "Listing the union once gives seven values; listing both sets separately would repeat 12.",
+      "estimatedSeconds": 155,
+      "source": "generated",
+      "problemId": "original-c8-practice-divisible-or",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The learner must construct the union and handle a shared multiple without a prefilled Venn diagram.",
+      "entryBridge": "Build both lists, then place any shared value in the middle rather than in two final count piles.",
+      "exitBridge": "The union is 4, 6, 8, 12, 16, 18, 20, so it contains seven integers.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["Which value is in both lists?", "How will you count that shared value only once in the union?"],
+      "correctFeedback": "Correct—the inclusive union contains 7 integers.",
+      "incorrectFeedback": "List the multiples of 4 and of 6 through 20. Merge the lists so the shared value 12 appears once.",
+      "resolution": {
+        "visual": {
+          "primitive": "venn-builder",
+          "data": {
+            "universeLabel": "Integers 1 through 20",
+            "leftLabel": "Multiples of 4",
+            "rightLabel": "Multiples of 6",
+            "regions": {"leftOnly": ["4", "8", "16", "20"], "intersection": ["12"], "rightOnly": ["6", "18"], "neither": ["13 other integers"]}
+          },
+          "ariaLabel": "Multiples of 4 or 6 through 20 with 12 in the intersection"
+        },
+        "steps": [
+          {"title": "Build the two sets", "body": "Multiples of 4 are 4, 8, 12, 16, 20; multiples of 6 are 6, 12, 18."},
+          {"title": "Merge inclusively", "body": "The shared 12 belongs in the union but appears there only once.", "math": "4 + 1 + 2 = 7"}
+        ],
+        "takeaway": "Inclusive or keeps the intersection and counts each member once."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "c8-consolidate",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate the four-region model and all key distinctions before opening the double-counting question.",
+      "expectedRealization": "Intersection, union, one-set totals, and the universe correspond to precise combinations of the four regions.",
+      "transitionIn": "Across shapes, counts, and integers, the circles changed labels but the four-region logic stayed fixed.",
+      "estimatedSeconds": 95,
+      "prompt": "Which statements are always true for two sets A and B drawn inside a stated universe? Select all four.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "intersection", "text": "A ∩ B is the region belonging to both A and B."},
+          {"id": "union", "text": "A ∪ B contains A only, both, and B only."},
+          {"id": "set-a", "text": "Set A contains A only together with the intersection."},
+          {"id": "universe", "text": "The universe includes the neither region as well as the union."},
+          {"id": "exclusive", "text": "A ∪ B excludes anything that belongs to both sets."}
+        ],
+        "correctIds": ["intersection", "union", "set-a", "universe"],
+        "feedback": "Match each name to visible regions; mathematical or is inclusive."
+      },
+      "correctFeedback": "Yes—those four statements completely describe how to read the board.",
+      "incorrectFeedback": "Remember that union includes the middle, and the stated universe extends beyond the circles.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "venn-builder",
+          "data": {"universeLabel": "Universe", "leftLabel": "A", "rightLabel": "B", "regions": {"leftOnly": ["A only"], "intersection": ["A ∩ B"], "rightOnly": ["B only"], "neither": ["outside A ∪ B"]}},
+          "ariaLabel": "General two-set Venn diagram labeling all four regions"
+        },
+        "steps": [
+          {"title": "Inside both", "body": "The intersection is the shared middle."},
+          {"title": "Inside at least one", "body": "The union is all three regions inside the circles."},
+          {"title": "Inside the universe", "body": "Add the neither region when counting every object under discussion."}
+        ],
+        "takeaway": "Ask which membership conditions define the target, then combine exactly those non-overlapping regions."
+      }
+    },
+    {
+      "id": "double-count-hook",
+      "phase": "reflection",
+      "kind": "reflection",
+      "purpose": "Create C9's correction problem only after C8's region meanings have been consolidated.",
+      "expectedRealization": "Adding two set totals colors the intersection twice even though the union needs one copy.",
+      "transitionIn": "You can now count safely from disjoint regions. But published problems often give circle totals instead of region totals.",
+      "prompt": "If you add |A| and |B|, which region receives two layers of color—and what single correction would make every member of A ∪ B have one layer?",
+      "takeaway": "The intersection is duplicated when whole set totals are added. Next, inclusion–exclusion will remove exactly that extra copy."
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {"near": 3, "mixed": 2, "challenge": 1},
+    "sessionSelection": [
+      {"source": "generated", "transferLevel": "near", "count": 2},
+      {"source": "generated", "transferLevel": "mixed", "count": 2},
+      {"source": "generated", "transferLevel": "challenge", "count": 1}
+    ],
+    "excludeProblemIds": ["original-c8-badge-board", "amc8-2007-13"],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "C8",
+    "evidenceBeatIds": ["practice-set-size", "practice-integer-board", "practice-divisible-or"],
+    "minIndependentPracticeItems": 3,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.2.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "mathinking-lesson-skill-1.0.0",
+    "notes": [
+      "Draft connector lesson authored with the repo-local mathinking-lesson Skill.",
+      "The opening sort keeps all assignments hidden until the learner submits; the completed Venn organization appears only in its resolution.",
+      "The approved 2007 AMC 8 Problem 13 is the sole integrated bank problem and uses its controlled five-step animation only after the learner answers.",
+      "A generic accessible two-set venn-builder renderer was added because the declared primitive previously had only a runtime fallback."
+    ]
+  }
+}
