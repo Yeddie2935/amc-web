@@ -1,0 +1,277 @@
+[
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C7",
+    "problem": {
+      "id": "original-c7-inspection-pairs",
+      "title": "Inspection Pairs",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Combinations",
+      "difficulty": 1,
+      "statement": "Ari, Bea, and Chen are available. Two different people are chosen to inspect a campsite together. They have the same role. How many different inspection pairs are possible?",
+      "choices": [
+        {"label": "A", "text": "2"},
+        {"label": "B", "text": "3"},
+        {"label": "C", "text": "4"},
+        {"label": "D", "text": "6"},
+        {"label": "E", "text": "9"}
+      ],
+      "answer": "B",
+      "shortAnswer": "3",
+      "hints": [
+        "Count first-name, second-name descriptions before removing order.",
+        "Ari-Bea and Bea-Ari describe the same equal-role pair."
+      ],
+      "solutionSteps": [
+        {"title": "Count ordered descriptions", "body": "There are 3 choices for the first listed person and 2 choices for the second, giving 3 × 2 = 6 descriptions."},
+        {"title": "Bundle the same outcomes", "body": "Each inspection pair has 2! = 2 name orders, and swapping the names does not change the pair."},
+        {"title": "Count pairs", "body": "The six descriptions form three equal, non-overlapping bundles, so 6 ÷ 2 = 3 pairs."}
+      ],
+      "tags": ["combinations", "unordered pairs", "factorial divisor", "overcounting"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "purpose": "teaching",
+    "transferLevel": "discovery",
+    "targetConcepts": ["C7"],
+    "inspirationProblemIds": [],
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive enumeration of Ari-Bea, Ari-Chen, and Bea-Chen",
+        "independent ordered-selection calculation 3×2÷2!",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Both independent methods give exactly 3 inspection pairs."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C7",
+    "problem": {
+      "id": "original-c7-practice-gallery",
+      "title": "Gallery Wall",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Combinations",
+      "difficulty": 1,
+      "statement": "A gallery owns 6 distinct posters and will display 3 of them on one wall. The arrangement on the wall is decided later and does not count as part of the selection. How many different sets of 3 posters can the gallery select?",
+      "choices": [
+        {"label": "A", "text": "12"},
+        {"label": "B", "text": "18"},
+        {"label": "C", "text": "20"},
+        {"label": "D", "text": "24"},
+        {"label": "E", "text": "120"}
+      ],
+      "answer": "C",
+      "shortAnswer": "20",
+      "hints": [
+        "First count ordered selections of three distinct posters.",
+        "How many selection orders describe each same set of three?"
+      ],
+      "solutionSteps": [
+        {"title": "Count ordered selections", "body": "There are 6 choices, then 5, then 4, for 6 × 5 × 4 = 120 ordered descriptions."},
+        {"title": "Find the bundle size", "body": "Each fixed set of three posters can be selected in 3! = 6 orders."},
+        {"title": "Count the sets", "body": "The 120 descriptions partition into bundles of six, so 120 ÷ 6 = 20 sets."}
+      ],
+      "tags": ["combinations", "choose three", "factorial divisor", "art"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["C7"],
+    "inspirationProblemIds": [],
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "independent complement enumeration C(6,3)=20 via the 20 three-element subsets",
+        "ordered-selection calculation 6×5×4÷3!",
+        "factorial formula audit 6!/(3!3!)",
+        "answer-choice uniqueness audit and manual novelty review"
+      ],
+      "notes": ["All three calculations give 20; arrangement is explicitly excluded from the outcome."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C7",
+    "problem": {
+      "id": "original-c7-practice-handshakes",
+      "title": "Seven Greetings",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Combinations",
+      "difficulty": 1,
+      "statement": "Seven people each shake hands once with every other person. How many handshakes occur?",
+      "choices": [
+        {"label": "A", "text": "14"},
+        {"label": "B", "text": "20"},
+        {"label": "C", "text": "21"},
+        {"label": "D", "text": "42"},
+        {"label": "E", "text": "49"}
+      ],
+      "answer": "C",
+      "shortAnswer": "21",
+      "hints": [
+        "Count a named first person and a different named second person.",
+        "A-to-B and B-to-A describe the same handshake."
+      ],
+      "solutionSteps": [
+        {"title": "Count directed descriptions", "body": "Seven first-person choices and six second-person choices give 7 × 6 = 42 directed descriptions."},
+        {"title": "Remove direction", "body": "Each actual handshake appears in exactly 2! = 2 directions."},
+        {"title": "Count handshakes", "body": "Thus 42 ÷ 2 = 21 handshakes occur."}
+      ],
+      "tags": ["combinations", "unordered pairs", "handshakes", "overcounting"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["C7"],
+    "inspirationProblemIds": [],
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "independent descending-sum calculation 6+5+4+3+2+1=21",
+        "ordered-endpoint calculation 7×6÷2!",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Both methods count each mutual handshake once and give 21."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C7",
+    "problem": {
+      "id": "original-c7-practice-event-officers",
+      "title": "Festival Planning Team",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Combinations with Roles",
+      "difficulty": 2,
+      "statement": "From 6 volunteers, a 4-person festival planning team is chosen. Then one team member is named chair and a different team member is named recorder. How many different team-and-officer outcomes are possible?",
+      "choices": [
+        {"label": "A", "text": "60"},
+        {"label": "B", "text": "120"},
+        {"label": "C", "text": "180"},
+        {"label": "D", "text": "360"},
+        {"label": "E", "text": "720"}
+      ],
+      "answer": "C",
+      "shortAnswer": "180",
+      "hints": [
+        "Choose the role-free team first.",
+        "Within a fixed team, chair and recorder are different roles."
+      ],
+      "solutionSteps": [
+        {"title": "Choose the team", "body": "Choosing 4 of 6 volunteers without order gives C(6,4) = 15 teams."},
+        {"title": "Assign the officers", "body": "Within any fixed team, there are 4 choices for chair and then 3 for recorder, giving 12 assignments."},
+        {"title": "Multiply the stages", "body": "Each of the 15 teams permits each of 12 assignments, so 15 × 12 = 180 outcomes."}
+      ],
+      "tags": ["combinations", "roles", "product rule", "mixed counting"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["C7", "C3"],
+    "inspirationProblemIds": [],
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "choose-team-then-officers calculation C(6,4)×4×3=180",
+        "independent officer-first calculation 6×5×C(4,2)=30×6=180",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["The independent count chooses chair and recorder first, then two additional role-free members."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C7",
+    "problem": {
+      "id": "original-c7-practice-symbol-code",
+      "title": "Three-Symbol Codes",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Combinations and Arrangements",
+      "difficulty": 2,
+      "statement": "A display has 8 distinct symbols. A code uses 3 different symbols in order, with no repetition. How many codes are possible?",
+      "choices": [
+        {"label": "A", "text": "56"},
+        {"label": "B", "text": "168"},
+        {"label": "C", "text": "336"},
+        {"label": "D", "text": "512"},
+        {"label": "E", "text": "720"}
+      ],
+      "answer": "C",
+      "shortAnswer": "336",
+      "hints": [
+        "First choose which three symbols appear.",
+        "Then restore the 3! orders of each chosen set because code positions matter."
+      ],
+      "solutionSteps": [
+        {"title": "Choose the symbols", "body": "There are C(8,3) = 56 sets of three symbols."},
+        {"title": "Arrange each set", "body": "Each chosen set produces 3! = 6 different ordered codes."},
+        {"title": "Count and check", "body": "Thus 56 × 6 = 336. Directly filling positions also gives 8 × 7 × 6 = 336."}
+      ],
+      "tags": ["combinations", "permutations", "codes", "factorials"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["C7", "C3"],
+    "inspirationProblemIds": [],
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "choose-then-arrange calculation C(8,3)×3!=56×6=336",
+        "independent slot-product calculation 8×7×6=336",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["The two methods independently confirm 336 and expose the inverse relationship between choosing and arranging."]
+    }
+  }
+]

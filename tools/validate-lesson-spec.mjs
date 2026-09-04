@@ -144,6 +144,14 @@ for (const file of lessonFiles) {
         if (resolution.animation?.kind !== "problem-animation") {
           errors.push(`${label}/${beat.id}: resolution animation kind must be problem-animation.`);
         }
+        if (
+          resolution.animation?.placement !== undefined &&
+          !["before-steps", "after-steps"].includes(resolution.animation.placement)
+        ) {
+          errors.push(
+            `${label}/${beat.id}: resolution animation placement must be before-steps or after-steps.`
+          );
+        }
         if (beat.animation?.mode === "none") {
           errors.push(`${label}/${beat.id}: problem-animation resolution requires a renderable animation plan.`);
         }

@@ -68,7 +68,11 @@ export interface LessonResolutionSpec {
   /** Static or self-animating visual that explains this exact question. */
   visual?: LessonVisualSpec;
   /** Uses the problem beat's existing controlled animation plan and prompts. */
-  animation?: { kind: "problem-animation" };
+  animation?: {
+    kind: "problem-animation";
+    /** Defaults to before the worked steps; use after-steps for an alternate method. */
+    placement?: "before-steps" | "after-steps";
+  };
   steps?: LessonResolutionStep[];
   takeaway?: string;
 }

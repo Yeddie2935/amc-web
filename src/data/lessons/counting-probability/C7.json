@@ -1,0 +1,578 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "C7",
+  "curriculumNodeId": "C7",
+  "title": "Choosing Without Order",
+  "lessonType": "foundation",
+  "status": "draft",
+  "estimatedMinutes": 24,
+  "coreInsight": "Combinations arise by counting ordered selections and then removing the artificial order that does not matter to the outcome.",
+  "targetLearnerRealization": "Choosing r objects without order can be derived from ordered selections by dividing out the r! orderings of each group.",
+  "learningObjectives": [
+    "Define what makes two selections the same outcome before counting.",
+    "Derive a combination count from ordered selections by proving that each group has r! orderings.",
+    "Use combination counts inside multi-stage counting problems without relying on keywords."
+  ],
+  "hardPrerequisites": ["C3", "C6"],
+  "narrativePredecessor": "C6",
+  "continuity": {
+    "openingCallback": "C6 ended with six lineups—ABC, ACB, BAC, BCA, CAB, and CBA—that all describe one role-free group of three.",
+    "closingSeeds": [
+      "A path can be described by choosing which step positions are, for example, the rightward steps."
+    ],
+    "nextLessonIds": ["C10"]
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "Permutation-versus-combination problems can be solved by keyword matching.",
+      "beatIds": ["same-word-different-outcome", "practice-mixed-event-officers", "practice-mixed-code-team"]
+    },
+    {
+      "misconception": "It is unnecessary to define what counts as the same outcome.",
+      "beatIds": ["pair-callback", "same-word-different-outcome", "combination-checklist"]
+    },
+    {
+      "misconception": "n choose r is a formula with no relation to ordered counting.",
+      "beatIds": ["one-triple-six-orders", "name-combinations", "guided-choosing-starters"]
+    },
+    {
+      "misconception": "Dividing by r! is arbitrary.",
+      "beatIds": ["one-triple-six-orders", "bundle-coverage-check", "guided-choosing-starters", "combination-checklist"]
+    }
+  ],
+  "beats": [
+    {
+      "id": "three-person-hook-return",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Resume C6's unresolved three-person-group question and surface the size of one duplicate bundle before calculating any number of groups.",
+      "expectedRealization": "One fixed group of three has six ordered descriptions, not merely a reversed pair.",
+      "transitionIn": "Last time, reversing two names created a duplicate pair. C6 ended with a larger bundle: ABC, ACB, BAC, BCA, CAB, and CBA all use the same three people.",
+      "transitionOut": "The divisor grew because a three-person group can be ordered in more than two ways.",
+      "estimatedSeconds": 75,
+      "prompt": "How many ordered lineups in this bundle describe the same role-free group {A, B, C}?",
+      "visual": {
+        "primitive": "sort-into-cases",
+        "data": {
+          "cases": [
+            {"label": "Group {A, B, C}", "items": ["ABC", "ACB", "BAC", "BCA", "CAB", "CBA"]}
+          ]
+        },
+        "continuityKey": "c7-three-person-order-bundle",
+        "ariaLabel": "Six ordered lineups grouped as descriptions of the same three-person group"
+      },
+      "response": {
+        "kind": "numeric",
+        "answer": 6,
+        "feedback": "Count all the ways the three distinct names can fill first, second, and third positions."
+      },
+      "correctFeedback": "Yes—one group of three has 6 ordered descriptions.",
+      "incorrectFeedback": "Keep the group fixed and count its lineups: 3 choices, then 2, then 1.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              {
+                "label": "Arrange the fixed group {A, B, C}",
+                "pattern": "first  →  second  →  third",
+                "calculation": "3 choices × 2 choices × 1 choice = 3!"
+              }
+            ]
+          },
+          "continuityKey": "c7-three-person-order-bundle",
+          "ariaLabel": "Three lineup positions with three, two, and one choices"
+        },
+        "steps": [
+          {"title": "Arrange the fixed group", "body": "Any of the 3 people can be first, either remaining person can be second, and the final person is forced.", "math": "3 × 2 × 1 = 3! = 6"}
+        ],
+        "takeaway": "For three distinct chosen people, the artificial order appears in a bundle of 3! descriptions."
+      }
+    },
+    {
+      "id": "pair-callback",
+      "phase": "try",
+      "kind": "problem",
+      "purpose": "Turn C6's pair bundles into the first explicit choosing-without-order calculation and establish the numerator/divisor structure on a tiny exhaustive case.",
+      "expectedRealization": "Three unordered pairs come from six ordered selections divided by two orders per pair.",
+      "transitionIn": "Before scaling the new six-description bundle, rebuild the smaller two-person case in one line.",
+      "transitionOut": "The pair count and the triple bundle use the same move: count ordered selections, then divide away every order of the chosen objects.",
+      "estimatedSeconds": 105,
+      "source": "generated",
+      "problemId": "original-c7-inspection-pairs",
+      "role": "anchor",
+      "presentation": "full-prompt",
+      "whyNow": "The three-person roster is small enough to enumerate completely, so the learner can connect C6's duplicate bundles to an explicit choose count before generalizing.",
+      "entryBridge": "Count first-person, second-person descriptions, then decide which descriptions name the same inspection pair.",
+      "exitBridge": "The six ordered descriptions split into three non-overlapping bundles of two.",
+      "reusedRepresentation": "C6's ordered name cards bundled by their underlying role-free pair.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "Do Ari-Bea and Bea-Ari create different inspection pairs?",
+        "How many ordered descriptions represent each same pair?"
+      ],
+      "correctFeedback": "Correct—there are 3 role-free pairs.",
+      "incorrectFeedback": "List the 3×2 ordered name descriptions, then bundle each description with its reversal.",
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              {"label": "Ari + Bea", "items": ["Ari → Bea", "Bea → Ari"]},
+              {"label": "Ari + Chen", "items": ["Ari → Chen", "Chen → Ari"]},
+              {"label": "Bea + Chen", "items": ["Bea → Chen", "Chen → Bea"]}
+            ]
+          },
+          "continuityKey": "c7-ordered-selection-bundles",
+          "ariaLabel": "Six ordered descriptions grouped into three inspection pairs"
+        },
+        "steps": [
+          {"title": "Count ordered selections", "body": "There are 3 choices for the first listed inspector and 2 for the second.", "math": "3 × 2 = 6"},
+          {"title": "Remove artificial order", "body": "Each role-free pair has 2! = 2 name orders, and both orders mean the same outcome.", "math": "6 ÷ 2! = 3"}
+        ],
+        "takeaway": "An unordered pair is an ordered selection with its 2! artificial orders bundled together."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "one-triple-six-orders",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Connect the fixed triple's six lineups to factorials and prepare the divisor for any choose-three count.",
+      "expectedRealization": "Every fixed set of three distinct objects has exactly 3! ordered descriptions.",
+      "transitionIn": "For pairs, every true outcome had 2! descriptions. Return to the six-card bundle and explain its size rather than memorizing it.",
+      "estimatedSeconds": 70,
+      "prompt": "Which calculation proves the number of orders for every fixed group of three distinct people?",
+      "visual": {
+        "primitive": "sort-into-cases",
+        "data": {
+          "cases": [
+            {"label": "One fixed triple", "items": ["ABC", "ACB", "BAC", "BCA", "CAB", "CBA"]}
+          ]
+        },
+        "continuityKey": "c7-three-person-order-bundle",
+        "ariaLabel": "All six orderings of one fixed group of three"
+      },
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "two-reversals", "text": "2, because every ordering has a reversal"},
+          {"id": "three-factorial", "text": "3 × 2 × 1 = 3!, by filling the three ordered positions"},
+          {"id": "three-people", "text": "3, because the group has three people"}
+        ],
+        "correctId": "three-factorial",
+        "feedback": {
+          "two-reversals": "Reversal finds a partner but misses four other orders of the same three names.",
+          "three-factorial": "Exactly. Arrange the fixed chosen people into three positions.",
+          "three-people": "The number of objects is not automatically the number of their arrangements."
+        }
+      },
+      "correctFeedback": "Right—3! is the size of every triple's order bundle.",
+      "incorrectFeedback": "Imagine the group is already chosen. How many ways can its three names fill three lineup positions?",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"body": "Choose which of the 3 fixed people is first, which of the 2 remaining is second, and then place the last person.", "math": "3 × 2 × 1 = 3! = 6"}
+        ],
+        "takeaway": "The divisor r! counts all orders of the r objects already chosen."
+      }
+    },
+    {
+      "id": "bundle-coverage-check",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Establish that grouping ordered selections by their underlying set covers the numerator exactly once and creates non-overlapping equal bundles.",
+      "expectedRealization": "Every ordered selection belongs to exactly one unordered group, so equal r!-sized bundles cover the ordered count without overlap.",
+      "transitionIn": "Equal bundle size is necessary, but division also needs every ordered description to land in exactly one bundle.",
+      "transitionOut": "Coverage, non-overlap, and equal bundle size turn the division into a complete counting argument.",
+      "estimatedSeconds": 90,
+      "prompt": "Why do the bundles count every unordered group exactly once? Select both required facts.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "coverage", "text": "Every ordered selection has one underlying set of chosen objects."},
+          {"id": "nonoverlap", "text": "An ordered selection cannot belong to two different underlying sets."},
+          {"id": "alphabetical", "text": "Every ordered selection is written alphabetically."}
+        ],
+        "correctIds": ["coverage", "nonoverlap"],
+        "feedback": "Check that no ordered description is missed and none is placed into two true-outcome bundles."
+      },
+      "correctFeedback": "Exactly—every description lands in one and only one group bundle.",
+      "incorrectFeedback": "You need one fact preventing gaps and another preventing overlap.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Coverage", "body": "Ignoring order in any ordered selection leaves one underlying chosen set, so every description enters a bundle."},
+          {"title": "Non-overlap", "body": "The same ordered list cannot contain two different sets of objects, so it enters only one bundle."},
+          {"title": "Equal size", "body": "If r distinct objects are chosen, each bundle contains all r! orders of those same objects."}
+        ],
+        "takeaway": "The ordered selections are partitioned into complete, non-overlapping bundles of size r!."
+      }
+    },
+    {
+      "id": "name-combinations",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Introduce combination language and notation only after the learner has constructed the quotient from equal order bundles.",
+      "expectedRealization": "C(n,r) names the unordered count obtained by dividing the ordered selection count by r!.",
+      "transitionIn": "You now have a repeatable operation: count ordered selections, partition them by underlying group, and count the bundles.",
+      "transitionOut": "Use the notation as a compact record of that argument, not as a keyword-triggered formula.",
+      "estimatedSeconds": 55,
+      "name": "Combinations: choosing without order",
+      "conciseDefinition": "A combination is a selection in which rearranging the chosen objects does not create a new outcome.",
+      "formalization": "C(n,r) = n choose r = n(n−1)···(n−r+1) ÷ r! = n!/[r!(n−r)!]",
+      "memoryHook": "Count ordered picks; divide out the orders of the chosen r."
+    },
+    {
+      "id": "guided-choosing-starters",
+      "phase": "competition-application",
+      "kind": "problem",
+      "purpose": "Apply the newly derived combination count to the approved authentic starters problem and contrast it with a valid complement shortcut.",
+      "expectedRealization": "The 24 ordered three-player lineups form four complete bundles of 3! orders, so there are four starter groups.",
+      "transitionIn": "Now the roster grows to four while the chosen group has size three. Decide first whether lineup order changes the starter team.",
+      "transitionOut": "The combination derivation gives 24÷6=4; choosing the one person who sits out independently confirms the same four teams.",
+      "estimatedSeconds": 220,
+      "source": "bank",
+      "problemId": "amc8-2004-04",
+      "role": "guided",
+      "presentation": "full-prompt",
+      "whyNow": "Choosing three starters from four people is a nearly pure combinations application immediately after the learner has proved why a three-person group's six orders are duplicates.",
+      "entryBridge": "Keep C6's duplicate-order bundles: count 4×3×2 lineups, then group together lineups containing the same three names.",
+      "exitBridge": "The four bundles can also be labeled by who sits out, providing an independent check without replacing the combination derivation.",
+      "reusedRepresentation": "Group cards with the six ordered lineups of each three-person set nested underneath.",
+      "animation": {"mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "Four players are available. What single choice could determine the other three starters?",
+        "Why is choosing 1 player to sit out equivalent to choosing 3 starters?",
+        "How does each bench case produce one distinct starter team?",
+        "Why are there exactly 4 choices for who sits out?"
+      ],
+      "correctFeedback": "Correct—there are 4 possible starter teams.",
+      "incorrectFeedback": "Count ordered lineups first, then divide by all 3! orders of each same starter group.",
+      "resolution": {
+        "animation": {"kind": "problem-animation", "placement": "after-steps"},
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              {"label": "Lance, Sally, Joy", "items": ["LSJ", "LJS", "SLJ", "SJL", "JLS", "JSL"]},
+              {"label": "Lance, Sally, Fred", "items": ["LSF", "LFS", "SLF", "SFL", "FLS", "FSL"]},
+              {"label": "Lance, Joy, Fred", "items": ["LJF", "LFJ", "JLF", "JFL", "FLJ", "FJL"]},
+              {"label": "Sally, Joy, Fred", "items": ["SJF", "SFJ", "JSF", "JFS", "FSJ", "FJS"]}
+            ]
+          },
+          "continuityKey": "c7-starter-order-bundles",
+          "ariaLabel": "Twenty-four ordered starter lineups grouped into four teams of three, six lineups per team"
+        },
+        "steps": [
+          {"title": "Count ordered lineups", "body": "Choose a first, second, and third listed player from the four-person roster.", "math": "4 × 3 × 2 = 24"},
+          {"title": "Prove the bundle size", "body": "Each fixed starter group contains three distinct people, so its names have 3! = 6 orders. All six mean the same starter team.", "math": "3! = 6"},
+          {"title": "Count the bundles", "body": "The 24 lineups partition into non-overlapping bundles of six.", "math": "C(4,3) = 24 ÷ 6 = 4"},
+          {"title": "Another way: change what we count", "body": "Instead of choosing the 3 starters, choose the 1 player who sits out. There are 4 choices."}
+        ],
+        "takeaway": "The combination derivation is the main method here. The sit-out view confirms the answer and shows how changing what we count can make the same problem easier."
+      },
+      "sourceLabelTiming": "completion"
+    },
+    {
+      "id": "same-word-different-outcome",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Directly break keyword matching by holding the verb choose constant while changing whether roles distinguish outcomes.",
+      "expectedRealization": "The outcome definition—not the word choose—determines whether order is artificial.",
+      "transitionIn": "The word choose appears in all four situations. For each one, decide what swapping the two selected people would do to one complete outcome.",
+      "estimatedSeconds": 95,
+      "prompt": "Sort each situation by whether swapping the two chosen people creates a new outcome.",
+      "response": {
+        "kind": "sort",
+        "items": [
+          {"id": "committee", "text": "choose a two-person committee"},
+          {"id": "officers", "text": "choose a president and treasurer"},
+          {"id": "starters", "text": "choose two starters with equal roles"},
+          {"id": "medals", "text": "choose a gold and silver medalist"}
+        ],
+        "buckets": [
+          {"id": "same", "text": "Swapping gives the same outcome"},
+          {"id": "different", "text": "Swapping gives a different outcome"}
+        ],
+        "correctBucketByItem": {
+          "committee": "same",
+          "starters": "same",
+          "officers": "different",
+          "medals": "different"
+        },
+        "feedback": "Name one full outcome, swap the people, and ask whether the roles or result changed."
+      },
+      "correctFeedback": "Exactly—the same verb can describe ordered roles or an unordered group.",
+      "incorrectFeedback": "Ignore the word choose. Test whether swapping the selected people changes the roles or result.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              {"label": "Swapping gives the same outcome", "items": ["choose a two-person committee", "choose two starters with equal roles"]},
+              {"label": "Swapping gives a different outcome", "items": ["choose a president and treasurer", "choose a gold and silver medalist"]}
+            ]
+          },
+          "ariaLabel": "Completed classification showing which choosing situations change when the selected people are swapped"
+        },
+        "steps": [
+          {"body": "A committee or equal-role starter pair is unchanged by swapping its written order, so divide away that artificial order."},
+          {"body": "President/treasurer and gold/silver assign different roles, so swapping people creates a genuinely different outcome."}
+        ],
+        "takeaway": "There is no reliable combination keyword. Define sameness first."
+      }
+    },
+    {
+      "id": "practice-introduction",
+      "phase": "independent-transfer",
+      "kind": "copy",
+      "purpose": "Set an outcome-first routine for independent practice.",
+      "expectedRealization": "Each calculation should identify the outcome, ordered numerator, and justified divisor.",
+      "transitionIn": "Now use the method without being told whether each situation is a combination.",
+      "estimatedSeconds": 35,
+      "heading": "For each problem, say what one outcome is",
+      "body": "Then count an ordered version if useful. Divide by r! only when all r! orders of the chosen objects describe that same outcome.",
+      "math": ["ordered selections ÷ orders per true outcome = true outcomes"],
+      "transitionOut": "Start with two pure selections, then handle problems where roles or extra stages change the count."
+    },
+    {
+      "id": "practice-near-gallery",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Provide independent near transfer to a choose-three setting with no roles.",
+      "expectedRealization": "Choosing three of six distinct posters gives 6×5×4÷3! = 20 displays.",
+      "estimatedSeconds": 150,
+      "source": "generated",
+      "problemId": "original-c7-practice-gallery",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The group size stays three while the roster expands, requiring the same verified 3! correction without the starter context.",
+      "entryBridge": "One display is a set of posters; their order of selection is not displayed.",
+      "exitBridge": "The ordered count of 120 descriptions forms bundles of six, giving 20 displays.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["What is one true outcome?", "How many ordered descriptions does each display have?"],
+      "correctFeedback": "Correct—20 sets of three posters are possible.",
+      "incorrectFeedback": "Count 6×5×4 ordered selections, then divide by the 3! orders of each fixed set.",
+      "resolution": {
+        "steps": [
+          {"title": "Count ordered selections", "body": "Fill three selection positions with distinct posters.", "math": "6 × 5 × 4 = 120"},
+          {"title": "Remove order", "body": "Each displayed set of three appears in all 3! = 6 selection orders.", "math": "120 ÷ 6 = 20"}
+        ],
+        "takeaway": "C(6,3) = 20 because every set has exactly six ordered descriptions."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-near-handshakes",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Provide independent near transfer to choose-two while requiring the learner to define one mutual connection as the outcome.",
+      "expectedRealization": "Each handshake pair has two ordered person-to-person descriptions, so C(7,2)=21.",
+      "estimatedSeconds": 145,
+      "source": "generated",
+      "problemId": "original-c7-practice-handshakes",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "Returning to pairs checks that the learner chooses the divisor from the group size rather than carrying over 3! mechanically.",
+      "entryBridge": "This time r=2. Recompute the multiplicity instead of reusing the previous divisor.",
+      "exitBridge": "The 42 directed descriptions pair by reversal, producing 21 handshakes.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["Does Kai-to-Mina differ from Mina-to-Kai as one handshake?", "What is r for this selection?"],
+      "correctFeedback": "Correct—there are 21 handshakes.",
+      "incorrectFeedback": "Count 7×6 directed descriptions and bundle each with its reversal.",
+      "resolution": {
+        "steps": [
+          {"body": "Seven choices for one named endpoint and six for the other give 42 directed descriptions.", "math": "7 × 6 = 42"},
+          {"body": "A handshake has two people and no direction, so each appears in 2! orders.", "math": "42 ÷ 2 = 21"}
+        ],
+        "takeaway": "The divisor is r!, determined by the number r chosen—not by the previous example."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-mixed-event-officers",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Mix an unordered team selection with a genuinely ordered assignment of two different offices.",
+      "expectedRealization": "Choose the four-person team without order, then assign chair and recorder as distinct roles.",
+      "estimatedSeconds": 175,
+      "source": "generated",
+      "problemId": "original-c7-practice-event-officers",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The problem uses the word choose for both a role-free group and distinct offices, directly testing outcome definitions rather than keyword matching.",
+      "entryBridge": "Separate the choice that ignores order from the later choice where the two offices are different.",
+      "exitBridge": "Fifteen possible teams each support twelve chair-recorder assignments, for 180 outcomes.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["Which stage is unchanged when names are rearranged?", "Does swapping the chair and recorder keep the same outcome?"],
+      "correctFeedback": "Correct—there are 180 team-and-officer outcomes.",
+      "incorrectFeedback": "First choose the four-person team. Within that fixed team, count ordered chair-recorder assignments.",
+      "resolution": {
+        "steps": [
+          {"title": "Choose the team", "body": "Order does not distinguish the four volunteers, so choose 4 from 6.", "math": "C(6,4) = 6×5×4×3 ÷ 4! = 15"},
+          {"title": "Assign distinct offices", "body": "For each team, there are 4 choices for chair and then 3 for recorder.", "math": "4 × 3 = 12"},
+          {"title": "Combine the stages", "body": "Every team can be paired with every valid officer assignment.", "math": "15 × 12 = 180"}
+        ],
+        "takeaway": "Use combinations only for the stage where rearranging the selected people changes nothing."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-mixed-code-team",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Connect combinations back to ordered arrangements by decomposing an ordered code into choose-then-arrange stages.",
+      "expectedRealization": "Choosing three symbols and then ordering them multiplies C(8,3) by 3!, recovering the ordered count 8×7×6.",
+      "estimatedSeconds": 170,
+      "source": "generated",
+      "problemId": "original-c7-practice-symbol-code",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The reverse construction makes the relationship between combinations and permutations explicit and blocks treating them as unrelated formulas.",
+      "entryBridge": "Here the final positions matter. You may count directly, or choose the symbols first and restore their orders.",
+      "exitBridge": "The factors cancel conceptually: removing 3! orders creates groups, and restoring 3! orders creates codes.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["If the three symbols are already chosen, how many codes can they form?", "Why should a direct ordered count agree?"],
+      "correctFeedback": "Correct—there are 336 three-symbol codes.",
+      "incorrectFeedback": "Choose 3 of the 8 symbols, then arrange each chosen set in 3! orders.",
+      "resolution": {
+        "steps": [
+          {"title": "Choose the symbols", "body": "Ignoring positions for the moment gives C(8,3) sets.", "math": "C(8,3) = 56"},
+          {"title": "Restore meaningful order", "body": "Each set of three distinct symbols forms 3! = 6 different codes.", "math": "56 × 6 = 336"},
+          {"title": "Check directly", "body": "Filling the three code positions directly gives the same result.", "math": "8 × 7 × 6 = 336"}
+        ],
+        "takeaway": "Combinations remove artificial order; multiplying by r! restores order when positions genuinely matter."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-bank-buffet",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Use the approved buffet problem to combine a choose-two factor with two independent ordinary choices.",
+      "expectedRealization": "The vegetable stage contributes C(4,2)=6, which multiplies by 3 meat and 4 dessert choices to give 72 meals.",
+      "transitionIn": "One final problem hides an unordered selection inside a longer product. Treat each stage according to what one meal records.",
+      "transitionOut": "The meal count succeeds because the combination factor corrects only the vegetable stage; meat and dessert remain ordinary independent choices.",
+      "estimatedSeconds": 225,
+      "source": "bank",
+      "problemId": "amc8-2001-14",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The authentic problem requires the learner to embed an unordered choose-two count inside the product rule after pure combination practice.",
+      "entryBridge": "Count meat and dessert choices first, then inspect whether corn-potatoes and potatoes-corn are different vegetable selections.",
+      "exitBridge": "Three meats, four desserts, and six unordered vegetable pairs multiply to 72 meals.",
+      "reusedRepresentation": "Ordered vegetable-pick descriptions collapsing into unordered pair cards.",
+      "animation": {"mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "At the first step, why do the 3 meat choices and 4 dessert choices make 12 pairs?",
+        "At the ordered-pick trap, which reversed vegetable descriptions name the same pair?",
+        "When the six pair cards appear, how do they show C(4,2)?",
+        "At the final step, why do the three independent factors multiply?"
+      ],
+      "correctFeedback": "Correct—Tyler can make 72 different meals.",
+      "incorrectFeedback": "Keep your answer while you step through the stages. Check whether your vegetable factor counts each pair once or twice.",
+      "resolution": {
+        "animation": {"kind": "problem-animation"},
+        "steps": [
+          {"title": "Choose meat and dessert", "body": "These are independent single choices.", "math": "3 × 4 = 12"},
+          {"title": "Correct the vegetable count", "body": "Four choices then three choices gives 12 ordered descriptions, but every pair appears in two orders.", "math": "C(4,2) = 4×3 ÷ 2! = 6"},
+          {"title": "Build a complete meal", "body": "Every meat-dessert pair can be combined with every unordered vegetable pair.", "math": "12 × 6 = 72"}
+        ],
+        "takeaway": "In a multi-stage count, use a combination exactly where order is artificial, then multiply the independent stage counts."
+      },
+      "sourceLabelTiming": "completion"
+    },
+    {
+      "id": "combination-checklist",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate the complete reasoning chain before the forward hook.",
+      "expectedRealization": "A combination argument defines sameness, counts ordered selections, proves complete non-overlapping r!-sized bundles, and then divides.",
+      "transitionIn": "Across teams, handshakes, codes, and meals, the notation changed less than the meaning of one outcome did.",
+      "estimatedSeconds": 90,
+      "prompt": "Which checks justify dividing an ordered selection count by r!? Select all four.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "same", "text": "Reordering the r chosen objects does not change the true outcome."},
+          {"id": "bundle", "text": "Every true outcome has all r! orders as descriptions."},
+          {"id": "coverage", "text": "Every ordered selection belongs to some true-outcome bundle."},
+          {"id": "nonoverlap", "text": "No ordered selection belongs to two different bundles."},
+          {"id": "keyword", "text": "The problem uses a word such as team or choose."}
+        ],
+        "correctIds": ["same", "bundle", "coverage", "nonoverlap"],
+        "feedback": "A word cannot justify division. Look for sameness, equal multiplicity, coverage, and non-overlap."
+      },
+      "correctFeedback": "Yes—that is a complete combination argument, not a formula guess.",
+      "incorrectFeedback": "Check what makes outcomes the same and why the ordered descriptions partition into equal bundles.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "1. Define", "choices": ["what is one outcome?", "does reordering change it?"]},
+              {"label": "2. Count", "choices": ["ordered selections"]},
+              {"label": "3. Prove bundles", "choices": ["r! each", "complete", "non-overlapping"]},
+              {"label": "4. Divide", "choices": ["ordered count ÷ r!"]}
+            ]
+          },
+          "ariaLabel": "Four-stage checklist for deriving a combination count"
+        },
+        "steps": [
+          {"body": "For n available objects and r chosen objects, the ordered numerator is n(n−1)···(n−r+1)."},
+          {"body": "If order is artificial, each true group has exactly r! descriptions, and the bundles partition the numerator.", "math": "C(n,r) = n(n−1)···(n−r+1) ÷ r!"}
+        ],
+        "takeaway": "Choose notation compresses a partition argument: ordered descriptions grouped into equal r!-sized bundles."
+      }
+    },
+    {
+      "id": "grid-path-hook",
+      "phase": "reflection",
+      "kind": "reflection",
+      "purpose": "Create a concrete successor question linking path strings to choosing positions, without beginning the grid-path lesson.",
+      "expectedRealization": "A path with fixed step counts may be encoded by choosing which positions contain one type of step.",
+      "transitionIn": "One more setting hides a choice-without-order inside an ordered-looking object.",
+      "prompt": "A shortest grid path uses three R steps and two U steps. If its five step positions are numbered, could the whole path be determined just by choosing the three positions that contain R?",
+      "takeaway": "Choosing positions may count paths. Next, that viewpoint will connect combinations to grid paths and Pascal's Triangle."
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {"near": 6, "mixed": 6, "challenge": 2},
+    "sessionSelection": [
+      {"source": "generated", "transferLevel": "near", "count": 2},
+      {"source": "generated", "transferLevel": "mixed", "count": 2},
+      {"source": "bank", "transferLevel": "mixed", "count": 1, "difficulty": 2}
+    ],
+    "excludeProblemIds": ["original-c7-inspection-pairs", "amc8-2004-04"],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "C7",
+    "evidenceBeatIds": [
+      "practice-near-gallery",
+      "practice-near-handshakes",
+      "practice-mixed-event-officers",
+      "practice-mixed-code-team",
+      "practice-bank-buffet"
+    ],
+    "minIndependentPracticeItems": 5,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.2.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "mathinking-lesson-skill-1.0.0",
+    "notes": [
+      "Draft foundation lesson authored with the repo-local mathinking-lesson Skill.",
+      "The generated three-person pair case is used only as a compact bridge from C6 before the group-size-three factorial divisor is derived.",
+      "The authentic starters problem uses a static bundle visualization for the primary 24÷6 derivation, followed by its existing complement animation as an elegant alternate viewpoint.",
+      "The authentic buffet animation is integrated as controlled four-step transfer.",
+      "All visuals reuse existing generic primitives; no lesson-specific renderer behavior was added."
+    ]
+  }
+}

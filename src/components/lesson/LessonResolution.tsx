@@ -11,17 +11,23 @@ export function LessonResolution({
   resolution,
   problemAnimation,
 }: LessonResolutionProps) {
-  return (
-    <section className="fmj-lesson-resolution" aria-label="Worked explanation">
-      <p className="fmj-eyebrow">Why it works</p>
-
-      {resolution.animation?.kind === "problem-animation" &&
-        (problemAnimation ?? (
+  const animation =
+    resolution.animation?.kind === "problem-animation"
+      ? (problemAnimation ?? (
           <div className="fmj-lesson-fallback" role="alert">
             <strong>Animation unavailable</strong>
             <p>This question does not provide a problem animation.</p>
           </div>
-        ))}
+        ))
+      : null;
+  const animationAfterSteps =
+    resolution.animation?.placement === "after-steps";
+
+  return (
+    <section className="fmj-lesson-resolution" aria-label="Worked explanation">
+      <p className="fmj-eyebrow">Why it works</p>
+
+      {!animationAfterSteps && animation}
 
       {resolution.visual && <VisualPrimitiveHost visual={resolution.visual} />}
 
@@ -36,6 +42,8 @@ export function LessonResolution({
           ))}
         </ol>
       )}
+
+      {animationAfterSteps && animation}
 
       {resolution.takeaway && (
         <p className="fmj-lesson-resolution-takeaway">

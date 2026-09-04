@@ -44,6 +44,8 @@ C4 remains the gold benchmark, but do not reread its full artifact without a con
 - Use interaction when manipulation creates insight; animation when meaningful motion, process, or representation change matters; a static visual when an inspectable diagram or table exposes structure; and text when another medium adds little. Do not animate everything.
 - Preserve useful objects and representations across adjacent beats, using continuity keys where supported.
 - Give every substantial question feedback, a worked resolution, and a takeaway.
+- Interactions must not reveal their own answer before the learner acts. For sorting, matching, classification, prediction, or selection tasks, pre-response visuals and prose may define the categories and objects but must not display, encode, strongly imply, or pre-group the correct assignments. The completed organization belongs in feedback or resolution after submission.
+- Occasionally surface an elegant alternative solution when it connects the problem to an idea the learner has already met. Keep the current lesson's target technique as the primary worked solution; only afterward, and only when it substantially simplifies the problem or reveals a useful new representation, add a concise "Another way" or "Connection." Do not force alternatives into every problem or reveal one before the learner has practiced the target idea.
 - Synchronize each learner prompt with the exact visual or animation state it asks the learner to inspect.
 - Never place a generated question immediately before an authentic bank problem that asks essentially the same thing.
 - Only an approved deep mapping authorizes integrated bank use. Explain why each authentic problem belongs at that moment.
@@ -89,7 +91,7 @@ Do not modify neighboring lessons, curriculum nodes, or mappings. Do not repeate
 Before automated checks, review separately:
 
 1. **Mathematics:** independently recompute generated answers, solutions, and choices.
-2. **Pedagogy:** verify discovery order, misconception repair, medium choice, resolutions, and consolidation.
+2. **Pedagogy:** verify discovery order, misconception repair, medium choice, resolutions, and consolidation. Inspect interactive beats for answer leakage before response; especially check that sort and classification primitives do not render pre-filled examples that duplicate the items being classified.
 3. **Continuity:** read learner-facing copy in sequence and confirm each visual answers the current prompt.
 
 Every routine lesson runs, in this order:
