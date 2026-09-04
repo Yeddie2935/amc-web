@@ -1,0 +1,317 @@
+[
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C2",
+    "purpose": "teaching",
+    "transferLevel": "discovery",
+    "targetConcepts": ["C2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c2-museum-routes",
+      "title": "Museum Routes",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Systematic Listing",
+      "difficulty": 1,
+      "statement": "A museum tour enters through the North or South entrance. From North, it visits Fossils or Space; from South, it visits Ocean. After Fossils the tour may finish at the Cafe or Garden, after Space it must finish at the Garden, and after Ocean it may finish at the Cafe or Garden. How many different complete entrance-exhibit-finish routes are possible?",
+      "choices": [
+        {"label": "A", "text": "4"},
+        {"label": "B", "text": "5"},
+        {"label": "C", "text": "6"},
+        {"label": "D", "text": "7"},
+        {"label": "E", "text": "8"}
+      ],
+      "answer": "B",
+      "shortAnswer": "5",
+      "hints": [
+        "Record all three parts of a route so two routes can be compared unambiguously.",
+        "Finish every North branch, then every South branch."
+      ],
+      "solutionSteps": [
+        {"title": "Finish the North routes", "body": "North-Fossils can end at Cafe or Garden, and North-Space can end only at Garden. That gives 3 routes."},
+        {"title": "Finish the South routes", "body": "South leads to Ocean, which can end at Cafe or Garden. That gives 2 routes."},
+        {"title": "Count complete records", "body": "The five distinct routes are N-F-C, N-F-G, N-Sp-G, S-O-C, and S-O-G, so there are 3 + 2 = 5 routes."}
+      ],
+      "tags": ["systematic listing", "branch tree", "unequal branches"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive enumeration of every entrance-exhibit-finish path",
+        "independent branch-total check 2+1+2=5",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: North contributes 3 routes and South contributes 2, for 5."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C2",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["C2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c2-practice-signal-strings",
+      "title": "Three-Flash Signals",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Systematic Listing",
+      "difficulty": 1,
+      "statement": "A signal has exactly 3 flashes. Each flash is A or B, but two B flashes may not be consecutive. How many different signals are possible?",
+      "choices": [
+        {"label": "A", "text": "2"},
+        {"label": "B", "text": "3"},
+        {"label": "C", "text": "4"},
+        {"label": "D", "text": "5"},
+        {"label": "E", "text": "6"}
+      ],
+      "answer": "D",
+      "shortAnswer": "5",
+      "hints": ["Extend each legal prefix by A and by B.", "A B may be followed only by A."],
+      "solutionSteps": [
+        {"title": "Start with A", "body": "The legal signals beginning with A are AAA, AAB, and ABA."},
+        {"title": "Start with B", "body": "The second flash must be A, giving BAA and BAB."},
+        {"title": "Count the leaves", "body": "The complete list is AAA, AAB, ABA, BAA, BAB, so there are 5 signals."}
+      ],
+      "tags": ["systematic listing", "binary strings", "forbidden adjacency"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive filter of all eight length-three A/B strings",
+        "independent recurrence check f(1)=2, f(2)=3, f(3)=5",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed legal strings: AAA, AAB, ABA, BAA, BAB; answer 5."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C2",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["C2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c2-practice-even-badges",
+      "title": "Even Number Badges",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Systematic Listing",
+      "difficulty": 1,
+      "statement": "A two-digit badge number is made from the digits 1, 2, and 3 without repeating a digit. How many possible badge numbers are even?",
+      "choices": [
+        {"label": "A", "text": "1"},
+        {"label": "B", "text": "2"},
+        {"label": "C", "text": "3"},
+        {"label": "D", "text": "4"},
+        {"label": "E", "text": "6"}
+      ],
+      "answer": "B",
+      "shortAnswer": "2",
+      "hints": ["An even number must end in an even digit.", "Which of 1, 2, and 3 can be the units digit?"],
+      "solutionSteps": [
+        {"title": "Fix the units digit", "body": "Only 2 is even, so every valid badge must end in 2."},
+        {"title": "Choose the tens digit", "body": "Without repetition, the tens digit can be 1 or 3."},
+        {"title": "List and count", "body": "The badge numbers are 12 and 32, so there are 2."}
+      ],
+      "tags": ["systematic listing", "place value", "constraints"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive check of the six ordered non-repeating digit pairs",
+        "independent units-digit argument fixing 2 then choosing 1 or 3",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed valid badge numbers: 12 and 32; answer 2."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C2",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["C2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c2-practice-art-stations",
+      "title": "Shape-Paint Designs",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Systematic Listing",
+      "difficulty": 2,
+      "statement": "At an art station, a student chooses one shape and one paint allowed for that shape. A square may be red or blue, a triangle may be blue, and a circle may be red, green, or blue. How many different shape-paint designs are possible?",
+      "choices": [
+        {"label": "A", "text": "3"},
+        {"label": "B", "text": "5"},
+        {"label": "C", "text": "6"},
+        {"label": "D", "text": "7"},
+        {"label": "E", "text": "9"}
+      ],
+      "answer": "C",
+      "shortAnswer": "6",
+      "hints": ["Record both the shape and paint in each outcome.", "Count the actual endings under each shape."],
+      "solutionSteps": [
+        {"title": "List by shape", "body": "Square gives Square-Red and Square-Blue; Triangle gives Triangle-Blue; Circle gives Circle-Red, Circle-Green, and Circle-Blue."},
+        {"title": "Keep complete designs distinct", "body": "Square-Blue and Triangle-Blue share a paint name but are different complete designs."},
+        {"title": "Count the leaves", "body": "The branch sizes are 2, 1, and 3, so 2 + 1 + 3 = 6 designs."}
+      ],
+      "tags": ["systematic listing", "unequal branches", "outcome definition"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive enumeration of all allowed shape-paint pairs",
+        "independent branch-total check 2+1+3=6",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: square 2, triangle 1, circle 3, total 6."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C2",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["C2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c2-practice-grid-detour",
+      "title": "Avoid the Center",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Systematic Listing",
+      "difficulty": 2,
+      "statement": "A robot starts at (0,0) and makes exactly 4 moves to reach (2,2). Each move is one unit east or one unit north. The robot may not visit (1,1). How many different move sequences are possible?",
+      "choices": [
+        {"label": "A", "text": "1"},
+        {"label": "B", "text": "2"},
+        {"label": "C", "text": "3"},
+        {"label": "D", "text": "4"},
+        {"label": "E", "text": "6"}
+      ],
+      "answer": "B",
+      "shortAnswer": "2",
+      "hints": ["Every route uses exactly two E moves and two N moves.", "List all orders once, then test the position after two moves."],
+      "solutionSteps": [
+        {"title": "List every candidate", "body": "The six orders are EENN, ENEN, ENNE, NEEN, NENE, and NNEE."},
+        {"title": "Reject center visits", "body": "A path visits (1,1) exactly when its first two moves are EN or NE, eliminating ENEN, ENNE, NEEN, and NENE."},
+        {"title": "Count the survivors", "body": "Only EENN and NNEE avoid (1,1), so there are 2 paths."}
+      ],
+      "tags": ["systematic listing", "grid paths", "constraints"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive enumeration of all six orders of E,E,N,N",
+        "independent symmetry check: only paths staying on one side of the center until move two survive, one in each orientation",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed surviving paths: EENN and NNEE; answer 2."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C2",
+    "purpose": "practice",
+    "transferLevel": "challenge",
+    "targetConcepts": ["C2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c2-practice-sensor-code",
+      "title": "Sensor Codes",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Systematic Listing",
+      "difficulty": 3,
+      "statement": "A sensor code is a string of 4 symbols, each R or B. The code contains exactly two R symbols, and its first and last symbols are different. How many sensor codes are possible?",
+      "choices": [
+        {"label": "A", "text": "2"},
+        {"label": "B", "text": "3"},
+        {"label": "C", "text": "4"},
+        {"label": "D", "text": "5"},
+        {"label": "E", "text": "6"}
+      ],
+      "answer": "C",
+      "shortAnswer": "4",
+      "hints": ["The endpoints are either R...B or B...R.", "After fixing the endpoints, how many R symbols remain for the two middle positions?"],
+      "solutionSteps": [
+        {"title": "Fix opposite endpoints", "body": "The endpoint cases are R...B and B...R."},
+        {"title": "Complete each case", "body": "One R is already used, so exactly one of the two middle positions is R. Each endpoint case gives 2 codes."},
+        {"title": "List and count", "body": "The codes are RRBB, RBRB, BRBR, and BBRR, for 2 + 2 = 4 codes."}
+      ],
+      "tags": ["systematic listing", "binary strings", "multiple constraints"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive filter of all sixteen length-four R/B strings",
+        "independent endpoint split with two interior choices in each of two cases",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed valid codes: RRBB, RBRB, BRBR, BBRR; answer 4."]
+    }
+  }
+]

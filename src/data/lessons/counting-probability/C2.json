@@ -1,0 +1,601 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "C2",
+  "curriculumNodeId": "C2",
+  "title": "Systematic Listing & Trees",
+  "lessonType": "technique",
+  "status": "draft",
+  "estimatedMinutes": 29,
+  "coreInsight": "Organization turns an informal list of possibilities into a structure that can be checked for completeness and duplication.",
+  "targetLearnerRealization": "A systematic list or tree makes completeness visible: every allowed continuation has a place, every finished path is counted once, and omissions or duplicates can be detected.",
+  "learningObjectives": [
+    "Build a systematic list or tree by extending every allowed partial choice in a fixed order.",
+    "Justify that an enumeration is complete and contains no duplicate outcomes.",
+    "Distinguish a decision path from the final object the problem asks to count."
+  ],
+  "hardPrerequisites": ["C1"],
+  "narrativePredecessor": "C1",
+  "continuity": {
+    "openingCallback": "Reactivate C1's habit of counting complete endpoints, then ask how the endpoints can be organized so none is missed or repeated.",
+    "closingSeeds": [
+      "A large search can be split by a structural feature into complete, non-overlapping cases.",
+      "An outcome tree can later become a probability space by marking successful leaves.",
+      "Organized categories make it possible to reason about when a future outcome becomes unavoidable."
+    ],
+    "nextLessonIds": ["C4", "P1", "S4"]
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "Any list is systematic if it is long enough.",
+      "beatIds": ["museum-route-attempt", "suspicious-five-line-list", "audit-the-tree", "systematic-list-recap"]
+    },
+    {
+      "misconception": "Duplicate outcomes are harmless.",
+      "beatIds": ["suspicious-five-line-list", "audit-the-tree", "practice-grid-detour", "systematic-list-recap"]
+    },
+    {
+      "misconception": "Seeing a pattern early means the list can stop.",
+      "beatIds": ["audit-the-tree", "authentic-bunny-hops", "practice-sensor-code", "systematic-list-recap"]
+    },
+    {
+      "misconception": "A path of decisions and the final outcome are always identical objects.",
+      "beatIds": ["paths-versus-finishes", "practice-art-stations"]
+    }
+  ],
+  "beats": [
+    {
+      "id": "count-c1-endpoints",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Briefly reactivate C1's endpoint-counting habit using unequal branches before advancing to the reliability of the organization.",
+      "expectedRealization": "The count comes from five complete paths, not from the number of labels or decision stages.",
+      "transitionIn": "C1 ended with uneven branches. Warm that idea back up by counting finished plans rather than multiplying automatically.",
+      "estimatedSeconds": 55,
+      "prompt": "How many complete trip plans end at a departure time?",
+      "visual": {
+        "primitive": "branch-tree",
+        "data": {
+          "root": "Trip",
+          "paths": [
+            ["Bus", "8:00"],
+            ["Bus", "10:00"],
+            ["Train", "8:00"],
+            ["Train", "9:00"],
+            ["Train", "10:00"]
+          ]
+        },
+        "continuityKey": "c2-complete-paths",
+        "ariaLabel": "A trip tree with two bus endpoints and three train endpoints"
+      },
+      "response": {
+        "kind": "numeric",
+        "answer": 5,
+        "feedback": "Count only the endpoints of complete route-and-time paths."
+      },
+      "correctFeedback": "Yes—two bus plans and three train plans make five endpoints.",
+      "incorrectFeedback": "Follow each branch until it reaches a departure time, then count those finished paths.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"body": "Bus has 2 endings and Train has 3 endings.", "math": "2 + 3 = 5 complete plans"}
+        ],
+        "takeaway": "A leaf records a complete path through the choices."
+      }
+    },
+    {
+      "id": "museum-route-attempt",
+      "phase": "try",
+      "kind": "problem",
+      "purpose": "Let the learner enumerate a small nonuniform choice process before any formal vocabulary or completeness test is supplied.",
+      "expectedRealization": "The museum has five legal complete routes, but merely finding five route strings does not yet explain why the search is finished.",
+      "transitionIn": "Counting visible endpoints was easy. Now the endpoints are hidden inside choices that depend on earlier choices—exactly the tangle C1 left us.",
+      "transitionOut": "Five routes work. The harder question is whether five written lines automatically deserve our trust.",
+      "estimatedSeconds": 125,
+      "source": "generated",
+      "problemId": "original-c2-museum-routes",
+      "role": "anchor",
+      "presentation": "full-prompt",
+      "whyNow": "A tiny three-stage process has unequal continuations and is small enough for the learner to inspect every complete route.",
+      "entryBridge": "Write routes in any order you like; use N, S, F, Sp, O, C, and G as abbreviations if useful.",
+      "exitBridge": "The five found routes answer the question, but the list itself still needs an audit for omissions and repeats.",
+      "reusedRepresentation": "Complete choice paths written from entrance to finish room.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "What choices are available after each entrance?",
+        "Which labels form one complete route?"
+      ],
+      "correctFeedback": "Yes—there are five complete museum routes.",
+      "incorrectFeedback": "Keep your route list. We will organize it next so every branch can be checked.",
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "Routes found", "choices": ["N–F–C", "S–O–C", "N–Sp–G", "N–F–G", "S–O–G"]}
+            ]
+          },
+          "continuityKey": "c2-museum-routes",
+          "ariaLabel": "Five valid museum routes written in an unsorted order"
+        },
+        "steps": [
+          {"title": "Check each line", "body": "Each line begins at an entrance, follows an allowed exhibit, and ends in a finish room."},
+          {"title": "Count what was found", "body": "The list contains five different legal routes."}
+        ],
+        "takeaway": "A list can produce an answer; organization is what will let us certify it."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "suspicious-five-line-list",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Create the need for systematic organization by showing that a list of the correct length can hide both a duplicate and an omission.",
+      "expectedRealization": "Five written lines need not represent five distinct routes; one duplicate can conceal one missing route.",
+      "transitionIn": "A classmate also wrote five legal-looking lines. Inspect the records themselves, not just the length of the list.",
+      "estimatedSeconds": 80,
+      "prompt": "Does this list prove that it contains all five distinct museum routes?",
+      "visual": {
+        "primitive": "choice-grid",
+        "data": {
+          "groups": [
+            {"label": "Classmate's five lines", "choices": ["N–F–C", "N–F–G", "S–O–C", "N–Sp–G", "N–F–C"]}
+          ]
+        },
+        "continuityKey": "c2-museum-routes",
+        "ariaLabel": "Five museum route records in an unsorted list, available for the learner to inspect"
+      },
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "proved", "text": "Yes; five lines always prove five distinct routes."},
+          {"id": "not-proved", "text": "No; the records themselves must be checked."}
+        ],
+        "correctId": "not-proved",
+        "feedback": {
+          "proved": "Line count alone cannot detect whether one route was repeated while another was missed.",
+          "not-proved": "Right. Inspecting the entries reveals a repeated record and leaves a route unaccounted for."
+        }
+      },
+      "correctFeedback": "Exactly—the list repeats N–F–C and omits S–O–G.",
+      "incorrectFeedback": "Compare the first and last entries, then look for the South route ending at the Garden.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "branch-tree",
+          "data": {
+            "root": "Museum",
+            "paths": [
+              ["North", "Fossils", "Cafe"],
+              ["North", "Fossils", "Garden"],
+              ["North", "Space", "Garden"],
+              ["South", "Ocean", "Cafe"],
+              ["South", "Ocean", "Garden"]
+            ]
+          },
+          "continuityKey": "c2-museum-routes",
+          "ariaLabel": "A complete museum route tree with five distinct leaves"
+        },
+        "steps": [
+          {"title": "Find the repeat", "body": "N–F–C appears twice, so those two lines describe only one route."},
+          {"title": "Find the hole", "body": "The South–Ocean branch has two finish choices, but the list recorded only Cafe. South–Ocean–Garden was missed."}
+        ],
+        "takeaway": "A duplicate can make a list look long enough while an outcome is still missing."
+      }
+    },
+    {
+      "id": "audit-the-tree",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Extract the coverage and non-duplication tests from the completed tree in learner language.",
+      "expectedRealization": "The tree is complete because every partial path has all allowed continuations, and duplicate-free because each decision sequence creates one leaf.",
+      "transitionIn": "The tree repaired the list. Now identify the features that make the repair trustworthy.",
+      "estimatedSeconds": 85,
+      "prompt": "Which two checks certify this tree? Select both.",
+      "visual": {
+        "primitive": "branch-tree",
+        "data": {
+          "root": "Museum",
+          "paths": [
+            ["North", "Fossils", "Cafe"],
+            ["North", "Fossils", "Garden"],
+            ["North", "Space", "Garden"],
+            ["South", "Ocean", "Cafe"],
+            ["South", "Ocean", "Garden"]
+          ]
+        },
+        "continuityKey": "c2-museum-routes",
+        "ariaLabel": "The complete five-leaf museum route tree"
+      },
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "all-next", "text": "After every partial route, every allowed next choice appears."},
+          {"id": "one-leaf", "text": "Each complete choice sequence reaches exactly one leaf."},
+          {"id": "same-size", "text": "Every branch has the same number of leaves."},
+          {"id": "five-lines", "text": "The diagram happens to show five lines."}
+        ],
+        "correctIds": ["all-next", "one-leaf"],
+        "feedback": "Look for one check that prevents omissions and one that prevents repeated paths."
+      },
+      "correctFeedback": "Yes—extend every allowed choice and give each complete sequence one place.",
+      "incorrectFeedback": "Unequal branches are allowed, and a line count is not proof. Check continuations and unique leaves.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Coverage", "body": "At North we include Fossils and Space; at South we include Ocean. Every one of those partial routes then shows every allowed finish."},
+          {"title": "No overlap", "body": "A finished entrance–exhibit–room sequence follows one and only one path through the tree."}
+        ],
+        "takeaway": "A trustworthy organization covers every allowed branch and counts each finished path once."
+      }
+    },
+    {
+      "id": "name-systematic-listing",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name the method only after the learner has experienced the failure of an unstructured list and the auditability of a tree.",
+      "expectedRealization": "Systematic listing means using a repeatable order that exposes both coverage and duplication; a tree is one visual form of that method.",
+      "transitionIn": "You just made the search checkable by giving every next choice a fixed place.",
+      "estimatedSeconds": 50,
+      "name": "Systematic listing and trees",
+      "conciseDefinition": "A systematic list follows a fixed rule so every allowed outcome appears once. A tree does this by extending each partial choice through all of its allowed next branches.",
+      "formalization": "Complete = every allowed outcome is represented. Non-overlapping = no outcome is counted in two places.",
+      "memoryHook": "Open every legal branch; count every leaf once."
+    },
+    {
+      "id": "paths-versus-finishes",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Repair the assumption that decision paths and requested final outcomes are always the same objects.",
+      "expectedRealization": "The same tree has five routes but only two distinct finish rooms; the question determines what counts as one outcome.",
+      "transitionIn": "The tree has five leaves because we were counting routes. Change what the question calls an outcome, and the same picture can give a different count.",
+      "estimatedSeconds": 80,
+      "prompt": "If the school records only which room a tour finishes in, how many distinct finish rooms are possible?",
+      "visual": {
+        "primitive": "branch-tree",
+        "data": {
+          "root": "Museum",
+          "paths": [
+            ["North", "Fossils", "Cafe"],
+            ["North", "Fossils", "Garden"],
+            ["North", "Space", "Garden"],
+            ["South", "Ocean", "Cafe"],
+            ["South", "Ocean", "Garden"]
+          ]
+        },
+        "continuityKey": "c2-museum-routes",
+        "ariaLabel": "Five museum routes, several of which share Cafe or Garden as a finish room"
+      },
+      "response": {"kind": "numeric", "answer": 2, "feedback": "Ignore how a tour arrived; count distinct final room names."},
+      "correctFeedback": "Correct—the only finish rooms are Cafe and Garden.",
+      "incorrectFeedback": "Five is the number of routes. This question merges routes that end in the same room.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              {"label": "Cafe", "items": ["North–Fossils–Cafe", "South–Ocean–Cafe"]},
+              {"label": "Garden", "items": ["North–Fossils–Garden", "North–Space–Garden", "South–Ocean–Garden"]}
+            ]
+          },
+          "continuityKey": "c2-museum-routes",
+          "ariaLabel": "The five routes grouped into the two distinct finish rooms Cafe and Garden"
+        },
+        "steps": [
+          {"body": "Several decision paths can lead to the same final object. Define one outcome before deciding whether leaves stay separate or merge."}
+        ],
+        "takeaway": "A path is a sequence of decisions; the requested outcome may be that path or something it produces."
+      }
+    },
+    {
+      "id": "authentic-bunny-hops",
+      "phase": "competition-application",
+      "kind": "problem",
+      "purpose": "Apply systematic branch extension to the approved authentic path problem, where illegal prefixes must be rejected without hiding unexplored branches.",
+      "expectedRealization": "Growing every U/D prefix and pruning only when a path goes underground or can no longer balance leaves exactly five valid six-hop sequences.",
+      "transitionIn": "The museum tree had unequal branches supplied by the rules. In this contest problem, every hop offers U or D, but some branches become illegal while the tree grows.",
+      "transitionOut": "The five survivors are trustworthy because every U/D continuation was either extended or rejected for a stated reason.",
+      "estimatedSeconds": 255,
+      "source": "bank",
+      "problemId": "amc8-2024-13",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The mapped bunny problem turns a short systematic tree into an authentic constrained enumeration and directly tests whether the learner stops only after every branch is accounted for.",
+      "entryBridge": "Treat each partial hop string as a tree branch. Extend it by U or D unless that next step is already impossible.",
+      "exitBridge": "Five legal leaves remain: UDUDUD, UDUUDD, UUDDUD, UUDUDD, and UUUDDD.",
+      "reusedRepresentation": "A branching decision tree whose leaves are complete paths and whose illegal continuations are explicitly rejected.",
+      "animation": {"mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "Before listing, what must be true of the total numbers of U and D hops?",
+        "Why may a branch be stopped as soon as its running height goes below zero?",
+        "At the final animation state, how does each surviving profile correspond to one leaf?"
+      ],
+      "correctFeedback": "Correct—five six-hop paths return to the ground without ever going below it.",
+      "incorrectFeedback": "Keep your attempt. Extend U/D strings in a fixed order and reject a branch only when it goes underground or cannot finish balanced.",
+      "resolution": {
+        "animation": {"kind": "problem-animation"},
+        "steps": [
+          {"title": "Define a legal leaf", "body": "A complete path has six hops, ends at height 0, and never has a negative running height. Ending at 0 forces three U hops and three D hops."},
+          {"title": "Grow and prune systematically", "body": "At each legal prefix, consider both next letters. Stop a D branch if it enters the dirt; stop any prefix that cannot still finish with three U's and three D's."},
+          {"title": "Read the surviving leaves", "body": "The legal leaves are UDUDUD, UDUUDD, UUDDUD, UUDUDD, and UUUDDD.", "math": "5 paths → choice B"},
+          {"title": "Connection to C1", "body": "Without restrictions, six two-way stages would create 2⁶ = 64 strings. The systematic tree keeps that structure but removes only branches the rules forbid."}
+        ],
+        "takeaway": "Completeness comes from accounting for every possible continuation—not from stopping when the list looks patterned."
+      },
+      "sourceLabelTiming": "completion"
+    },
+    {
+      "id": "harvest-tree-method",
+      "phase": "notice",
+      "kind": "copy",
+      "purpose": "Separate the reusable enumeration method from the bunny story before independent practice.",
+      "expectedRealization": "A systematic tree is a ledger of decisions: open every legal next branch, explain every stopped branch, and count complete leaves once.",
+      "transitionIn": "The bunny paths were harder than the museum routes, but the audit was the same.",
+      "estimatedSeconds": 45,
+      "heading": "The tree is a proof ledger",
+      "body": "Every partial choice received every allowed continuation. Every stopped branch had a rule-based reason. Every complete sequence occupied one leaf. Those three facts—not the neat drawing—made the count reliable.",
+      "math": ["legal continuations accounted for → complete leaves counted once"]
+    },
+    {
+      "id": "practice-introduction",
+      "phase": "independent-transfer",
+      "kind": "copy",
+      "purpose": "Begin independent evidence with a concise, reusable audit routine.",
+      "expectedRealization": "The same three questions can guide lists, trees, tables, and path records.",
+      "transitionIn": "Now use the ledger without a worked branch beside you.",
+      "estimatedSeconds": 35,
+      "heading": "For each count",
+      "body": "Define one outcome. Choose a fixed order for extending possibilities. Before counting, check that every legal possibility appears and none appears twice."
+    },
+    {
+      "id": "practice-signal-strings",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check a near transfer where one forbidden continuation creates an inspectable binary tree.",
+      "expectedRealization": "Extending A/B strings left to right and refusing BB produces exactly five legal leaves.",
+      "transitionIn": "Start with a tiny tree: two symbols at each position, with one branch rule.",
+      "transitionOut": "The five strings are complete because every legal prefix was extended to length three.",
+      "estimatedSeconds": 125,
+      "source": "generated",
+      "problemId": "original-c2-practice-signal-strings",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This isolates systematic left-to-right extension and immediate pruning with only eight unconstrained strings.",
+      "entryBridge": "Build strings one position at a time and stop only a branch that already ends in BB.",
+      "exitBridge": "AAA, AAB, ABA, BAA, and BAB are the five legal leaves.",
+      "reusedRepresentation": "A left-to-right branch tree with forbidden continuations pruned.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["Did every legal two-symbol prefix receive every allowed third symbol?"],
+      "resolution": {
+        "visual": {
+          "primitive": "branch-tree",
+          "data": {"root": "Signal", "paths": [["A", "A", "A"], ["A", "A", "B"], ["A", "B", "A"], ["B", "A", "A"], ["B", "A", "B"]]},
+          "ariaLabel": "Five legal three-flash strings containing no consecutive B flashes"
+        },
+        "steps": [
+          {"body": "After A, either symbol may follow. After B, only A may follow, because BB is forbidden."},
+          {"body": "Extending every legal prefix gives five distinct length-three strings.", "math": "5 strings"}
+        ],
+        "takeaway": "A forbidden continuation removes a branch, not the obligation to inspect the other branches."
+      }
+    },
+    {
+      "id": "practice-even-badges",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check systematic ordering by the most restrictive position rather than by the written order of digits.",
+      "expectedRealization": "The units digit must be 2, and the tens digit can then be 1 or 3, giving 12 and 32.",
+      "transitionIn": "A fixed order need not start on the left. Let the strongest rule choose where your list begins.",
+      "transitionOut": "Starting with the units place made completeness visible in one short branch.",
+      "estimatedSeconds": 120,
+      "source": "generated",
+      "problemId": "original-c2-practice-even-badges",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The task tests whether the learner chooses an efficient systematic order while preserving the exact outcome definition.",
+      "entryBridge": "For an even number, decide the units digit first; then extend every legal tens digit.",
+      "exitBridge": "Only 12 and 32 satisfy both the evenness and no-repeat rules.",
+      "reusedRepresentation": "A tree whose first branch is chosen by the strongest constraint.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["Which available digit can occupy the units place of an even number?"],
+      "resolution": {
+        "visual": {
+          "primitive": "branch-tree",
+          "data": {"root": "Even badge", "paths": [["Units 2", "Tens 1", "12"], ["Units 2", "Tens 3", "32"]]},
+          "ariaLabel": "The two even two-digit badges 12 and 32"
+        },
+        "steps": [
+          {"title": "Use the restrictive place", "body": "Among 1, 2, and 3, only 2 can be the units digit of an even number."},
+          {"title": "Finish the badge", "body": "No repetition leaves 1 or 3 for the tens digit.", "math": "12, 32 → 2 badges"}
+        ],
+        "takeaway": "Choose a listing order that makes the restrictions easy to audit."
+      }
+    },
+    {
+      "id": "practice-art-stations",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check nonuniform branches and reinforce that designs, not repeated paint names, are the outcomes.",
+      "expectedRealization": "The same paint color paired with different shapes creates different designs, so the actual branch sizes add to six.",
+      "transitionIn": "Now branch lengths differ, and the same paint name can appear under more than one shape. Keep complete designs distinct.",
+      "transitionOut": "Repeated labels were not duplicates because Square–Blue and Triangle–Blue are different shape–paint designs.",
+      "estimatedSeconds": 130,
+      "source": "generated",
+      "problemId": "original-c2-practice-art-stations",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The problem separates duplicate labels from duplicate outcomes and requires counting the actual endpoints of unequal branches.",
+      "entryBridge": "Write the shape before the paint so each complete design has one unambiguous record.",
+      "exitBridge": "Two square designs, one triangle design, and three circle designs make six distinct pairs.",
+      "reusedRepresentation": "Unequal branches with complete shape–paint outcomes at the leaves.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["Does Blue under a different shape describe the same design or a different one?"],
+      "resolution": {
+        "visual": {
+          "primitive": "branch-tree",
+          "data": {"root": "Design", "paths": [["Square", "Red"], ["Square", "Blue"], ["Triangle", "Blue"], ["Circle", "Red"], ["Circle", "Green"], ["Circle", "Blue"]]},
+          "ariaLabel": "Six distinct shape and paint designs on unequal tree branches"
+        },
+        "steps": [
+          {"body": "Record both choices. A repeated paint name under a different shape is part of a different complete design."},
+          {"body": "Count the actual leaves on the three shape branches.", "math": "2 + 1 + 3 = 6"}
+        ],
+        "takeaway": "Duplicate checking compares complete outcomes, not isolated labels inside them."
+      }
+    },
+    {
+      "id": "practice-grid-detour",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check exhaustive listing of all candidate paths before filtering by a geometric constraint.",
+      "expectedRealization": "All six orders of E,E,N,N are considered exactly once; four hit the forbidden center and two avoid it.",
+      "transitionIn": "A path constraint now hides inside geometry. Translate each route into a move string so the audit has a fixed language.",
+      "transitionOut": "The six candidate strings split into two survivors and four rejected paths, leaving no unexamined order.",
+      "estimatedSeconds": 155,
+      "source": "generated",
+      "problemId": "original-c2-practice-grid-detour",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The problem transfers systematic listing from symbolic rules to movement and requires explicit accounting for rejected candidates.",
+      "entryBridge": "Every route uses two E moves and two N moves. List each order once, then test whether it visits (1,1).",
+      "exitBridge": "Only EENN and NNEE avoid the center, so two routes remain.",
+      "reusedRepresentation": "Move strings serving as unique records of geometric paths.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["How will you know all orders of E,E,N,N have been tested?"],
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              {"label": "Avoids (1,1)", "items": ["EENN", "NNEE"]},
+              {"label": "Visits (1,1)", "items": ["ENEN", "ENNE", "NEEN", "NENE"]}
+            ]
+          },
+          "ariaLabel": "All six orders of two east and two north moves classified by whether they visit the center point"
+        },
+        "steps": [
+          {"title": "List every candidate once", "body": "The six distinct orders of E,E,N,N are EENN, ENEN, ENNE, NEEN, NENE, and NNEE."},
+          {"title": "Apply the path rule", "body": "The four strings that begin EN or NE reach (1,1) after two moves. EENN and NNEE do not.", "math": "6 − 4 = 2"}
+        ],
+        "takeaway": "Rejected paths still belong in the audit; give each one a clear reason for rejection."
+      }
+    },
+    {
+      "id": "practice-sensor-code",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Challenge the learner to choose and finish a two-case systematic list under simultaneous composition and endpoint constraints.",
+      "expectedRealization": "Opposite endpoint colors create two complete starting cases, and each has two legal interior completions.",
+      "transitionIn": "For the final challenge, two rules act at once. Fix the endpoints first, then finish every branch before counting.",
+      "transitionOut": "Both endpoint cases were exhausted, so the four-code count is complete rather than pattern-based.",
+      "estimatedSeconds": 165,
+      "source": "generated",
+      "problemId": "original-c2-practice-sensor-code",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The challenge requires an efficient branch order, simultaneous restriction tracking, and explicit completion of all cases.",
+      "entryBridge": "The first and last symbols must be opposite. Open the R…B and B…R branches, then place the one remaining R.",
+      "exitBridge": "RRBB, RBRB, BRBR, and BBRR are the four legal codes.",
+      "reusedRepresentation": "A two-case tree whose leaves are complete constrained strings.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["After fixing opposite endpoints, how many R symbols remain for the two middle positions?"],
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              {"label": "Starts R, ends B", "items": ["RRBB", "RBRB"]},
+              {"label": "Starts B, ends R", "items": ["BRBR", "BBRR"]}
+            ]
+          },
+          "ariaLabel": "Four legal sensor codes organized by their opposite endpoint symbols"
+        },
+        "steps": [
+          {"title": "Fix opposite endpoints", "body": "The endpoints are either R…B or B…R; these cases cover every code and cannot overlap."},
+          {"title": "Complete each case", "body": "One R is already at an endpoint, so exactly one of the two middle positions must be R. Each endpoint case has two completions.", "math": "2 + 2 = 4"}
+        ],
+        "takeaway": "Finish every branch of the organizing rule before trusting a pattern or total."
+      }
+    },
+    {
+      "id": "systematic-list-recap",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate the complete method and its correctness tests before creating the need for casework.",
+      "expectedRealization": "Reliable enumeration defines outcomes, uses a fixed extension rule, accounts for every legal or rejected branch, and counts complete records once.",
+      "transitionIn": "Across routes, strings, designs, and paths, the surface changed but the audit stayed the same.",
+      "estimatedSeconds": 85,
+      "prompt": "Which checks belong in a reliable systematic enumeration? Select all four.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "define", "text": "Define exactly what one final outcome records."},
+          {"id": "order", "text": "Use a fixed order for extending choices."},
+          {"id": "account", "text": "Extend every legal branch and explain every rejected branch."},
+          {"id": "once", "text": "Count each complete outcome once."},
+          {"id": "pattern", "text": "Stop when the first few entries form a convincing pattern."}
+        ],
+        "correctIds": ["define", "order", "account", "once"],
+        "feedback": "A pattern can suggest where to look, but only a complete branch audit proves the count is finished."
+      },
+      "correctFeedback": "Exactly—define, order, account, and count once.",
+      "incorrectFeedback": "Keep every check that prevents ambiguity, omissions, or duplicates; do not let an early pattern end the audit.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "1. Define", "choices": ["What is one outcome?"]},
+              {"label": "2. Order", "choices": ["Which choice or constraint comes first?"]},
+              {"label": "3. Account", "choices": ["Extend or reject every branch with a reason."]},
+              {"label": "4. Count once", "choices": ["Count complete, distinct records."]}
+            ]
+          },
+          "ariaLabel": "Four checks for a reliable systematic enumeration"
+        },
+        "takeaway": "Systematic means auditable: every possibility has one place and every missing branch has an explanation."
+      }
+    },
+    {
+      "id": "casework-hook",
+      "phase": "reflection",
+      "kind": "reflection",
+      "purpose": "Create the need for C4's structural grouping only after consolidating systematic listing.",
+      "expectedRealization": "When a tree becomes too large to draw leaf by leaf, grouping outcomes by a decisive feature may preserve completeness with less work.",
+      "transitionIn": "You can now audit a finite tree leaf by leaf. Let the tree grow too wide to draw comfortably.",
+      "estimatedSeconds": 45,
+      "prompt": "Suppose a search has hundreds of leaves, but every outcome has one of a few possible structural features. How could those features organize a complete count without drawing every leaf?",
+      "takeaway": "Next, we will turn a large search into a few complete, non-overlapping cases."
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {"near": 2, "mixed": 2, "challenge": 1},
+    "sessionSelection": [
+      {"source": "generated", "transferLevel": "near", "count": 2},
+      {"source": "generated", "transferLevel": "mixed", "count": 2},
+      {"source": "generated", "transferLevel": "challenge", "count": 1}
+    ],
+    "excludeProblemIds": ["original-c2-museum-routes", "amc8-2024-13"],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "C2",
+    "evidenceBeatIds": ["practice-signal-strings", "practice-even-badges", "practice-art-stations", "practice-grid-detour", "practice-sensor-code"],
+    "minIndependentPracticeItems": 5,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.2.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "mathinking-lesson-skill-1.0.0",
+    "notes": [
+      "Draft technique lesson authored with the repository-local mathinking-lesson Skill and the compact C2 context packet.",
+      "Generated museum routes create discovery because their small unequal branches expose both omission and duplicate risks before terminology is introduced.",
+      "The additional mapped AMC 8 2024 Problem 13 is integrated in its authorized transfer role because its constrained path enumeration directly fits C2 and has an aligned hop-path animation.",
+      "The approved best-candidate ID AMC 8 2024 Problem 9 resolves to a marble-ratio problem although its mapping rationale describes tree counting; it is not forced into C2, and the approved mapping remains unchanged.",
+      "All declarative visuals reuse existing generic primitives; no lesson-specific renderer behavior was added."
+    ]
+  }
+}
