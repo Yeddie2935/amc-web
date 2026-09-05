@@ -1,0 +1,582 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "P2",
+  "curriculumNodeId": "P2",
+  "title": "Dependent Events",
+  "lessonType": "technique",
+  "status": "draft",
+  "estimatedMinutes": 32,
+  "coreInsight": "After one event occurs, the state and therefore later probabilities may change.",
+  "targetLearnerRealization": "Without replacement, the state of the sample space changes after the first event, so later probabilities must be recomputed from the new state.",
+  "learningObjectives": [
+    "Update the sample space and probability after an outcome changes what remains.",
+    "Multiply conditional probabilities along a multi-step path.",
+    "Distinguish dependent events from independent and mutually exclusive events.",
+    "Explain how replacement can restore the original state and remove dependence."
+  ],
+  "hardPrerequisites": ["P1"],
+  "narrativePredecessor": "P1",
+  "continuity": {
+    "openingCallback": "Return to P1's three-tile question and physically remove one tile so the next denominator can no longer stay fixed.",
+    "closingSeeds": [
+      "A later probability must be calculated from the state that actually remains.",
+      "When counting the desired event directly is awkward, its opposite may be easier to track."
+    ],
+    "nextLessonIds": []
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "Original probabilities can be multiplied unchanged after the state changes.",
+      "beatIds": ["shrink-the-pool", "predict-second-red", "guided-two-reds", "practice-two-gold", "dependent-recap"]
+    },
+    {
+      "misconception": "Independent and mutually exclusive mean the same thing.",
+      "beatIds": ["sort-event-relationships", "practice-exactly-one-blue", "dependent-recap"]
+    },
+    {
+      "misconception": "Replacement has no effect on dependence.",
+      "beatIds": ["replacement-reset", "sort-event-relationships", "practice-same-color", "dependent-recap"]
+    },
+    {
+      "misconception": "Conditioning on what happened can be ignored.",
+      "beatIds": ["predict-second-red", "name-dependent-events", "authentic-largest-card", "practice-two-even", "dependent-recap"]
+    }
+  ],
+  "beats": [
+    {
+      "id": "shrink-the-pool",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Reactivate P1's denominator-as-current-sample-space idea and immediately make that denominator change.",
+      "expectedRealization": "Removing one of three tiles without replacement leaves a new two-tile sample space.",
+      "transitionIn": "P1 ended with three tiles and one question: what happens to the denominator when a tile does not return? Let the removal happen.",
+      "estimatedSeconds": 65,
+      "prompt": "The bag contains red tile R1, red tile R2, and blue tile B. R1 is drawn and kept out. How many tiles are available for the second draw?",
+      "visual": {
+        "primitive": "choice-grid",
+        "data": {
+          "groups": [
+            {"label": "Bag before the draw", "choices": ["R1", "R2", "B"]},
+            {"label": "Drawn and kept out", "choices": ["R1"]}
+          ]
+        },
+        "continuityKey": "p2-three-tile-bag",
+        "ariaLabel": "A bag starting with red tiles R1 and R2 and blue tile B, with R1 drawn and kept out"
+      },
+      "response": {
+        "kind": "numeric",
+        "answer": 2,
+        "feedback": "Count only objects that can actually be drawn next."
+      },
+      "correctFeedback": "Yes—R2 and B remain, so the next denominator is 2.",
+      "incorrectFeedback": "R1 is no longer available. Rebuild the bag using only the undrawn tiles.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "Still in the bag", "choices": ["R2", "B"]},
+              {"label": "Outside the bag", "choices": ["R1"]}
+            ]
+          },
+          "continuityKey": "p2-three-tile-bag",
+          "ariaLabel": "Two tiles R2 and B remain available while R1 is outside the bag"
+        },
+        "steps": [
+          {"title": "Rebuild the current whole", "body": "The next draw can land only on R2 or B.", "math": "current total=2"}
+        ],
+        "takeaway": "A probability denominator describes what is possible now, not what was possible before the experiment began."
+      }
+    },
+    {
+      "id": "predict-second-red",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Elicit the changed second-draw probability before naming conditioning or dependence.",
+      "expectedRealization": "After a red tile is removed, the second red probability is 1/2 rather than the original 2/3.",
+      "transitionIn": "The whole shrank from three tiles to two. The favorable red part changed too.",
+      "estimatedSeconds": 80,
+      "prompt": "Given that R1 was drawn and kept out, what is the probability that the second tile is red?",
+      "visual": {
+        "primitive": "choice-grid",
+        "data": {"groups": [{"label": "Available now", "choices": ["R2", "B"]}]},
+        "continuityKey": "p2-three-tile-bag",
+        "ariaLabel": "The two currently available tiles R2 and B"
+      },
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "one-third", "text": "1/3"},
+          {"id": "one-half", "text": "1/2"},
+          {"id": "two-thirds", "text": "2/3"}
+        ],
+        "correctId": "one-half",
+        "feedback": {
+          "one-third": "One tile is red, but the current total is no longer three.",
+          "one-half": "Exactly—one of the two remaining tiles is red.",
+          "two-thirds": "That was the red probability before a red tile left the bag."
+        }
+      },
+      "correctFeedback": "Right—the first result changed the next red probability from 2/3 to 1/2.",
+      "incorrectFeedback": "Use the current bag: one red tile among two available tiles.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "outcome-grid",
+          "data": {
+            "rows": ["After R1 is removed"],
+            "columns": ["R2", "B"],
+            "cells": [["✓ red", "blue"]]
+          },
+          "continuityKey": "p2-three-tile-bag",
+          "ariaLabel": "One red outcome and one blue outcome remain after R1 is removed"
+        },
+        "steps": [
+          {"title": "Condition on what happened", "body": "R1 is already outside the bag, so it cannot be part of the second-draw sample space."},
+          {"title": "Compare the current part and whole", "body": "R2 is the one favorable tile among the two tiles R2 and B.", "math": "P(second red after first red)=1/2"}
+        ],
+        "takeaway": "The first draw supplies information that changes the probability for the second draw."
+      }
+    },
+    {
+      "id": "replacement-reset",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Contrast replacement with the just-seen state change so the learner sees exactly why dependence can disappear.",
+      "expectedRealization": "Returning R1 restores two red tiles among three, so the second red probability returns to 2/3.",
+      "transitionIn": "Now change just one action: return R1 and mix before drawing again.",
+      "estimatedSeconds": 80,
+      "prompt": "After R1 is replaced, which statement describes the second red probability?",
+      "visual": {
+        "primitive": "choice-grid",
+        "data": {"groups": [{"label": "Bag after replacement", "choices": ["R1", "R2", "B"]}]},
+        "continuityKey": "p2-three-tile-bag",
+        "ariaLabel": "The restored bag again contains R1, R2, and B"
+      },
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "stays-half", "text": "It stays 1/2 because a red tile was seen."},
+          {"id": "returns", "text": "It returns to 2/3 because the original bag is restored."},
+          {"id": "certain", "text": "It becomes 1 because the first tile was red."}
+        ],
+        "correctId": "returns",
+        "feedback": {
+          "stays-half": "The observed color does not matter once the missing tile is actually returned and the bag is remixed.",
+          "returns": "Yes—the second draw begins from the same two-red, one-blue state.",
+          "certain": "One result does not force the next draw; the bag still contains a blue tile."
+        }
+      },
+      "correctFeedback": "Exactly—replacement resets the state, so the next red chance is again 2/3.",
+      "incorrectFeedback": "Compare the restored bag with the original bag. They contain the same three tiles.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Restore the whole", "body": "Returning R1 puts both red tiles and the blue tile back into play."},
+          {"title": "Recompute from the restored state", "body": "Two of the three available tiles are red again.", "math": "P(second red after replacement)=2/3"}
+        ],
+        "takeaway": "Replacement matters because it can reset the sample space before the next event."
+      }
+    },
+    {
+      "id": "guided-two-reds",
+      "phase": "guided-problem",
+      "kind": "problem",
+      "purpose": "Coordinate the first probability and the updated second probability in one complete dependent path.",
+      "expectedRealization": "Both red requires first red and then red from the changed bag, so (2/3)(1/2)=1/3.",
+      "transitionIn": "You have inspected each state separately. Now connect the two states into one path: red first and red second.",
+      "transitionOut": "Multiplication joined the two required steps, but the second factor came from the bag after the first step.",
+      "estimatedSeconds": 145,
+      "source": "generated",
+      "problemId": "original-p2-two-red-tiles",
+      "role": "anchor",
+      "presentation": "full-prompt",
+      "whyNow": "The learner has discovered the changed second-draw probability and is ready to combine it with the first-draw probability.",
+      "entryBridge": "Write a fraction for the first state, remove the drawn red tile, then write a new fraction for the second state.",
+      "exitBridge": "The path is 2/3 followed by 1/2, not 2/3 followed by the old 2/3.",
+      "reusedRepresentation": "The same labeled R1, R2, B pool is shown before and after the first red draw.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "What fraction describes a red first draw?",
+        "If that first tile was red, what red fraction describes the new bag?",
+        "Why do both steps have to occur on the same path?"
+      ],
+      "correctFeedback": "Correct—the path probability is (2/3)(1/2)=1/3.",
+      "incorrectFeedback": "After the first red draw, replace both the numerator and denominator with counts from the two-tile bag.",
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "Start: 2 red of 3", "choices": ["R1", "R2", "B"]},
+              {"label": "After red: 1 red of 2", "choices": ["R", "B"]}
+            ]
+          },
+          "continuityKey": "p2-three-tile-bag",
+          "ariaLabel": "The bag changes from two red among three tiles to one red among two tiles"
+        },
+        "steps": [
+          {"title": "Enter the red path", "body": "The first draw is red with probability 2/3."},
+          {"title": "Use the state on that path", "body": "A red tile is now gone, so the second draw is red with probability 1/2."},
+          {"title": "Require both steps", "body": "Multiply probabilities along the same path.", "math": "P(red then red)=(2/3)(1/2)=1/3"}
+        ],
+        "takeaway": "Multiply along a path, updating each factor from the state created by the earlier steps."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "name-dependent-events",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Formalize the learner's state-based observation after discovery and connect it to conditional notation.",
+      "expectedRealization": "Events are dependent when knowing one occurred changes the probability of the other; a conditional probability records the relevant state.",
+      "transitionIn": "The changing second factor is the important feature. Give that feature a name only after seeing what caused it.",
+      "transitionOut": "The labels are useful only if they send us back to the actual state before each probability is written.",
+      "estimatedSeconds": 90,
+      "name": "Dependent events and conditional probability",
+      "conciseDefinition": "Two events are dependent when knowing that one occurred changes the probability of the other. A conditional probability measures the later event under the condition that earlier information is known.",
+      "formalization": "P(A and B)=P(A)·P(B given A)",
+      "memoryHook": "Follow the path, inspect the state, then write the next factor."
+    },
+    {
+      "id": "sort-event-relationships",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Separate dependence from mutual exclusivity and use replacement to contrast dependence with independence.",
+      "expectedRealization": "Dependent events can occur together; mutually exclusive events cannot, while independent events leave one another's probabilities unchanged.",
+      "transitionIn": "One pair of words is often confused with dependence. Sort by what happens to possibility and probability, not by how the phrases sound.",
+      "estimatedSeconds": 125,
+      "prompt": "Sort each event pair by its relationship.",
+      "response": {
+        "kind": "sort",
+        "items": [
+          {"id": "without", "text": "First tile is red; second tile is red, without replacement"},
+          {"id": "same-draw", "text": "One draw is red; that same draw is blue"},
+          {"id": "with", "text": "First tile is red; second tile is red, with replacement and remixing"}
+        ],
+        "buckets": [
+          {"id": "dependent", "text": "Dependent"},
+          {"id": "exclusive", "text": "Mutually exclusive"},
+          {"id": "independent", "text": "Independent"}
+        ],
+        "correctBucketByItem": {
+          "without": "dependent",
+          "same-draw": "exclusive",
+          "with": "independent"
+        },
+        "feedback": "Ask two different questions: can both events occur, and does knowing one event change the other's probability?"
+      },
+      "correctFeedback": "Exactly—dependence changes probability; mutual exclusivity prevents joint occurrence.",
+      "incorrectFeedback": "Without replacement changes the second bag. With replacement resets it. Red and blue on one draw cannot happen together at all.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "Dependent", "choices": ["red then red, no replacement: possible together; 2/3 changes to 1/2"]},
+              {"label": "Mutually exclusive", "choices": ["red and blue on the same draw: cannot occur together"]},
+              {"label": "Independent", "choices": ["red then red, with replacement: 2/3 stays 2/3"]}
+            ]
+          },
+          "ariaLabel": "Completed classification of dependent, mutually exclusive, and independent event pairs"
+        },
+        "steps": [
+          {"title": "Test joint possibility", "body": "Two red draws can occur together, so they are not mutually exclusive."},
+          {"title": "Test probability change", "body": "Without replacement changes the next probability; replacement restores it."}
+        ],
+        "takeaway": "Dependent means probability changes with information; mutually exclusive means the events cannot occur together."
+      }
+    },
+    {
+      "id": "authentic-largest-card",
+      "phase": "competition-application",
+      "kind": "problem",
+      "purpose": "Transfer state-updating to three draws, then connect the sequential view to equally likely unordered selections.",
+      "expectedRealization": "Without replacement creates denominators 5, 4, and 3; the target event has 18 favorable ordered draws out of 60, equivalently 3 favorable sets out of 10.",
+      "transitionIn": "The tiny bag made one update. This contest problem keeps updating through three draws and hides the event inside the phrase “largest value.”",
+      "transitionOut": "Whether we followed ordered draws or counted unordered sets, every count described the same changing without-replacement experiment.",
+      "estimatedSeconds": 230,
+      "source": "bank",
+      "problemId": "amc8-2017-10",
+      "role": "guided",
+      "presentation": "full-prompt",
+      "whyNow": "The approved problem extends the visible shrinking-pool model to three selections and rewards a second combinations perspective after the dependent path is understood.",
+      "entryBridge": "Start with five available cards, then four, then three. Translate “4 is largest” into: include 4, choose the other two below 4, and never choose 5.",
+      "exitBridge": "The changing denominators produce 60 ordered draws; forgetting order compresses them into 10 equally likely three-card sets.",
+      "reusedRepresentation": "A row of available labeled cards shrinks conceptually after each selection, matching the lesson's tile pool.",
+      "animation": {"mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "How many cards are available now—not originally—on each of the three draws?",
+        "If 4 is largest, which card must appear and which card must not appear?",
+        "How many ordered draws use 4 and two distinct cards from 1, 2, and 3?"
+      ],
+      "correctFeedback": "Correct—18 of 60 ordered draws, or 3 of 10 unordered sets, have largest card 4.",
+      "incorrectFeedback": "Force 4 into the selection, exclude 5, and choose the other two cards from 1, 2, and 3.",
+      "resolution": {
+        "animation": {"kind": "problem-animation", "placement": "after-steps"},
+        "steps": [
+          {"title": "Count all ordered draws with changing denominators", "body": "There are 5 choices, then 4, then 3 because no card returns.", "math": "5·4·3=60"},
+          {"title": "Count ordered draws whose largest card is 4", "body": "Choose the position of card 4 in 3 ways, then fill the other positions with an ordered pair from 1, 2, and 3 in 3·2 ways.", "math": "3·3·2=18"},
+          {"title": "Compare favorable paths with all paths", "body": "Every ordered draw has the same shrinking denominators, so the probability is 18/60.", "math": "18/60=3/10"},
+          {"title": "Another way", "body": "Ignore order after the dependent process finishes. There are C(5,3)=10 equally likely sets; the favorable sets are {1,2,4}, {1,3,4}, and {2,3,4}.", "math": "3/10"}
+        ],
+        "takeaway": "Changing denominators govern the sequential experiment; combinations can compress equally likely completed selections afterward."
+      },
+      "sourceLabelTiming": "completion"
+    },
+    {
+      "id": "practice-two-gold",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check direct near transfer of updating both numerator and denominator after a favorable first draw.",
+      "expectedRealization": "Two gold draws have probability (2/5)(1/4)=1/10.",
+      "transitionIn": "Return from the card shortcut to the state-by-state method. This time both the favorable count and total count shrink.",
+      "transitionOut": "After one gold counter left, the second factor had to be 1/4, not the original 2/5.",
+      "estimatedSeconds": 120,
+      "source": "generated",
+      "problemId": "original-p2-two-gold-counters",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The learner now independently applies the core update to a larger pool with the same path structure.",
+      "entryBridge": "Write the gold fraction before each draw from the pouch state at that moment.",
+      "exitBridge": "The path multiplies 2/5 by the updated 1/4.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["How many gold counters remain after the first gold draw?", "How many counters remain in total?"],
+      "correctFeedback": "Correct—(2/5)(1/4)=1/10.",
+      "incorrectFeedback": "After one gold counter is removed, only one gold remains among four counters.",
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {"groups": [
+            {"label": "First draw", "choices": ["2 gold of 5"]},
+            {"label": "After a gold draw", "choices": ["1 gold of 4"]}
+          ]},
+          "ariaLabel": "Gold probability changes from two of five to one of four"
+        },
+        "steps": [
+          {"title": "Update after success", "body": "A gold first draw leaves one gold counter among four counters."},
+          {"title": "Multiply the required steps", "body": "Both draws must follow the gold path.", "math": "(2/5)(1/4)=1/10"}
+        ],
+        "takeaway": "When the selected type is removed, its favorable count may shrink along with the total."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-two-even",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Transfer the same update to a property-based event rather than visibly colored objects.",
+      "expectedRealization": "Drawing both even cards has probability (2/4)(1/3)=1/6.",
+      "transitionIn": "Color made the favorable objects easy to see. Now the favorable group is defined by a number property.",
+      "transitionOut": "Evenness changed the labels, not the update: one favorable card and three total cards remained.",
+      "estimatedSeconds": 120,
+      "source": "generated",
+      "problemId": "original-p2-two-even-cards",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The learner must identify the favorable subset and then maintain the changing-state method.",
+      "entryBridge": "Mark cards 2 and 4 as favorable, then remove one favorable card before writing the second factor.",
+      "exitBridge": "The event uses the same dependent path as two matching colors.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["Which cards are even?", "What favorable and total counts remain after one even draw?"],
+      "correctFeedback": "Correct—only one even card remains among three after the first even draw.",
+      "incorrectFeedback": "Start with cards 2 and 4; after either is drawn, one even card remains among three cards.",
+      "resolution": {
+        "steps": [
+          {"title": "Enter the even path", "body": "Two of the four cards are even.", "math": "2/4"},
+          {"title": "Update the second factor", "body": "After one even card leaves, one even card remains among three.", "math": "1/3"},
+          {"title": "Complete the path", "body": "Both conditions are required.", "math": "(2/4)(1/3)=1/6"}
+        ],
+        "takeaway": "Condition on the actual first result even when the favorable category is a number property."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-exactly-one-blue",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Extend from one required path to two disjoint dependent paths and reinforce that dependence is not exclusivity.",
+      "expectedRealization": "Exactly one blue occurs by BR or RB, and the two path probabilities add to 3/5.",
+      "transitionIn": "A single path handled “both.” The word “exactly one” opens two different orders, each with its own changing state.",
+      "transitionOut": "The draws within each path were dependent; the two completed orders were mutually exclusive and therefore added.",
+      "estimatedSeconds": 155,
+      "source": "generated",
+      "problemId": "original-p2-exactly-one-blue",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The learner can update one path and is ready to coordinate multiplication within paths with addition across disjoint paths.",
+      "entryBridge": "Split the target event into blue-then-red and red-then-blue before calculating.",
+      "exitBridge": "Each order contributes 3/10, and no trial belongs to both orders.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["What are the two possible color orders?", "How does the second factor update on each path?", "Can one trial follow both completed orders?"],
+      "correctFeedback": "Correct—BR and RB contribute 3/10 each, totaling 3/5.",
+      "incorrectFeedback": "Include both orders: blue-red and red-blue. Multiply within each order, then add the disjoint results.",
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {"groups": [
+            {"label": "Blue then red", "choices": ["(2/5)(3/4)=3/10"]},
+            {"label": "Red then blue", "choices": ["(3/5)(2/4)=3/10"]}
+          ]},
+          "ariaLabel": "Two disjoint color orders, each with probability three tenths"
+        },
+        "steps": [
+          {"title": "Multiply within each path", "body": "Each second factor uses the state left by that path's first draw."},
+          {"title": "Add across completed paths", "body": "A trial cannot be both BR and RB, so these completed orders do not overlap.", "math": "3/10+3/10=3/5"}
+        ],
+        "takeaway": "Dependent steps can occur inside mutually exclusive completed paths; the two ideas describe different relationships."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-same-color",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Make replacement operational in a multi-path calculation rather than merely verbal.",
+      "expectedRealization": "Replacement keeps each draw's color probabilities at 2/3 and 1/3, so RR or BB has probability 5/9.",
+      "transitionIn": "Keep the two-path structure, but reset the bag between draws. Watch which factors now stay unchanged.",
+      "transitionOut": "Replacement did not guarantee a match; it made the second probabilities independent of the first result.",
+      "estimatedSeconds": 150,
+      "source": "generated",
+      "problemId": "original-p2-same-color-replacement",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The learner must use replacement to preserve branch probabilities while still combining two disjoint same-color paths.",
+      "entryBridge": "Treat same color as RR or BB, and restore the original bag before each second factor.",
+      "exitBridge": "The reset makes the red factors match each other and the blue factors match each other.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["What does replacement do to the second-draw state?", "Which two completed paths count as same color?"],
+      "correctFeedback": "Correct—4/9 for RR plus 1/9 for BB gives 5/9.",
+      "incorrectFeedback": "Replacement makes both red factors 2/3 and both blue factors 1/3. Add the RR and BB paths.",
+      "resolution": {
+        "steps": [
+          {"title": "Follow the red-red path", "body": "The bag resets, so red has probability 2/3 on each draw.", "math": "P(RR)=(2/3)^2=4/9"},
+          {"title": "Follow the blue-blue path", "body": "Blue has probability 1/3 on each draw.", "math": "P(BB)=(1/3)^2=1/9"},
+          {"title": "Combine same-color paths", "body": "RR and BB are disjoint completed outcomes.", "math": "4/9+1/9=5/9"}
+        ],
+        "takeaway": "Replacement can make successive draws independent by restoring the same probability model."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-exactly-two-odd",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Challenge the learner to compress several dependent orderings into a combinations count.",
+      "expectedRealization": "Exactly two odd cards can be counted as 9 favorable unordered sets among 20 total sets, giving 9/20.",
+      "transitionIn": "For the final challenge, three draws create several odd-even orders. Use the card problem's compression once you know what each completed selection must contain.",
+      "transitionOut": "The unordered count captured three possible orderings without losing the changing-state meaning of the draw.",
+      "estimatedSeconds": 175,
+      "source": "generated",
+      "problemId": "original-p2-exactly-two-odd",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The learner has practiced state updates and can now choose an efficient completed-selection representation for a three-draw condition.",
+      "entryBridge": "A favorable set needs two of the three odd cards and one of the three even cards.",
+      "exitBridge": "Nine favorable sets out of twenty avoid separately calculating OOE, OEO, and EOO.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["How many odd and even cards are available?", "What must a favorable three-card set contain?", "Why are all three-card sets equally likely?"],
+      "correctFeedback": "Correct—C(3,2)C(3,1)/C(6,3)=9/20.",
+      "incorrectFeedback": "Choose two odd cards from three and one even card from three, then compare with all three-card sets.",
+      "resolution": {
+        "steps": [
+          {"title": "Specify a favorable completed set", "body": "It contains two of the three odd cards and one of the three even cards."},
+          {"title": "Count favorable and total sets", "body": "There are C(3,2)C(3,1)=9 favorable sets and C(6,3)=20 total sets."},
+          {"title": "Compare the counts", "body": "Every three-card set can arise in the same number of orders.", "math": "P(exactly two odd)=9/20"}
+        ],
+        "takeaway": "Combinations can compress several dependent draw orders when the final event depends only on which objects were selected."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "dependent-recap",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate the state-update routine and the relationship distinctions before opening a new question.",
+      "expectedRealization": "Reliable dependent-probability reasoning follows the actual state, conditions later factors, multiplies within paths, and distinguishes dependence from exclusivity.",
+      "transitionIn": "Tiles and cards changed labels, but the same audit governed every solution. Gather the parts before looking beyond this lesson.",
+      "estimatedSeconds": 105,
+      "prompt": "Which statements belong in a reliable multi-step probability audit? Select every statement that applies.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "state", "text": "Rebuild the possible outcomes after each state-changing event."},
+          {"id": "condition", "text": "Write each later probability under the conditions already known on that path."},
+          {"id": "multiply", "text": "Multiply probabilities for required steps along one path."},
+          {"id": "distinguish", "text": "Check probability change separately from whether two events can occur together."}
+        ],
+        "correctIds": ["state", "condition", "multiply", "distinguish"],
+        "feedback": "Each statement protects against a different mistake from this lesson."
+      },
+      "correctFeedback": "Yes—state, condition, path multiplication, and relationship checks form the full audit.",
+      "incorrectFeedback": "All four checks are needed: current state, conditional factors, multiplication within a path, and a separate test for mutual exclusivity.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {"groups": [
+            {"label": "1. Inspect", "choices": ["What remains now?"]},
+            {"label": "2. Condition", "choices": ["What is known on this path?"]},
+            {"label": "3. Connect", "choices": ["Multiply required steps"]},
+            {"label": "4. Classify", "choices": ["Probability change ≠ impossible together"]}
+          ]},
+          "ariaLabel": "Four-step dependent probability audit"
+        },
+        "steps": [
+          {"title": "Follow the experiment, not an old fraction", "body": "Every factor must describe the objects or outcomes available at that moment."},
+          {"title": "Keep relationships distinct", "body": "Dependence asks whether information changes probability; mutual exclusivity asks whether events can happen together."}
+        ],
+        "takeaway": "Follow the path, update the state, and let the current state determine each probability."
+      }
+    },
+    {
+      "id": "opposite-event-hook",
+      "phase": "reflection",
+      "kind": "reflection",
+      "purpose": "Create a forward question about tracking an event through its opposite only after the lesson's central method is consolidated.",
+      "expectedRealization": "For some multi-step events, counting every successful path may be harder than counting the ways the target fails.",
+      "transitionIn": "The audit is secure. One strategic question remains when a target has many successful paths.",
+      "estimatedSeconds": 50,
+      "prompt": "Suppose the target is “at least one red in four draws.” Would you rather list every path with one, two, three, or four reds—or track the single opposite event with no reds?",
+      "takeaway": "Sometimes the cleanest route to an event is to calculate what would make it not happen."
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {"near": 2, "mixed": 2, "challenge": 1},
+    "sessionSelection": [
+      {"source": "generated", "transferLevel": "near", "count": 2},
+      {"source": "generated", "transferLevel": "mixed", "count": 2},
+      {"source": "generated", "transferLevel": "challenge", "count": 1}
+    ],
+    "excludeProblemIds": ["original-p2-two-red-tiles", "amc8-2017-10"],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "P2",
+    "evidenceBeatIds": [
+      "practice-two-gold",
+      "practice-two-even",
+      "practice-exactly-one-blue",
+      "practice-same-color",
+      "practice-exactly-two-odd"
+    ],
+    "minIndependentPracticeItems": 5,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.2.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "mathinking-lesson-skill-1.0.0",
+    "notes": [
+      "Draft technique lesson authored with the repository-local mathinking-lesson Skill and the compact P2 context packet.",
+      "The opening briefly reactivates P1's denominator audit, then advances by physically shrinking the three-tile sample space.",
+      "Dependence and conditional probability are named only after the learner observes the changed second-draw probability.",
+      "The approved 2017 AMC 8 Problem 10 is the sole bank problem; changing denominators are primary and its controlled combination animation appears afterward as an alternative.",
+      "All visuals reuse existing generic primitives, so no renderer or schema changes were required.",
+      "Generated answers were independently verified by sequential calculation plus enumeration or combinations."
+    ]
+  }
+}
