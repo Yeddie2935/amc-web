@@ -24,7 +24,7 @@ Stop if `mappingGate.approved` is false. Do not invent, approve, or alter a mapp
 Before broader searching:
 
 - Use the packet's exact paths and problem IDs.
-- Use its predecessor closing beats when they provide enough conversational continuity. Open the predecessor lesson only when those excerpts leave a real ambiguity.
+- Treat predecessor closing beats as evidence, not a mandate. Compare their live question with other prior knowledge in the packet; choose the most direct handoff, preserving a strong end-to-start thread and connecting recent and older ideas when useful. If unclear, inspect at most one relevant authored neighbor; never invent prior work.
 - Inspect a mapped scene file only when the lesson will actually use that animation.
 - Inspect `src/types/lesson.ts` or a primitive implementation only when a specific data shape is unclear.
 - If a routine design decision remains unclear, read the concise [routine quality card](references/routine-quality.md). Do not load the longer references by default.
@@ -38,7 +38,9 @@ Use `--full` only for context-script diagnostics; it is not a default lesson-aut
 C4 remains the gold benchmark, but do not reread its full artifact without a concrete comparison need.
 
 - Create discovery before terminology and student language before formal vocabulary.
-- Write like a tutor who remembers the learner's prior work. Make transitions carry mathematical meaning, not merely sequence labels.
+- Learner copy must sound like a tutor remembering concrete mathematics, never curriculum structure: keep internal IDs and author terms (`predecessor`, `mapped problem`, `anchor`, `transfer`, `beat`, `curriculum node`) in metadata. Do not disguise them as "last time"; name the object, action, or realization.
+- Prefer concrete student language; use "audit," "ledger," "representation," or "multiplicity" only when mathematically useful and naturally introduced.
+- Continuity briefly reactivates, then advances: default to one sentence, visual reminder, or tiny interaction followed by a substantively changed task. Do not rebuild a solved example or repeat a mastered technique unless it creates new tension.
 - Prefer structured interaction to unnecessary blank free response.
 - Sorting known examples is not proof of completeness. Explicitly establish coverage and non-overlap when the technique requires them.
 - Use interaction when manipulation creates insight; animation when meaningful motion, process, or representation change matters; a static visual when an inspectable diagram or table exposes structure; and text when another medium adds little. Do not animate everything.
@@ -68,7 +70,7 @@ Then outline beats using only phase, purpose, expected realization, medium, sour
 
 `puzzle -> try -> notice -> discover -> name -> play -> competition application -> independent practice -> consolidate -> forward hook`
 
-Pedagogical `phase` and renderer `kind` are separate. Choose the medium for the mathematics, not for variety.
+Pedagogical `phase` and renderer `kind` are separate. Choose the medium for the mathematics, not for variety. `narrativePredecessor` informs, not dictates, the opening; prefer unresolved prior work the new concept directly answers.
 
 ## Targeted inspection and authoring
 
@@ -92,7 +94,7 @@ Before automated checks, review separately:
 
 1. **Mathematics:** independently recompute generated answers, solutions, and choices.
 2. **Pedagogy:** verify discovery order, misconception repair, medium choice, resolutions, and consolidation. Inspect interactive beats for answer leakage before response; especially check that sort and classification primitives do not render pre-filled examples that duplicate the items being classified.
-3. **Continuity:** read learner-facing copy in sequence and confirm each visual answers the current prompt.
+3. **Continuity and voice:** read learner copy in sequence and confirm each visual answers its prompt. Gate on: no curriculum IDs or author metadata; callbacks reactivate, not reteach; the first substantive task advances mathematically; transitions name mathematical objects or actions, not curriculum structure; a strong unresolved hook is used or declined for a clear reason; and one tutor seems to remember the learner's actual work. Ask: "Does the opening merely repeat the previous lesson, or does it use prior knowledge to create the new problem?"
 
 Every routine lesson runs, in this order:
 

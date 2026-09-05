@@ -6,7 +6,7 @@ Read this only when the compact context packet and the quality rules in `SKILL.m
 
 Answer five questions before drafting prose:
 
-1. What useful representation or habit can the learner carry in from the predecessor?
+1. What concrete object, action, realization, or unresolved question from prior work creates the strongest mathematical handoff?
 2. What tempting misconception should the opening make visible?
 3. What action or comparison will create the new realization?
 4. Where will the learner explain or apply it independently?
@@ -35,4 +35,4 @@ A substantial response should lead to:
 
 ## Read the finished lesson aloud
 
-The sequence should sound like one tutor continuing a shared investigation. Remove author-facing rationale from learner copy, eliminate generated/bank duplicates, verify prompt-to-visual synchronization, consolidate the main idea, and only then open the successor's question.
+The sequence should sound like one tutor continuing a shared investigation. Replace curriculum labels, vague "last time" references, and design jargon with remembered mathematical objects or actions. Confirm that the opening advances, remove generated/bank duplicates, synchronize prompts and visuals, consolidate, and only then open the successor's question.
