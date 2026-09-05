@@ -16,7 +16,7 @@
   "hardPrerequisites": ["C1"],
   "narrativePredecessor": "C1",
   "continuity": {
-    "openingCallback": "Reactivate C1's habit of counting complete endpoints, then ask how the endpoints can be organized so none is missed or repeated.",
+    "openingCallback": "Briefly recall that complete paths end at leaves, then ask how a hidden list can prove that none were missed or repeated.",
     "closingSeeds": [
       "A large search can be split by a structural feature into complete, non-overlapping cases.",
       "An outcome tree can later become a probability space by marking successful leaves.",
@@ -46,12 +46,12 @@
     {
       "id": "count-c1-endpoints",
       "phase": "puzzle",
-      "kind": "interaction",
-      "purpose": "Briefly reactivate C1's endpoint-counting habit using unequal branches before advancing to the reliability of the organization.",
-      "expectedRealization": "The count comes from five complete paths, not from the number of labels or decision stages.",
-      "transitionIn": "C1 ended with uneven branches. Warm that idea back up by counting finished plans rather than multiplying automatically.",
-      "estimatedSeconds": 55,
-      "prompt": "How many complete trip plans end at a departure time?",
+      "kind": "reflection",
+      "purpose": "Briefly reactivate complete-path counting, then turn immediately to the new question of whether a list is complete and duplicate-free.",
+      "expectedRealization": "Counting visible leaves is familiar; the new challenge is proving that hidden outcomes have all been found exactly once.",
+      "transitionIn": "Remember how each finished path ended at one leaf, even when the branches were uneven?",
+      "estimatedSeconds": 25,
+      "prompt": "These five leaves are complete trip plans. If the leaves were hidden and you had only a handwritten list, how could you know none were missed or repeated?",
       "visual": {
         "primitive": "branch-tree",
         "data": {
@@ -67,20 +67,7 @@
         "continuityKey": "c2-complete-paths",
         "ariaLabel": "A trip tree with two bus endpoints and three train endpoints"
       },
-      "response": {
-        "kind": "numeric",
-        "answer": 5,
-        "feedback": "Count only the endpoints of complete route-and-time paths."
-      },
-      "correctFeedback": "Yes—two bus plans and three train plans make five endpoints.",
-      "incorrectFeedback": "Follow each branch until it reaches a departure time, then count those finished paths.",
-      "allowRetry": true,
-      "resolution": {
-        "steps": [
-          {"body": "Bus has 2 endings and Train has 3 endings.", "math": "2 + 3 = 5 complete plans"}
-        ],
-        "takeaway": "A leaf records a complete path through the choices."
-      }
+      "takeaway": "Finding outcomes is not enough; a trustworthy list must show that every outcome appears once."
     },
     {
       "id": "museum-route-attempt",
@@ -88,7 +75,7 @@
       "kind": "problem",
       "purpose": "Let the learner enumerate a small nonuniform choice process before any formal vocabulary or completeness test is supplied.",
       "expectedRealization": "The museum has five legal complete routes, but merely finding five route strings does not yet explain why the search is finished.",
-      "transitionIn": "Counting visible endpoints was easy. Now the endpoints are hidden inside choices that depend on earlier choices—exactly the tangle C1 left us.",
+      "transitionIn": "Now the endpoints are hidden inside choices that depend on earlier choices. Find the routes first; then we will test whether the list deserves our trust.",
       "transitionOut": "Five routes work. The harder question is whether five written lines automatically deserve our trust.",
       "estimatedSeconds": 125,
       "source": "generated",
@@ -97,7 +84,7 @@
       "presentation": "full-prompt",
       "whyNow": "A tiny three-stage process has unequal continuations and is small enough for the learner to inspect every complete route.",
       "entryBridge": "Write routes in any order you like; use N, S, F, Sp, O, C, and G as abbreviations if useful.",
-      "exitBridge": "The five found routes answer the question, but the list itself still needs an audit for omissions and repeats.",
+      "exitBridge": "The five found routes answer the question, but the list still needs a check for omissions and repeats.",
       "reusedRepresentation": "Complete choice paths written from entrance to finish room.",
       "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
       "learnerPrompts": [
@@ -318,7 +305,7 @@
           {"title": "Define a legal leaf", "body": "A complete path has six hops, ends at height 0, and never has a negative running height. Ending at 0 forces three U hops and three D hops."},
           {"title": "Grow and prune systematically", "body": "At each legal prefix, consider both next letters. Stop a D branch if it enters the dirt; stop any prefix that cannot still finish with three U's and three D's."},
           {"title": "Read the surviving leaves", "body": "The legal leaves are UDUDUD, UDUUDD, UUDDUD, UUDUDD, and UUUDDD.", "math": "5 paths → choice B"},
-          {"title": "Connection to C1", "body": "Without restrictions, six two-way stages would create 2⁶ = 64 strings. The systematic tree keeps that structure but removes only branches the rules forbid."}
+          {"title": "Connection to unrestricted choices", "body": "Without restrictions, six two-way stages would create 2⁶ = 64 strings. The systematic tree keeps that structure but removes only branches the rules forbid."}
         ],
         "takeaway": "Completeness comes from accounting for every possible continuation—not from stopping when the list looks patterned."
       },
@@ -330,9 +317,9 @@
       "kind": "copy",
       "purpose": "Separate the reusable enumeration method from the bunny story before independent practice.",
       "expectedRealization": "A systematic tree is a ledger of decisions: open every legal next branch, explain every stopped branch, and count complete leaves once.",
-      "transitionIn": "The bunny paths were harder than the museum routes, but the audit was the same.",
+      "transitionIn": "The bunny paths were harder than the museum routes, but the same completeness checks worked.",
       "estimatedSeconds": 45,
-      "heading": "The tree is a proof ledger",
+      "heading": "Why the tree proves the count",
       "body": "Every partial choice received every allowed continuation. Every stopped branch had a rule-based reason. Every complete sequence occupied one leaf. Those three facts—not the neat drawing—made the count reliable.",
       "math": ["legal continuations accounted for → complete leaves counted once"]
     },
@@ -342,7 +329,7 @@
       "kind": "copy",
       "purpose": "Begin independent evidence with a concise, reusable audit routine.",
       "expectedRealization": "The same three questions can guide lists, trees, tables, and path records.",
-      "transitionIn": "Now use the ledger without a worked branch beside you.",
+      "transitionIn": "Now use those checks without a worked branch beside you.",
       "estimatedSeconds": 35,
       "heading": "For each count",
       "body": "Define one outcome. Choose a fixed order for extending possibilities. Before counting, check that every legal possibility appears and none appears twice."
@@ -408,7 +395,7 @@
           {"title": "Use the restrictive place", "body": "Among 1, 2, and 3, only 2 can be the units digit of an even number."},
           {"title": "Finish the badge", "body": "No repetition leaves 1 or 3 for the tens digit.", "math": "12, 32 → 2 badges"}
         ],
-        "takeaway": "Choose a listing order that makes the restrictions easy to audit."
+        "takeaway": "Choose a listing order that makes every restriction easy to check."
       }
     },
     {
@@ -449,7 +436,7 @@
       "kind": "problem",
       "purpose": "Check exhaustive listing of all candidate paths before filtering by a geometric constraint.",
       "expectedRealization": "All six orders of E,E,N,N are considered exactly once; four hit the forbidden center and two avoid it.",
-      "transitionIn": "A path constraint now hides inside geometry. Translate each route into a move string so the audit has a fixed language.",
+      "transitionIn": "A path constraint now hides inside geometry. Translate each route into a move string so every candidate has one fixed description.",
       "transitionOut": "The six candidate strings split into two survivors and four rejected paths, leaving no unexamined order.",
       "estimatedSeconds": 155,
       "source": "generated",
@@ -477,7 +464,7 @@
           {"title": "List every candidate once", "body": "The six distinct orders of E,E,N,N are EENN, ENEN, ENNE, NEEN, NENE, and NNEE."},
           {"title": "Apply the path rule", "body": "The four strings that begin EN or NE reach (1,1) after two moves. EENN and NNEE do not.", "math": "6 − 4 = 2"}
         ],
-        "takeaway": "Rejected paths still belong in the audit; give each one a clear reason for rejection."
+        "takeaway": "Account for rejected paths too; give each one a clear reason for rejection."
       }
     },
     {
@@ -523,7 +510,7 @@
       "kind": "interaction",
       "purpose": "Consolidate the complete method and its correctness tests before creating the need for casework.",
       "expectedRealization": "Reliable enumeration defines outcomes, uses a fixed extension rule, accounts for every legal or rejected branch, and counts complete records once.",
-      "transitionIn": "Across routes, strings, designs, and paths, the surface changed but the audit stayed the same.",
+      "transitionIn": "Across routes, strings, designs, and paths, the objects changed but the same checks stayed useful.",
       "estimatedSeconds": 85,
       "prompt": "Which checks belong in a reliable systematic enumeration? Select all four.",
       "response": {
@@ -536,10 +523,10 @@
           {"id": "pattern", "text": "Stop when the first few entries form a convincing pattern."}
         ],
         "correctIds": ["define", "order", "account", "once"],
-        "feedback": "A pattern can suggest where to look, but only a complete branch audit proves the count is finished."
+        "feedback": "A pattern can suggest where to look, but only checking every branch proves the count is finished."
       },
       "correctFeedback": "Exactly—define, order, account, and count once.",
-      "incorrectFeedback": "Keep every check that prevents ambiguity, omissions, or duplicates; do not let an early pattern end the audit.",
+      "incorrectFeedback": "Keep every check that prevents ambiguity, omissions, or duplicates; do not let an early pattern end the search.",
       "allowRetry": true,
       "resolution": {
         "visual": {
@@ -554,7 +541,7 @@
           },
           "ariaLabel": "Four checks for a reliable systematic enumeration"
         },
-        "takeaway": "Systematic means auditable: every possibility has one place and every missing branch has an explanation."
+        "takeaway": "Systematic means checkable: every possibility has one place and every missing branch has an explanation."
       }
     },
     {
@@ -563,7 +550,7 @@
       "kind": "reflection",
       "purpose": "Create the need for C4's structural grouping only after consolidating systematic listing.",
       "expectedRealization": "When a tree becomes too large to draw leaf by leaf, grouping outcomes by a decisive feature may preserve completeness with less work.",
-      "transitionIn": "You can now audit a finite tree leaf by leaf. Let the tree grow too wide to draw comfortably.",
+      "transitionIn": "You can now check a finite tree leaf by leaf. Let the tree grow too wide to draw comfortably.",
       "estimatedSeconds": 45,
       "prompt": "Suppose a search has hundreds of leaves, but every outcome has one of a few possible structural features. How could those features organize a complete count without drawing every leaf?",
       "takeaway": "Next, we will turn a large search into a few complete, non-overlapping cases."

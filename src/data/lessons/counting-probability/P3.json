@@ -16,7 +16,7 @@
   "hardPrerequisites": ["P1", "C5"],
   "narrativePredecessor": "C5",
   "continuity": {
-    "openingCallback": "Reuse C5's whole-minus-opposite check, then replace the counting whole with probability 1.",
+    "openingCallback": "Continue the live at-least-one-red question through its no-red opposite, connect it to whole-minus-opposite counting, then identify the probability whole as 1.",
     "closingSeeds": [
       "A trustworthy complement must cover every possibility outside the event and none inside it.",
       "Several awkward success cases may collapse into one simple failure event."
@@ -26,7 +26,7 @@
   "misconceptionTargets": [
     {
       "misconception": "Subtracting one bad outcome is the same as subtracting the full complement.",
-      "beatIds": ["partition-the-cycle", "authentic-traffic-light", "complement-audit"]
+      "beatIds": ["partition-red-events", "authentic-traffic-light", "complement-audit"]
     },
     {
       "misconception": "Not exactly one means none.",
@@ -34,7 +34,7 @@
     },
     {
       "misconception": "An event and the proposed complement may fail to exhaust the sample space.",
-      "beatIds": ["partition-the-cycle", "translate-opposites", "complement-audit"]
+      "beatIds": ["partition-red-events", "translate-opposites", "complement-audit"]
     },
     {
       "misconception": "The complement rule is unrelated to earlier counting ideas.",
@@ -46,86 +46,81 @@
       "id": "recognize-the-opposite",
       "phase": "puzzle",
       "kind": "interaction",
-      "purpose": "Briefly reactivate C5's exact-opposite move in the probability setting without naming a new rule.",
-      "expectedRealization": "The exact opposite of green is yellow or red, not merely one non-green color.",
-      "transitionIn": "C5 ended with a question: if the opposite chance is easier, what plays the role of the whole? Start with the familiar move—name the complete opposite.",
-      "estimatedSeconds": 65,
-      "prompt": "A 60-second light cycle is green for 25 seconds, yellow for 5, and red for 30. What is the exact opposite of “the light is green”?",
-      "visual": {
-        "primitive": "choice-grid",
-        "data": {"groups": [{"label": "Cycle colors", "choices": ["green: 25 s", "yellow: 5 s", "red: 30 s"]}]},
-        "continuityKey": "p3-traffic-cycle",
-        "ariaLabel": "A traffic-light cycle with green, yellow, and red durations listed neutrally"
-      },
+      "purpose": "Continue the unresolved at-least-one-red question by identifying its single exact failure event.",
+      "expectedRealization": "The many cases with at least one red share one exact opposite: no reds in all four draws.",
+      "transitionIn": "You were deciding whether to list every way four draws could contain at least one red or track the one way that target fails.",
+      "estimatedSeconds": 55,
+      "prompt": "What is the exact opposite of “at least one red in four draws”?",
       "response": {
         "kind": "single-choice",
         "options": [
-          {"id": "yellow", "text": "yellow only"},
-          {"id": "red", "text": "red only"},
-          {"id": "both", "text": "yellow or red"}
+          {"id": "one-red", "text": "exactly one red"},
+          {"id": "not-all-red", "text": "fewer than four reds"},
+          {"id": "no-reds", "text": "no reds"}
         ],
-        "correctId": "both",
+        "correctId": "no-reds",
         "feedback": {
-          "yellow": "Red times are also not green, so yellow alone leaves part of the opposite behind.",
-          "red": "Yellow times are also not green, so red alone leaves part of the opposite behind.",
-          "both": "Yes—every non-green instant is yellow or red."
+          "one-red": "Exactly one red makes the original at-least-one event happen; it is not the opposite.",
+          "not-all-red": "A sequence with one, two, or three reds still makes at least one red happen.",
+          "no-reds": "Yes—at least one red fails only when all four draws are non-red."
         }
       },
-      "correctFeedback": "Exactly—yellow or red is the complete opposite event.",
-      "incorrectFeedback": "The opposite must contain every instant when green is false.",
+      "correctFeedback": "Exactly—many red-success cases collapse into the single no-red event.",
+      "incorrectFeedback": "The opposite must make “at least one red” false, so every draw must be non-red.",
       "allowRetry": true,
       "resolution": {
         "visual": {
           "primitive": "choice-grid",
           "data": {"groups": [
-            {"label": "Green", "choices": ["25 seconds"]},
-            {"label": "Not green", "choices": ["yellow: 5 seconds", "red: 30 seconds"]}
+            {"label": "At least one red", "choices": ["1 red", "2 reds", "3 reds", "4 reds"]},
+            {"label": "Exact opposite", "choices": ["0 reds"]}
           ]},
-          "continuityKey": "p3-traffic-cycle",
-          "ariaLabel": "The completed split between green and not green, with yellow and red grouped as not green"
+          "continuityKey": "p3-at-least-one-red",
+          "ariaLabel": "The possible red counts split into at least one red and the exact opposite of zero reds"
         },
-        "steps": [{"title": "Negate the whole condition", "body": "Not green includes both other colors: yellow or red."}],
-        "takeaway": "A complement is the entire other side, not just one unfavorable case."
+        "steps": [{"title": "Negate the whole condition", "body": "At least one red fails only when the number of reds is zero."}],
+        "takeaway": "Many ways to succeed can have one simple exact opposite."
       }
     },
     {
-      "id": "partition-the-cycle",
+      "id": "partition-red-events",
       "phase": "try",
       "kind": "interaction",
-      "purpose": "Make the learner establish coverage and non-overlap before using subtraction.",
-      "expectedRealization": "Green and not green are disjoint and together fill all 60 seconds; equal sizes are unnecessary.",
-      "transitionIn": "Naming the other side is not enough. C5's subtraction worked only because the two sides formed an exact partition.",
+      "purpose": "Connect the live probability question to whole-minus-opposite counting and establish that complementary probabilities fill the whole 1.",
+      "expectedRealization": "At least one red and no reds are disjoint and exhaustive, so their probabilities add to 1.",
+      "transitionIn": "Earlier, whole minus opposite made an awkward count easier. The same move is valid here only if the target and its opposite cover every outcome exactly once.",
       "estimatedSeconds": 80,
-      "prompt": "Which facts make “green” and “not green” a trustworthy two-part split? Select all that apply.",
+      "prompt": "Which facts make “at least one red” and “no reds” a trustworthy two-part split? Select all that apply.",
       "response": {
         "kind": "multi-select",
         "options": [
-          {"id": "cover", "text": "Together they cover every instant of the cycle."},
-          {"id": "disjoint", "text": "No instant belongs to both events."},
-          {"id": "equal", "text": "The two events last the same number of seconds."}
+          {"id": "cover", "text": "Together they cover every possible four-draw outcome."},
+          {"id": "disjoint", "text": "No outcome belongs to both events."},
+          {"id": "equal", "text": "The two events are equally likely."}
         ],
         "correctIds": ["cover", "disjoint"],
         "feedback": "A partition needs complete coverage and no overlap; its two parts do not need equal sizes."
       },
-      "correctFeedback": "Right—every instant is in exactly one of the two events.",
+      "correctFeedback": "Right—every four-draw outcome is in exactly one of the two events.",
       "incorrectFeedback": "Check two separate conditions: nothing is missed, and nothing is counted twice.",
       "allowRetry": true,
       "resolution": {
         "visual": {
           "primitive": "choice-grid",
           "data": {"groups": [
-            {"label": "Green", "choices": ["25 s"]},
-            {"label": "Not green", "choices": ["35 s"]},
-            {"label": "Whole cycle", "choices": ["25 + 35 = 60 s"]}
+            {"label": "Target", "choices": ["at least one red"]},
+            {"label": "Exact opposite", "choices": ["no reds"]},
+            {"label": "Probability whole", "choices": ["all four-draw outcomes = 1"]}
           ]},
-          "continuityKey": "p3-traffic-cycle",
-          "ariaLabel": "Green and not-green durations form the complete 60-second cycle"
+          "continuityKey": "p3-at-least-one-red",
+          "ariaLabel": "At least one red and no reds form a complete probability split"
         },
         "steps": [
-          {"title": "Check coverage", "body": "Green plus yellow plus red accounts for all 60 seconds."},
-          {"title": "Check overlap", "body": "At one instant, the light cannot be both green and not green."}
+          {"title": "Check coverage", "body": "Every outcome has either zero reds or at least one red."},
+          {"title": "Check overlap", "body": "No outcome can satisfy both descriptions."},
+          {"title": "Change the whole", "body": "In counting, the whole was a total number of outcomes. In probability, the whole has probability 1.", "math": "P(at least one red)+P(no reds)=1"}
         ],
-        "takeaway": "An event and its complement place every outcome on exactly one side."
+        "takeaway": "Whole minus opposite still works; the probability whole is 1."
       }
     },
     {
@@ -134,8 +129,8 @@
       "kind": "problem",
       "purpose": "Use the approved visual anchor to turn complementary counting into subtraction from probability 1.",
       "expectedRealization": "The full cycle has probability 1, so P(not green)=1-P(green)=1-25/60=7/12.",
-      "transitionIn": "The cycle is partitioned. Now decide what number represents the probability of that complete 60-second whole.",
-      "transitionOut": "C5 wrote whole minus opposite in counts. Here the probability whole was 1.",
+      "transitionIn": "Now apply that same split to a traffic-light cycle: green versus every non-green instant.",
+      "transitionOut": "Whole minus opposite worked just as before, but the probability whole was 1.",
       "estimatedSeconds": 190,
       "source": "bank",
       "problemId": "amc8-1999-10",
@@ -170,7 +165,7 @@
       "kind": "concept",
       "purpose": "Attach formal language and notation only after the learner has constructed the partition and subtraction.",
       "expectedRealization": "An event E and its complement not E are disjoint, exhaustive, and have probabilities summing to 1.",
-      "transitionIn": "You already used the probability version of C5's move. Now name the exact-other-side relationship that made it legal.",
+      "transitionIn": "You have now used whole minus opposite with probability 1. Name the exact-other-side relationship that made it legal.",
       "transitionOut": "The formula is short, but its real work is naming the complete opposite correctly.",
       "estimatedSeconds": 75,
       "name": "Complementary probability",
@@ -232,7 +227,7 @@
       "kind": "problem",
       "purpose": "Give a small, inspectable first use of subtracting an easier probability from 1.",
       "expectedRealization": "Among 1 through 10, the four primes form the complement of not prime, so the desired probability is 1-4/10=3/5.",
-      "transitionIn": "Start with a one-step sample space where you can audit both sides by inspection.",
+      "transitionIn": "Start with a one-step sample space where you can check both sides by inspection.",
       "transitionOut": "Subtracting the complete prime set—not one prime—left six non-prime cards.",
       "estimatedSeconds": 105,
       "source": "generated",
@@ -365,7 +360,7 @@
       "kind": "problem",
       "purpose": "Directly repair the misconception that not exactly one means none.",
       "expectedRealization": "Not exactly one head contains both zero heads and two heads, so its probability is 1-2/4=1/2.",
-      "transitionIn": "At least one failed in only one direction. Now use the earlier language audit on a condition that can fail by having too few or too many.",
+      "transitionIn": "At least one failed in only one direction. Now use the exact-opposite check on a condition that can fail by having too few or too many.",
       "transitionOut": "The complement of exactly one was not just TT; it was TT together with HH.",
       "estimatedSeconds": 120,
       "source": "generated",
@@ -474,18 +469,18 @@
         "feedback": "Each statement protects a different part of the method."
       },
       "correctFeedback": "Yes—exact opposite, partition, strategic choice, then subtraction from 1.",
-      "incorrectFeedback": "All four checks matter: define, audit, choose, and subtract.",
+      "incorrectFeedback": "All four checks matter: define, verify, choose, and subtract.",
       "allowRetry": true,
       "resolution": {
         "visual": {
           "primitive": "choice-grid",
           "data": {"groups": [
             {"label": "1. Define", "choices": ["complete opposite"]},
-            {"label": "2. Audit", "choices": ["coverage + no overlap"]},
+            {"label": "2. Verify", "choices": ["coverage + no overlap"]},
             {"label": "3. Compare", "choices": ["which side is easier?"]},
             {"label": "4. Calculate", "choices": ["1 - P(complement)"]}
           ]},
-          "ariaLabel": "Four-step complementary probability audit"
+          "ariaLabel": "Four checks for complementary probability"
         },
         "steps": [
           {"title": "Protect the subtraction", "body": "A missing failure case or an overlapping case means the two probabilities will not form the whole 1."},
@@ -500,7 +495,7 @@
       "kind": "reflection",
       "purpose": "Create an unresolved transfer question only after the core method has been consolidated.",
       "expectedRealization": "Some probability questions may involve two named events that are neither complements nor disjoint, so overlap must be handled explicitly.",
-      "transitionIn": "The complement audit is secure. Now loosen one condition: suppose two events do not form exact opposite sides.",
+      "transitionIn": "Those complement checks are secure. Now loosen one condition: suppose two events do not form exact opposite sides.",
       "estimatedSeconds": 50,
       "prompt": "If one event is “the first die is even” and another is “the sum is even,” some outcomes belong to both. How should a probability method keep that overlap from being counted twice?",
       "takeaway": "Complements are the cleanest two-part split. When events overlap instead, the shared region will need its own accounting."
@@ -535,7 +530,7 @@
     "generatorVersion": "mathinking-lesson-skill-1.0.0",
     "notes": [
       "Draft connector lesson authored with the repository-local mathinking-lesson Skill and the compact P3 context packet.",
-      "The opening briefly reactivates C5's whole-minus-opposite audit, then advances by discovering that the probability whole is 1.",
+      "The opening continues the at-least-one-red question through its no-red complement, connects it to whole-minus-opposite counting, and identifies the probability whole as 1.",
       "Complementary probability is named only after the learner partitions the traffic-light cycle and solves the approved anchor.",
       "The approved 1999 AMC 8 Problem 10 is the visual anchor; 2001 AMC 8 Problem 18 transfers the method to a grid and shows overlap repair only after the complement solution.",
       "All visuals reuse existing generic primitives and mapped problem animations, so no renderer or schema changes were required.",
