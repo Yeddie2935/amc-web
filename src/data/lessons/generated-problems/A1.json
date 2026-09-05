@@ -1,0 +1,382 @@
+[
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "A1",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": [
+      "A1"
+    ],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a1-ribbon",
+      "title": "Ribbon Length",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "Expressions and equations",
+      "difficulty": 1,
+      "statement": "A ribbon has a plain section 4 cm long followed by k colored sections, each 5 cm long. Which expression gives the total length in centimeters?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "4 + 5k"
+        },
+        {
+          "label": "B",
+          "text": "5 + 4k"
+        },
+        {
+          "label": "C",
+          "text": "9k"
+        },
+        {
+          "label": "D",
+          "text": "4 + k"
+        },
+        {
+          "label": "E",
+          "text": "5k"
+        }
+      ],
+      "answer": "A",
+      "shortAnswer": "4 + 5k",
+      "hints": [
+        "Name the quantity that the letter counts, then follow the operations in the story."
+      ],
+      "solutionSteps": [
+        {
+          "title": "Translate and check",
+          "body": "Each of the k colored sections contributes 5 cm, for 5k cm. Add the one plain section: 4 + 5k."
+        }
+      ],
+      "tags": [
+        "variables",
+        "expressions",
+        "equations"
+      ],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "Direct semantic translation: Each of the k colored sections contributes 5 cm, for 5k cm. Add the one plain section: 4 + 5k.",
+        "Independent concrete-case and option audit: At k = 0 only 4 cm remains; at k = 2, direct concatenation gives 4 + 5 + 5 = 14 cm. Only choice A passes both checks."
+      ],
+      "notes": [
+        "Only whole-number arithmetic and reading relationships are required; no equation-solving algorithm is assumed."
+      ]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "A1",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": [
+      "A1"
+    ],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a1-changing",
+      "title": "One Letter, Several Inputs",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "Expressions and equations",
+      "difficulty": 1,
+      "statement": "Let t be the number of pages read after breakfast. Before breakfast Jo read 6 pages. Which statement correctly describes 6 + t?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "t means a page, not a number"
+        },
+        {
+          "label": "B",
+          "text": "t must always be 6"
+        },
+        {
+          "label": "C",
+          "text": "It is an equation with answer 6"
+        },
+        {
+          "label": "D",
+          "text": "It gives 8 when t = 2 and 11 when t = 5"
+        },
+        {
+          "label": "E",
+          "text": "It gives 12 for every t"
+        }
+      ],
+      "answer": "D",
+      "shortAnswer": "It gives 8 when t = 2 and 11 when t = 5",
+      "hints": [
+        "Name the quantity that the letter counts, then follow the operations in the story."
+      ],
+      "solutionSteps": [
+        {
+          "title": "Translate and check",
+          "body": "t counts pages read after breakfast. Add it to the six earlier pages. Substitution gives 6 + 2 = 8 and 6 + 5 = 11."
+        }
+      ],
+      "tags": [
+        "variables",
+        "expressions",
+        "equations"
+      ],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "Direct semantic translation: t counts pages read after breakfast. Add it to the six earlier pages. Substitution gives 6 + 2 = 8 and 6 + 5 = 11.",
+        "Independent concrete-case and option audit: Count six earlier pages plus two later pages, then six earlier plus five later: totals eight and eleven. Review each other statement against those two concrete cases."
+      ],
+      "notes": [
+        "Only whole-number arithmetic and reading relationships are required; no equation-solving algorithm is assumed."
+      ]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "A1",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": [
+      "A1"
+    ],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a1-remaining",
+      "title": "Empty Seats",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "Expressions and equations",
+      "difficulty": 1,
+      "statement": "A room has 30 chairs. There are g groups of 4 students, with every student in exactly one group and every student seated in a different chair. Which equation states that exactly 6 chairs are empty?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "30 + 4g = 6"
+        },
+        {
+          "label": "B",
+          "text": "30 − 4g = 6"
+        },
+        {
+          "label": "C",
+          "text": "4g − 30 = 6"
+        },
+        {
+          "label": "D",
+          "text": "30 − g = 6"
+        },
+        {
+          "label": "E",
+          "text": "30 − 4 = 6g"
+        }
+      ],
+      "answer": "B",
+      "shortAnswer": "30 − 4g = 6",
+      "hints": [
+        "Name the quantity that the letter counts, then follow the operations in the story."
+      ],
+      "solutionSteps": [
+        {
+          "title": "Translate and check",
+          "body": "The groups occupy 4g chairs, so 30 − 4g chairs are empty. Equating this expression to six gives 30 − 4g = 6."
+        }
+      ],
+      "tags": [
+        "variables",
+        "expressions",
+        "equations"
+      ],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "Direct semantic translation: The groups occupy 4g chairs, so 30 − 4g chairs are empty. Equating this expression to six gives 30 − 4g = 6.",
+        "Independent concrete-case and option audit: Six empty chairs leave 24 occupied chairs, which form six groups of four. At g = 6 only choice B is true; its left side also matches the occupied/empty partition."
+      ],
+      "notes": [
+        "Only whole-number arithmetic and reading relationships are required; no equation-solving algorithm is assumed."
+      ]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "A1",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": [
+      "A1"
+    ],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a1-claim",
+      "title": "A Claim Can Be False",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "Expressions and equations",
+      "difficulty": 1,
+      "statement": "Let q = 3. Which card is an equation whose equality claim is false?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "5 + q"
+        },
+        {
+          "label": "B",
+          "text": "8 = 5 + q"
+        },
+        {
+          "label": "C",
+          "text": "5 + q = 9"
+        },
+        {
+          "label": "D",
+          "text": "3q = 9"
+        },
+        {
+          "label": "E",
+          "text": "8"
+        }
+      ],
+      "answer": "C",
+      "shortAnswer": "5 + q = 9",
+      "hints": [
+        "Name the quantity that the letter counts, then follow the operations in the story."
+      ],
+      "solutionSteps": [
+        {
+          "title": "Translate and check",
+          "body": "The cards with an equals sign are equations. With q = 3, 5 + q is 8, so 5 + q = 9 is false. The other equations say 8 = 8 and 9 = 9."
+        }
+      ],
+      "tags": [
+        "variables",
+        "expressions",
+        "equations"
+      ],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "Direct semantic translation: The cards with an equals sign are equations. With q = 3, 5 + q is 8, so 5 + q = 9 is false. The other equations say 8 = 8 and 9 = 9.",
+        "Independent concrete-case and option audit: Evaluate equality cards separately: B compares 8 with 8; C compares 8 with 9; D compares 9 with 9. Cards A and E have no equality claim."
+      ],
+      "notes": [
+        "Only whole-number arithmetic and reading relationships are required; no equation-solving algorithm is assumed."
+      ]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "A1",
+    "purpose": "practice",
+    "transferLevel": "challenge",
+    "targetConcepts": [
+      "A1"
+    ],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a1-packing",
+      "title": "Pack Then Set Aside",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "Expressions and equations",
+      "difficulty": 2,
+      "statement": "Each of b boxes contains 4 red counters and 2 blue counters. After all boxes are emptied, 3 counters are set aside. Which equation says that 27 counters remain?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "4b + 2 − 3 = 27"
+        },
+        {
+          "label": "B",
+          "text": "6b + 3 = 27"
+        },
+        {
+          "label": "C",
+          "text": "6(b − 3) = 27"
+        },
+        {
+          "label": "D",
+          "text": "27 = 4 + 2b − 3"
+        },
+        {
+          "label": "E",
+          "text": "27 = 6b − 3"
+        }
+      ],
+      "answer": "E",
+      "shortAnswer": "27 = 6b − 3",
+      "hints": [
+        "Name the quantity that the letter counts, then follow the operations in the story."
+      ],
+      "solutionSteps": [
+        {
+          "title": "Translate and check",
+          "body": "Each box contains six counters, so all boxes contain 6b counters. Setting aside three once leaves 6b − 3. Either order of the two sides states that the remainder is 27."
+        }
+      ],
+      "tags": [
+        "variables",
+        "expressions",
+        "equations"
+      ],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "Direct semantic translation: Each box contains six counters, so all boxes contain 6b counters. Setting aside three once leaves 6b − 3. Either order of the two sides states that the remainder is 27.",
+        "Independent concrete-case and option audit: Rebuild the situation: 27 remaining plus 3 set aside gives 30 counters, or five boxes of six. For b = 5 the choices compare 19, 33, 12, 11, and 27 with 27; only E matches. This also checks that subtraction happens once, after unpacking."
+      ],
+      "notes": [
+        "Only whole-number arithmetic and reading relationships are required; no equation-solving algorithm is assumed."
+      ]
+    }
+  }
+]

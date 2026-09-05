@@ -1,0 +1,579 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "A3",
+  "curriculumNodeId": "A3",
+  "title": "Systems of Equations",
+  "lessonType": "technique",
+  "status": "draft",
+  "estimatedMinutes": 30,
+  "coreInsight": "Several unknown quantities can be determined when several independent constraints must hold simultaneously.",
+  "targetLearnerRealization": "One equation can allow many pairs, while a second independent equation can select the unique pair that makes both relationships true.",
+  "learningObjectives": [
+    "Explain why one equation with two unknown quantities may have several solutions.",
+    "Represent two independent constraints as a system of equations.",
+    "Eliminate a variable by adding or subtracting equal relationships.",
+    "Use substitution as an alternative way to preserve the system's shared solution.",
+    "Check a candidate pair in every original equation and story condition."
+  ],
+  "hardPrerequisites": ["A2"],
+  "narrativePredecessor": "A2",
+  "continuity": {
+    "openingCallback": "Continue the shelf question by making several pairs satisfy one total before a new fact narrows them.",
+    "closingSeeds": [
+      "A solution to a system belongs to every constraint at once.",
+      "Combining equations can remove a quantity while preserving the shared solution.",
+      "More unknown quantities generally require more independent information."
+    ],
+    "nextLessonIds": []
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "One equation usually determines two unknown quantities.",
+      "beatIds": ["seven-riders", "two-constraints", "practice-sum-difference"]
+    },
+    {
+      "misconception": "A variable can take a different value in each equation of the same system.",
+      "beatIds": ["same-pair", "practice-coins", "practice-rectangle"]
+    },
+    {
+      "misconception": "Elimination is symbol manipulation unrelated to preserving the same solution set.",
+      "beatIds": ["scale-rider-equation", "subtract-constraints", "practice-tickets"]
+    },
+    {
+      "misconception": "Finding one plausible pair is enough without checking every constraint.",
+      "beatIds": ["check-riders", "pairwise-boxes", "practice-animals"]
+    }
+  ],
+  "beats": [
+    {
+      "id": "seven-riders",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Make the underdetermination of one equation visible before naming systems.",
+      "expectedRealization": "A total of seven riders permits eight bicycle/tricycle splits.",
+      "transitionIn": "The equation n + b = 18 allowed many book pairs. Try the same idea with seven riders choosing between two kinds of vehicle.",
+      "estimatedSeconds": 85,
+      "prompt": "Seven children each ride either a bicycle or a tricycle. If b is the number of bicycles and t is the number of tricycles, how many nonnegative whole-number pairs (b, t) satisfy b + t = 7?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "a", "text": "1 pair"},
+          {"id": "b", "text": "2 pairs"},
+          {"id": "c", "text": "7 pairs"},
+          {"id": "d", "text": "8 pairs"}
+        ],
+        "correctId": "d"
+      },
+      "correctFeedback": "Yes. The tricycle count can be any whole number from 0 through 7, with the bicycle count filling the rest.",
+      "incorrectFeedback": "List the possible tricycle counts from none to all seven and pair each with the remaining bicycles.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "bicycles b", "choices": ["7", "6", "5", "4", "3", "2", "1", "0"]},
+              {"label": "tricycles t", "choices": ["0", "1", "2", "3", "4", "5", "6", "7"]}
+            ]
+          },
+          "continuityKey": "seven-vehicle-splits",
+          "ariaLabel": "Eight paired bicycle and tricycle counts that total seven riders"
+        },
+        "steps": [
+          {"title": "Cover every split", "body": "t can be 0, 1, 2, 3, 4, 5, 6, or 7. For each choice, b = 7 - t. These eight cases cover every allowed tricycle count and no pair repeats."}
+        ],
+        "takeaway": "One total equation can describe several pairs of unknown quantities."
+      }
+    },
+    {
+      "id": "bicycle-tricycle-anchor",
+      "phase": "competition-application",
+      "kind": "problem",
+      "source": "bank",
+      "problemId": "amc8-2003-04",
+      "role": "anchor",
+      "presentation": "full-prompt",
+      "purpose": "Use the approved vehicle problem to let a second independent count select one split.",
+      "expectedRealization": "The wheel total rules out seven of the eight rider splits.",
+      "whyNow": "Seven riders alone has just produced eight candidates; the authentic wheel count supplies the missing independent constraint.",
+      "entryBridge": "The rider count leaves eight possibilities. Now require the same pair to account for nineteen wheels.",
+      "exitBridge": "Five tricycles and two bicycles satisfy both counts; now translate the two filters into equations.",
+      "reusedRepresentation": "Seven vehicle slots whose bicycle/tricycle split changes while the rider total remains fixed.",
+      "animation": {
+        "mode": "whole",
+        "controlledByLesson": true,
+        "autoplay": false,
+        "showPlayerControls": false
+      },
+      "learnerPrompts": [
+        "What wheel total results if all seven riders begin on bicycles?",
+        "How many wheels short of nineteen is that arrangement?",
+        "Why does each bicycle-to-tricycle swap add exactly one wheel?",
+        "After five swaps, how many bicycles remain?",
+        "How does the split satisfy both the rider and wheel totals?",
+        "Which answer follows from the verified split?"
+      ],
+      "correctFeedback": "Correct. Five tricycles and two bicycles give seven riders and nineteen wheels.",
+      "incorrectFeedback": "Keep all seven riders fixed. Replacing one bicycle with one tricycle adds exactly one wheel.",
+      "resolution": {
+        "animation": {"kind": "problem-animation", "placement": "after-steps"},
+        "steps": [
+          {"title": "Write both constraints", "body": "Let b count bicycles and t count tricycles. The riders give b + t = 7. The wheels give 2b + 3t = 19."},
+          {"title": "Prepare to eliminate", "body": "Double the entire rider equation: 2b + 2t = 14. It has the same solution pairs as b + t = 7."},
+          {"title": "Subtract equal relationships", "body": "Subtract 2b + 2t = 14 from 2b + 3t = 19. The b terms cancel and t = 5."},
+          {"title": "Check the pair", "body": "Then b = 2. The pair satisfies 2 + 5 = 7 and 2(2) + 3(5) = 19."},
+          {"title": "Another way", "body": "Start with seven bicycles and fourteen wheels. Every swap to a tricycle adds one wheel, so the five-wheel gap requires five tricycles."}
+        ],
+        "takeaway": "The solution is the pair that survives both independent constraints."
+      },
+      "sourceLabelTiming": "before",
+      "estimatedSeconds": 205
+    },
+    {
+      "id": "two-constraints",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Distinguish a pair that satisfies one constraint from the shared solution.",
+      "expectedRealization": "A system solution must satisfy both equations simultaneously.",
+      "transitionIn": "The pair (5, 2) can fit one equation depending on which number names which vehicle. Keep the variable meanings fixed and test both claims.",
+      "estimatedSeconds": 80,
+      "prompt": "Here b means bicycles and t means tricycles. Which pair satisfies both b + t = 7 and 2b + 3t = 19?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "a", "text": "(b, t) = (5, 2)"},
+          {"id": "b", "text": "(b, t) = (2, 5)"},
+          {"id": "c", "text": "Both pairs, because each totals 7"},
+          {"id": "d", "text": "Neither pair"}
+        ],
+        "correctId": "b"
+      },
+      "correctFeedback": "Right. Only (2, 5) gives both seven vehicles and nineteen wheels.",
+      "incorrectFeedback": "Substitute each ordered pair into both equations, keeping b first and t second.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Test (5, 2)", "body": "It passes 5 + 2 = 7 but gives 2(5) + 3(2) = 16 wheels, so it fails the second constraint."},
+          {"title": "Test (2, 5)", "body": "It gives 2 + 5 = 7 and 2(2) + 3(5) = 19, so it satisfies both."}
+        ],
+        "takeaway": "Passing one equation is not enough; the same ordered pair must pass every equation."
+      }
+    },
+    {
+      "id": "scale-rider-equation",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Connect elimination to a justified equivalent-equation operation.",
+      "expectedRealization": "Multiplying an entire equation preserves its solutions and can align coefficients.",
+      "estimatedSeconds": 80,
+      "prompt": "To eliminate b from b + t = 7 and 2b + 3t = 19, which equivalent form of the first equation aligns the b terms?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "a", "text": "2b + t = 14"},
+          {"id": "b", "text": "2b + 2t = 7"},
+          {"id": "c", "text": "2b + 2t = 14"},
+          {"id": "d", "text": "b + 2t = 14"}
+        ],
+        "correctId": "c"
+      },
+      "correctFeedback": "Yes. Every term on both sides is doubled, so the same pairs remain solutions.",
+      "incorrectFeedback": "Multiplying an equation by two must double every term on both complete sides.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Scale the complete equality", "body": "Two copies of b + t = 7 give 2b + 2t = 14. Any pair satisfying one satisfies the other."}
+        ],
+        "takeaway": "Align coefficients by applying a valid operation to an entire equation."
+      }
+    },
+    {
+      "id": "subtract-constraints",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Make elimination arise from subtracting two true equalities side by side.",
+      "expectedRealization": "Subtracting corresponding sides cancels one variable and preserves the common solution.",
+      "estimatedSeconds": 85,
+      "prompt": "Subtract 2b + 2t = 14 from 2b + 3t = 19. What equality remains?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "a", "text": "t = 5"},
+          {"id": "b", "text": "t = 33"},
+          {"id": "c", "text": "4b + 5t = 33"},
+          {"id": "d", "text": "b + t = 5"}
+        ],
+        "correctId": "a"
+      },
+      "correctFeedback": "Correct. The matching 2b contributions cancel, leaving one t equal to 5.",
+      "incorrectFeedback": "Subtract corresponding left sides and corresponding right sides: (2b + 3t) - (2b + 2t) and 19 - 14.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Subtract corresponding totals", "body": "Because both equations are true for the shared pair, their difference is also true: (2b + 3t) - (2b + 2t) = 19 - 14."},
+          {"title": "See what remains", "body": "The 2b terms and two of the three t terms cancel, leaving t = 5."}
+        ],
+        "takeaway": "Elimination removes equal contributions from two constraints; it does not discard information arbitrarily."
+      }
+    },
+    {
+      "id": "name-system",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name systems and elimination after the shared-solution structure is visible.",
+      "expectedRealization": "A system collects constraints whose common solutions matter, and elimination preserves that intersection.",
+      "estimatedSeconds": 55,
+      "name": "System of equations and elimination",
+      "conciseDefinition": "A system of equations asks for values that make all its equations true at the same time. Elimination combines equivalent relationships so one variable cancels.",
+      "formalization": "b + t = 7 and 2b + 3t = 19 share the solution (b, t) = (2, 5).",
+      "memoryHook": "Same meanings, same pair, every constraint."
+    },
+    {
+      "id": "substitution-connection",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Show substitution as a second shared-solution-preserving method.",
+      "expectedRealization": "Replacing a variable by an equal expression preserves both constraints in one equation.",
+      "transitionIn": "Elimination aligned equal contributions. The rider equation also offers a direct expression for either vehicle count.",
+      "estimatedSeconds": 90,
+      "prompt": "From b + t = 7, we know b = 7 - t. Which substitution correctly places that same bicycle count into 2b + 3t = 19?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "a", "text": "2(7 - t) + 3t = 19"},
+          {"id": "b", "text": "2b + 3(7 - t) = 19"},
+          {"id": "c", "text": "2(7 - b) + 3t = 19"},
+          {"id": "d", "text": "7 - t = 19"}
+        ],
+        "correctId": "a"
+      },
+      "correctFeedback": "Exactly. Since b and 7 - t are equal, replacing b by 7 - t keeps the wheel equation true for the same pair.",
+      "incorrectFeedback": "Replace the complete occurrence of b in the wheel equation with the expression equal to b.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Substitute an equal expression", "body": "2(7 - t) + 3t = 19 simplifies to 14 - 2t + 3t = 19, so t = 5."},
+          {"title": "Recover the other value", "body": "Then b = 7 - 5 = 2. This is the same shared pair found by elimination."}
+        ],
+        "takeaway": "Substitution replaces a quantity with an equal expression while keeping one shared solution."
+      }
+    },
+    {
+      "id": "same-pair",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Directly repair the idea that a variable may change meaning or value between equations.",
+      "expectedRealization": "Each variable has one meaning and one candidate value throughout a system.",
+      "estimatedSeconds": 75,
+      "prompt": "A learner says, “In b + t = 7, let b = 3, but in 2b + 3t = 19, let b = 2.” What is the problem?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "a", "text": "There is no problem because equations are separate lines."},
+          {"id": "b", "text": "b must name the bicycle count consistently, so one candidate pair must be tested in both equations."},
+          {"id": "c", "text": "b must always equal t."},
+          {"id": "d", "text": "Variables cannot appear in more than one equation."}
+        ],
+        "correctId": "b"
+      },
+      "correctFeedback": "Right. The equations describe the same group of riders, so b cannot switch values between them.",
+      "incorrectFeedback": "Ask whether both equations describe the same bicycles and tricycles or two unrelated situations.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Keep quantities attached to the story", "body": "b is one bicycle count and t is one tricycle count. A system solution is a single ordered pair used everywhere."}
+        ],
+        "takeaway": "Variables keep the same meaning and value across every equation in a system."
+      }
+    },
+    {
+      "id": "check-riders",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate full-system checking before transfer.",
+      "expectedRealization": "A complete check verifies every equation and the variable meanings.",
+      "estimatedSeconds": 70,
+      "prompt": "Which check is sufficient to prove that (b, t) = (2, 5) solves the rider system?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "a", "text": "2 + 5 = 7 only"},
+          {"id": "b", "text": "2(2) + 3(5) = 19 only"},
+          {"id": "c", "text": "2 + 5 = 7 and 2(2) + 3(5) = 19, with b and t interpreted correctly"},
+          {"id": "d", "text": "The answer appears among the choices"}
+        ],
+        "correctId": "c"
+      },
+      "correctFeedback": "Yes. Every original constraint and both variable meanings are verified.",
+      "incorrectFeedback": "A system has more than one condition; a complete check must return to all of them.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Verify both filters", "body": "Two bicycles and five tricycles give seven riders. Their wheels total 4 + 15 = 19. Both variables retain their stated meanings."}
+        ],
+        "takeaway": "A plausible pair becomes a solution only after it passes every original constraint."
+      }
+    },
+    {
+      "id": "pairwise-boxes",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "bank",
+      "problemId": "amc8-2008-13",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Transfer combining constraints to a disguised system where the desired total appears twice.",
+      "expectedRealization": "Adding all three pair equations counts each unknown exactly twice.",
+      "transitionIn": "The vehicle equations were combined to cancel a quantity. These three weight equations can be combined to expose a quantity instead.",
+      "whyNow": "The approved transfer rewards reading how often each unknown appears across the complete set of constraints rather than mechanically isolating every box.",
+      "entryBridge": "Name the box weights a, b, and c. The scale gives a + b = 122, b + c = 125, and a + c = 127.",
+      "exitBridge": "The combined equation found the requested total without first finding each individual box weight.",
+      "reusedRepresentation": "Several equations with fixed variable meanings, combined while preserving their shared solution.",
+      "animation": {
+        "mode": "whole",
+        "controlledByLesson": true,
+        "autoplay": false,
+        "showPlayerControls": false
+      },
+      "learnerPrompts": [
+        "Which three boxes and three pairings are present?",
+        "How does each edge record one pair weight?",
+        "What is the sum of all three pair weights?",
+        "Why does each box appear in exactly two of the added equations?",
+        "How does halving recover the weight of all three boxes once?"
+      ],
+      "correctFeedback": "Correct. The three pair weights total 374 pounds, which counts every box twice, so the boxes total 187 pounds.",
+      "incorrectFeedback": "Add the three pair equations and count how many times each individual box weight appears.",
+      "resolution": {
+        "animation": {"kind": "problem-animation", "placement": "after-steps"},
+        "steps": [
+          {"title": "Add all three constraints", "body": "Adding a + b = 122, b + c = 125, and a + c = 127 gives 2a + 2b + 2c = 374."},
+          {"title": "Interpret before dividing", "body": "The left side is 2(a + b + c): each box appears in two pairings. Therefore a + b + c = 374 ÷ 2 = 187 pounds."},
+          {"title": "Independent check", "body": "The individual weights are 62, 60, and 65 pounds, whose pair sums are 122, 125, and 127 and whose total is 187."}
+        ],
+        "takeaway": "Combining every constraint can expose the desired quantity even when the individual unknowns are unnecessary."
+      },
+      "sourceLabelTiming": "completion",
+      "estimatedSeconds": 185
+    },
+    {
+      "id": "practice-animals",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a3-animals",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Assess a near heads-and-legs system with a complete check.",
+      "whyNow": "Return to two kinds of object with a fixed count and a weighted count.",
+      "entryBridge": "Replace vehicles and wheels with animals and legs while keeping the two-constraint structure.",
+      "exitBridge": "The pair must account for both twelve animals and thirty-four legs.",
+      "animation": {"mode": "none", "controlledByLesson": true},
+      "learnerPrompts": ["Which pair satisfies both the animal count and the leg count?"],
+      "correctFeedback": "Correct. Five rabbits and seven chickens give twelve animals and thirty-four legs.",
+      "incorrectFeedback": "Start with twelve two-legged chickens, then count how many two-leg upgrades are needed to reach thirty-four legs.",
+      "resolution": {
+        "steps": [
+          {"title": "Write the system", "body": "If c and r count chickens and rabbits, then c + r = 12 and 2c + 4r = 34."},
+          {"title": "Eliminate and check", "body": "Double the first equation and subtract: 2r = 10, so r = 5 and c = 7. Then 7 + 5 = 12 and 2(7) + 4(5) = 34."}
+        ],
+        "takeaway": "Use both constraints to determine and verify the pair."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 105
+    },
+    {
+      "id": "practice-coins",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a3-coins",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Assess a near item-count and value-count system with consistent units.",
+      "whyNow": "Vary the weighted count and require the same pair in cents and coins.",
+      "entryBridge": "The second constraint now measures value rather than legs or wheels.",
+      "exitBridge": "A cents check and a coin-count check confirm the same pair.",
+      "animation": {"mode": "none", "controlledByLesson": true},
+      "learnerPrompts": ["How can you write both equations using cents throughout?"],
+      "correctFeedback": "Correct. Seven quarters and seven dimes make fourteen coins worth 245 cents.",
+      "incorrectFeedback": "Use d + q = 14 and 10d + 25q = 245 with the same d and q in both equations.",
+      "resolution": {
+        "steps": [
+          {"title": "Write and eliminate", "body": "d + q = 14 and 10d + 25q = 245. Multiply the first equation by 10 and subtract it from the value equation: 15q = 105, so q = 7."},
+          {"title": "Check", "body": "Then d = 7. There are 7 + 7 = 14 coins worth 7(10) + 7(25) = 245 cents."}
+        ],
+        "takeaway": "Keep variable meanings and units fixed across both equations."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 110
+    },
+    {
+      "id": "practice-tickets",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a3-tickets",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Assess elimination by scaling an entire equation before subtraction.",
+      "whyNow": "Increase the coefficient gap so the learner must justify how equations are aligned.",
+      "entryBridge": "Ticket counts and ticket revenue provide two independent totals.",
+      "exitBridge": "Both the number sold and the money collected verify the result.",
+      "animation": {"mode": "none", "controlledByLesson": true},
+      "learnerPrompts": ["Which multiple of the ticket-count equation will align one coefficient with the revenue equation?"],
+      "correctFeedback": "Correct. Nine adult tickets and eleven child tickets produce twenty tickets and 127 dollars.",
+      "incorrectFeedback": "Let a + c = 20 and 8a + 5c = 127. Scale the complete first equation before subtracting.",
+      "resolution": {
+        "steps": [
+          {"title": "Align and eliminate", "body": "Multiply a + c = 20 by 5 to get 5a + 5c = 100. Subtract from 8a + 5c = 127, giving 3a = 27 and a = 9."},
+          {"title": "Recover and check", "body": "Then c = 11. The counts give 9 + 11 = 20 and the revenue gives 8(9) + 5(11) = 127."}
+        ],
+        "takeaway": "Scale every term in an equation, then subtract corresponding sides."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 115
+    },
+    {
+      "id": "practice-sum-difference",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a3-sum-difference",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Assess direct equation addition as an elimination strategy.",
+      "whyNow": "Use opposite coefficients that cancel without preliminary scaling.",
+      "entryBridge": "These constraints describe a sum and a difference rather than object counts.",
+      "exitBridge": "The ordered pair passes both the sum and difference checks.",
+      "animation": {"mode": "none", "controlledByLesson": true},
+      "learnerPrompts": ["What cancels when the two equations are added corresponding side to corresponding side?"],
+      "correctFeedback": "Correct. Adding the equations gives 2x = 30, so x = 15 and y = 8.",
+      "incorrectFeedback": "Add x + y = 23 and x - y = 7; the y terms are opposites.",
+      "resolution": {
+        "steps": [
+          {"title": "Add the constraints", "body": "Adding x + y = 23 and x - y = 7 gives 2x = 30, so x = 15."},
+          {"title": "Find and check y", "body": "From 15 + y = 23, y = 8. Then 15 + 8 = 23 and 15 - 8 = 7."}
+        ],
+        "takeaway": "Opposite contributions disappear when corresponding sides are added."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 105
+    },
+    {
+      "id": "practice-rectangle",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a3-rectangle",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Assess challenge modeling, system solution, and a derived geometric quantity.",
+      "whyNow": "Finish with constraints whose solution must be used to answer a new question.",
+      "entryBridge": "Now the unknown pair describes side lengths, and the requested value is their product.",
+      "exitBridge": "The dimensions must satisfy both geometry constraints before their area is trusted.",
+      "animation": {"mode": "none", "controlledByLesson": true},
+      "learnerPrompts": ["How does perimeter 34 become a sum equation for length and width?"],
+      "correctFeedback": "Correct. The dimensions are 11 by 6, so the area is 66 square units.",
+      "incorrectFeedback": "Use l + w = 17 from the perimeter and l - w = 5 from the side difference, then find the area.",
+      "resolution": {
+        "steps": [
+          {"title": "Translate both constraints", "body": "Perimeter 34 gives 2l + 2w = 34, or l + w = 17. The length condition gives l - w = 5."},
+          {"title": "Add and solve", "body": "Adding the equations gives 2l = 22, so l = 11. Then w = 6."},
+          {"title": "Check before answering", "body": "The perimeter is 2(11) + 2(6) = 34 and the difference is 11 - 6 = 5. The area is 11 × 6 = 66."}
+        ],
+        "takeaway": "Solve and check the shared pair before using it to compute a requested quantity."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 125
+    },
+    {
+      "id": "system-routine",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate the meaning and proof obligations of system solving.",
+      "expectedRealization": "A reliable system solution represents, combines, recovers, and checks without changing variable meanings.",
+      "transitionIn": "Vehicles, boxes, animals, coins, tickets, numbers, and rectangles all required one pair to survive several filters. Gather the safeguards.",
+      "estimatedSeconds": 110,
+      "prompt": "Which actions belong in a reliable system-solving plan? Select all four.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "meaning", "text": "Keep each variable's meaning fixed across every equation."},
+          {"id": "constraints", "text": "Translate each independent condition into its own relationship."},
+          {"id": "preserve", "text": "Use substitution or elimination in ways that preserve the shared solution."},
+          {"id": "check", "text": "Test the same ordered pair in every original condition."}
+        ],
+        "correctIds": ["meaning", "constraints", "preserve", "check"],
+        "feedback": "Each action guards one part of the shared-solution argument."
+      },
+      "correctFeedback": "Yes—fix meanings, represent every constraint, preserve the intersection, and check the same pair everywhere.",
+      "incorrectFeedback": "All four are needed to show that the final pair belongs to every original constraint.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "1. Name", "choices": ["one meaning per variable"]},
+              {"label": "2. Represent", "choices": ["one equation per constraint"]},
+              {"label": "3. Combine", "choices": ["preserve shared solutions"]},
+              {"label": "4. Verify", "choices": ["same pair in every condition"]}
+            ]
+          },
+          "ariaLabel": "Four safeguards for solving a system of equations"
+        },
+        "steps": [
+          {"title": "Why the check matters", "body": "An algebraic step can be correct while an original condition was translated incorrectly. Substitution into every starting relationship catches both kinds of error."}
+        ],
+        "takeaway": "A system solution is one pair that satisfies every constraint at the same time."
+      }
+    },
+    {
+      "id": "more-unknowns-reflection",
+      "phase": "reflection",
+      "kind": "reflection",
+      "purpose": "Generalize the lesson's central tension without inventing an unapproved curricular successor.",
+      "expectedRealization": "A new unknown usually creates freedom that another independent constraint must remove.",
+      "transitionIn": "Two independent constraints often pinned down two unknown quantities. Add one more unknown and ask what information is missing.",
+      "estimatedSeconds": 50,
+      "prompt": "Suppose bicycles, tricycles, and four-wheeled carts carry 12 riders altogether, while their vehicles have 31 wheels altogether. Why might those two totals still allow several different triples?",
+      "takeaway": "Each independent constraint removes some freedom; extra unknown quantities generally need extra independent information."
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {"near": 2, "mixed": 2, "challenge": 1},
+    "sessionSelection": [
+      {"source": "generated", "transferLevel": "near", "count": 2},
+      {"source": "generated", "transferLevel": "mixed", "count": 2},
+      {"source": "generated", "transferLevel": "challenge", "count": 1}
+    ],
+    "excludeProblemIds": ["amc8-2003-04", "amc8-2008-13"],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "A3",
+    "evidenceBeatIds": [
+      "practice-animals",
+      "practice-coins",
+      "practice-tickets",
+      "practice-sum-difference",
+      "practice-rectangle"
+    ],
+    "minIndependentPracticeItems": 5,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.2.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "mathinking-lesson-skill-1.0.0",
+    "notes": [
+      "Design: A2's two-unknown shelf question leads to seven riders with eight possible splits. The nineteen-wheel constraint creates the realization that a system solution lies in every constraint. With no named curriculum successor, the closing generalizes to three unknowns rather than promising a specific next lesson.",
+      "Beat outline: enumerate rider splits -> authentic vehicle anchor -> test ordered pairs -> scale an equation -> subtract constraints -> name systems/elimination -> substitution connection -> fixed-variable-meaning check -> full-system check -> authentic box transfer -> five independent problems -> consolidation -> three-unknown reflection.",
+      "The vehicle animation and box animation appear only after answer submission. Their six and five learner prompts respectively match every declared scene state, preventing pre-response answer leakage.",
+      "The primary vehicle solution uses elimination; the all-bicycle swap animation follows as an elegant alternative connected to the learner's concrete counting knowledge.",
+      "Existing generic choice-grid visuals and response primitives suffice; no renderer or schema changes were required. Generated answers were verified by equation solving and independently by direct enumeration, substitution, or geometric reconstruction."
+    ]
+  }
+}

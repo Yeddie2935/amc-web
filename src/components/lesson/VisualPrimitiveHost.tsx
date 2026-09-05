@@ -25,6 +25,14 @@ function asNumberList(value: JsonValue | undefined): number[] | null {
   return value;
 }
 
+function asNumber(value: JsonValue | undefined): number | null {
+  return typeof value === "number" && Number.isFinite(value) ? value : null;
+}
+
+function asBoolean(value: JsonValue | undefined): boolean | null {
+  return typeof value === "boolean" ? value : null;
+}
+
 function asObjectList(value: JsonValue | undefined): JsonObject[] | null {
   if (
     !Array.isArray(value) ||
@@ -379,6 +387,167 @@ function VennBuilder({ data }: { data: JsonObject }) {
   );
 }
 
+function NumberLine({ data }: { data: JsonObject }) {
+  const min = asNumber(data.min);
+  const max = asNumber(data.max);
+  const tickStep = asNumber(data.tickStep) ?? 1;
+  const interval = data.interval === undefined ? null : asObject(data.interval);
+  const label = asString(data.label);
+
+  if (
+    min === null ||
+    max === null ||
+    min >= max ||
+    tickStep <= 0 ||
+    (max - min) / tickStep > 24 ||
+    (data.interval !== undefined && !interval)
+  ) {
+    return (
+      <VisualFallback message="A number-line requires min < max, a positive tickStep, at most 25 ticks, and an optional interval object." />
+    );
+  }
+
+  const lowerValue = interval?.lower;
+  const upperValue = interval?.upper;
+  const lower = lowerValue === null ? null : asNumber(lowerValue);
+  const upper = upperValue === null ? null : asNumber(upperValue);
+  const lowerClosed = interval ? asBoolean(interval.lowerClosed) : null;
+  const upperClosed = interval ? asBoolean(interval.upperClosed) : null;
+  const intervalLabel = interval ? asString(interval.label) : null;
+  const hasLower = lower !== null;
+  const hasUpper = upper !== null;
+  const invalidInterval = Boolean(
+    interval &&
+      ((lowerValue === undefined || upperValue === undefined) ||
+        (lowerValue !== null && lower === null) ||
+        (upperValue !== null && upper === null) ||
+        (hasLower && (lower! < min || lower! > max || lowerClosed === null)) ||
+        (hasUpper && (upper! < min || upper! > max || upperClosed === null)) ||
+        (hasLower && hasUpper && lower! > upper!))
+  );
+
+  if (invalidInterval) {
+    return (
+      <VisualFallback message="A number-line interval needs lower and upper bounds (use null for an unbounded side), with closed/open flags for finite endpoints." />
+    );
+  }
+
+  const ticks: number[] = [];
+  for (let value = min; value <= max + tickStep / 1000; value += tickStep) {
+    ticks.push(Number(value.toFixed(10)));
+  }
+  const xAt = (value: number) => 50 + ((value - min) / (max - min)) * 520;
+  const shadeStart = xAt(lower ?? min);
+  const shadeEnd = xAt(upper ?? max);
+  const description = interval
+    ? `${intervalLabel ?? "Allowed interval"}: ${hasLower ? `${lowerClosed ? "including" : "greater than"} ${lower}` : "extends left without bound"}, ${hasUpper ? `${upperClosed ? "including" : "less than"} ${upper}` : "extends right without bound"}.`
+    : `Number line from ${min} to ${max}.`;
+
+  return (
+    <div className="fmj-lesson-number-line">
+      <svg viewBox="0 0 620 108" role="img" aria-label={description}>
+        <line x1="42" y1="48" x2="578" y2="48" className="fmj-number-line-axis" />
+        <path d="M 42 48 L 51 42 L 51 54 Z" className="fmj-number-line-axis-fill" />
+        <path d="M 578 48 L 569 42 L 569 54 Z" className="fmj-number-line-axis-fill" />
+        {interval && (
+          <g>
+            <line x1={shadeStart} y1="48" x2={shadeEnd} y2="48" className="fmj-number-line-interval" />
+            {!hasLower && <path d="M 45 48 L 58 39 L 58 57 Z" className="fmj-number-line-interval-fill" />}
+            {!hasUpper && <path d="M 575 48 L 562 39 L 562 57 Z" className="fmj-number-line-interval-fill" />}
+            {hasLower && (
+              <circle cx={shadeStart} cy="48" r="8" className={lowerClosed ? "fmj-number-line-endpoint closed" : "fmj-number-line-endpoint"} />
+            )}
+            {hasUpper && (
+              <circle cx={shadeEnd} cy="48" r="8" className={upperClosed ? "fmj-number-line-endpoint closed" : "fmj-number-line-endpoint"} />
+            )}
+          </g>
+        )}
+        {ticks.map((tick) => (
+          <g key={tick}>
+            <line x1={xAt(tick)} y1="39" x2={xAt(tick)} y2="57" className="fmj-number-line-tick" />
+            <text x={xAt(tick)} y="81" textAnchor="middle" className="fmj-number-line-label">{tick}</text>
+          </g>
+        ))}
+      </svg>
+      {(label || intervalLabel) && <p>{intervalLabel ?? label}</p>}
+    </div>
+  );
+}
+
+function DataGraph({ data }: { data: JsonObject }) {
+  const xMin = asNumber(data.xMin);
+  const xMax = asNumber(data.xMax);
+  const yMin = asNumber(data.yMin);
+  const yMax = asNumber(data.yMax);
+  const xStep = asNumber(data.xStep) ?? 1;
+  const yStep = asNumber(data.yStep) ?? 1;
+  const xLabel = asString(data.xLabel) ?? "x";
+  const yLabel = asString(data.yLabel) ?? "y";
+  const rawPoints = asObjectList(data.points) ?? [];
+  const line = data.line === undefined ? null : asObject(data.line);
+  const riseRun = data.riseRun === undefined ? null : asObject(data.riseRun);
+
+  if (
+    xMin === null || xMax === null || yMin === null || yMax === null ||
+    xMin >= xMax || yMin >= yMax || xStep <= 0 || yStep <= 0 ||
+    (xMax - xMin) / xStep > 20 || (yMax - yMin) / yStep > 20 ||
+    (data.points !== undefined && !asObjectList(data.points)) ||
+    (data.line !== undefined && !line) ||
+    (data.riseRun !== undefined && !riseRun)
+  ) {
+    return <VisualFallback message="A data-graph requires valid x/y bounds, positive steps, at most 21 grid lines per axis, and optional points, line, and riseRun objects." />;
+  }
+
+  const points = rawPoints.map((point) => ({
+    x: asNumber(point.x), y: asNumber(point.y), label: asString(point.label),
+  }));
+  const slope = line ? asNumber(line.slope) : null;
+  const intercept = line ? asNumber(line.intercept) : null;
+  const lineLabel = line ? asString(line.label) : null;
+  const runFromX = riseRun ? asNumber(riseRun.fromX) : null;
+  const runFromY = riseRun ? asNumber(riseRun.fromY) : null;
+  const run = riseRun ? asNumber(riseRun.run) : null;
+  const rise = riseRun ? asNumber(riseRun.rise) : null;
+  const riseRunLabel = riseRun ? asString(riseRun.label) : null;
+  const invalidDetails =
+    points.some((point) => point.x === null || point.y === null || point.x < xMin || point.x > xMax || point.y < yMin || point.y > yMax) ||
+    Boolean(line && (slope === null || intercept === null)) ||
+    Boolean(riseRun && (runFromX === null || runFromY === null || run === null || rise === null || run === 0));
+  if (invalidDetails) {
+    return <VisualFallback message="Data-graph points must lie within the graph; a line needs numeric slope/intercept; riseRun needs numeric fromX, fromY, nonzero run, and rise." />;
+  }
+
+  const W = 620, H = 360, left = 62, top = 24, plotW = 510, plotH = 276;
+  const px = (x: number) => left + ((x - xMin) / (xMax - xMin)) * plotW;
+  const py = (y: number) => top + plotH - ((y - yMin) / (yMax - yMin)) * plotH;
+  const xs: number[] = [], ys: number[] = [];
+  for (let x = xMin; x <= xMax + xStep / 1000; x += xStep) xs.push(Number(x.toFixed(10)));
+  for (let y = yMin; y <= yMax + yStep / 1000; y += yStep) ys.push(Number(y.toFixed(10)));
+  const lineY0 = slope !== null && intercept !== null ? slope * xMin + intercept : null;
+  const lineY1 = slope !== null && intercept !== null ? slope * xMax + intercept : null;
+  const rrEndX = runFromX !== null && run !== null ? runFromX + run : null;
+  const rrEndY = runFromY !== null && rise !== null ? runFromY + rise : null;
+
+  return (
+    <div className="fmj-lesson-data-graph">
+      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Coordinate graph with horizontal axis ${xLabel} from ${xMin} to ${xMax} and vertical axis ${yLabel} from ${yMin} to ${yMax}.`}>
+        <defs><clipPath id="fmj-data-graph-plot"><rect x={left} y={top} width={plotW} height={plotH} /></clipPath></defs>
+        <rect x={left} y={top} width={plotW} height={plotH} className="fmj-data-graph-field" />
+        {xs.map((x) => <g key={`x-${x}`}><line x1={px(x)} y1={top} x2={px(x)} y2={top + plotH} className={x === 0 ? "fmj-data-graph-axis" : "fmj-data-graph-grid"} /><text x={px(x)} y={top + plotH + 22} textAnchor="middle">{x}</text></g>)}
+        {ys.map((y) => <g key={`y-${y}`}><line x1={left} y1={py(y)} x2={left + plotW} y2={py(y)} className={y === 0 ? "fmj-data-graph-axis" : "fmj-data-graph-grid"} /><text x={left - 10} y={py(y) + 4} textAnchor="end">{y}</text></g>)}
+        <text x={left + plotW / 2} y={H - 8} textAnchor="middle" className="fmj-data-graph-axis-label">{xLabel}</text>
+        <text transform={`translate(16 ${top + plotH / 2}) rotate(-90)`} textAnchor="middle" className="fmj-data-graph-axis-label">{yLabel}</text>
+        <g clipPath="url(#fmj-data-graph-plot)">
+          {lineY0 !== null && lineY1 !== null && <line x1={px(xMin)} y1={py(lineY0)} x2={px(xMax)} y2={py(lineY1)} className="fmj-data-graph-line" />}
+          {riseRun && runFromX !== null && runFromY !== null && rrEndX !== null && rrEndY !== null && <g><path d={`M ${px(runFromX)} ${py(runFromY)} H ${px(rrEndX)} V ${py(rrEndY)}`} className="fmj-data-graph-rise-run" /><text x={(px(runFromX) + px(rrEndX)) / 2} y={py(runFromY) + 18} textAnchor="middle">run {run}</text><text x={px(rrEndX) + 9} y={(py(runFromY) + py(rrEndY)) / 2} textAnchor="start">rise {rise}</text></g>}
+          {points.map((point, index) => <g key={`${point.x}-${point.y}-${index}`}><circle cx={px(point.x!)} cy={py(point.y!)} r="6" className="fmj-data-graph-point" />{point.label && <text x={px(point.x!) + 9} y={py(point.y!) - 9}>{point.label}</text>}</g>)}
+        </g>
+      </svg>
+      {(lineLabel || riseRunLabel) && <p>{[lineLabel, riseRunLabel].filter(Boolean).join(" · ")}</p>}
+    </div>
+  );
+}
+
 /**
  * Runtime host for the small visual subset needed by the first lesson
  * benchmarks. Lesson data stays serializable and malformed data fails visibly.
@@ -400,6 +569,10 @@ export function VisualPrimitiveHost({ visual }: VisualPrimitiveHostProps) {
         return <VennBuilder data={visual.data} />;
       case "slot-filler":
         return <SlotFiller data={visual.data} />;
+      case "number-line":
+        return <NumberLine data={visual.data} />;
+      case "data-graph":
+        return <DataGraph data={visual.data} />;
       default:
         return (
           <VisualFallback

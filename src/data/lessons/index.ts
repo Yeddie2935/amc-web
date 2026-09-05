@@ -1,3 +1,19 @@
+import a1LessonData from "./algebra/A1.json";
+import a1GeneratedProblemData from "./generated-problems/A1.json";
+import a2LessonData from "./algebra/A2.json";
+import a2GeneratedProblemData from "./generated-problems/A2.json";
+import a3LessonData from "./algebra/A3.json";
+import a3GeneratedProblemData from "./generated-problems/A3.json";
+import a4LessonData from "./algebra/A4.json";
+import a4GeneratedProblemData from "./generated-problems/A4.json";
+import a5LessonData from "./algebra/A5.json";
+import a5GeneratedProblemData from "./generated-problems/A5.json";
+import a6LessonData from "./algebra/A6.json";
+import a6GeneratedProblemData from "./generated-problems/A6.json";
+import a7LessonData from "./algebra/A7.json";
+import a7GeneratedProblemData from "./generated-problems/A7.json";
+import a8LessonData from "./algebra/A8.json";
+import a8GeneratedProblemData from "./generated-problems/A8.json";
 import type {
   GeneratedProblemArtifact,
   LessonSpec,
@@ -79,6 +95,14 @@ const p3GeneratedProblemArtifacts =
  * its spec and generated artifacts here; rendering remains lesson-agnostic.
  */
 const lessonRegistry = new Map<string, LessonBundle>([
+  ["A1", { lesson: a1LessonData as LessonSpec, generatedProblemArtifacts: a1GeneratedProblemData as GeneratedProblemArtifact[] }],
+  ["A2", { lesson: a2LessonData as LessonSpec, generatedProblemArtifacts: a2GeneratedProblemData as GeneratedProblemArtifact[] }],
+  ["A3", { lesson: a3LessonData as LessonSpec, generatedProblemArtifacts: a3GeneratedProblemData as GeneratedProblemArtifact[] }],
+  ["A4", { lesson: a4LessonData as LessonSpec, generatedProblemArtifacts: a4GeneratedProblemData as GeneratedProblemArtifact[] }],
+  ["A5", { lesson: a5LessonData as LessonSpec, generatedProblemArtifacts: a5GeneratedProblemData as GeneratedProblemArtifact[] }],
+  ["A6", { lesson: a6LessonData as LessonSpec, generatedProblemArtifacts: a6GeneratedProblemData as GeneratedProblemArtifact[] }],
+  ["A7", { lesson: a7LessonData as LessonSpec, generatedProblemArtifacts: a7GeneratedProblemData as GeneratedProblemArtifact[] }],
+  ["A8", { lesson: a8LessonData as LessonSpec, generatedProblemArtifacts: a8GeneratedProblemData as GeneratedProblemArtifact[] }],
   [
     c1Lesson.lessonId,
     {

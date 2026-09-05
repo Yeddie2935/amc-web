@@ -113,7 +113,7 @@ export function TribonacciTrainScene({ problem, step, totalSteps }: AnimatedScen
               >
                 {seq[i]}
               </text>
-              <text x={tileX(i) + tileW / 2} y={rowY + tileH / 2 + 13} textAnchor="middle" fontSize="8" fontWeight="700" fill="#cbd5e1" fontFamily={numberFont}>
+              <text x={tileX(i) + tileW / 2} y={rowY + tileH / 2 + 13} textAnchor="middle" fontSize="9" fontWeight="700" fill="#cbd5e1" fontFamily={numberFont}>
                 #{i + 1}
               </text>
             </motion.g>

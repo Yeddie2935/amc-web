@@ -1,0 +1,92 @@
+[
+  {
+    "schemaVersion": "1.0.0", "lessonId": "A5", "purpose": "practice", "transferLevel": "near",
+    "targetConcepts": ["A5", "A1"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a5-function-value", "title": "One Input, One Output", "sourceType": "Original", "contest": "Original",
+      "category": "Algebra", "subcategory": "Function evaluation", "difficulty": 1,
+      "statement": "The function f is defined by f(x) = 4x - 1. What is f(6)?",
+      "choices": [{"label":"A","text":"18"},{"label":"B","text":"20"},{"label":"C","text":"23"},{"label":"D","text":"24"},{"label":"E","text":"29"}],
+      "answer": "C", "shortAnswer": "23",
+      "hints": ["Replace every x in the rule with 6.", "Follow multiplication before subtraction."],
+      "solutionSteps": [{"title":"Substitute the input","body":"f(6) = 4(6) - 1 = 24 - 1 = 23."},{"title":"Interpret","body":"The rule sends input 6 to output 23."}],
+      "tags": ["functions", "substitution", "input-output"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {
+      "status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods":["direct substitution: 4 × 6 - 1 = 23","independent reverse check and option audit: (23 + 1) / 4 = 6, and no other listed output reverses to input 6"]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "A5", "purpose": "practice", "transferLevel": "near",
+    "targetConcepts": ["A5"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a5-triangle-rule", "title": "Triangle Rule", "sourceType": "Original", "contest": "Original",
+      "category": "Algebra", "subcategory": "Defined operations", "difficulty": 1,
+      "statement": "For all numbers a and b, define a △ b = 2a + b. What is 5 △ 3?",
+      "choices": [{"label":"A","text":"8"},{"label":"B","text":"10"},{"label":"C","text":"11"},{"label":"D","text":"13"},{"label":"E","text":"16"}],
+      "answer": "D", "shortAnswer": "13",
+      "hints": ["The triangle symbol gets its meaning from the stated rule.", "Use 5 as the first input and 3 as the second."],
+      "solutionSteps": [{"title":"Decode the symbol","body":"The rule says to double the first input, then add the second."},{"title":"Apply it in order","body":"5 △ 3 = 2(5) + 3 = 13."}],
+      "tags": ["defined operation", "ordered inputs", "substitution"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {
+      "status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods":["definition substitution: 2(5) + 3 = 13","independent repeated-addition and exhaustive option audit: two groups of 5 plus 3 total 13"]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "A5", "purpose": "practice", "transferLevel": "mixed",
+    "targetConcepts": ["A5", "A1"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a5-composition", "title": "Two Machines in a Row", "sourceType": "Original", "contest": "Original",
+      "category": "Algebra", "subcategory": "Function composition", "difficulty": 2,
+      "statement": "Let f(x) = x + 5 and g(x) = 3x. What is f(g(4))?",
+      "choices": [{"label":"A","text":"12"},{"label":"B","text":"17"},{"label":"C","text":"27"},{"label":"D","text":"32"},{"label":"E","text":"39"}],
+      "answer": "B", "shortAnswer": "17",
+      "hints": ["Evaluate the innermost expression g(4) first.", "Feed that output into f."],
+      "solutionSteps": [{"title":"Run the inner machine","body":"g(4) = 3(4) = 12."},{"title":"Pass the output outward","body":"f(g(4)) = f(12) = 12 + 5 = 17."}],
+      "tags": ["functions", "composition", "inside-out"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {
+      "status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods":["inside-out evaluation: g(4) = 12 and f(12) = 17","independent symbolic composition: f(g(x)) = 3x + 5, so f(g(4)) = 17; all choices audited"]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "A5", "purpose": "practice", "transferLevel": "mixed",
+    "targetConcepts": ["A5", "A2"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a5-reverse-machine", "title": "Find the Input", "sourceType": "Original", "contest": "Original",
+      "category": "Algebra", "subcategory": "Function equations", "difficulty": 2,
+      "statement": "A function h is defined by h(x) = 5x + 2. If h(x) = 37, what is x?",
+      "choices": [{"label":"A","text":"5"},{"label":"B","text":"6"},{"label":"C","text":"7"},{"label":"D","text":"8"},{"label":"E","text":"9"}],
+      "answer": "C", "shortAnswer": "7",
+      "hints": ["Replace h(x) with its rule to form an equation.", "Undo +2, then undo multiplication by 5."],
+      "solutionSteps": [{"title":"Expose the rule","body":"h(x) = 37 means 5x + 2 = 37."},{"title":"Reverse and check","body":"Subtract 2 and divide by 5 to get x = 7. Then h(7) = 35 + 2 = 37."}],
+      "tags": ["functions", "equations", "inverse operations"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {
+      "status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods":["linear equation derivation: (37 - 2) / 5 = 7","independent forward evaluation and option audit: only h(7) equals 37"]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "A5", "purpose": "practice", "transferLevel": "challenge",
+    "targetConcepts": ["A5", "A1"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a5-order-difference", "title": "Order Changes the Output", "sourceType": "Original", "contest": "Original",
+      "category": "Algebra", "subcategory": "Nested functions", "difficulty": 2,
+      "statement": "Let p(x) = 2x + 1 and q(x) = x². What is q(p(3)) - p(q(3))?",
+      "choices": [{"label":"A","text":"0"},{"label":"B","text":"18"},{"label":"C","text":"28"},{"label":"D","text":"30"},{"label":"E","text":"42"}],
+      "answer": "D", "shortAnswer": "30",
+      "hints": ["Evaluate each nested expression from the inside outward.", "The two compositions need not have the same output."],
+      "solutionSteps": [{"title":"Evaluate q(p(3))","body":"p(3) = 7, so q(p(3)) = q(7) = 49."},{"title":"Evaluate p(q(3))","body":"q(3) = 9, so p(q(3)) = p(9) = 19."},{"title":"Compare","body":"49 - 19 = 30."}],
+      "tags": ["functions", "composition", "order", "comparison"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {
+      "status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods":["separate inside-out evaluations: q(p(3)) = 49 and p(q(3)) = 19, difference 30","independent symbolic expansion: q(p(x)) = (2x + 1)^2 and p(q(x)) = 2x^2 + 1; at x = 3 their difference is 49 - 19 = 30; options audited"]
+    }
+  }
+]

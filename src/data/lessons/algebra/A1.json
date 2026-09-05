@@ -1,0 +1,813 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "A1",
+  "curriculumNodeId": "A1",
+  "title": "Expressions, Variables & Translating Relationships",
+  "lessonType": "foundation",
+  "status": "draft",
+  "estimatedMinutes": 26,
+  "coreInsight": "Algebraic symbols represent quantities and relationships; an expression describes a calculation, while an equation claims that two expressions are equal.",
+  "targetLearnerRealization": "A variable names a numerical quantity; one expression can describe many cases, while an equation asserts equality and may select a particular case.",
+  "learningObjectives": [
+    "Define a variable as a numerical quantity with meaningful units.",
+    "Translate fixed amounts and repeated changes into expressions.",
+    "Evaluate an expression at several variable values.",
+    "Distinguish expressions from equations and interpret equality in either direction.",
+    "Build an equation by imposing a target on a relationship."
+  ],
+  "hardPrerequisites": [
+    "F1"
+  ],
+  "narrativePredecessor": "F1",
+  "continuity": {
+    "openingCallback": "Use a quick magnitude check to notice the fixed two tiles; no authored predecessor exists to quote.",
+    "closingSeeds": [
+      "The start-plus-equal-groups structure.",
+      "Equality survives swapping its sides.",
+      "Find operations that preserve equality while isolating an unknown."
+    ],
+    "nextLessonIds": [
+      "A2"
+    ]
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "A variable is merely a label for an object.",
+      "beatIds": [
+        "name-quantity",
+        "bike-relationship"
+      ]
+    },
+    {
+      "misconception": "A variable always represents exactly one mystery number.",
+      "beatIds": [
+        "several-values",
+        "practice-changing"
+      ]
+    },
+    {
+      "misconception": "Expressions and equations are interchangeable.",
+      "beatIds": [
+        "target-claim",
+        "sort-statements",
+        "practice-claim"
+      ]
+    },
+    {
+      "misconception": "The equal sign means 'the answer comes next' rather than 'these quantities are equal'.",
+      "beatIds": [
+        "equal-both-directions",
+        "sort-statements",
+        "practice-packing"
+      ]
+    }
+  ],
+  "beats": [
+    {
+      "id": "strip-puzzle",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Keep the fixed start separate from the repeated addition.",
+      "expectedRealization": "Keep the fixed start separate from the repeated addition.",
+      "prompt": "A strip starts with two tiles. Each added group contains three tiles. Without drawing the whole strip, how many tiles will it have after ten groups are added?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "12"
+          },
+          {
+            "id": "b",
+            "text": "30"
+          },
+          {
+            "id": "c",
+            "text": "32"
+          },
+          {
+            "id": "d",
+            "text": "50"
+          }
+        ],
+        "correctId": "c"
+      },
+      "correctFeedback": "Keep the fixed start separate from the repeated addition.",
+      "incorrectFeedback": "Read what each number counts, then compare the operations with the story.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {
+            "title": "Read the quantities",
+            "body": "Ten groups contribute ten lots of three tiles, or 30. The two starting tiles remain, so the total is 32. Counting 30 alone misses the fixed start."
+          }
+        ],
+        "takeaway": "Keep the fixed start separate from the repeated addition."
+      },
+      "estimatedSeconds": 75,
+      "visual": {
+        "primitive": "slot-filler",
+        "data": {
+          "groups": [
+            {
+              "label": "No groups added",
+              "pattern": "■■",
+              "calculation": "2 tiles"
+            },
+            {
+              "label": "One group added",
+              "pattern": "■■ | □□□",
+              "calculation": "5 tiles"
+            },
+            {
+              "label": "Three groups added",
+              "pattern": "■■ | □□□ | □□□ | □□□",
+              "calculation": "11 tiles"
+            }
+          ]
+        },
+        "continuityKey": "tile-strip",
+        "ariaLabel": "Fixed start followed by equal added groups"
+      },
+      "transitionIn": "A quick size check can catch a missed piece. Here the strip grows by equal groups, but its first two tiles never disappear."
+    },
+    {
+      "id": "name-quantity",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "A letter names a numerical quantity, not an object.",
+      "expectedRealization": "A letter names a numerical quantity, not an object.",
+      "prompt": "We want one short rule for every strip size. Let n stand for which quantity?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "A tile"
+          },
+          {
+            "id": "b",
+            "text": "The number of groups added"
+          },
+          {
+            "id": "c",
+            "text": "The number of tiles in each group"
+          },
+          {
+            "id": "d",
+            "text": "The total number of tiles"
+          }
+        ],
+        "correctId": "b"
+      },
+      "correctFeedback": "A letter names a numerical quantity, not an object.",
+      "incorrectFeedback": "Read what each number counts, then compare the operations with the story.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {
+            "title": "Read the quantities",
+            "body": "The starting two tiles and the three tiles per group stay fixed. The number of added groups changes, so that is the quantity we name n. It can be 0, 1, 3, 10, or another whole number."
+          }
+        ],
+        "takeaway": "A letter names a numerical quantity, not an object."
+      },
+      "estimatedSeconds": 75,
+      "transitionIn": "The ten-group calculation works. Now keep its structure while letting the group count change."
+    },
+    {
+      "id": "write-rule",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "One rule can describe many different totals.",
+      "expectedRealization": "One rule can describe many different totals.",
+      "prompt": "Let n be the number of three-tile groups added to the two starting tiles. Which rule gives the total number of tiles?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "2n + 3"
+          },
+          {
+            "id": "b",
+            "text": "2 + n"
+          },
+          {
+            "id": "c",
+            "text": "3n"
+          },
+          {
+            "id": "d",
+            "text": "2 + 3n"
+          }
+        ],
+        "correctId": "d"
+      },
+      "correctFeedback": "One rule can describe many different totals.",
+      "incorrectFeedback": "Read what each number counts, then compare the operations with the story.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {
+            "title": "Read the quantities",
+            "body": "There are n groups with three tiles each, giving 3 × n tiles. Add the two starting tiles to get 2 + 3n. Writing 3n means multiplication, not a two-digit number."
+          }
+        ],
+        "takeaway": "One rule can describe many different totals."
+      },
+      "estimatedSeconds": 75
+    },
+    {
+      "id": "several-values",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "The variable may take several values while the relationship stays the same.",
+      "expectedRealization": "The variable may take several values while the relationship stays the same.",
+      "prompt": "For the same rule 2 + 3n, match each number of added groups to its total number of tiles.",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "n = 0 → 2; n = 2 → 8; n = 5 → 17"
+          },
+          {
+            "id": "b",
+            "text": "n = 0 → 0; n = 2 → 6; n = 5 → 15"
+          },
+          {
+            "id": "c",
+            "text": "n = 0 → 2; n = 2 → 7; n = 5 → 10"
+          },
+          {
+            "id": "d",
+            "text": "n = 0 → 3; n = 2 → 7; n = 5 → 13"
+          }
+        ],
+        "correctId": "a"
+      },
+      "correctFeedback": "The variable may take several values while the relationship stays the same.",
+      "incorrectFeedback": "Read what each number counts, then compare the operations with the story.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {
+            "title": "Read the quantities",
+            "body": "With no groups, only the original two tiles remain. Two groups add six tiles, making eight. Five groups add fifteen tiles, making seventeen. The letter does not have one secret value throughout the story."
+          }
+        ],
+        "takeaway": "The variable may take several values while the relationship stays the same."
+      },
+      "estimatedSeconds": 75
+    },
+    {
+      "id": "target-claim",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "A target turns a calculation into a claim that two quantities are equal.",
+      "expectedRealization": "A target turns a calculation into a claim that two quantities are equal.",
+      "prompt": "Now a strip must contain exactly 20 tiles. Which statement adds that condition to our rule?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "2 + 3n"
+          },
+          {
+            "id": "b",
+            "text": "2 + 3n = 20"
+          },
+          {
+            "id": "c",
+            "text": "n = 20"
+          },
+          {
+            "id": "d",
+            "text": "2 + 3 + n = 20"
+          }
+        ],
+        "correctId": "b"
+      },
+      "correctFeedback": "A target turns a calculation into a claim that two quantities are equal.",
+      "incorrectFeedback": "Read what each number counts, then compare the operations with the story.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {
+            "title": "Read the quantities",
+            "body": "The rule 2 + 3n describes a total. The statement 2 + 3n = 20 says that this total equals the required 20 tiles. It is true for n = 6: two starting tiles and six groups of three make twenty."
+          }
+        ],
+        "takeaway": "A target turns a calculation into a claim that two quantities are equal."
+      },
+      "estimatedSeconds": 75,
+      "transitionIn": "The rule allows many sizes. A target now asks us to select a size."
+    },
+    {
+      "id": "name-algebra",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name ideas only after learners have used them.",
+      "name": "Variable, expression, equation",
+      "conciseDefinition": "A variable names a quantity. An expression describes a calculation or quantity. An equation states that two expressions have equal values.",
+      "formalization": "n: number of added groups; 2 + 3n: total tiles; 2 + 3n = 20: total tiles equals 20.",
+      "memoryHook": "Name the quantity. Describe the total. State the equality.",
+      "estimatedSeconds": 50
+    },
+    {
+      "id": "sort-statements",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Separate expressions from equations, including false equations and reversed equality.",
+      "prompt": "Sort these cards by what they are, not by whether they are true. Use n = 6 only to check their truth afterward.",
+      "response": {
+        "kind": "sort",
+        "items": [
+          {
+            "id": "rule",
+            "text": "2 + 3n"
+          },
+          {
+            "id": "reverse",
+            "text": "20 = 2 + 3n"
+          },
+          {
+            "id": "false",
+            "text": "2 + 3n = 19"
+          },
+          {
+            "id": "number",
+            "text": "20"
+          }
+        ],
+        "buckets": [
+          {
+            "id": "expression",
+            "text": "Expression"
+          },
+          {
+            "id": "equation",
+            "text": "Equation"
+          }
+        ],
+        "correctBucketByItem": {
+          "rule": "expression",
+          "reverse": "equation",
+          "false": "equation",
+          "number": "expression"
+        },
+        "feedback": "An equals sign makes a claim of equality. A claim can be true or false; a single number is also an expression."
+      },
+      "correctFeedback": "Both equality claims are equations. The other two cards are expressions.",
+      "incorrectFeedback": "An equation need not be true for the given value, and it need not put the calculation on the left.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {
+            "title": "Read the quantities",
+            "body": "2 + 3n and 20 name quantities. Both cards with = are equations. At n = 6, 20 = 2 + 3n is true and 2 + 3n = 19 is false. Its falsehood does not stop it being an equation."
+          }
+        ],
+        "takeaway": "An equation is an equality claim, not an instruction to write an answer next."
+      },
+      "estimatedSeconds": 100
+    },
+    {
+      "id": "equal-both-directions",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Equality compares the values on both sides.",
+      "expectedRealization": "Equality compares the values on both sides.",
+      "prompt": "A learner writes 8 + 4 = 7 + 5. What does the equals sign say?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "Do 8 + 4, then add 7 and 5"
+          },
+          {
+            "id": "b",
+            "text": "Both sides have the same value"
+          },
+          {
+            "id": "c",
+            "text": "Only a single number may appear on the right"
+          },
+          {
+            "id": "d",
+            "text": "The right side must be calculated first"
+          }
+        ],
+        "correctId": "b"
+      },
+      "correctFeedback": "Equality compares the values on both sides.",
+      "incorrectFeedback": "Read what each number counts, then compare the operations with the story.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {
+            "title": "Read the quantities",
+            "body": "Eight plus four and seven plus five both give twelve. Neither side is an instruction about the order of writing. Swapping the sides preserves the same claim."
+          }
+        ],
+        "takeaway": "Equality compares the values on both sides."
+      },
+      "estimatedSeconds": 75
+    },
+    {
+      "id": "bike-relationship",
+      "phase": "guided-problem",
+      "kind": "interaction",
+      "purpose": "Start money plus weekly earnings describes savings at any whole number of weeks.",
+      "expectedRealization": "Start money plus weekly earnings describes savings at any whole number of weeks.",
+      "prompt": "Chandler receives $50, $35, and $15 for his birthday and earns $16 each week. Let w be the number of weeks worked. Which expression describes his total savings in dollars?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "100 + w"
+          },
+          {
+            "id": "b",
+            "text": "16 + 100w"
+          },
+          {
+            "id": "c",
+            "text": "100 + 16w"
+          },
+          {
+            "id": "d",
+            "text": "500 − 16w"
+          }
+        ],
+        "correctId": "c"
+      },
+      "correctFeedback": "Start money plus weekly earnings describes savings at any whole number of weeks.",
+      "incorrectFeedback": "Read what each number counts, then compare the operations with the story.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {
+            "title": "Read the quantities",
+            "body": "The gifts make a fixed start of 50 + 35 + 15 = 100 dollars. Each of w weeks adds sixteen dollars, so 16w is his paper-route earnings and 100 + 16w is his total savings. No target is needed to describe that total."
+          }
+        ],
+        "takeaway": "Start money plus weekly earnings describes savings at any whole number of weeks."
+      },
+      "estimatedSeconds": 75,
+      "visual": {
+        "primitive": "slot-filler",
+        "data": {
+          "groups": [
+            {
+              "label": "Birthday gifts",
+              "pattern": "$50 + $35 + $15",
+              "calculation": "Fixed start"
+            },
+            {
+              "label": "Paper route",
+              "pattern": "$16 | $16 | …",
+              "calculation": "w equal weekly blocks"
+            }
+          ]
+        },
+        "continuityKey": "bike-savings",
+        "ariaLabel": "Fixed start followed by equal added groups"
+      },
+      "transitionIn": "Keep the fixed start and equal groups, but let the blocks measure dollars instead of tiles."
+    },
+    {
+      "id": "bike-application",
+      "phase": "competition-application",
+      "kind": "problem",
+      "source": "bank",
+      "problemId": "amc8-2007-05",
+      "role": "guided",
+      "presentation": "full-prompt",
+      "purpose": "Impose the authentic target and interpret the resulting equation with arithmetic.",
+      "expectedRealization": "The expression becomes an equation when total savings must equal the bike price.",
+      "whyNow": "The approved savings story applies the start-plus-equal-groups structure after variable meaning and expression/equation distinctions have been established.",
+      "entryBridge": "The savings expression is ready. Now use the bike price to decide when Chandler has enough.",
+      "exitBridge": "The equation selected a week count; the expression still describes his savings in every week.",
+      "reusedRepresentation": "Fixed start plus equal weekly blocks, carried from the tile strip.",
+      "animation": {
+        "mode": "none",
+        "controlledByLesson": true
+      },
+      "learnerPrompts": [
+        "What does 16w measure, and what condition does the $500 price add?"
+      ],
+      "correctFeedback": "Twenty-five weeks adds $400 to the $100 start, reaching $500.",
+      "incorrectFeedback": "Include all three gifts, then compare the money still needed with the $16 earned each week.",
+      "resolution": {
+        "steps": [
+          {
+            "title": "Read the quantities",
+            "body": "Let w count weeks. The target gives 100 + 16w = 500. After the $100 start, $400 remains; $400 ÷ $16 per week = 25 weeks. Check: 100 + 16 × 25 = 500. At 24 weeks he has only $484, so 25 is the first whole week with enough. The equivalent equation 500 = 100 + 16w says exactly the same thing."
+          }
+        ],
+        "takeaway": "An expression describes the savings; an equation imposes the price.",
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              {
+                "label": "Starting savings",
+                "pattern": "$100",
+                "calculation": "50 + 35 + 15 = 100"
+              },
+              {
+                "label": "25 weekly blocks",
+                "pattern": "25 × $16",
+                "calculation": "$400"
+              },
+              {
+                "label": "Enough for the bike",
+                "pattern": "$100 + $400",
+                "calculation": "$500"
+              }
+            ]
+          },
+          "continuityKey": "bike-savings",
+          "ariaLabel": "Fixed start followed by equal added groups"
+        }
+      },
+      "sourceLabelTiming": "before",
+      "estimatedSeconds": 150
+    },
+    {
+      "id": "practice-ribbon",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a1-ribbon",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Independently assess ribbon length.",
+      "whyNow": "Transfer the quantity/expression/equality distinction to a fresh context.",
+      "entryBridge": "Try the same ideas on a length instead of money.",
+      "exitBridge": "Read the letter and each operation back in words to check the relationship.",
+      "animation": {
+        "mode": "none",
+        "controlledByLesson": true
+      },
+      "learnerPrompts": [
+        "What quantity does the letter count, and what does the complete statement mean?"
+      ],
+      "correctFeedback": "Each of the k colored sections contributes 5 cm, for 5k cm. Add the one plain section: 4 + 5k.",
+      "incorrectFeedback": "Identify what the letter counts and whether the card describes a quantity or states an equality.",
+      "resolution": {
+        "steps": [
+          {
+            "title": "Read the quantities",
+            "body": "Each of the k colored sections contributes 5 cm, for 5k cm. Add the one plain section: 4 + 5k."
+          }
+        ],
+        "takeaway": "Check the meaning of the entire statement, including both sides of any equals sign."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 100
+    },
+    {
+      "id": "practice-changing",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a1-changing",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Independently assess one letter, several inputs.",
+      "whyNow": "Transfer the quantity/expression/equality distinction to a fresh context.",
+      "entryBridge": "A letter can describe more than one possible reading session.",
+      "exitBridge": "Read the letter and each operation back in words to check the relationship.",
+      "animation": {
+        "mode": "none",
+        "controlledByLesson": true
+      },
+      "learnerPrompts": [
+        "What quantity does the letter count, and what does the complete statement mean?"
+      ],
+      "correctFeedback": "t counts pages read after breakfast. Add it to the six earlier pages. Substitution gives 6 + 2 = 8 and 6 + 5 = 11.",
+      "incorrectFeedback": "Identify what the letter counts and whether the card describes a quantity or states an equality.",
+      "resolution": {
+        "steps": [
+          {
+            "title": "Read the quantities",
+            "body": "t counts pages read after breakfast. Add it to the six earlier pages. Substitution gives 6 + 2 = 8 and 6 + 5 = 11."
+          }
+        ],
+        "takeaway": "Check the meaning of the entire statement, including both sides of any equals sign."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 100
+    },
+    {
+      "id": "practice-remaining",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a1-remaining",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Independently assess empty seats.",
+      "whyNow": "Transfer the quantity/expression/equality distinction to a fresh context.",
+      "entryBridge": "Now describe what is left, rather than what is added.",
+      "exitBridge": "Read the letter and each operation back in words to check the relationship.",
+      "animation": {
+        "mode": "none",
+        "controlledByLesson": true
+      },
+      "learnerPrompts": [
+        "What quantity does the letter count, and what does the complete statement mean?"
+      ],
+      "correctFeedback": "The groups occupy 4g chairs, so 30 − 4g chairs are empty. Equating this expression to six gives 30 − 4g = 6.",
+      "incorrectFeedback": "Identify what the letter counts and whether the card describes a quantity or states an equality.",
+      "resolution": {
+        "steps": [
+          {
+            "title": "Read the quantities",
+            "body": "The groups occupy 4g chairs, so 30 − 4g chairs are empty. Equating this expression to six gives 30 − 4g = 6."
+          }
+        ],
+        "takeaway": "Check the meaning of the entire statement, including both sides of any equals sign."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 100
+    },
+    {
+      "id": "practice-claim",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a1-claim",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Independently assess a claim can be false.",
+      "whyNow": "Transfer the quantity/expression/equality distinction to a fresh context.",
+      "entryBridge": "Separate the kind of statement from its truth.",
+      "exitBridge": "Read the letter and each operation back in words to check the relationship.",
+      "animation": {
+        "mode": "none",
+        "controlledByLesson": true
+      },
+      "learnerPrompts": [
+        "What quantity does the letter count, and what does the complete statement mean?"
+      ],
+      "correctFeedback": "The cards with an equals sign are equations. With q = 3, 5 + q is 8, so 5 + q = 9 is false. The other equations say 8 = 8 and 9 = 9.",
+      "incorrectFeedback": "Identify what the letter counts and whether the card describes a quantity or states an equality.",
+      "resolution": {
+        "steps": [
+          {
+            "title": "Read the quantities",
+            "body": "The cards with an equals sign are equations. With q = 3, 5 + q is 8, so 5 + q = 9 is false. The other equations say 8 = 8 and 9 = 9."
+          }
+        ],
+        "takeaway": "Check the meaning of the entire statement, including both sides of any equals sign."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 100
+    },
+    {
+      "id": "practice-packing",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a1-packing",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Independently assess pack then set aside.",
+      "whyNow": "Transfer the quantity/expression/equality distinction to a fresh context.",
+      "entryBridge": "Keep track of what happens in every box and what happens only once.",
+      "exitBridge": "Read the letter and each operation back in words to check the relationship.",
+      "animation": {
+        "mode": "none",
+        "controlledByLesson": true
+      },
+      "learnerPrompts": [
+        "What quantity does the letter count, and what does the complete statement mean?"
+      ],
+      "correctFeedback": "Each box contains six counters, so all boxes contain 6b counters. Setting aside three once leaves 6b − 3. Either order of the two sides states that the remainder is 27.",
+      "incorrectFeedback": "Identify what the letter counts and whether the card describes a quantity or states an equality.",
+      "resolution": {
+        "steps": [
+          {
+            "title": "Read the quantities",
+            "body": "Each box contains six counters, so all boxes contain 6b counters. Setting aside three once leaves 6b − 3. Either order of the two sides states that the remainder is 27."
+          }
+        ],
+        "takeaway": "Check the meaning of the entire statement, including both sides of any equals sign."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 100
+    },
+    {
+      "id": "consolidate",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Name the quantity, describe the relationship, then state any equality.",
+      "expectedRealization": "Name the quantity, describe the relationship, then state any equality.",
+      "prompt": "Which summary keeps all three ideas straight?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {
+            "id": "a",
+            "text": "A variable is an object; every expression has one secret answer."
+          },
+          {
+            "id": "b",
+            "text": "An expression and an equation are two names for the same thing."
+          },
+          {
+            "id": "c",
+            "text": "A variable names a quantity; an expression describes a quantity; an equation claims that two quantities are equal."
+          },
+          {
+            "id": "d",
+            "text": "An equals sign means the answer must appear alone on its right."
+          }
+        ],
+        "correctId": "c"
+      },
+      "correctFeedback": "Name the quantity, describe the relationship, then state any equality.",
+      "incorrectFeedback": "Read what each number counts, then compare the operations with the story.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {
+            "title": "Read the quantities",
+            "body": "In the strip, n counts groups, 2 + 3n describes total tiles, and 2 + 3n = 20 imposes a target. In the savings story, w counts weeks, 100 + 16w describes savings, and 100 + 16w = 500 imposes a price."
+          }
+        ],
+        "takeaway": "Name the quantity, describe the relationship, then state any equality."
+      },
+      "estimatedSeconds": 75
+    },
+    {
+      "id": "balance-hook",
+      "phase": "reflection",
+      "kind": "copy",
+      "purpose": "Plant balance-preserving operations for A2 after consolidation.",
+      "heading": "Keeping an equality true",
+      "body": "We checked 100 + 16w = 500 using the story. For a less friendly equation, 137 + 16w = 521, guessing week counts would take more work. Next, we will find moves that simplify an equation while keeping the values on its two sides equal.",
+      "estimatedSeconds": 35
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {
+      "near": 2,
+      "mixed": 2,
+      "challenge": 1
+    },
+    "sessionSelection": [
+      {
+        "source": "generated",
+        "transferLevel": "near",
+        "count": 2
+      },
+      {
+        "source": "generated",
+        "transferLevel": "mixed",
+        "count": 2
+      },
+      {
+        "source": "generated",
+        "transferLevel": "challenge",
+        "count": 1
+      }
+    ],
+    "excludeProblemIds": [
+      "amc8-2007-05"
+    ],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "A1",
+    "evidenceBeatIds": [
+      "practice-ribbon",
+      "practice-changing",
+      "practice-remaining",
+      "practice-claim",
+      "practice-packing"
+    ],
+    "minIndependentPracticeItems": 5,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.2.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "mathinking-lesson-skill-1.0.0",
+    "notes": [
+      "Design: prior number sense supports checking the fixed start; compare concrete sizes before naming n. Tension: a letter need not be one mystery number. New realization: a relationship spans cases until an equality imposes a condition. Forward question: preserve equality while simplifying.",
+      "Beat outline: puzzle/static tile groups -> quantity choice -> rule choice -> multiple inputs -> target claim -> formal names -> statement sort -> equality comparison -> savings translation -> authentic target -> five independent transfers -> consolidation -> balance hook.",
+      "Static slot-filler groups preserve the approved start-plus-increment representation. Motion is unnecessary for comparing quantities; no mapped animation is integrated, so prompts never depend on a hidden timeline.",
+      "Existing generic slot-filler and response primitives suffice; no renderer changes.",
+      "Generated practice verified by semantic derivation and independent concrete-case/choice audits. Lesson remains draft pending human pedagogical review."
+    ]
+  }
+}

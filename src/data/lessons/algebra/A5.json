@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "A5",
+  "curriculumNodeId": "A5",
+  "title": "Functions & Defined Operations",
+  "lessonType": "connector",
+  "status": "draft",
+  "estimatedMinutes": 27,
+  "coreInsight": "A function or defined operation is a rule that transforms inputs; unfamiliar notation becomes manageable once the rule is followed consistently.",
+  "targetLearnerRealization": "A custom symbol is simply a rule; nested operations are evaluated by following the input-output structure from the inside outward.",
+  "learningObjectives": [
+    "Interpret a function as an input-output rule rather than multiplication.",
+    "Use a stated definition to evaluate a custom operation with ordered inputs.",
+    "Evaluate nested functions and operations from the inside outward.",
+    "Represent a function with a rule, table, or mapping while preserving one output per input.",
+    "Turn a known function output into an equation and solve for the input."
+  ],
+  "hardPrerequisites": ["A1", "A2"],
+  "narrativePredecessor": "A2",
+  "continuity": {
+    "openingCallback": "Reuse substitution from equation checking, but now treat the substituted expression as a reusable input-output rule.",
+    "closingSeeds": [
+      "A rule can be followed forward from input to output.",
+      "Nested rules pass an inner output into an outer input.",
+      "A known output can turn a function rule into an equation for an unknown input."
+    ],
+    "nextLessonIds": []
+  },
+  "misconceptionTargets": [
+    {"misconception":"f(x) means f multiplied by x.","beatIds":["machine-first","function-notation","practice-function-value"]},
+    {"misconception":"A newly defined symbol keeps its ordinary arithmetic meaning.","beatIds":["star-anchor","diamond-rule","practice-triangle-rule"]},
+    {"misconception":"Nested functions should be evaluated from the outside inward.","beatIds":["star-anchor","inside-out-order","composition-order","practice-composition","practice-order-difference"]},
+    {"misconception":"A function is only a formula, not a mapping or rule.","beatIds":["mapping-view","name-functions"]}
+  ],
+  "beats": [
+    {
+      "id":"machine-first","phase":"puzzle","kind":"interaction",
+      "purpose":"Create an input-output interpretation before introducing function notation.",
+      "expectedRealization":"One rule transforms each input into an output.",
+      "transitionIn":"Substitution checked whether a value made an equation true. Now use substitution to run the same calculation on any input.",
+      "estimatedSeconds":80,
+      "prompt":"A machine doubles its input and then adds 3. What output does it produce from input 4?",
+      "visual":{"primitive":"slot-filler","data":{"groups":[{"label":"Rule","pattern":"input → double → add 3","calculation":"2(input) + 3"}],"total":"Feed 4 into the empty input slot."},"continuityKey":"double-add-machine","ariaLabel":"An input-output machine that doubles an input and adds three"},
+      "response":{"kind":"single-choice","options":[{"id":"a","text":"8"},{"id":"b","text":"10"},{"id":"c","text":"11"},{"id":"d","text":"14"}],"correctId":"c"},
+      "correctFeedback":"Yes. Doubling 4 gives 8, then adding 3 gives 11.",
+      "incorrectFeedback":"Follow the machine in its stated order: first double 4, then add 3.",
+      "allowRetry":true,
+      "resolution":{"visual":{"primitive":"slot-filler","data":{"groups":[{"label":"Input","pattern":"4","calculation":"start"},{"label":"Double","pattern":"4 → 8","calculation":"2(4) = 8"},{"label":"Add 3","pattern":"8 → 11","calculation":"8 + 3 = 11"}],"total":"Input 4 maps to output 11."},"continuityKey":"double-add-machine","ariaLabel":"Input four passing through doubling and adding three to produce eleven"},"steps":[{"title":"Run the rule","body":"The input replaces the empty slot: 2(4) + 3 = 11."}],"takeaway":"A rule tells how to transform an input into an output."}
+    },
+    {
+      "id":"function-notation","phase":"try","kind":"interaction",
+      "purpose":"Connect the machine rule to function notation and reject a multiplication reading.",
+      "expectedRealization":"f(4) names the output of rule f at input 4.",
+      "transitionIn":"Give the machine the name f. Its rule is f(x) = 2x + 3.",
+      "estimatedSeconds":75,
+      "prompt":"What does f(4) mean?",
+      "response":{"kind":"single-choice","options":[{"id":"output","text":"Use 4 as the input to rule f."},{"id":"multiply","text":"Multiply an unknown number f by 4."},{"id":"pair","text":"Add the symbols f and 4."},{"id":"equation","text":"Solve the equation f × 4 = 0."}],"correctId":"output"},
+      "correctFeedback":"Right. f(4) is the output produced when the input is 4.",
+      "incorrectFeedback":"Here f names a rule. The number inside parentheses is the rule's input.",
+      "allowRetry":true,
+      "resolution":{"steps":[{"title":"Substitute into the rule","body":"f(4) = 2(4) + 3 = 11. The parentheses mark an input; they do not mean f times 4."}],"takeaway":"Read f(x) as “the output of rule f for input x.”"}
+    },
+    {
+      "id":"star-anchor","phase":"competition-application","kind":"problem",
+      "source":"bank","problemId":"amc8-2016-10","role":"anchor","presentation":"full-prompt",
+      "purpose":"Discover that a custom symbol gets its meaning from its definition and that nesting creates an inside-out dependency.",
+      "expectedRealization":"The star is a two-input rule, and the inner star must produce the outer star's second input.",
+      "transitionIn":"A letter can name a rule, but so can an unfamiliar symbol. Its appearance does not decide its meaning; the definition does.",
+      "whyNow":"The authentic problem defines one pure rule and nests it, exposing both notation misconceptions with little extra context.",
+      "entryBridge":"For this problem only, read a ∗ b as “triple the first input, then subtract the second.”",
+      "exitBridge":"The inner output 15 - x becomes one complete input to the outer rule, leaving an ordinary equation.",
+      "reusedRepresentation":"Nested input-output boxes, with the inner output passed into the outer second-input slot.",
+      "animation":{"mode":"whole","controlledByLesson":true,"autoplay":false,"showPlayerControls":false},
+      "learnerPrompts":["What rule does ∗ name in this problem?","Why must 5 ∗ x be evaluated before 2 ∗ (5 ∗ x)?","Where does the complete inner output 15 - x enter the outer rule?","Which input x makes the final output equal 1?"],
+      "correctFeedback":"Correct. Inside-out evaluation gives x - 9 = 1, so x = 10.",
+      "incorrectFeedback":"Use the stated definition, not ordinary multiplication. Find 5 ∗ x first, then feed that whole result into the outer star.",
+      "resolution":{"animation":{"kind":"problem-animation","placement":"before-steps"},"steps":[{"title":"Decode the rule","body":"a ∗ b = 3a - b: triple the first input and subtract the second."},{"title":"Evaluate inside first","body":"5 ∗ x = 3(5) - x = 15 - x."},{"title":"Feed the result outward","body":"2 ∗ (15 - x) = 3(2) - (15 - x) = x - 9."},{"title":"Solve and check","body":"x - 9 = 1 gives x = 10. Then 5 ∗ 10 = 5 and 2 ∗ 5 = 1."}],"takeaway":"A custom symbol obeys its definition, and nested rules run from the inside outward."},
+      "sourceLabelTiming":"before","estimatedSeconds":210
+    },
+    {
+      "id":"inside-out-order","phase":"notice","kind":"interaction",
+      "purpose":"Make the dependency order of nested rules explicit.",
+      "expectedRealization":"The outer rule cannot run until its inner input has become an output.",
+      "transitionIn":"The outer star had an unfinished input until 5 ∗ x was evaluated. Name that dependency before changing notation.",
+      "estimatedSeconds":75,
+      "prompt":"For f(g(3)), which action must happen first?",
+      "response":{"kind":"single-choice","options":[{"id":"inner","text":"Find g(3)."},{"id":"outer","text":"Apply f to 3."},{"id":"multiply","text":"Multiply f, g, and 3."},{"id":"either","text":"Start with either function; order never matters."}],"correctId":"inner"},
+      "correctFeedback":"Yes. g(3) supplies the input that f still needs.",
+      "incorrectFeedback":"Look at what sits directly inside f's parentheses. That inner expression must become a number first.",
+      "allowRetry":true,
+      "resolution":{"visual":{"primitive":"slot-filler","data":{"groups":[{"label":"Inner rule g","pattern":"3 → g(3)","calculation":"produce the input for f"},{"label":"Outer rule f","pattern":"g(3) → f(g(3))","calculation":"use the inner output"}],"total":"Inside output becomes outside input."},"ariaLabel":"Two function machines showing the output of g passed into f"},"steps":[{"title":"Follow the nesting","body":"The expression g(3) is the input written inside f. Until g(3) is known, f has no completed input to transform."}],"takeaway":"Work from the innermost input outward."}
+    },
+    {
+      "id":"mapping-view","phase":"notice","kind":"interaction",
+      "purpose":"Show that a function can be given by input-output pairs rather than a formula.",
+      "expectedRealization":"A function is a consistent assignment of one output to each input, regardless of how the rule is displayed.",
+      "transitionIn":"A formula described the star machine. A list of input-output pairs can describe a rule too.",
+      "estimatedSeconds":85,
+      "prompt":"A rule sends 1 → 4, 2 → 7, and 3 → 10. Which output must be paired with input 2?",
+      "response":{"kind":"single-choice","options":[{"id":"one","text":"1"},{"id":"four","text":"4"},{"id":"seven","text":"7"},{"id":"ten","text":"10"}],"correctId":"seven"},
+      "correctFeedback":"Correct. The displayed mapping assigns the single output 7 to input 2.",
+      "incorrectFeedback":"Read the arrow that starts at input 2; the formula behind the table is not needed.",
+      "allowRetry":true,
+      "resolution":{"visual":{"primitive":"choice-grid","data":{"groups":[{"label":"Inputs","choices":["1","2","3"]},{"label":"Rule arrows","choices":["1 → 4","2 → 7","3 → 10"]},{"label":"Outputs","choices":["4","7","10"]}]},"ariaLabel":"A mapping showing inputs one, two, and three assigned outputs four, seven, and ten"},"steps":[{"title":"Read the assignment","body":"The mapping itself defines the rule on these inputs. Input 2 has exactly one displayed output: 7."}],"takeaway":"A function may be shown by a formula, table, mapping, or verbal rule."}
+    },
+    {
+      "id":"name-functions","phase":"name","kind":"concept",
+      "purpose":"Name functions, evaluation, defined operations, and composition after concrete use.",
+      "expectedRealization":"Different notations can express the same input-rule-output structure.",
+      "estimatedSeconds":65,
+      "name":"Functions, defined operations, and composition",
+      "conciseDefinition":"A function assigns one output to each allowed input. Evaluating means following its rule. A defined operation is a rule with named input positions, and composition feeds one rule's output into another.",
+      "formalization":"input x → inner rule g → g(x) → outer rule f → f(g(x))",
+      "memoryHook":"Definition first; inside out; keep input positions straight."
+    },
+    {
+      "id":"diamond-rule","phase":"play","kind":"interaction",
+      "purpose":"Repair the tendency to give a familiar-looking symbol its ordinary meaning.",
+      "expectedRealization":"The local definition controls the calculation, even when the symbol suggests something else.",
+      "transitionIn":"Treat every newly defined symbol as a machine label. Here ◇ gets a rule of its own.",
+      "estimatedSeconds":80,
+      "prompt":"Define a ◇ b = a + 2b. What is 4 ◇ 3?",
+      "response":{"kind":"single-choice","options":[{"id":"seven","text":"7"},{"id":"ten","text":"10"},{"id":"twelve","text":"12"},{"id":"fourteen","text":"14"}],"correctId":"ten"},
+      "correctFeedback":"Yes. Keep 4 in the first slot and 3 in the second: 4 + 2(3) = 10.",
+      "incorrectFeedback":"Ignore what ◇ might resemble. Substitute a = 4 and b = 3 into the stated rule a + 2b.",
+      "allowRetry":true,
+      "resolution":{"steps":[{"title":"Respect the input positions","body":"The first input replaces a and the second replaces b: 4 ◇ 3 = 4 + 2(3) = 10."}],"takeaway":"A new symbol means exactly what its definition says in that problem."}
+    },
+    {
+      "id":"composition-order","phase":"play","kind":"interaction",
+      "purpose":"Contrast two compositions to show that swapping rule order can change the result.",
+      "expectedRealization":"f(g(x)) and g(f(x)) follow different paths and need not agree.",
+      "transitionIn":"Input positions mattered for ◇. The order of entire one-input rules matters too.",
+      "estimatedSeconds":95,
+      "prompt":"Let f(x) = x + 2 and g(x) = 3x. Which comparison is correct at input 4?",
+      "response":{"kind":"single-choice","options":[{"id":"correct","text":"f(g(4)) = 14 and g(f(4)) = 18"},{"id":"swap","text":"f(g(4)) = 18 and g(f(4)) = 14"},{"id":"equal12","text":"Both outputs equal 12"},{"id":"equal20","text":"Both outputs equal 20"}],"correctId":"correct"},
+      "correctFeedback":"Correct. Multiplying then adding gives 14; adding then multiplying gives 18.",
+      "incorrectFeedback":"Run the rule closest to 4 first in each expression, then pass its output outward.",
+      "allowRetry":true,
+      "resolution":{"visual":{"primitive":"slot-filler","data":{"groups":[{"label":"f(g(4))","pattern":"4 → ×3 → +2","calculation":"4 → 12 → 14"},{"label":"g(f(4))","pattern":"4 → +2 → ×3","calculation":"4 → 6 → 18"}],"total":"Same input, same rules, different order."},"ariaLabel":"Two machine chains applying multiply by three and add two in opposite orders"},"steps":[{"title":"Follow each path","body":"In f(g(4)), g touches 4 first. In g(f(4)), f touches 4 first. The operations therefore act on different intermediate values."}],"takeaway":"Composition order matters: inside first, then outside."}
+    },
+    {
+      "id":"practice-function-value","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-a5-function-value","role":"transfer","presentation":"independent",
+      "purpose":"Assess direct function evaluation.","whyNow":"Begin independent work with one explicit one-input formula.","entryBridge":"Treat 6 as the input replacing x in the complete rule.","exitBridge":"The forward calculation confirms the input-output pair 6 → 23.",
+      "animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["Where does the input 6 replace x?"],"correctFeedback":"Correct. f(6) = 4(6) - 1 = 23.","incorrectFeedback":"Replace x with 6 before applying the operations in the formula.",
+      "resolution":{"steps":[{"title":"Evaluate","body":"f(6) = 4(6) - 1 = 23."}],"takeaway":"Function notation tells which input to substitute into the rule."},"sourceLabelTiming":"hidden","estimatedSeconds":85
+    },
+    {
+      "id":"practice-triangle-rule","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-a5-triangle-rule","role":"transfer","presentation":"independent",
+      "purpose":"Assess a two-input custom definition and ordered substitution.","whyNow":"Change the notation while keeping the definition-first habit.","entryBridge":"Place 5 in the first input slot and 3 in the second.","exitBridge":"The result comes from the stated triangle rule, not the symbol's shape.",
+      "animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["Which number replaces a, and which replaces b?"],"correctFeedback":"Correct. 2(5) + 3 = 13.","incorrectFeedback":"Use the ordered inputs in a △ b = 2a + b.",
+      "resolution":{"steps":[{"title":"Use the definition","body":"5 △ 3 = 2(5) + 3 = 13."}],"takeaway":"Keep each input in its defined position."},"sourceLabelTiming":"hidden","estimatedSeconds":90
+    },
+    {
+      "id":"practice-composition","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-a5-composition","role":"transfer","presentation":"independent",
+      "purpose":"Assess inside-out composition of two functions.","whyNow":"Combine two familiar one-input rules in a nested expression.","entryBridge":"Complete g(4), then use that entire output as f's input.","exitBridge":"The two stages preserve a visible chain from 4 to 12 to 17.",
+      "animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["Which rule receives 4 first?"],"correctFeedback":"Correct. g(4) = 12, then f(12) = 17.","incorrectFeedback":"The innermost rule g receives 4 before f can run.",
+      "resolution":{"visual":{"primitive":"slot-filler","data":{"groups":[{"label":"g first","pattern":"4 → 12","calculation":"g(4) = 3(4)"},{"label":"f second","pattern":"12 → 17","calculation":"f(12) = 12 + 5"}],"total":"f(g(4)) = 17"},"ariaLabel":"Input four passing through g to twelve and then through f to seventeen"},"steps":[{"title":"Evaluate inside out","body":"g(4) = 12, so f(g(4)) = f(12) = 17."}],"takeaway":"An inner output becomes the outer input."},"sourceLabelTiming":"hidden","estimatedSeconds":100
+    },
+    {
+      "id":"practice-reverse-machine","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-a5-reverse-machine","role":"transfer","presentation":"independent",
+      "purpose":"Assess translating a known function output into an equation for its input.","whyNow":"Reverse the input-output direction using familiar equation solving.","entryBridge":"Replace h(x) by its formula, then solve the resulting equality.","exitBridge":"Forward evaluation checks that the recovered input really produces 37.",
+      "animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["What equation results when h(x) and 5x + 2 name the same output?"],"correctFeedback":"Correct. 5x + 2 = 37 gives x = 7.","incorrectFeedback":"Write 5x + 2 = 37, then undo the rule in reverse order.",
+      "resolution":{"steps":[{"title":"Turn output into an equation","body":"h(x) = 37 means 5x + 2 = 37."},{"title":"Solve and check","body":"Subtract 2 and divide by 5: x = 7. Indeed, h(7) = 37."}],"takeaway":"A known output can reveal an unknown input through an equation."},"sourceLabelTiming":"hidden","estimatedSeconds":105
+    },
+    {
+      "id":"practice-order-difference","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-a5-order-difference","role":"transfer","presentation":"independent",
+      "purpose":"Assess two compositions in opposite orders and compare their outputs.","whyNow":"Finish with two nested paths whose difference depends on preserving order.","entryBridge":"Evaluate each composition separately from its own innermost 3.","exitBridge":"The unequal outputs show concretely why composition order cannot be swapped.",
+      "animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["What intermediate value does each inner function produce?"],"correctFeedback":"Correct. The two outputs are 49 and 19, whose difference is 30.","incorrectFeedback":"Compute p(3) before q(p(3)), and compute q(3) before p(q(3)). Keep the two paths separate.",
+      "resolution":{"steps":[{"title":"First path","body":"p(3) = 7, then q(7) = 49."},{"title":"Second path","body":"q(3) = 9, then p(9) = 19."},{"title":"Compare","body":"49 - 19 = 30."}],"takeaway":"Changing composition order changes which intermediate value the outer rule receives."},"sourceLabelTiming":"hidden","estimatedSeconds":120
+    },
+    {
+      "id":"function-routine","phase":"reflection","kind":"interaction",
+      "purpose":"Consolidate definition, input positions, inside-out order, and checking.",
+      "expectedRealization":"Reliable evaluation follows the local rule and dependency structure without guessing from notation.",
+      "transitionIn":"Letters, stars, triangles, formulas, and mappings all used the same input-output safeguards.",
+      "estimatedSeconds":110,
+      "prompt":"Which actions belong in a reliable rule-following routine? Select all four.",
+      "response":{"kind":"multi-select","options":[{"id":"definition","text":"Read the exact definition before interpreting the notation."},{"id":"positions","text":"Keep first, second, and nested input positions distinct."},{"id":"inside","text":"Evaluate the innermost completed input first."},{"id":"check","text":"Check by running the recovered input forward when possible."}],"correctIds":["definition","positions","inside","check"],"feedback":"Each action protects one part of the input-output chain."},
+      "correctFeedback":"Yes—read the rule, place inputs carefully, work inside out, and check the chain.","incorrectFeedback":"All four matter; notation alone cannot replace the definition or the dependency order.","allowRetry":true,
+      "resolution":{"visual":{"primitive":"choice-grid","data":{"groups":[{"label":"1. Decode","choices":["exact local rule"]},{"label":"2. Place","choices":["ordered inputs"]},{"label":"3. Run","choices":["inside → outside"]},{"label":"4. Verify","choices":["input → claimed output"]}]},"ariaLabel":"Four safeguards for evaluating functions and defined operations"},"steps":[{"title":"Keep the chain visible","body":"Writing each intermediate output prevents an inner result from being skipped, reordered, or placed in the wrong slot."}],"takeaway":"Definition first; inside out; verify the full input-output path."}
+    },
+    {
+      "id":"reverse-rule-hook","phase":"reflection","kind":"reflection",
+      "purpose":"Create an unresolved question about reversing rules without asserting a mapped successor.",
+      "expectedRealization":"Some rules can be reversed uniquely, while others may send different inputs to the same output.",
+      "transitionIn":"The rule h(x) = 5x + 2 could be undone from output 37 back to input 7. Not every rule behaves so neatly.",
+      "estimatedSeconds":55,
+      "prompt":"If a rule squares its input, both 3 and -3 produce 9. What extra question must you ask before claiming that an output determines exactly one input?",
+      "takeaway":"A function gives one output per input, but reversing an output may produce one input, several inputs, or none."
+    }
+  ],
+  "practice":{"generatedPoolMinimum":{"near":2,"mixed":2,"challenge":1},"sessionSelection":[{"source":"generated","transferLevel":"near","count":2},{"source":"generated","transferLevel":"mixed","count":2},{"source":"generated","transferLevel":"challenge","count":1}],"excludeProblemIds":["amc8-2016-10"],"requireFreshGeneratedItems":true},
+  "mastery":{"skillId":"A5","evidenceBeatIds":["practice-function-value","practice-triangle-rule","practice-composition","practice-reverse-machine","practice-order-difference"],"minIndependentPracticeItems":5,"recommendedAccuracyThreshold":0.8,"weightMixedTransferMore":true},
+  "generation":{"curriculumVersion":"1.2.0","mappingVersion":"1.0.0","generatorVersion":"mathinking-lesson-skill-1.0.0","notes":["Design: equation-checking substitution becomes a reusable input-output machine. The authentic star problem supplies the central tension: the symbol's appearance is irrelevant, and the outer rule must wait for the inner output. The closing asks when a rule can be reversed uniquely.","Beat outline: machine puzzle -> function notation -> authentic star anchor -> inside-out dependency -> mapping view -> name functions and composition -> custom-symbol check -> order comparison -> five independent problems -> consolidation -> reverse-rule hook.","The authentic animation appears only after submission; four prompts align with its four states. Existing slot-filler and choice-grid primitives suffice, so no renderer changes were needed.","All generated answers were verified by direct evaluation and independently by inverse checking, symbolic composition, or exhaustive option audit. The lesson remains draft pending human pedagogical review."]}
+}
