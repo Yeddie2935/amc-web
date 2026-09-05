@@ -1,0 +1,261 @@
+[
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "P3",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["P3", "P1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-p3-not-prime",
+      "title": "A Non-Prime Card",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Complementary Probability",
+      "difficulty": 1,
+      "statement": "One card is chosen at random from cards numbered 1 through 10. What is the probability that the chosen number is not prime?",
+      "choices": [
+        {"label": "A", "text": "2/5"},
+        {"label": "B", "text": "1/2"},
+        {"label": "C", "text": "3/5"},
+        {"label": "D", "text": "7/10"},
+        {"label": "E", "text": "4/5"}
+      ],
+      "answer": "C",
+      "shortAnswer": "3/5",
+      "hints": ["The prime cards are 2, 3, 5, and 7.", "Subtract the probability of choosing one of those four cards from 1."],
+      "solutionSteps": [
+        {"title": "Count the complement", "body": "Four of the ten cards are prime: 2, 3, 5, and 7."},
+        {"title": "Subtract from 1", "body": "The probability of not prime is 1-4/10=6/10=3/5."}
+      ],
+      "tags": ["probability", "complement", "prime numbers", "cards"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "direct complement count: four prime cards among ten gives 1-4/10=3/5",
+        "independent enumeration of non-primes {1,4,6,8,9,10} gives 6/10=3/5",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: six of ten equally likely cards are non-prime, so the probability is 3/5."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "P3",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["P3", "P1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-p3-at-least-one-tail",
+      "title": "At Least One Tail",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Complementary Probability",
+      "difficulty": 1,
+      "statement": "A fair coin is tossed three times. What is the probability of getting at least one tail?",
+      "choices": [
+        {"label": "A", "text": "1/8"},
+        {"label": "B", "text": "3/8"},
+        {"label": "C", "text": "1/2"},
+        {"label": "D", "text": "3/4"},
+        {"label": "E", "text": "7/8"}
+      ],
+      "answer": "E",
+      "shortAnswer": "7/8",
+      "hints": ["At least one tail fails only when all three tosses are heads.", "HHH is one of eight equally likely outcomes."],
+      "solutionSteps": [
+        {"title": "Name the complement", "body": "The complement of at least one tail is no tails, which is HHH."},
+        {"title": "Measure the complement", "body": "HHH has probability 1/8."},
+        {"title": "Subtract", "body": "The desired probability is 1-1/8=7/8."}
+      ],
+      "tags": ["probability", "complement", "coins", "at least one"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "complement calculation 1-P(HHH)=1-1/8=7/8",
+        "independent exhaustive enumeration of eight coin strings, seven containing at least one T",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: only HHH fails, leaving seven favorable outcomes among eight."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "P3",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["P3", "P1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-p3-not-exactly-one",
+      "title": "Not Exactly One Head",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Complementary Probability",
+      "difficulty": 2,
+      "statement": "Two fair coins are tossed. What is the probability of not getting exactly one head?",
+      "choices": [
+        {"label": "A", "text": "1/4"},
+        {"label": "B", "text": "1/3"},
+        {"label": "C", "text": "1/2"},
+        {"label": "D", "text": "3/4"},
+        {"label": "E", "text": "1"}
+      ],
+      "answer": "C",
+      "shortAnswer": "1/2",
+      "hints": ["Exactly one head occurs in HT and TH.", "Not exactly one includes both HH and TT."],
+      "solutionSteps": [
+        {"title": "Measure exactly one", "body": "HT and TH are two of the four equally likely outcomes, so P(exactly one head)=2/4."},
+        {"title": "Use the complement", "body": "P(not exactly one head)=1-2/4=1/2."},
+        {"title": "Check the language", "body": "The complement contains HH and TT: two heads or no heads."}
+      ],
+      "tags": ["probability", "complement", "coins", "exactly one"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "complement calculation 1-P({HT,TH})=1-2/4=1/2",
+        "independent direct enumeration of favorable outcomes {HH,TT} gives 2/4=1/2",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: HH and TT are the two not-exactly-one outcomes, giving 1/2."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "P3",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["P3", "C1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-p3-spinner-at-least-one-four",
+      "title": "A Four in Three Spins",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Complementary Probability",
+      "difficulty": 2,
+      "statement": "A fair spinner has four equal sections numbered 1, 2, 3, and 4. The spinner is spun three times. What is the probability that at least one spin lands on 4?",
+      "choices": [
+        {"label": "A", "text": "9/64"},
+        {"label": "B", "text": "27/64"},
+        {"label": "C", "text": "1/2"},
+        {"label": "D", "text": "37/64"},
+        {"label": "E", "text": "3/4"}
+      ],
+      "answer": "D",
+      "shortAnswer": "37/64",
+      "hints": ["The complement is no 4 on any spin.", "There are three non-4 choices on each spin."],
+      "solutionSteps": [
+        {"title": "Count all sequences", "body": "There are 4^3=64 equally likely three-spin sequences."},
+        {"title": "Count the complement", "body": "No 4 leaves three choices on each spin, making 3^3=27 sequences."},
+        {"title": "Subtract", "body": "The probability is 1-27/64=37/64."}
+      ],
+      "tags": ["probability", "complement", "spinner", "at least one"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "complement count 1-3^3/4^3=1-27/64=37/64",
+        "independent binomial sum C(3,1)3^2+C(3,2)3+C(3,3)=27+9+1=37 favorable sequences",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: 37 of 64 sequences contain one, two, or three occurrences of 4."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "P3",
+    "purpose": "practice",
+    "transferLevel": "challenge",
+    "targetConcepts": ["P3", "C1", "C5"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-p3-at-least-one-repeat",
+      "title": "At Least One Repeated Roll",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Complementary Probability",
+      "difficulty": 3,
+      "statement": "A fair four-sided die numbered 1 through 4 is rolled three times. What is the probability that at least two of the rolls show the same number?",
+      "choices": [
+        {"label": "A", "text": "1/4"},
+        {"label": "B", "text": "3/8"},
+        {"label": "C", "text": "1/2"},
+        {"label": "D", "text": "5/8"},
+        {"label": "E", "text": "3/4"}
+      ],
+      "answer": "D",
+      "shortAnswer": "5/8",
+      "hints": ["The complement is that all three rolls are distinct.", "For distinct rolls there are 4 choices, then 3, then 2."],
+      "solutionSteps": [
+        {"title": "Count the whole", "body": "There are 4^3=64 equally likely roll sequences."},
+        {"title": "Count all-distinct sequences", "body": "There are 4 choices for the first roll, 3 different choices for the second, and 2 unused choices for the third: 4·3·2=24."},
+        {"title": "Subtract", "body": "The desired probability is 1-24/64=40/64=5/8."}
+      ],
+      "tags": ["probability", "complement", "repeated outcomes", "four-sided die"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "complement count 1-(4·3·2)/4^3=1-24/64=5/8",
+        "independent favorable count: 4 all-equal sequences plus 4 choices for repeated value times 3 choices for distinct value times 3 positions, totaling 4+36=40",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: 40 of 64 sequences contain a repeated value, so the probability is 5/8."]
+    }
+  }
+]
