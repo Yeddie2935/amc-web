@@ -1,0 +1,85 @@
+[
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F2", "purpose": "practice", "transferLevel": "near", "targetConcepts": ["F2"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-f2-seven-tenths", "title": "Three Names for Seven Tenths", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Equivalent representations", "difficulty": 1,
+      "statement": "Which row gives three equivalent names for the same number?",
+      "choices": [
+        {"label": "A", "text": "7/10 = 0.7 = 70%"}, {"label": "B", "text": "7/10 = 0.07 = 7%"}, {"label": "C", "text": "7/10 = 7.0 = 700%"}, {"label": "D", "text": "7/10 = 0.17 = 17%"}, {"label": "E", "text": "7/10 = 0.10 = 10%"}
+      ],
+      "answer": "A", "shortAnswer": "7/10 = 0.7 = 70%", "hints": ["Seven tenths is also seventy hundredths."],
+      "solutionSteps": [{"title": "Rename the parts", "body": "7/10 = 70/100. Seven tenths is 0.7 in decimal form and 70% in percent form."}],
+      "tags": ["fractions", "decimals", "percents"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Equivalent-fraction derivation: 7/10 = 70/100, hence 0.7 and 70%.", "Independent decimal audit: divide 7 by 10 to get 0.7 and multiply each option's decimal by 100; only A produces the stated percent and fraction."],
+      "notes": ["All distractors change place value rather than preserve magnitude."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F2", "purpose": "practice", "transferLevel": "near", "targetConcepts": ["F2"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-f2-same-five-pieces", "title": "Five Pieces from Different Cuts", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Fraction comparison", "difficulty": 1,
+      "statement": "Two equal-length bars are cut into equal pieces. Which comparison is correct?",
+      "choices": [
+        {"label": "A", "text": "5/12 > 5/8"}, {"label": "B", "text": "5/12 = 5/8"}, {"label": "C", "text": "5/8 > 5/12"}, {"label": "D", "text": "12/5 < 8/5"}, {"label": "E", "text": "The fractions cannot be compared."}
+      ],
+      "answer": "C", "shortAnswer": "5/8 > 5/12", "hints": ["Both fractions select five pieces; compare the size of one piece."],
+      "solutionSteps": [{"title": "Compare slice size", "body": "Eighths are larger than twelfths when the wholes match. Selecting five of each gives 5/8 > 5/12."}],
+      "tags": ["fractions", "comparison", "denominators"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Unit-fraction argument: 1/8 > 1/12, so multiplying both by positive 5 gives 5/8 > 5/12.", "Independent cross-product and choice audit: 5×12 = 60 > 5×8 = 40; only C states the resulting order."],
+      "notes": ["Equal wholes are stated explicitly."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F2", "purpose": "practice", "transferLevel": "mixed", "targetConcepts": ["F2"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-f2-mixed-order", "title": "Order Three Forms", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Equivalent representations", "difficulty": 1,
+      "statement": "Which is the correct order of 0.45, 1/2, and 48% from least to greatest?",
+      "choices": [
+        {"label": "A", "text": "0.45 < 48% < 1/2"}, {"label": "B", "text": "0.45 < 1/2 < 48%"}, {"label": "C", "text": "48% < 0.45 < 1/2"}, {"label": "D", "text": "1/2 < 48% < 0.45"}, {"label": "E", "text": "48% < 1/2 < 0.45"}
+      ],
+      "answer": "A", "shortAnswer": "0.45 < 48% < 1/2", "hints": ["Give all three values decimal names."],
+      "solutionSteps": [{"title": "Use one representation", "body": "0.45 stays 0.45, 48% = 0.48, and 1/2 = 0.50. Therefore 0.45 < 48% < 1/2."}],
+      "tags": ["fractions", "decimals", "percents", "ordering"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Decimal normalization: the values are 0.45, 0.50, and 0.48, giving A.", "Independent hundredths placement: 45/100 < 48/100 < 50/100; audit of all five orders leaves only A."],
+      "notes": ["The three forms must be unified before comparison."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F2", "purpose": "practice", "transferLevel": "mixed", "targetConcepts": ["F2"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-f2-library-percent", "title": "Percent of Which Whole?", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Percents", "difficulty": 1,
+      "statement": "A shelf contains 80 books. Exactly 35% of the books are mysteries. How many mystery books are on the shelf?",
+      "choices": [
+        {"label": "A", "text": "18"}, {"label": "B", "text": "24"}, {"label": "C", "text": "28"}, {"label": "D", "text": "35"}, {"label": "E", "text": "45"}
+      ],
+      "answer": "C", "shortAnswer": "28 books", "hints": ["The whole is the 80 books; find 35 hundredths of it."],
+      "solutionSteps": [{"title": "Use the whole", "body": "35% of 80 is 0.35 × 80 = 28. Equivalently, 10% is 8 and 5% is 4, so 30% + 5% is 24 + 4 = 28."}],
+      "tags": ["percents", "whole", "mental math"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Decimal calculation: 0.35 × 80 = 28.", "Independent benchmark decomposition: 30% of 80 is 24 and 5% is 4, totaling 28; only choice C matches."],
+      "notes": ["The reference whole is explicit and necessary."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F2", "purpose": "practice", "transferLevel": "challenge", "targetConcepts": ["F2"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-f2-five-eighths", "title": "Complete the Equivalent Triple", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Equivalent representations", "difficulty": 2,
+      "statement": "A point on a number line is labeled 0.625. Which pair gives a fraction and a percent for that same point?",
+      "choices": [
+        {"label": "A", "text": "5/8 and 62.5%"}, {"label": "B", "text": "5/8 and 6.25%"}, {"label": "C", "text": "3/8 and 37.5%"}, {"label": "D", "text": "625/10 and 625%"}, {"label": "E", "text": "8/5 and 160%"}
+      ],
+      "answer": "A", "shortAnswer": "5/8 and 62.5%", "hints": ["Write 0.625 as thousandths, simplify, and then count hundredths."],
+      "solutionSteps": [
+        {"title": "Find the fraction", "body": "0.625 = 625/1000. Dividing numerator and denominator by 125 gives 5/8."},
+        {"title": "Find the percent", "body": "0.625 × 100 = 62.5, so the percent is 62.5%."}
+      ],
+      "tags": ["fractions", "decimals", "percents", "simplifying"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Place-value derivation: 0.625 = 625/1000 = 5/8 and 0.625 = 62.5/100 = 62.5%.", "Independent division and option audit: 5 ÷ 8 = 0.625; converting each offered percent to a decimal shows only 62.5% also equals 0.625."],
+      "notes": ["The value complements the lesson's 3/8 example without duplicating it."]}
+  }
+]

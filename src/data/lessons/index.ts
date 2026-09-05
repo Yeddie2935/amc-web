@@ -14,6 +14,20 @@ import a7LessonData from "./algebra/A7.json";
 import a7GeneratedProblemData from "./generated-problems/A7.json";
 import a8LessonData from "./algebra/A8.json";
 import a8GeneratedProblemData from "./generated-problems/A8.json";
+import f1LessonData from "./foundations/F1.json";
+import f1GeneratedProblemData from "./generated-problems/F1.json";
+import f2LessonData from "./foundations/F2.json";
+import f2GeneratedProblemData from "./generated-problems/F2.json";
+import f3LessonData from "./foundations/F3.json";
+import f3GeneratedProblemData from "./generated-problems/F3.json";
+import f4LessonData from "./foundations/F4.json";
+import f4GeneratedProblemData from "./generated-problems/F4.json";
+import f5LessonData from "./foundations/F5.json";
+import f5GeneratedProblemData from "./generated-problems/F5.json";
+import f6LessonData from "./foundations/F6.json";
+import f6GeneratedProblemData from "./generated-problems/F6.json";
+import f7LessonData from "./foundations/F7.json";
+import f7GeneratedProblemData from "./generated-problems/F7.json";
 import type {
   GeneratedProblemArtifact,
   LessonSpec,
@@ -89,12 +103,82 @@ const p2GeneratedProblemArtifacts =
 const p3Lesson = p3LessonData as LessonSpec;
 const p3GeneratedProblemArtifacts =
   p3GeneratedProblemData as GeneratedProblemArtifact[];
+const f1Lesson = f1LessonData as LessonSpec;
+const f1GeneratedProblemArtifacts =
+  f1GeneratedProblemData as GeneratedProblemArtifact[];
+const f2Lesson = f2LessonData as LessonSpec;
+const f2GeneratedProblemArtifacts =
+  f2GeneratedProblemData as GeneratedProblemArtifact[];
+const f3Lesson = f3LessonData as LessonSpec;
+const f3GeneratedProblemArtifacts =
+  f3GeneratedProblemData as GeneratedProblemArtifact[];
+const f4Lesson = f4LessonData as LessonSpec;
+const f4GeneratedProblemArtifacts =
+  f4GeneratedProblemData as GeneratedProblemArtifact[];
+const f5Lesson = f5LessonData as LessonSpec;
+const f5GeneratedProblemArtifacts =
+  f5GeneratedProblemData as GeneratedProblemArtifact[];
+const f6Lesson = f6LessonData as LessonSpec;
+const f6GeneratedProblemArtifacts =
+  f6GeneratedProblemData as GeneratedProblemArtifact[];
+const f7Lesson = f7LessonData as LessonSpec;
+const f7GeneratedProblemArtifacts =
+  f7GeneratedProblemData as GeneratedProblemArtifact[];
 
 /**
  * Declarative lesson catalog. Adding another lesson only requires registering
  * its spec and generated artifacts here; rendering remains lesson-agnostic.
  */
 const lessonRegistry = new Map<string, LessonBundle>([
+  [
+    f1Lesson.lessonId,
+    {
+      lesson: f1Lesson,
+      generatedProblemArtifacts: f1GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    f2Lesson.lessonId,
+    {
+      lesson: f2Lesson,
+      generatedProblemArtifacts: f2GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    f3Lesson.lessonId,
+    {
+      lesson: f3Lesson,
+      generatedProblemArtifacts: f3GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    f4Lesson.lessonId,
+    {
+      lesson: f4Lesson,
+      generatedProblemArtifacts: f4GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    f5Lesson.lessonId,
+    {
+      lesson: f5Lesson,
+      generatedProblemArtifacts: f5GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    f6Lesson.lessonId,
+    {
+      lesson: f6Lesson,
+      generatedProblemArtifacts: f6GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    f7Lesson.lessonId,
+    {
+      lesson: f7Lesson,
+      generatedProblemArtifacts: f7GeneratedProblemArtifacts,
+    },
+  ],
   ["A1", { lesson: a1LessonData as LessonSpec, generatedProblemArtifacts: a1GeneratedProblemData as GeneratedProblemArtifact[] }],
   ["A2", { lesson: a2LessonData as LessonSpec, generatedProblemArtifacts: a2GeneratedProblemData as GeneratedProblemArtifact[] }],
   ["A3", { lesson: a3LessonData as LessonSpec, generatedProblemArtifacts: a3GeneratedProblemData as GeneratedProblemArtifact[] }],

@@ -1,0 +1,60 @@
+[
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F4", "purpose": "practice", "transferLevel": "near", "targetConcepts": ["F4"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f4-notebook-price", "title": "Price per Notebook", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Unit rates", "difficulty": 1,
+      "statement": "Six identical notebooks cost $18 altogether. What is the cost per notebook?",
+      "choices": [{"label": "A", "text": "$2"}, {"label": "B", "text": "$3"}, {"label": "C", "text": "$6"}, {"label": "D", "text": "$12"}, {"label": "E", "text": "$108"}],
+      "answer": "B", "shortAnswer": "$3 per notebook", "hints": ["Per one notebook means divide the total dollars by six notebooks."],
+      "solutionSteps": [{"title": "Normalize to one", "body": "$18 ÷ 6 notebooks = $3 per notebook."}],
+      "tags": ["rates", "unit rate", "money"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Equal-share calculation: 18/6 = 3 dollars per notebook.", "Independent multiplication check: 6 notebooks × $3/notebook = $18; only B reconstructs the stated total."], "notes": ["The requested unit is explicit."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F4", "purpose": "practice", "transferLevel": "near", "targetConcepts": ["F4"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f4-walking-distance", "title": "Scale a Walking Rate", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Rates", "difficulty": 1,
+      "statement": "Mina walks 15 miles in 3 hours at a constant rate. How far does she walk in 7 hours?",
+      "choices": [{"label": "A", "text": "21 miles"}, {"label": "B", "text": "25 miles"}, {"label": "C", "text": "35 miles"}, {"label": "D", "text": "45 miles"}, {"label": "E", "text": "105 miles"}],
+      "answer": "C", "shortAnswer": "35 miles", "hints": ["First find miles per one hour."],
+      "solutionSteps": [{"title": "Find and use the unit rate", "body": "15 miles ÷ 3 hours = 5 miles per hour. Then 5 miles/hour × 7 hours = 35 miles."}],
+      "tags": ["rates", "distance", "time"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Unit-rate method: 15/3 = 5 miles/hour and 5×7 = 35 miles.", "Independent proportion audit: 15/3 = x/7 gives 3x = 105 and x = 35; only C matches."], "notes": ["The constant-rate condition licenses direct scaling."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F4", "purpose": "practice", "transferLevel": "mixed", "targetConcepts": ["F4"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f4-reading-time", "title": "Minutes for 600 Words", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Rates and units", "difficulty": 1,
+      "statement": "A reader finishes 240 words in 4 minutes at a constant rate. How many minutes will 600 words take?",
+      "choices": [{"label": "A", "text": "6"}, {"label": "B", "text": "8"}, {"label": "C", "text": "10"}, {"label": "D", "text": "12"}, {"label": "E", "text": "15"}],
+      "answer": "C", "shortAnswer": "10 minutes", "hints": ["Find words per minute, then divide words by words per minute."],
+      "solutionSteps": [{"title": "Track the units", "body": "240 words ÷ 4 minutes = 60 words/minute. Then 600 words ÷ 60 words/minute = 10 minutes."}],
+      "tags": ["rates", "inverse operation", "time"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Unit-chain method: 240/4 = 60 words/minute and 600/(60 words/minute) = 10 minutes.", "Independent scale-factor check: 600/240 = 2.5, so time is 4×2.5 = 10 minutes; only C matches."], "notes": ["The target asks for the inverse quantity, time rather than output."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F4", "purpose": "practice", "transferLevel": "mixed", "targetConcepts": ["F4"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f4-fuel-rate", "title": "Miles per Gallon", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Unit rates", "difficulty": 1,
+      "statement": "A car travels 120 miles using 3 gallons of fuel. What is its average rate in miles per gallon?",
+      "choices": [{"label": "A", "text": "3 miles per gallon"}, {"label": "B", "text": "30 miles per gallon"}, {"label": "C", "text": "40 miles per gallon"}, {"label": "D", "text": "117 miles per gallon"}, {"label": "E", "text": "360 miles per gallon"}],
+      "answer": "C", "shortAnswer": "40 miles per gallon", "hints": ["The phrase miles per gallon fixes the division order."],
+      "solutionSteps": [{"title": "Follow the requested unit", "body": "Miles per gallon means miles divided by gallons: 120 ÷ 3 = 40 miles per gallon."}],
+      "tags": ["rates", "units", "division"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Requested-unit calculation: 120 miles/3 gallons = 40 miles per gallon.", "Independent reconstruction: 40 miles/gallon × 3 gallons = 120 miles; only C reconstructs the trip."], "notes": ["The wording makes per operational rather than decorative."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F4", "purpose": "practice", "transferLevel": "challenge", "targetConcepts": ["F4"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f4-compare-cyclists", "title": "Compare Two Cycling Rates", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Rate comparison", "difficulty": 2,
+      "statement": "Cyclist A travels 150 miles in 3 hours. Cyclist B travels 224 miles in 4 hours. Who has the greater average speed, and by how many miles per hour?",
+      "choices": [{"label": "A", "text": "A by 6 miles per hour"}, {"label": "B", "text": "A by 56 miles per hour"}, {"label": "C", "text": "B by 6 miles per hour"}, {"label": "D", "text": "B by 24 miles per hour"}, {"label": "E", "text": "They have equal speeds"}],
+      "answer": "C", "shortAnswer": "Cyclist B by 6 miles per hour", "hints": ["Normalize both trips to miles per one hour before comparing."],
+      "solutionSteps": [
+        {"title": "Find both unit rates", "body": "Cyclist A averages 150/3 = 50 miles per hour. Cyclist B averages 224/4 = 56 miles per hour."},
+        {"title": "Compare like units", "body": "56 − 50 = 6, so Cyclist B is faster by 6 miles per hour."}
+      ],
+      "tags": ["rates", "comparison", "units"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Separate unit-rate computation: 150/3 = 50 mph and 224/4 = 56 mph; difference 6 mph favors B.", "Independent common-time check: in 12 hours A would travel 600 miles and B 672 miles, a 72-mile difference over 12 hours, equivalent to 6 mph; only C matches."], "notes": ["Both quantities are normalized to identical units before subtraction."]}
+  }
+]

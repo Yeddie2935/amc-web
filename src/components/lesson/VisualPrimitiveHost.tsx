@@ -284,6 +284,63 @@ function SortIntoCases({ data }: { data: JsonObject }) {
   );
 }
 
+function BarsAndGroups({ data }: { data: JsonObject }) {
+  const bars = asObjectList(data.bars);
+  if (!bars || bars.length === 0 || bars.length > 8) {
+    return <VisualFallback message='A bars-and-groups visual requires a nonempty "bars" array with at most eight rows.' />;
+  }
+
+  const parsed = bars.map((bar) => ({
+    label: asString(bar.label),
+    segments: asNumber(bar.segments),
+    filled: asNumber(bar.filled),
+    valueLabel: asString(bar.valueLabel),
+  }));
+  if (
+    parsed.some(
+      (bar) =>
+        !bar.label ||
+        bar.segments === null ||
+        !Number.isInteger(bar.segments) ||
+        bar.segments < 1 ||
+        bar.segments > 20 ||
+        bar.filled === null ||
+        !Number.isInteger(bar.filled) ||
+        bar.filled < 0 ||
+        bar.filled > bar.segments
+    )
+  ) {
+    return <VisualFallback message="Every bar needs a label, 1–20 whole-number segments, and a filled count between zero and the segment count." />;
+  }
+
+  return (
+    <div className="fmj-lesson-bars-and-groups">
+      {parsed.map((bar, barIndex) => (
+        <section key={`${bar.label}-${barIndex}`}>
+          <div className="fmj-lesson-bar-heading">
+            <strong>{bar.label}</strong>
+            {bar.valueLabel && <span>{bar.valueLabel}</span>}
+          </div>
+          <div
+            className="fmj-lesson-segmented-bar"
+            style={{ gridTemplateColumns: `repeat(${bar.segments}, minmax(0, 1fr))` }}
+            role="img"
+            aria-label={`${bar.label}: ${bar.filled} of ${bar.segments} equal parts filled${bar.valueLabel ? `, ${bar.valueLabel}` : ""}`}
+          >
+            {Array.from({ length: bar.segments! }, (_, segmentIndex) => (
+              <span
+                key={segmentIndex}
+                className={segmentIndex < bar.filled! ? "filled" : ""}
+                aria-hidden="true"
+              />
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  );
+}
+
 function OutcomeGrid({ data }: { data: JsonObject }) {
   const rows = asStringList(data.rows);
   const columns = asStringList(data.columns);
@@ -569,6 +626,8 @@ export function VisualPrimitiveHost({ visual }: VisualPrimitiveHostProps) {
         return <VennBuilder data={visual.data} />;
       case "slot-filler":
         return <SlotFiller data={visual.data} />;
+      case "bars-and-groups":
+        return <BarsAndGroups data={visual.data} />;
       case "number-line":
         return <NumberLine data={visual.data} />;
       case "data-graph":

@@ -412,6 +412,54 @@
   overflow-x: auto;
 }
 
+.fmj-lesson-bars-and-groups {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.fmj-lesson-bars-and-groups section {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.fmj-lesson-bar-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--fmj-text, #1f2a44);
+}
+
+.fmj-lesson-bar-heading span {
+  color: #475569;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.fmj-lesson-segmented-bar {
+  display: grid;
+  min-height: 2.5rem;
+  overflow: hidden;
+  border: 2px solid #64748b;
+  border-radius: 0.65rem;
+  background: #fff;
+}
+
+.fmj-lesson-segmented-bar span {
+  min-width: 0;
+  border-inline-start: 1px solid #94a3b8;
+  background: #f8fafc;
+}
+
+.fmj-lesson-segmented-bar span:first-child {
+  border-inline-start: 0;
+}
+
+.fmj-lesson-segmented-bar span.filled {
+  background: linear-gradient(135deg, #818cf8, #4f46e5);
+}
+
 .fmj-lesson-number-line svg {
   display: block;
   width: 100%;

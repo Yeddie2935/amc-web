@@ -1,0 +1,239 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "F4",
+  "curriculumNodeId": "F4",
+  "title": "Rates, Units & Proportional Reasoning",
+  "lessonType": "foundation",
+  "status": "draft",
+  "estimatedMinutes": 24,
+  "coreInsight": "A rate is a ratio connecting quantities with different units, and the units themselves reveal how the quantities relate.",
+  "targetLearnerRealization": "The word 'per' connects two different units, and dimensional meaning often tells us whether to multiply or divide.",
+  "learningObjectives": [
+    "Normalize a rate to an amount per one unit.",
+    "Use units to decide whether to multiply or divide.",
+    "Distinguish a rate from a total amount.",
+    "Recognize when a fixed extra amount prevents direct proportionality."
+  ],
+  "hardPrerequisites": ["F3"],
+  "narrativePredecessor": "F3",
+  "continuity": {
+    "openingCallback": "Turn a scaled ratio into a per-one quantity while keeping both units visible.",
+    "closingSeeds": ["A constant rate can be shown as a constant steepness on a graph.", "Unit tracking can check multi-step calculations beyond rate problems."],
+    "nextLessonIds": []
+  },
+  "misconceptionTargets": [
+    {"misconception": "Units can be ignored once numbers are written down.", "beatIds": ["ticket-unit-rate", "choose-operation-by-units", "storm-unit-chain", "unit-recap"]},
+    {"misconception": "Rate and total amount are the same kind of quantity.", "beatIds": ["rebuild-ticket-total", "name-rate", "printer-transfer"]},
+    {"misconception": "Every rate problem is direct proportion.", "beatIds": ["faster-time", "fixed-fee-trap", "unit-recap"]},
+    {"misconception": "The word per can be treated as decoration rather than division.", "beatIds": ["ticket-unit-rate", "name-rate", "storm-unit-chain"]}
+  ],
+  "beats": [
+    {
+      "id": "ticket-unit-rate",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Isolate normalization to one unit with visible dollar and ticket units.",
+      "expectedRealization": "Twelve dollars for three tickets compresses to four dollars per one ticket.",
+      "transitionIn": "The cyclist's 36 miles in 3 hours became 12 miles in 1 hour. Use the same batch-shrinking move with different units.",
+      "estimatedSeconds": 80,
+      "prompt": "Three identical tickets cost $12 altogether. What is the cost per ticket?",
+      "visual": {"primitive": "choice-grid", "data": {"groups": [{"label": "$12 total", "choices": ["ticket", "ticket", "ticket"]}]}, "continuityKey": "f4-ticket-rate", "ariaLabel": "Three identical tickets sharing a total cost of twelve dollars"},
+      "response": {"kind": "numeric", "answer": 4, "units": "dollars per ticket", "feedback": "Share the total dollars equally among the three tickets."},
+      "correctFeedback": "Yes. $12 ÷ 3 tickets = $4 per ticket.",
+      "incorrectFeedback": "The question asks for one ticket, so divide the total cost by the number of tickets.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Normalize the batch", "body": "Divide both quantities by 3: $12 for 3 tickets becomes $4 for 1 ticket."},
+        {"title": "Keep the unit", "body": "The result is not merely 4. It is 4 dollars per ticket."}
+      ], "takeaway": "Per one comes from dividing by the number of units."
+      }
+    },
+    {
+      "id": "rebuild-ticket-total",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Scale a unit rate back to a total and distinguish the two kinds of quantities.",
+      "expectedRealization": "A total cost combines dollars per ticket with a number of tickets.",
+      "transitionIn": "The batch is compressed to $4 per ticket. Now rebuild a larger purchase.",
+      "estimatedSeconds": 70,
+      "prompt": "At $4 per ticket, what is the total cost of 7 tickets?",
+      "response": {"kind": "numeric", "answer": 28, "units": "dollars", "feedback": "Combine 4 dollars for each of 7 tickets."},
+      "correctFeedback": "Correct. $4 per ticket × 7 tickets = $28.",
+      "incorrectFeedback": "The rate gives dollars for one ticket; repeat that amount seven times.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Combine the units", "body": "Multiplying dollars per ticket by tickets leaves dollars."},
+        {"title": "Calculate", "body": "$4/ticket × 7 tickets = $28. The rate is $4 per ticket; the total is $28."}
+      ], "takeaway": "Rate × number of units = total amount."
+      }
+    },
+    {
+      "id": "choose-operation-by-units",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Use dimensional meaning to select division in an inverse-looking time question.",
+      "expectedRealization": "Dividing distance by distance per hour leaves hours.",
+      "transitionIn": "Units canceled tickets in the total-cost calculation. Let them choose an operation in a travel calculation.",
+      "estimatedSeconds": 80,
+      "prompt": "A train travels 180 miles at 60 miles per hour. Which calculation has the unit hours and answers how long the trip takes?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "180 miles ÷ 60 miles/hour = 3 hours"},
+        {"id": "b", "text": "180 miles × 60 miles/hour = 10,800 hours"},
+        {"id": "c", "text": "180 miles + 60 miles/hour = 240 hours"},
+        {"id": "d", "text": "60 miles/hour ÷ 180 miles = 1/3 hour"}
+      ], "correctId": "a"},
+      "correctFeedback": "Exactly. Miles divided by miles per hour leaves hours.",
+      "incorrectFeedback": "Choose the operation whose unit cancellation leaves the requested unit, hours.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Write the units as a fraction", "body": "Miles per hour means miles/hour."},
+        {"title": "Divide", "body": "180 miles ÷ (60 miles/hour) = 180 miles × (1 hour/60 miles) = 3 hours. Miles cancel, leaving hours."}
+      ], "takeaway": "Let the requested unit guide the operation."
+      }
+    },
+    {
+      "id": "faster-time",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Show that a rate context can involve inverse rather than direct proportional change.",
+      "expectedRealization": "For a fixed distance, increasing speed decreases time.",
+      "transitionIn": "The trip time came from distance divided by speed. Hold the distance fixed and change the speed.",
+      "estimatedSeconds": 70,
+      "prompt": "For the same 180-mile trip, what happens to travel time if speed doubles from 60 to 120 miles per hour?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "Time doubles to 6 hours."}, {"id": "b", "text": "Time stays 3 hours."}, {"id": "c", "text": "Time halves to 1.5 hours."}, {"id": "d", "text": "Time increases by 60 hours."}
+      ], "correctId": "c"},
+      "correctFeedback": "Right. With distance fixed, twice the speed takes half the time.",
+      "incorrectFeedback": "Compute 180 miles ÷ 120 miles per hour and compare with 3 hours.",
+      "allowRetry": true,
+      "resolution": {"steps": [{"body": "180 ÷ 120 = 1.5 hours. Speed and time do not scale together here because their product must remain the fixed distance, 180 miles."}], "takeaway": "A rate setting is not automatically direct proportion between every pair of quantities."
+      }
+    },
+    {
+      "id": "name-rate",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name rate and unit rate after learners have normalized, rebuilt, and canceled units.",
+      "expectedRealization": "A rate is a ratio with unlike units, and per signals division.",
+      "transitionIn": "Tickets, dollars, miles, and hours followed the same unit logic.",
+      "estimatedSeconds": 45,
+      "name": "Rate and unit rate",
+      "conciseDefinition": "A rate compares quantities with different units. A unit rate expresses the first quantity per one unit of the second quantity.",
+      "formalization": "amount per unit = amount ÷ number of units",
+      "memoryHook": "Per means divide; units tell the story."
+    },
+    {
+      "id": "storm-unit-chain",
+      "phase": "competition-application",
+      "kind": "problem",
+      "source": "bank",
+      "problemId": "amc8-2001-05",
+      "role": "guided",
+      "presentation": "scenario-first",
+      "purpose": "Revisit an estimated distance through the new lens of dimensional meaning and a two-step unit chain.",
+      "expectedRealization": "Seconds combine with feet per second to make feet, which then convert to miles.",
+      "transitionIn": "You have already seen that this storm's distance is about two miles. This time, make every operation earn the unit it produces.",
+      "estimatedSeconds": 170,
+      "whyNow": "After a clean unit-rate model, the lightning problem rewards tracking feet per second, seconds, feet, and miles rather than recalling a formula.",
+      "entryBridge": "Predict the answer unit, then keep it attached to every intermediate quantity.",
+      "exitBridge": "The unit chain both produced the answer and checked the operations.",
+      "reusedRepresentation": "Unit-labeled quantities that combine and convert in sequence.",
+      "animation": {"mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "Before advancing, name the unit the question requests.",
+        "At the distance step, explain why seconds × feet/second leaves feet.",
+        "At the conversion step, explain why dividing feet by feet/mile leaves miles.",
+        "At the final step, round 2.06 to the nearest allowed half-mile."
+      ],
+      "correctFeedback": "Yes. The unit chain produces about 2.06 miles, which rounds to 2 miles.",
+      "incorrectFeedback": "First multiply the speed by elapsed seconds to get feet; then divide by feet per mile to get miles.",
+      "resolution": {"animation": {"kind": "problem-animation", "placement": "before-steps"}, "steps": [
+        {"title": "Make feet", "body": "1,088 feet/second × 10 seconds = 10,880 feet. Seconds cancel."},
+        {"title": "Make miles", "body": "10,880 feet ÷ 5,280 feet/mile ≈ 2.06 miles. Feet cancel."},
+        {"title": "Use the requested precision", "body": "2.06 is closer to 2 than to 2.5, so the answer is C."}
+      ], "takeaway": "A correct calculation should produce the requested unit."
+      },
+      "sourceLabelTiming": "before"
+    },
+    {
+      "id": "fixed-fee-trap",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Repair the assumption that any situation mentioning a per-unit rate is directly proportional overall.",
+      "expectedRealization": "A fixed starting amount prevents the total from being a scaled copy of the variable part.",
+      "transitionIn": "The storm started from zero distance at zero seconds. Add a starting fee and test whether totals still scale directly.",
+      "estimatedSeconds": 85,
+      "prompt": "A rental costs a fixed $10 fee plus $4 per hour. Two hours cost $18. Does four hours cost twice as much, $36?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "Yes, because the hours doubled."}, {"id": "b", "text": "Yes, because every rate problem is proportional."}, {"id": "c", "text": "No; four hours cost $10 + 4 × $4 = $26."}, {"id": "d", "text": "No; four hours cost $16 with no fee."}
+      ], "correctId": "c"},
+      "correctFeedback": "Correct. Only the hourly part doubles; the fixed fee is charged once.",
+      "incorrectFeedback": "Separate the one-time $10 from the $4 repeated for each hour.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Separate fixed and variable parts", "body": "At two hours the cost is $10 + $8 = $18. At four hours it is $10 + $16 = $26."},
+        {"title": "Test proportionality", "body": "Doubling hours does not double the total because the $10 fee does not scale."}
+      ], "takeaway": "A per-unit component does not make an entire relationship proportional when a fixed amount is present."
+      }
+    },
+    {
+      "id": "printer-transfer",
+      "phase": "independent-transfer",
+      "kind": "interaction",
+      "purpose": "Independently combine normalization and inverse unit reasoning.",
+      "expectedRealization": "A unit rate can be found first and then used to divide a target amount by output per minute.",
+      "transitionIn": "Use the unit logic without a prepared animation.",
+      "estimatedSeconds": 90,
+      "prompt": "A printer produces 45 pages in 3 minutes at a constant rate. How many minutes does it need to print 150 pages?",
+      "response": {"kind": "numeric", "answer": 10, "units": "minutes", "feedback": "First find pages per minute, then choose the operation that leaves minutes."},
+      "correctFeedback": "Yes. The printer makes 15 pages per minute, and 150 pages ÷ 15 pages/minute = 10 minutes.",
+      "incorrectFeedback": "Divide 45 pages by 3 minutes, then use the resulting pages-per-minute rate with 150 pages.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Normalize", "body": "45 pages ÷ 3 minutes = 15 pages per minute."},
+        {"title": "Find time", "body": "150 pages ÷ 15 pages/minute = 10 minutes. Pages cancel, leaving minutes."},
+        {"title": "Check", "body": "15 pages/minute × 10 minutes = 150 pages."}
+      ], "takeaway": "Normalize, follow the units, and check by reversing the operation."
+      }
+    },
+    {
+      "id": "unit-recap",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate rate meaning, unit tracking, and proportionality conditions.",
+      "expectedRealization": "Units are structural evidence for both operations and interpretation.",
+      "transitionIn": "Tickets, travel, thunder, rentals, and printing all become clearer when units stay attached.",
+      "estimatedSeconds": 75,
+      "prompt": "Select every statement that belongs in reliable rate reasoning.",
+      "response": {"kind": "multi-select", "options": [
+        {"id": "per", "text": "Treat “per” as division between named units."},
+        {"id": "target", "text": "Check that the calculation produces the requested unit."},
+        {"id": "same", "text": "Treat a rate and a total as the same kind of quantity."},
+        {"id": "fixed", "text": "Check for fixed amounts before assuming direct proportion."},
+        {"id": "erase", "text": "Erase units before choosing an operation."}
+      ], "correctIds": ["per", "target", "fixed"], "feedback": "Use units as evidence, and test whether the entire relationship truly scales from zero."},
+      "correctFeedback": "Exactly. Units guide the operation, and fixed terms warn that direct scaling may fail.",
+      "incorrectFeedback": "Keep statements that preserve units and test proportionality; discard those that erase meaning.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Read", "body": "Name both quantities and interpret per as division."},
+        {"title": "Operate", "body": "Multiply or divide so unwanted units cancel and the requested unit remains."},
+        {"title": "Question", "body": "A constant rate produces direct proportion only when no fixed starting amount changes the total."}
+      ], "takeaway": "Units are part of the mathematics, not decoration."
+      }
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {"near": 2, "mixed": 2, "challenge": 1},
+    "sessionSelection": [
+      {"source": "generated", "transferLevel": "near", "count": 2}, {"source": "generated", "transferLevel": "mixed", "count": 2}, {"source": "generated", "transferLevel": "challenge", "count": 1}
+    ],
+    "excludeProblemIds": ["amc8-2001-05"], "requireFreshGeneratedItems": true
+  },
+  "mastery": {"skillId": "F4-rates-and-units", "evidenceBeatIds": ["fixed-fee-trap", "printer-transfer", "unit-recap"], "minIndependentPracticeItems": 5, "recommendedAccuracyThreshold": 0.8, "weightMixedTransferMore": true},
+  "generation": {"curriculumVersion": "1.0.0", "mappingVersion": "1.0.0", "generatorVersion": "1.0.0", "notes": [
+    "The opening isolates unit-rate meaning before the approved storm problem combines rate, time, conversion, and estimation.",
+    "The storm is revisited from F1 through a substantively new unit-cancellation lens rather than as repeated estimation practice.",
+    "The lesson remains draft pending human pedagogical review."
+  ]}
+}

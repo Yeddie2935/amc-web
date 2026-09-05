@@ -1,0 +1,231 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "F5",
+  "curriculumNodeId": "F5",
+  "title": "Percent Change",
+  "lessonType": "technique",
+  "status": "draft",
+  "estimatedMinutes": 23,
+  "coreInsight": "Percent change measures change relative to a specific base, and that base can change from one step to the next.",
+  "targetLearnerRealization": "A percent change is measured from a particular base, so successive changes usually act on different wholes.",
+  "learningObjectives": [
+    "Identify the reference whole for a percent change.",
+    "Compose successive percent changes multiplicatively.",
+    "Recover an original amount from a known final percentage.",
+    "Distinguish percentage-point change from relative percent change."
+  ],
+  "hardPrerequisites": ["F2", "F3"],
+  "narrativePredecessor": "F3",
+  "continuity": {
+    "openingCallback": "Use proportional scaling to make a percent act on a stated base, then replace that base with the changed amount.",
+    "closingSeeds": ["Repeated multiplicative changes can be tracked by their scale factors.", "A reported percent is incomplete unless its reference amount is known."],
+    "nextLessonIds": []
+  },
+  "misconceptionTargets": [
+    {"misconception": "Successive percent changes simply add.", "beatIds": ["new-base", "successive-discounts", "compose-changes", "percent-change-recap"]},
+    {"misconception": "Reverse percentage problems can use the final amount as the original base.", "beatIds": ["reverse-percent", "percent-change-recap"]},
+    {"misconception": "Percentage points and percent change are the same thing.", "beatIds": ["percentage-points", "percent-change-recap"]},
+    {"misconception": "A 20% increase followed by a 20% decrease returns to the start.", "beatIds": ["new-base", "compose-changes"]}
+  ],
+  "beats": [
+    {
+      "id": "grow-one-hundred",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Establish percent change as proportional scaling from a visible 100-unit base.",
+      "expectedRealization": "A 20% increase adds 20 units when the base is 100.",
+      "transitionIn": "A percent is a ratio to 100, and ratios scale with their quantities. Start with a base where that scaling is visible.",
+      "estimatedSeconds": 70,
+      "prompt": "A collection has 100 tiles and grows by 20%. How many tiles does it have now?",
+      "visual": {"primitive": "bars-and-groups", "data": {"bars": [{"label": "Original collection: 100 tiles", "segments": 10, "filled": 10, "valueLabel": "10 groups of 10"}]}, "continuityKey": "f5-changing-base", "ariaLabel": "A complete bar representing one hundred tiles in ten groups of ten"},
+      "response": {"kind": "numeric", "answer": 120, "units": "tiles", "feedback": "Twenty percent of 100 is 20; add the change to the original amount."},
+      "correctFeedback": "Yes. The 20-tile increase makes a new total of 120 tiles.",
+      "incorrectFeedback": "Find 20% of the original 100 tiles, then add that amount.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Find the change", "body": "20% of 100 is 20."},
+        {"title": "Build the new amount", "body": "100 + 20 = 120. Equivalently, keep 120% of the original: 100 × 1.20 = 120."}
+      ], "takeaway": "A percent change acts on a specified starting amount."
+      }
+    },
+    {
+      "id": "new-base",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Make the changed amount become the reference whole for a second percent change.",
+      "expectedRealization": "Twenty percent of the new 120-tile base is 24, not 20.",
+      "transitionIn": "The collection is now 120 tiles. Freeze that changed collection and call all of it the new whole.",
+      "estimatedSeconds": 80,
+      "prompt": "The 120-tile collection now shrinks by 20%. How many tiles are removed?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "20 tiles, because the first change was 20 tiles."},
+        {"id": "b", "text": "24 tiles, because 20% is now taken from 120."},
+        {"id": "c", "text": "40 tiles, because the percents add."},
+        {"id": "d", "text": "120 tiles, because the whole is removed."}
+      ], "correctId": "b"},
+      "correctFeedback": "Exactly. The second 20% uses 120 as its base, so it removes 24 tiles.",
+      "incorrectFeedback": "Ask “20% of what?” The current whole contains 120 tiles.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Use the current base", "body": "20% of 120 is 0.20 × 120 = 24."},
+        {"title": "Finish the change", "body": "120 − 24 = 96, not 100. Equal percent changes do not undo each other because they act on different bases."}
+      ], "takeaway": "After a change, the changed amount becomes the next reference whole."
+      }
+    },
+    {
+      "id": "name-changing-base",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name percent change and its reference base after the learner has experienced the base moving.",
+      "expectedRealization": "Percent change is a multiplicative comparison between a change and its current base.",
+      "transitionIn": "The same 20% removed different amounts because its whole changed.",
+      "estimatedSeconds": 45,
+      "name": "Percent change and reference base",
+      "conciseDefinition": "Percent change compares the amount of change with the value before that change. Each successive change uses the current value as its base.",
+      "formalization": "new amount = old amount × (1 + change rate), with a negative rate for a decrease",
+      "memoryHook": "Percent of what—right now?"
+    },
+    {
+      "id": "successive-discounts",
+      "phase": "competition-application",
+      "kind": "problem",
+      "source": "bank",
+      "problemId": "amc8-2002-14",
+      "role": "contrast",
+      "presentation": "full-prompt",
+      "purpose": "Confront the additive-discount prediction in an authentic problem and replace it with changing-base reasoning.",
+      "expectedRealization": "The second discount is 20% of the reduced 70% price, so the total discount is 44%, not 50%.",
+      "transitionIn": "An increase made the base larger. Two discounts make it smaller twice; predict carefully before combining 30% and 20%.",
+      "estimatedSeconds": 165,
+      "whyNow": "The changing-base idea is established, so the authentic successive-discount trap can expose why adding the two rates fails.",
+      "entryBridge": "Use a $100 starting tag and relabel the amount left after the first discount as the new whole.",
+      "exitBridge": "The final $56 price means $44 of the original $100 was removed.",
+      "reusedRepresentation": "A 100-unit bar that changes which remaining amount counts as the current whole.",
+      "animation": {"mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "At the first step, find the 70 dollars remaining after 30% off.",
+        "When the second discount appears, identify its base and explain why 20% of 70 is 14, not 20.",
+        "At the final regrouping, compare the 44 removed cells with the original 100."
+      ],
+      "correctFeedback": "Yes. The discounts remove $30 and then $14, for $44 off the original $100.",
+      "incorrectFeedback": "After the first discount, take 20% of the $70 sale price—not 20% of the original $100.",
+      "resolution": {"animation": {"kind": "problem-animation", "placement": "before-steps"}, "steps": [
+        {"title": "Apply the first discount", "body": "$100 × 0.70 = $70 remains."},
+        {"title": "Change the base", "body": "$70 × 0.80 = $56 remains after the second discount."},
+        {"title": "Compare with the original", "body": "$100 − $56 = $44, so the total discount is 44%. The answer is B."}
+      ], "takeaway": "Successive percentage changes multiply their remaining factors."
+      },
+      "sourceLabelTiming": "before"
+    },
+    {
+      "id": "compose-changes",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Generalize successive changes as multiplication and revisit increase-then-decrease.",
+      "expectedRealization": "Multipliers compose; signed percentages do not simply add.",
+      "transitionIn": "The price kept 70%, then kept 80%. Record those two actions as scale factors.",
+      "estimatedSeconds": 80,
+      "prompt": "Which expression correctly represents a 20% increase followed by a 20% decrease on an amount x?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "x(1 + 0.20 − 0.20) = x"},
+        {"id": "b", "text": "x(1.20)(0.80) = 0.96x"},
+        {"id": "c", "text": "x(0.20)(0.20) = 0.04x"},
+        {"id": "d", "text": "x + 40"}
+      ], "correctId": "b"},
+      "correctFeedback": "Correct. The second multiplier acts on the already increased amount, and 1.20 × 0.80 = 0.96.",
+      "incorrectFeedback": "Translate each change into the fraction retained or created, then apply the factors in sequence.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Translate each action", "body": "A 20% increase keeps 120%, or multiplies by 1.20. A 20% decrease keeps 80%, or multiplies by 0.80."},
+        {"title": "Compose", "body": "1.20 × 0.80 = 0.96, so the result is 96% of the start—a net 4% decrease."}
+      ], "takeaway": "Compose changes by multiplying their scale factors."
+      }
+    },
+    {
+      "id": "reverse-percent",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Repair reverse-percent reasoning by distinguishing the final amount from the original base.",
+      "expectedRealization": "Undoing a percent change requires division by the retained multiplier.",
+      "transitionIn": "Forward changes multiply the old amount. Reverse the arrow by undoing that multiplication.",
+      "estimatedSeconds": 85,
+      "prompt": "After a 20% discount, a jacket costs $80. What was its original price?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "$64, because 20% of 80 is 16."},
+        {"id": "b", "text": "$96, by adding 20% of 80."},
+        {"id": "c", "text": "$100, because 80 is 80% of the original."},
+        {"id": "d", "text": "$160, by doubling the sale price."}
+      ], "correctId": "c"},
+      "correctFeedback": "Yes. The $80 final price is 80% of the original, so divide by 0.80.",
+      "incorrectFeedback": "The final $80 is not the original base. It equals 80% of that unknown base.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Write the retained part", "body": "A 20% discount leaves 80% of the original price."},
+        {"title": "Undo the multiplier", "body": "$80 ÷ 0.80 = $100. Check: 20% of $100 is $20, leaving $80."}
+      ], "takeaway": "Reverse a percent change by dividing by its multiplier."
+      }
+    },
+    {
+      "id": "percentage-points",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Distinguish an absolute difference in percentage rates from relative percent change.",
+      "expectedRealization": "A rise from 40% to 50% is 10 percentage points but a 25% relative increase.",
+      "transitionIn": "Percentages themselves can change. Their subtraction and their relative growth answer different questions.",
+      "estimatedSeconds": 85,
+      "prompt": "A success rate rises from 40% to 50%. Which description is correct?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "It rises 10 percentage points and 25% relative to the old rate."},
+        {"id": "b", "text": "It rises 10 percentage points and 10% relative to the old rate."},
+        {"id": "c", "text": "It rises 25 percentage points and 10% relative to the old rate."},
+        {"id": "d", "text": "It does not change because both values are percents."}
+      ], "correctId": "a"},
+      "correctFeedback": "Exactly. The rate gains 10 points; that gain is one quarter of the original 40%.",
+      "incorrectFeedback": "First subtract the displayed rates. Then compare that 10-point increase with the original 40%. ",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Percentage points", "body": "50% − 40% = 10 percentage points."},
+        {"title": "Relative percent change", "body": "The increase is 10 compared with the original 40: 10/40 = 0.25 = 25%."}
+      ], "takeaway": "Percentage points subtract rates; percent change compares their difference with the old rate."
+      }
+    },
+    {
+      "id": "percent-change-recap",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate changing bases, composition, reverse percentages, and percentage points.",
+      "expectedRealization": "Every percent-change calculation begins by identifying its base and direction.",
+      "transitionIn": "Discounts, increases, reversals, and changing rates all hinge on the same question.",
+      "estimatedSeconds": 75,
+      "prompt": "Select every reliable percent-change statement.",
+      "response": {"kind": "multi-select", "options": [
+        {"id": "base", "text": "Identify the amount used as 100% for each change."},
+        {"id": "multiply", "text": "Compose successive changes by multiplying their scale factors."},
+        {"id": "reverse", "text": "Undo a change by dividing by its scale factor."},
+        {"id": "add", "text": "Always add successive percentage rates."},
+        {"id": "points", "text": "Treat percentage points and relative percent change as identical."}
+      ], "correctIds": ["base", "multiply", "reverse"], "feedback": "Track the current whole and whether the calculation moves forward or backward."},
+      "correctFeedback": "Exactly. Base, multiplier, and direction control the calculation.",
+      "incorrectFeedback": "Discard rules that ignore a changed base or merge two different meanings of change.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Base", "body": "Ask what amount counts as 100% at this step."},
+        {"title": "Direction", "body": "Move forward by multiplying; recover the old value by dividing."},
+        {"title": "Language", "body": "Use percentage points for direct differences between rates and percent change for change relative to the old rate."}
+      ], "takeaway": "Percent of what—right now?"
+      }
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {"near": 2, "mixed": 2, "challenge": 1},
+    "sessionSelection": [
+      {"source": "generated", "transferLevel": "near", "count": 2}, {"source": "generated", "transferLevel": "mixed", "count": 2}, {"source": "generated", "transferLevel": "challenge", "count": 1}
+    ],
+    "excludeProblemIds": ["amc8-2002-14"], "requireFreshGeneratedItems": true
+  },
+  "mastery": {"skillId": "F5-percent-change", "evidenceBeatIds": ["compose-changes", "reverse-percent", "percentage-points", "percent-change-recap"], "minIndependentPracticeItems": 5, "recommendedAccuracyThreshold": 0.8, "weightMixedTransferMore": true},
+  "generation": {"curriculumVersion": "1.0.0", "mappingVersion": "1.0.0", "generatorVersion": "1.0.0", "notes": [
+    "The generated opening establishes a moving reference whole before the approved successive-discount contrast.",
+    "The lesson remains draft pending human pedagogical review."
+  ]}
+}

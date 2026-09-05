@@ -1,0 +1,347 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "F2",
+  "curriculumNodeId": "F2",
+  "title": "Fractions, Decimals & Percents",
+  "lessonType": "foundation",
+  "status": "draft",
+  "estimatedMinutes": 25,
+  "coreInsight": "Fractions, decimals, and percents are different representations of the same quantities, and a fraction is itself a number with a location and magnitude.",
+  "targetLearnerRealization": "Fractions, decimals, and percents can name the same location on a number line and should be compared by magnitude rather than by separate digit rules.",
+  "learningObjectives": [
+    "Interpret a fraction as one number located on a number line.",
+    "Connect fraction, decimal, and percent names for the same magnitude.",
+    "Compare fractions and decimals using benchmarks and structure.",
+    "Interpret a percent relative to a specified whole."
+  ],
+  "hardPrerequisites": ["F1"],
+  "narrativePredecessor": "F1",
+  "continuity": {
+    "openingCallback": "Use the unmarked positions between whole numbers to create and name a new magnitude.",
+    "closingSeeds": ["A fraction compares a selected amount with a whole.", "Two quantities can also be compared directly and scaled together."],
+    "nextLessonIds": ["F3"]
+  },
+  "misconceptionTargets": [
+    {"misconception": "The numerator and denominator behave like two independent whole numbers.", "beatIds": ["name-three-eighths", "same-point", "same-numerator"]},
+    {"misconception": "A larger denominator automatically means a larger fraction.", "beatIds": ["same-numerator", "contest-order"]},
+    {"misconception": "More decimal digits automatically means a larger number.", "beatIds": ["decimal-magnitude", "one-quantity-many-names"]},
+    {"misconception": "A percent has meaning without identifying the whole it is a percent of.", "beatIds": ["percent-needs-whole", "one-quantity-many-names"]}
+  ],
+  "beats": [
+    {
+      "id": "name-three-eighths",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Turn an unnamed position inside a whole-number gap into a single fractional quantity.",
+      "expectedRealization": "Three eighths names one magnitude, not two unrelated whole numbers.",
+      "transitionIn": "The number line continued inside every whole-number gap. Cut one whole into eight equal lengths and take three of them.",
+      "estimatedSeconds": 85,
+      "prompt": "Which number names the filled length of this one whole?",
+      "visual": {
+        "primitive": "bars-and-groups",
+        "data": {"bars": [{"label": "One whole cut into 8 equal parts", "segments": 8, "filled": 3}]},
+        "continuityKey": "f2-three-eighths",
+        "ariaLabel": "A bar divided into eight equal parts with three filled"
+      },
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "a", "text": "3/8"},
+          {"id": "b", "text": "8/3"},
+          {"id": "c", "text": "3 + 8"},
+          {"id": "d", "text": "38"}
+        ],
+        "correctId": "a"
+      },
+      "correctFeedback": "Yes. The denominator records eight equal parts in the whole; the numerator counts the three selected parts.",
+      "incorrectFeedback": "Read the lower number as the number of equal parts in one whole, and the upper number as how many are selected.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Build the unit", "body": "Dividing one whole into 8 equal parts makes each part 1/8."},
+          {"title": "Count the length", "body": "Three such parts make 3 × 1/8 = 3/8. Together they form one number between 0 and 1."}
+        ],
+        "takeaway": "A fraction names a magnitude built from equal parts of a whole."
+      }
+    },
+    {
+      "id": "same-point",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Unify fraction, decimal, and percent labels at a familiar benchmark before a nontrivial case.",
+      "expectedRealization": "Different symbols can name the same point.",
+      "transitionIn": "Change the partition, but keep looking for one location rather than three separate rules.",
+      "estimatedSeconds": 75,
+      "prompt": "A point is halfway from 0 to 1. Select every label that names that same point.",
+      "visual": {
+        "primitive": "number-line",
+        "data": {"min": 0, "max": 1, "tickStep": 0.5, "label": "The halfway point between 0 and 1"},
+        "continuityKey": "f2-equivalent-point",
+        "ariaLabel": "A number line from zero to one with a tick halfway between"
+      },
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "fraction", "text": "1/2"},
+          {"id": "decimal", "text": "0.5"},
+          {"id": "percent", "text": "50%"},
+          {"id": "five-percent", "text": "5%"},
+          {"id": "five-halves", "text": "5/2"}
+        ],
+        "correctIds": ["fraction", "decimal", "percent"],
+        "feedback": "Ask what share of the trip from 0 to 1 each label describes."
+      },
+      "correctFeedback": "Exactly. One half, five tenths, and fifty hundredths all land at the same point.",
+      "incorrectFeedback": "Rewrite each label as a share of one whole: halves, tenths, or hundredths.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "bars-and-groups",
+          "data": {"bars": [
+            {"label": "1/2", "segments": 2, "filled": 1, "valueLabel": "0.5 = 50%"},
+            {"label": "5/10", "segments": 10, "filled": 5, "valueLabel": "same length"}
+          ]},
+          "continuityKey": "f2-equivalent-point",
+          "ariaLabel": "Two equal-length half-filled bars partitioned into halves and tenths"
+        },
+        "steps": [{"body": "1/2 = 5/10 = 50/100. Decimal notation records five tenths as 0.5; percent notation records fifty hundredths as 50%."}],
+        "takeaway": "Equivalent forms are different names for one magnitude."
+      }
+    },
+    {
+      "id": "three-eighths-names",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Extend equivalence to the required nontrivial value 3/8 = 0.375 = 37.5%.",
+      "expectedRealization": "Division and percent scaling preserve the same underlying magnitude.",
+      "transitionIn": "Return to the three shaded eighths and give that same length decimal and percent names.",
+      "estimatedSeconds": 90,
+      "prompt": "Which row gives three equivalent names for the filled bar?",
+      "visual": {
+        "primitive": "bars-and-groups",
+        "data": {"bars": [{"label": "Three of eight equal parts", "segments": 8, "filled": 3}]},
+        "continuityKey": "f2-three-eighths",
+        "ariaLabel": "The same bar divided into eight equal parts with three filled"
+      },
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "a", "text": "3/8 = 0.38 = 38%"},
+          {"id": "b", "text": "3/8 = 0.375 = 37.5%"},
+          {"id": "c", "text": "3/8 = 0.83 = 83%"},
+          {"id": "d", "text": "3/8 = 3.8 = 380%"}
+        ],
+        "correctId": "b"
+      },
+      "correctFeedback": "Right. Dividing 3 by 8 gives 0.375, which is 37.5 hundredths.",
+      "incorrectFeedback": "Compute 3 ÷ 8, then multiply that decimal by 100 to count hundredths of the whole.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Read the fraction as division", "body": "3/8 means 3 ÷ 8, which equals 0.375."},
+          {"title": "Read the decimal in hundredths", "body": "0.375 × 100 = 37.5, so the same amount is 37.5%."}
+        ],
+        "takeaway": "3/8, 0.375, and 37.5% occupy one point."
+      }
+    },
+    {
+      "id": "same-numerator",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Repair the belief that a larger denominator makes a larger fraction.",
+      "expectedRealization": "With the same numerator, more equal cuts make each selected piece smaller.",
+      "transitionIn": "Equivalent names preserve a length. Now keep the number of selected pieces fixed while changing their size.",
+      "estimatedSeconds": 80,
+      "prompt": "Both bars select three pieces from one equal-length whole. Which fraction is larger?",
+      "visual": {
+        "primitive": "bars-and-groups",
+        "data": {"bars": [
+          {"label": "3/4", "segments": 4, "filled": 3},
+          {"label": "3/8", "segments": 8, "filled": 3}
+        ]},
+        "continuityKey": "f2-same-numerator",
+        "ariaLabel": "Equal-length bars showing three fourths and three eighths"
+      },
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "3/4"}, {"id": "b", "text": "3/8"}, {"id": "c", "text": "They are equal."}, {"id": "d", "text": "The denominators cannot be compared."}
+      ], "correctId": "a"},
+      "correctFeedback": "Yes. Fourths are larger pieces than eighths, so three fourths is longer.",
+      "incorrectFeedback": "The wholes have equal length. Compare the size of one fourth with one eighth.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [{"body": "Cutting a fixed whole into more equal pieces makes each piece smaller. With three pieces selected in both bars, 3/8 < 3/4."}],
+        "takeaway": "A larger denominator means smaller pieces when the whole is fixed."
+      }
+    },
+    {
+      "id": "decimal-magnitude",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Repair digit-count comparison by returning decimals to magnitude.",
+      "expectedRealization": "Decimal length does not determine decimal size.",
+      "transitionIn": "Piece counts can mislead. Digit counts can mislead in the same way.",
+      "estimatedSeconds": 70,
+      "prompt": "Which number is greater: 0.8 or 0.375?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "0.8, because it is 800 thousandths."},
+        {"id": "b", "text": "0.375, because it has more digits."},
+        {"id": "c", "text": "They are equal because both are less than 1."},
+        {"id": "d", "text": "They cannot be compared."}
+      ], "correctId": "a"},
+      "correctFeedback": "Correct. Writing 0.8 as 0.800 aligns the place values, and 800 thousandths exceeds 375 thousandths.",
+      "incorrectFeedback": "Add trailing zeros without changing value: compare 0.800 with 0.375.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [{"title": "Align place values", "body": "0.8 = 0.800. Since 800 thousandths > 375 thousandths, 0.8 > 0.375."}],
+        "takeaway": "Compare place values, not the number of written digits."
+      }
+    },
+    {
+      "id": "percent-needs-whole",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Make the reference whole essential to interpreting a percent.",
+      "expectedRealization": "The same percent can represent different amounts when the wholes differ.",
+      "transitionIn": "A percent names a share of a whole. Change the whole and watch the amount change.",
+      "estimatedSeconds": 75,
+      "prompt": "One box holds 20 beads and another holds 200 beads. Is 50% of each box the same number of beads?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "Yes; 50% always means 50 beads."},
+        {"id": "b", "text": "Yes; the percent symbol fixes the amount."},
+        {"id": "c", "text": "No; the amounts are 10 beads and 100 beads."},
+        {"id": "d", "text": "No; the amounts are 20 beads and 200 beads."}
+      ], "correctId": "c"},
+      "correctFeedback": "Exactly. Half of 20 is 10, while half of 200 is 100.",
+      "incorrectFeedback": "Translate 50% to one half, then take one half of each stated whole.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [{"body": "50% describes the same proportion—one half—in both boxes. The wholes differ, so the resulting bead counts differ: 10 and 100."}],
+        "takeaway": "Always identify the whole behind a percent."
+      }
+    },
+    {
+      "id": "name-representations",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name the three representations after their shared magnitudes have been experienced.",
+      "expectedRealization": "Notation changes while the underlying number stays fixed.",
+      "transitionIn": "Bars, place value, and parts of a whole all point to one idea.",
+      "estimatedSeconds": 45,
+      "name": "Equivalent fraction, decimal, and percent forms",
+      "conciseDefinition": "A fraction describes equal parts or division, a decimal records place value, and a percent counts hundredths. Equivalent forms name the same number.",
+      "formalization": "3/8 = 3 ÷ 8 = 0.375 = 37.5/100 = 37.5%",
+      "memoryHook": "Change the name, not the point."
+    },
+    {
+      "id": "contest-order",
+      "phase": "competition-application",
+      "kind": "problem",
+      "source": "bank",
+      "problemId": "amc8-2019-03",
+      "role": "guided",
+      "presentation": "full-prompt",
+      "purpose": "Apply magnitude structure to order unfamiliar fractions without defaulting to a common-denominator algorithm.",
+      "expectedRealization": "Shared whole parts and numerators reduce the comparison to slice size.",
+      "transitionIn": "The bars showed that equal numerators reverse the denominator comparison. These three contest fractions hide that same structure above 1.",
+      "estimatedSeconds": 165,
+      "whyNow": "Once representations are unified by magnitude, ordering several fractions tests whether the learner compares quantities rather than separate digits.",
+      "entryBridge": "Split each fraction into one whole plus its leftover part before comparing.",
+      "exitBridge": "The symbols differed, but their shared structure placed all three on one magnitude line.",
+      "reusedRepresentation": "Equal-length partition bars and the lesson number line.",
+      "animation": {"mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "At the first step, rewrite each fraction as 1 plus a leftover fraction.",
+        "When the whole bars move aside, what numerator do all three leftovers share?",
+        "As the slice lines appear, which denominator makes four pieces thinnest?",
+        "On the final number line, read the order from left to right."
+      ],
+      "correctFeedback": "Yes. The common whole and numerator leave slice size to decide: 4/15 < 4/13 < 4/11.",
+      "incorrectFeedback": "Rewrite each value as 1 plus four equal pieces, then compare how wide those pieces are.",
+      "resolution": {
+        "animation": {"kind": "problem-animation", "placement": "before-steps"},
+        "steps": [
+          {"title": "Remove the common whole", "body": "15/11 = 1 + 4/11, 17/13 = 1 + 4/13, and 19/15 = 1 + 4/15."},
+          {"title": "Compare equal piece counts", "body": "All leftovers contain four pieces. Fifteenths are thinnest, then thirteenths, then elevenths, so 4/15 < 4/13 < 4/11."},
+          {"title": "Restore the whole", "body": "Adding the same 1 preserves the order: 19/15 < 17/13 < 15/11. Therefore the answer is E."}
+        ],
+        "takeaway": "Look for shared structure before reaching for a general algorithm."
+      },
+      "sourceLabelTiming": "before"
+    },
+    {
+      "id": "one-quantity-many-names",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate representation equivalence and magnitude-based comparison.",
+      "expectedRealization": "Representations are interchangeable only when they preserve the same whole and location.",
+      "transitionIn": "The same magnitude survived bars, division, decimals, percents, and an ordering problem.",
+      "estimatedSeconds": 75,
+      "prompt": "Select every statement that is always true.",
+      "response": {"kind": "multi-select", "options": [
+        {"id": "point", "text": "Equivalent fraction, decimal, and percent forms name the same point."},
+        {"id": "digits", "text": "A decimal with more written digits is always larger."},
+        {"id": "whole", "text": "The amount represented by a percent depends on the chosen whole."},
+        {"id": "denom", "text": "For a fixed whole and numerator, more denominator pieces make each piece smaller."},
+        {"id": "pair", "text": "A fraction is just two unrelated whole numbers."}
+      ], "correctIds": ["point", "whole", "denom"], "feedback": "Test each claim against the bars for 3/8, the decimals 0.8 and 0.375, and the two bead boxes."},
+      "correctFeedback": "Exactly. Compare underlying magnitudes and keep the reference whole visible.",
+      "incorrectFeedback": "Discard rules based only on digit count or on treating the numerator and denominator separately.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Locate", "body": "Equivalent forms land at one number-line point."},
+          {"title": "Compare", "body": "Benchmarks, equal partitions, and aligned place values expose magnitude."},
+          {"title": "Interpret", "body": "A percent describes a share only after its whole is identified."}
+        ],
+        "takeaway": "Representations change; quantities do not."
+      }
+    },
+    {
+      "id": "compare-two-quantities",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Create the forward need to compare two quantities directly rather than only a part with its whole.",
+      "expectedRealization": "A part-whole fraction does not by itself express every useful comparison in a mixture.",
+      "transitionIn": "A fraction compared the selected part with one whole. A mixture invites another comparison.",
+      "estimatedSeconds": 60,
+      "prompt": "A bag contains 3 red counters and 5 blue counters. Besides comparing red counters with all 8 counters, what direct comparison might matter?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "Red counters compared with blue counters: 3 to 5."},
+        {"id": "b", "text": "The number 3 compared with itself only."},
+        {"id": "c", "text": "The colors in alphabetical order."},
+        {"id": "d", "text": "The total without referring to either color."}
+      ], "correctId": "a"},
+      "correctFeedback": "Yes. Comparing red directly with blue creates a 3-to-5 relationship.",
+      "incorrectFeedback": "Look for a comparison that uses both color counts without first combining them.",
+      "allowRetry": true,
+      "resolution": {"steps": [{"body": "The fraction 3/8 compares red counters with the whole bag. The comparison 3 to 5 relates red counters directly to blue counters. Next we will ask what remains unchanged when both counts scale."}], "takeaway": "Quantities can be compared part-to-whole or directly to each other."}
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {"near": 2, "mixed": 2, "challenge": 1},
+    "sessionSelection": [
+      {"source": "generated", "transferLevel": "near", "count": 2},
+      {"source": "generated", "transferLevel": "mixed", "count": 2},
+      {"source": "generated", "transferLevel": "challenge", "count": 1}
+    ],
+    "excludeProblemIds": ["amc8-2019-03"],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "F2-equivalent-representations",
+    "evidenceBeatIds": ["decimal-magnitude", "contest-order", "one-quantity-many-names"],
+    "minIndependentPracticeItems": 5,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.0.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "1.0.0",
+    "notes": [
+      "The linked segmented bars and number-line prompts unify representations before conversion language is named.",
+      "The approved 2019 contest problem is guided after denominator and magnitude misconceptions have been surfaced.",
+      "The lesson remains draft pending human pedagogical review."
+    ]
+  }
+}

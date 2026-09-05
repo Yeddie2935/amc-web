@@ -1,0 +1,266 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "F6",
+  "curriculumNodeId": "F6",
+  "title": "Averages & Basic Statistics",
+  "lessonType": "foundation",
+  "status": "draft",
+  "estimatedMinutes": 26,
+  "coreInsight": "The mean is the equal-share or balance value determined by a total, while median, mode, and range describe different features of a data set.",
+  "targetLearnerRealization": "The mean is the level obtained by preserving the total while redistributing it equally.",
+  "learningObjectives": [
+    "Interpret the mean as an equal-share value that preserves the total.",
+    "Use total = mean × count to combine groups and recover missing values.",
+    "Distinguish mean, median, mode, and range.",
+    "Weight subgroup means by their group sizes."
+  ],
+  "hardPrerequisites": ["F2"],
+  "narrativePredecessor": "F2",
+  "continuity": {
+    "openingCallback": "Use equal parts and division to rebalance unequal piles without changing their total.",
+    "closingSeeds": ["A numerical summary compresses a data set but can hide its shape.", "A visual display can reveal clusters, gaps, and trends that a single average cannot."],
+    "nextLessonIds": ["F7"]
+  },
+  "misconceptionTargets": [
+    {"misconception": "The mean must be one of the observed data values.", "beatIds": ["balance-piles", "noninteger-mean", "name-statistics"]},
+    {"misconception": "Average always means the middle value.", "beatIds": ["different-summaries", "name-statistics", "statistics-recap"]},
+    {"misconception": "Averages of groups can be averaged without considering group sizes.", "beatIds": ["combined-tests", "unequal-groups", "statistics-recap"]},
+    {"misconception": "The mean can be manipulated without tracking the underlying total.", "beatIds": ["balance-piles", "combined-tests", "equal-cross-connection", "statistics-recap"]}
+  ],
+  "beats": [
+    {
+      "id": "balance-piles",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Create the mean by redistributing four unequal piles while preserving their total.",
+      "expectedRealization": "The balanced height is total divided by number of piles.",
+      "transitionIn": "Equal parts named fractions. Now redistribute unequal piles into equal shares without creating or losing any counters.",
+      "estimatedSeconds": 90,
+      "prompt": "Four piles contain 2, 4, 6, and 8 counters. If all 20 counters are shared equally among the four piles, how many counters will each pile contain?",
+      "visual": {"primitive": "bars-and-groups", "data": {"bars": [
+        {"label": "Pile A", "segments": 8, "filled": 2}, {"label": "Pile B", "segments": 8, "filled": 4}, {"label": "Pile C", "segments": 8, "filled": 6}, {"label": "Pile D", "segments": 8, "filled": 8}
+      ]}, "continuityKey": "f6-balanced-piles", "ariaLabel": "Four bars containing two, four, six, and eight units"},
+      "response": {"kind": "numeric", "answer": 5, "units": "counters per pile", "feedback": "Preserve the total of 20 while making four equal shares."},
+      "correctFeedback": "Yes. Twenty counters shared across four piles gives five per pile.",
+      "incorrectFeedback": "Add the pile sizes first, then divide by the number of piles.",
+      "allowRetry": true,
+      "resolution": {"visual": {"primitive": "bars-and-groups", "data": {"bars": [
+        {"label": "Balanced A", "segments": 8, "filled": 5}, {"label": "Balanced B", "segments": 8, "filled": 5}, {"label": "Balanced C", "segments": 8, "filled": 5}, {"label": "Balanced D", "segments": 8, "filled": 5}
+      ]}, "continuityKey": "f6-balanced-piles", "ariaLabel": "Four equal bars each containing five units"},
+      "steps": [
+        {"title": "Preserve the total", "body": "2 + 4 + 6 + 8 = 20 counters. Moving counters between piles does not change 20."},
+        {"title": "Share equally", "body": "20 ÷ 4 = 5 counters per pile."}
+      ], "takeaway": "The mean is the equal-share level that preserves the total."
+      }
+    },
+    {
+      "id": "noninteger-mean",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Show that the equal-share mean need not be an observed data value or a whole number.",
+      "expectedRealization": "A mean describes a balance point, not necessarily an existing observation.",
+      "transitionIn": "The balanced height happened to be a whole number. Change the total so equal sharing lands between whole numbers.",
+      "estimatedSeconds": 75,
+      "prompt": "Three piles contain 2, 3, and 6 liters. What is their mean amount?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "3 liters, because 3 is the middle observation."},
+        {"id": "b", "text": "3 2/3 liters, because 11 liters are shared among 3 piles."},
+        {"id": "c", "text": "6 liters, because it is the largest observation."},
+        {"id": "d", "text": "11 liters, because that is the total."}
+      ], "correctId": "b"},
+      "correctFeedback": "Correct. The equal share is 11/3 = 3 2/3 liters, even though no original pile has that amount.",
+      "incorrectFeedback": "Add all three amounts and divide the total by three piles.",
+      "allowRetry": true,
+      "resolution": {"steps": [{"body": "2 + 3 + 6 = 11 liters, and 11 ÷ 3 = 3 2/3 liters. The mean is a balance value, so it need not appear in the data."}], "takeaway": "A mean can lie between observed values."
+      }
+    },
+    {
+      "id": "different-summaries",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Contrast mean, median, mode, and range on one small data set.",
+      "expectedRealization": "Different statistics answer different questions about the same data.",
+      "transitionIn": "Equal sharing describes one feature. Keep the data fixed and ask three different questions.",
+      "estimatedSeconds": 90,
+      "prompt": "For the ordered data 1, 2, 2, 9, which row correctly gives mean, median, mode, and range?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "mean 3.5, median 2, mode 2, range 8"},
+        {"id": "b", "text": "mean 2, median 3.5, mode 9, range 8"},
+        {"id": "c", "text": "mean 3.5, median 2, mode 1, range 9"},
+        {"id": "d", "text": "mean 14, median 2, mode 2, range 10"}
+      ], "correctId": "a"},
+      "correctFeedback": "Exactly. Each statistic captures a different feature of the same four numbers.",
+      "incorrectFeedback": "Compute equal share, average the two middle positions, find the repeated value, and subtract minimum from maximum.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Mean", "body": "The total is 14, so the mean is 14 ÷ 4 = 3.5."},
+        {"title": "Median and mode", "body": "The middle values are 2 and 2, so the median is 2; the repeated value 2 is also the mode."},
+        {"title": "Range", "body": "The spread from minimum to maximum is 9 − 1 = 8."}
+      ], "takeaway": "Mean balances, median locates the middle, mode tracks frequency, and range measures span."
+      }
+    },
+    {
+      "id": "name-statistics",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name the four summary statistics after their meanings have been contrasted.",
+      "expectedRealization": "Average is ambiguous unless the intended statistic is specified.",
+      "transitionIn": "The word “average” can hide several distinct summaries, so name the one you mean.",
+      "estimatedSeconds": 50,
+      "name": "Mean, median, mode, and range",
+      "conciseDefinition": "The mean is total divided by count; the median is the middle ordered value; the mode is most frequent; the range is maximum minus minimum.",
+      "formalization": "total = mean × count",
+      "memoryHook": "Balance, middle, most, span."
+    },
+    {
+      "id": "combined-tests",
+      "phase": "competition-application",
+      "kind": "problem",
+      "source": "bank",
+      "problemId": "amc8-2006-12",
+      "role": "transfer",
+      "presentation": "full-prompt",
+      "purpose": "Apply total preservation to percentages from differently sized groups.",
+      "expectedRealization": "Each percentage must be converted back to a correct-count total before the tests combine.",
+      "transitionIn": "A mean hides a total. These test percentages also hide totals, and the tests do not contain equal numbers of questions.",
+      "estimatedSeconds": 175,
+      "whyNow": "The learner knows total = mean × count; differently sized tests expose why subgroup percentages cannot be averaged naively.",
+      "entryBridge": "Recover the number correct on each test before combining anything.",
+      "exitBridge": "Fifty correct answers out of sixty questions determine the combined percentage.",
+      "reusedRepresentation": "Quantity bars whose filled totals are merged before rebalancing.",
+      "animation": {"mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "At the first step, notice that the three percentage bars represent 10, 20, and 30 questions.",
+        "When correct counts appear, compute 70% of 10, 80% of 20, and 90% of 30.",
+        "At the combined bar, add correct answers and total questions separately.",
+        "At the final step, convert 50/60 to the nearest offered percent."
+      ],
+      "correctFeedback": "Yes. The combined score is 50 out of 60, about 83%.",
+      "incorrectFeedback": "Do not average 70, 80, and 90 equally; the tests contain different numbers of questions.",
+      "resolution": {"animation": {"kind": "problem-animation", "placement": "before-steps"}, "steps": [
+        {"title": "Recover totals", "body": "The correct counts are 7, 16, and 27."},
+        {"title": "Combine", "body": "7 + 16 + 27 = 50 correct out of 10 + 20 + 30 = 60 questions."},
+        {"title": "Convert", "body": "50/60 ≈ 83.3%, so the closest answer is D, 83%."}
+      ], "takeaway": "Weight each subgroup by its size by recovering its total contribution."
+      },
+      "sourceLabelTiming": "before"
+    },
+    {
+      "id": "unequal-groups",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Directly diagnose naive averaging of two subgroup means.",
+      "expectedRealization": "A larger group contributes more to the combined mean.",
+      "transitionIn": "The three tests exposed hidden group sizes. Test the same idea with two class sections.",
+      "estimatedSeconds": 85,
+      "prompt": "A 10-student group has mean score 80. A 30-student group has mean score 90. What is the combined mean?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "85, by averaging the two displayed means equally."},
+        {"id": "b", "text": "87.5, after combining score totals for all 40 students."},
+        {"id": "c", "text": "90, because the larger group replaces the smaller."},
+        {"id": "d", "text": "170, by adding the means."}
+      ], "correctId": "b"},
+      "correctFeedback": "Correct. The 30-student group contributes three times as many scores, pulling the combined mean toward 90.",
+      "incorrectFeedback": "Convert each mean back to a total score using mean × count, then combine all 40 students.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Recover group totals", "body": "10 × 80 = 800 and 30 × 90 = 2,700."},
+        {"title": "Rebalance everyone", "body": "The total is 3,500 across 40 students, so 3,500 ÷ 40 = 87.5."}
+      ], "takeaway": "Subgroup means need weights equal to their group sizes."
+      }
+    },
+    {
+      "id": "equal-cross-connection",
+      "phase": "competition-application",
+      "kind": "problem",
+      "source": "bank",
+      "problemId": "amc8-1999-13",
+      "role": "guided",
+      "presentation": "animation-first",
+      "purpose": "Connect mean's total-preservation habit to a distinct equal-sum structure without claiming it is an average problem.",
+      "expectedRealization": "Tracking how often each value is counted can recover a hidden total relationship.",
+      "transitionIn": "Equal sharing is one use of total preservation. In this cross, the challenge is different: the center is counted in both equal sums.",
+      "estimatedSeconds": 185,
+      "whyNow": "The approved puzzle broadens the total-tracking habit: learners must account for a duplicated center before optimizing the common sum.",
+      "entryBridge": "Add the horizontal and vertical sums and track which tile is counted twice.",
+      "exitBridge": "A correct total account turns a spatial puzzle into one equation and a pairing check.",
+      "reusedRepresentation": "A fixed total redistributed into equal-sum structures.",
+      "animation": {"mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "At the first step, identify the one square counted in both sums.",
+        "When 2S = 35 + c appears, explain the extra center term.",
+        "At the candidate step, choose the largest center that still permits equal outside pairs.",
+        "At the final cross, verify both arm sums directly."
+      ],
+      "correctFeedback": "Yes. Centering 13 permits outside pairs summing to 11, so each full arm sums to 24.",
+      "incorrectFeedback": "The five tiles total 35, but adding both arm sums counts the center twice.",
+      "resolution": {"animation": {"kind": "problem-animation", "placement": "before-steps"}, "steps": [
+        {"title": "Track the duplicated center", "body": "If each arm sums to S and the center is c, then 2S = 35 + c."},
+        {"title": "Maximize feasibly", "body": "Using c = 13 gives S = (35 + 13)/2 = 24."},
+        {"title": "Check the arrangement", "body": "The remaining values pair as 1 + 10 = 11 and 4 + 7 = 11. Adding center 13 makes both arms 24, so the answer is D."}
+      ], "takeaway": "Preserve totals—and count repeated contributions exactly."
+      },
+      "sourceLabelTiming": "before"
+    },
+    {
+      "id": "statistics-recap",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate total-based mean reasoning and distinguish the four summaries.",
+      "expectedRealization": "The statistic and group structure determine what must be preserved or counted.",
+      "transitionIn": "Piles, tests, class groups, and the cross all rewarded careful accounting of totals.",
+      "estimatedSeconds": 80,
+      "prompt": "Select every reliable statement.",
+      "response": {"kind": "multi-select", "options": [
+        {"id": "total", "text": "A mean and a count determine the underlying total."},
+        {"id": "observed", "text": "The mean must be one of the observed values."},
+        {"id": "weights", "text": "Combining group means requires their group sizes."},
+        {"id": "distinct", "text": "Median, mode, and range describe features different from equal share."},
+        {"id": "middle", "text": "Average always means the middle ordered value."}
+      ], "correctIds": ["total", "weights", "distinct"], "feedback": "Separate equal sharing from position, frequency, and spread, and keep totals attached to group sizes."},
+      "correctFeedback": "Exactly. The mean preserves total; the other summaries answer different questions.",
+      "incorrectFeedback": "Discard claims that force the mean to be observed or confuse it with the median.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Mean", "body": "Use total = mean × count and mean = total ÷ count."},
+        {"title": "Groups", "body": "Recover each group's total before merging unequal group sizes."},
+        {"title": "Other summaries", "body": "Median uses order, mode uses frequency, and range uses the endpoints."}
+      ], "takeaway": "Choose the summary by the feature you need."
+      }
+    },
+    {
+      "id": "show-the-shape",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Create the successor need for visual data representation after numerical summaries.",
+      "expectedRealization": "A single summary can hide patterns in the individual values.",
+      "transitionIn": "A mean compresses a list to one balance value. Compression can hide the list's shape.",
+      "estimatedSeconds": 60,
+      "prompt": "Two data sets can share the same mean and range but arrange their values differently. What would help reveal clusters, gaps, or trends?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "A graph or table showing the individual values."},
+        {"id": "b", "text": "Only the mean, repeated twice."},
+        {"id": "c", "text": "Deleting the units and labels."},
+        {"id": "d", "text": "Sorting the statistic names alphabetically."}
+      ], "correctId": "a"},
+      "correctFeedback": "Yes. A visual display can preserve the individual values while exposing their pattern.",
+      "incorrectFeedback": "Choose a representation that keeps more of the data visible than one summary number.",
+      "allowRetry": true,
+      "resolution": {"steps": [{"body": "Tables organize exact values; graphs use position, length, or height to make comparisons and patterns visible. The next question is how to choose and read those displays without letting their scales mislead us."}], "takeaway": "A summary tells one feature; a display can reveal the data's shape."
+      }
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {"near": 2, "mixed": 2, "challenge": 1},
+    "sessionSelection": [
+      {"source": "generated", "transferLevel": "near", "count": 2}, {"source": "generated", "transferLevel": "mixed", "count": 2}, {"source": "generated", "transferLevel": "challenge", "count": 1}
+    ],
+    "excludeProblemIds": ["amc8-2006-12", "amc8-1999-13"], "requireFreshGeneratedItems": true
+  },
+  "mastery": {"skillId": "F6-averages-statistics", "evidenceBeatIds": ["unequal-groups", "statistics-recap"], "minIndependentPracticeItems": 5, "recommendedAccuracyThreshold": 0.8, "weightMixedTransferMore": true},
+  "generation": {"curriculumVersion": "1.0.0", "mappingVersion": "1.0.0", "generatorVersion": "1.0.0", "notes": [
+    "The generated pile model establishes equal-share meaning before terminology.",
+    "The weighted-test bank problem directly repairs naive averaging; the equal-cross bank problem is framed only as a total-preservation connection.",
+    "The lesson remains draft pending human pedagogical review."
+  ]}
+}

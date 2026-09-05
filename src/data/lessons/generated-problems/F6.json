@@ -1,0 +1,57 @@
+[
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F6", "purpose": "practice", "transferLevel": "near", "targetConcepts": ["F6"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f6-three-piles", "title": "Balance Three Piles", "sourceType": "Original", "contest": "Original", "category": "Statistics", "subcategory": "Mean", "difficulty": 1,
+      "statement": "Three piles contain 4, 6, and 8 counters. If the counters are shared equally among the piles, how many counters will each pile contain?",
+      "choices": [{"label": "A", "text": "4"}, {"label": "B", "text": "5"}, {"label": "C", "text": "6"}, {"label": "D", "text": "8"}, {"label": "E", "text": "18"}],
+      "answer": "C", "shortAnswer": "6", "hints": ["Preserve the total, then divide by the number of piles."],
+      "solutionSteps": [{"title": "Equal-share the total", "body": "The total is 4 + 6 + 8 = 18. Sharing 18 among 3 piles gives a mean of 6."}],
+      "tags": ["mean", "equal share"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Total-and-count method: (4+6+8)/3=18/3=6.", "Independent balance check: move two counters from the 8-pile to the 4-pile, producing 6,6,6; only C matches."], "notes": ["The integer mean reinforces equal-share meaning."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F6", "purpose": "practice", "transferLevel": "near", "targetConcepts": ["F6"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f6-summary-four", "title": "Four Summaries", "sourceType": "Original", "contest": "Original", "category": "Statistics", "subcategory": "Median mode range", "difficulty": 1,
+      "statement": "For the ordered data 2, 3, 3, 10, 12, which row correctly gives the median, mode, and range?",
+      "choices": [{"label": "A", "text": "3, 3, 10"}, {"label": "B", "text": "3, 10, 12"}, {"label": "C", "text": "3, 3, 12"}, {"label": "D", "text": "10, 3, 10"}, {"label": "E", "text": "6, 3, 10"}],
+      "answer": "A", "shortAnswer": "median 3, mode 3, range 10", "hints": ["Use the middle position, the most frequent value, and maximum minus minimum."],
+      "solutionSteps": [{"title": "Read each feature", "body": "The middle value is 3, the repeated value is 3, and the range is 12 − 2 = 10."}],
+      "tags": ["median", "mode", "range"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Definition audit gives median 3, mode 3, and range 10.", "Independent option-component check: only A has all three values in the requested order."], "notes": ["The mean is intentionally not requested."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F6", "purpose": "practice", "transferLevel": "mixed", "targetConcepts": ["F6"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f6-missing-value", "title": "Recover a Missing Value", "sourceType": "Original", "contest": "Original", "category": "Statistics", "subcategory": "Mean and total", "difficulty": 2,
+      "statement": "Five numbers have mean 8. Four of the numbers are 6, 7, 8, and 9. What is the fifth number?",
+      "choices": [{"label": "A", "text": "8"}, {"label": "B", "text": "9"}, {"label": "C", "text": "10"}, {"label": "D", "text": "11"}, {"label": "E", "text": "40"}],
+      "answer": "C", "shortAnswer": "10", "hints": ["Use mean × count to recover the total of all five numbers."],
+      "solutionSteps": [{"title": "Track the total", "body": "The total must be 8 × 5 = 40. The known numbers total 30, so the missing number is 40 − 30 = 10."}],
+      "tags": ["mean", "missing value", "total"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Total recovery: 8×5=40 and 6+7+8+9=30, leaving 10.", "Independent forward check: (6+7+8+9+10)/5=40/5=8; only C satisfies the stated mean."], "notes": ["The problem makes the hidden total operational."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F6", "purpose": "practice", "transferLevel": "mixed", "targetConcepts": ["F6"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f6-combine-groups", "title": "Combine Unequal Groups", "sourceType": "Original", "contest": "Original", "category": "Statistics", "subcategory": "Weighted mean", "difficulty": 2,
+      "statement": "A group of 4 students has mean score 70. A group of 6 students has mean score 80. What is the combined mean score?",
+      "choices": [{"label": "A", "text": "74"}, {"label": "B", "text": "75"}, {"label": "C", "text": "76"}, {"label": "D", "text": "78"}, {"label": "E", "text": "150"}],
+      "answer": "C", "shortAnswer": "76", "hints": ["Recover each group's total score before combining the ten students."],
+      "solutionSteps": [{"title": "Weight by group size", "body": "The totals are 4×70=280 and 6×80=480. Combined, 760 points across 10 students gives a mean of 76."}],
+      "tags": ["weighted mean", "groups", "total"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Weighted-total method: (4×70+6×80)/(4+6)=760/10=76.", "Independent deviation method: start from 70; six of ten students contribute an extra 10 on average, raising the combined mean by 6 to 76. Only C matches."], "notes": ["Choice B captures the naive unweighted average."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F6", "purpose": "practice", "transferLevel": "challenge", "targetConcepts": ["F6"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f6-remove-value", "title": "Mean after Removing a Value", "sourceType": "Original", "contest": "Original", "category": "Statistics", "subcategory": "Mean and total", "difficulty": 2,
+      "statement": "Six numbers have mean 12. One of the numbers, 17, is removed. What is the mean of the five remaining numbers?",
+      "choices": [{"label": "A", "text": "9"}, {"label": "B", "text": "10"}, {"label": "C", "text": "11"}, {"label": "D", "text": "12"}, {"label": "E", "text": "13"}],
+      "answer": "C", "shortAnswer": "11", "hints": ["Recover the original total, subtract 17, and update the count."],
+      "solutionSteps": [{"title": "Update total and count", "body": "The original total is 6×12=72. Removing 17 leaves 55 across 5 numbers, so the new mean is 55/5=11."}],
+      "tags": ["mean", "changing data", "total"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Total update: 6×12−17=55 and 55/5=11.", "Independent deviation argument: removing 17, which is 5 above the old mean, reduces the total relative to five copies of 12 by 5, so the new mean is 12−1=11. Only C matches."], "notes": ["Both total and count must be updated."]}
+  }
+]
