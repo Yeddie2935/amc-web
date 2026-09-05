@@ -1,0 +1,172 @@
+{
+  "schemaVersion":"1.0.0",
+  "lessonId":"S4",
+  "curriculumNodeId":"S4",
+  "title":"Pigeonhole & Guaranteed Outcomes",
+  "lessonType":"technique",
+  "status":"draft",
+  "estimatedMinutes":27,
+  "coreInsight":"Worst-case distribution can prove what must eventually happen even when the exact arrangement is unknown.",
+  "targetLearnerRealization":"To prove a guaranteed outcome, construct the worst case that delays it as long as possible, then take the next forced object.",
+  "learningObjectives":[
+    "Distinguish a possible or likely outcome from a guaranteed outcome.",
+    "Construct the largest arrangement that still avoids the target event.",
+    "Use maximum safe count plus one to force a category past its limit.",
+    "Identify useful categories even when the exact arrangement is hidden."
+  ],
+  "hardPrerequisites":["C2"],
+  "narrativePredecessor":"C2",
+  "continuity":{"openingCallback":"Turn complete, non-overlapping categories into bins, then ask how long a hidden sequence can avoid filling any bin too far.","closingSeeds":[
+    "Categories can be colors, months, containers, matching pairs, or another structural feature.",
+    "A guarantee comes from an explicit worst case, not from an average or expected arrangement.",
+    "The exact distribution is unnecessary once every safe bin has reached its capacity."
+  ],"nextLessonIds":[]},
+  "misconceptionTargets":[
+    {"misconception":"A likely or average-case outcome is a guarantee.","beatIds":["authentic-martian-socks","likely-versus-certain","practice-birth-months","guarantee-recap"]},
+    {"misconception":"The desired event is forced as soon as every category has at least one item.","beatIds":["maximum-safe-state","practice-four-colors","guarantee-recap"]},
+    {"misconception":"The distribution should be assumed balanced rather than constructed as a worst case.","beatIds":["authentic-martian-socks","maximum-safe-state","practice-six-containers","guarantee-recap"]},
+    {"misconception":"Pigeonhole arguments require knowing the exact arrangement.","beatIds":["name-pigeonhole","practice-matching-gloves","practice-difference-ten","guarantee-recap"]}
+  ],
+  "beats":[
+    {
+      "id":"authentic-martian-socks","phase":"puzzle","kind":"problem","source":"bank","problemId":"amc8-2005-16","role":"anchor","presentation":"full-prompt",
+      "purpose":"Let the learner deliberately delay five matching socks until one more draw becomes unavoidable.",
+      "expectedRealization":"Four socks of each of three colors is the largest safe draw; the thirteenth sock forces some color to five.",
+      "transitionIn":"A complete list gave every outcome one place. Here the sock order is hidden, so organize only by color and imagine the order that delays a match longest.",
+      "transitionOut":"Twelve describes a possible failure arrangement; thirteen is the first count that destroys every such arrangement.",
+      "whyNow":"The approved Martian sock problem is the canonical concrete worst-case discovery with three visible bins and a sharp forced next step.",
+      "entryBridge":"Try to avoid five of one color for as long as possible. How many red, white, and blue socks can be drawn safely?",
+      "exitBridge":"Four of each color makes twelve without success; the next sock has one of those colors and creates five.",
+      "reusedRepresentation":"Three non-overlapping color bins with a capacity of four before the target is reached.",
+      "animation":{"mode":"whole","controlledByLesson":true,"autoplay":false,"showPlayerControls":false},
+      "learnerPrompts":["How many of each color can be drawn without reaching five?","What is the total in that longest safe arrangement?","Why does every possible thirteenth sock force success?","Which answer is the first guaranteed count?"],
+      "correctFeedback":"Correct—4 + 4 + 4 = 12 can still avoid five, so the thirteenth sock guarantees five of one color.",
+      "incorrectFeedback":"Build the most stubborn failure: stop every color at four, then consider one additional sock.",
+      "resolution":{"animation":{"kind":"problem-animation","placement":"before-steps"},"steps":[
+        {"title":"Construct the worst case","body":"Draw 4 red, 4 white, and 4 blue socks. After 12 draws, no color has five.","math":"3 × 4 = 12"},
+        {"title":"Take one more","body":"The thirteenth sock must be red, white, or blue. Whichever color it has already appears four times, so that color reaches five.","math":"12 + 1 = 13"},
+        {"title":"Prove the boundary","body":"The twelve-sock arrangement proves 12 is not enough; the next-sock argument proves 13 always is."}
+      ],"takeaway":"Find the maximum safe arrangement, then add one to force the target."},
+      "sourceLabelTiming":"before","estimatedSeconds":210
+    },
+    {
+      "id":"maximum-safe-state","phase":"notice","kind":"interaction",
+      "purpose":"Distinguish touching every category from reaching the target threshold in one category.",
+      "expectedRealization":"One of each color fills all bins once but is far from forcing five; safe capacity is target minus one per bin.",
+      "transitionIn":"Every color appearing once does not end the safe region. The target is five in one bin, not one in every bin.",
+      "estimatedSeconds":75,
+      "prompt":"With three colors and a target of five matching socks, what is the greatest safe occupancy of each color bin?",
+      "response":{"kind":"single-choice","options":[{"id":"one","text":"1 per color"},{"id":"three","text":"3 per color"},{"id":"four","text":"4 per color"},{"id":"five","text":"5 per color"}],"correctId":"four"},
+      "correctFeedback":"Right—four is the largest count still below the target five.",
+      "incorrectFeedback":"A bin remains safe until it contains one fewer than the target.",
+      "allowRetry":true,
+      "resolution":{"visual":{"primitive":"choice-grid","data":{"groups":[{"label":"Red safe","choices":["4"]},{"label":"White safe","choices":["4"]},{"label":"Blue safe","choices":["4"]}]},"continuityKey":"s4-capacity-bins","ariaLabel":"Three color bins each safely filled to four socks"},"steps":[{"body":"Each bin can hold target − 1 = 4 without success. Filling all three safe capacities creates the longest possible delay."}],"takeaway":"Safe capacity is one below the desired threshold, not merely one item per category."}
+    },
+    {
+      "id":"name-pigeonhole","phase":"name","kind":"concept",
+      "purpose":"Name the principle after the maximum-safe boundary has been constructed and proved.",
+      "expectedRealization":"Pigeonhole reasoning forces an overfilled category without identifying which category in advance.",
+      "transitionIn":"You did not predict the sock order. You proved that three safe bins could hold only twelve socks altogether.",
+      "estimatedSeconds":55,
+      "name":"Pigeonhole principle",
+      "conciseDefinition":"If every category has a safe capacity, placing more objects than all safe capacities combined forces some category past its capacity.",
+      "formalization":"k categories, target t in one category: maximum safe = k(t − 1), so k(t − 1) + 1 guarantees t together",
+      "memoryHook":"Delay it completely, then take one more."
+    },
+    {
+      "id":"likely-versus-certain","phase":"play","kind":"interaction",
+      "purpose":"Separate average-case intuition from the adversarial standard required for a guarantee.",
+      "expectedRealization":"A guarantee must survive the least helpful allowed arrangement.",
+      "transitionIn":"A balanced draw might be common, but certainty asks whether even the most unhelpful arrangement must succeed.",
+      "estimatedSeconds":75,
+      "prompt":"Which question should guide a guarantee proof?",
+      "response":{"kind":"single-choice","options":[
+        {"id":"average","text":"What distribution seems most typical?"},{"id":"favorite","text":"Which category is most likely?"},{"id":"delay","text":"How long can an allowed arrangement avoid the target?"},{"id":"example","text":"Can I find one arrangement that succeeds?"}
+      ],"correctId":"delay"},
+      "correctFeedback":"Exactly—a guarantee begins with the arrangement that delays success longest.",
+      "incorrectFeedback":"Certainty must survive every allowed arrangement, including the most stubborn one.",
+      "allowRetry":true,
+      "resolution":{"steps":[{"body":"An average describes what tends to happen. A worst case describes the last moment failure is still possible; one more object then proves certainty."}],"takeaway":"For a guarantee, argue against the strongest possible delay."
+      }
+    },
+    {
+      "id":"practice-four-colors","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-s4-four-colors","role":"transfer","presentation":"independent",
+      "purpose":"Assess the basic threshold calculation with changed category and target counts.","expectedRealization":"Two of each of four colors is safe, so the ninth marble forces three of one color.",
+      "transitionIn":"Change both numbers: four color bins, with three matching marbles as the target.","transitionOut":"Eight is a realizable failure; nine crosses the total safe capacity.",
+      "whyNow":"A near item checks maximum safe plus one without a new interpretation burden.","entryBridge":"Fill each color to two, one below the target three.","exitBridge":"Four bins times two safe marbles gives eight; the ninth forces a third.",
+      "animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["What is each bin's safe capacity?","Can that many draws still fail?","Why does the next draw force success?"],
+      "correctFeedback":"Correct—4 × 2 + 1 = 9 marbles guarantee three of one color.","incorrectFeedback":"Keep two of each color safely, then add the next marble.",
+      "resolution":{"steps":[{"body":"A draw of 2 in each of 4 colors gives 8 marbles with no triple. Any ninth marble has one of those colors and creates a triple.","math":"4(3 − 1) + 1 = 9"}],"takeaway":"Maximum safe plus one marks the exact guarantee boundary."},"sourceLabelTiming":"hidden","estimatedSeconds":100
+    },
+    {
+      "id":"practice-birth-months","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-s4-birth-months","role":"transfer","presentation":"independent",
+      "purpose":"Transfer categories from colors to calendar months and contrast likely with certain.","expectedRealization":"Twelve people can occupy twelve different birth months, while thirteen force a shared month.",
+      "transitionIn":"The bins do not need to be physical. Let the twelve months organize unknown birthdays.","transitionOut":"No exact birthdays were needed; one person per month is the complete safe arrangement.",
+      "whyNow":"A near classic interpretation checks category identification and certainty.","entryBridge":"Ask how many people can have all different birth months.","exitBridge":"Twelve distinct months can host twelve people; person thirteen must repeat a month.",
+      "animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["What are the categories?","What is the maximum with no shared month?"],
+      "correctFeedback":"Correct—13 people guarantee that two share a birth month.","incorrectFeedback":"There are 12 month categories, and one person per month is still safe.",
+      "resolution":{"steps":[{"body":"Twelve people could occupy the twelve months one each. The thirteenth person must share one of those month categories.","math":"12 + 1 = 13"}],"takeaway":"A guarantee depends on the number of categories, not on which exact category repeats."},"sourceLabelTiming":"hidden","estimatedSeconds":100
+    },
+    {
+      "id":"practice-six-containers","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-s4-six-containers","role":"transfer","presentation":"independent",
+      "purpose":"Assess an inverse threshold question: total objects forcing at least four in a container.","expectedRealization":"Six containers can safely hold three each, so object nineteen forces four in one.",
+      "transitionIn":"Now the objects may be distributed deliberately. The exact distribution is unknown, so build the most even safe one yourself.","transitionOut":"The balanced state is not assumed to occur; it is constructed as the arrangement that maximizes total objects while every box stays below four.",
+      "whyNow":"This mixed item makes the role of a balanced worst case explicit.","entryBridge":"Cap each container at three and total the safe capacities.","exitBridge":"Six containers hold at most eighteen without a fourth; item nineteen breaks some cap.",
+      "animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["How many can each container hold safely?","What total fills all safe capacities?"],
+      "correctFeedback":"Correct—19 objects force at least four in one container.","incorrectFeedback":"The failure arrangement puts at most three objects in each of six containers.",
+      "resolution":{"visual":{"primitive":"choice-grid","data":{"groups":[{"label":"Six safe capacities","choices":["3","3","3","3","3","3"]}]},"ariaLabel":"Six containers each at safe capacity three"},"steps":[{"body":"At most 3 in each container allows 6 × 3 = 18 objects. With 19 objects, some container must hold at least 4."}],"takeaway":"A balanced-looking worst case is constructed to maximize safe capacity; the real arrangement need not be balanced."},"sourceLabelTiming":"hidden","estimatedSeconds":110
+    },
+    {
+      "id":"practice-matching-gloves","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-s4-matching-gloves","role":"transfer","presentation":"independent",
+      "purpose":"Require identifying hidden pair categories rather than visible colors.","expectedRealization":"One glove from each of five pairs is safe, so a sixth glove completes some pair.",
+      "transitionIn":"This time each bin is a matching pair: left and right gloves with the same pattern belong together.","transitionOut":"Five unmatched gloves can occupy the five pair bins one each; the sixth must join one of them.",
+      "whyNow":"A mixed representation tests whether the learner can invent the useful categories.","entryBridge":"To avoid a complete pair, take at most one glove from each matching-pair category.","exitBridge":"Five safe selections plus one force a matching left-right pair.",
+      "animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["What should count as one category?","How many gloves can be selected with at most one from each pair?"],
+      "correctFeedback":"Correct—6 gloves guarantee both gloves from at least one matching pair.","incorrectFeedback":"Treat each of the five original pairs as a bin with safe capacity one.",
+      "resolution":{"steps":[{"body":"Choosing one glove from each of the five pairs gives five gloves with no complete pair. A sixth glove belongs to one of those five pair categories and completes it.","math":"5 × 1 + 1 = 6"}],"takeaway":"The decisive bins may be relationships, not visible labels."},"sourceLabelTiming":"hidden","estimatedSeconds":115
+    },
+    {
+      "id":"practice-difference-ten","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-s4-difference-ten","role":"transfer","presentation":"independent",
+      "purpose":"Assess a structural pairing argument where the categories must be constructed from the desired relation.","expectedRealization":"The numbers form ten difference-ten pairs, so eleven selections force both members of one pair.",
+      "transitionIn":"For the final challenge, build the bins from the event itself: two selected numbers should differ by ten.","transitionOut":"Ten pair bins can each contribute one safe number; selection eleven completes a pair without revealing which one.",
+      "whyNow":"The challenge requires deriving the pigeonholes rather than receiving them in the wording.","entryBridge":"Pair 1 with 11, 2 with 12, and continue through 10 with 20.","exitBridge":"Ten selections can take one from every pair; the eleventh must take a second from some pair.",
+      "animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["Which numbers belong in the same difference-ten category?","How many can be chosen safely?","Why does the next choice force the event?"],
+      "correctFeedback":"Correct—11 selected numbers guarantee two that differ by 10.","incorrectFeedback":"Partition 1 through 20 into ten pairs {1,11}, {2,12}, ..., {10,20}.",
+      "resolution":{"visual":{"primitive":"choice-grid","data":{"groups":[{"label":"Difference-10 pairs","choices":["{1,11}","{2,12}","{3,13}","…","{10,20}"]}]},"ariaLabel":"Ten number pairs whose members differ by ten"},"steps":[{"body":"Selecting at most one number from each of the ten pairs allows 10 numbers with no desired pair. The eleventh selection repeats a pair category and therefore differs by 10 from an earlier selection."}],"takeaway":"Build categories so that overfilling one category is exactly the event you need."},"sourceLabelTiming":"hidden","estimatedSeconds":140
+    },
+    {
+      "id":"guarantee-recap","phase":"reflection","kind":"interaction",
+      "purpose":"Consolidate category choice, worst-case construction, boundary proof, and certainty language.",
+      "expectedRealization":"A guarantee proof identifies bins, fills every safe capacity, proves that failure arrangement possible, and forces the next object.",
+      "transitionIn":"Colors, months, containers, glove pairs, and number pairs all used the same boundary argument.",
+      "estimatedSeconds":90,
+      "prompt":"Which checks belong in a reliable guaranteed-outcome argument? Select all four.",
+      "response":{"kind":"multi-select","options":[
+        {"id":"bins","text":"Choose complete, non-overlapping categories tied to the target event."},{"id":"safe","text":"Construct the maximum total that still avoids the event."},{"id":"plus","text":"Show why one additional object must cross some safe limit."},{"id":"boundary","text":"Use the safe arrangement to prove the previous count was not enough."},{"id":"average","text":"Assume the actual distribution will be close to average."}
+      ],"correctIds":["bins","safe","plus","boundary"],"feedback":"Keep category design, the safe construction, the forced next step, and the lower-bound example."},
+      "correctFeedback":"Exactly—build the bins, fill the safe boundary, force one more, and prove sharpness.",
+      "incorrectFeedback":"The real arrangement may be extremely uneven; no average-case assumption belongs in a guarantee.",
+      "allowRetry":true,
+      "resolution":{"visual":{"primitive":"choice-grid","data":{"groups":[{"label":"1. Categorize","choices":["Bins match the event"]},{"label":"2. Delay","choices":["Fill every safe capacity"]},{"label":"3. Force","choices":["Take one more"]},{"label":"4. Certify","choices":["Previous count can fail"]}]},"ariaLabel":"Four-stage guaranteed outcome checklist"},"takeaway":"Delay it completely, then take one more."
+      }
+    },
+    {
+      "id":"guarantee-design-hook","phase":"reflection","kind":"reflection",
+      "purpose":"Leave an open category-design question after consolidating the numerical rule.",
+      "expectedRealization":"The creative step is often choosing bins so that a repeated bin produces the desired relationship.",
+      "transitionIn":"Once the bins were chosen, the arithmetic was short. The harder move was deciding what belonged together.",
+      "estimatedSeconds":50,
+      "prompt":"Suppose the desired outcome is two grid points sharing an x-coordinate or a y-coordinate. What categories could make that relationship appear as an overfilled bin?",
+      "takeaway":"Guaranteed-outcome arguments become powerful when the categories are designed around the event to be forced."
+    }
+  ],
+  "practice":{"generatedPoolMinimum":{"near":2,"mixed":2,"challenge":1},"sessionSelection":[{"source":"generated","transferLevel":"near","count":2},{"source":"generated","transferLevel":"mixed","count":2},{"source":"generated","transferLevel":"challenge","count":1}],"excludeProblemIds":["amc8-2005-16"],"requireFreshGeneratedItems":true},
+  "mastery":{"skillId":"S4","evidenceBeatIds":["practice-four-colors","practice-birth-months","practice-six-containers","practice-matching-gloves","practice-difference-ten"],"minIndependentPracticeItems":5,"recommendedAccuracyThreshold":0.8,"weightMixedTransferMore":true},
+  "generation":{"curriculumVersion":"1.2.0","mappingVersion":"1.0.0","generatorVersion":"mathinking-lesson-skill-1.0.0","notes":[
+    "Draft technique lesson authored from the approved S4 compact context packet.",
+    "The approved AMC Martian sock problem is the discovery anchor and uses the complete existing pigeonhole-sock animation.",
+    "Generated practice varies category count, threshold, and hidden pigeonhole interpretation while preserving maximum-safe-plus-one reasoning.",
+    "All generated answers were independently checked with an explicit failure construction and a separate forced-next-object proof.",
+    "No lesson-specific renderer infrastructure was added."
+  ]}
+}

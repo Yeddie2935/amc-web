@@ -45,6 +45,10 @@ import c10LessonData from "./counting-probability/C10.json";
 import p1LessonData from "./counting-probability/P1.json";
 import p2LessonData from "./counting-probability/P2.json";
 import p3LessonData from "./counting-probability/P3.json";
+import s1LessonData from "./problem-solving/S1.json";
+import s2LessonData from "./problem-solving/S2.json";
+import s3LessonData from "./problem-solving/S3.json";
+import s4LessonData from "./problem-solving/S4.json";
 import c1GeneratedProblemData from "./generated-problems/C1.json";
 import c2GeneratedProblemData from "./generated-problems/C2.json";
 import c3GeneratedProblemData from "./generated-problems/C3.json";
@@ -58,6 +62,10 @@ import c10GeneratedProblemData from "./generated-problems/C10.json";
 import p1GeneratedProblemData from "./generated-problems/P1.json";
 import p2GeneratedProblemData from "./generated-problems/P2.json";
 import p3GeneratedProblemData from "./generated-problems/P3.json";
+import s1GeneratedProblemData from "./generated-problems/S1.json";
+import s2GeneratedProblemData from "./generated-problems/S2.json";
+import s3GeneratedProblemData from "./generated-problems/S3.json";
+import s4GeneratedProblemData from "./generated-problems/S4.json";
 
 export interface LessonBundle {
   lesson: LessonSpec;
@@ -103,6 +111,18 @@ const p2GeneratedProblemArtifacts =
 const p3Lesson = p3LessonData as LessonSpec;
 const p3GeneratedProblemArtifacts =
   p3GeneratedProblemData as GeneratedProblemArtifact[];
+const s1Lesson = s1LessonData as LessonSpec;
+const s1GeneratedProblemArtifacts =
+  s1GeneratedProblemData as GeneratedProblemArtifact[];
+const s2Lesson = s2LessonData as LessonSpec;
+const s2GeneratedProblemArtifacts =
+  s2GeneratedProblemData as GeneratedProblemArtifact[];
+const s3Lesson = s3LessonData as LessonSpec;
+const s3GeneratedProblemArtifacts =
+  s3GeneratedProblemData as GeneratedProblemArtifact[];
+const s4Lesson = s4LessonData as LessonSpec;
+const s4GeneratedProblemArtifacts =
+  s4GeneratedProblemData as GeneratedProblemArtifact[];
 const f1Lesson = f1LessonData as LessonSpec;
 const f1GeneratedProblemArtifacts =
   f1GeneratedProblemData as GeneratedProblemArtifact[];
@@ -276,6 +296,34 @@ const lessonRegistry = new Map<string, LessonBundle>([
     {
       lesson: p3Lesson,
       generatedProblemArtifacts: p3GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    s1Lesson.lessonId,
+    {
+      lesson: s1Lesson,
+      generatedProblemArtifacts: s1GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    s2Lesson.lessonId,
+    {
+      lesson: s2Lesson,
+      generatedProblemArtifacts: s2GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    s3Lesson.lessonId,
+    {
+      lesson: s3Lesson,
+      generatedProblemArtifacts: s3GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    s4Lesson.lessonId,
+    {
+      lesson: s4Lesson,
+      generatedProblemArtifacts: s4GeneratedProblemArtifacts,
     },
   ],
 ]);

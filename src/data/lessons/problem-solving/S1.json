@@ -1,0 +1,552 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "S1",
+  "curriculumNodeId": "S1",
+  "title": "Work Backwards",
+  "lessonType": "technique",
+  "status": "draft",
+  "estimatedMinutes": 29,
+  "coreInsight": "When a forward process compounds complexity, reversing invertible steps can expose the starting state much more directly.",
+  "targetLearnerRealization": "When a forward process branches or compounds complexity, reversing the allowed operations from the known endpoint can expose the possible starts much more cleanly.",
+  "learningObjectives": [
+    "Reverse a sequence of invertible operations in the opposite order.",
+    "Find every valid predecessor when a reverse step can branch.",
+    "Reject reverse candidates that violate the original rule or its constraints.",
+    "Verify each backward candidate by running the original process forward."
+  ],
+  "hardPrerequisites": ["A1"],
+  "narrativePredecessor": "A1",
+  "continuity": {
+    "openingCallback": "Turn an expression from a forward calculation into a trail that can be followed from its known output back to its unknown input.",
+    "closingSeeds": [
+      "A reverse step may create several possible predecessors rather than one.",
+      "Restrictions from the original rule decide which backward candidates are valid.",
+      "A forward check confirms that a reconstructed start really reaches the given endpoint."
+    ],
+    "nextLessonIds": []
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "Inverse operations can be applied in the same order as the forward process.",
+      "beatIds": ["authentic-number-machine", "undo-last-first", "practice-display-chain", "work-backwards-recap"]
+    },
+    {
+      "misconception": "Every output has exactly one predecessor.",
+      "beatIds": ["two-ways-to-twenty-two", "practice-two-move-machine", "practice-state-machine", "nonunique-hook"]
+    },
+    {
+      "misconception": "A backward candidate need not be verified by running it forward.",
+      "beatIds": ["test-the-branch", "practice-lab-log", "practice-state-machine", "work-backwards-recap"]
+    },
+    {
+      "misconception": "Working backwards means algebraically rearranging every problem regardless of structure.",
+      "beatIds": ["choose-the-direction", "work-backwards-recap"]
+    }
+  ],
+  "beats": [
+    {
+      "id": "authentic-number-machine",
+      "phase": "puzzle",
+      "kind": "problem",
+      "source": "bank",
+      "problemId": "amc8-2020-22",
+      "role": "anchor",
+      "presentation": "full-prompt",
+      "purpose": "Make forward guessing visibly unwieldy and let the known endpoint motivate a predecessor search.",
+      "expectedRealization": "Starting at the endpoint produces a small reverse tree whose leaves are exactly the possible starting values.",
+      "transitionIn": "An expression such as 100 + 16w records a calculation from an input to an output. This machine repeats a rule six times—but the input is the missing piece.",
+      "transitionOut": "The endpoint 1 did not point to just one earlier value. Reversing the rule exposed a small tree of candidates that forward guessing hid.",
+      "whyNow": "The approved number-machine problem gives a known endpoint, repeated conditional rules, and a purpose-built animation that makes the advantage of reversing visible.",
+      "entryBridge": "Follow the example once, then decide whether guessing answer choices forward or opening valid steps backward gives a checkable search.",
+      "exitBridge": "Six reverse levels lead to 64, 10, 8, and 1; each returns to 1 after six forward steps, and their sum is 83.",
+      "reusedRepresentation": "The machine flowchart reverses its arrows and grows into a predecessor tree.",
+      "animation": {
+        "mode": "whole",
+        "controlledByLesson": true,
+        "autoplay": false,
+        "showPlayerControls": false
+      },
+      "learnerPrompts": [
+        "Follow the displayed example forward. Why would guessing unknown starts be inefficient?",
+        "For an output v, why does 2v always give one possible predecessor?",
+        "When does (v - 1)/3 give another valid predecessor?",
+        "Which values appear three steps before 1?",
+        "Continue to six steps, then forward-check every leaf before adding them."
+      ],
+      "correctFeedback": "Correct—four starting values survive six reverse steps, and 64 + 10 + 8 + 1 = 83.",
+      "incorrectFeedback": "Begin at 1. Double to undo the halving route, and use (v - 1)/3 only when it produces a positive odd whole number.",
+      "resolution": {
+        "animation": {"kind": "problem-animation", "placement": "before-steps"},
+        "steps": [
+          {
+            "title": "Reverse both machine doors",
+            "body": "If v came from an even input, that input was 2v. If v came from 3N + 1, then N = (v - 1)/3, but N must be a positive odd whole number."
+          },
+          {
+            "title": "Grow every valid branch",
+            "body": "Six levels back from 1 leave the starts 64, 10, 8, and 1.",
+            "math": "64 + 10 + 8 + 1 = 83"
+          },
+          {
+            "title": "Run the leaves forward",
+            "body": "Each of the four candidates reaches 1 in exactly six machine steps, including 1 itself through the cycle 1 → 4 → 2 → 1."
+          }
+        ],
+        "takeaway": "A known endpoint can turn a sprawling forward search into a small, checkable reverse tree."
+      },
+      "sourceLabelTiming": "before",
+      "estimatedSeconds": 250
+    },
+    {
+      "id": "undo-last-first",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Isolate the order reversal in a deterministic chain before naming the general technique.",
+      "expectedRealization": "The last forward operation must be undone first.",
+      "transitionIn": "The contest machine branched. Strip away the branching and focus on the order of the arrows.",
+      "estimatedSeconds": 80,
+      "prompt": "A number is increased by 7, doubled, and then decreased by 6 to display 30. What is the first backward move from 30?",
+      "visual": {
+        "primitive": "choice-grid",
+        "data": {
+          "groups": [
+            {"label": "Forward trail", "choices": ["start", "+ 7", "× 2", "− 6", "30"]}
+          ]
+        },
+        "continuityKey": "s1-operation-trail",
+        "ariaLabel": "Forward operation trail from an unknown start through add seven, multiply by two, and subtract six to reach thirty"
+      },
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "minus-seven", "text": "Subtract 7"},
+          {"id": "divide-two", "text": "Divide by 2"},
+          {"id": "plus-six", "text": "Add 6"},
+          {"id": "times-two", "text": "Multiply by 2"}
+        ],
+        "correctId": "plus-six",
+        "feedback": {
+          "minus-seven": "Adding 7 happened first, so it will be undone last.",
+          "divide-two": "Doubling was the middle step. First remove the effect of the final subtraction.",
+          "plus-six": "Yes. Undo the last forward operation first.",
+          "times-two": "Multiplying by 2 repeats rather than reverses the middle step."
+        }
+      },
+      "correctFeedback": "Right—add 6 first because subtracting 6 was the last forward move.",
+      "incorrectFeedback": "Stand at 30 and ask which operation touched the number immediately before it arrived there.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "Backward trail", "choices": ["30", "+ 6 → 36", "÷ 2 → 18", "− 7 → 11"]}
+            ]
+          },
+          "continuityKey": "s1-operation-trail",
+          "ariaLabel": "Backward operation trail from thirty through add six, divide by two, and subtract seven to reach eleven"
+        },
+        "steps": [
+          {"title": "Reverse the order", "body": "Undo −6 with +6, then undo ×2 with ÷2, then undo +7 with −7.", "math": "30 → 36 → 18 → 11"},
+          {"title": "Check forward", "body": "Starting at 11 gives 18, then 36, then 30.", "math": "(11 + 7) × 2 − 6 = 30"}
+        ],
+        "takeaway": "Reverse the operations and reverse their order."
+      }
+    },
+    {
+      "id": "two-ways-to-twenty-two",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Expose that a conditional forward rule can give one output more than one valid predecessor.",
+      "expectedRealization": "Both an even halving route and an odd 3N + 1 route can reach the same output.",
+      "transitionIn": "A fixed chain has one backward trail. The number machine is different because two forward doors can meet at one output.",
+      "estimatedSeconds": 85,
+      "prompt": "In the number machine, an even input is halved and an odd input becomes 3N + 1. Which inputs produce 22 in one step? Select all that work.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "forty-four", "text": "44"},
+          {"id": "seven", "text": "7"},
+          {"id": "eleven", "text": "11"},
+          {"id": "twenty-one", "text": "21"}
+        ],
+        "correctIds": ["forty-four", "seven"],
+        "feedback": "Test each candidate with the original odd-or-even rule."
+      },
+      "correctFeedback": "Yes—44 is halved to 22, and 7 becomes 3(7) + 1 = 22.",
+      "incorrectFeedback": "One predecessor comes through the even door and another may come through the odd door.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "branch-tree",
+          "data": {
+            "root": "22",
+            "paths": [
+              ["44", "44 ÷ 2 = 22"],
+              ["7", "3(7) + 1 = 22"]
+            ]
+          },
+          "ariaLabel": "Two predecessor branches showing that forty-four and seven both produce twenty-two"
+        },
+        "steps": [
+          {"title": "Open the even door", "body": "Doubling 22 gives 44, and the machine halves that even input back to 22."},
+          {"title": "Open the odd door", "body": "Solving 3N + 1 = 22 gives N = 7, which is odd, so that route is allowed."}
+        ],
+        "takeaway": "Reversing a rule may branch; keep every predecessor that obeys the original forward condition."
+      }
+    },
+    {
+      "id": "test-the-branch",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Show why algebraically reversing a formula is insufficient when the original rule has a condition.",
+      "expectedRealization": "A whole-number reverse calculation can still be invalid because the candidate would have taken a different forward door.",
+      "transitionIn": "The calculation (v - 1)/3 sometimes produces a whole number. That alone does not prove the odd-input door was available.",
+      "estimatedSeconds": 90,
+      "prompt": "Working back from output 7 gives candidates 14 and (7 − 1)/3 = 2. Which conclusion is correct?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "both", "text": "Both 14 and 2 are valid predecessors."},
+          {"id": "two-only", "text": "Only 2 is valid because the division came out whole."},
+          {"id": "fourteen-only", "text": "Only 14 is valid because 2 would take the even-input door."},
+          {"id": "neither", "text": "Neither is valid because 7 is odd."}
+        ],
+        "correctId": "fourteen-only",
+        "feedback": {
+          "both": "Run 2 through the original machine; its parity chooses the wrong door.",
+          "two-only": "A whole quotient is necessary, but the original input must also be odd.",
+          "fourteen-only": "Correct. The original rule sends 14 to 7 but sends 2 to 1.",
+          "neither": "The output's parity does not choose the forward door; the predecessor's parity does."
+        }
+      },
+      "correctFeedback": "Correct—14 → 7, while the even candidate 2 is halved to 1.",
+      "incorrectFeedback": "A reverse candidate is only provisional. Feed it through the original machine rule.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Test 14", "body": "Because 14 is even, the machine halves it.", "math": "14 ÷ 2 = 7"},
+          {"title": "Test 2", "body": "Although (7 − 1)/3 = 2 is whole, 2 is even. The machine would halve it instead of using 3N + 1.", "math": "2 ÷ 2 = 1 ≠ 7"}
+        ],
+        "takeaway": "An inverse calculation proposes a candidate; the original rule decides whether it survives."
+      }
+    },
+    {
+      "id": "name-work-backwards",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name the strategy after the learner has reversed order, followed branches, and rejected an invalid predecessor.",
+      "expectedRealization": "Working backwards reconstructs possible earlier states from a known endpoint by reversing steps and preserving constraints.",
+      "transitionIn": "You have followed arrows in reverse, opened every allowed predecessor branch, and checked each candidate against the forward rule.",
+      "estimatedSeconds": 55,
+      "name": "Work backwards",
+      "conciseDefinition": "Start from a known ending and reverse the process one step at a time, keeping every candidate allowed by the original rules.",
+      "formalization": "known endpoint → undo the last step → continue through every valid predecessor → run candidates forward to verify",
+      "memoryHook": "Last step first; keep valid branches; check forward."
+    },
+    {
+      "id": "choose-the-direction",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Prevent overgeneralizing the technique to problems whose structure offers no useful reverse trail.",
+      "expectedRealization": "Working backwards is especially useful when the endpoint is known and the intervening steps can be reversed more cleanly than starts can be guessed.",
+      "transitionIn": "Working backwards is a strategy, not a rule that every problem must obey. Look for a known finish and reversible steps.",
+      "estimatedSeconds": 75,
+      "prompt": "Which situation most strongly suggests working backwards?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "finish", "text": "The final display is known, the start is unknown, and each machine step can be reversed."},
+          {"id": "evaluate", "text": "The starting value and every forward operation are already given."},
+          {"id": "survey", "text": "A table lists favorite colors and asks for the most common one."},
+          {"id": "area", "text": "A rectangle's two side lengths are given and its area is requested."}
+        ],
+        "correctId": "finish",
+        "feedback": {
+          "finish": "Exactly. The endpoint gives a foothold and the reversible steps create a path back.",
+          "evaluate": "A direct forward calculation is already efficient here.",
+          "survey": "Reading or tallying the table is more direct than inventing reverse steps.",
+          "area": "Multiplying the given side lengths is already direct."
+        }
+      },
+      "correctFeedback": "Right—a known finish plus reversible steps is the strongest signal.",
+      "incorrectFeedback": "Choose the situation where the ending gives useful information about earlier states.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Compare directions", "body": "If forward work is already a short calculation, use it. Reverse direction when the ending is known and guessing starts would create unnecessary search."}
+        ],
+        "takeaway": "Choose the direction that makes the chain of reasoning smaller and easier to verify."
+      }
+    },
+    {
+      "id": "practice-display-chain",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-s1-display-chain",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Assess a near deterministic chain with three inverses in the opposite order.",
+      "expectedRealization": "Undoing subtract, multiply, then add recovers 6 and a forward check returns 29.",
+      "transitionIn": "Start with a clean three-step trail. Write the inverse under each arrow before calculating.",
+      "transitionOut": "The reverse trail found 6, and the original forward trail confirmed it.",
+      "whyNow": "This near-transfer item checks the essential last-step-first order without branching.",
+      "entryBridge": "Begin at 29 and undo −4, then ×3, then +5.",
+      "exitBridge": "The recovered start 6 reproduces the display exactly.",
+      "reusedRepresentation": "The operation trail from the concept-building interaction returns as an independent problem.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["What operation happened last?", "What inverse undoes it?", "Does the recovered start return to 30?"],
+      "correctFeedback": "Correct—29 → 33 → 11 → 6 backwards, and 6 returns to 29 forwards.",
+      "incorrectFeedback": "Reverse both the operations and their order: first add 4, then divide by 3, then subtract 5.",
+      "resolution": {
+        "steps": [
+          {"title": "Walk backward", "body": "Undo the final subtraction, then the tripling, then the initial addition.", "math": "29 + 4 = 33; 33 ÷ 3 = 11; 11 − 5 = 6"},
+          {"title": "Check forward", "body": "The original chain sends 6 to 29.", "math": "(6 + 5) × 3 − 4 = 29"}
+        ],
+        "takeaway": "A deterministic chain reverses cleanly when each inverse is applied last-step-first."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 105
+    },
+    {
+      "id": "practice-lab-log",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-s1-lab-log",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Assess the same inverse-order structure in a time-ordered measurement context.",
+      "expectedRealization": "Reversing +2, ×3, and −4 from 32 recovers the 9 a.m. count 14.",
+      "transitionIn": "Now the arrows are moments in time instead of symbols in a machine. The latest recorded change must still be undone first.",
+      "transitionOut": "Reading the log upward recovered the earlier count, and replaying it downward verified the result.",
+      "whyNow": "A context change tests whether the learner sees temporal order rather than relying on a familiar algebra layout.",
+      "entryBridge": "Start at noon and reverse the 11-to-noon change before touching the earlier changes.",
+      "exitBridge": "The count 14 reproduces every line of the lab log and ends at 32.",
+      "reusedRepresentation": "The operation trail becomes a chronological record read from bottom to top.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["Which logged change happened most recently?", "What inverse recovers the 11 a.m. count?", "How can the complete log verify the start?"],
+      "correctFeedback": "Correct—undoing the log from noon gives 30, then 10, then 14.",
+      "incorrectFeedback": "Read the changes from latest to earliest: subtract 2, divide by 3, then add 4.",
+      "resolution": {
+        "steps": [
+          {"title": "Read the log backward", "body": "Undo +2, then ×3, then −4.", "math": "32 − 2 = 30; 30 ÷ 3 = 10; 10 + 4 = 14"},
+          {"title": "Replay the log", "body": "Starting with 14 gives 10, then 30, then 32.", "math": "(14 − 4) × 3 + 2 = 32"}
+        ],
+        "takeaway": "A time sequence reverses from the latest change back to the earliest."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 110
+    },
+    {
+      "id": "practice-two-move-machine",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-s1-two-move-machine",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Assess a small reverse search in which each move offers two invertible choices.",
+      "expectedRealization": "Two reverse levels from 20 give the four distinct starts 12, 8, 6, and 5.",
+      "transitionIn": "One fixed trail had one start. Let each move offer two choices and keep every backward branch.",
+      "transitionOut": "The four leaves cover every two-move history because each reverse level opened both allowed doors.",
+      "whyNow": "This mixed item transfers the predecessor-tree idea to freely chosen operations rather than a parity-controlled rule.",
+      "entryBridge": "From 20, undo +4 and ×2. Repeat both reverse moves from every value one level earlier.",
+      "exitBridge": "The distinct starts 12, 8, 6, and 5 each reach 20 through an allowed two-move route.",
+      "reusedRepresentation": "The contest predecessor tree is rebuilt with two always-open inverse doors.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["What values can be one move before 20?", "What values can be one move before each of those?", "Are any leaves duplicated?"],
+      "correctFeedback": "Correct—12, 8, 6, and 5 are the four distinct positive starts.",
+      "incorrectFeedback": "Work back two complete levels: replace +4 by −4 and ×2 by ÷2 at every node.",
+      "resolution": {
+        "visual": {
+          "primitive": "branch-tree",
+          "data": {
+            "root": "20",
+            "paths": [
+              ["16", "12"],
+              ["16", "8"],
+              ["10", "6"],
+              ["10", "5"]
+            ]
+          },
+          "ariaLabel": "Two-level reverse tree from twenty through sixteen and ten to starts twelve, eight, six, and five"
+        },
+        "steps": [
+          {"title": "One move back", "body": "Before 20, the number was 16 if +4 was used or 10 if ×2 was used."},
+          {"title": "Two moves back", "body": "Before 16, the starts were 12 or 8. Before 10, they were 6 or 5. All four are positive and distinct."},
+          {"title": "Verify coverage", "body": "12 → 16 → 20, 8 → 16 → 20, 6 → 10 → 20, and 5 → 10 → 20 use exactly two allowed moves."}
+        ],
+        "takeaway": "When several operations are allowed, reverse every allowed door at every level and merge duplicates if they occur."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 135
+    },
+    {
+      "id": "practice-delivery-record",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-s1-delivery-record",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Transfer reverse-order reasoning to changes in a real quantity and require a forward audit.",
+      "expectedRealization": "Undoing use, duplication, and giveaway recovers an original stock of 18 stickers.",
+      "transitionIn": "A written record can hide its starting quantity just as a machine does. Use the final inventory as the foothold.",
+      "transitionOut": "The recovered stock is trustworthy because replaying all three events returns to the recorded final count.",
+      "whyNow": "This mixed context checks that the strategy follows causal order without relying on explicit machine arrows.",
+      "entryBridge": "Begin with the final 17 and reverse the last use, the duplication, and the first giveaway.",
+      "exitBridge": "Starting with 18, the recorded events produce 11, then 22, then 17 stickers.",
+      "reusedRepresentation": "The chronological log from the prior item becomes an inventory record with reversible events.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["What count existed just before five stickers were used?", "What count existed before the remaining collection doubled?", "Does the reconstructed start replay correctly?"],
+      "correctFeedback": "Correct—the club began with 18 stickers.",
+      "incorrectFeedback": "Undo using five by adding five, undo doubling by halving, then undo giving away seven by adding seven.",
+      "resolution": {
+        "steps": [
+          {"title": "Reverse the record", "body": "Before five were used there were 22; before the collection doubled there were 11; before seven were given away there were 18.", "math": "17 + 5 = 22; 22 ÷ 2 = 11; 11 + 7 = 18"},
+          {"title": "Replay every event", "body": "Beginning with 18: give away 7 to leave 11, double to 22, then use 5 to leave 17."}
+        ],
+        "takeaway": "Working backwards reconstructs the start; replaying the story checks that each event kept its meaning."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 115
+    },
+    {
+      "id": "practice-state-machine",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-s1-state-machine",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Assess a constrained three-level predecessor tree with invalid branches and multiple verified leaves.",
+      "expectedRealization": "Reversing the parity rule from 4 for three steps yields exactly 32, 11, and 6, whose sum is 49.",
+      "transitionIn": "Finish with a conditional machine. Some inverse calculations will fail, so every proposed branch must earn its place.",
+      "transitionOut": "The final leaves survived both the backward conditions and an exact three-step forward check.",
+      "whyNow": "This challenge combines inverse order, branching, rule restrictions, exact step count, and verification without copying the mapped machine's numbers.",
+      "entryBridge": "From each output v, try 2v and v − 5. Keep v − 5 only when it is a positive odd input to the +5 door.",
+      "exitBridge": "The valid leaves 32, 11, and 6 all reach 4 in exactly three steps and sum to 49.",
+      "reusedRepresentation": "The authentic parity-controlled predecessor tree returns with a different odd rule and target.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["What can produce 4 in one step?", "At which output does the odd-input branch first open?", "Which three-step starts survive a forward check?"],
+      "correctFeedback": "Correct—the three valid starts are 32, 11, and 6, with sum 49.",
+      "incorrectFeedback": "Grow three reverse levels from 4. The v − 5 branch works only when it is positive and odd.",
+      "resolution": {
+        "visual": {
+          "primitive": "branch-tree",
+          "data": {
+            "root": "4",
+            "paths": [
+              ["8", "16", "32"],
+              ["8", "16", "11"],
+              ["8", "3", "6"]
+            ]
+          },
+          "ariaLabel": "Three-level reverse tree from four to valid starts thirty-two, eleven, and six"
+        },
+        "steps": [
+          {"title": "First level", "body": "Only 8 precedes 4: 8 is even and halves to 4. The other inverse, 4 − 5, is negative."},
+          {"title": "Second level", "body": "Both 16 and 3 precede 8: 16 halves to 8, while odd 3 increases by 5 to 8."},
+          {"title": "Third level", "body": "The predecessors of 16 are 32 and odd 11. The only predecessor of 3 is 6. Thus the leaves are 32, 11, and 6."},
+          {"title": "Forward-check and add", "body": "32 → 16 → 8 → 4; 11 → 16 → 8 → 4; 6 → 3 → 8 → 4.", "math": "32 + 11 + 6 = 49"}
+        ],
+        "takeaway": "A complete backward tree opens every legal branch, rejects illegal ones, and verifies every surviving leaf."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 165
+    },
+    {
+      "id": "work-backwards-recap",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate the full strategy, including when to use it and how to validate its result.",
+      "expectedRealization": "A reliable reverse solution needs a useful endpoint, opposite-order inverses, complete valid branching, and a forward check.",
+      "transitionIn": "Operation trails, logs, inventories, and machines all used the same safeguards. Gather them into one checklist.",
+      "estimatedSeconds": 90,
+      "prompt": "Which checks belong in a reliable work-backwards solution? Select all four.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "endpoint", "text": "Start from a known endpoint that gives useful information."},
+          {"id": "order", "text": "Undo the last forward step first."},
+          {"id": "branches", "text": "Keep every reverse branch allowed by the original rules."},
+          {"id": "verify", "text": "Run each surviving candidate forward to verify it."},
+          {"id": "one", "text": "Assume every endpoint has exactly one predecessor."}
+        ],
+        "correctIds": ["endpoint", "order", "branches", "verify"],
+        "feedback": "Think about direction, inverse order, completeness, and verification."
+      },
+      "correctFeedback": "Exactly—use the endpoint, reverse the order, preserve every valid branch, and check forward.",
+      "incorrectFeedback": "An endpoint can have several predecessors. Keep the other four safeguards.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "1. Start", "choices": ["Use the known finish"]},
+              {"label": "2. Reverse", "choices": ["Undo the last step first"]},
+              {"label": "3. Search", "choices": ["Open every valid branch"]},
+              {"label": "4. Verify", "choices": ["Run candidates forward"]}
+            ]
+          },
+          "ariaLabel": "Four checks for a reliable work-backwards solution"
+        },
+        "steps": [
+          {"body": "A known ending gives the search a foothold."},
+          {"body": "Inverse steps are taken in the reverse of the forward order."},
+          {"body": "Original conditions control which branches survive, and a forward replay confirms the result."}
+        ],
+        "takeaway": "Last step first; keep valid branches; check forward."
+      }
+    },
+    {
+      "id": "nonunique-hook",
+      "phase": "reflection",
+      "kind": "reflection",
+      "purpose": "Leave a precise question about non-invertible steps and extra constraints after consolidating the core strategy.",
+      "expectedRealization": "Some operations erase information, so reversing them may require multiple candidates or an additional condition.",
+      "transitionIn": "Every reverse branch so far came from a rule we could state exactly. Now let one step erase a sign.",
+      "estimatedSeconds": 50,
+      "prompt": "A machine squares its input and displays 9. Working backwards suggests both 3 and −3. What extra information could make the starting value unique?",
+      "takeaway": "When a forward step loses information, working backwards produces candidates; an original constraint must decide among them."
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {"near": 2, "mixed": 2, "challenge": 1},
+    "sessionSelection": [
+      {"source": "generated", "transferLevel": "near", "count": 2},
+      {"source": "generated", "transferLevel": "mixed", "count": 2},
+      {"source": "generated", "transferLevel": "challenge", "count": 1}
+    ],
+    "excludeProblemIds": ["amc8-2020-22"],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "S1",
+    "evidenceBeatIds": [
+      "practice-display-chain",
+      "practice-lab-log",
+      "practice-two-move-machine",
+      "practice-delivery-record",
+      "practice-state-machine"
+    ],
+    "minIndependentPracticeItems": 5,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.2.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "mathinking-lesson-skill-1.0.0",
+    "notes": [
+      "Draft technique lesson authored from the approved S1 compact context packet.",
+      "The approved AMC 8 2020 Problem 22 is the discovery anchor and uses the existing reverse-machine animation as a complete controlled timeline.",
+      "Generated practice separates deterministic inverse chains, freely branching operations, and constrained predecessor trees.",
+      "All generated answers and choices were recomputed with an independent forward replay or exhaustive reverse-tree audit.",
+      "All visuals reuse generic declarative primitives; no lesson-specific renderer branch was added."
+    ]
+  }
+}

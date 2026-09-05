@@ -1,0 +1,62 @@
+[
+  {
+    "schemaVersion":"1.0.0","lessonId":"S4","purpose":"practice","transferLevel":"near","targetConcepts":["S4"],"inspirationProblemIds":[],
+    "problem":{"id":"original-s4-four-colors","title":"Three Matching Marbles","sourceType":"Original","contest":"Original","category":"Problem Solving","subcategory":"Pigeonhole principle","difficulty":1,
+      "statement":"A bag contains plenty of red, blue, green, and yellow marbles. Marbles are drawn without looking. How many marbles guarantee that at least 3 have the same color?",
+      "choices":[{"label":"A","text":"5"},{"label":"B","text":"8"},{"label":"C","text":"9"},{"label":"D","text":"12"},{"label":"E","text":"13"}],"answer":"C","shortAnswer":"9",
+      "hints":["How many of each color can be drawn while staying below three?","Fill all four safe color capacities, then add one."],
+      "solutionSteps":[{"title":"Build the longest failure","body":"Two marbles of each of four colors make 8 marbles without a triple."},{"title":"Force the next one","body":"The ninth marble has one of the four colors and gives that color at least 3 marbles."}],
+      "tags":["pigeonhole","guarantee","colors"],"sourceName":"Mathinking","license":"Original"},
+    "validation":{"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods":["explicit safe construction 2+2+2+2=8 proves eight insufficient","independent capacity bound with four bins each capped at two proves nine sufficient","answer-choice audit"],
+      "notes":["Exact guarantee: 4(3-1)+1=9."]}
+  },
+  {
+    "schemaVersion":"1.0.0","lessonId":"S4","purpose":"practice","transferLevel":"near","targetConcepts":["S4"],"inspirationProblemIds":[],
+    "problem":{"id":"original-s4-birth-months","title":"A Shared Birth Month","sourceType":"Original","contest":"Original","category":"Problem Solving","subcategory":"Pigeonhole principle","difficulty":1,
+      "statement":"What is the least number of people needed to guarantee that two people have birthdays in the same month?",
+      "choices":[{"label":"A","text":"2"},{"label":"B","text":"12"},{"label":"C","text":"13"},{"label":"D","text":"24"},{"label":"E","text":"25"}],"answer":"C","shortAnswer":"13",
+      "hints":["Treat the twelve months as categories.","One person in each month is still a possible no-match arrangement."],
+      "solutionSteps":[{"title":"Fill months safely","body":"Twelve people could have birthdays in twelve different months, so 12 does not guarantee a match."},{"title":"Add one person","body":"A thirteenth person must share one of the twelve month categories with someone already counted."}],
+      "tags":["pigeonhole","months","guarantee"],"sourceName":"Mathinking","license":"Original"},
+    "validation":{"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods":["construction with one birthday in each of twelve months proves twelve insufficient","independent twelve-bin capacity bound proves thirteen sufficient","answer-choice audit"],
+      "notes":["Day and year are irrelevant because the event asks only for a shared month."]}
+  },
+  {
+    "schemaVersion":"1.0.0","lessonId":"S4","purpose":"practice","transferLevel":"mixed","targetConcepts":["S4"],"inspirationProblemIds":[],
+    "problem":{"id":"original-s4-six-containers","title":"Four in One Container","sourceType":"Original","contest":"Original","category":"Problem Solving","subcategory":"Pigeonhole principle","difficulty":2,
+      "statement":"N objects are distributed among 6 containers. What is the least value of N that guarantees at least 4 objects in one container?",
+      "choices":[{"label":"A","text":"7"},{"label":"B","text":"18"},{"label":"C","text":"19"},{"label":"D","text":"24"},{"label":"E","text":"25"}],"answer":"C","shortAnswer":"19",
+      "hints":["Cap every container at three objects.","Find the total capacity before any container reaches four."],
+      "solutionSteps":[{"title":"Maximize the safe total","body":"Putting 3 objects in each of 6 containers gives 18 objects with no container holding 4."},{"title":"Force an overflow","body":"With 19 objects, some container must exceed the safe cap of 3 and therefore contain at least 4."}],
+      "tags":["pigeonhole","containers","worst case"],"sourceName":"Mathinking","license":"Original"},
+    "validation":{"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods":["balanced safe construction 3 objects in each of 6 containers proves eighteen insufficient","independent contradiction bound: if every container had at most three then total would be at most eighteen","answer-choice audit"],
+      "notes":["Exact guarantee: 6(4-1)+1=19."]}
+  },
+  {
+    "schemaVersion":"1.0.0","lessonId":"S4","purpose":"practice","transferLevel":"mixed","targetConcepts":["S4"],"inspirationProblemIds":[],
+    "problem":{"id":"original-s4-matching-gloves","title":"Complete a Glove Pair","sourceType":"Original","contest":"Original","category":"Problem Solving","subcategory":"Pigeonhole principle","difficulty":2,
+      "statement":"A drawer contains exactly five matching pairs of gloves. The five pairs have different patterns, and each pair contains one left glove and one right glove. Gloves are selected without looking. How many selections guarantee both gloves from at least one matching pair?",
+      "choices":[{"label":"A","text":"2"},{"label":"B","text":"5"},{"label":"C","text":"6"},{"label":"D","text":"9"},{"label":"E","text":"10"}],"answer":"C","shortAnswer":"6",
+      "hints":["Treat each original matching pair as a category.","How many gloves can be chosen with at most one from each pair?"],
+      "solutionSteps":[{"title":"Avoid a complete pair","body":"It is possible to select one glove from each of the five pairs, for 5 gloves total, without completing a pair."},{"title":"Take one more","body":"A sixth glove belongs to one of those five pair categories and is the mate of the already selected glove from that pair."}],
+      "tags":["pigeonhole","matching pairs","hidden categories"],"sourceName":"Mathinking","license":"Original"},
+    "validation":{"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods":["safe construction choosing one glove from each of five pairs proves five insufficient","independent five-category capacity-one pigeonhole bound proves six sufficient","answer-choice audit"],
+      "notes":["The different patterns make the five matching-pair categories unambiguous."]}
+  },
+  {
+    "schemaVersion":"1.0.0","lessonId":"S4","purpose":"practice","transferLevel":"challenge","targetConcepts":["S4"],"inspirationProblemIds":[],
+    "problem":{"id":"original-s4-difference-ten","title":"Force a Difference of Ten","sourceType":"Original","contest":"Original","category":"Problem Solving","subcategory":"Pigeonhole principle","difficulty":3,
+      "statement":"Distinct integers are selected from 1 through 20. How many integers must be selected to guarantee that two selected integers differ by 10?",
+      "choices":[{"label":"A","text":"10"},{"label":"B","text":"11"},{"label":"C","text":"12"},{"label":"D","text":"19"},{"label":"E","text":"20"}],"answer":"B","shortAnswer":"11",
+      "hints":["Pair 1 with 11, 2 with 12, and so on.","Choose at most one number from each pair to avoid a difference of 10."],
+      "solutionSteps":[{"title":"Build the categories","body":"Partition the numbers into ten pairs {1,11}, {2,12}, ..., {10,20}. The two members of each pair differ by 10."},{"title":"Find the safe boundary","body":"Ten selections can take one member from each pair and avoid the event. An eleventh selection must take the second member of some pair, forcing a difference of 10."}],
+      "tags":["pigeonhole","number pairs","guarantee"],"sourceName":"Mathinking","license":"Original"},
+    "validation":{"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods":["explicit safe selection {1,2,...,10} proves ten insufficient","independent partition into ten disjoint difference-ten pairs proves eleven sufficient","answer-choice audit"],
+      "notes":["Eleven is the exact guarantee boundary."]}
+  }
+]
