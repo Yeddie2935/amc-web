@@ -1,0 +1,314 @@
+[
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "P2",
+    "purpose": "teaching",
+    "transferLevel": "discovery",
+    "targetConcepts": ["P2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-p2-two-red-tiles",
+      "title": "Two Red Tiles",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Dependent Probability",
+      "difficulty": 1,
+      "statement": "A bag contains two red tiles and one blue tile. Two tiles are drawn at random without replacement. What is the probability that both tiles are red?",
+      "choices": [
+        {"label": "A", "text": "1/6"},
+        {"label": "B", "text": "1/3"},
+        {"label": "C", "text": "1/2"},
+        {"label": "D", "text": "2/3"},
+        {"label": "E", "text": "1"}
+      ],
+      "answer": "B",
+      "shortAnswer": "1/3",
+      "hints": ["The first red draw leaves one red tile among two tiles.", "Multiply the probability of the first red draw by the updated probability of the second red draw."],
+      "solutionSteps": [
+        {"title": "First draw", "body": "Two of the three tiles are red, so the first-draw probability is 2/3."},
+        {"title": "Update the bag", "body": "After a red tile is removed, one red and one blue tile remain, so the next red probability is 1/2."},
+        {"title": "Follow the complete path", "body": "Both draws must be red, so the path probability is (2/3)(1/2)=1/3."}
+      ],
+      "tags": ["probability", "dependent events", "without replacement"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "sequential calculation (2/3)(1/2)=1/3",
+        "independent unordered-pair enumeration: only {R1,R2} among {R1,R2}, {R1,B}, {R2,B} is favorable",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: one of the three equally likely unordered pairs contains both red tiles, so the probability is 1/3."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "P2",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["P2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-p2-two-gold-counters",
+      "title": "Two Gold Counters",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Dependent Probability",
+      "difficulty": 1,
+      "statement": "A pouch contains 3 green counters and 2 gold counters. Two counters are drawn at random without replacement. What is the probability that both are gold?",
+      "choices": [
+        {"label": "A", "text": "1/10"},
+        {"label": "B", "text": "1/5"},
+        {"label": "C", "text": "1/4"},
+        {"label": "D", "text": "2/5"},
+        {"label": "E", "text": "1/2"}
+      ],
+      "answer": "A",
+      "shortAnswer": "1/10",
+      "hints": ["After one gold counter is removed, 4 counters remain.", "The second numerator changes as well as the denominator."],
+      "solutionSteps": [
+        {"title": "Choose the first gold", "body": "The first counter is gold with probability 2/5."},
+        {"title": "Use the new state", "body": "Then one gold counter remains among four counters, giving probability 1/4."},
+        {"title": "Complete the path", "body": "The probability is (2/5)(1/4)=1/10."}
+      ],
+      "tags": ["probability", "without replacement", "dependent events"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "sequential calculation (2/5)(1/4)=1/10",
+        "independent combination check C(2,2)/C(5,2)=1/10",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: exactly one of the ten two-counter selections contains both gold counters."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "P2",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["P2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-p2-two-even-cards",
+      "title": "Two Even Cards",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Dependent Probability",
+      "difficulty": 1,
+      "statement": "Cards numbered 1, 2, 3, and 4 are shuffled. Two cards are drawn without replacement. What is the probability that both cards are even?",
+      "choices": [
+        {"label": "A", "text": "1/8"},
+        {"label": "B", "text": "1/6"},
+        {"label": "C", "text": "1/4"},
+        {"label": "D", "text": "1/3"},
+        {"label": "E", "text": "1/2"}
+      ],
+      "answer": "B",
+      "shortAnswer": "1/6",
+      "hints": ["The even cards are 2 and 4.", "After one even card is drawn, only one even card remains among three cards."],
+      "solutionSteps": [
+        {"title": "First even card", "body": "Two of four cards are even, so the first factor is 2/4."},
+        {"title": "Second even card", "body": "One even card remains among three cards, so the second factor is 1/3."},
+        {"title": "Multiply along the path", "body": "The probability is (2/4)(1/3)=1/6."}
+      ],
+      "tags": ["probability", "cards", "without replacement", "parity"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "sequential calculation (2/4)(1/3)=1/6",
+        "independent combination check C(2,2)/C(4,2)=1/6",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: only {2,4} among the six equally likely two-card sets is favorable."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "P2",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["P2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-p2-exactly-one-blue",
+      "title": "Exactly One Blue Tile",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Dependent Probability",
+      "difficulty": 2,
+      "statement": "A bag contains 3 red tiles and 2 blue tiles. Two tiles are drawn without replacement. What is the probability that exactly one of the two tiles is blue?",
+      "choices": [
+        {"label": "A", "text": "1/5"},
+        {"label": "B", "text": "2/5"},
+        {"label": "C", "text": "1/2"},
+        {"label": "D", "text": "3/5"},
+        {"label": "E", "text": "4/5"}
+      ],
+      "answer": "D",
+      "shortAnswer": "3/5",
+      "hints": ["Exactly one blue can occur as blue-then-red or red-then-blue.", "The two orders cannot happen on the same two-draw trial, so add their path probabilities."],
+      "solutionSteps": [
+        {"title": "Blue then red", "body": "This order has probability (2/5)(3/4)=3/10."},
+        {"title": "Red then blue", "body": "This order also has probability (3/5)(2/4)=3/10."},
+        {"title": "Combine the two orders", "body": "The orders are disjoint, so the probability is 3/10+3/10=3/5."}
+      ],
+      "tags": ["probability", "without replacement", "multiple paths"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "sum of disjoint ordered paths (2/5)(3/4)+(3/5)(2/4)=3/5",
+        "independent combination check C(2,1)C(3,1)/C(5,2)=6/10=3/5",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: six of the ten equally likely two-tile sets contain one tile of each color."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "P2",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["P2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-p2-same-color-replacement",
+      "title": "Same Color With Replacement",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Independent Probability",
+      "difficulty": 2,
+      "statement": "A bag contains 2 red tiles and 1 blue tile. A tile is drawn, its color is recorded, and the tile is replaced. After mixing, a second tile is drawn. What is the probability that the two tiles have the same color?",
+      "choices": [
+        {"label": "A", "text": "1/3"},
+        {"label": "B", "text": "4/9"},
+        {"label": "C", "text": "5/9"},
+        {"label": "D", "text": "2/3"},
+        {"label": "E", "text": "7/9"}
+      ],
+      "answer": "C",
+      "shortAnswer": "5/9",
+      "hints": ["Replacement restores the probabilities before the second draw.", "Same color means red-red or blue-blue."],
+      "solutionSteps": [
+        {"title": "Both red", "body": "Replacement makes the red probability 2/3 on both draws, so P(RR)=4/9."},
+        {"title": "Both blue", "body": "The blue probability is 1/3 on both draws, so P(BB)=1/9."},
+        {"title": "Add disjoint cases", "body": "The same-color probability is 4/9+1/9=5/9."}
+      ],
+      "tags": ["probability", "with replacement", "independent events", "multiple paths"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "disjoint-case calculation (2/3)^2+(1/3)^2=5/9",
+        "independent enumeration of nine equally likely labeled draw pairs with five same-color pairs",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: four red-red labeled pairs and one blue-blue pair out of nine give 5/9."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "P2",
+    "purpose": "practice",
+    "transferLevel": "challenge",
+    "targetConcepts": ["P2", "C5"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-p2-exactly-two-odd",
+      "title": "Exactly Two Odd Cards",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Dependent Probability",
+      "difficulty": 3,
+      "statement": "Cards numbered 1 through 6 are shuffled. Three cards are drawn without replacement. What is the probability that exactly two of the three cards are odd?",
+      "choices": [
+        {"label": "A", "text": "3/10"},
+        {"label": "B", "text": "2/5"},
+        {"label": "C", "text": "9/20"},
+        {"label": "D", "text": "1/2"},
+        {"label": "E", "text": "3/5"}
+      ],
+      "answer": "C",
+      "shortAnswer": "9/20",
+      "hints": ["Choose two of the three odd cards and one of the three even cards.", "Compare those selections with all three-card selections from six cards."],
+      "solutionSteps": [
+        {"title": "Count favorable sets", "body": "Choose 2 of the 3 odd cards and 1 of the 3 even cards: C(3,2)C(3,1)=9."},
+        {"title": "Count all sets", "body": "There are C(6,3)=20 equally likely three-card sets."},
+        {"title": "Form the probability", "body": "The probability is 9/20."}
+      ],
+      "tags": ["probability", "without replacement", "combinations", "parity"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "combination calculation C(3,2)C(3,1)/C(6,3)=9/20",
+        "independent ordered-path check: three placements of the even draw, each with probability (3/6)(2/5)(3/4)=3/20, totaling 9/20",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: 9 favorable three-card sets among 20 equally likely sets."]
+    }
+  }
+]

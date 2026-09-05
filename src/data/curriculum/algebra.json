@@ -1,0 +1,146 @@
+[
+  {
+    "id": "A1",
+    "title": "Expressions, Variables & Translating Relationships",
+    "strand": "algebra",
+    "lessonType": "foundation",
+    "coreInsight": "Algebraic symbols represent quantities and relationships; an expression describes a calculation, while an equation claims that two expressions are equal.",
+    "hardPrerequisites": ["F1"],
+    "narrativePredecessor": "F1",
+    "narrativeTransition": "Take a repeated verbal relationship and give the changing or unknown quantity a name so the structure can be manipulated without rewriting the story.",
+    "unlocks": ["A2", "A5", "S1"],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "A variable is merely a label for an object.",
+      "A variable always represents exactly one mystery number.",
+      "Expressions and equations are interchangeable.",
+      "The equal sign means 'the answer comes next' rather than 'these quantities are equal'."
+    ]
+  },
+  {
+    "id": "A2",
+    "title": "Linear Equations",
+    "strand": "algebra",
+    "lessonType": "foundation",
+    "coreInsight": "Solving an equation means finding values that make a statement true, and valid transformations preserve equality.",
+    "hardPrerequisites": ["A1"],
+    "narrativePredecessor": "A1",
+    "narrativeTransition": "Once a relationship is represented symbolically, ask which value makes the two sides balance and preserve that balance through every move.",
+    "unlocks": ["A3", "A4", "A5", "A6"],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "Terms can be moved across the equal sign by changing their sign without justification.",
+      "The variable's value changes during the solving process.",
+      "Different operations may be applied to the two sides of an equation.",
+      "A solution does not need to be checked in the original relationship."
+    ]
+  },
+  {
+    "id": "A3",
+    "title": "Systems of Equations",
+    "strand": "algebra",
+    "lessonType": "technique",
+    "coreInsight": "Several unknown quantities can be determined when several independent constraints must hold simultaneously.",
+    "hardPrerequisites": ["A2"],
+    "narrativePredecessor": "A2",
+    "narrativeTransition": "Use a situation in which one equation leaves many possibilities, then add a second independent observation that collapses the possibilities to one.",
+    "unlocks": [],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "One equation usually determines two unknown quantities.",
+      "A variable can take a different value in each equation of the same system.",
+      "Elimination is symbol manipulation unrelated to preserving the same solution set.",
+      "Finding one plausible pair is enough without checking every constraint."
+    ]
+  },
+  {
+    "id": "A4",
+    "title": "Inequalities, Bounds & Optimization",
+    "strand": "algebra",
+    "lessonType": "technique",
+    "coreInsight": "Many problems ask for a range of feasible values or an extreme feasible value rather than one exact equality.",
+    "hardPrerequisites": ["A2"],
+    "narrativePredecessor": "A2",
+    "narrativeTransition": "Replace 'equals' with 'at least' or 'at most' and let the set of possible solutions appear on a number line before optimizing within it.",
+    "unlocks": [],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "An inequality has one numerical answer.",
+      "Endpoint inclusion does not matter.",
+      "Equation rules can be copied blindly when multiplying or dividing by negatives.",
+      "Optimization can ignore feasibility constraints."
+    ]
+  },
+  {
+    "id": "A5",
+    "title": "Functions & Defined Operations",
+    "strand": "algebra",
+    "lessonType": "connector",
+    "coreInsight": "A function or defined operation is a rule that transforms inputs; unfamiliar notation becomes manageable once the rule is followed consistently.",
+    "hardPrerequisites": ["A1", "A2"],
+    "narrativePredecessor": "A2",
+    "narrativeTransition": "Turn an expression rule into a reusable machine, then nest machines so the learner must think input-to-output rather than by visual familiarity with symbols.",
+    "unlocks": [],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "f(x) means f multiplied by x.",
+      "A newly defined symbol keeps its ordinary arithmetic meaning.",
+      "Nested functions should be evaluated from the outside inward.",
+      "A function is only a formula, not a mapping or rule."
+    ]
+  },
+  {
+    "id": "A6",
+    "title": "Coordinates, Lines & Graphs",
+    "strand": "algebra",
+    "lessonType": "foundation",
+    "coreInsight": "An equation in two quantities describes coordinate pairs that satisfy a relationship, and slope measures a rate linking horizontal and vertical change.",
+    "hardPrerequisites": ["A2", "F7"],
+    "narrativePredecessor": "F7",
+    "narrativeTransition": "Turn a table of related quantities into plotted points, then connect the graph to the equation and interpret slope using the rate ideas the learner already knows.",
+    "unlocks": [],
+    "transferConnections": ["F4"],
+    "commonMisconceptions": [
+      "Coordinate order can be swapped.",
+      "Axis scale does not affect interpretation.",
+      "Slope is merely visual steepness independent of units.",
+      "A graph is a drawing rather than the set of solutions to a relationship."
+    ]
+  },
+  {
+    "id": "A7",
+    "title": "Patterns & Sequences",
+    "strand": "algebra",
+    "lessonType": "foundation",
+    "coreInsight": "A sequence is generated by structure; good pattern reasoning identifies what remains consistent rather than merely guessing the next visible term.",
+    "hardPrerequisites": ["F1"],
+    "narrativePredecessor": "F1",
+    "narrativeTransition": "Show several sequences that initially look compatible with the same guess, forcing the learner to describe a rule rather than just extrapolate a surface pattern.",
+    "unlocks": [],
+    "transferConnections": ["N6", "C10", "S1"],
+    "commonMisconceptions": [
+      "Every sequence has a constant difference.",
+      "The term number and the term value are the same quantity.",
+      "A few matching terms prove a guessed rule.",
+      "Recursive and explicit descriptions are interchangeable without translation."
+    ]
+  },
+  {
+    "id": "A8",
+    "title": "Exponents & Roots",
+    "strand": "algebra",
+    "lessonType": "foundation",
+    "coreInsight": "Exponents encode repeated multiplicative structure, and roots reverse powers.",
+    "hardPrerequisites": ["F1"],
+    "narrativePredecessor": "F1",
+    "narrativeTransition": "Compress repeated multiplication in the same way multiplication compresses repeated addition, then reverse the process with roots.",
+    "unlocks": ["N4", "N6", "G5"],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "a^n means a times n.",
+      "Exponent rules distribute over addition.",
+      "Taking a square root means dividing by 2.",
+      "The roles of base and exponent can be interchanged."
+    ]
+  }
+]

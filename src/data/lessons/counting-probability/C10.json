@@ -1,0 +1,510 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "C10",
+  "curriculumNodeId": "C10",
+  "title": "Grid Paths & Pascal's Triangle",
+  "lessonType": "technique",
+  "status": "draft",
+  "estimatedMinutes": 26,
+  "coreInsight": "Path counts can be built recursively from predecessor states, and unrestricted shortest paths correspond to choosing which step positions have each direction.",
+  "targetLearnerRealization": "Path counts can be built recursively from predecessor states, and unrestricted shortest paths are equivalent to choosing which step positions have one direction.",
+  "learningObjectives": [
+    "Build a grid-path count by adding the counts at all possible predecessor points.",
+    "Explain why unrestricted shortest paths are counted by choosing the positions of one step direction.",
+    "Recognize when a boundary or obstacle invalidates a direct combination count and use recursive counting instead."
+  ],
+  "hardPrerequisites": ["C2", "C7"],
+  "narrativePredecessor": "C7",
+  "continuity": {
+    "openingCallback": "C7 ended by asking whether choosing the positions of the rightward steps could determine an entire shortest path.",
+    "closingSeeds": [
+      "A route through a required checkpoint can be split into an incoming path and an outgoing path.",
+      "The value at a state can be assembled from the values at every state that can immediately precede it."
+    ],
+    "nextLessonIds": []
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "Counting grid points is the same as counting paths.",
+      "beatIds": ["tiny-grid-anchor", "predecessor-rule", "c10-consolidate"]
+    },
+    {
+      "misconception": "A combination formula still works unchanged when obstacles alter the path structure.",
+      "beatIds": ["checkerboard-guided", "practice-closed-intersection", "practice-two-closed-intersections", "c10-consolidate"]
+    },
+    {
+      "misconception": "Recursive and choose-based solutions count different things.",
+      "beatIds": ["choose-step-positions", "name-two-views", "checkerboard-guided", "c10-consolidate"]
+    },
+    {
+      "misconception": "Every path problem requires explicitly listing routes.",
+      "beatIds": ["tiny-grid-anchor", "predecessor-rule", "practice-robot-route", "c10-consolidate"]
+    }
+  ],
+  "beats": [
+    {
+      "id": "step-position-return",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Reactivate C7's closing idea just long enough to establish that a shortest path is determined by the positions of one direction.",
+      "expectedRealization": "Once the U positions are chosen, every other position must contain R, so the complete path is fixed.",
+      "transitionIn": "C7 ended with a shortest path containing three R steps and two U steps. Bring that question back, but focus on what information actually determines the route.",
+      "transitionOut": "Choosing positions counts whole paths without drawing them one at a time—but first we will discover a second count directly on the grid.",
+      "estimatedSeconds": 65,
+      "prompt": "For a shortest path with three R steps and two U steps, which information alone determines the entire five-step path?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "u-positions", "text": "The two step positions occupied by U"},
+          {"id": "grid-points", "text": "The total number of grid points in the rectangle"},
+          {"id": "first-step", "text": "Only whether the first step is R or U"}
+        ],
+        "correctId": "u-positions",
+        "feedback": {
+          "u-positions": "Yes. Every unchosen position is then forced to be R.",
+          "grid-points": "Grid points are locations, not complete routes through them.",
+          "first-step": "The first step leaves four step positions undecided."
+        }
+      },
+      "correctFeedback": "Right—the chosen U positions encode the whole route.",
+      "incorrectFeedback": "Ask whether your information fixes all five step positions, not just part of the route.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "Choose positions 2 and 5 for U", "choices": ["1:R", "2:U", "3:R", "4:R", "5:U"]}
+            ]
+          },
+          "continuityKey": "c10-step-positions",
+          "ariaLabel": "Five step positions with up steps in positions two and five and right steps in the other positions"
+        },
+        "steps": [
+          {"body": "After positions 2 and 5 are chosen for U, positions 1, 3, and 4 must be R. The choice produces exactly one path: RURRU."}
+        ],
+        "takeaway": "A shortest path can be encoded by choosing the positions of either step direction."
+      }
+    },
+    {
+      "id": "tiny-grid-anchor",
+      "phase": "try",
+      "kind": "problem",
+      "purpose": "Let the learner attempt a complete count on the smallest grid that has enough routes to make ad hoc listing fragile.",
+      "expectedRealization": "A 2-right, 2-up grid has six paths, not nine paths from its nine grid points.",
+      "transitionIn": "Now hide the step-position shortcut for a moment and count from the grid itself.",
+      "transitionOut": "The six routes are correct; the useful question is how the grid can produce that total without a route list.",
+      "estimatedSeconds": 105,
+      "source": "generated",
+      "problemId": "original-c10-tiny-grid",
+      "role": "anchor",
+      "presentation": "full-prompt",
+      "whyNow": "A 2-by-2 move grid is small enough to verify but large enough to contrast paths with grid points and motivate a recursive count.",
+      "entryBridge": "A shortest route must use exactly two R steps and two U steps. Count complete routes, not visited points.",
+      "exitBridge": "Six is the number of full move sequences; nine is only the number of lattice points in the picture.",
+      "reusedRepresentation": "The fixed step positions from the opening callback, now viewed as movement on a grid.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "What must the final move be for a path entering the destination from the left?",
+        "What must the final move be for a path entering from below?"
+      ],
+      "correctFeedback": "Yes—there are 6 shortest paths.",
+      "incorrectFeedback": "Separate paths by their final move: every path arrives from exactly one of two predecessor points.",
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "Top row of point-counts", "choices": ["1", "3", "6"]},
+              {"label": "Middle row", "choices": ["1", "2", "3"]},
+              {"label": "Start row", "choices": ["1", "1", "1"]}
+            ]
+          },
+          "continuityKey": "c10-tiny-grid-counts",
+          "ariaLabel": "Three by three lattice of path counts with rows 1 1 1, 1 2 3, and 1 3 6 from start to destination"
+        },
+        "steps": [
+          {"title": "Seed the start", "body": "There is one way to be at the starting point before moving."},
+          {"title": "Fill the edges", "body": "Along either outer edge, every point has only one predecessor, so its count stays 1."},
+          {"title": "Fill the interior", "body": "Every interior point receives all paths from its left predecessor and all paths from its lower predecessor.", "math": "destination = 3 + 3 = 6"}
+        ],
+        "takeaway": "The grid's point-counts build the number of paths; they are not themselves the paths being counted."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "predecessor-rule",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Have the learner justify addition from a disjoint final-step split before naming the recurrence.",
+      "expectedRealization": "Paths arriving from different immediate predecessors form complete, non-overlapping cases, so their counts add.",
+      "transitionIn": "Look inside the same count grid. One point has 2 ways arriving from its left and 1 way arriving from below.",
+      "transitionOut": "The addition is justified because the final step places every route in one and only one predecessor case.",
+      "estimatedSeconds": 80,
+      "prompt": "Why should the number written at that point be 2 + 1 rather than 2 × 1?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "final-step-cases", "text": "A path arrives from the left or from below, and cannot do both on its final step."},
+          {"id": "two-stages", "text": "Every left-arriving path must be paired with every below-arriving path."},
+          {"id": "count-points", "text": "The two predecessor points and the new point make three points."}
+        ],
+        "correctId": "final-step-cases",
+        "feedback": {
+          "final-step-cases": "Exactly. The cases cover every path and do not overlap.",
+          "two-stages": "A single path has one final predecessor; it does not combine two different paths.",
+          "count-points": "The label counts routes into the point, not points in the diagram."
+        }
+      },
+      "correctFeedback": "Exactly—disjoint predecessor cases add.",
+      "incorrectFeedback": "Classify each complete route by the location of its penultimate point.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "Final step came from left", "choices": ["2 paths"]},
+              {"label": "Final step came from below", "choices": ["1 path"]},
+              {"label": "At the new point", "choices": ["2 + 1 = 3 paths"]}
+            ]
+          },
+          "continuityKey": "c10-tiny-grid-counts",
+          "ariaLabel": "Two non-overlapping predecessor cases with two paths and one path combining to three"
+        },
+        "steps": [
+          {"title": "Coverage", "body": "Every route into the point has a final R step from the left or a final U step from below."},
+          {"title": "Non-overlap", "body": "No route has both final steps, so no route belongs to both cases."},
+          {"title": "Add the cases", "body": "The two paths in the first case and the one path in the second case give three paths total.", "math": "ways(point) = ways(left) + ways(below)"}
+        ],
+        "takeaway": "Ways to a state equal the sum of the ways to every possible immediate predecessor."
+      }
+    },
+    {
+      "id": "choose-step-positions",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Reconnect the grid's recursively obtained six paths to C7's choice-without-order interpretation.",
+      "expectedRealization": "Choosing the two U positions among four step positions counts the same six routes as the grid recurrence.",
+      "transitionIn": "The grid produced 6 by predecessor addition. Restore the step-position view from the opening and count the same routes again.",
+      "transitionOut": "Two calculations agree because each one labels the same set of complete paths in a different way.",
+      "estimatedSeconds": 75,
+      "prompt": "A shortest path on the tiny grid has two R steps and two U steps. How many choices are there for the two positions occupied by U?",
+      "response": {"kind": "numeric", "answer": 6, "feedback": "Choose 2 of the 4 step positions; the remaining positions are automatically R."},
+      "correctFeedback": "Yes—C(4,2) = 6, matching the grid count.",
+      "incorrectFeedback": "Number the four step positions and choose an unordered pair for the U steps.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "Choose U positions", "choices": ["{1,2}", "{1,3}", "{1,4}", "{2,3}", "{2,4}", "{3,4}"]}
+            ]
+          },
+          "continuityKey": "c10-step-positions",
+          "ariaLabel": "The six unordered pairs of positions chosen for two up steps among four total steps"
+        },
+        "steps": [
+          {"body": "Each pair of U positions produces one route, and every route has exactly one such pair.", "math": "C(4,2) = 6"},
+          {"body": "The recursive count and the choose count both count all shortest 2R-2U paths exactly once."}
+        ],
+        "takeaway": "Pascal-style addition and combinations are two views of the same unrestricted path set."
+      }
+    },
+    {
+      "id": "same-additions-triangle",
+      "phase": "notice",
+      "kind": "visual",
+      "purpose": "Make the Pascal connection inspectable after the learner has independently obtained the central six by recurrence and by choosing positions.",
+      "expectedRealization": "The central 6 sits in a triangular array built by the same add-the-two-predecessors rule.",
+      "transitionIn": "Arrange the step-position counts by total number of steps. The six from the tiny grid lands in a familiar additive pattern.",
+      "transitionOut": "The pattern now has a name, but its meaning came first: each entry counts paths with a fixed inventory of the two step directions.",
+      "estimatedSeconds": 55,
+      "visual": {
+        "primitive": "choice-grid",
+        "data": {
+          "groups": [
+            {"label": "0 steps", "choices": ["1"]},
+            {"label": "1 step", "choices": ["1", "1"]},
+            {"label": "2 steps", "choices": ["1", "2", "1"]},
+            {"label": "3 steps", "choices": ["1", "3", "3", "1"]},
+            {"label": "4 steps", "choices": ["1", "4", "6", "4", "1"]}
+          ]
+        },
+        "continuityKey": "c10-pascal-path-counts",
+        "ariaLabel": "First five rows of Pascal's Triangle ending with one four six four one"
+      },
+      "caption": "Every interior number is the sum of the two numbers above it; the central 6 counts the 2R-2U paths."
+    },
+    {
+      "id": "name-two-views",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name the recurrence and Pascal connection only after both representations have been constructed.",
+      "expectedRealization": "Pascal's Triangle records the same predecessor addition satisfied by combination counts.",
+      "transitionIn": "You discovered one count by adding predecessors and then recovered it by choosing step positions.",
+      "transitionOut": "On an unrestricted grid either view is available; a board edge will now test whether the shortcut still describes every allowed path.",
+      "estimatedSeconds": 70,
+      "name": "Grid-path recurrence and Pascal's Triangle",
+      "conciseDefinition": "Write 1 at the start. At each reachable point, add the counts at every point that can immediately precede it. On an unrestricted right-up grid, these are the same additions that build Pascal's Triangle.",
+      "formalization": "ways(r,u) = ways(r−1,u) + ways(r,u−1), with ways(r,0)=ways(0,u)=1; therefore ways(r,u)=C(r+u,u)=C(r+u,r).",
+      "memoryHook": "Add predecessors on the grid; choose direction positions in the step string."
+    },
+    {
+      "id": "checkerboard-guided",
+      "phase": "competition-application",
+      "kind": "problem",
+      "purpose": "Apply the recurrence to the approved authentic checkerboard problem and confront the false unrestricted-combination distractor created by the board edge.",
+      "expectedRealization": "The board count is 28; C(7,3)=35 counts seven extra routes that leave the board, so unrestricted choose counting cannot be used unchanged.",
+      "transitionIn": "The tiny grid had no forbidden move. This checkerboard has sides, so first decide whether the same two views still count exactly the same allowed routes.",
+      "transitionOut": "Predecessor addition automatically respects the edge; a combination shortcut is safe only after its step strings are checked against every restriction.",
+      "estimatedSeconds": 230,
+      "source": "bank",
+      "problemId": "amc8-2020-21",
+      "role": "guided",
+      "presentation": "full-prompt",
+      "whyNow": "The mapped checkerboard extends the learner's tiny count grid while making the unrestricted combination value 35 a deliberate distractor that exposes boundary restrictions.",
+      "entryBridge": "Seed P with 1 and let each reachable white square inherit the sum of the reachable squares diagonally below it.",
+      "exitBridge": "The waterfall reaches Q with 28; the unrestricted 35 includes seven step strings that cross the right edge.",
+      "reusedRepresentation": "Grid cells labeled by the number of ways to reach them from predecessor cells.",
+      "animation": {"mode": "slice", "stepIndices": [0, 1, 2, 3], "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "From P, which two white squares can the marker reach in one step?",
+        "For the highlighted interior square, why do the two counts diagonally below add?",
+        "Which two predecessor squares feed Q, and what total reaches it?",
+        "Why does C(7,3)=35 count paths that the actual board forbids?"
+      ],
+      "correctFeedback": "Correct—28 legal seven-step paths reach Q.",
+      "incorrectFeedback": "Keep your attempt. Build counts upward from P; do not assume every left-right step string stays on the board.",
+      "resolution": {
+        "animation": {"kind": "problem-animation"},
+        "steps": [
+          {"title": "Propagate legal path counts", "body": "Start with 1 at P. Each reachable white square receives the sum of its reachable diagonal predecessors; missing predecessors beyond an edge contribute 0."},
+          {"title": "Finish at Q", "body": "The lower rows build to predecessor counts 19 and 9 beneath Q.", "math": "Q = 19 + 9 = 28"},
+          {"title": "Another way: audit the unrestricted shortcut", "body": "Without board edges, choosing which 3 of the 7 steps go left would give 35 step strings. Seven cross the right edge, so they are not legal board paths.", "math": "C(7,3) − 7 = 35 − 7 = 28"}
+        ],
+        "takeaway": "Recursive counts enforce local restrictions automatically; a combination count needs a correction when some step strings leave the allowed region."
+      },
+      "sourceLabelTiming": "completion"
+    },
+    {
+      "id": "practice-robot-route",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Give near independent practice translating an unrestricted shortest route into a choice of step positions.",
+      "expectedRealization": "Three right and two up steps can be placed in C(5,2)=10 orders.",
+      "transitionIn": "After the edge complication, return once to a clean unrestricted rectangle and choose the shortest representation.",
+      "transitionOut": "On an unrestricted grid, the choose count compresses the same additions the count grid would perform.",
+      "estimatedSeconds": 105,
+      "source": "generated",
+      "problemId": "original-c10-practice-robot",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This near item checks that the learner can independently select and execute the combination representation after seeing its equivalence to recursion.",
+      "entryBridge": "Determine the required numbers of R and U steps before choosing positions.",
+      "exitBridge": "Choosing the two U positions among five fixes all three R positions.",
+      "reusedRepresentation": "A shortest path encoded as selected step positions.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["How many total steps are forced?", "Which direction's positions will you choose?"],
+      "correctFeedback": "Correct—there are 10 shortest routes.",
+      "incorrectFeedback": "A shortest route has five step positions. Choose the two occupied by U.",
+      "resolution": {
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              {"label": "Five step positions", "pattern": "_  _  _  _  _", "calculation": "choose 2 for U; the other 3 are R"}
+            ],
+            "total": "C(5,2) = 10 routes"
+          },
+          "ariaLabel": "Five path-step slots with two selected for up steps"
+        },
+        "steps": [
+          {"title": "Fix the move inventory", "body": "Every shortest route uses exactly 3 R steps and 2 U steps."},
+          {"title": "Choose positions", "body": "Choose the 2 U positions; every remaining slot must contain R.", "math": "C(5,2) = 10"}
+        ],
+        "takeaway": "For unrestricted shortest paths, choose the positions of one required direction."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-closed-intersection",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Test whether the learner abandons an unchanged combination formula when one interior point is forbidden and uses predecessor counts or a valid correction.",
+      "expectedRealization": "Four of the ten shortest paths avoid the closed point; six pass through it and must be excluded.",
+      "transitionIn": "Now place one restriction inside a rectangle rather than on its edge. The move inventory is unchanged, but the allowed path set is not.",
+      "transitionOut": "The blocked point changes local predecessor flow, so the unrestricted total 10 is only a starting point, not the answer.",
+      "estimatedSeconds": 135,
+      "source": "generated",
+      "problemId": "original-c10-practice-closed-intersection",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This mixed item directly diagnoses whether the learner checks restrictions before applying a combination formula unchanged.",
+      "entryBridge": "Give the closed point count 0, then propagate counts to the destination—or count and remove routes through it.",
+      "exitBridge": "Both legal methods preserve exactly the four paths that never enter the closed point.",
+      "reusedRepresentation": "A grid of predecessor counts, with a forbidden state contributing zero.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["What count should be written at a closed point?", "How does that zero affect later points?"],
+      "correctFeedback": "Correct—4 shortest paths avoid the closed intersection.",
+      "incorrectFeedback": "The unrestricted total is 10, but routes through the closed point are illegal. Refill the grid with 0 there.",
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "Top row of point-counts", "choices": ["1", "1", "2", "4"]},
+              {"label": "Middle row", "choices": ["1", "closed: 0", "1", "2"]},
+              {"label": "Start row", "choices": ["1", "1", "1", "1"]}
+            ]
+          },
+          "ariaLabel": "Path count grid with a closed interior point labeled zero and destination count four"
+        },
+        "steps": [
+          {"title": "Block the state", "body": "No legal route may stand at the closed point, so write 0 there instead of adding its predecessors."},
+          {"title": "Continue the recurrence", "body": "Every later point still adds the legal counts from its left and lower predecessors, ending at 4."},
+          {"title": "Connection", "body": "There are 10 unrestricted paths. Exactly 2 paths reach the closed point and 3 paths continue from it, so 2 × 3 = 6 are forbidden.", "math": "10 − 6 = 4"}
+        ],
+        "takeaway": "A restriction changes the set of paths; encode it in the recurrence or correct the unrestricted count with a justified case count."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-two-closed-intersections",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Provide challenge evidence that the learner can propagate predecessor counts through multiple restrictions without explicit route listing.",
+      "expectedRealization": "A count grid handles two closed points locally and produces 19 legal shortest paths.",
+      "transitionIn": "One final route count removes the convenient one-obstacle correction. Let the local rule carry the bookkeeping.",
+      "transitionOut": "Even with several restrictions, each state still asks the same small question: which legal predecessors can feed me?",
+      "estimatedSeconds": 155,
+      "source": "generated",
+      "problemId": "original-c10-challenge-two-closed",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The challenge rewards recursive organization: two blocked points create overlapping forbidden-route families that are awkward to subtract directly.",
+      "entryBridge": "Write 0 at each closed intersection and fill all other points from left and below.",
+      "exitBridge": "The destination count 19 already excludes every route touching either closed point, with no duplicate subtraction to manage.",
+      "reusedRepresentation": "The same predecessor-count grid, now with two forbidden states.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["Where must the two zeros be placed before filling?", "Why does each later count already exclude every illegal partial route?"],
+      "correctFeedback": "Correct—19 shortest paths avoid both closed intersections.",
+      "incorrectFeedback": "Fill the 5-by-5 point grid in order, forcing each closed point to 0 before its count can flow forward.",
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "u = 4", "choices": ["1", "2", "6", "10", "19"]},
+              {"label": "u = 3", "choices": ["1", "1", "4", "4", "9"]},
+              {"label": "u = 2", "choices": ["1", "closed: 0", "3", "closed: 0", "5"]},
+              {"label": "u = 1", "choices": ["1", "2", "3", "4", "5"]},
+              {"label": "u = 0", "choices": ["1", "1", "1", "1", "1"]}
+            ]
+          },
+          "ariaLabel": "Five by five predecessor count grid with closed points at one right two up and three right two up, ending at nineteen"
+        },
+        "steps": [
+          {"title": "Seed restrictions", "body": "Place 0 at both closed points. Every other boundary and interior count follows the same predecessor rule."},
+          {"title": "Propagate only legal partial paths", "body": "Once an illegal partial path is stopped at a zero, it never contributes to a later point."},
+          {"title": "Read the destination", "body": "The upper-right point receives 10 paths from the left and 9 from below.", "math": "10 + 9 = 19"}
+        ],
+        "takeaway": "Recursive counting turns global path restrictions into local zeroes and additions."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "c10-consolidate",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate the complete decision process before opening a forward-looking question.",
+      "expectedRealization": "The learner can distinguish states from paths, justify predecessor addition, connect it to combinations, and audit restrictions.",
+      "transitionIn": "Across the tiny grid, checkerboard, and closed intersections, the pictures changed but the counting decisions stayed stable.",
+      "transitionOut": "The method is now larger than grids: it builds a count whenever outcomes arrive from known predecessor states.",
+      "estimatedSeconds": 95,
+      "prompt": "Which statements belong in a reliable grid-path toolkit? Select all four.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "states-not-paths", "text": "A number at a grid point counts paths reaching that state; it is not a count of grid points."},
+          {"id": "add-predecessors", "text": "Add predecessor counts when final-step cases cover all paths without overlap."},
+          {"id": "choose-unrestricted", "text": "For unrestricted shortest paths, choose the positions of one direction."},
+          {"id": "audit-restrictions", "text": "Before using a combination unchanged, check that every encoded step string obeys the boundaries and obstacles."},
+          {"id": "always-list", "text": "Explicitly listing every route is required before any formula can be trusted."}
+        ],
+        "correctIds": ["states-not-paths", "add-predecessors", "choose-unrestricted", "audit-restrictions"],
+        "feedback": "Check what the point labels mean, why addition is legal, when choose notation matches paths, and what restrictions can break that match."
+      },
+      "correctFeedback": "Exactly—that toolkit connects the recursive and choose views without ignoring restrictions.",
+      "incorrectFeedback": "One option confuses a verification method with a requirement; the other four describe the actual structure.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "Build", "choices": ["seed the start with 1", "add legal predecessors"]},
+              {"label": "Compress", "choices": ["choose direction positions on an unrestricted shortest path"]},
+              {"label": "Audit", "choices": ["boundaries?", "obstacles?", "required points?"]}
+            ]
+          },
+          "ariaLabel": "Three-stage grid path toolkit: build by predecessors, compress with combinations, and audit restrictions"
+        },
+        "steps": [
+          {"title": "Build", "body": "Point labels count arriving paths. Complete, non-overlapping final-step cases justify adding legal predecessor counts."},
+          {"title": "Connect", "body": "On an unrestricted shortest grid, choosing direction positions counts the same paths as the recurrence.", "math": "ways(r,u) = C(r+u,r) = C(r+u,u)"},
+          {"title": "Restrict", "body": "Edges and obstacles may invalidate some step strings, while recursive counts can stop them locally."}
+        ],
+        "takeaway": "Count locally by predecessors, recognize the equivalent choose count when unrestricted, and audit every restriction before using the shortcut."
+      }
+    },
+    {
+      "id": "state-recurrence-hook",
+      "phase": "reflection",
+      "kind": "reflection",
+      "purpose": "Create a forward hook from grid points to the broader idea of assembling state counts from predecessors, after consolidation is complete.",
+      "expectedRealization": "The recursive idea can apply whenever a process has states and allowed predecessor transitions, even without a geometric grid.",
+      "transitionIn": "The grid made predecessor states visible. The same logic does not actually require squares or compass directions.",
+      "prompt": "Suppose a process reaches each state from several earlier states, with different transitions allowed. What information would you need in order to build the number of ways to reach every state?",
+      "takeaway": "A path-count table is an example of a wider strategy: define states, identify legal predecessors, seed the start, and propagate counts."
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {"near": 3, "mixed": 2, "challenge": 1},
+    "sessionSelection": [
+      {"source": "generated", "transferLevel": "near", "count": 2},
+      {"source": "generated", "transferLevel": "mixed", "count": 2},
+      {"source": "generated", "transferLevel": "challenge", "count": 1}
+    ],
+    "excludeProblemIds": [
+      "original-c10-tiny-grid",
+      "amc8-2020-21",
+      "original-c10-practice-robot",
+      "original-c10-practice-closed-intersection",
+      "original-c10-challenge-two-closed"
+    ],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "C10",
+    "evidenceBeatIds": ["practice-robot-route", "practice-closed-intersection", "practice-two-closed-intersections"],
+    "minIndependentPracticeItems": 3,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.2.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "mathinking-lesson-skill-1.0.0",
+    "notes": [
+      "Draft technique lesson authored with the repo-local mathinking-lesson Skill and the approved C10 mapping.",
+      "The opening briefly reactivates C7's step-position encoding before advancing to predecessor-state counting.",
+      "Completed count grids and step-position organizations appear only in post-response resolutions.",
+      "The approved 2020 AMC 8 Problem 21 is the sole bank problem and uses its controlled four-step checker-path animation after submission.",
+      "The checkerboard's recursive solution is primary; the free-board combination correction appears afterward as a useful alternate view.",
+      "Existing choice-grid and slot-filler primitives cover all static visuals; no renderer infrastructure was changed.",
+      "After lesson-used items are excluded, the generated pool still supports the declared two-near, two-mixed, one-challenge fresh practice session."
+    ]
+  }
+}

@@ -1,0 +1,540 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "P3",
+  "curriculumNodeId": "P3",
+  "title": "Complementary Probability",
+  "lessonType": "connector",
+  "status": "draft",
+  "estimatedMinutes": 30,
+  "coreInsight": "Probability inherits complementary counting: an event and its complement exhaust the sample space, so their probabilities add to 1.",
+  "targetLearnerRealization": "Complementary probability is the same complement idea from counting: an event and its opposite exhaust the sample space, so their probabilities sum to 1.",
+  "learningObjectives": [
+    "Identify the exact complement of an event and verify that the two events cover the sample space without overlap.",
+    "Calculate a probability by subtracting the probability of its complement from 1.",
+    "Use complementary probability to solve at-least-one and other awkward event conditions."
+  ],
+  "hardPrerequisites": ["P1", "C5"],
+  "narrativePredecessor": "C5",
+  "continuity": {
+    "openingCallback": "Continue the live at-least-one-red question through its no-red opposite, connect it to whole-minus-opposite counting, then identify the probability whole as 1.",
+    "closingSeeds": [
+      "A trustworthy complement must cover every possibility outside the event and none inside it.",
+      "Several awkward success cases may collapse into one simple failure event."
+    ],
+    "nextLessonIds": []
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "Subtracting one bad outcome is the same as subtracting the full complement.",
+      "beatIds": ["partition-red-events", "authentic-traffic-light", "complement-audit"]
+    },
+    {
+      "misconception": "Not exactly one means none.",
+      "beatIds": ["translate-opposites", "practice-not-exactly-one", "complement-audit"]
+    },
+    {
+      "misconception": "An event and the proposed complement may fail to exhaust the sample space.",
+      "beatIds": ["partition-red-events", "translate-opposites", "complement-audit"]
+    },
+    {
+      "misconception": "The complement rule is unrelated to earlier counting ideas.",
+      "beatIds": ["recognize-the-opposite", "authentic-traffic-light", "name-complementary-probability", "complement-audit"]
+    }
+  ],
+  "beats": [
+    {
+      "id": "recognize-the-opposite",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Continue the unresolved at-least-one-red question by identifying its single exact failure event.",
+      "expectedRealization": "The many cases with at least one red share one exact opposite: no reds in all four draws.",
+      "transitionIn": "You were deciding whether to list every way four draws could contain at least one red or track the one way that target fails.",
+      "estimatedSeconds": 55,
+      "prompt": "What is the exact opposite of “at least one red in four draws”?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "one-red", "text": "exactly one red"},
+          {"id": "not-all-red", "text": "fewer than four reds"},
+          {"id": "no-reds", "text": "no reds"}
+        ],
+        "correctId": "no-reds",
+        "feedback": {
+          "one-red": "Exactly one red makes the original at-least-one event happen; it is not the opposite.",
+          "not-all-red": "A sequence with one, two, or three reds still makes at least one red happen.",
+          "no-reds": "Yes—at least one red fails only when all four draws are non-red."
+        }
+      },
+      "correctFeedback": "Exactly—many red-success cases collapse into the single no-red event.",
+      "incorrectFeedback": "The opposite must make “at least one red” false, so every draw must be non-red.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {"groups": [
+            {"label": "At least one red", "choices": ["1 red", "2 reds", "3 reds", "4 reds"]},
+            {"label": "Exact opposite", "choices": ["0 reds"]}
+          ]},
+          "continuityKey": "p3-at-least-one-red",
+          "ariaLabel": "The possible red counts split into at least one red and the exact opposite of zero reds"
+        },
+        "steps": [{"title": "Negate the whole condition", "body": "At least one red fails only when the number of reds is zero."}],
+        "takeaway": "Many ways to succeed can have one simple exact opposite."
+      }
+    },
+    {
+      "id": "partition-red-events",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Connect the live probability question to whole-minus-opposite counting and establish that complementary probabilities fill the whole 1.",
+      "expectedRealization": "At least one red and no reds are disjoint and exhaustive, so their probabilities add to 1.",
+      "transitionIn": "Earlier, whole minus opposite made an awkward count easier. The same move is valid here only if the target and its opposite cover every outcome exactly once.",
+      "estimatedSeconds": 80,
+      "prompt": "Which facts make “at least one red” and “no reds” a trustworthy two-part split? Select all that apply.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "cover", "text": "Together they cover every possible four-draw outcome."},
+          {"id": "disjoint", "text": "No outcome belongs to both events."},
+          {"id": "equal", "text": "The two events are equally likely."}
+        ],
+        "correctIds": ["cover", "disjoint"],
+        "feedback": "A partition needs complete coverage and no overlap; its two parts do not need equal sizes."
+      },
+      "correctFeedback": "Right—every four-draw outcome is in exactly one of the two events.",
+      "incorrectFeedback": "Check two separate conditions: nothing is missed, and nothing is counted twice.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {"groups": [
+            {"label": "Target", "choices": ["at least one red"]},
+            {"label": "Exact opposite", "choices": ["no reds"]},
+            {"label": "Probability whole", "choices": ["all four-draw outcomes = 1"]}
+          ]},
+          "continuityKey": "p3-at-least-one-red",
+          "ariaLabel": "At least one red and no reds form a complete probability split"
+        },
+        "steps": [
+          {"title": "Check coverage", "body": "Every outcome has either zero reds or at least one red."},
+          {"title": "Check overlap", "body": "No outcome can satisfy both descriptions."},
+          {"title": "Change the whole", "body": "In counting, the whole was a total number of outcomes. In probability, the whole has probability 1.", "math": "P(at least one red)+P(no reds)=1"}
+        ],
+        "takeaway": "Whole minus opposite still works; the probability whole is 1."
+      }
+    },
+    {
+      "id": "authentic-traffic-light",
+      "phase": "discover",
+      "kind": "problem",
+      "purpose": "Use the approved visual anchor to turn complementary counting into subtraction from probability 1.",
+      "expectedRealization": "The full cycle has probability 1, so P(not green)=1-P(green)=1-25/60=7/12.",
+      "transitionIn": "Now apply that same split to a traffic-light cycle: green versus every non-green instant.",
+      "transitionOut": "Whole minus opposite worked just as before, but the probability whole was 1.",
+      "estimatedSeconds": 190,
+      "source": "bank",
+      "problemId": "amc8-1999-10",
+      "role": "anchor",
+      "presentation": "full-prompt",
+      "whyNow": "The learner has identified and audited the exact complement, so the mapped traffic-light problem can reveal that complementary probabilities partition 1.",
+      "entryBridge": "Use green as the easier side, then subtract its share of the cycle from the whole probability.",
+      "exitBridge": "Green contributes 25/60, so the complete other side contributes 1-25/60=35/60=7/12.",
+      "reusedRepresentation": "The same complete traffic cycle is partitioned into green and not-green regions.",
+      "animation": {"mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "What is the probability of the complete cycle?",
+        "What fraction of the cycle is green?",
+        "Why does subtracting that fraction leave every and only non-green instant?"
+      ],
+      "correctFeedback": "Correct—the non-green probability is 35/60=7/12.",
+      "incorrectFeedback": "The full probability is 1. Remove the 25/60 green part, not just one non-green color.",
+      "resolution": {
+        "animation": {"kind": "problem-animation", "placement": "before-steps"},
+        "steps": [
+          {"title": "Measure the easier event", "body": "Green occupies 25 of the 60 equally likely instants in a cycle.", "math": "P(green)=25/60=5/12"},
+          {"title": "Use the complete probability whole", "body": "Green and not green fill the cycle without overlap, so their probabilities add to 1.", "math": "P(not green)=1-P(green)"},
+          {"title": "Subtract", "body": "Removing the green share leaves all 35 non-green seconds.", "math": "1-25/60=35/60=7/12"}
+        ],
+        "takeaway": "Whole minus opposite survives unchanged; in probability, the complete whole is 1."
+      },
+      "sourceLabelTiming": "completion"
+    },
+    {
+      "id": "name-complementary-probability",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Attach formal language and notation only after the learner has constructed the partition and subtraction.",
+      "expectedRealization": "An event E and its complement not E are disjoint, exhaustive, and have probabilities summing to 1.",
+      "transitionIn": "You have now used whole minus opposite with probability 1. Name the exact-other-side relationship that made it legal.",
+      "transitionOut": "The formula is short, but its real work is naming the complete opposite correctly.",
+      "estimatedSeconds": 75,
+      "name": "Complementary probability",
+      "conciseDefinition": "The complement of an event E, written not E, contains every outcome where E does not occur and no outcome where E does occur.",
+      "formalization": "P(E)+P(not E)=1, so P(E)=1-P(not E).",
+      "memoryHook": "Exact other side; together 1."
+    },
+    {
+      "id": "translate-opposites",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Repair common language errors by making the learner construct complete complements before calculating.",
+      "expectedRealization": "The complement of exactly one success includes both zero successes and at least two successes.",
+      "transitionIn": "Before using the formula again, test the part that carries the reasoning: translating a phrase into its entire opposite.",
+      "estimatedSeconds": 130,
+      "prompt": "Sort each event with its exact complement.",
+      "response": {
+        "kind": "sort",
+        "items": [
+          {"id": "at-least-head", "text": "At least one head in three tosses"},
+          {"id": "exactly-head", "text": "Exactly one head in three tosses"},
+          {"id": "prime", "text": "A chosen number is prime"}
+        ],
+        "buckets": [
+          {"id": "no-heads", "text": "No heads"},
+          {"id": "zero-or-many", "text": "Zero heads or at least two heads"},
+          {"id": "not-prime", "text": "The number is not prime"}
+        ],
+        "correctBucketByItem": {
+          "at-least-head": "no-heads",
+          "exactly-head": "zero-or-many",
+          "prime": "not-prime"
+        },
+        "feedback": "Negate the whole condition. Then test whether the pair covers every possibility exactly once."
+      },
+      "correctFeedback": "Exactly—each pair covers all possibilities with no overlap.",
+      "incorrectFeedback": "Pay special attention to “exactly one”: its failure includes too few and too many, not only none.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {"groups": [
+            {"label": "At least one head", "choices": ["opposite: no heads"]},
+            {"label": "Exactly one head", "choices": ["opposite: zero heads or at least two heads"]},
+            {"label": "Prime", "choices": ["opposite: not prime"]}
+          ]},
+          "ariaLabel": "Completed matching of three events with their exact complements"
+        },
+        "steps": [
+          {"title": "Negate “at least one”", "body": "It fails only when the count is zero."},
+          {"title": "Negate “exactly one”", "body": "It fails when the count is zero, two, or three."}
+        ],
+        "takeaway": "A complement contains every way the original condition can fail."
+      }
+    },
+    {
+      "id": "practice-nonprime-card",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Give a small, inspectable first use of subtracting an easier probability from 1.",
+      "expectedRealization": "Among 1 through 10, the four primes form the complement of not prime, so the desired probability is 1-4/10=3/5.",
+      "transitionIn": "Start with a one-step sample space where you can check both sides by inspection.",
+      "transitionOut": "Subtracting the complete prime set—not one prime—left six non-prime cards.",
+      "estimatedSeconds": 105,
+      "source": "generated",
+      "problemId": "original-p3-not-prime",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The learner can focus on complement language and the probability whole before moving to repeated trials.",
+      "entryBridge": "List the prime cards as the complete opposite of the requested event.",
+      "exitBridge": "Four of ten cards are prime, so the other six of ten are not prime.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["Which numbers from 1 through 10 are prime?", "Does that list include every way for “not prime” to fail?"],
+      "correctFeedback": "Correct—1-4/10=6/10=3/5.",
+      "incorrectFeedback": "The prime cards are 2, 3, 5, and 7. Subtract all four from the ten-card whole.",
+      "resolution": {
+        "visual": {
+          "primitive": "outcome-grid",
+          "data": {"rows": ["Cards"], "columns": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], "cells": [["✓", "prime", "prime", "✓", "prime", "✓", "prime", "✓", "✓", "✓"]]},
+          "ariaLabel": "Cards one through ten with the six non-prime cards marked"
+        },
+        "steps": [
+          {"title": "Count the opposite", "body": "The prime cards are 2, 3, 5, and 7.", "math": "P(prime)=4/10"},
+          {"title": "Subtract from the probability whole", "body": "Every card is either prime or not prime.", "math": "P(not prime)=1-4/10=6/10=3/5"}
+        ],
+        "takeaway": "Subtract the probability of the complete opposite event from 1."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-at-least-one-tail",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Apply the complement rule to an at-least-one event with a single simple failure outcome.",
+      "expectedRealization": "At least one tail fails only at HHH, so its probability is 1-1/8=7/8.",
+      "transitionIn": "Now the desired event spreads across many coin outcomes. Look for the one way it fails.",
+      "transitionOut": "Seven success patterns collapsed into the single opposite pattern HHH.",
+      "estimatedSeconds": 120,
+      "source": "generated",
+      "problemId": "original-p3-at-least-one-tail",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This is the canonical near transfer from complementary counting to complementary probability.",
+      "entryBridge": "Translate “at least one tail” into the exact opposite before counting anything.",
+      "exitBridge": "Only HHH has no tails, so every other outcome belongs to the target event.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["What is the exact opposite of at least one tail?", "How many of the eight equally likely outcomes are on that opposite side?"],
+      "correctFeedback": "Correct—the complement HHH has probability 1/8, leaving 7/8.",
+      "incorrectFeedback": "At least one tail fails only if every toss is a head.",
+      "resolution": {
+        "steps": [
+          {"title": "Name the complete opposite", "body": "At least one tail fails only when there are no tails: HHH."},
+          {"title": "Measure and subtract", "body": "Three fair tosses have eight equally likely outcomes, and HHH is one of them.", "math": "1-P(HHH)=1-1/8=7/8"}
+        ],
+        "takeaway": "At-least-one events often have a one-pattern complement: none."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "predict-dice-opposite",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Prepare the mapped dice transfer by checking the number-theoretic event translation without revealing its probability.",
+      "expectedRealization": "With standard dice, a product is a multiple of 5 exactly when at least one die is 5, so the complement is neither die is 5.",
+      "transitionIn": "The coin complement was one outcome. On a dice grid, the simpler opposite will be a whole rectangle.",
+      "estimatedSeconds": 90,
+      "prompt": "For two standard dice, what is the exact opposite of “the product is a multiple of 5”?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "no-double", "text": "The dice are not both 5."},
+          {"id": "neither", "text": "Neither die shows 5."},
+          {"id": "one", "text": "Exactly one die shows 5."}
+        ],
+        "correctId": "neither",
+        "feedback": {
+          "no-double": "If one die is 5 and the other is not, the product is still a multiple of 5.",
+          "neither": "Yes—with faces 1 through 6, a product has a factor of 5 exactly when a die shows 5.",
+          "one": "The original event also includes double 5, so exactly one 5 is not its opposite."
+        }
+      },
+      "correctFeedback": "Right—the complete failure event is no 5 on either die.",
+      "incorrectFeedback": "Test (5,2) and (5,5). Both make multiples of 5, so the opposite must exclude every 5.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Translate the product condition", "body": "Among die faces 1 through 6, only 5 supplies a factor of 5."},
+          {"title": "Negate “at least one”", "body": "The exact opposite of at least one 5 is no 5 on either die."}
+        ],
+        "takeaway": "The complement is neither die shows 5—not merely “not both are 5.”"
+      }
+    },
+    {
+      "id": "authentic-dice-transfer",
+      "phase": "competition-application",
+      "kind": "problem",
+      "purpose": "Transfer complementary probability to a two-dimensional outcome space and expose the overlap trap in direct counting.",
+      "expectedRealization": "The 25 no-5 outcomes form the complement, so the desired probability is 1-25/36=11/36.",
+      "transitionIn": "You have named the no-5 rectangle. Use it to solve the full contest problem before inspecting the tempting overlapping row-and-column count.",
+      "transitionOut": "Complementary probability counted the clean 5 by 5 failure block and avoided repairing an overlapping success count.",
+      "estimatedSeconds": 220,
+      "source": "bank",
+      "problemId": "amc8-2001-18",
+      "role": "transfer",
+      "presentation": "full-prompt",
+      "whyNow": "The approved transfer problem replaces a timeline with a less obvious 6 by 6 sample space and tests whether the learner can find the complete complement independently.",
+      "entryBridge": "Give each die the five non-5 choices and compare that clean block with all 36 ordered outcomes.",
+      "exitBridge": "The no-5 block has 25 outcomes, leaving 11 of 36 with at least one 5.",
+      "reusedRepresentation": "A complete sample-space grid partitioned into the no-5 rectangle and its L-shaped complement.",
+      "animation": {"mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "How many choices does each die have if it may not show 5?",
+        "Why does the resulting 5 by 5 block contain every failure outcome exactly once?",
+        "Why would adding the 5-row and 5-column as 6+6 overcount?"
+      ],
+      "correctFeedback": "Correct—1-(5/6)^2=1-25/36=11/36.",
+      "incorrectFeedback": "Count the complete no-5 rectangle first: five choices for each die.",
+      "resolution": {
+        "animation": {"kind": "problem-animation", "placement": "after-steps"},
+        "steps": [
+          {"title": "Count the complete opposite", "body": "Neither die is 5 when each die uses one of its five other faces.", "math": "P(no 5)=(5/6)(5/6)=25/36"},
+          {"title": "Subtract from 1", "body": "Every outcome either has at least one 5 or has no 5.", "math": "P(at least one 5)=1-25/36=11/36"},
+          {"title": "Another way—and its repair", "body": "The six outcomes in the 5-row and six in the 5-column overlap at (5,5), so direct counting gives 6+6-1=11, not 12.", "math": "(6+6-1)/36=11/36"}
+        ],
+        "takeaway": "A clean complement can avoid overlap; any direct count must still count each outcome exactly once."
+      },
+      "sourceLabelTiming": "completion"
+    },
+    {
+      "id": "practice-not-exactly-one",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Directly repair the misconception that not exactly one means none.",
+      "expectedRealization": "Not exactly one head contains both zero heads and two heads, so its probability is 1-2/4=1/2.",
+      "transitionIn": "At least one failed in only one direction. Now use the exact-opposite check on a condition that can fail by having too few or too many.",
+      "transitionOut": "The complement of exactly one was not just TT; it was TT together with HH.",
+      "estimatedSeconds": 120,
+      "source": "generated",
+      "problemId": "original-p3-not-exactly-one",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The learner must demonstrate that complement construction, not keyword matching, controls the subtraction.",
+      "entryBridge": "First measure exactly one head, then let every remaining outcome form its complement.",
+      "exitBridge": "HT and TH make exactly one head; HH and TT make not exactly one.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["Which outcomes have exactly one head?", "Which remaining outcomes have zero or two heads?"],
+      "correctFeedback": "Correct—1-2/4=2/4=1/2.",
+      "incorrectFeedback": "Not exactly one includes both HH and TT, not only the no-head outcome.",
+      "resolution": {
+        "visual": {
+          "primitive": "outcome-grid",
+          "data": {"rows": ["First H", "First T"], "columns": ["Second H", "Second T"], "cells": [["✓ HH", "HT"], ["TH", "✓ TT"]]},
+          "ariaLabel": "Two-toss grid with HH and TT marked as not exactly one head"
+        },
+        "steps": [
+          {"title": "Measure exactly one", "body": "HT and TH are the two exactly-one outcomes.", "math": "P(exactly one)=2/4"},
+          {"title": "Take everything else", "body": "HH has two heads and TT has none, so both are in the complement.", "math": "P(not exactly one)=1-2/4=1/2"}
+        ],
+        "takeaway": "“Not exactly one” means every count except one."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-three-spinner",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Extend at-least-one reasoning to repeated four-way outcomes without a prebuilt grid.",
+      "expectedRealization": "No 4 on three spins has probability 27/64, so at least one 4 has probability 37/64.",
+      "transitionIn": "The dice grid was visible. Now build the size of a three-step complement from choices per step.",
+      "transitionOut": "The seven possible counts and positions of 4 were replaced by one uniform no-4 calculation.",
+      "estimatedSeconds": 135,
+      "source": "generated",
+      "problemId": "original-p3-spinner-at-least-one-four",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The learner transfers the complement rule from a visible grid to multiplicative sample-space counting.",
+      "entryBridge": "For the complement, each spin may land on 1, 2, or 3 but not 4.",
+      "exitBridge": "There are 27 no-4 sequences among 64 total sequences, leaving 37 favorable sequences.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["How many total three-spin sequences are possible?", "How many choices remain on each spin when 4 is forbidden?"],
+      "correctFeedback": "Correct—1-27/64=37/64.",
+      "incorrectFeedback": "Count the no-4 sequences: three allowed results on each of three spins.",
+      "resolution": {
+        "steps": [
+          {"title": "Count all equally likely sequences", "body": "Four results are possible on each of three spins.", "math": "4^3=64"},
+          {"title": "Count the complete opposite", "body": "With no 4, each spin has only 1, 2, or 3.", "math": "3^3=27"},
+          {"title": "Subtract probabilities", "body": "The 27 no-4 sequences are exactly the complement.", "math": "1-27/64=37/64"}
+        ],
+        "takeaway": "Repeated at-least-one events often become repeated none-of-that-event choices."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-repeat-challenge",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Challenge the learner to recognize all-distinct as the simple complement of at least one repeated result.",
+      "expectedRealization": "Three four-sided rolls have a repeat unless all three are distinct, giving 1-(4·3·2)/4^3=5/8.",
+      "transitionIn": "One last event has many overlapping success shapes: the first two can match, the last two can match, or all three can match. Search for the clean other side.",
+      "transitionOut": "All-distinct counted the complete complement without separating overlapping repeat cases.",
+      "estimatedSeconds": 165,
+      "source": "generated",
+      "problemId": "original-p3-at-least-one-repeat",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This challenge requires discovering a useful complement rather than responding to the phrase at least one alone.",
+      "entryBridge": "Negate “at least one repeated result” as “all three results are distinct.”",
+      "exitBridge": "Twenty-four all-distinct sequences leave forty repeat sequences among sixty-four total.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["What must be true if no result repeats?", "After the first result, how many choices keep the second and third results distinct?"],
+      "correctFeedback": "Correct—1-24/64=40/64=5/8.",
+      "incorrectFeedback": "Count the complement: four choices, then three different choices, then two still-unused choices.",
+      "resolution": {
+        "steps": [
+          {"title": "Name the clean opposite", "body": "No repeated result means all three results are distinct."},
+          {"title": "Count all-distinct sequences", "body": "Choose any first result, then avoid it, then avoid both earlier results.", "math": "4\u00b73\u00b72=24"},
+          {"title": "Subtract from the whole", "body": "There are 4^3=64 total sequences.", "math": "1-24/64=40/64=5/8"}
+        ],
+        "takeaway": "When success cases overlap, their all-distinct or none counterpart may be a single clean product."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "complement-audit",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate the complete complementary-probability routine and its language checks before opening a forward question.",
+      "expectedRealization": "Reliable complementary probability requires an exact opposite, a partition audit, an easier calculation, and subtraction from 1.",
+      "transitionIn": "Traffic lights, cards, coins, dice, and spinners all used the same reasoning. Gather the checks that made every subtraction legal.",
+      "estimatedSeconds": 110,
+      "prompt": "Which checks belong in a reliable complementary-probability plan? Select all four.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "exact", "text": "Name every way the target event can fail."},
+          {"id": "partition", "text": "Verify the event and its complement cover everything with no overlap."},
+          {"id": "easy", "text": "Use the complement only when it is easier to measure."},
+          {"id": "subtract", "text": "Subtract the complement's probability from 1."}
+        ],
+        "correctIds": ["exact", "partition", "easy", "subtract"],
+        "feedback": "Each statement protects a different part of the method."
+      },
+      "correctFeedback": "Yes—exact opposite, partition, strategic choice, then subtraction from 1.",
+      "incorrectFeedback": "All four checks matter: define, verify, choose, and subtract.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {"groups": [
+            {"label": "1. Define", "choices": ["complete opposite"]},
+            {"label": "2. Verify", "choices": ["coverage + no overlap"]},
+            {"label": "3. Compare", "choices": ["which side is easier?"]},
+            {"label": "4. Calculate", "choices": ["1 - P(complement)"]}
+          ]},
+          "ariaLabel": "Four checks for complementary probability"
+        },
+        "steps": [
+          {"title": "Protect the subtraction", "body": "A missing failure case or an overlapping case means the two probabilities will not form the whole 1."},
+          {"title": "Keep the strategy optional", "body": "Complementary probability is powerful when the other side is simpler, not because every probability needs subtraction."}
+        ],
+        "takeaway": "Find the exact other side, prove the two sides make the whole, then use P(event)=1-P(complement)."
+      }
+    },
+    {
+      "id": "overlapping-events-hook",
+      "phase": "reflection",
+      "kind": "reflection",
+      "purpose": "Create an unresolved transfer question only after the core method has been consolidated.",
+      "expectedRealization": "Some probability questions may involve two named events that are neither complements nor disjoint, so overlap must be handled explicitly.",
+      "transitionIn": "Those complement checks are secure. Now loosen one condition: suppose two events do not form exact opposite sides.",
+      "estimatedSeconds": 50,
+      "prompt": "If one event is “the first die is even” and another is “the sum is even,” some outcomes belong to both. How should a probability method keep that overlap from being counted twice?",
+      "takeaway": "Complements are the cleanest two-part split. When events overlap instead, the shared region will need its own accounting."
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {"near": 2, "mixed": 2, "challenge": 1},
+    "sessionSelection": [
+      {"source": "generated", "transferLevel": "near", "count": 2},
+      {"source": "generated", "transferLevel": "mixed", "count": 2},
+      {"source": "generated", "transferLevel": "challenge", "count": 1}
+    ],
+    "excludeProblemIds": ["amc8-1999-10", "amc8-2001-18"],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "P3",
+    "evidenceBeatIds": [
+      "practice-nonprime-card",
+      "practice-at-least-one-tail",
+      "practice-not-exactly-one",
+      "practice-three-spinner",
+      "practice-repeat-challenge"
+    ],
+    "minIndependentPracticeItems": 5,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.2.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "mathinking-lesson-skill-1.0.0",
+    "notes": [
+      "Draft connector lesson authored with the repository-local mathinking-lesson Skill and the compact P3 context packet.",
+      "The opening continues the at-least-one-red question through its no-red complement, connects it to whole-minus-opposite counting, and identifies the probability whole as 1.",
+      "Complementary probability is named only after the learner partitions the traffic-light cycle and solves the approved anchor.",
+      "The approved 1999 AMC 8 Problem 10 is the visual anchor; 2001 AMC 8 Problem 18 transfers the method to a grid and shows overlap repair only after the complement solution.",
+      "All visuals reuse existing generic primitives and mapped problem animations, so no renderer or schema changes were required.",
+      "Generated answers were independently verified by enumeration plus a separate counting or algebraic check."
+    ]
+  }
+}

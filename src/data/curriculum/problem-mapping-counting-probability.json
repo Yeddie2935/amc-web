@@ -1,0 +1,275 @@
+[
+  {
+    "lessonId": "C1",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Disjoint alternatives combine by addition, while sequential choices combine by multiplication because each first choice branches into later choices.",
+    "bestBankCandidate": {
+      "problemId": "amc8-1999-15",
+      "role": "transfer",
+      "metrics": {"conceptFit": 0.84, "conceptPurity": 0.74, "animationFit": 0.8, "discoveryValue": 0.54, "transferValue": 0.94, "prerequisiteLoad": 0.16},
+      "whyNow": "License-plate choices are a strong later multiplication-principle application, but the optimization twist makes it better after the AND/OR distinction is already secure.",
+      "entryBridge": "Reuse the lesson's branching-choice boxes, then replace shirts/pants with the three license-plate positions.",
+      "reusedRepresentation": "Choice columns connected by branches and a running outcome count.",
+      "animationPlan": "Show the original product of set sizes, then visualize how placing new letters in different sets changes the product.",
+      "learnerPrompts": ["Why do choices across positions multiply?", "Where should an extra option go if we want the most new combinations?"],
+      "exitBridge": "Return to the basic AND/OR structure and then ask what to do when a branching tree is not uniform."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": true, "reason": "The shirts/pants-style example from the original lessons is cleaner than the bank for discovering multiplication, and a separate OR scenario can make addition visually distinct.", "targetLearnerRealization": "Two shirts times three pants makes six pairs because each shirt has three continuations; cake OR pie adds disjoint possibilities instead.", "suggestedShape": "Build a 2-by-3 outfit grid from draggable clothing, then contrast it with two disjoint dessert shelves whose counts add.", "constraints": ["Avoid saying statistical independence is required.", "Use 'for each first choice' language.", "Include a quick classify-as-add-or-multiply interaction before arithmetic."]},
+    "searchCues": ["counting choices", "multiplication principle", "product rule", "license plates", "outfits"],
+    "avoidCues": ["combinations", "factorials"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "C2",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "A systematic list or tree makes completeness visible: every branch has a place, so omissions and duplicates can be detected.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2024-09",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.9, "conceptPurity": 0.84, "animationFit": 0.94, "discoveryValue": 0.8, "transferValue": 0.83, "prerequisiteLoad": 0.08},
+      "whyNow": "The bank already contains a tree-counting/systematic-listing animation, making it a natural application once the learner has built a tiny tree manually.",
+      "entryBridge": "Grow the contest tree from the same branch-and-leaf visual used in the generated warmup.",
+      "reusedRepresentation": "Branching decision tree with leaves representing final outcomes.",
+      "animationPlan": "Reveal one decision layer at a time and keep invalid or duplicate branches visibly marked rather than jumping to the count.",
+      "learnerPrompts": ["What does each branch represent?", "How can we tell when the tree is complete?"],
+      "exitBridge": "Ask whether a well-organized list is enough when the number of possibilities gets larger, creating the need to split into cases."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2024-13", "recommendedRole": "transfer", "fitScore": 0.89, "reason": "The bunny up/down path problem rewards systematic enumeration under a path constraint."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "A tiny two- or three-stage tree is best for letting the learner construct the organization before an authentic problem adds constraints.", "targetLearnerRealization": "Organization is not cosmetic; it is how we know whether a finite search is complete.", "suggestedShape": "A three-step choice process where freehand listing misses an outcome; the same outcomes are then rebuilt as a tree with every branch accounted for.", "constraints": ["Keep the first tree small enough to inspect every leaf.", "Include one duplicate-prone free list.", "Explicitly connect leaves to final outcomes, not to intermediate choices."]},
+    "searchCues": ["systematic listing", "tree counting", "outcomes", "branches", "list all"],
+    "avoidCues": ["combination formula", "advanced Catalan as core"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "C3",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "When distinct objects fill ordered positions, the available choices shrink one position at a time, creating the factorial product.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2020-12",
+      "role": "transfer",
+      "metrics": {"conceptFit": 0.76, "conceptPurity": 0.68, "animationFit": 0.76, "discoveryValue": 0.42, "transferValue": 0.91, "prerequisiteLoad": 0.14},
+      "whyNow": "A factorial equation is useful after factorial meaning is established, but it does not teach why factorials arise from arrangements.",
+      "entryBridge": "After the lineup discovery, collapse the visible 5×4×3×2×1 choices into 5!, then reveal the contest equation as a new use of that notation.",
+      "reusedRepresentation": "Shrinking slot-choice counters and factorial shorthand.",
+      "animationPlan": "Expand only enough factorial factors to cancel and identify N rather than fully evaluating giant products.",
+      "learnerPrompts": ["What product does each factorial stand for?", "Which factors can we compare without computing everything?"],
+      "exitBridge": "Return to arrangements and ask what changes when two orderings should really count as the same selection, setting up overcounting."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": true, "reason": "The original friends-in-a-line example is ideal for discovering decreasing choices and factorial notation.", "targetLearnerRealization": "Five lineup slots produce 5 choices, then 4, then 3, then 2, then 1.", "suggestedShape": "Five draggable people and five slots; after each placement the remaining-choice counter updates, then the product compresses into 5!.", "constraints": ["Introduce factorial notation only after the shrinking-choice product appears.", "Explain 0! with the one empty arrangement rather than only 'by definition'.", "Keep identical-object permutations out of the core discovery."]},
+    "searchCues": ["factorial", "arrangements", "permutations", "line up", "ordered"],
+    "avoidCues": ["factorial prime valuation", "double factorial"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "C4",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Good casework partitions every possibility exactly once into categories that are easier to count.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2002-19",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.96, "conceptPurity": 0.94, "animationFit": 0.94, "discoveryValue": 0.86, "transferValue": 0.84, "prerequisiteLoad": 0.05},
+      "whyNow": "Exactly one zero in a three-digit number splits naturally by the zero's position, making the case partition concrete and checkable.",
+      "entryBridge": "After the lesson's 1/2/3-move warmup, keep the case headers visible and replace them with 'zero in tens' and 'zero in ones'.",
+      "reusedRepresentation": "Outcome cards that physically sort into labeled, non-overlapping bins.",
+      "animationPlan": "Let the learner choose the case split, populate each digit-slot grid, and verify that every valid number lands in exactly one bin.",
+      "learnerPrompts": ["What feature could every valid number be classified by?", "Could any valid number land in both cases?", "Could any valid number land in neither?"],
+      "exitBridge": "Immediately mutate the condition from exactly one zero to at least one zero so the clean case split starts to strain, launching C5."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": true, "reason": "The Andrew 1/2/3-step problem from the original lesson creates the metacognitive question 'How do we know we found them all?' more cleanly than a contest problem.", "targetLearnerRealization": "A case split should be exhaustive and non-overlapping, not merely a list of ideas.", "suggestedShape": "List ways to move exactly three spaces using 1/2/3-step moves, then sort the paths by number of moves into 1-, 2-, and 3-move cases.", "constraints": ["Ask the completeness question before naming casework.", "Name exhaustive and non-overlapping explicitly.", "Transition directly into the zero-position bank problem."]},
+    "searchCues": ["casework", "exactly one", "cases", "digit position", "systematic"],
+    "avoidCues": ["complement as main", "inclusion-exclusion as main"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "C5",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "When the desired outcomes overlap or are awkward to classify, counting the easier opposite and subtracting from the whole can collapse the work.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2001-18",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.9, "conceptPurity": 0.82, "animationFit": 0.88, "discoveryValue": 0.74, "transferValue": 0.9, "prerequisiteLoad": 0.12},
+      "whyNow": "For two dice, counting products that are multiples of 5 is much cleaner by excluding outcomes with no 5, providing authentic reinforcement after the generated zero example.",
+      "entryBridge": "Keep the lesson's 'whole grid minus clean opposite region' visual and replace three-digit numbers with the 6×6 dice outcome grid.",
+      "reusedRepresentation": "An outcome grid where the complement is selected first and the target appears as the remainder.",
+      "animationPlan": "Highlight all outcomes with neither die equal to 5, count that rectangle, then invert the selection to reveal the desired outcomes.",
+      "learnerPrompts": ["Which is easier to describe: product is a multiple of 5, or neither die shows 5?", "What is the whole universe we subtract from?"],
+      "exitBridge": "Name complement as a reusable operation and preview that probability will inherit the same idea."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": true, "reason": "The strongest discovery is the deliberate mutation of the prior lesson's exactly-one-zero problem into at-least-one-zero, preserving continuity and making old casework overlap.", "targetLearnerRealization": "The opposite event 'no zeros' is one clean block even when 'at least one zero' has overlapping direct cases.", "suggestedShape": "Reopen the exact same three-digit slot visual from C4, change one phrase in the prompt, show overlapping zero-position cases, then invert to a 9×9×9 no-zero block.", "constraints": ["Reuse the previous lesson representation exactly.", "Make the overlap failure visible before proposing complement.", "Subtract from the correct universe of three-digit numbers."]},
+    "searchCues": ["complement", "at least one", "not", "none", "count opposite"],
+    "avoidCues": ["probability only", "PIE as primary"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "C6",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "If different ordered descriptions represent the same outcome, raw counting overcounts; division is valid only when each true outcome appears the same number of times.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2012-14",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.88, "conceptPurity": 0.84, "animationFit": 0.86, "discoveryValue": 0.7, "transferValue": 0.88, "prerequisiteLoad": 0.08},
+      "whyNow": "Every game between two teams is naturally encountered from either team's perspective, making double-counting visible in a round-robin setting.",
+      "entryBridge": "Carry forward the lesson's paired duplicate cards and relabel an ordered pair A→B / B→A as the same game A-B.",
+      "reusedRepresentation": "Ordered-pair cards collapsing into one unordered object.",
+      "animationPlan": "Count each team's opponents, show every edge highlighted twice, then merge the two highlights per edge and divide by 2.",
+      "learnerPrompts": ["Why did game A-B appear once from A and once from B?", "Are all games overcounted by the same factor?"],
+      "exitBridge": "Ask how to generalize from pairs to groups of r, motivating combinations."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2014-16", "recommendedRole": "transfer", "fitScore": 0.84, "reason": "Conference scheduling again rewards recognizing duplicate team-pair descriptions inside a more layered count."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "A three-person choose-two example makes duplicate representations visible with almost no arithmetic or context load.", "targetLearnerRealization": "A→B and B→A are two descriptions of the same two-person team.", "suggestedShape": "List six ordered two-person selections from A,B,C, then animate reverse-order pairs snapping together into three teams.", "constraints": ["Do not teach 'always divide by 2'.", "Explicitly state the equal-multiplicity condition.", "Use this as the narrative predecessor to C7."]},
+    "searchCues": ["overcount", "double count", "round robin", "pairs", "same game", "symmetry"],
+    "avoidCues": ["combinations formula without duplicate structure"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "C7",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Choosing r objects without order can be derived from ordered selections by dividing out the r! orderings of each group.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2004-04",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.96, "conceptPurity": 0.95, "animationFit": 0.9, "discoveryValue": 0.82, "transferValue": 0.84, "prerequisiteLoad": 0.03},
+      "whyNow": "Choosing three starters from four people is a nearly pure combinations application immediately after learners have seen why order creates duplicates.",
+      "entryBridge": "Keep the duplicate-order bundles from C6 and expand each three-person group into its 3! possible lineups before collapsing them back to one starter set.",
+      "reusedRepresentation": "Group cards with mini ordered lineups nested underneath.",
+      "animationPlan": "Count 4×3×2 ordered picks, group every six orderings that contain the same three names, and reveal 24/6=4 before notation.",
+      "learnerPrompts": ["Do ABC and CBA create different starter teams?", "How many orders represent each same group of three?"],
+      "exitBridge": "Only after the grouping is visible, introduce choose notation and connect it later to grid paths."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2001-14", "recommendedRole": "transfer", "fitScore": 0.9, "reason": "The buffet problem combines one ordinary product-rule choice with an unordered choose-two vegetable selection."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "A tiny A/B/C choose-two construction provides the cleanest bridge from overcounting to the general combination idea before the authentic starters problem.", "targetLearnerRealization": "Unordered groups are ordered selections with artificial order removed.", "suggestedShape": "Reuse C6's A/B/C pair cards, then generalize to four people choosing three and visually bundle r! orderings per group.", "constraints": ["Derive rather than announce nCr.", "Avoid keyword rules like 'committee means combination'.", "Ask what counts as the same outcome before calculating."]},
+    "searchCues": ["combinations", "choose", "starters", "team", "committee", "order not important"],
+    "avoidCues": ["permutation-only", "advanced binomial identity"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "C8",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Set regions represent membership in conditions; intersection means satisfying both and mathematical union includes the overlap.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2007-13",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.93, "conceptPurity": 0.91, "animationFit": 0.93, "discoveryValue": 0.75, "transferValue": 0.83, "prerequisiteLoad": 0.06},
+      "whyNow": "Equal-size sets with known union and intersection turn the Venn regions into quantities after learners understand the visual membership model.",
+      "entryBridge": "Keep the exact two-circle Venn board from the sorting activity, then replace individual objects with counts from the contest problem.",
+      "reusedRepresentation": "Two overlapping draggable set circles with four visible regions.",
+      "animationPlan": "Lock the intersection count first, expose the equal-set condition, then solve for the two exclusive regions and total set size.",
+      "learnerPrompts": ["Which region belongs to both sets?", "Does the union include the intersection?"],
+      "exitBridge": "Color the overlap twice when adding the two set totals, making C9's correction necessary."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": true, "reason": "Sorting concrete objects by two visible properties is clearer for the meaning of membership, union, intersection, and neither than starting with set cardinalities.", "targetLearnerRealization": "An object can belong to both sets at once, and 'A or B' includes that overlap.", "suggestedShape": "Drag colored/shape cards into two overlapping circles based on two properties and let incorrect placement trigger region-based feedback.", "constraints": ["Include objects in intersection and neither.", "Explicitly distinguish inclusive mathematical OR from exclusive everyday uses.", "Lead directly to double-counting the overlap in C9."]},
+    "searchCues": ["sets", "Venn", "intersection", "union", "overlap"],
+    "avoidCues": ["inclusion-exclusion formula as first step"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "C9",
+    "preferredSource": "bank",
+    "targetLearnerRealization": "Adding overlapping group totals counts the intersection twice, so one copy of the overlap must be removed.",
+    "bestBankCandidate": {
+      "problemId": "amc8-1999-09",
+      "role": "anchor",
+      "metrics": {"conceptFit": 0.99, "conceptPurity": 0.98, "animationFit": 0.96, "discoveryValue": 0.94, "transferValue": 0.74, "prerequisiteLoad": 0.04},
+      "whyNow": "The overlapping flower beds physically depict shared plants, so adding bed totals can be animated to make the duplicated intersection literally appear twice.",
+      "entryBridge": "Continue directly from C8's overlapping circles, but replace abstract set regions with the flower-bed diagram before showing numbers.",
+      "reusedRepresentation": "Two/three translucent overlapping regions whose overlap changes color when counted twice.",
+      "animationPlan": "Sweep-count each bed total, let overlap plants receive a second highlight, then peel one duplicated layer away.",
+      "learnerPrompts": ["Which plants changed color twice?", "How many copies of each physical plant should the final total contain?"],
+      "exitBridge": "Write inclusion-exclusion only after the duplicate layer is repaired, then discuss why three-set cases require tracking multiplicity carefully."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2019-??", "recommendedRole": "transfer", "fitScore": 0.0, "reason": "Placeholder intentionally invalid and should be replaced by automated candidate retrieval before approval."}],
+    "generatedTeachingPlan": {"needed": false, "reason": "The flower-bed problem is an unusually clean authentic visualization of inclusion-exclusion.", "targetLearnerRealization": "Overlap was included twice by addition and needs one subtraction.", "suggestedShape": "No generated anchor needed; generated practice can vary two-set and simple three-set situations.", "constraints": []},
+    "searchCues": ["inclusion-exclusion", "overlap", "both", "union", "Venn"],
+    "avoidCues": ["disjoint sets"],
+    "reviewStatus": "needs-review"
+  },
+  {
+    "lessonId": "C10",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Path counts can be built recursively from predecessor states, and unrestricted shortest paths are equivalent to choosing which step positions have one direction.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2020-21",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.97, "conceptPurity": 0.93, "animationFit": 0.99, "discoveryValue": 0.88, "transferValue": 0.92, "prerequisiteLoad": 0.1},
+      "whyNow": "The checker-path animation already propagates counts by summing predecessor squares, making it an excellent authentic realization of Pascal-style recurrence.",
+      "entryBridge": "First fill a tiny 3×3 path grid generated in the lesson, then smoothly expand the same recurrence into the contest checkerboard.",
+      "reusedRepresentation": "Grid cells labeled by number of ways to reach them from predecessor cells.",
+      "animationPlan": "Propagate counts row by row, pause at interior cells to ask why two predecessor counts add, and only after reaching Q connect the same numbers to Pascal's triangle/choose notation.",
+      "learnerPrompts": ["From which previous cells can we arrive here?", "Why should their path counts add?", "Where does choosing the positions of right/up steps appear?"],
+      "exitBridge": "Overlay the corresponding Pascal row and show recursive and combination solutions as two views of the same count."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": true, "reason": "A small unobstructed grid is better for first discovering the recurrence and choose-step interpretation before the larger authentic checkerboard.", "targetLearnerRealization": "Ways-to-cell = sum of ways to predecessor cells.", "suggestedShape": "A 2-right/2-up shortest-path grid with draggable path traces and cell counters that auto-fill from left/below.", "constraints": ["Derive recurrence before Pascal notation.", "Connect an unrestricted grid to combinations explicitly.", "Save obstacle/path-restriction complications for transfer."]},
+    "searchCues": ["grid paths", "path counting", "checker paths", "Pascal", "shortest paths"],
+    "avoidCues": ["arbitrary graph theory"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "P1",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Probability compares a target event with a complete sample space; favorable/total works only when the elementary outcomes are equally likely.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2000-21",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.9, "conceptPurity": 0.84, "animationFit": 0.9, "discoveryValue": 0.76, "transferValue": 0.87, "prerequisiteLoad": 0.08},
+      "whyNow": "One penny versus two pennies gives a small explicit outcome space where matching head counts can be colored and counted.",
+      "entryBridge": "Keep the lesson's outcome tree/grid and relabel its branches as Keiko's and Ephraim's coin tosses.",
+      "reusedRepresentation": "Equally likely leaf outcomes with favorable leaves colored.",
+      "animationPlan": "Build the full joint sample space first, then color states where the numbers of heads match and form the probability ratio.",
+      "learnerPrompts": ["What are the equally likely elementary outcomes?", "Are the possible head counts themselves equally likely?"],
+      "exitBridge": "Use the distinction between outcome and event to prepare for what happens when the sample space changes after an event."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": true, "reason": "A simple spinner or two-coin model can establish sample-space completeness and equal likelihood before the asymmetric one-penny/two-penny contest problem.", "targetLearnerRealization": "Probability is not favorable labels divided by possible labels; it is favorable equally likely outcomes divided by all equally likely outcomes.", "suggestedShape": "Build a 2×2 coin outcome grid one flip at a time and compare an event with one versus two favorable cells.", "constraints": ["Explicitly discuss equally likely outcomes.", "Distinguish outcomes from summarized categories like 'one head'.", "Keep the first sample space exhaustively visible."]},
+    "searchCues": ["probability", "coin toss", "dice", "spinner", "sample space", "outcomes"],
+    "avoidCues": ["dependent without replacement", "geometric probability as first"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "P2",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Without replacement, the state of the sample space changes after the first event, so later probabilities must be recomputed from the new state.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2017-10",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.92, "conceptPurity": 0.84, "animationFit": 0.9, "discoveryValue": 0.78, "transferValue": 0.9, "prerequisiteLoad": 0.16},
+      "whyNow": "Selecting three cards without replacement makes the shrinking pool unavoidable and also connects dependent probability to combinations.",
+      "entryBridge": "Reuse the lesson's visible card pool and replace its labels with 1–5 from the contest problem.",
+      "reusedRepresentation": "A row of available cards that physically shrinks after each draw.",
+      "animationPlan": "Remove selected cards from the pool, update denominators, and alternatively count unordered three-card sets to show two valid perspectives.",
+      "learnerPrompts": ["How many cards are available now—not originally?", "What information did the first draw change?"],
+      "exitBridge": "Contrast with replacement, where the original sample space resets, and then connect 'not happening' events to complements."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": true, "reason": "A tiny colored-ball draw lets the denominator physically shrink before a contest problem layers on a largest-card condition.", "targetLearnerRealization": "The second probability is conditional on what remains after the first draw.", "suggestedShape": "Three red/blue objects in a bag; draw one without replacement, show the pool change, then repeat the same setup with replacement for contrast.", "constraints": ["Compare with replacement directly.", "Do not conflate dependent with mutually exclusive.", "Use a visible state change rather than formula-first multiplication."]},
+    "searchCues": ["without replacement", "dependent", "cards selected", "draw", "remaining"],
+    "avoidCues": ["independent coin toss only"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "P3",
+    "preferredSource": "bank",
+    "targetLearnerRealization": "Complementary probability is the same complement idea from counting: an event and its opposite exhaust the sample space, so their probabilities sum to 1.",
+    "bestBankCandidate": {
+      "problemId": "amc8-1999-10",
+      "role": "anchor",
+      "metrics": {"conceptFit": 0.97, "conceptPurity": 0.95, "animationFit": 0.91, "discoveryValue": 0.92, "transferValue": 0.68, "prerequisiteLoad": 0.04},
+      "whyNow": "The traffic light asks for NOT green, so the desired event is literally the complement of a visible time interval and can be connected immediately to C5.",
+      "entryBridge": "Open with the same 'whole minus opposite' gesture used in complementary counting, but replace outcome counts with a 60-second color timeline.",
+      "reusedRepresentation": "A complete sample-space bar with green and not-green regions partitioning the whole.",
+      "animationPlan": "Highlight green's 25 seconds, invert the selection to yellow+red, then show probabilities of complementary regions adding to 1.",
+      "learnerPrompts": ["What is the exact opposite of 'green'?", "Do green and not-green overlap? Do they cover all 60 seconds?"],
+      "exitBridge": "Write P(not E)=1-P(E) as the probability version of a technique the learner already knows from C5."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2001-18", "recommendedRole": "transfer", "fitScore": 0.88, "reason": "Dice product multiple-of-5 can be solved by a complement whose outcome space is less visually obvious than a timeline."}],
+    "generatedTeachingPlan": {"needed": false, "reason": "The traffic-light problem is unusually clean, visual, and directly phrased as a complement.", "targetLearnerRealization": "An event and its complement partition probability 1.", "suggestedShape": "No generated anchor required; generated practice should include 'at least one' and 'none' events.", "constraints": []},
+    "searchCues": ["not", "complement probability", "at least one", "none", "probability"],
+    "avoidCues": ["conditional probability primary"],
+    "reviewStatus": "approved"
+  }
+]

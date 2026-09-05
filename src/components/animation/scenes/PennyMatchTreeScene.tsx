@@ -19,7 +19,7 @@ function Coin({ x, y, side, r = 13, delay = 0 }: { x: number; y: number; side: "
       style={{ transformBox: "fill-box", transformOrigin: "center" }}
     >
       <circle cx={x} cy={y} r={r} fill={side === "H" ? GOLD : "#e2e8f0"} stroke={side === "H" ? "#a16207" : DIM} strokeWidth="1.5" />
-      <text x={x} y={y + r * 0.35} textAnchor="middle" fontSize={r * 0.85} fontWeight="950" fill={INK} fontFamily={FONT}>
+      <text x={x} y={y + r * 0.35} textAnchor="middle" fontSize={Math.max(10, r * 0.85)} fontWeight="950" fill={INK} fontFamily={FONT}>
         {side}
       </text>
     </motion.g>
@@ -93,7 +93,7 @@ export function PennyMatchTreeScene({ problem, step, totalSteps }: AnimatedScene
           KEIKO
         </text>
         <Coin x={rootX} y={44} side="H" r={15} delay={0} />
-        <text x={rootX} y="72" textAnchor="middle" fontSize="9" fontWeight="800" fill={DIM}>
+        <text x={rootX} y="72" textAnchor="middle" fontSize="10" fontWeight="800" fill={DIM}>
           1 penny
         </text>
 
@@ -122,7 +122,7 @@ export function PennyMatchTreeScene({ problem, step, totalSteps }: AnimatedScene
           <text x={caseX - 42} y={case0Y - 22} fontSize="10.5" fontWeight="900" fill={IND}>
             Keiko: 0 heads (T)
           </text>
-          <text x={caseX - 42} y={case0Y - 10} fontSize="9" fontWeight="800" fill={DIM}>
+          <text x={caseX - 42} y={case0Y - 10} fontSize="10" fontWeight="800" fill={DIM}>
             prob 1/2
           </text>
           {showCase0 &&
@@ -152,7 +152,7 @@ export function PennyMatchTreeScene({ problem, step, totalSteps }: AnimatedScene
           <text x={caseX - 42} y={case0Y - 22} fontSize="10.5" fontWeight="900" fill={IND}>
             Keiko: 1 head (H)
           </text>
-          <text x={caseX - 42} y={case0Y - 10} fontSize="9" fontWeight="800" fill={DIM}>
+          <text x={caseX - 42} y={case0Y - 10} fontSize="10" fontWeight="800" fill={DIM}>
             prob 1/2
           </text>
           {showCase1 &&
@@ -187,7 +187,7 @@ export function PennyMatchTreeScene({ problem, step, totalSteps }: AnimatedScene
               <text x="397" y="38" textAnchor="middle" fontSize="14" fontWeight="950" fill={RED} fontFamily={FONT}>
                 just 1/4 = choice {trapLetter ?? "A"}
               </text>
-              <text x="397" y="50" textAnchor="middle" fontSize="8.5" fontWeight="800" fill={RED}>
+              <text x="397" y="50" textAnchor="middle" fontSize="10" fontWeight="800" fill={RED}>
                 missing the 0-head case
               </text>
             </motion.g>

@@ -1,0 +1,583 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "C4",
+  "curriculumNodeId": "C4",
+  "title": "Did We Find Them All?",
+  "lessonType": "technique",
+  "status": "draft",
+  "estimatedMinutes": 26,
+  "coreInsight": "A difficult universe can be partitioned into cases that are exhaustive, non-overlapping, and easier to count.",
+  "targetLearnerRealization": "Good casework partitions every possibility exactly once into categories that are easier to count.",
+  "learningObjectives": [
+    "Recognize why sorting a partial list does not prove completeness.",
+    "Choose a useful feature to split possibilities into smaller groups.",
+    "Finish every group, check that nothing is missing or repeated, and combine the counts."
+  ],
+  "hardPrerequisites": ["C2"],
+  "narrativePredecessor": "C2",
+  "continuity": {
+    "openingCallback": "Remember how a careful list helped you keep track? Now we will ask how to know when that list is truly finished.",
+    "closingSeeds": ["A clean split can become cumbersome when the most obvious groups overlap."],
+    "nextLessonIds": ["C5", "C9"]
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "Cases may overlap without adjustment.",
+      "beatIds": ["finish-each-bin", "guided-zero-position", "casework-recap", "next-question"]
+    },
+    {
+      "misconception": "A few natural cases are automatically exhaustive.",
+      "beatIds": ["prove-completeness", "sort-by-move-count", "finish-each-bin", "notice-three-tests"]
+    },
+    {
+      "misconception": "Cases are useful even when each is as difficult as the original problem.",
+      "beatIds": ["choose-case-variable", "guided-zero-position"]
+    },
+    {
+      "misconception": "The best case split need not reflect the problem's actual constraint.",
+      "beatIds": ["choose-case-variable", "guided-zero-position", "practice-mixed-score-tokens", "practice-bank-transfer"]
+    }
+  ],
+  "beats": [
+    {
+      "id": "step-sequence-puzzle",
+      "phase": "puzzle",
+      "kind": "problem",
+      "purpose": "Let an informal list feel plausible before the learner has a way to prove it complete.",
+      "expectedRealization": "Finding four working paths is not yet proof that there are only four.",
+      "transitionIn": "Remember how a careful list helped you keep track? Try this one in whatever order makes sense to you.",
+      "transitionOut": "We found four paths. But finding four is not the same as proving the list is finished.",
+      "estimatedSeconds": 105,
+      "source": "generated",
+      "problemId": "original-c4-step-sequences",
+      "role": "anchor",
+      "presentation": "full-prompt",
+      "whyNow": "A four-outcome movement puzzle makes informal listing easy while leaving a genuine completeness question.",
+      "entryBridge": "List the moves you find. Do not worry about sorting them yet.",
+      "exitBridge": "These four paths work. The next question is whether another path could still be hiding.",
+      "animation": { "mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false },
+      "learnerPrompts": ["Write each sequence before entering your total."],
+      "correctFeedback": "Yes—there are four working sequences.",
+      "incorrectFeedback": "Keep your attempt. Now compare it with the paths below.",
+      "resolution": {
+        "visual": {
+          "primitive": "path-walk",
+          "data": {
+            "positions": ["0", "1", "2", "3"],
+            "paths": [
+              { "label": "3", "moves": [3] },
+              { "label": "1 + 2", "moves": [1, 2] },
+              { "label": "2 + 1", "moves": [2, 1] },
+              { "label": "1 + 1 + 1", "moves": [1, 1, 1] }
+            ]
+          },
+          "continuityKey": "c4-step-outcome-cards",
+          "ariaLabel": "Four animated paths moving from position zero to position three"
+        },
+        "steps": [
+          {
+            "title": "Check the paths we found",
+            "body": "Each one starts at 0, ends at 3, and uses only moves of size 1, 2, or 3."
+          }
+        ],
+        "takeaway": "These four paths work. We still need to ask: did we get every possibility?"
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "prove-completeness",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Make the gap between finding examples and proving completeness explicit through a guided choice.",
+      "expectedRealization": "A complete count needs a checklist that rules out every other possibility.",
+      "transitionIn": "Look back at the same four paths.",
+      "estimatedSeconds": 55,
+      "prompt": "Does seeing four working paths prove that there is no fifth path?",
+      "visual": {
+        "primitive": "choice-grid",
+        "data": { "groups": [{ "label": "Paths we found", "choices": ["3", "1 + 2", "2 + 1", "1 + 1 + 1"] }] },
+        "continuityKey": "c4-step-outcome-cards",
+        "ariaLabel": "The same four movement sequences found in the opening puzzle"
+      },
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          { "id": "yes-four-look-complete", "text": "Yes. Four paths look like enough." },
+          { "id": "no-need-checklist", "text": "No. We need a way to rule out every other path." }
+        ],
+        "correctId": "no-need-checklist",
+        "feedback": {
+          "yes-four-look-complete": "A list can look finished and still stop too soon.",
+          "no-need-checklist": "Right. We need to know where every possible path would have to appear."
+        }
+      },
+      "correctFeedback": "Right. A list of examples is not yet a complete count.",
+      "incorrectFeedback": "Think about whether a path we have not imagined could still exist.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [{ "body": "To be certain, we need a checklist that covers every possible number of moves—not just the paths already on the screen." }],
+        "takeaway": "First organize the paths. Then finish every part of the checklist."
+      }
+    },
+    {
+      "id": "sort-by-move-count",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Organize the paths already found without pretending that this alone proves completeness.",
+      "expectedRealization": "Number of moves gives every found path one clear place.",
+      "transitionIn": "Start with the paths we already have. Sort them by how many moves they use.",
+      "estimatedSeconds": 90,
+      "prompt": "Put each path into the right group.",
+      "response": {
+        "kind": "sort",
+        "items": [
+          { "id": "path-12", "text": "1 + 2" },
+          { "id": "path-3", "text": "3" },
+          { "id": "path-111", "text": "1 + 1 + 1" },
+          { "id": "path-21", "text": "2 + 1" }
+        ],
+        "buckets": [
+          { "id": "one-move", "text": "1 move" },
+          { "id": "two-moves", "text": "2 moves" },
+          { "id": "three-moves", "text": "3 moves" }
+        ],
+        "correctBucketByItem": {
+          "path-12": "two-moves",
+          "path-3": "one-move",
+          "path-111": "three-moves",
+          "path-21": "two-moves"
+        }
+      },
+      "correctFeedback": "Good. Every path we found now has one clear place.",
+      "incorrectFeedback": "Count the moves in each path and try again.",
+      "allowRetry": true,
+      "resolution": {
+        "takeaway": "We organized what we found. We have not yet proved that each group is finished—or that these are the only possible groups."
+      }
+    },
+    {
+      "id": "finish-each-bin",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Use the groups as a complete checklist and exhaust every possible move count.",
+      "expectedRealization": "The groups prove completeness only when every group is finished and longer paths are ruled out.",
+      "transitionIn": "Now use each group as a checklist. Finish the small count inside every row.",
+      "estimatedSeconds": 120,
+      "prompt": "Match each finished list to its number of moves.",
+      "response": {
+        "kind": "sort",
+        "items": [
+          { "id": "finished-one", "text": "Only 3" },
+          { "id": "finished-two", "text": "1 + 2 and 2 + 1" },
+          { "id": "finished-three", "text": "Only 1 + 1 + 1" },
+          { "id": "finished-four-plus", "text": "No paths: four smallest moves already total 4" }
+        ],
+        "buckets": [
+          { "id": "one-move", "text": "1 move" },
+          { "id": "two-moves", "text": "2 moves" },
+          { "id": "three-moves", "text": "3 moves" },
+          { "id": "four-plus", "text": "4 or more moves" }
+        ],
+        "correctBucketByItem": {
+          "finished-one": "one-move",
+          "finished-two": "two-moves",
+          "finished-three": "three-moves",
+          "finished-four-plus": "four-plus"
+        }
+      },
+      "correctFeedback": "Yes. Now every possible number of moves has been checked.",
+      "incorrectFeedback": "For each row, ask what positive move sizes could total exactly 3.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              { "label": "1 move", "items": ["3"] },
+              { "label": "2 moves", "items": ["1 + 2", "2 + 1"] },
+              { "label": "3 moves", "items": ["1 + 1 + 1"] },
+              { "label": "4 or more moves", "items": ["Impossible: the minimum total is already 4"] }
+            ]
+          },
+          "continuityKey": "c4-step-outcome-cards",
+          "ariaLabel": "A complete checklist of paths grouped by number of moves"
+        },
+        "steps": [
+          { "title": "One move", "body": "To land on 3 in one move, the move must be 3." },
+          { "title": "Two moves", "body": "The positive ordered pairs totaling 3 are 1 + 2 and 2 + 1." },
+          { "title": "Three moves", "body": "Three positive moves totaling 3 must be 1 + 1 + 1." },
+          { "title": "Four or more moves", "body": "Even four minimum-size moves total at least 4, so no longer path can work." }
+        ],
+        "takeaway": "The groups create a complete checklist. We can finish each smaller group and prove there is nowhere else a path could hide."
+      }
+    },
+    {
+      "id": "notice-three-tests",
+      "phase": "notice",
+      "kind": "copy",
+      "purpose": "Name the two rigor conditions in plain language first, then supply their mathematical terms.",
+      "expectedRealization": "The count is trustworthy because every path is included once and each smaller group is finishable.",
+      "estimatedSeconds": 55,
+      "heading": "Now we can trust the count",
+      "body": "We checked every possible number of moves, so every path is included. Mathematicians call that exhaustive. A path has only one number of moves, so nothing is counted twice. That is non-overlapping. And each smaller group was easy to finish.",
+      "math": ["1 + 2 + 1 + 0 = 4 paths"]
+    },
+    {
+      "id": "name-casework",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name the method only after the learner has used it to complete a proof.",
+      "expectedRealization": "Casework is the name for the complete, non-repeating split the learner just built.",
+      "transitionIn": "You just turned one uncertain list into several small lists you could completely check.",
+      "estimatedSeconds": 45,
+      "name": "Casework",
+      "conciseDefinition": "Casework means splitting one hard count into smaller counts that you can finish and check.",
+      "formalization": "every possibility included + nothing counted twice",
+      "memoryHook": "Get them all. Count each once. Make the pieces easier."
+    },
+    {
+      "id": "choose-case-variable",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Shift attention from carrying out a split to choosing the feature that makes the work easier.",
+      "expectedRealization": "The strongest restriction often tells us what to split by.",
+      "transitionIn": "Now choose the split yourself.",
+      "transitionOut": "That worked because the last digit controlled the rule.",
+      "estimatedSeconds": 90,
+      "prompt": "Using 1, 2, 3, and 4 without repetition, how should we split the count of three-digit even numbers?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          { "id": "hundreds", "text": "Look at the first digit" },
+          { "id": "tens", "text": "Look at the middle digit" },
+          { "id": "ones", "text": "Look at the last digit: 2 or 4" },
+          { "id": "size", "text": "Split below 300 and at least 300" }
+        ],
+        "correctId": "ones",
+        "feedback": {
+          "hundreds": "The first digit does not decide whether the number is even.",
+          "tens": "The middle digit does not decide whether the number is even.",
+          "ones": "Exactly. Every even number here ends in 2 or 4.",
+          "size": "That split covers the numbers, but it does not make the even-number rule easier."
+        }
+      },
+      "correctFeedback": "Right—the even-number rule tells us to split by the last digit.",
+      "incorrectFeedback": "Which digit decides whether the whole number is even?",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              { "label": "Ends in 2", "pattern": "_  _  2", "calculation": "3 × 2 = 6" },
+              { "label": "Ends in 4", "pattern": "_  _  4", "calculation": "3 × 2 = 6" }
+            ],
+            "total": "6 + 6 = 12"
+          },
+          "continuityKey": "c4-position-groups",
+          "ariaLabel": "Two digit patterns ending in 2 or 4, with six numbers in each group"
+        },
+        "steps": [
+          { "title": "Fix the last digit", "body": "Once 2 or 4 is fixed at the end, there are 3 choices for the first digit and then 2 choices for the middle digit." },
+          { "title": "Add the two groups", "body": "Every even number ends in exactly one of those digits, so the total is 6 + 6 = 12." }
+        ],
+        "takeaway": "Fixing the digit that controls the rule turns one count into two easy counts."
+      }
+    },
+    {
+      "id": "guided-zero-position",
+      "phase": "competition-application",
+      "kind": "problem",
+      "purpose": "Apply the same position-based split to the approved authentic problem without duplicating it first.",
+      "expectedRealization": "Exactly one zero gives every valid number one legal zero position and two simple counts.",
+      "transitionIn": "Same strategy, new restriction: exactly one digit is 0.",
+      "transitionOut": "That worked because exactly one zero gave every number one place to go.",
+      "estimatedSeconds": 220,
+      "source": "bank",
+      "problemId": "amc8-2002-19",
+      "role": "guided",
+      "presentation": "full-prompt",
+      "whyNow": "Exactly one zero in a three-digit number splits naturally by the zero's position, making the case partition concrete and checkable.",
+      "entryBridge": "Where can the zero go? Start there.",
+      "exitBridge": "Exactly one zero made two clean groups: zero in the tens place or zero in the ones place.",
+      "reusedRepresentation": "Outcome cards that physically sort into labeled, non-overlapping bins.",
+      "animation": { "mode": "slice", "stepIndices": [0, 1, 2], "controlledByLesson": true, "autoplay": false, "showPlayerControls": false },
+      "learnerPrompts": [
+        "Where can the zero go?",
+        "Once its place is fixed, how many choices remain?",
+        "Did the two groups count every number exactly once?"
+      ],
+      "correctFeedback": "Right: 162. Now watch the two groups account for every number.",
+      "incorrectFeedback": "Keep your count. Let's build the two groups and check it.",
+      "resolution": {
+        "animation": { "kind": "problem-animation" },
+        "steps": [
+          { "title": "Choose where the zero goes", "body": "It cannot be the first digit of a three-digit number, so it must be in the tens place or the ones place." },
+          { "title": "Finish each group", "body": "In either pattern, the two other digits each have 9 choices from 1 through 9.", "math": "9 × 9 = 81" },
+          { "title": "Put the groups together", "body": "A number with exactly one zero cannot be in both groups, so 81 + 81 counts every number once.", "math": "81 + 81 = 162" }
+        ],
+        "takeaway": "The zero's position gave us two groups we could finish and check."
+      },
+      "sourceLabelTiming": "completion"
+    },
+    {
+      "id": "harvest-bank-idea",
+      "phase": "notice",
+      "kind": "copy",
+      "purpose": "Keep attention on why the split worked rather than on the contest answer alone.",
+      "expectedRealization": "The condition gave every outcome one place and simplified the remaining choices.",
+      "estimatedSeconds": 35,
+      "heading": "Why that split worked",
+      "body": "Exactly one zero gave each number one place to go: zero in the tens place or zero in the ones place. We could finish both smaller counts and add them.",
+      "math": ["81 + 81 = 162"],
+      "transitionOut": "Try the same three checks on your own: get them all, count each once, and make the pieces easier."
+    },
+    {
+      "id": "practice-introduction",
+      "phase": "independent-transfer",
+      "kind": "copy",
+      "purpose": "Begin independent evidence with a reusable student-facing question sequence.",
+      "estimatedSeconds": 20,
+      "heading": "Your turn",
+      "body": "Before calculating, ask: What should I split by? Will every answer land in one group? Does the split make each group easier?"
+    },
+    {
+      "id": "practice-near-parity",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check a direct transfer in which parity supplies two clean groups.",
+      "expectedRealization": "Even sums split into odd-plus-odd and even-plus-even.",
+      "estimatedSeconds": 105,
+      "source": "generated",
+      "problemId": "original-c4-practice-parity-codes",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This checks whether the learner can construct complete groups from a familiar condition.",
+      "entryBridge": "What should we split by? Let the even-sum rule guide you.",
+      "exitBridge": "The sum rule gave two clean groups: odd + odd and even + even.",
+      "animation": { "mode": "none", "controlledByLesson": true },
+      "learnerPrompts": ["Which kinds of digit pairs make an even sum?"],
+      "correctFeedback": "Correct—there are 8 codes.",
+      "incorrectFeedback": "Check every way two digits can have an even sum.",
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": { "groups": [{ "label": "odd + odd", "choices": ["2 × 2 = 4"] }, { "label": "even + even", "choices": ["2 × 2 = 4"] }] },
+          "ariaLabel": "Odd plus odd and even plus even groups, four codes each"
+        },
+        "steps": [{ "body": "An even sum comes from two odd digits or two even digits. Each group has 2 choices for each position." }],
+        "takeaway": "2 × 2 + 2 × 2 = 8, and every code belongs to exactly one of the two groups."
+      },
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "practice-near-ordered-cards",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check systematic completion when the group sizes decrease.",
+      "expectedRealization": "Fixing the left card turns the remaining choices into a short row-by-row count.",
+      "estimatedSeconds": 105,
+      "source": "generated",
+      "problemId": "original-c4-practice-ordered-cards",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "Unequal group sizes require the learner to finish each group rather than repeat one multiplication.",
+      "entryBridge": "Try the same idea here. What could you fix first?",
+      "exitBridge": "Fixing the left card made five short rows with sizes 4, 3, 2, 1, and 0.",
+      "animation": { "mode": "none", "controlledByLesson": true },
+      "learnerPrompts": ["If the left card is fixed, which larger cards can go on the right?"],
+      "correctFeedback": "Correct—there are 10 arrangements.",
+      "incorrectFeedback": "Fix one left card at a time and count the larger choices on the right.",
+      "resolution": {
+        "visual": {
+          "primitive": "outcome-grid",
+          "data": {
+            "rows": ["Left: 1", "Left: 2", "Left: 3", "Left: 4", "Left: 5"],
+            "columns": ["Larger choices", "Count"],
+            "cells": [["2, 3, 4, 5", "4"], ["3, 4, 5", "3"], ["4, 5", "2"], ["5", "1"], ["none", "0"]]
+          },
+          "ariaLabel": "Table of larger right-card choices for each fixed left card"
+        },
+        "steps": [{ "body": "Every arrangement has one left card, so the rows cannot overlap. Adding the row counts gives 4 + 3 + 2 + 1 + 0." }],
+        "takeaway": "Fix one part, finish that row, and keep going until no row is left."
+      },
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "practice-mixed-counters",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Mix casework with a constrained distribution representation.",
+      "expectedRealization": "Fixing Box A makes the remaining positive split short enough to list.",
+      "estimatedSeconds": 120,
+      "source": "generated",
+      "problemId": "original-c4-practice-counter-boxes",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This changes the setting while preserving the need to choose and finish complete groups.",
+      "entryBridge": "What should you split by to make the remaining list short?",
+      "exitBridge": "Once Box A was fixed, the remaining counters had only a few possible splits.",
+      "animation": { "mode": "none", "controlledByLesson": true },
+      "learnerPrompts": ["How many counters can Box A contain while B and C stay nonempty?"],
+      "correctFeedback": "Correct—there are 6 distributions.",
+      "incorrectFeedback": "Try fixing the number in Box A first.",
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              { "label": "A = 1", "items": ["(1, 1, 3)", "(1, 2, 2)", "(1, 3, 1)"] },
+              { "label": "A = 2", "items": ["(2, 1, 2)", "(2, 2, 1)"] },
+              { "label": "A = 3", "items": ["(3, 1, 1)"] }
+            ]
+          },
+          "ariaLabel": "Counter distributions grouped by the number in Box A"
+        },
+        "steps": [{ "body": "Box A can contain 1, 2, or 3 counters. Those groups contain 3, 2, and 1 distributions." }],
+        "takeaway": "3 + 2 + 1 = 6. Fixing A made every smaller list easy to finish."
+      },
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "practice-mixed-score-tokens",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Test whether the learner can choose the rare large token as the clean split.",
+      "expectedRealization": "The number of 5-point tokens creates two complete, manageable groups.",
+      "estimatedSeconds": 120,
+      "source": "generated",
+      "problemId": "original-c4-practice-score-tokens",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The learner must choose a useful split rather than manage duplicate orientations or invoke a future technique.",
+      "entryBridge": "This time, one token size gives an especially short split. Which one?",
+      "exitBridge": "Splitting by the number of 5-point tokens left only two groups to finish.",
+      "animation": { "mode": "none", "controlledByLesson": true },
+      "learnerPrompts": ["How many 5-point tokens could a score of 6 contain?"],
+      "correctFeedback": "Correct—there are 5 token collections.",
+      "incorrectFeedback": "Split into one 5-point token or no 5-point tokens, then finish each list.",
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              { "label": "One 5-point token", "items": ["5 + 1"] },
+              { "label": "No 5-point token", "items": ["2 + 2 + 2", "2 + 2 + 1 + 1", "2 + 1 + 1 + 1 + 1", "1 + 1 + 1 + 1 + 1 + 1"] }
+            ]
+          },
+          "ariaLabel": "Score-token collections grouped by whether they contain a 5-point token"
+        },
+        "steps": [{ "body": "A score of 6 can use at most one 5-point token. With one, the rest is forced. With none, use zero, one, two, or three 2-point tokens." }],
+        "takeaway": "The two groups contain 1 + 4 = 5 collections, with nowhere else for a collection to go."
+      },
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "practice-bank-transfer",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check authentic transfer where the final digit is the useful split among several restrictions.",
+      "expectedRealization": "The multiple-of-5 rule creates the complete final-digit groups 0 and 5.",
+      "estimatedSeconds": 190,
+      "source": "bank",
+      "problemId": "amc8-2011-23",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The problem disguises casework among several digit restrictions and requires an independent choice of split.",
+      "entryBridge": "Try the same idea here: which restriction gives the cleanest split?",
+      "exitBridge": "The multiple-of-5 rule gave exactly two final-digit groups: 0 and 5.",
+      "animation": { "mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false },
+      "learnerPrompts": [
+        "What can the last digit be?",
+        "How many numbers end in 5? How many end in 0?",
+        "Did those two groups count every valid number exactly once?"
+      ],
+      "correctFeedback": "Correct—there are 84 numbers. Now check the two groups.",
+      "incorrectFeedback": "Start with the multiple-of-5 rule: what can the last digit be?",
+      "resolution": {
+        "animation": { "kind": "problem-animation" },
+        "steps": [
+          { "title": "End in 5", "body": "The first digit has 4 choices, followed by 4 and then 3 choices.", "math": "4 × 4 × 3 = 48" },
+          { "title": "End in 0", "body": "The digit 5 must fill one of the first three places, then the other two places have 4 and 3 choices.", "math": "3 × 4 × 3 = 36" }
+        ],
+        "takeaway": "Every multiple of 5 ends in 0 or 5, never both. So 48 + 36 = 84."
+      },
+      "sourceLabelTiming": "after"
+    },
+    {
+      "id": "casework-recap",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate the three practical tests before creating the next lesson's tension.",
+      "expectedRealization": "A useful split gets every possibility once and makes the pieces easier.",
+      "transitionIn": "Before we change the zero problem, keep the three checks you used all lesson.",
+      "estimatedSeconds": 65,
+      "prompt": "Which questions tell you that a split is useful? Select all three.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          { "id": "covers", "text": "Did we get every possibility?" },
+          { "id": "once", "text": "Did we count anything twice?" },
+          { "id": "easier", "text": "Did the smaller pieces become easier?" },
+          { "id": "equal", "text": "Are all the groups the same size?" }
+        ],
+        "correctIds": ["covers", "once", "easier"]
+      },
+      "correctFeedback": "Exactly. Those are the three checks.",
+      "incorrectFeedback": "A useful split does not need equal-sized groups. Focus on coverage, repeats, and easier pieces.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              { "label": "1. Get them all", "choices": ["covers every possibility"] },
+              { "label": "2. Count each once", "choices": ["no overlap"] },
+              { "label": "3. Make it easier", "choices": ["finish each smaller group"] }
+            ]
+          },
+          "ariaLabel": "Three-part checklist for a useful case split"
+        },
+        "takeaway": "A useful case split covers every possibility, counts nothing twice, and makes the smaller pieces easier to finish."
+      }
+    },
+    {
+      "id": "next-question",
+      "phase": "reflection",
+      "kind": "reflection",
+      "purpose": "Create the overlap tension for the next lesson without naming or teaching its method.",
+      "expectedRealization": "The obvious position groups become messy when the condition changes from exactly one zero to at least one zero.",
+      "transitionIn": "Remember the problem with exactly one zero? Now change just one thing.",
+      "estimatedSeconds": 60,
+      "prompt": "If the condition becomes at least one zero, do 'zero in tens' and 'zero in ones' still count every number just once?",
+      "takeaway": "No. The number 100 belongs in both obvious groups. We could repair the overlap, but the counting is getting messy. There may be a cleaner way to count—let's leave that question open."
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": { "near": 6, "mixed": 6, "challenge": 2 },
+    "sessionSelection": [
+      { "source": "generated", "transferLevel": "near", "count": 2 },
+      { "source": "generated", "transferLevel": "mixed", "count": 2 },
+      { "source": "bank", "transferLevel": "mixed", "count": 1, "difficulty": 4 }
+    ],
+    "excludeProblemIds": ["original-c4-step-sequences", "amc8-2002-19"],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "C4",
+    "evidenceBeatIds": ["practice-near-parity", "practice-near-ordered-cards", "practice-mixed-counters", "practice-mixed-score-tokens", "practice-bank-transfer"],
+    "minIndependentPracticeItems": 5,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.2.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "manual-gold-benchmark-1.1.0",
+    "notes": [
+      "Final human-reviewed gold-benchmark revision; no automated lesson generation was used.",
+      "The opening now separates sorting found outcomes from proving the list complete.",
+      "Worked resolutions pair each substantial question with its own visual or controlled animation."
+    ]
+  }
+}

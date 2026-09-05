@@ -488,7 +488,7 @@ export function CheckerPathsScene({ problem, step, totalSteps }: AnimatedScenePr
             key={lab}
             x={sx(c) + 4}
             y={sy(r) + 7.5}
-            fontSize="8.5"
+            fontSize="9"
             fontWeight="800"
             fill={INK}
             stroke="#fff"
@@ -532,7 +532,7 @@ export function CheckerPathsScene({ problem, step, totalSteps }: AnimatedScenePr
             ].map((s) => (
               <g key={s.t}>
                 <rect x={s.x} y={s.y} width={24} height={24} fill="#fff" stroke="#cbd5e1" strokeWidth={1.2} />
-                <text x={s.x + 12} y={s.y + 16} textAnchor="middle" fontSize={s.t.length > 1 ? 8.5 : 10.5} fontWeight="800" fill={IND} fontFamily={numberFont}>
+                <text x={s.x + 12} y={s.y + 16} textAnchor="middle" fontSize={s.t.length > 1 ? 9 : 10.5} fontWeight="800" fill={IND} fontFamily={numberFont}>
                   {s.t}
                 </text>
               </g>

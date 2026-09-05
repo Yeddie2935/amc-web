@@ -1,0 +1,170 @@
+[
+  {
+    "lessonId": "A1",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "A variable is a name for a quantity or relationship, and an expression is different from an equation that asserts equality.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2007-05",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.76, "conceptPurity": 0.7, "animationFit": 0.68, "discoveryValue": 0.5, "transferValue": 0.72, "prerequisiteLoad": 0.06},
+      "whyNow": "After learners have translated simple stories into expressions, the mountain-bike savings story gives a concrete reason to name the unknown number of weeks.",
+      "entryBridge": "Keep the lesson's 'known start + repeated change' bar model and replace its labels with the birthday money and weekly earnings from the contest problem.",
+      "reusedRepresentation": "A start-value bar plus equal weekly increment blocks.",
+      "animationPlan": "Build the total cost relationship visually first, then write the expression and finally the equation once the target price is imposed.",
+      "learnerPrompts": ["What quantity is changing from week to week?", "What does 16w mean in the story?", "When does our expression become an equation?"],
+      "exitBridge": "Use the newly formed equation to motivate A2: representation is useful because we can reason about which value makes it true."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": true, "reason": "Contest problems typically assume variable meaning rather than isolate expression-versus-equation structure. A purpose-built opening can make those objects explicit.", "targetLearnerRealization": "Naming a changing quantity lets one relationship represent many possible cases.", "suggestedShape": "A repeating tile pattern with an adjustable step number; learners first describe the total in words, then with a variable expression, then impose a target to create an equation.", "constraints": ["Show the variable taking several values before solving for one.", "Explicitly contrast expression and equation.", "Avoid 'let x be the object' language that treats variables as labels rather than quantities."]},
+    "searchCues": ["linear relationship", "unknown", "expression", "variable", "weekly", "total"],
+    "avoidCues": ["systems", "hard optimization"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "A2",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Solving an equation means preserving a true balance while undoing operations until the unknown is isolated.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2002-17",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.88, "conceptPurity": 0.82, "animationFit": 0.78, "discoveryValue": 0.65, "transferValue": 0.8, "prerequisiteLoad": 0.08},
+      "whyNow": "The contest-scoring problem naturally produces one unknown and one equality after the balance model has been established.",
+      "entryBridge": "Translate correct and incorrect answers into score blocks on the same two-sided balance used in the opening.",
+      "reusedRepresentation": "A balance/equality strip with operation blocks added or removed from both sides.",
+      "animationPlan": "Build the score relationship, then animate equivalent transformations on both sides rather than moving terms across the equals sign.",
+      "learnerPrompts": ["What must stay true after every move?", "What operation can we undo on both sides?"],
+      "exitBridge": "Show that the solution is the value satisfying the original story, then create a two-unknown version to motivate systems."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2024-12", "recommendedRole": "transfer", "fitScore": 0.78, "reason": "Tank counts encode a linear relationship in a less textbook-like surface form."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "The relational meaning of equality is best established with a literal balance before a word problem adds translation load.", "targetLearnerRealization": "Any change made to one side of an equality must be matched on the other side to preserve truth.", "suggestedShape": "A draggable balance with identical bags representing x and unit weights; learners remove or divide matched quantities physically before seeing symbolic notation.", "constraints": ["Never introduce 'move it across and change the sign' language.", "Check the solution in the original balance.", "Use one-step then two-step equations."]},
+    "searchCues": ["linear equations", "solve for", "score", "total", "weeks", "unknown"],
+    "avoidCues": ["systems", "quadratic"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "A3",
+    "preferredSource": "bank",
+    "targetLearnerRealization": "One constraint can leave many possibilities, while a second independent constraint can identify the unique pair that satisfies both.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2003-04",
+      "role": "anchor",
+      "metrics": {"conceptFit": 0.99, "conceptPurity": 0.97, "animationFit": 0.95, "discoveryValue": 0.96, "transferValue": 0.66, "prerequisiteLoad": 0.05},
+      "whyNow": "Seven children alone permits many bicycle/tricycle splits; the 19-wheel observation supplies the second constraint in an immediately visible way.",
+      "entryBridge": "Show seven empty rider slots and ask for possible bike/trike mixes before revealing the wheel count.",
+      "reusedRepresentation": "Seven vehicle icons whose wheel totals update live as the split changes.",
+      "animationPlan": "Let learners slide between possible splits under the first constraint, then add the wheel total and highlight the single surviving state; translate the two constraints into equations afterward.",
+      "learnerPrompts": ["How many different splits fit seven children?", "What new information does the wheel count eliminate?", "Why are two constraints enough here?"],
+      "exitBridge": "Abstract the two visual constraints into a system, then show elimination/substitution as ways of preserving their shared solution."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2008-13", "recommendedRole": "transfer", "fitScore": 0.91, "reason": "Pairwise box weights disguise a system and reward combining constraints rather than writing a standard textbook system."}],
+    "generatedTeachingPlan": {"needed": false, "reason": "The bicycles/tricycles problem is nearly ideal for discovering the need for a second constraint.", "targetLearnerRealization": "A system is the intersection of constraints.", "suggestedShape": "Not required for the main discovery; generated micro-checks can vary heads/legs style constraints.", "constraints": []},
+    "searchCues": ["systems", "heads legs", "wheels", "pairwise", "two unknowns", "constraints"],
+    "avoidCues": ["single linear equation"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "A4",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "An inequality describes a whole feasible region, and optimization means choosing an extreme value that still lies inside that region.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2000-12",
+      "role": "transfer",
+      "metrics": {"conceptFit": 0.82, "conceptPurity": 0.62, "animationFit": 0.86, "discoveryValue": 0.6, "transferValue": 0.93, "prerequisiteLoad": 0.28},
+      "whyNow": "The block-wall minimum is a strong later contest application of constraints and optimization, but it carries too much structural detail to introduce inequalities cleanly.",
+      "entryBridge": "After simple feasible-number-line examples, present the wall as a situation where several construction rules restrict what counts are possible.",
+      "reusedRepresentation": "A feasible-set panel where invalid arrangements are crossed out as constraints are applied.",
+      "animationPlan": "Visualize candidate constructions rather than forcing formal inequality notation; use the lesson language of feasibility and extreme feasible value.",
+      "learnerPrompts": ["Which arrangements violate a constraint?", "Among the survivors, what does 'smallest' ask us to optimize?"],
+      "exitBridge": "Reinforce that optimization comes after feasibility, then return to a concise symbolic inequality check."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2015-24", "recommendedRole": "transfer", "fitScore": 0.84, "reason": "League schedule constraints combine an equation with N>2M and M>4, a good disguised feasible-region problem."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "A clean number-line discovery is needed before contest optimization mixes in combinatorics or construction logic.", "targetLearnerRealization": "At least/at most statements carve out ranges, and an optimum sits at an extreme allowed point.", "suggestedShape": "A budget or capacity slider with a shaded feasible interval; successive constraints trim the interval before the learner picks the largest or smallest allowed integer.", "constraints": ["Include open and closed endpoints.", "Include integer feasibility.", "Separate 'solve the constraint' from 'optimize within it'."]},
+    "searchCues": ["inequality", "at least", "at most", "maximum", "minimum", "smallest possible", "largest possible"],
+    "avoidCues": ["pure arithmetic max", "geometry-only max"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "A5",
+    "preferredSource": "bank",
+    "targetLearnerRealization": "A custom symbol is simply a rule; nested operations are evaluated by following the input-output structure from the inside outward.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2016-10",
+      "role": "anchor",
+      "metrics": {"conceptFit": 0.99, "conceptPurity": 0.98, "animationFit": 0.94, "discoveryValue": 0.91, "transferValue": 0.72, "prerequisiteLoad": 0.06},
+      "whyNow": "The problem defines a new star operation explicitly and nests it, forcing students to ignore the symbol's appearance and follow the rule.",
+      "entryBridge": "Introduce a simple input-output machine, then replace its machine label with the star symbol and reveal the authentic definition.",
+      "reusedRepresentation": "Nested input-output boxes corresponding to each star operation.",
+      "animationPlan": "Evaluate the inner star box first, pass its output into the outer box, and finally solve the resulting equation for x.",
+      "learnerPrompts": ["What does the star mean here—not usually, but in this problem?", "Which operation receives x first?"],
+      "exitBridge": "Generalize from a custom operation to function notation and nested mappings."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": false, "reason": "The authentic defined-operation problem isolates the intended rule-following behavior exceptionally well.", "targetLearnerRealization": "Notation gets meaning from its definition.", "suggestedShape": "Not needed for the anchor; generated quick checks can define playful alternative operators.", "constraints": []},
+    "searchCues": ["defined operation", "custom operation", "function", "operator", "means"],
+    "avoidCues": ["ordinary multiplication star"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "A6",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Coordinates are ordered pairs satisfying relationships, and slope is a rate of vertical change per horizontal change.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2023-07",
+      "role": "transfer",
+      "metrics": {"conceptFit": 0.82, "conceptPurity": 0.7, "animationFit": 0.92, "discoveryValue": 0.58, "transferValue": 0.95, "prerequisiteLoad": 0.24},
+      "whyNow": "The line-versus-rectangle intersection problem is an excellent contest transfer after learners already understand coordinate order, line relationships, and slope.",
+      "entryBridge": "Keep the lesson's coordinate plane and place the rectangle first, then let the two contest lines grow across it.",
+      "reusedRepresentation": "The same coordinate grid and rise/run slope markers used in the lesson.",
+      "animationPlan": "Trace each line to the rectangle boundaries and test whether intersection coordinates fall inside the required ranges.",
+      "learnerPrompts": ["What does each ordered pair mean geometrically?", "How can we decide whether a line actually reaches the rectangle without trusting the sketch?"],
+      "exitBridge": "Use the result to reinforce that graphs encode solution sets and geometric constraints, not merely pictures."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2001-11", "recommendedRole": "guided", "fitScore": 0.82, "reason": "Coordinate trapezoid area is a simpler application of reading ordered pairs and geometric differences."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "The foundational bridge from table to points to slope-as-rate is better constructed directly than inferred from a coordinate-geometry contest problem.", "targetLearnerRealization": "Every point on a line is a pair obeying the same relationship, and slope is the constant output change per input change.", "suggestedShape": "Link a two-column table to plotted points; dragging one input updates the output, then repeated rise/run triangles reveal a constant rate.", "constraints": ["Keep axis scales visible.", "Use units on slope at least once.", "Contrast a graph's visual steepness under different axis scales."]},
+    "searchCues": ["coordinate geometry", "slope", "line", "coordinate", "graph", "intersection"],
+    "avoidCues": ["data graph without coordinates"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "A7",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "A few terms do not define a pattern; a useful sequence rule explains how every term is generated and distinguishes recursive from positional structure.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2009-05",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.9, "conceptPurity": 0.9, "animationFit": 0.84, "discoveryValue": 0.7, "transferValue": 0.8, "prerequisiteLoad": 0.05},
+      "whyNow": "The tribonacci-style sequence is a clean authentic example of a recursive rule once learners have distinguished guessing from defining a pattern.",
+      "entryBridge": "After learners compare several possible rules for the same opening terms, reveal a sequence whose rule is stated unambiguously and ask them to propagate it.",
+      "reusedRepresentation": "Term cards connected by arrows from the earlier rule-building activity.",
+      "animationPlan": "For each new term, highlight the prior three terms feeding into it; keep term index and value visually separated.",
+      "learnerPrompts": ["Which earlier terms determine the next one?", "What is the difference between the fifth term and the rule for the fifth term?"],
+      "exitBridge": "Contrast recursive growth with an arithmetic sequence and preview that repeating patterns will later power units-digit cycles."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2015-18", "recommendedRole": "transfer", "fitScore": 0.87, "reason": "The arithmetic-sequence grid tests recognition of structure in two directions instead of merely extending a list."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "The misconception that a short prefix uniquely determines a pattern is best exposed by deliberately generating multiple valid continuations.", "targetLearnerRealization": "A pattern needs a rule, not just a guessed next term.", "suggestedShape": "Show 1,2,4 and let three different rule cards generate different fourth terms while all fit the first three; then teach explicit versus recursive descriptions.", "constraints": ["Include both arithmetic and non-arithmetic examples.", "Keep term index visually distinct from term value.", "Do not imply arbitrary sequence guessing is mathematically unique."]},
+    "searchCues": ["sequence", "pattern", "arithmetic sequence", "recursive", "term", "common difference"],
+    "avoidCues": ["units digit cycle", "pure counting pattern"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "A8",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "An exponent counts repeated factors, while a root asks for the base whose power produces a quantity.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2023-06",
+      "role": "transfer",
+      "metrics": {"conceptFit": 0.82, "conceptPurity": 0.76, "animationFit": 0.82, "discoveryValue": 0.52, "transferValue": 0.92, "prerequisiteLoad": 0.16},
+      "whyNow": "The digit-placement exponent problem is a strong transfer challenge after exponent meaning is secure because it requires comparing the roles of base and exponent rather than merely evaluating powers.",
+      "entryBridge": "Reuse the lesson's repeated-factor stacks, then let learners build each candidate exponential expression from the given digits.",
+      "reusedRepresentation": "Base cards with repeated factor copies controlled by exponent cards.",
+      "animationPlan": "Expand small candidate powers selectively, compare magnitudes, and avoid brute-forcing every arrangement when structural comparisons suffice.",
+      "learnerPrompts": ["Which matters more here: increasing the base or increasing the exponent?", "What repeated multiplication does each candidate actually represent?"],
+      "exitBridge": "Connect exponent structure to prime exponents, divisor counting, and units-digit cycles later."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2010-24", "recommendedRole": "transfer", "fitScore": 0.88, "reason": "Comparing large powers rewards common-root/common-exponent structure rather than raw computation."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "Authentic exponent problems generally assume the core meaning; a purpose-built visual should establish repeated multiplication and inverse roots first.", "targetLearnerRealization": "3^4 is four factors of 3, not 3 times 4; sqrt(81) asks which positive number squared is 81.", "suggestedShape": "Build powers as branching/repeated factor tiles, then collapse perfect-square arrays back to their side lengths for roots.", "constraints": ["Explicitly contrast a^n with a*n.", "Show powers of 0 and 1 only if needed, not as opening complications.", "Connect square roots to geometric square side length."]},
+    "searchCues": ["exponents", "powers", "roots", "square root", "base", "exponent"],
+    "avoidCues": ["factorial", "units digit as primary concept"],
+    "reviewStatus": "approved"
+  }
+]

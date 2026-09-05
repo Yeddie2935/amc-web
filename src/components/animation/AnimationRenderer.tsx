@@ -3,7 +3,8 @@ import { AnimatePresence, motion } from "motion/react";
 import type { Problem } from "../../types/amc";
 import { Button } from "../common/Button";
 import { getExplanationSteps } from "./explanation";
-import { resolveScene, isWalkthroughScene } from "./sceneRegistry";
+import { ProblemAnimationStage } from "./ProblemAnimationStage";
+import { isWalkthroughScene } from "./sceneRegistry";
 
 const STEP_DURATION_MS = 3200;
 
@@ -40,7 +41,6 @@ export function AnimationRenderer({ problem }: AnimationRendererProps) {
     return () => window.clearInterval(timer);
   }, [isPlaying, lastStep]);
 
-  const Scene = resolveScene(problem);
   const current = steps[Math.min(step, lastStep)];
   const atEnd = step >= lastStep;
   // The walkthrough stage already shows the step's prose/equation, so only
@@ -56,9 +56,11 @@ export function AnimationRenderer({ problem }: AnimationRendererProps) {
 
   return (
     <div className="fmj-fixed-animation">
-      <div className="fmj-fixed-stage" data-step={step}>
-        <Scene problem={problem} step={step} totalSteps={totalSteps} />
-      </div>
+      <ProblemAnimationStage
+        problem={problem}
+        step={step}
+        totalSteps={totalSteps}
+      />
 
       <AnimatePresence mode="wait">
         <motion.div

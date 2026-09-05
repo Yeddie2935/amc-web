@@ -1,0 +1,86 @@
+[
+  {
+    "lessonId": "S1",
+    "preferredSource": "bank",
+    "targetLearnerRealization": "When a forward process branches or compounds complexity, reversing the allowed operations from the known endpoint can expose the possible starts much more cleanly.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2020-22",
+      "role": "anchor",
+      "metrics": {"conceptFit": 1.0, "conceptPurity": 0.97, "animationFit": 1.0, "discoveryValue": 0.98, "transferValue": 0.86, "prerequisiteLoad": 0.08},
+      "whyNow": "The machine problem explicitly gives the end state and a forward rule whose inversion produces a manageable predecessor tree; the existing reverse-machine animation embodies the technique.",
+      "entryBridge": "Show the machine and its forward example first, then reveal that the actual task gives the final value instead of the starting value.",
+      "reusedRepresentation": "A flowchart that can reverse its arrows into a predecessor tree.",
+      "animationPlan": "Run one forward example, flip the arrows, derive each valid inverse branch, and grow the tree backward from 1 for the required number of steps.",
+      "learnerPrompts": ["Why is guessing starts forward inefficient?", "What inputs could have produced this output?", "When does an inverse branch fail to produce a valid integer?"],
+      "exitBridge": "Generalize work-backwards as reversing constrained steps, and require a forward check at the end."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": false, "reason": "The authentic reverse-machine problem is unusually explicit about why backward reasoning is superior and already has a purpose-built animation.", "targetLearnerRealization": "Known endpoint plus reversible rules can be easier than unknown start plus forward branching.", "suggestedShape": "No generated anchor needed; generated practice should include simple multi-step age/operation chains and one branching inverse case.", "constraints": []},
+    "searchCues": ["work backwards", "reverse", "machine", "final value", "undo", "backtrack"],
+    "avoidCues": ["simple equation already solved algebraically"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "S2",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Each logical clue removes possibilities; a solution is justified only when all clues hold simultaneously and alternatives are eliminated.",
+    "bestBankCandidate": {
+      "problemId": "amc8-1999-06",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.94, "conceptPurity": 0.92, "animationFit": 0.88, "discoveryValue": 0.8, "transferValue": 0.85, "prerequisiteLoad": 0.02},
+      "whyNow": "The ordering clues about five people provide a compact authentic constraint-elimination problem with no heavy arithmetic.",
+      "entryBridge": "Keep the generated lesson's candidate-order board and replace anonymous tokens with the contest names and money comparisons.",
+      "reusedRepresentation": "A ranked slot board plus constraint cards that cross out impossible placements.",
+      "animationPlan": "Apply one clue at a time, shade impossible slots, and preserve all surviving possibilities until a person is forced into the least position.",
+      "learnerPrompts": ["What possibilities does this clue eliminate?", "Are we using the clue in both directions when only one direction is justified?", "Have all surviving candidates been checked?"],
+      "exitBridge": "Connect constraint elimination to systems, inequalities, and casework as different mathematical ways of shrinking a possibility space."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2004-13", "recommendedRole": "transfer", "fitScore": 0.91, "reason": "Exactly-one-true logic requires checking the global consistency of statements rather than applying local ordering clues."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "A tiny three- or four-state elimination puzzle can establish the discipline of preserving all possibilities before the authentic five-person problem.", "targetLearnerRealization": "A clue narrows a possibility set; finding one plausible answer is not proof until alternatives are ruled out and all clues are checked.", "suggestedShape": "Four colored tokens and three placement clues; candidate states remain visible and are crossed out one clue at a time.", "constraints": ["Include one tempting converse error.", "Require final verification against every clue.", "Avoid arithmetic so the lesson isolates logical constraint handling."]},
+    "searchCues": ["logic", "ordering", "constraints", "exactly one true", "clues", "deduce"],
+    "avoidCues": ["systems with heavy algebra", "pure counting"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "S3",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Instead of tracking every detail, track a coarse property such as parity that remains fixed or changes predictably under the allowed operations.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2014-13",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.93, "conceptPurity": 0.9, "animationFit": 0.93, "discoveryValue": 0.8, "transferValue": 0.88, "prerequisiteLoad": 0.05},
+      "whyNow": "Parity of squares is a clean authentic application where reducing every integer to odd/even state immediately simplifies the problem.",
+      "entryBridge": "Keep the lesson's two-color parity tiles and map n and m to colors rather than numerical values.",
+      "reusedRepresentation": "Odd/even color states and a small operation table.",
+      "animationPlan": "Show that even squares remain even and odd squares remain odd, then enumerate only the four parity pairs rather than arbitrary integers.",
+      "learnerPrompts": ["What information about n and m actually matters here?", "Does squaring change parity?", "Which parity pairs can make the sum even?"],
+      "exitBridge": "Generalize from parity to invariants: look for a property that survives the process even when individual values change."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2005-08", "recommendedRole": "guided", "fitScore": 0.84, "reason": "Odd-integer expressions provide a simpler parity classification before the square-parity application."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "A move-based visual is needed to distinguish the broader invariant strategy from merely memorizing odd/even arithmetic rules.", "targetLearnerRealization": "Complicated states can be compressed into a property that the allowed move preserves or toggles predictably.", "suggestedShape": "Start with counters colored by odd/even total; perform several operations that change values dramatically while the parity color follows a simple rule, then ask which end states are impossible.", "constraints": ["Teach parity first as the easiest invariant.", "Include a process where parity toggles predictably rather than always staying fixed.", "Do not infer invariance from examples alone—explain why the operation preserves/toggles it."]},
+    "searchCues": ["parity", "odd", "even", "invariant", "impossible", "must remain"],
+    "avoidCues": ["units digit cycle as primary"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "S4",
+    "preferredSource": "bank",
+    "targetLearnerRealization": "To prove a guaranteed outcome, construct the worst case that delays it as long as possible, then take the next forced object.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2005-16",
+      "role": "anchor",
+      "metrics": {"conceptFit": 1.0, "conceptPurity": 0.99, "animationFit": 0.97, "discoveryValue": 0.98, "transferValue": 0.8, "prerequisiteLoad": 0.03},
+      "whyNow": "The Martian sock problem is essentially the pigeonhole principle in its most intuitive worst-case form: maximize socks drawn without reaching five of one color.",
+      "entryBridge": "Show three color bins and ask learners to intentionally avoid making five of any color for as long as possible before revealing the authentic wording.",
+      "reusedRepresentation": "Color bins with occupancy bars and a draw counter.",
+      "animationPlan": "Fill each color to four in the worst case, pause at 12, then draw one additional sock and show that some bin must reach five.",
+      "learnerPrompts": ["If you were trying to avoid five matching socks, how many of each color could you take safely?", "Why does the next sock force the event no matter its color?"],
+      "exitBridge": "Abstract bins as pigeonholes, objects as pigeons, and emphasize guarantee/worst-case reasoning rather than average behavior."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": false, "reason": "The authentic sock problem is already the canonical concrete discovery and requires almost no extra prerequisite machinery.", "targetLearnerRealization": "Maximum safe count plus one yields a guarantee.", "suggestedShape": "No generated anchor needed; generated practice should vary bin counts, thresholds, and less obvious pigeonhole interpretations.", "constraints": []},
+    "searchCues": ["pigeonhole", "guaranteed", "must", "certain", "same color", "worst case"],
+    "avoidCues": ["expected value", "average case"],
+    "reviewStatus": "approved"
+  }
+]

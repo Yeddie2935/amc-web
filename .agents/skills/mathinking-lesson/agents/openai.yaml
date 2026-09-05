@@ -1,0 +1,7 @@
+interface:
+  display_name: "Mathinking Lesson"
+  short_description: "Build validated discovery-first Mathinking lessons"
+  default_prompt: "Use $mathinking-lesson to build the requested Mathinking curriculum lesson from its approved sources and validate it end-to-end."
+
+policy:
+  allow_implicit_invocation: true

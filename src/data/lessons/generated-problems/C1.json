@@ -1,0 +1,317 @@
+[
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C1",
+    "purpose": "teaching",
+    "transferLevel": "discovery",
+    "targetConcepts": ["C1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c1-signal-panel",
+      "title": "Signal Panel",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Multiplication Principle",
+      "difficulty": 1,
+      "statement": "A signal panel shows one light color and plays one sound. There are 3 light colors and 4 sounds, and every light can be paired with every sound. How many different signals are possible?",
+      "choices": [
+        { "label": "A", "text": "7" },
+        { "label": "B", "text": "8" },
+        { "label": "C", "text": "10" },
+        { "label": "D", "text": "12" },
+        { "label": "E", "text": "24" }
+      ],
+      "answer": "D",
+      "shortAnswer": "12",
+      "hints": [
+        "A finished signal contains both a light choice and a sound choice.",
+        "For each light color, how many sounds can follow?"
+      ],
+      "solutionSteps": [
+        { "title": "Define one signal", "body": "A complete signal is one light-and-sound pair." },
+        { "title": "Count continuations", "body": "Each of the 3 light colors can be paired with all 4 sounds." },
+        { "title": "Multiply", "body": "The three branches each have four endings, so 3 × 4 = 12 signals." }
+      ],
+      "tags": ["multiplication principle", "choice grid", "successive choices"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive enumeration of the 3-by-4 light-and-sound grid",
+        "independent repeated-addition check 4+4+4",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: 3 × 4 = 12."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C1",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["C1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c1-practice-reading",
+      "title": "Reading Corner",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Addition Principle",
+      "difficulty": 1,
+      "statement": "A reading corner has 4 different comic books and 5 different puzzle books. Lina chooses exactly one book. How many choices does she have?",
+      "choices": [
+        { "label": "A", "text": "1" },
+        { "label": "B", "text": "4" },
+        { "label": "C", "text": "5" },
+        { "label": "D", "text": "9" },
+        { "label": "E", "text": "20" }
+      ],
+      "answer": "D",
+      "shortAnswer": "9",
+      "hints": ["One chosen book comes from one shelf, not both.", "The comic and puzzle books are distinct choices."],
+      "solutionSteps": [
+        { "title": "Separate the alternatives", "body": "A chosen book is either one of the 4 comics or one of the 5 puzzle books." },
+        { "title": "Check the cases", "body": "The cases cover every allowed choice and share no book." },
+        { "title": "Add", "body": "There are 4 + 5 = 9 choices." }
+      ],
+      "tags": ["addition principle", "disjoint alternatives"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "direct enumeration of four comic titles and five puzzle titles",
+        "independent disjoint-union count 4+5",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: 4 + 5 = 9; the two shelves are disjoint."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C1",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["C1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c1-practice-cones",
+      "title": "Ice Cream Cones",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Multiplication Principle",
+      "difficulty": 1,
+      "statement": "An ice cream cone has one flavor and one topping. There are 4 flavors and 3 toppings, and every topping is available with every flavor. How many different cones are possible?",
+      "choices": [
+        { "label": "A", "text": "7" },
+        { "label": "B", "text": "10" },
+        { "label": "C", "text": "12" },
+        { "label": "D", "text": "16" },
+        { "label": "E", "text": "24" }
+      ],
+      "answer": "C",
+      "shortAnswer": "12",
+      "hints": ["A finished cone is a flavor-topping pair.", "For each flavor, count all three topping choices."],
+      "solutionSteps": [
+        { "title": "Define one outcome", "body": "Every complete cone contains one flavor and one topping." },
+        { "title": "Count the branches", "body": "Each of 4 flavors has 3 topping continuations." },
+        { "title": "Multiply", "body": "There are 4 × 3 = 12 cones." }
+      ],
+      "tags": ["multiplication principle", "successive choices"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive enumeration of the 4-by-3 flavor-and-topping grid",
+        "independent repeated-addition check 3+3+3+3",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: 4 × 3 = 12."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C1",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["C1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c1-practice-ferries",
+      "title": "Island Ferries",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Unequal Branches",
+      "difficulty": 2,
+      "statement": "To reach an island, a traveler chooses one ferry and one of that ferry's departure times. Harbor Ferry leaves at 8:00, 10:00, and 1:00. Bay Ferry leaves at 9:00 and 12:00. How many different ferry-and-time plans are possible?",
+      "choices": [
+        { "label": "A", "text": "2" },
+        { "label": "B", "text": "3" },
+        { "label": "C", "text": "5" },
+        { "label": "D", "text": "6" },
+        { "label": "E", "text": "10" }
+      ],
+      "answer": "C",
+      "shortAnswer": "5",
+      "hints": ["The two ferry branches have different numbers of endings.", "Count the complete Harbor plans and complete Bay plans."],
+      "solutionSteps": [
+        { "title": "Count Harbor plans", "body": "Harbor Ferry has 3 departure-time endings." },
+        { "title": "Count Bay plans", "body": "Bay Ferry has 2 departure-time endings." },
+        { "title": "Join the ferry cases", "body": "A plan uses exactly one ferry, so 3 + 2 = 5 plans." }
+      ],
+      "tags": ["addition principle", "branching", "unequal branches"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "explicit enumeration of the five named ferry-and-time plans",
+        "independent branch-total calculation 3+2",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: 3 Harbor plans + 2 Bay plans = 5."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C1",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["C1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c1-practice-symbol-border",
+      "title": "Symbol Tiles",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Combined Counting Principles",
+      "difficulty": 2,
+      "statement": "A tile shows one symbol and has one border color. The symbol is one of the letters A, B, C or one of the digits 1, 2. The border is black or white. How many different tiles are possible?",
+      "choices": [
+        { "label": "A", "text": "5" },
+        { "label": "B", "text": "7" },
+        { "label": "C", "text": "10" },
+        { "label": "D", "text": "12" },
+        { "label": "E", "text": "20" }
+      ],
+      "answer": "C",
+      "shortAnswer": "10",
+      "hints": ["How many total symbol choices are there?", "Each symbol can receive either border color."],
+      "solutionSteps": [
+        { "title": "Count symbols", "body": "The 3 letters and 2 digits are disjoint symbol choices, giving 3 + 2 = 5 symbols." },
+        { "title": "Add the second stage", "body": "Each symbol pairs with either of 2 border colors." },
+        { "title": "Multiply", "body": "There are (3 + 2) × 2 = 10 tiles." }
+      ],
+      "tags": ["addition principle", "multiplication principle", "nested choices"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive enumeration of five symbols crossed with two borders",
+        "independent distributive check 3×2 + 2×2",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: (3 + 2) × 2 = 10; independently, 6 letter tiles + 4 digit tiles = 10."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C1",
+    "purpose": "practice",
+    "transferLevel": "challenge",
+    "targetConcepts": ["C1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c1-practice-events",
+      "title": "One Festival Event",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Combined Counting Principles",
+      "difficulty": 3,
+      "statement": "A student chooses exactly one festival event. In the morning, each of 2 workshops is offered in any of 3 rooms. In the afternoon, each of 3 talks is offered in either of 2 rooms. How many workshop-or-talk event choices are possible?",
+      "choices": [
+        { "label": "A", "text": "7" },
+        { "label": "B", "text": "10" },
+        { "label": "C", "text": "12" },
+        { "label": "D", "text": "24" },
+        { "label": "E", "text": "36" }
+      ],
+      "answer": "C",
+      "shortAnswer": "12",
+      "hints": ["Count complete morning events and complete afternoon events separately.", "A chosen event cannot be both morning and afternoon."],
+      "solutionSteps": [
+        { "title": "Count morning events", "body": "Two workshops paired with three rooms give 2 × 3 = 6 morning events." },
+        { "title": "Count afternoon events", "body": "Three talks paired with two rooms give 3 × 2 = 6 afternoon events." },
+        { "title": "Join the time blocks", "body": "Morning and afternoon are disjoint cases, so 6 + 6 = 12 events." }
+      ],
+      "tags": ["addition principle", "multiplication principle", "sum of products"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive two-block enumeration of six morning and six afternoon events",
+        "independent sum-of-products calculation 2×3 + 3×2",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: 2 × 3 + 3 × 2 = 12; the time blocks are disjoint."]
+    }
+  }
+]

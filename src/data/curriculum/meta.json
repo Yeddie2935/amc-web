@@ -1,0 +1,158 @@
+{
+  "version": "1.2.0",
+  "target": {
+    "competition": "AMC 8 / middle-school competition math",
+    "positioning": "Contest-math-first and prealgebra-accessible; teach contest-useful conceptual machinery rather than reproducing a full Grade 6–8 textbook.",
+    "expectedNodeCount": 50
+  },
+  "strandOrder": [
+    "foundations",
+    "algebra",
+    "numberTheory",
+    "countingProbability",
+    "geometry",
+    "problemSolving"
+  ],
+  "strandLabels": {
+    "foundations": "Foundations & Quantitative Reasoning",
+    "algebra": "Algebra & Patterns",
+    "numberTheory": "Number Theory",
+    "countingProbability": "Counting & Probability",
+    "geometry": "Geometry & Spatial Reasoning",
+    "problemSolving": "Problem-Solving Tools"
+  },
+  "lessonTypeDefinitions": {
+    "foundation": "A substantial concept students should understand deeply and reuse broadly.",
+    "technique": "A reusable problem-solving method best motivated by a situation where an earlier method strains or fails.",
+    "connector": "A shorter bridge that explicitly links existing ideas and prevents the curriculum from feeling like isolated topics."
+  },
+  "edgeSemantics": {
+    "hardPrerequisites": "Concepts the lesson may assume without reteaching.",
+    "narrativePredecessor": "The earlier lesson whose idea or limitation should most naturally motivate this lesson. It may be a continuity edge without being a hard prerequisite.",
+    "unlocks": "Reverse hard-prerequisite edges, stored explicitly and validated for consistency.",
+    "transferConnections": "Ideas that should reappear unexpectedly across strands or contexts without being mandatory prerequisites."
+  },
+  "problemRoles": {
+    "anchor": "The lesson grows out of this problem or scenario. Its diagram, data, or animation may appear before the full contest question is revealed.",
+    "guided": "A real problem is solved inside the lesson with pauses, predictions, and targeted intervention.",
+    "contrast": "A problem is chosen because it exposes a misconception or makes an earlier method awkward enough to motivate a better one.",
+    "transfer": "A later, mostly independent problem checks whether the learner can recognize the concept when it is disguised or combined with other ideas."
+  },
+  "teachingExamplePolicy": {
+    "principle": "Choose the problem that best teaches the concept at that exact lesson beat, regardless of whether it comes from the authentic bank or is Mathinking-original.",
+    "sourcePriority": [
+      "Use an authentic bank problem when its mathematical structure, representation, difficulty, and existing animation naturally support the intended discovery or guided beat.",
+      "Do not force an authentic bank problem into a lesson merely to maximize bank reuse.",
+      "When no bank problem explains the concept cleanly enough, generate a purpose-built Mathinking-original teaching problem designed around the lesson's core insight, narrative transition, and target misconception.",
+      "A generated teaching problem may be simpler or more artificial than a contest problem when that simplicity isolates the concept and produces a clearer discovery.",
+      "After the concept is established, authentic bank problems can re-enter as guided applications or transfer to show how the idea appears in real contest settings."
+    ],
+    "generatedTeachingProblemRules": [
+      "Design backward from the exact learner realization the beat needs to produce, not from a desire to imitate an AMC surface style.",
+      "Prefer small numbers, clean cases, manipulable objects, and visual structures when they make the underlying reason visible.",
+      "Reuse representations from the preceding lesson beat so the generated problem feels continuous rather than inserted.",
+      "Generated teaching problems should be independently solved and validated before inclusion, even when they are simple.",
+      "Do not label Mathinking-original teaching examples as AMC or imply historical contest provenance.",
+      "Avoid lightly paraphrasing a bank problem; the purpose-built example should exist because it teaches the concept more cleanly than the available bank options.",
+      "The generator must record why a generated problem was preferred over the strongest bank candidate."
+    ],
+    "mapperDecisionFields": [
+      "preferredSource",
+      "bestBankCandidate",
+      "bankCandidateFit",
+      "generationNeeded",
+      "generationReason",
+      "targetLearnerRealization"
+    ]
+  },
+  "integratedProblemPolicy": {
+    "principle": "An integrated problem must feel like the next natural beat of the lesson, not a worksheet interruption.",
+    "requirements": [
+      "The preceding lesson beat must create the question, representation, tension, or partial setup that the problem continues.",
+      "For an authentic bank problem, prefer reusing the problem's objects, diagram, data, or animation before revealing the full contest prompt when this makes the transition smoother.",
+      "For a generated teaching problem, build directly from the representation, objects, or tension already established in the lesson.",
+      "The lesson timeline may pause, skip, or interleave individual bank-animation steps; do not embed the full animation player as an isolated block unless the problem is intentionally independent practice.",
+      "Do not reset vocabulary, visual language, or representation at the problem boundary without a pedagogical reason.",
+      "The learner should understand why this problem appears now. If the generator cannot articulate that reason, the problem is not integrated and should be redesigned, moved to practice, or omitted.",
+      "After the problem, explicitly harvest the mathematical idea it revealed and connect that idea to the next lesson beat rather than simply announcing the answer.",
+      "Authentic contest provenance may be shown, but source labeling should not interrupt the conceptual flow."
+    ],
+    "mapperFields": [
+      "source",
+      "role",
+      "whyNow",
+      "entryBridge",
+      "reusedRepresentation",
+      "animationSteps",
+      "learnerPrompts",
+      "exitBridge"
+    ]
+  },
+  "practicePolicy": {
+    "principle": "Every lesson ends with a distinct practice phase after the teaching narrative is complete.",
+    "defaultCount": 5,
+    "defaultMix": {
+      "generatedNearTransfer": 2,
+      "generatedMixedTransfer": 2,
+      "authenticBankTransfer": 1
+    },
+    "generatedProblemRules": [
+      "Generated problems are Mathinking-original practice, never presented as AMC or as historical contest problems.",
+      "Generate from the lesson's core insight and misconception profile, not by lightly paraphrasing a bank problem.",
+      "Vary context, numerical structure, representation, and surface form while preserving the intended mathematical demand.",
+      "At least one generated problem should be near transfer so the learner can consolidate the newly learned idea.",
+      "At least one generated problem should require recognizing the idea in a less obvious or combined form.",
+      "Generated problems must have independently recomputed answers and validated solution paths before entering the practice pool.",
+      "Reject ambiguous wording, accidental multiple answers, impossible diagrams, or solutions that require concepts outside the declared prerequisite graph unless explicitly marked as challenge transfer.",
+      "Prefer pre-generated and validated practice pools or parameterized templates over unvalidated live generation during a student session."
+    ],
+    "bankProblemRules": [
+      "Use the authentic bank primarily for transfer, challenge, and contest calibration after the concept is understood.",
+      "A bank problem already used as an integrated anchor, guided, or contrast problem should not immediately reappear as final practice.",
+      "Do not exhaust the finite bank merely to make every practice set authentic; generated material should provide repeatability and freshness."
+    ],
+    "masteryCheck": "Use performance across the final practice set, with extra weight on independent mixed-transfer items, as one input to mastery rather than treating lesson completion itself as mastery."
+  },
+  "authoringPrinciples": [
+    "Start from a concrete puzzle, pattern, or tension before naming a technique.",
+    "When a visual or interaction can make the reason discoverable, let the learner see or manipulate it before explaining it in prose.",
+    "Prefer concrete model -> learner attempt -> noticed structure -> concept name -> guided application -> independent transfer.",
+    "Use an existing AMC problem only when it advances the lesson's narrative role; never insert a question merely because a topic tag matches.",
+    "If no authentic bank problem teaches the intended idea cleanly, generate a purpose-built Mathinking example rather than compromising the lesson flow.",
+    "Existing problem animations may be controlled beat-by-beat by the lesson timeline rather than embedded as an isolated full player.",
+    "Make new techniques feel necessary by showing where an earlier strategy becomes cumbersome, overlapping, incomplete, or conceptually insufficient.",
+    "Keep explanatory prose short enough that animations and interactions remain the primary explanatory medium.",
+    "Treat common misconceptions as design inputs: surface a plausible wrong idea, make its failure visible, and repair the model.",
+    "Do not introduce a formula before the learner has a model for why the formula counts or measures what it claims to.",
+    "End the teaching narrative before the final practice phase, then use fresh near-transfer and mixed-transfer problems to test independent understanding.",
+    "End with transfer: at least one problem should require recognizing the idea in a less obvious form."
+  ],
+  "preferredLessonBeats": [
+    "puzzle",
+    "try",
+    "notice",
+    "name",
+    "play",
+    "competition_application",
+    "guided_problem",
+    "independent_transfer",
+    "practice_set",
+    "mastery_check"
+  ],
+  "goldNarrativeEdges": [
+    ["F2", "F3"],
+    ["F3", "F4"],
+    ["F3", "G6"],
+    ["A1", "A2"],
+    ["A2", "A3"],
+    ["N1", "N2"],
+    ["N2", "N3"],
+    ["C2", "C4"],
+    ["C4", "C5"],
+    ["C3", "C6"],
+    ["C6", "C7"],
+    ["C8", "C9"],
+    ["G3", "G4"],
+    ["G10", "G11"]
+  ]
+}

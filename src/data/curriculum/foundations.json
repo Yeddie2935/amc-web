@@ -1,0 +1,127 @@
+[
+  {
+    "id": "F1",
+    "title": "Number Sense & Estimation",
+    "strand": "foundations",
+    "lessonType": "foundation",
+    "coreInsight": "Numbers carry magnitude and structure; estimation and reasonableness can reveal what an exact answer should look like before calculation.",
+    "hardPrerequisites": [],
+    "narrativePredecessor": null,
+    "narrativeTransition": "Start with calculations that can be done exactly but become much easier once the learner estimates, decomposes, or compares magnitude first.",
+    "unlocks": ["F2", "F7", "A1", "A7", "A8", "N1", "N7", "C1", "G1", "G3", "S2"],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "Exact calculation is always better than estimation.",
+      "An answer that comes from valid arithmetic does not need a reasonableness check.",
+      "The written form of a number is more important than its magnitude or structure."
+    ]
+  },
+  {
+    "id": "F2",
+    "title": "Fractions, Decimals & Percents",
+    "strand": "foundations",
+    "lessonType": "foundation",
+    "coreInsight": "Fractions, decimals, and percents are different representations of the same quantities, and a fraction is itself a number with a location and magnitude.",
+    "hardPrerequisites": ["F1"],
+    "narrativePredecessor": "F1",
+    "narrativeTransition": "Whole numbers leave gaps on the number line. Build and compare quantities inside those gaps, then show that fraction, decimal, and percent notation can name the same point.",
+    "unlocks": ["F3", "F5", "F6", "F7", "P1", "G3"],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "The numerator and denominator behave like two independent whole numbers.",
+      "A larger denominator automatically means a larger fraction.",
+      "More decimal digits automatically means a larger number.",
+      "A percent has meaning without identifying the whole it is a percent of."
+    ]
+  },
+  {
+    "id": "F3",
+    "title": "Ratios & Proportions",
+    "strand": "foundations",
+    "lessonType": "foundation",
+    "coreInsight": "A ratio describes a multiplicative relationship or repeatable batch, and proportional situations preserve that relationship as quantities scale.",
+    "hardPrerequisites": ["F2"],
+    "narrativePredecessor": "F2",
+    "narrativeTransition": "Fractions compare a part with a whole; now compare two quantities directly and ask what must stay the same when both quantities scale.",
+    "unlocks": ["F4", "F5", "G6"],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "Ratio problems should be solved by additive differences.",
+      "Part-to-part and part-to-whole ratios are interchangeable.",
+      "Cross-multiplication is the meaning of proportion rather than one consequence of it.",
+      "Corresponding quantities can be paired in any order."
+    ]
+  },
+  {
+    "id": "F4",
+    "title": "Rates, Units & Proportional Reasoning",
+    "strand": "foundations",
+    "lessonType": "foundation",
+    "coreInsight": "A rate is a ratio connecting quantities with different units, and the units themselves reveal how the quantities relate.",
+    "hardPrerequisites": ["F3"],
+    "narrativePredecessor": "F3",
+    "narrativeTransition": "Attach units to the two sides of a ratio—miles per hour, dollars per item, pages per minute—and let the unit language expose the operation.",
+    "unlocks": [],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "Units can be ignored once numbers are written down.",
+      "Rate and total amount are the same kind of quantity.",
+      "Every rate problem is direct proportion.",
+      "The word per can be treated as decoration rather than division."
+    ]
+  },
+  {
+    "id": "F5",
+    "title": "Percent Change",
+    "strand": "foundations",
+    "lessonType": "technique",
+    "coreInsight": "Percent change measures change relative to a specific base, and that base can change from one step to the next.",
+    "hardPrerequisites": ["F2", "F3"],
+    "narrativePredecessor": "F3",
+    "narrativeTransition": "Use the proportional meaning of percent to describe a change, then make a second change so the learner sees that the reference whole has moved.",
+    "unlocks": [],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "Successive percent changes simply add.",
+      "Reverse percentage problems can use the final amount as the original base.",
+      "Percentage points and percent change are the same thing.",
+      "A 20% increase followed by a 20% decrease returns to the start."
+    ]
+  },
+  {
+    "id": "F6",
+    "title": "Averages & Basic Statistics",
+    "strand": "foundations",
+    "lessonType": "foundation",
+    "coreInsight": "The mean is the equal-share or balance value determined by a total, while median, mode, and range describe different features of a data set.",
+    "hardPrerequisites": ["F2"],
+    "narrativePredecessor": "F2",
+    "narrativeTransition": "Redistribute unequal piles until all piles are equal, then connect the balanced height to total divided by count.",
+    "unlocks": [],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "The mean must be one of the observed data values.",
+      "Average always means the middle value.",
+      "Averages of groups can be averaged without considering group sizes.",
+      "The mean can be manipulated without tracking the underlying total."
+    ]
+  },
+  {
+    "id": "F7",
+    "title": "Graphs, Tables & Data",
+    "strand": "foundations",
+    "lessonType": "foundation",
+    "coreInsight": "Graphs and tables encode relationships; scale, position, shape, and change all carry mathematical meaning.",
+    "hardPrerequisites": ["F1", "F2"],
+    "narrativePredecessor": "F6",
+    "narrativeTransition": "After summarizing data numerically, represent the same information visually and ask what becomes visible that was hard to see in a list.",
+    "unlocks": ["A6"],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "A graph is a picture of a real scene rather than a representation of variables.",
+      "Axis scale can be ignored.",
+      "A taller point or bar always means a faster rate of change.",
+      "Reading one value is the same as understanding the trend."
+    ]
+  }
+]

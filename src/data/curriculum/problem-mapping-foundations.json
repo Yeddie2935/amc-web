@@ -1,0 +1,149 @@
+[
+  {
+    "lessonId": "F1",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Before calculating exactly, magnitude and structure can eliminate impossible answers and suggest an efficient path.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2017-04",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.92, "conceptPurity": 0.9, "animationFit": 0.78, "discoveryValue": 0.7, "transferValue": 0.72, "prerequisiteLoad": 0.06},
+      "whyNow": "After learners have practiced estimating simple products, this gives a genuine contest setting where approximation is the intended tool rather than a fallback.",
+      "entryBridge": "Keep the same habit of replacing awkward quantities with nearby friendly ones, then reveal the contest expression.",
+      "reusedRepresentation": "A magnitude line and nearby rounded-number cards.",
+      "animationPlan": "Pause before the exact arithmetic; animate each factor snapping to a nearby friendly value, then compare the estimated product with the answer scale.",
+      "learnerPrompts": ["What nearby numbers would preserve the size of this product?", "Which answer choices are impossible before we multiply exactly?"],
+      "exitBridge": "Name estimation as a way to control an answer before calculation, then contrast it with a problem where exactness matters."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2001-05", "recommendedRole": "transfer", "fitScore": 0.7, "reason": "Requires estimation in a rate/unit setting, so it tests whether the habit transfers beyond pure arithmetic."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "The bank has good estimation applications, but a purpose-built opening can isolate reasonableness and magnitude without rate, unit, or notation load.", "targetLearnerRealization": "An estimate can tell us what kind of answer is plausible before exact calculation.", "suggestedShape": "Show three deliberately awkward computations beside widely separated answer regions; let learners drag each expression to the plausible region before calculating.", "constraints": ["Use mentally friendly bounds.", "Include one case where exact arithmetic is unnecessary.", "Include one deliberately absurd calculator-style wrong answer for a sanity check."]},
+    "searchCues": ["estimate", "approximate", "nearest", "closest", "magnitude", "round"],
+    "avoidCues": ["advanced geometry", "multi-step system"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "F2",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "Fractions, decimals, and percents can name the same location on a number line and should be compared by magnitude rather than by separate digit rules.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2019-03",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.9, "conceptPurity": 0.86, "animationFit": 0.75, "discoveryValue": 0.62, "transferValue": 0.76, "prerequisiteLoad": 0.05},
+      "whyNow": "Once representations have been unified on a number line, ordering several fractions becomes a clean test of magnitude sense.",
+      "entryBridge": "Fade the representation labels off the number line and ask learners to place the contest quantities by size.",
+      "reusedRepresentation": "The lesson number line and equivalent-value cards.",
+      "animationPlan": "Reveal benchmark points such as 0, 1/2, and 1 first; place each fraction relative to those benchmarks before showing the final order.",
+      "learnerPrompts": ["Which benchmark is each value closest to?", "Can you compare these without forcing common denominators immediately?"],
+      "exitBridge": "Use the ordering to reinforce that every representation refers to one underlying quantity, then move toward comparing two quantities as a ratio."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": true, "reason": "A bank ordering question is useful after the concept, but the foundational equivalence among fraction, decimal, and percent is better discovered with purpose-built manipulable representations.", "targetLearnerRealization": "One quantity can be written in several equivalent forms.", "suggestedShape": "Partition bars and a number line are linked: changing a fraction card simultaneously moves its decimal and percent labels to the same point.", "constraints": ["Use denominators with clean visual partitions first.", "Include a nontrivial equivalence such as 3/8 = 0.375 = 37.5%.", "Avoid teaching conversion as three disconnected algorithms."]},
+    "searchCues": ["fractions", "decimals", "percent", "ordering fractions", "equivalent fraction", "number line"],
+    "avoidCues": ["percent change", "probability"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "F3",
+    "preferredSource": "bank",
+    "targetLearnerRealization": "A ratio is a repeatable multiplicative batch; scaling one quantity requires scaling the corresponding quantity by the same factor.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2009-02",
+      "role": "anchor",
+      "metrics": {"conceptFit": 0.98, "conceptPurity": 0.96, "animationFit": 0.94, "discoveryValue": 0.93, "transferValue": 0.55, "prerequisiteLoad": 0.04},
+      "whyNow": "The sports-car/sedan relationship can literally be displayed as one repeated ratio batch, so the problem's structure is the lesson's core idea rather than incidental context.",
+      "entryBridge": "After comparing two small groups visually, keep one 4-to-7 batch on screen and ask what happens when the first group grows to the contest target.",
+      "reusedRepresentation": "Rows of 4 sports-car icons paired with 7 sedan icons.",
+      "animationPlan": "Start with one batch, let the learner duplicate whole batches until the target first quantity is reached, then count the paired second quantity; only afterward write the proportion notation.",
+      "learnerPrompts": ["How many copies of the original batch do we need?", "What must happen to the sedan group when the sports-car group is multiplied by that factor?"],
+      "exitBridge": "Abstract the repeated batch into a:b = ka:kb, then attach units to the two quantities to motivate rates."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": false, "reason": "The authentic bank candidate already isolates multiplicative scaling cleanly and has a visual structure that can be made continuous with the lesson.", "targetLearnerRealization": "Scaling preserves a multiplicative relationship.", "suggestedShape": "Not needed for the core discovery; generated micro-checks may still contrast additive and multiplicative thinking.", "constraints": []},
+    "searchCues": ["ratio", "proportion", "scale factor", "same ratio", "batch"],
+    "avoidCues": ["similar triangles", "LCM"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "F4",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "The word 'per' connects two different units, and dimensional meaning often tells us whether to multiply or divide.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2001-05",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.88, "conceptPurity": 0.74, "animationFit": 0.82, "discoveryValue": 0.65, "transferValue": 0.87, "prerequisiteLoad": 0.2},
+      "whyNow": "After a clean unit-rate model, the lightning problem combines feet per second, elapsed time, and feet per mile in a way that rewards tracking units rather than memorizing a formula.",
+      "entryBridge": "Keep the lesson's unit labels attached to every number and reveal the lightning/thunder quantities as another 'amount per unit' chain.",
+      "reusedRepresentation": "Unit-labeled conversion tiles that cancel or combine visually.",
+      "animationPlan": "Animate seconds multiplying feet/second into feet, then feet converting into miles; retain units on every intermediate quantity.",
+      "learnerPrompts": ["What unit should the answer have?", "What operation makes seconds disappear from feet per second?"],
+      "exitBridge": "Generalize unit tracking as a problem-solving check, then note that rates can be represented by slope later."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": true, "reason": "The lightning problem is an excellent application but mixes estimation and unit conversion. A purpose-built opening should first isolate what a unit rate means.", "targetLearnerRealization": "A rate such as 12 dollars per 3 tickets can be normalized to one unit and scaled back up.", "suggestedShape": "Use rows of items and price tags; progressively compress 12 dollars for 3 items into 4 dollars per item, then rebuild a larger purchase.", "constraints": ["Keep units visible at every step.", "Include one inverse-looking trap where multiplying gives the wrong unit.", "Do not introduce distance-rate-time as a triangle mnemonic."]},
+    "searchCues": ["rate", "per", "speed", "unit conversion", "miles per", "price per"],
+    "avoidCues": ["ratio only", "complex geometry"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "F5",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "A percent change is measured from a particular base, so successive changes usually act on different wholes.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2002-14",
+      "role": "contrast",
+      "metrics": {"conceptFit": 0.94, "conceptPurity": 0.9, "animationFit": 0.86, "discoveryValue": 0.9, "transferValue": 0.76, "prerequisiteLoad": 0.08},
+      "whyNow": "A successive-discount question is ideal immediately after learners predict that two percentage changes can be combined additively.",
+      "entryBridge": "First let the learner make an additive prediction on the lesson's 100-unit bar, then reveal the authentic discount question using the same bar model.",
+      "reusedRepresentation": "A 100-unit price bar that shrinks after each percentage change.",
+      "animationPlan": "Apply the first discount, freeze the smaller remaining bar as the new 100%, then apply the second discount to that new base.",
+      "learnerPrompts": ["What is the second percent taken from?", "Why is the second removed piece smaller even if the percent is the same?"],
+      "exitBridge": "State the general rule that percentage changes compose multiplicatively, then use a generated reverse-percent check."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": true, "reason": "A purpose-built first example can cleanly establish 'percent of what?' before the authentic successive-discount trap.", "targetLearnerRealization": "The reference whole is part of the meaning of a percentage.", "suggestedShape": "Start with 100 tiles, increase or remove a visible fraction, then relabel the changed collection as the new whole before a second change.", "constraints": ["Use a 100-unit initial whole for the first discovery.", "Include increase-then-decrease as well as discount-discount later.", "Surface the tempting additive answer before correcting it visually."]},
+    "searchCues": ["percent increase", "percent decrease", "discount", "markup", "successive", "percent change"],
+    "avoidCues": ["simple percent of", "pie chart"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "F6",
+    "preferredSource": "generated",
+    "targetLearnerRealization": "The mean is the level obtained by preserving the total while redistributing it equally.",
+    "bestBankCandidate": {
+      "problemId": "amc8-1999-13",
+      "role": "guided",
+      "metrics": {"conceptFit": 0.86, "conceptPurity": 0.78, "animationFit": 0.76, "discoveryValue": 0.58, "transferValue": 0.82, "prerequisiteLoad": 0.08},
+      "whyNow": "Once learners see average as total/count, a group-average contest problem makes them preserve totals instead of averaging subgroup averages naively.",
+      "entryBridge": "Keep the equal-share piles on screen, group them into the populations described by the contest problem, and ask what total each group contributes.",
+      "reusedRepresentation": "Stacked quantity bars whose total area/height-sum is preserved.",
+      "animationPlan": "Convert each subgroup's count and mean into a total block, merge the blocks, then rebalance across the full group.",
+      "learnerPrompts": ["What total quantity is hidden behind this average?", "Why can't we simply average the two displayed means?"],
+      "exitBridge": "Generalize the total = mean × count relationship and distinguish mean from median, mode, and range."
+    },
+    "additionalBankCandidates": [{"problemId": "amc8-2006-12", "recommendedRole": "transfer", "fitScore": 0.82, "reason": "Weighted test percentages expose the same need to recover totals from differently sized groups."}],
+    "generatedTeachingPlan": {"needed": true, "reason": "The balance/equal-share meaning of mean is clearer with a small manipulable set than with a contest word problem.", "targetLearnerRealization": "Moving one unit from a tall pile to a short pile preserves the total but approaches the mean.", "suggestedShape": "Four draggable stacks rebalance to equal height while a total counter remains fixed.", "constraints": ["Use integer mean first.", "Then include a non-integer mean.", "Explicitly contrast mean with median on one small data set."]},
+    "searchCues": ["average", "mean", "median", "weighted average", "combined average", "total score"],
+    "avoidCues": ["pure sequence", "probability expectation"],
+    "reviewStatus": "approved"
+  },
+  {
+    "lessonId": "F7",
+    "preferredSource": "bank",
+    "targetLearnerRealization": "A graph tells a story about variables: slope, flatness, intersections, and scale must be interpreted in context rather than as a literal picture.",
+    "bestBankCandidate": {
+      "problemId": "amc8-2019-05",
+      "role": "anchor",
+      "metrics": {"conceptFit": 0.96, "conceptPurity": 0.92, "animationFit": 0.9, "discoveryValue": 0.91, "transferValue": 0.7, "prerequisiteLoad": 0.06},
+      "whyNow": "The tortoise-and-hare story maps naturally onto distance-versus-time graph features: steady motion, a flat nap segment, and who reaches the finish first.",
+      "entryBridge": "Tell the motion story first and let learners sketch or choose pieces of a graph before revealing the AMC choices.",
+      "reusedRepresentation": "A distance-time graph whose line segments are built from story events.",
+      "animationPlan": "Animate time advancing while distance either rises steadily, rises quickly, or stays flat; then compare the constructed shape with the authentic choices.",
+      "learnerPrompts": ["What should the graph do while the hare is sleeping?", "Does a downward segment mean slowing down or actually moving backward?"],
+      "exitBridge": "Extract the general interpretation rules—flat means no change, slope encodes rate—and save formal slope for A6."
+    },
+    "additionalBankCandidates": [],
+    "generatedTeachingPlan": {"needed": false, "reason": "The authentic graph problem already makes the key representational misconceptions visible and can be unfolded from the story itself.", "targetLearnerRealization": "Graph shape must be read as variable behavior, not as a picture of the physical path.", "suggestedShape": "Not required; generated micro-checks can vary axis scales and table-to-graph matching.", "constraints": []},
+    "searchCues": ["graph", "table", "distance-time", "bar graph", "data", "trend"],
+    "avoidCues": ["coordinate geometry only", "pure algebra equation"],
+    "reviewStatus": "approved"
+  }
+]

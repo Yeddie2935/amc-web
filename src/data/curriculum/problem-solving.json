@@ -1,0 +1,74 @@
+[
+  {
+    "id": "S1",
+    "title": "Work Backwards",
+    "strand": "problemSolving",
+    "lessonType": "technique",
+    "coreInsight": "When a forward process compounds complexity, reversing invertible steps can expose the starting state much more directly.",
+    "hardPrerequisites": ["A1"],
+    "narrativePredecessor": "A1",
+    "narrativeTransition": "Give the learner a final machine output and make forward guessing visibly inefficient, then reverse each operation in the opposite order.",
+    "unlocks": [],
+    "transferConnections": ["A5", "A7"],
+    "commonMisconceptions": [
+      "Inverse operations can be applied in the same order as the forward process.",
+      "Every output has exactly one predecessor.",
+      "A backward candidate need not be verified by running it forward.",
+      "Working backwards means algebraically rearranging every problem regardless of structure."
+    ]
+  },
+  {
+    "id": "S2",
+    "title": "Logic & Constraint Elimination",
+    "strand": "problemSolving",
+    "lessonType": "technique",
+    "coreInsight": "Every clue removes possibilities; a solution is justified only when all constraints hold and competing possibilities are eliminated.",
+    "hardPrerequisites": ["F1"],
+    "narrativePredecessor": "F1",
+    "narrativeTransition": "Begin with a small visible universe of possibilities and let each clue cross out states, making logical deduction feel like shrinking a feasible set.",
+    "unlocks": [],
+    "transferConnections": ["A3", "A4", "C4"],
+    "commonMisconceptions": [
+      "Clues may be used independently without checking their interaction.",
+      "The converse of a statement is automatically true.",
+      "Finding one candidate is enough without checking uniqueness.",
+      "Unstated assumptions from a diagram or story can be treated as constraints."
+    ]
+  },
+  {
+    "id": "S3",
+    "title": "Parity & Invariants",
+    "strand": "problemSolving",
+    "lessonType": "technique",
+    "coreInsight": "Instead of tracking every detail of a process, track a coarse property that remains fixed or changes predictably.",
+    "hardPrerequisites": ["N1"],
+    "narrativePredecessor": "N1",
+    "narrativeTransition": "Run a complicated sequence of moves while coloring only an odd/even or other invariant state so the preserved structure stays visible while everything else changes.",
+    "unlocks": [],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "Matching parity means two numbers are equal.",
+      "Several examples prove an invariant.",
+      "Any simple quantity is useful to track even if it is not preserved.",
+      "Parity arguments require computing exact values first."
+    ]
+  },
+  {
+    "id": "S4",
+    "title": "Pigeonhole & Guaranteed Outcomes",
+    "strand": "problemSolving",
+    "lessonType": "technique",
+    "coreInsight": "Worst-case distribution can prove what must eventually happen even when the exact arrangement is unknown.",
+    "hardPrerequisites": ["C2"],
+    "narrativePredecessor": "C2",
+    "narrativeTransition": "Ask how long the desired event can be avoided, fill every category as adversarially as possible, and identify the next object as the forced step.",
+    "unlocks": [],
+    "transferConnections": [],
+    "commonMisconceptions": [
+      "A likely or average-case outcome is a guarantee.",
+      "The desired event is forced as soon as every category has at least one item.",
+      "The distribution should be assumed balanced rather than constructed as a worst case.",
+      "Pigeonhole arguments require knowing the exact arrangement."
+    ]
+  }
+]

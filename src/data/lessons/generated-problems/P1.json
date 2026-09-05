@@ -1,0 +1,209 @@
+[
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "P1",
+    "purpose": "teaching",
+    "transferLevel": "discovery",
+    "targetConcepts": ["P1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-p1-at-least-one-head",
+      "title": "At Least One Head",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Probability",
+      "difficulty": 1,
+      "statement": "Two fair coins are tossed. What is the probability of getting at least one head?",
+      "choices": [
+        {"label": "A", "text": "1/4"},
+        {"label": "B", "text": "1/3"},
+        {"label": "C", "text": "1/2"},
+        {"label": "D", "text": "3/4"},
+        {"label": "E", "text": "1"}
+      ],
+      "answer": "D",
+      "shortAnswer": "3/4",
+      "hints": ["List the four ordered coin outcomes.", "At least one head excludes only TT."],
+      "solutionSteps": [
+        {"title": "Build the sample space", "body": "The equally likely outcomes are HH, HT, TH, and TT."},
+        {"title": "Mark the event", "body": "HH, HT, and TH each contain at least one head."},
+        {"title": "Compare part to whole", "body": "Three of the four equally likely outcomes are favorable, so the probability is 3/4."}
+      ],
+      "tags": ["probability", "sample space", "coins"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive enumeration of HH, HT, TH, TT",
+        "independent complement check 1-P(TT)=1-1/4=3/4",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Recomputed answer: 3 favorable outcomes among 4 equally likely outcomes gives 3/4."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "P1",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["P1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-p1-fair-spinner",
+      "title": "Repeated Spinner Colors",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Probability",
+      "difficulty": 1,
+      "statement": "A fair spinner has 6 equal sections colored red, red, red, blue, green, and green. What is the probability of landing on red?",
+      "choices": [
+        {"label": "A", "text": "1/6"}, {"label": "B", "text": "1/3"}, {"label": "C", "text": "1/2"}, {"label": "D", "text": "2/3"}, {"label": "E", "text": "3/4"}
+      ],
+      "answer": "C",
+      "shortAnswer": "1/2",
+      "hints": ["Treat the equal sections as the elementary outcomes.", "Count the red sections and all sections."],
+      "solutionSteps": [
+        {"title": "Choose equal outcomes", "body": "The six equal sections are equally likely."},
+        {"title": "Count red sections", "body": "Three of the six sections are red."},
+        {"title": "Form the ratio", "body": "The probability is 3/6=1/2."}
+      ],
+      "tags": ["probability", "spinner", "repeated labels"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {
+      "status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["direct count of 3 red sections among 6 equal sections", "independent symmetry check that red and non-red each occupy 3 sections", "answer-choice uniqueness audit", "manual wording and bank-novelty review"],
+      "notes": ["Recomputed answer: 3/6=1/2."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "P1",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["P1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-p1-matching-coins",
+      "title": "Matching Coin Faces",
+      "sourceType": "Original", "contest": "Original", "category": "Counting & Probability", "subcategory": "Probability", "difficulty": 1,
+      "statement": "Two fair coins are tossed. What is the probability that the two coins show the same face?",
+      "choices": [
+        {"label": "A", "text": "1/4"}, {"label": "B", "text": "1/3"}, {"label": "C", "text": "1/2"}, {"label": "D", "text": "2/3"}, {"label": "E", "text": "3/4"}
+      ],
+      "answer": "C", "shortAnswer": "1/2",
+      "hints": ["List HH, HT, TH, TT.", "Mark the outcomes with identical letters."],
+      "solutionSteps": [
+        {"title": "List equally likely outcomes", "body": "The sample space is HH, HT, TH, TT."},
+        {"title": "Mark matches", "body": "HH and TT show the same face."},
+        {"title": "Form the ratio", "body": "Two of four outcomes match, so 2/4=1/2."}
+      ],
+      "tags": ["probability", "coins", "event"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {
+      "status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["exhaustive enumeration of four ordered outcomes", "independent symmetry check: one matching second face for each first face", "answer-choice uniqueness audit", "manual wording and bank-novelty review"],
+      "notes": ["Recomputed answer: {HH,TT} gives 2/4=1/2."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "P1",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["P1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-p1-number-cards",
+      "title": "Multiples of Three",
+      "sourceType": "Original", "contest": "Original", "category": "Counting & Probability", "subcategory": "Probability", "difficulty": 1,
+      "statement": "One card is chosen at random from cards numbered 1 through 8. What is the probability that its number is a multiple of 3?",
+      "choices": [
+        {"label": "A", "text": "1/8"}, {"label": "B", "text": "1/4"}, {"label": "C", "text": "1/3"}, {"label": "D", "text": "3/8"}, {"label": "E", "text": "1/2"}
+      ],
+      "answer": "B", "shortAnswer": "1/4",
+      "hints": ["Write every card in the sample space.", "The multiples of 3 in this range are 3 and 6."],
+      "solutionSteps": [
+        {"title": "Build the sample space", "body": "There are eight equally likely cards numbered 1 through 8."},
+        {"title": "Mark the event", "body": "The favorable cards are 3 and 6."},
+        {"title": "Form the ratio", "body": "The probability is 2/8=1/4."}
+      ],
+      "tags": ["probability", "number cards", "multiples"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {
+      "status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["exhaustive divisibility check of integers 1 through 8", "independent count using floor(8/3)=2 favorable cards", "answer-choice uniqueness audit", "manual wording and bank-novelty review"],
+      "notes": ["Recomputed answer: multiples {3,6} give 2/8=1/4."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "P1",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["P1", "C1", "C2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-p1-two-spinners",
+      "title": "An Even Spinner Sum",
+      "sourceType": "Original", "contest": "Original", "category": "Counting & Probability", "subcategory": "Probability", "difficulty": 2,
+      "statement": "One fair spinner is numbered 1 and 2 in equal sections. Another fair spinner is numbered 1, 2, and 3 in equal sections. Both are spun. What is the probability that the sum is even?",
+      "choices": [
+        {"label": "A", "text": "1/6"}, {"label": "B", "text": "1/3"}, {"label": "C", "text": "1/2"}, {"label": "D", "text": "2/3"}, {"label": "E", "text": "5/6"}
+      ],
+      "answer": "C", "shortAnswer": "1/2",
+      "hints": ["Build all 2×3 ordered pairs.", "An even sum comes from two odds or two evens."],
+      "solutionSteps": [
+        {"title": "Build the sample space", "body": "The 2 choices and 3 choices form 6 equally likely ordered pairs."},
+        {"title": "Mark even sums", "body": "The pairs (1,1), (1,3), and (2,2) have even sums."},
+        {"title": "Form the ratio", "body": "Three of six pairs are favorable, so 3/6=1/2."}
+      ],
+      "tags": ["probability", "spinner", "sample space", "parity"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {
+      "status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["exhaustive enumeration of all six ordered spinner pairs", "independent parity count: 1×2 odd-odd pairs plus 1×1 even-even pair", "answer-choice uniqueness audit", "manual wording and bank-novelty review"],
+      "notes": ["Recomputed answer: 3 favorable pairs among 6 gives 1/2."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "P1",
+    "purpose": "practice",
+    "transferLevel": "challenge",
+    "targetConcepts": ["P1", "C1", "C2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-p1-product-even",
+      "title": "An Even Spinner Product",
+      "sourceType": "Original", "contest": "Original", "category": "Counting & Probability", "subcategory": "Probability", "difficulty": 2,
+      "statement": "One fair spinner is numbered 1, 2, and 3 in equal sections. Another fair spinner is numbered 1, 2, 3, and 4 in equal sections. Both are spun. What is the probability that the product is even?",
+      "choices": [
+        {"label": "A", "text": "1/3"}, {"label": "B", "text": "5/12"}, {"label": "C", "text": "1/2"}, {"label": "D", "text": "2/3"}, {"label": "E", "text": "3/4"}
+      ],
+      "answer": "D", "shortAnswer": "2/3",
+      "hints": ["There are 3×4 equally likely ordered pairs.", "A product fails to be even only when both numbers are odd."],
+      "solutionSteps": [
+        {"title": "Build the sample space", "body": "The two spinners create 12 equally likely ordered pairs."},
+        {"title": "Count odd products", "body": "Both results must be odd. Each spinner has 2 odd choices, making 2×2=4 odd-product pairs."},
+        {"title": "Use the complement", "body": "The other 12-4=8 pairs have even products, so the probability is 8/12=2/3."}
+      ],
+      "tags": ["probability", "spinner", "complement", "parity"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {
+      "status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["exhaustive 3-by-4 product parity table with 8 even entries", "independent complement count 12-(2×2)=8", "answer-choice uniqueness audit", "manual wording and bank-novelty review"],
+      "notes": ["Recomputed answer: 8/12=2/3; the four odd-odd pairs are (1,1), (1,3), (3,1), and (3,3)."]
+    }
+  }
+]

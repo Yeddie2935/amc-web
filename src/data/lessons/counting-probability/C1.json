@@ -1,0 +1,713 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "C1",
+  "curriculumNodeId": "C1",
+  "title": "Addition vs Multiplication",
+  "lessonType": "foundation",
+  "status": "draft",
+  "estimatedMinutes": 26,
+  "coreInsight": "Disjoint alternatives combine by addition, while sequential choices combine by multiplication when each branch's continuations are counted correctly.",
+  "targetLearnerRealization": "Disjoint alternatives combine by addition, while sequential choices combine by multiplication because each first choice branches into later choices.",
+  "learningObjectives": [
+    "Distinguish separate alternatives from stages that every final outcome must complete.",
+    "Explain multiplication using 'for each first choice' language and a complete outcome grid.",
+    "Check disjointness and branch sizes before adding or multiplying counts."
+  ],
+  "hardPrerequisites": ["F1"],
+  "narrativePredecessor": "F1",
+  "continuity": {
+    "openingCallback": "Use F1's reasonableness habit to estimate the size of a small choice space before counting it exactly.",
+    "closingSeeds": [
+      "When branches have different lengths or later choices depend on earlier ones, a systematic list or tree can keep every outcome visible."
+    ],
+    "nextLessonIds": ["C2", "C3", "C8"]
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "The words 'or' and 'and' mechanically determine addition or multiplication in every problem.",
+      "beatIds": ["structure-not-keywords", "practice-mixed-symbol-border", "c1-recap"]
+    },
+    {
+      "misconception": "Every branch is assumed to have the same number of continuations.",
+      "beatIds": ["unequal-branches", "practice-mixed-ferries", "practice-challenge-events", "c1-recap"]
+    },
+    {
+      "misconception": "Overlapping alternatives can be added without correction.",
+      "beatIds": ["overlap-check", "c1-recap"]
+    },
+    {
+      "misconception": "Counting steps and counting final outcomes are the same thing.",
+      "beatIds": ["outfit-grid", "why-product", "unequal-branches", "practice-near-cones"]
+    }
+  ],
+  "beats": [
+    {
+      "id": "estimate-outfits",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Reactivate F1's reasonableness habit without pre-solving the exact count.",
+      "expectedRealization": "Two small choice lists create a small collection of outfits, so an exact result near 5 is reasonable and one near 50 is not.",
+      "transitionIn": "In F1, you used size and structure to predict what an answer should feel like. Keep that habit for a new kind of question.",
+      "estimatedSeconds": 45,
+      "prompt": "A closet has 2 shirts and 3 pairs of pants. One outfit uses one shirt and one pair of pants. Before counting exactly, should the number of outfits be closer to 5 or to 50?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          { "id": "near-five", "text": "Closer to 5" },
+          { "id": "near-fifty", "text": "Closer to 50" }
+        ],
+        "correctId": "near-five",
+        "feedback": {
+          "near-five": "Yes. Two short lists should create a single-digit number of pairs.",
+          "near-fifty": "Fifty would require far more possibilities than these two short lists can supply."
+        }
+      },
+      "correctFeedback": "Good estimate. Now make the exact outcomes visible.",
+      "incorrectFeedback": "Compare the two short lists with the proposed sizes; 50 is much too large.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          { "body": "An estimate does not give the exact count, but it sets a useful scale: expect only a handful of outfits." }
+        ],
+        "takeaway": "Predict the scale first; then build a count you can check against it."
+      }
+    },
+    {
+      "id": "outfit-grid",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Let the learner construct the product count from all shirt-pants pairs before naming the multiplication principle.",
+      "expectedRealization": "Each of the two shirts continues to all three pants choices, creating six final outfits.",
+      "transitionIn": "The estimate says 'a handful.' Now count final outfits rather than the five objects in the closet.",
+      "estimatedSeconds": 90,
+      "prompt": "How many different outfits can be made?",
+      "visual": {
+        "primitive": "choice-grid",
+        "data": {
+          "groups": [
+            { "label": "Shirts", "choices": ["Blue", "Gold"] },
+            { "label": "Pants", "choices": ["Black", "Khaki", "Gray"] }
+          ]
+        },
+        "continuityKey": "c1-outfit-choices",
+        "ariaLabel": "Two shirt choices and three pants choices, not yet paired"
+      },
+      "response": {
+        "kind": "numeric",
+        "answer": 6,
+        "feedback": "Count complete shirt-pants pairs, not the separate clothing items."
+      },
+      "correctFeedback": "Yes—there are 6 complete outfits.",
+      "incorrectFeedback": "For each shirt, pair it once with every pair of pants.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "outcome-grid",
+          "data": {
+            "rows": ["Blue shirt", "Gold shirt"],
+            "columns": ["Black pants", "Khaki pants", "Gray pants"],
+            "cells": [
+              ["Blue + Black", "Blue + Khaki", "Blue + Gray"],
+              ["Gold + Black", "Gold + Khaki", "Gold + Gray"]
+            ]
+          },
+          "continuityKey": "c1-outfit-choices",
+          "ariaLabel": "A two by three grid showing all six shirt and pants outfits"
+        },
+        "steps": [
+          { "title": "Finish each outfit", "body": "Blue continues to all 3 pants choices, and Gold also continues to all 3." },
+          { "title": "Count the grid", "body": "The grid has 2 rows with 3 complete outfits in each row.", "math": "2 × 3 = 6" },
+          { "title": "Another way", "body": "The same two equal rows can be counted by repeated addition.", "math": "3 + 3 = 6" }
+        ],
+        "takeaway": "Multiplication counts complete combinations: for each of 2 shirts, there are 3 pants choices."
+      }
+    },
+    {
+      "id": "why-product",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Extract the branching reason for multiplication rather than treating it as a keyword rule.",
+      "expectedRealization": "Multiplication works because every first choice has a complete set of later continuations.",
+      "transitionIn": "The six cells are not six clothing items; each cell records one finished path through both choices.",
+      "estimatedSeconds": 65,
+      "prompt": "Which sentence explains the calculation 2 × 3?",
+      "visual": {
+        "primitive": "outcome-grid",
+        "data": {
+          "rows": ["Blue shirt", "Gold shirt"],
+          "columns": ["Black pants", "Khaki pants", "Gray pants"],
+          "cells": [
+            ["Blue + Black", "Blue + Khaki", "Blue + Gray"],
+            ["Gold + Black", "Gold + Khaki", "Gold + Gray"]
+          ]
+        },
+        "continuityKey": "c1-outfit-choices",
+        "ariaLabel": "The completed two by three outfit grid"
+      },
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          { "id": "objects", "text": "There are 2 shirts plus 3 pants, so multiply those objects." },
+          { "id": "continuations", "text": "For each of 2 shirts, all 3 pants choices complete an outfit." },
+          { "id": "steps", "text": "There are 2 decision steps, so multiply by 2." }
+        ],
+        "correctId": "continuations",
+        "feedback": {
+          "objects": "The objects alone total 5; multiplication counts their complete pairings.",
+          "continuations": "Exactly. Every row has the full set of three continuations.",
+          "steps": "The number of steps does not tell how many choices occur at each step."
+        }
+      },
+      "correctFeedback": "Exactly—'for each' describes the branching structure.",
+      "incorrectFeedback": "Point to one shirt row and ask how many complete outfits it contains.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          { "body": "The first choice creates 2 branches. Each branch has 3 endings, so the final outcomes—not the decision steps—total 2 × 3." }
+        ],
+        "takeaway": "Multiply when every final outcome completes successive choices and the branch counts are known."
+      }
+    },
+    {
+      "id": "dessert-shelves",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Contrast a product of stages with a union of genuinely separate alternatives.",
+      "expectedRealization": "Choosing one dessert from either disjoint shelf gives two cases whose counts add.",
+      "transitionIn": "Now remove the second stage. You will choose one finished item from one shelf or the other.",
+      "estimatedSeconds": 75,
+      "prompt": "A cafe offers 2 cakes and 3 pies. You choose exactly one dessert. How many choices are there?",
+      "visual": {
+        "primitive": "choice-grid",
+        "data": {
+          "groups": [
+            { "label": "Cakes", "choices": ["Chocolate cake", "Lemon cake"] },
+            { "label": "Pies", "choices": ["Apple pie", "Cherry pie", "Peach pie"] }
+          ]
+        },
+        "continuityKey": "c1-dessert-cases",
+        "ariaLabel": "Two cake choices and three separate pie choices"
+      },
+      "response": {
+        "kind": "numeric",
+        "answer": 5,
+        "feedback": "A final choice is one displayed dessert, not a cake-pie pair."
+      },
+      "correctFeedback": "Right—2 cake choices plus 3 pie choices makes 5 desserts.",
+      "incorrectFeedback": "Do you take one dessert, or one item from each shelf?",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              { "label": "Choose a cake", "items": ["Chocolate", "Lemon"] },
+              { "label": "Choose a pie", "items": ["Apple", "Cherry", "Peach"] }
+            ]
+          },
+          "continuityKey": "c1-dessert-cases",
+          "ariaLabel": "Five desserts separated into a two-item cake case and a three-item pie case"
+        },
+        "steps": [
+          { "title": "Separate the cases", "body": "Every allowed choice is either one cake or one pie." },
+          { "title": "Check the split", "body": "The two cases cover every dessert, and no dessert appears in both cases." },
+          { "title": "Join the counts", "body": "Add the sizes of the two disjoint cases.", "math": "2 + 3 = 5" }
+        ],
+        "takeaway": "Add separate alternatives when they cover all outcomes without overlap."
+      }
+    },
+    {
+      "id": "name-two-moves",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name the addition and multiplication principles only after both structures have been experienced.",
+      "expectedRealization": "Addition joins disjoint finished alternatives; multiplication follows successive choices to finished outcomes.",
+      "transitionIn": "You have now used two different structures: separate shelves and a grid of completed pairs.",
+      "estimatedSeconds": 50,
+      "name": "Addition and multiplication principles",
+      "conciseDefinition": "Add counts for separate, non-overlapping alternatives. Multiply choice counts across stages that every final outcome completes.",
+      "formalization": "disjoint cases: a + b    |    successive choices: a × b",
+      "memoryHook": "Separate cases add; complete branches multiply."
+    },
+    {
+      "id": "structure-not-keywords",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Break mechanical and/or keyword matching by classifying the outcome structure instead.",
+      "expectedRealization": "The operation follows whether outcomes come from separate cases or completed stages, not a particular word.",
+      "transitionIn": "The words can mislead. Sort by what one finished outcome contains.",
+      "estimatedSeconds": 105,
+      "prompt": "Sort each situation by its counting structure.",
+      "response": {
+        "kind": "sort",
+        "items": [
+          { "id": "one-book", "text": "A shelf holds 4 comics and 3 atlases; choose one book." },
+          { "id": "starter-dessert", "text": "Choose one starter from 2 choices or one dessert from 3 choices—not both." },
+          { "id": "route-time", "text": "Choose a route, then one departure time for that route." },
+          { "id": "shirt-pants", "text": "Build an outfit by choosing a shirt, followed by pants." }
+        ],
+        "buckets": [
+          { "id": "separate", "text": "Join separate alternatives" },
+          { "id": "stages", "text": "Complete successive stages" }
+        ],
+        "correctBucketByItem": {
+          "one-book": "separate",
+          "starter-dessert": "separate",
+          "route-time": "stages",
+          "shirt-pants": "stages"
+        },
+        "feedback": "Ask whether one outcome belongs to one case, or travels through every stage."
+      },
+      "correctFeedback": "Exactly. The structure—not the presence of 'and' or 'or'—chooses the operation.",
+      "incorrectFeedback": "Ignore the linking words. Describe what one finished outcome contains.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              { "label": "Join separate alternatives", "items": ["Choose one book from the combined shelves", "Choose either one starter or one dessert"] },
+              { "label": "Complete successive stages", "items": ["Route → departure time", "Shirt → pants"] }
+            ]
+          },
+          "ariaLabel": "The four situations correctly grouped by separate alternatives or successive stages"
+        },
+        "steps": [
+          { "body": "The book sentence uses the word 'and,' yet one final choice is still a comic or an atlas, so the shelf counts add." },
+          { "body": "The route sentence never says 'and,' yet every trip needs both a route choice and a time choice." }
+        ],
+        "takeaway": "Decide what a complete outcome is before choosing an operation."
+      }
+    },
+    {
+      "id": "unequal-branches",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Repair the assumption that every first choice automatically has the same number of continuations.",
+      "expectedRealization": "Nonuniform branches must be counted by their actual endings, here 2 + 3 rather than 2 × 3.",
+      "transitionIn": "Multiplication made the outfit grid quick because both shirt rows had the same length. What if the rows do not match?",
+      "estimatedSeconds": 95,
+      "prompt": "Blue Route has 2 departure times and Gold Route has 3. How many complete route-and-time trip plans are shown?",
+      "visual": {
+        "primitive": "branch-tree",
+        "data": {
+          "root": "Trip plan",
+          "paths": [
+            ["Blue Route", "8:00"],
+            ["Blue Route", "10:00"],
+            ["Gold Route", "8:00"],
+            ["Gold Route", "9:00"],
+            ["Gold Route", "10:00"]
+          ]
+        },
+        "continuityKey": "c1-unequal-route-tree",
+        "ariaLabel": "A route tree with two Blue Route endings and three Gold Route endings"
+      },
+      "response": {
+        "kind": "numeric",
+        "answer": 5,
+        "feedback": "Count the endpoints of the complete paths."
+      },
+      "correctFeedback": "Yes—there are 5 complete trip plans.",
+      "incorrectFeedback": "The two first branches do not have equal lengths; count 2 endings and 3 endings.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              { "label": "Blue Route plans", "items": ["Blue at 8:00", "Blue at 10:00"] },
+              { "label": "Gold Route plans", "items": ["Gold at 8:00", "Gold at 9:00", "Gold at 10:00"] }
+            ]
+          },
+          "continuityKey": "c1-unequal-route-tree",
+          "ariaLabel": "Five trip plans split into two Blue Route plans and three Gold Route plans"
+        },
+        "steps": [
+          { "title": "Count actual continuations", "body": "The Blue branch has 2 endpoints; the Gold branch has 3." },
+          { "title": "Join the route cases", "body": "A trip uses exactly one route, so these cases are disjoint.", "math": "2 + 3 = 5" }
+        ],
+        "takeaway": "Multiply by a common branch size only when that size really applies to each first choice."
+      }
+    },
+    {
+      "id": "overlap-check",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Make overlap visible and require a distinct-outcome count before addition is trusted.",
+      "expectedRealization": "Adding case sizes double-counts any outcome appearing in both alternatives.",
+      "transitionIn": "Unequal cases can still be added. But addition has one more condition: the cases must not share outcomes.",
+      "estimatedSeconds": 100,
+      "prompt": "Chess members are Ana, Ben, and Chen. Music members are Ben and Dia. How many different students belong to at least one club?",
+      "visual": {
+        "primitive": "choice-grid",
+        "data": {
+          "groups": [
+            { "label": "Chess", "choices": ["Ana", "Ben", "Chen"] },
+            { "label": "Music", "choices": ["Ben", "Dia"] }
+          ]
+        },
+        "continuityKey": "c1-overlap-clubs",
+        "ariaLabel": "Chess and music member lists, with Ben appearing on both lists"
+      },
+      "response": {
+        "kind": "numeric",
+        "answer": 4,
+        "feedback": "Count distinct students, not appearances on the two lists."
+      },
+      "correctFeedback": "Right—there are 4 different students.",
+      "incorrectFeedback": "Ben appears twice on the lists but is only one student.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              { "label": "Chess only", "items": ["Ana", "Chen"] },
+              { "label": "Both clubs", "items": ["Ben"] },
+              { "label": "Music only", "items": ["Dia"] }
+            ]
+          },
+          "continuityKey": "c1-overlap-clubs",
+          "ariaLabel": "Four distinct students separated into chess only, both clubs, and music only"
+        },
+        "steps": [
+          { "title": "Spot the repeat", "body": "The raw list count 3 + 2 includes Ben twice." },
+          { "title": "Count each student once", "body": "Ana, Ben, Chen, and Dia are the four distinct outcomes.", "math": "3 + 2 − 1 = 4" }
+        ],
+        "takeaway": "Before adding cases, check that they do not overlap—or correct the repeated count."
+      }
+    },
+    {
+      "id": "guided-signal-panel",
+      "phase": "guided-problem",
+      "kind": "problem",
+      "purpose": "Apply the primary multiplication structure in a fresh context with a complete worked visual resolution.",
+      "expectedRealization": "A finished signal contains both a light and a sound, so each light branches to all four sounds.",
+      "transitionIn": "Now use the full test on a fresh object: first define one finished outcome, then follow its stages.",
+      "transitionOut": "The signal count worked for the same reason as the outfit grid: every first choice had a complete set of continuations.",
+      "estimatedSeconds": 125,
+      "source": "generated",
+      "problemId": "original-c1-signal-panel",
+      "role": "anchor",
+      "presentation": "full-prompt",
+      "whyNow": "The learner has discovered and named both principles and can now justify a clean product without relying on clothing vocabulary.",
+      "entryBridge": "Treat one light-and-sound pair as one completed signal.",
+      "exitBridge": "Three light branches with four sound endings each create twelve completed signals.",
+      "reusedRepresentation": "The outfit grid becomes a light-by-sound outcome grid.",
+      "animation": { "mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false },
+      "learnerPrompts": ["What choices must every finished signal contain?", "How many sound continuations belong to each light choice?"],
+      "correctFeedback": "Correct—there are 12 light-and-sound signals.",
+      "incorrectFeedback": "Build one row for each light color and place all four sounds in every row.",
+      "resolution": {
+        "visual": {
+          "primitive": "outcome-grid",
+          "data": {
+            "rows": ["Red light", "Blue light", "Green light"],
+            "columns": ["Chime", "Bell", "Buzz", "Whistle"],
+            "cells": [
+              ["Red + chime", "Red + bell", "Red + buzz", "Red + whistle"],
+              ["Blue + chime", "Blue + bell", "Blue + buzz", "Blue + whistle"],
+              ["Green + chime", "Green + bell", "Green + buzz", "Green + whistle"]
+            ]
+          },
+          "ariaLabel": "A three by four grid of all light and sound signals"
+        },
+        "steps": [
+          { "title": "Define one outcome", "body": "A finished signal contains one light color and one sound." },
+          { "title": "Count every branch", "body": "For each of 3 light colors, any of the 4 sounds can follow.", "math": "3 × 4 = 12" }
+        ],
+        "takeaway": "Successive choices multiply when every first choice has the counted later choices."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-near-reading",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check independent recognition of disjoint alternatives in a low-context setting.",
+      "expectedRealization": "One selected item comes from exactly one of two non-overlapping shelves, so the counts add.",
+      "transitionIn": "First, isolate the separate-alternatives structure without a second decision stage.",
+      "transitionOut": "The two shelves formed complete, non-overlapping cases.",
+      "estimatedSeconds": 95,
+      "source": "generated",
+      "problemId": "original-c1-practice-reading",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This gives clean independent evidence for the addition principle before structures are mixed.",
+      "entryBridge": "Ask whether one final choice uses one shelf or both shelves.",
+      "exitBridge": "Four comics and five puzzle books give nine one-book choices.",
+      "reusedRepresentation": "Two disjoint shelves like the earlier dessert cases.",
+      "animation": { "mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false },
+      "learnerPrompts": ["Does one selection combine books from both shelves?", "Can any book occur in both cases?"],
+      "correctFeedback": "Yes—there are 9 possible one-book selections.",
+      "incorrectFeedback": "One selected book is either a comic or a puzzle book, never a pair.",
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              { "label": "Comics", "items": ["Comic 1", "Comic 2", "Comic 3", "Comic 4"] },
+              { "label": "Puzzle books", "items": ["Puzzle 1", "Puzzle 2", "Puzzle 3", "Puzzle 4", "Puzzle 5"] }
+            ]
+          },
+          "ariaLabel": "Nine book choices separated into four comics and five puzzle books"
+        },
+        "steps": [
+          { "body": "The 4 comic choices and 5 puzzle-book choices are separate and cover every allowed selection.", "math": "4 + 5 = 9" }
+        ],
+        "takeaway": "Add complete, disjoint alternatives."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-near-cones",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check independent use of the multiplication principle with two uniform stages.",
+      "expectedRealization": "Each cone uses both a flavor and a topping, producing a rectangular choice space.",
+      "transitionIn": "Now switch from one-of-two shelves to an object completed in two stages.",
+      "transitionOut": "Four flavor branches with three endings each create twelve cones.",
+      "estimatedSeconds": 95,
+      "source": "generated",
+      "problemId": "original-c1-practice-cones",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The nearby context checks that the learner counts final pairs rather than adding available ingredients.",
+      "entryBridge": "Define one finished cone as a flavor-topping pair.",
+      "exitBridge": "The complete grid has four rows of three cones.",
+      "reusedRepresentation": "A rectangular outcome grid with one stage on each axis.",
+      "animation": { "mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false },
+      "learnerPrompts": ["What two choices appear in every finished cone?", "How many topping continuations does each flavor have?"],
+      "correctFeedback": "Correct—12 different cones are possible.",
+      "incorrectFeedback": "For each of the 4 flavors, count all 3 topping choices.",
+      "resolution": {
+        "visual": {
+          "primitive": "outcome-grid",
+          "data": {
+            "rows": ["Vanilla", "Chocolate", "Strawberry", "Mint"],
+            "columns": ["Sprinkles", "Nuts", "Berries"],
+            "cells": [
+              ["V+S", "V+N", "V+B"],
+              ["C+S", "C+N", "C+B"],
+              ["S+S", "S+N", "S+B"],
+              ["M+S", "M+N", "M+B"]
+            ]
+          },
+          "ariaLabel": "A four by three grid of all flavor and topping cones"
+        },
+        "steps": [
+          { "body": "Every flavor can be paired with every topping, so each of 4 flavor branches has 3 endings.", "math": "4 × 3 = 12" }
+        ],
+        "takeaway": "Count finished combinations, not decision steps or ingredient objects."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-mixed-ferries",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check that the learner counts nonuniform continuations rather than multiplying arbitrary list sizes.",
+      "expectedRealization": "The two ferry cases have different numbers of endings, so their actual plan counts add to five.",
+      "transitionIn": "Uniform rows made multiplication compact. This schedule has rows of different lengths.",
+      "transitionOut": "Counting the actual endpoints handled the unequal branches safely.",
+      "estimatedSeconds": 110,
+      "source": "generated",
+      "problemId": "original-c1-practice-ferries",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This directly tests the mapped misconception that all first choices are assumed to have equal continuations.",
+      "entryBridge": "Separate the Harbor ferry plans from the Bay ferry plans, then count their endpoints.",
+      "exitBridge": "Three Harbor departures and two Bay departures make five distinct ferry-and-time plans.",
+      "reusedRepresentation": "The unequal route tree with one complete path per plan.",
+      "animation": { "mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false },
+      "learnerPrompts": ["How many endings belong to each ferry branch?", "Why is 2 × 3 not the branch structure here?"],
+      "correctFeedback": "Right—there are 5 ferry-and-time plans.",
+      "incorrectFeedback": "Count 3 endpoints under Harbor and 2 under Bay; the branch lengths differ.",
+      "resolution": {
+        "visual": {
+          "primitive": "branch-tree",
+          "data": {
+            "root": "Island plan",
+            "paths": [
+              ["Harbor", "8:00"],
+              ["Harbor", "10:00"],
+              ["Harbor", "1:00"],
+              ["Bay", "9:00"],
+              ["Bay", "12:00"]
+            ]
+          },
+          "ariaLabel": "Five complete ferry and departure-time paths"
+        },
+        "steps": [
+          { "body": "Harbor produces 3 complete plans and Bay produces 2. A trip uses exactly one ferry, so the cases are disjoint.", "math": "3 + 2 = 5" }
+        ],
+        "takeaway": "When branch lengths differ, count the endings each branch really has."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-mixed-symbol-border",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check nested use of addition within one stage followed by multiplication across stages.",
+      "expectedRealization": "The first stage has five disjoint symbol choices, and every symbol pairs with either border.",
+      "transitionIn": "Now one stage contains its own 'either' choice, but the finished tile still requires a second stage.",
+      "transitionOut": "Addition counted the choices inside the symbol stage; multiplication connected that stage to the border stage.",
+      "estimatedSeconds": 125,
+      "source": "generated",
+      "problemId": "original-c1-practice-symbol-border",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The composition makes keyword matching fail while keeping the arithmetic accessible.",
+      "entryBridge": "Count the available symbols first, then ask how many borders complete each symbol choice.",
+      "exitBridge": "Five symbol choices, each with two border choices, produce ten tiles.",
+      "reusedRepresentation": "Disjoint cases feeding a uniform second-stage grid.",
+      "animation": { "mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false },
+      "learnerPrompts": ["How many choices are available in the symbol stage?", "What later choice does every symbol receive?"],
+      "correctFeedback": "Correct—10 different tiles can be made.",
+      "incorrectFeedback": "First combine the 3 letter and 2 digit alternatives, then pair each symbol with 2 borders.",
+      "resolution": {
+        "visual": {
+          "primitive": "outcome-grid",
+          "data": {
+            "rows": ["A", "B", "C", "1", "2"],
+            "columns": ["Black border", "White border"],
+            "cells": [
+              ["A-black", "A-white"],
+              ["B-black", "B-white"],
+              ["C-black", "C-white"],
+              ["1-black", "1-white"],
+              ["2-black", "2-white"]
+            ]
+          },
+          "ariaLabel": "A five by two grid of all symbol and border tiles"
+        },
+        "steps": [
+          { "title": "Count one stage", "body": "The letter and digit lists are disjoint symbol alternatives.", "math": "3 + 2 = 5 symbols" },
+          { "title": "Complete every tile", "body": "Each of the 5 symbols can receive either of 2 borders.", "math": "5 × 2 = 10" }
+        ],
+        "takeaway": "Operations can nest: use the structure at each level, not one keyword for the entire problem."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-challenge-events",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Synthesize products within disjoint cases and addition across them.",
+      "expectedRealization": "Count complete morning events and complete afternoon events separately, then add the disjoint time blocks.",
+      "transitionIn": "For a final challenge, each separate case now contains two stages of its own.",
+      "transitionOut": "The calculation mirrors the structure: multiply inside each branch, then add the branches.",
+      "estimatedSeconds": 145,
+      "source": "generated",
+      "problemId": "original-c1-practice-events",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This requires the learner to compose both C1 principles and justify coverage and non-overlap.",
+      "entryBridge": "Treat morning and afternoon as separate cases; inside each, complete the activity-room pair.",
+      "exitBridge": "Six morning events and six afternoon events combine to twelve one-event choices.",
+      "reusedRepresentation": "Two disjoint branches, each containing its own rectangular choice grid.",
+      "animation": { "mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false },
+      "learnerPrompts": ["How many complete events are in each time block?", "Why can the two block totals be added without overlap?"],
+      "correctFeedback": "Correct—there are 12 possible event choices.",
+      "incorrectFeedback": "Multiply activity by room inside each time block, then add the non-overlapping blocks.",
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              { "label": "Morning", "items": ["2 workshops × 3 rooms = 6 events"] },
+              { "label": "Afternoon", "items": ["3 talks × 2 rooms = 6 events"] }
+            ]
+          },
+          "ariaLabel": "Six morning event combinations and six separate afternoon event combinations"
+        },
+        "steps": [
+          { "title": "Morning branch", "body": "Each of 2 workshops can use any of 3 rooms.", "math": "2 × 3 = 6" },
+          { "title": "Afternoon branch", "body": "Each of 3 talks can use either of 2 rooms.", "math": "3 × 2 = 6" },
+          { "title": "Join disjoint branches", "body": "One chosen event is morning or afternoon, never both.", "math": "6 + 6 = 12" }
+        ],
+        "takeaway": "Multiply along complete branches; add across disjoint branches."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "c1-recap",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate the structural tests for addition and multiplication before introducing the next lesson's tension.",
+      "expectedRealization": "Reliable counting requires defining final outcomes, checking disjoint coverage, and verifying continuations.",
+      "transitionIn": "Before opening a more complicated tree, collect the checks that made every count trustworthy.",
+      "estimatedSeconds": 80,
+      "prompt": "Which checks belong in a reliable addition-or-multiplication decision? Select all three.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          { "id": "outcome", "text": "Define one complete final outcome." },
+          { "id": "cases", "text": "Before adding cases, check that they cover everything without overlap." },
+          { "id": "branches", "text": "Before multiplying, check how many continuations each branch really has." },
+          { "id": "keywords", "text": "Let the words 'and' and 'or' choose the operation automatically." }
+        ],
+        "correctIds": ["outcome", "cases", "branches"],
+        "feedback": "Use the structure of complete outcomes, not a keyword shortcut."
+      },
+      "correctFeedback": "Exactly. Those three checks distinguish trustworthy counts from guesses.",
+      "incorrectFeedback": "Keep the checks about outcomes, coverage, overlap, and real branch lengths.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              { "label": "1. One outcome", "choices": ["What choices does it contain?"] },
+              { "label": "2. Separate cases", "choices": ["Cover all; overlap nowhere"] },
+              { "label": "3. Successive stages", "choices": ["Count each branch's continuations"] }
+            ]
+          },
+          "ariaLabel": "Three checks for choosing and justifying a counting operation"
+        },
+        "takeaway": "Add disjoint alternatives. Multiply successive choices when the branch counts justify it."
+      }
+    },
+    {
+      "id": "tree-hook",
+      "phase": "reflection",
+      "kind": "reflection",
+      "purpose": "Create the need for C2's systematic lists and trees only after consolidating C1.",
+      "expectedRealization": "When later choices vary with earlier ones, a visible organization is needed to count all endpoints exactly once.",
+      "transitionIn": "You can now handle a small uneven tree by counting its endpoints. Let the dependencies become more tangled.",
+      "estimatedSeconds": 55,
+      "prompt": "Suppose each route allows different stops, and each stop unlocks a different set of activities. How could you organize every complete plan so none is missed or repeated?",
+      "takeaway": "A single product may no longer describe the whole tree. Next, we will build systematic lists and trees that keep every path visible."
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": { "near": 2, "mixed": 2, "challenge": 1 },
+    "sessionSelection": [
+      { "source": "generated", "transferLevel": "near", "count": 2 },
+      { "source": "generated", "transferLevel": "mixed", "count": 2 },
+      { "source": "generated", "transferLevel": "challenge", "count": 1 }
+    ],
+    "excludeProblemIds": ["original-c1-signal-panel"],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "C1",
+    "evidenceBeatIds": ["practice-near-reading", "practice-near-cones", "practice-mixed-ferries", "practice-mixed-symbol-border", "practice-challenge-events"],
+    "minIndependentPracticeItems": 5,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.2.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "mathinking-lesson-skill-1.0.0",
+    "notes": [
+      "Draft foundation lesson authored with the repo-local mathinking-lesson Skill.",
+      "The generated outfit-style investigation is used for discovery because it isolates the addition-versus-multiplication distinction.",
+      "The mapped bank ID resolves to an equal-cross-sums problem while its approved rationale describes license plates; the unrelated bank item is therefore not integrated and the approved mapping is unchanged.",
+      "All visuals use existing generic primitives; no lesson-specific renderer behavior was added."
+    ]
+  }
+}

@@ -1,0 +1,194 @@
+[
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C10",
+    "problem": {
+      "id": "original-c10-tiny-grid",
+      "title": "Across a Tiny Grid",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Grid Paths",
+      "difficulty": 1,
+      "statement": "A marker starts at the lower-left point of a grid and must reach the upper-right point using exactly 2 moves right and 2 moves up, in any order. How many shortest paths are possible?",
+      "choices": [
+        {"label": "A", "text": "4"},
+        {"label": "B", "text": "5"},
+        {"label": "C", "text": "6"},
+        {"label": "D", "text": "8"},
+        {"label": "E", "text": "9"}
+      ],
+      "answer": "C",
+      "shortAnswer": "6",
+      "hints": ["Separate paths by whether their final move is right or up.", "Alternatively, choose the two positions occupied by the up moves."],
+      "solutionSteps": [
+        {"title": "Fix the moves", "body": "Every shortest path contains two R moves and two U moves."},
+        {"title": "Choose the U positions", "body": "Choose 2 of the 4 step positions for U; the other two positions are R."},
+        {"title": "Count paths", "body": "There are C(4,2) = 6 possible move strings."}
+      ],
+      "tags": ["grid paths", "combinations", "recurrence"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "purpose": "teaching",
+    "transferLevel": "discovery",
+    "targetConcepts": ["C10", "C7"],
+    "inspirationProblemIds": [],
+    "validation": {
+      "status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["independent enumeration of RRUU, RURU, RUUR, URRU, URUR, UURR", "combination calculation C(4,2)=6", "answer-choice uniqueness audit", "manual wording and bank-novelty review"],
+      "notes": ["The nine-point distractor diagnoses counting grid points instead of paths."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "C10",
+    "problem": {
+      "id": "original-c10-practice-robot", "title": "Robot Route", "sourceType": "Original", "contest": "Original",
+      "category": "Counting & Probability", "subcategory": "Grid Paths", "difficulty": 1,
+      "statement": "A robot must travel from one grid point to another using exactly 3 moves right and 2 moves up. If it never moves left or down, how many shortest routes can it take?",
+      "choices": [{"label":"A","text":"6"},{"label":"B","text":"8"},{"label":"C","text":"10"},{"label":"D","text":"12"},{"label":"E","text":"15"}],
+      "answer": "C", "shortAnswer": "10",
+      "hints": ["There are five step positions in total.", "Choose the two positions for the up moves."],
+      "solutionSteps": [{"title":"Encode a route","body":"Every shortest route is a five-character string with three R symbols and two U symbols."},{"title":"Choose positions","body":"Choose 2 of 5 positions for U; the remaining positions are R."},{"title":"Count","body":"C(5,2)=10 routes."}],
+      "tags": ["grid paths", "combinations", "shortest routes"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "purpose": "practice", "transferLevel": "near", "targetConcepts": ["C10"], "inspirationProblemIds": [],
+    "validation": {"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,"validationMethods":["combination calculation C(5,2)=10","independent Pascal recurrence ending at 10","answer-choice uniqueness audit","manual wording and bank-novelty review"],"notes":["Both path encodings count each 3R-2U string once."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "C10",
+    "problem": {
+      "id": "original-c10-near-park", "title": "Park Walk", "sourceType": "Original", "contest": "Original",
+      "category": "Counting & Probability", "subcategory": "Grid Paths", "difficulty": 1,
+      "statement": "A walker takes a shortest grid route consisting of exactly 4 blocks east and 2 blocks north. How many different shortest routes are there?",
+      "choices": [{"label":"A","text":"10"},{"label":"B","text":"12"},{"label":"C","text":"15"},{"label":"D","text":"18"},{"label":"E","text":"24"}],
+      "answer": "C", "shortAnswer": "15",
+      "hints": ["A shortest route has six moves.", "Choose the positions of the two north moves."],
+      "solutionSteps": [{"title":"Fix the inventory","body":"Every shortest route contains four E moves and two N moves."},{"title":"Choose north positions","body":"Choose 2 of the 6 positions for N."},{"title":"Count","body":"C(6,2)=15."}],
+      "tags": ["grid paths", "combinations"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "purpose": "practice", "transferLevel": "near", "targetConcepts": ["C10"], "inspirationProblemIds": [],
+    "validation": {"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,"validationMethods":["combination calculation C(6,2)=15","independent recurrence rows 1,5,15 for zero, one, and two north moves","answer-choice uniqueness audit","manual wording and bank-novelty review"]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "C10",
+    "problem": {
+      "id": "original-c10-near-drone", "title": "Drone on a Street Grid", "sourceType": "Original", "contest": "Original",
+      "category": "Counting & Probability", "subcategory": "Grid Paths", "difficulty": 1,
+      "statement": "A drone follows a shortest grid route with exactly 3 moves east and 3 moves north. How many move sequences are possible?",
+      "choices": [{"label":"A","text":"12"},{"label":"B","text":"18"},{"label":"C","text":"20"},{"label":"D","text":"24"},{"label":"E","text":"36"}],
+      "answer": "C", "shortAnswer": "20",
+      "hints": ["There are six step positions.", "Choose three positions for either direction."],
+      "solutionSteps": [{"title":"Encode","body":"A route is a six-position string with three E symbols and three N symbols."},{"title":"Choose","body":"Choose 3 of 6 positions for N."},{"title":"Count","body":"C(6,3)=20."}],
+      "tags": ["grid paths", "combinations", "Pascal triangle"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "purpose": "practice", "transferLevel": "near", "targetConcepts": ["C10"], "inspirationProblemIds": [],
+    "validation": {"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,"validationMethods":["combination calculation C(6,3)=20","independent Pascal row coefficient 1,6,15,20,15,6,1","answer-choice uniqueness audit","manual wording and bank-novelty review"]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "C10",
+    "problem": {
+      "id": "original-c10-near-library", "title": "Library Cart", "sourceType": "Original", "contest": "Original",
+      "category": "Counting & Probability", "subcategory": "Grid Paths", "difficulty": 1,
+      "statement": "A library cart follows a shortest route made of exactly 5 moves right and 2 moves up. How many shortest move sequences are possible?",
+      "choices": [{"label":"A","text":"14"},{"label":"B","text":"18"},{"label":"C","text":"20"},{"label":"D","text":"21"},{"label":"E","text":"35"}],
+      "answer": "D", "shortAnswer": "21",
+      "hints": ["The route has seven moves.", "Choose the two positions for U."],
+      "solutionSteps": [{"title":"Fix seven positions","body":"Every route uses five R moves and two U moves."},{"title":"Choose up positions","body":"The U symbols can occupy any 2 of 7 positions."},{"title":"Count","body":"C(7,2)=21."}],
+      "tags": ["grid paths", "combinations"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "purpose": "practice", "transferLevel": "near", "targetConcepts": ["C10"], "inspirationProblemIds": [],
+    "validation": {"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,"validationMethods":["combination calculation C(7,2)=21","independent sum 1+2+3+4+5+6=21 by the location of the second up move","answer-choice uniqueness audit","manual wording and bank-novelty review"]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "C10",
+    "problem": {
+      "id": "original-c10-practice-closed-intersection", "title": "Closed Intersection", "sourceType": "Original", "contest": "Original",
+      "category": "Counting & Probability", "subcategory": "Restricted Grid Paths", "difficulty": 2,
+      "statement": "A courier travels from (0,0) to (3,2), moving only one unit right or one unit up. The intersection (1,1) is closed and cannot be visited. How many shortest routes remain?",
+      "choices": [{"label":"A","text":"3"},{"label":"B","text":"4"},{"label":"C","text":"5"},{"label":"D","text":"6"},{"label":"E","text":"10"}],
+      "answer": "B", "shortAnswer": "4",
+      "hints": ["Give the closed point a path count of zero.", "Or subtract paths through (1,1) from all C(5,2) unrestricted paths."],
+      "solutionSteps": [{"title":"Count all routes","body":"Without the closure there are C(5,2)=10 routes."},{"title":"Count routes through the closure","body":"There are C(2,1)=2 ways to reach (1,1) and C(3,1)=3 ways to continue, giving 6 forbidden routes."},{"title":"Remove forbidden routes","body":"10−6=4 legal routes remain."}],
+      "tags": ["grid paths", "obstacles", "recurrence"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "purpose": "practice", "transferLevel": "mixed", "targetConcepts": ["C10"], "inspirationProblemIds": [],
+    "validation": {"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,"validationMethods":["obstacle subtraction C(5,2)−C(2,1)C(3,1)=10−6=4","independent dynamic-programming grid ending at 4","answer-choice uniqueness audit","manual wording and bank-novelty review"],"notes":["The two methods independently confirm that six unrestricted paths are invalid."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "C10",
+    "problem": {
+      "id": "original-c10-mixed-checkpoint", "title": "Route Through a Checkpoint", "sourceType": "Original", "contest": "Original",
+      "category": "Counting & Probability", "subcategory": "Grid Paths Through a Point", "difficulty": 2,
+      "statement": "A robot moves from (0,0) to (4,3), one unit right or up at a time, and must pass through (2,1). How many shortest routes satisfy the requirement?",
+      "choices": [{"label":"A","text":"12"},{"label":"B","text":"15"},{"label":"C","text":"18"},{"label":"D","text":"21"},{"label":"E","text":"35"}],
+      "answer": "C", "shortAnswer": "18",
+      "hints": ["Split the route at the required point.", "Count routes into and out of the checkpoint separately."],
+      "solutionSteps": [{"title":"Reach the checkpoint","body":"From (0,0) to (2,1), choose the one U position among three: C(3,1)=3."},{"title":"Leave the checkpoint","body":"From (2,1) to (4,3), choose two U positions among four: C(4,2)=6."},{"title":"Join the stages","body":"Each incoming route can continue along each outgoing route, so 3×6=18."}],
+      "tags": ["grid paths", "checkpoint", "product rule"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "purpose": "practice", "transferLevel": "mixed", "targetConcepts": ["C10", "C3"], "inspirationProblemIds": [],
+    "validation": {"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,"validationMethods":["checkpoint product C(3,1)C(4,2)=3×6=18","independent enumeration by the checkpoint arrival string and four-step departure count","answer-choice uniqueness audit","manual wording and bank-novelty review"]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "C10",
+    "problem": {
+      "id": "original-c10-mixed-first-east", "title": "First Move East", "sourceType": "Original", "contest": "Original",
+      "category": "Counting & Probability", "subcategory": "Restricted Grid Paths", "difficulty": 2,
+      "statement": "A shortest grid route uses exactly 5 east moves and 3 north moves. How many such routes begin with an east move?",
+      "choices": [{"label":"A","text":"21"},{"label":"B","text":"28"},{"label":"C","text":"35"},{"label":"D","text":"40"},{"label":"E","text":"56"}],
+      "answer": "C", "shortAnswer": "35",
+      "hints": ["Fix the required first move before counting.", "Seven positions remain for four E and three N moves."],
+      "solutionSteps": [{"title":"Fix the first step","body":"Place E in the first position, using one of the five east moves."},{"title":"Arrange what remains","body":"The remaining seven positions contain four E symbols and three N symbols."},{"title":"Count","body":"Choose the three N positions: C(7,3)=35."}],
+      "tags": ["grid paths", "fixed first step", "combinations"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "purpose": "practice", "transferLevel": "mixed", "targetConcepts": ["C10"], "inspirationProblemIds": [],
+    "validation": {"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,"validationMethods":["fixed-first-step calculation C(7,3)=35","independent ratio check: 5/8 of C(8,3)=56 gives 35","answer-choice uniqueness audit","manual wording and bank-novelty review"]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "C10",
+    "problem": {
+      "id": "original-c10-mixed-diagonal", "title": "Diagonal Step Strings", "sourceType": "Original", "contest": "Original",
+      "category": "Counting & Probability", "subcategory": "Path Counting", "difficulty": 2,
+      "statement": "A marker makes 6 diagonal upward steps. Each step goes one column left or one column right. To finish 2 columns to the right of where it started, how many left-right step strings are possible if there are no board edges?",
+      "choices": [{"label":"A","text":"6"},{"label":"B","text":"10"},{"label":"C","text":"12"},{"label":"D","text":"15"},{"label":"E","text":"20"}],
+      "answer": "D", "shortAnswer": "15",
+      "hints": ["Let r and l be the numbers of right and left steps.", "Solve r+l=6 and r−l=2, then choose positions."],
+      "solutionSteps": [{"title":"Find the move inventory","body":"The equations r+l=6 and r−l=2 give r=4 and l=2."},{"title":"Choose positions","body":"Choose the 2 left-step positions among the 6 total steps."},{"title":"Count","body":"C(6,2)=15."}],
+      "tags": ["path counting", "diagonal moves", "combinations"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "purpose": "practice", "transferLevel": "mixed", "targetConcepts": ["C10"], "inspirationProblemIds": [],
+    "validation": {"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,"validationMethods":["solve r+l=6 and r−l=2 then calculate C(6,2)=15","independent Pascal recurrence for six unrestricted left-right steps at displacement two","answer-choice uniqueness audit","manual wording and bank-novelty review"]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "C10",
+    "problem": {
+      "id": "original-c10-challenge-two-closed", "title": "Two Closed Intersections", "sourceType": "Original", "contest": "Original",
+      "category": "Counting & Probability", "subcategory": "Restricted Grid Paths", "difficulty": 3,
+      "statement": "A courier moves from (0,0) to (4,4), one unit right or up at a time. The intersections (1,2) and (3,2) are closed. How many shortest routes avoid both intersections?",
+      "choices": [{"label":"A","text":"9"},{"label":"B","text":"15"},{"label":"C","text":"19"},{"label":"D","text":"28"},{"label":"E","text":"34"}],
+      "answer": "C", "shortAnswer": "19",
+      "hints": ["Write zero at both closed points.", "Fill each remaining point by adding its left and lower predecessor counts."],
+      "solutionSteps": [{"title":"Seed the grid","body":"Write 1 at (0,0) and 0 at each closed point."},{"title":"Propagate legal counts","body":"At every other point, add the legal counts immediately left and below."},{"title":"Read the destination","body":"The two destination predecessors contain 10 and 9 paths, giving 19."}],
+      "tags": ["grid paths", "multiple obstacles", "recurrence"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "purpose": "practice", "transferLevel": "challenge", "targetConcepts": ["C10"], "inspirationProblemIds": [],
+    "validation": {"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,"validationMethods":["independent dynamic-programming table ending at 19","cross-check 70−30−30+9=19 by correcting overlap among routes through the two closed points","answer-choice uniqueness audit","manual wording and bank-novelty review"],"notes":["The learner-facing primary method uses only C10 recurrence; the second method independently verifies the answer."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "C10",
+    "problem": {
+      "id": "original-c10-challenge-two-checkpoints", "title": "Two Required Checkpoints", "sourceType": "Original", "contest": "Original",
+      "category": "Counting & Probability", "subcategory": "Grid Paths Through Points", "difficulty": 3,
+      "statement": "A robot moves from (0,0) to (5,4), one unit right or up at a time, and must visit (1,1) and then (3,3). How many shortest routes satisfy both requirements?",
+      "choices": [{"label":"A","text":"18"},{"label":"B","text":"24"},{"label":"C","text":"30"},{"label":"D","text":"36"},{"label":"E","text":"60"}],
+      "answer": "D", "shortAnswer": "36",
+      "hints": ["Split the route into three sections at the two checkpoints.", "Multiply because every choice for one section can join every choice for the next."],
+      "solutionSteps": [{"title":"First section","body":"From (0,0) to (1,1), there are C(2,1)=2 routes."},{"title":"Middle section","body":"From (1,1) to (3,3), there are C(4,2)=6 routes."},{"title":"Final section","body":"From (3,3) to (5,4), there are C(3,1)=3 routes."},{"title":"Join sections","body":"Multiply the independent section choices: 2×6×3=36."}],
+      "tags": ["grid paths", "checkpoints", "product rule"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "purpose": "practice", "transferLevel": "challenge", "targetConcepts": ["C10", "C3"], "inspirationProblemIds": [],
+    "validation": {"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,"validationMethods":["section product C(2,1)C(4,2)C(3,1)=2×6×3=36","independent nested enumeration of 2 first-section choices, 6 middle strings, and 3 final strings","answer-choice uniqueness audit","manual wording and bank-novelty review"]}
+  }
+]

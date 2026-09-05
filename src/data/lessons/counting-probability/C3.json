@@ -1,0 +1,951 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "C3",
+  "curriculumNodeId": "C3",
+  "title": "Factorials & Ordered Arrangements",
+  "lessonType": "foundation",
+  "status": "draft",
+  "estimatedMinutes": 28,
+  "coreInsight": "When distinct objects fill ordered positions, the number of available choices shrinks one position at a time, creating factorial products.",
+  "targetLearnerRealization": "Five distinct objects filling five ordered positions create 5 choices, then 4, then 3, then 2, then 1, so the arrangement count is 5!.",
+  "learningObjectives": [
+    "Build an ordered-arrangement count by multiplying the shrinking number of choices for successive positions.",
+    "Interpret n! as n × (n−1) × ··· × 2 × 1 and explain 0! through the single empty arrangement.",
+    "Decide whether order and object distinctness make a factorial count valid without adjustment."
+  ],
+  "hardPrerequisites": [
+    "C1"
+  ],
+  "narrativePredecessor": "C1",
+  "continuity": {
+    "openingCallback": "Reuse C1's multiplication principle, but update the number of continuations after each distinct person takes a lineup position.",
+    "closingSeeds": [
+      "When order does not change the true outcome, several ordered lineups may describe the same object and must be grouped together."
+    ],
+    "nextLessonIds": [
+      "C6",
+      "C7"
+    ]
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "Factorial applies whenever objects are selected, even if order is irrelevant.",
+      "beatIds": [
+        "factorial-boundaries",
+        "practice-mixed-committee",
+        "c3-recap"
+      ]
+    },
+    {
+      "misconception": "0! should equal 0.",
+      "beatIds": [
+        "empty-arrangement",
+        "c3-recap"
+      ]
+    },
+    {
+      "misconception": "Repeated or identical objects can be treated as fully distinct without consequence.",
+      "beatIds": [
+        "identical-tiles",
+        "practice-mixed-flags",
+        "c3-recap"
+      ]
+    },
+    {
+      "misconception": "Two arrangements with different order can represent the same outcome when the problem ignores order.",
+      "beatIds": [
+        "what-order-changes",
+        "factorial-boundaries",
+        "practice-mixed-committee"
+      ]
+    }
+  ],
+  "beats": [
+    {
+      "id": "five-friend-lineup",
+      "phase": "puzzle",
+      "kind": "problem",
+      "purpose": "Reactivate C1's multiplication principle and let the shrinking continuation counts emerge from one concrete ordered lineup before any factorial vocabulary appears.",
+      "expectedRealization": "A filled position removes one distinct person from all later choices, so the factors shrink from 5 to 1.",
+      "transitionIn": "In C1, you multiplied successive choices when every complete outcome followed each stage. Keep that habit—but now every choice removes one option from the stages that follow.",
+      "estimatedSeconds": 150,
+      "source": "generated",
+      "problemId": "original-c3-five-friend-lineup",
+      "role": "anchor",
+      "presentation": "full-prompt",
+      "whyNow": "A five-person row is small enough to reason through position by position while clearly exposing why the available choices decrease.",
+      "entryBridge": "Treat a complete left-to-right lineup as one outcome and count the choices for each numbered position.",
+      "exitBridge": "The five factors are not five unrelated counts; each records how many friends remain when the next spot is filled.",
+      "reusedRepresentation": "C1's successive-choice branches compressed into five ordered lineup slots.",
+      "animation": {
+        "mode": "none",
+        "controlledByLesson": true,
+        "autoplay": false,
+        "showPlayerControls": false
+      },
+      "learnerPrompts": [
+        "How many choices are available for the first position?",
+        "After one friend is placed, how many choices remain for the second position?",
+        "What product counts all completed lineups?"
+      ],
+      "correctFeedback": "Yes. Each lineup follows five successive choices whose branch count decreases by one.",
+      "incorrectFeedback": "Track the positions from left to right and update the number of unplaced friends each time.",
+      "resolution": {
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              {
+                "label": "Fill five numbered spots",
+                "pattern": "1st  →  2nd  →  3rd  →  4th  →  5th",
+                "calculation": "5 choices × 4 × 3 × 2 × 1 = 120"
+              }
+            ],
+            "total": "120 distinct lineups"
+          },
+          "continuityKey": "c3-five-lineup-slots",
+          "ariaLabel": "Five ordered lineup positions with five, four, three, two, and one available choices"
+        },
+        "steps": [
+          {
+            "title": "Start a branch",
+            "body": "Any of the 5 friends can stand first. Once that choice is made, only 4 unplaced friends can stand second."
+          },
+          {
+            "title": "Keep updating",
+            "body": "The later positions have 3, then 2, then 1 remaining choice. Every finished lineup follows exactly one such branch."
+          },
+          {
+            "title": "Multiply along the branch",
+            "body": "C1's multiplication principle counts the complete position-by-position outcomes.",
+            "math": "5 × 4 × 3 × 2 × 1 = 120"
+          }
+        ],
+        "takeaway": "Distinct objects in ordered positions create a product whose available-choice count shrinks by one at every step."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "why-choices-shrink",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Make the learner explain the decreasing factors rather than merely copy the product.",
+      "expectedRealization": "The count shrinks because already placed distinct people cannot be reused.",
+      "transitionIn": "The product is visible. Now account for why its factors cannot stay at five.",
+      "estimatedSeconds": 60,
+      "prompt": "Why does the second lineup position have 4 choices instead of 5?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {
+            "id": "position-used",
+            "text": "One position has already been used."
+          },
+          {
+            "id": "person-used",
+            "text": "One distinct person has already been placed and cannot be reused."
+          },
+          {
+            "id": "always-shrink",
+            "text": "Every multiplication problem must decrease its factors."
+          }
+        ],
+        "correctId": "person-used",
+        "feedback": {
+          "position-used": "Using a position matters only because a particular friend now occupies it; it is the unavailable person who removes a later choice.",
+          "person-used": "Exactly. The pool of unplaced people loses one member after every placement.",
+          "always-shrink": "Factors shrink only when earlier choices remove options from later stages."
+        }
+      },
+      "correctFeedback": "Right—the remaining pool, not the number of stages, controls each new factor.",
+      "incorrectFeedback": "Ask what changed in the set of people who are still available.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {
+            "body": "The positions stay distinct throughout. What changes is the pool: 5 unplaced friends becomes 4, then 3, then 2, then 1."
+          }
+        ],
+        "takeaway": "A shrinking product is justified only when each earlier choice removes an option from later positions."
+      }
+    },
+    {
+      "id": "what-order-changes",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Establish that order must change the defined outcome before an arrangement count is valid.",
+      "expectedRealization": "Swapping two people creates a different numbered lineup, but would not create a different role-free group.",
+      "transitionIn": "Distinctness explains the shrinking pool. The word ordered explains why all those branches count as different outcomes.",
+      "estimatedSeconds": 70,
+      "prompt": "Ava–Ben–Chen and Ben–Ava–Chen use the same three people. In numbered lineup positions, are they different outcomes?",
+      "visual": {
+        "primitive": "choice-grid",
+        "data": {
+          "groups": [
+            {
+              "label": "Lineup A",
+              "choices": [
+                "1st Ava",
+                "2nd Ben",
+                "3rd Chen"
+              ]
+            },
+            {
+              "label": "Lineup B",
+              "choices": [
+                "1st Ben",
+                "2nd Ava",
+                "3rd Chen"
+              ]
+            }
+          ]
+        },
+        "continuityKey": "c3-order-comparison",
+        "ariaLabel": "Two lineups containing the same people with Ava and Ben in different numbered positions"
+      },
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {
+            "id": "different",
+            "text": "Yes, because Ava and Ben occupy different positions."
+          },
+          {
+            "id": "same",
+            "text": "No, because the same three people appear."
+          }
+        ],
+        "correctId": "different",
+        "feedback": {
+          "different": "Yes. A numbered lineup records who occupies each position, so the swap changes the outcome.",
+          "same": "That would be true for a role-free group, but a lineup records positions as well as membership."
+        }
+      },
+      "correctFeedback": "Exactly. In a lineup, membership and position both belong to the outcome.",
+      "incorrectFeedback": "Compare who is first and who is second, not only which names appear.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {
+            "body": "The two rows use the same set of names, but first and second are different roles. Swapping Ava and Ben changes both role assignments."
+          }
+        ],
+        "takeaway": "Count different orders separately only when position or sequence is part of the outcome."
+      }
+    },
+    {
+      "id": "name-factorial",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Attach standard notation to the shrinking product the learner has already constructed and explained.",
+      "expectedRealization": "Factorial is shorthand for the full descending product, not a new counting rule detached from the slots.",
+      "transitionIn": "You have already built and justified the product. Now give this recurring descending pattern its compact name.",
+      "estimatedSeconds": 55,
+      "name": "Factorial",
+      "conciseDefinition": "For a positive integer n, n! is the product n × (n−1) × ··· × 2 × 1.",
+      "formalization": "n! = n(n−1)(n−2)···2·1, so 5! = 5×4×3×2×1 = 120.",
+      "memoryHook": "Factorial records the countdown of available choices when n distinct objects fill all n ordered positions."
+    },
+    {
+      "id": "empty-arrangement",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Ground 0! in the empty arrangement so the value is meaningful rather than arbitrary.",
+      "expectedRealization": "There is exactly one way to arrange no objects: leave the lineup empty.",
+      "transitionIn": "The countdown ends at one. Push the same arrangement question one step farther: what happens when there is nothing to place?",
+      "estimatedSeconds": 70,
+      "prompt": "How many completed arrangements can be made from zero objects?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {
+            "id": "zero",
+            "text": "0, because there are no objects"
+          },
+          {
+            "id": "one",
+            "text": "1: the single empty arrangement"
+          },
+          {
+            "id": "undefined",
+            "text": "It has no meaning"
+          }
+        ],
+        "correctId": "one",
+        "feedback": {
+          "zero": "There are no nonempty arrangements, but there is one completed way to place every object: place nothing.",
+          "one": "Yes. The empty row is one valid completed arrangement.",
+          "undefined": "The arrangement interpretation still makes sense: all zero objects have been placed exactly once."
+        }
+      },
+      "correctFeedback": "Right. One empty outcome keeps the arrangement count consistent.",
+      "incorrectFeedback": "Distinguish 'no objects inside the outcome' from 'no outcome at all.'",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              {
+                "label": "Arrange no objects",
+                "pattern": "(empty row)",
+                "calculation": "one completed empty arrangement"
+              }
+            ],
+            "total": "0! = 1"
+          },
+          "ariaLabel": "One empty row representing the single arrangement of zero objects"
+        },
+        "steps": [
+          {
+            "body": "The instruction 'place every object' is already complete when there are no objects. The empty row is one outcome, not zero outcomes."
+          },
+          {
+            "body": "This also preserves the factorial step n! = n×(n−1)! at n=1.",
+            "math": "1! = 1 × 0! = 1, so 0! = 1"
+          }
+        ],
+        "takeaway": "Zero objects have one empty arrangement, so 0! = 1."
+      }
+    },
+    {
+      "id": "factorial-boundaries",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Separate situations counted directly by factorial from selections or repeated-object arrangements that need different reasoning.",
+      "expectedRealization": "A direct n! count requires n distinct objects filling n ordered positions.",
+      "transitionIn": "Factorial is powerful because its conditions are precise. Test those conditions before using the shorthand.",
+      "estimatedSeconds": 105,
+      "prompt": "Sort each situation by whether n! directly counts the outcomes.",
+      "response": {
+        "kind": "sort",
+        "items": [
+          {
+            "id": "photos",
+            "text": "Arrange 5 distinct photos across 5 numbered frames."
+          },
+          {
+            "id": "race",
+            "text": "Record the complete finishing order of 6 distinct runners."
+          },
+          {
+            "id": "committee",
+            "text": "Choose 3 of 5 students for a committee with no roles."
+          },
+          {
+            "id": "repeated-tiles",
+            "text": "Arrange tiles R, R, and B when the two red tiles look identical."
+          }
+        ],
+        "buckets": [
+          {
+            "id": "direct",
+            "text": "Factorial counts directly"
+          },
+          {
+            "id": "not-direct",
+            "text": "Needs different or adjusted reasoning"
+          }
+        ],
+        "correctBucketByItem": {
+          "photos": "direct",
+          "race": "direct",
+          "committee": "not-direct",
+          "repeated-tiles": "not-direct"
+        },
+        "feedback": "Check both conditions: are all objects distinct, and does changing their order change the outcome?"
+      },
+      "correctFeedback": "Yes. Distinct objects plus ordered positions make the full factorial count direct.",
+      "incorrectFeedback": "Use the two-part test: distinct objects, and order that matters.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              {
+                "label": "Factorial counts directly",
+                "items": [
+                  "5 distinct photos in 5 numbered frames",
+                  "complete order of 6 distinct runners"
+                ]
+              },
+              {
+                "label": "Needs another step",
+                "items": [
+                  "role-free committee: order is ignored",
+                  "R, R, B: two objects are identical"
+                ]
+              }
+            ]
+          },
+          "ariaLabel": "Four situations grouped by whether factorial directly counts their outcomes"
+        },
+        "steps": [
+          {
+            "body": "The photo and race outcomes record a position for every distinct object, so every order is genuinely different."
+          },
+          {
+            "body": "Reordering a committee does not change its members, and swapping identical red tiles does not change what is visible. A raw factorial repeats outcomes in both situations."
+          }
+        ],
+        "takeaway": "Use n! directly for n distinct objects in n ordered positions; otherwise inspect what the outcome actually remembers."
+      }
+    },
+    {
+      "id": "identical-tiles",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Expose how identical objects collapse labeled orders without turning the lesson into the later general overcounting technique.",
+      "expectedRealization": "Swapping two identical objects creates a second description but not a second visible arrangement.",
+      "transitionIn": "One failed condition deserves a closer look. Temporarily label identical objects, then erase the labels and watch what merges.",
+      "estimatedSeconds": 90,
+      "prompt": "Tiles R₁, R₂, and B have 3! = 6 labeled orders. If the subscripts are erased so the red tiles look identical, how many visibly different rows remain?",
+      "response": {
+        "kind": "numeric",
+        "answer": 3,
+        "feedback": "List rows by the position of the blue tile; swapping R₁ and R₂ changes no visible row."
+      },
+      "correctFeedback": "Exactly. The blue tile can occupy any of three positions, and the red tiles fill the rest indistinguishably.",
+      "incorrectFeedback": "After erasing subscripts, compare rows by color rather than by hidden labels.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              {
+                "label": "R R B",
+                "items": [
+                  "R₁R₂B",
+                  "R₂R₁B"
+                ]
+              },
+              {
+                "label": "R B R",
+                "items": [
+                  "R₁BR₂",
+                  "R₂BR₁"
+                ]
+              },
+              {
+                "label": "B R R",
+                "items": [
+                  "BR₁R₂",
+                  "BR₂R₁"
+                ]
+              }
+            ]
+          },
+          "continuityKey": "c3-identical-red-tiles",
+          "ariaLabel": "Six labeled tile orders grouped into three visible rows after the red labels are erased"
+        },
+        "steps": [
+          {
+            "title": "Count labeled descriptions",
+            "body": "Treating the two reds as R₁ and R₂ produces six orders."
+          },
+          {
+            "title": "Erase invisible information",
+            "body": "Within each displayed pair, swapping the red labels leaves the same color row. The six descriptions collapse to three visible outcomes."
+          }
+        ],
+        "takeaway": "Factorial counts labeled orders; identical objects can make several labeled orders describe the same visible arrangement."
+      }
+    },
+    {
+      "id": "factorial-equation-transfer",
+      "phase": "competition-application",
+      "kind": "problem",
+      "purpose": "Transfer factorial meaning from arrangements to an algebraic equation while preserving the descending-factor structure instead of evaluating huge products.",
+      "expectedRealization": "Regrouping 5! as 12×10 lets 10 join 9! to form 10!, so N=10.",
+      "transitionIn": "You can now read every factorial as a shrinking run of choices and know when that run counts arrangements. An AMC problem uses the same run as an algebraic object.",
+      "transitionOut": "The useful move was not brute-force evaluation; it was seeing how one factorial grows from the previous one.",
+      "estimatedSeconds": 180,
+      "source": "bank",
+      "problemId": "amc8-2020-12",
+      "role": "transfer",
+      "presentation": "full-prompt",
+      "whyNow": "The notation is meaningful now, so the learner can exploit adjacent factorial structure without confusing the equation for the source of the definition.",
+      "entryBridge": "Expand only the factors that help match the 12 and build the next rung above 9!.",
+      "exitBridge": "Return to arrangements with the habit of exposing only the shrinking factors a problem actually needs.",
+      "reusedRepresentation": "The descending choice counters become factor tiles that can be regrouped and extended by one rung.",
+      "animation": {
+        "mode": "slice",
+        "stepIndices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "controlledByLesson": true,
+        "autoplay": false,
+        "showPlayerControls": false
+      },
+      "learnerPrompts": [
+        "What descending product does each factorial stand for?",
+        "Which factors inside 5! multiply to 12, and what factor remains?",
+        "What factorial is created when that remaining factor joins 9!?"
+      ],
+      "correctFeedback": "Yes. Regrouping exposes 10×9! = 10! without evaluating either large factorial.",
+      "incorrectFeedback": "Look inside 5! for 4×3, then track the factors left over.",
+      "resolution": {
+        "animation": {
+          "kind": "problem-animation"
+        },
+        "steps": [
+          {
+            "title": "Open only 5!",
+            "body": "Inside 5×4×3×2×1, the factors 4 and 3 make the coefficient 12. The remaining factors make 10.",
+            "math": "5! = (4×3)(5×2×1) = 12×10"
+          },
+          {
+            "title": "Build the next factorial",
+            "body": "The leftover 10 is exactly the next factor above 9!, so 10×9! is 10!.",
+            "math": "5!×9! = 12×10×9! = 12×10!"
+          },
+          {
+            "title": "Match the equation",
+            "body": "Both sides are 12 times a factorial, so N! = 10! and the positive integer N is 10.",
+            "math": "N = 10"
+          }
+        ],
+        "takeaway": "Factorials grow one rung at a time: (n+1)! = (n+1)×n!."
+      },
+      "sourceLabelTiming": "completion"
+    },
+    {
+      "id": "practice-introduction",
+      "phase": "independent-transfer",
+      "kind": "copy",
+      "purpose": "Shift from guided distinctions to independent outcome-definition and shrinking-product decisions.",
+      "expectedRealization": "Each problem begins by deciding whether positions, roles, or visible differences make order matter.",
+      "transitionIn": "The notation is compact, but the reasoning still begins with the outcome. Use that test independently across five variations.",
+      "estimatedSeconds": 30,
+      "heading": "Independent practice",
+      "body": "For each problem, define one outcome first. Then decide whether to use a full factorial, a partial shrinking product, or a smaller count because some orders are indistinguishable."
+    },
+    {
+      "id": "practice-near-books",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Verify direct use of factorial on a fresh full arrangement of distinct objects.",
+      "expectedRealization": "Six distinct books filling all six ordered shelf positions produce 6! arrangements.",
+      "transitionIn": "Begin with the clean factorial case: every object is distinct and every shelf position matters.",
+      "estimatedSeconds": 90,
+      "source": "generated",
+      "problemId": "original-c3-practice-books",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This near-transfer item checks whether the learner can independently recognize the exact conditions for direct factorial use.",
+      "entryBridge": "Count the choices for successive shelf positions.",
+      "exitBridge": "The entire descending run appears because every book is placed.",
+      "animation": {
+        "mode": "none",
+        "controlledByLesson": true,
+        "autoplay": false,
+        "showPlayerControls": false
+      },
+      "learnerPrompts": [
+        "Are all six books distinct?",
+        "Does changing their left-to-right order change the display?"
+      ],
+      "resolution": {
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              {
+                "label": "Six shelf positions",
+                "pattern": "1st → 2nd → 3rd → 4th → 5th → 6th",
+                "calculation": "6 × 5 × 4 × 3 × 2 × 1 = 720"
+              }
+            ]
+          },
+          "ariaLabel": "Six ordered shelf positions with a descending product equal to 720"
+        },
+        "steps": [
+          {
+            "body": "Each placed book is unavailable later, so the choice counts descend from 6 to 1.",
+            "math": "6! = 720"
+          }
+        ],
+        "takeaway": "A full arrangement of six distinct books is counted directly by 6!."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-near-medals",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Extend the shrinking-choice idea to fewer ordered roles than available people without forcing full factorial notation.",
+      "expectedRealization": "Three distinct medal roles filled from five finalists produce 5×4×3 outcomes.",
+      "transitionIn": "Now stop the shrinking product early because only three of the five finalists receive ordered roles.",
+      "estimatedSeconds": 100,
+      "source": "generated",
+      "problemId": "original-c3-practice-medals",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The near variation checks that factorial meaning is stronger than mechanically writing 5! whenever five people appear.",
+      "entryBridge": "Gold, silver, and bronze are three different positions, but there are only three placements to make.",
+      "exitBridge": "The product stops at 3 because the fourth and fifth finalists receive no recorded position.",
+      "animation": {
+        "mode": "none",
+        "controlledByLesson": true,
+        "autoplay": false,
+        "showPlayerControls": false
+      },
+      "learnerPrompts": [
+        "How many choices are there for gold?",
+        "After gold and silver are assigned, how many choices remain for bronze?"
+      ],
+      "resolution": {
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              {
+                "label": "Three medal roles",
+                "pattern": "gold → silver → bronze",
+                "calculation": "5 × 4 × 3 = 60"
+              }
+            ]
+          },
+          "ariaLabel": "Gold, silver, and bronze positions with five, four, and three choices"
+        },
+        "steps": [
+          {
+            "body": "There are 5 gold choices, 4 remaining silver choices, and 3 remaining bronze choices.",
+            "math": "5 × 4 × 3 = 60"
+          }
+        ],
+        "takeaway": "Use the shrinking-position product even when it stops before reaching 1."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-mixed-flags",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Require an independent count of a repeated-object arrangement using visible distinctions rather than a raw factorial.",
+      "expectedRealization": "Choosing positions for the distinct blue and green flags uniquely determines the two identical red positions.",
+      "transitionIn": "The next row still has four positions, but not four distinct objects. Count only decisions that change the visible result.",
+      "estimatedSeconds": 110,
+      "source": "generated",
+      "problemId": "original-c3-practice-flags",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This mixed item checks whether the learner repairs the identical-object misconception with a constructive count rather than repeating 4!.",
+      "entryBridge": "Place the blue flag, then the green flag; the two remaining positions must be red.",
+      "exitBridge": "No hidden label on a red flag creates an extra visible arrangement.",
+      "animation": {
+        "mode": "none",
+        "controlledByLesson": true,
+        "autoplay": false,
+        "showPlayerControls": false
+      },
+      "learnerPrompts": [
+        "How many visible choices are there for the blue flag's position?",
+        "Once blue and green are placed, is there any remaining red decision?"
+      ],
+      "resolution": {
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              {
+                "label": "Place the distinct colors",
+                "pattern": "blue position → green position → reds fill the rest",
+                "calculation": "4 × 3 × 1 = 12"
+              }
+            ]
+          },
+          "ariaLabel": "Four flag positions counted by placing blue, then green, then the two identical red flags"
+        },
+        "steps": [
+          {
+            "body": "Blue has 4 possible positions. Green then has 3. The two leftover positions receive identical red flags in just one visible way.",
+            "math": "4 × 3 × 1 = 12"
+          },
+          {
+            "title": "Connection",
+            "body": "If the red flags were temporarily labeled, 4! would count each visible row twice—once for each hidden red-label order—so 24 ÷ 2 also gives 12."
+          }
+        ],
+        "takeaway": "When objects are identical, count choices that change the visible arrangement; invisible swaps do not create new outcomes."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-mixed-committee",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Test whether the learner checks order relevance instead of applying factorial to every selection.",
+      "expectedRealization": "A three-person committee chosen from four is determined by the one person omitted, so there are four outcomes.",
+      "transitionIn": "This time every person is distinct, but the result records membership and no positions. Decide what an outcome remembers.",
+      "estimatedSeconds": 105,
+      "source": "generated",
+      "problemId": "original-c3-practice-committee",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The role-free committee directly targets the belief that distinct selected people automatically imply a factorial count.",
+      "entryBridge": "Look for a description that names each committee once without assigning an order.",
+      "exitBridge": "Choosing who sits out creates four complete, non-overlapping cases.",
+      "animation": {
+        "mode": "none",
+        "controlledByLesson": true,
+        "autoplay": false,
+        "showPlayerControls": false
+      },
+      "learnerPrompts": [
+        "Does listing the same three names in a new order create a new committee?",
+        "What single omitted person determines the committee?"
+      ],
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              {
+                "label": "Ava sits out",
+                "items": [
+                  "Ben, Chen, Dia"
+                ]
+              },
+              {
+                "label": "Ben sits out",
+                "items": [
+                  "Ava, Chen, Dia"
+                ]
+              },
+              {
+                "label": "Chen sits out",
+                "items": [
+                  "Ava, Ben, Dia"
+                ]
+              },
+              {
+                "label": "Dia sits out",
+                "items": [
+                  "Ava, Ben, Chen"
+                ]
+              }
+            ]
+          },
+          "ariaLabel": "Four three-person committees indexed by the one person who sits out"
+        },
+        "steps": [
+          {
+            "body": "Each committee is determined by exactly one omitted person, and the four sit-out cases cover every committee without overlap."
+          }
+        ],
+        "takeaway": "Distinct people do not guarantee a factorial count; order must also change the outcome."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-challenge-endpoints",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Combine a small case choice with a factorial arrangement of the remaining distinct objects.",
+      "expectedRealization": "The two special artifacts can occupy the ends in two orders, while the other four fill the middle in 4! ways.",
+      "transitionIn": "Finish by combining C1's stage structure with today's factorial: settle the constrained ends, then arrange the remaining middle.",
+      "estimatedSeconds": 130,
+      "source": "generated",
+      "problemId": "original-c3-practice-endpoints",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The challenge asks the learner to decompose a constrained arrangement without introducing a new technique beyond multiplication and factorials.",
+      "entryBridge": "First choose which special artifact goes on the left end; the other is then forced to the right end.",
+      "exitBridge": "Each of the two end orders supports all 4! middle arrangements.",
+      "animation": {
+        "mode": "none",
+        "controlledByLesson": true,
+        "autoplay": false,
+        "showPlayerControls": false
+      },
+      "learnerPrompts": [
+        "How many orders can the Sun and Moon artifacts take on the two ends?",
+        "How many ways can the other four distinct artifacts fill the middle positions?"
+      ],
+      "resolution": {
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              {
+                "label": "Sun left, Moon right",
+                "pattern": "Sun | _  _  _  _ | Moon",
+                "calculation": "4! = 24"
+              },
+              {
+                "label": "Moon left, Sun right",
+                "pattern": "Moon | _  _  _  _ | Sun",
+                "calculation": "4! = 24"
+              }
+            ],
+            "total": "24 + 24 = 48 arrangements"
+          },
+          "ariaLabel": "Two end-position cases, each with four factorial arrangements of the middle artifacts"
+        },
+        "steps": [
+          {
+            "title": "Arrange the ends",
+            "body": "Sun and Moon can occupy left-right ends in 2 orders."
+          },
+          {
+            "title": "Arrange the middle",
+            "body": "For either end order, the other four distinct artifacts fill the four middle spots in 4! ways."
+          },
+          {
+            "title": "Combine the stages",
+            "body": "Each end order supports every middle arrangement.",
+            "math": "2 × 4! = 2 × 24 = 48"
+          }
+        ],
+        "takeaway": "Handle a constraint first, then apply factorial only to the distinct objects and ordered positions that remain."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "c3-recap",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate the lesson's decision process and exceptional base case before the forward hook.",
+      "expectedRealization": "A reliable factorial count follows from a shrinking-choice argument plus checks for order, distinctness, and the empty case.",
+      "transitionIn": "Collect the checks that made every count trustworthy before asking what happens when order stops mattering.",
+      "estimatedSeconds": 90,
+      "prompt": "Which statements belong in a reliable factorial-arrangement toolkit? Select all four.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {
+            "id": "shrink",
+            "text": "Track how earlier placements reduce later choices."
+          },
+          {
+            "id": "order",
+            "text": "Check whether changing order changes the outcome."
+          },
+          {
+            "id": "distinct",
+            "text": "Check whether all objects being permuted are distinguishable."
+          },
+          {
+            "id": "empty",
+            "text": "Remember that the empty arrangement gives 0! = 1."
+          },
+          {
+            "id": "always",
+            "text": "Use n! whenever a problem mentions n objects."
+          }
+        ],
+        "correctIds": [
+          "shrink",
+          "order",
+          "distinct",
+          "empty"
+        ],
+        "feedback": "The number of mentioned objects alone is not enough; the outcome definition controls the count."
+      },
+      "correctFeedback": "Yes. Those four checks connect the notation to the arrangement it counts.",
+      "incorrectFeedback": "Reject any rule that ignores positions, repeated objects, or the way choices shrink.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {
+                "label": "Build",
+                "choices": [
+                  "Multiply shrinking choices"
+                ]
+              },
+              {
+                "label": "Check",
+                "choices": [
+                  "Order matters",
+                  "Objects are distinct"
+                ]
+              },
+              {
+                "label": "Base case",
+                "choices": [
+                  "One empty arrangement: 0! = 1"
+                ]
+              }
+            ]
+          },
+          "ariaLabel": "A factorial toolkit showing the shrinking product, order and distinctness checks, and the empty arrangement"
+        },
+        "takeaway": "Factorial notation compresses a justified shrinking-choice count; it does not replace defining the outcomes."
+      }
+    },
+    {
+      "id": "overcounting-hook",
+      "phase": "reflection",
+      "kind": "reflection",
+      "purpose": "Create the unresolved question that leads from ordered arrangements to C6's overcounting and symmetry.",
+      "expectedRealization": "If several orders represent one true outcome, the factorial count contains structured duplicates that need to be grouped.",
+      "transitionIn": "Your factorial count is now secure when every order is a different outcome. Let that assumption fail on purpose.",
+      "estimatedSeconds": 55,
+      "prompt": "Six ordered name cards—ABC, ACB, BAC, BCA, CAB, CBA—are all different lineups. If the task only chooses the role-free group {A, B, C}, how many descriptions belong to that one outcome, and how might we correct a larger ordered count?",
+      "takeaway": "Next, we will group ordered descriptions that mean the same thing and use their symmetry to repair overcounts."
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {
+      "near": 2,
+      "mixed": 2,
+      "challenge": 1
+    },
+    "sessionSelection": [
+      {
+        "source": "generated",
+        "transferLevel": "near",
+        "count": 2
+      },
+      {
+        "source": "generated",
+        "transferLevel": "mixed",
+        "count": 2
+      },
+      {
+        "source": "generated",
+        "transferLevel": "challenge",
+        "count": 1
+      }
+    ],
+    "excludeProblemIds": [
+      "original-c3-five-friend-lineup",
+      "amc8-2020-12"
+    ],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "C3",
+    "evidenceBeatIds": [
+      "practice-near-books",
+      "practice-near-medals",
+      "practice-mixed-flags",
+      "practice-mixed-committee",
+      "practice-challenge-endpoints"
+    ],
+    "minIndependentPracticeItems": 5,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.2.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "mathinking-lesson-skill-1.0.0",
+    "notes": [
+      "Draft foundation lesson authored with the repository-local mathinking-lesson Skill and the compact C3 context packet.",
+      "The generated five-friend lineup creates discovery because its shrinking choices expose factorial structure before notation is introduced.",
+      "The approved AMC 8 2020 Problem 12 is integrated only after factorial meaning and boundaries are established, using its existing controlled regrouping animation.",
+      "The repeated-object examples remain concrete and prepare overcounting without replacing C6's later general symmetry argument.",
+      "All declarative visuals reuse existing generic primitives; no lesson-specific renderer behavior was added."
+    ]
+  }
+}

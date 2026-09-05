@@ -1,0 +1,461 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "C9",
+  "curriculumNodeId": "C9",
+  "title": "Inclusion–Exclusion",
+  "lessonType": "technique",
+  "status": "draft",
+  "estimatedMinutes": 25,
+  "coreInsight": "Adding overlapping groups counts their intersection multiple times, so the repeated contribution must be corrected.",
+  "targetLearnerRealization": "Adding overlapping group totals counts the intersection twice, so one copy of the overlap must be removed.",
+  "learningObjectives": [
+    "Explain two-set inclusion–exclusion by tracking how many times each region is counted.",
+    "Use zero overlap, two-set overlap, and complements correctly in union counts.",
+    "Derive the three-set correction by restoring objects removed too many times."
+  ],
+  "hardPrerequisites": ["C8", "C4"],
+  "narrativePredecessor": "C8",
+  "continuity": {
+    "openingCallback": "C8 ended with an overlap carrying two layers when whole set totals were added; C9 begins by repairing that exact extra copy.",
+    "closingSeeds": [
+      "Inclusion–exclusion signs come from making every object in the union finish with exactly one counted copy.",
+      "With more conditions, track an object's multiplicity through each level of overlap rather than guessing a sign pattern."
+    ],
+    "nextLessonIds": []
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "The overlap should always be subtracted, even for disjoint sets.",
+      "beatIds": ["disjoint-check", "c9-consolidate"]
+    },
+    {
+      "misconception": "Higher-order overlaps in three-set problems can be ignored.",
+      "beatIds": ["three-set-copy-audit", "practice-three-clubs", "c9-consolidate"]
+    },
+    {
+      "misconception": "The inclusion–exclusion signs should be memorized without tracking multiplicity.",
+      "beatIds": ["repair-the-double-layer", "name-the-correction", "three-set-copy-audit", "c9-consolidate"]
+    },
+    {
+      "misconception": "Union size equals the sum of set sizes whenever the sets look mostly separate.",
+      "beatIds": ["flower-bed-anchor", "practice-robotics-art", "practice-divisibility"]
+    }
+  ],
+  "beats": [
+    {
+      "id": "repair-the-double-layer",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Reactivate C8's closing image and let the learner identify the correction before any formula or technique name appears.",
+      "expectedRealization": "The shared region has two count-marks after the two set totals are added, so exactly one mark per shared object must be removed.",
+      "transitionIn": "C8 left one region wearing two layers: every member of A ∩ B was included once in |A| and once again in |B|.",
+      "transitionOut": "The repair is local: keep every shared object, but peel away its one extra count.",
+      "estimatedSeconds": 80,
+      "prompt": "After adding |A| and |B|, what should happen to each object in the overlap so every member of A ∪ B is counted once?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "remove-both", "text": "Remove both of its count-marks"},
+          {"id": "remove-one", "text": "Remove exactly one of its two count-marks"},
+          {"id": "add-one", "text": "Add a third count-mark"},
+          {"id": "leave-two", "text": "Leave both count-marks"}
+        ],
+        "correctId": "remove-one",
+        "feedback": {
+          "remove-both": "The shared object belongs in the union, so it still needs one copy.",
+          "remove-one": "That changes two counted copies into the one copy the union needs.",
+          "add-one": "The problem is already an extra copy, so another mark moves farther from one.",
+          "leave-two": "A union contains the shared object once, not once for each condition it satisfies."
+        }
+      },
+      "correctFeedback": "Exactly—subtracting the overlap once removes only the duplicate copy.",
+      "incorrectFeedback": "Track one shared object: it starts with two marks but must finish with one.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "venn-builder",
+          "data": {
+            "universeLabel": "One-count target",
+            "leftLabel": "A",
+            "rightLabel": "B",
+            "regions": {
+              "leftOnly": ["1 mark"],
+              "intersection": ["2 marks → 1"],
+              "rightOnly": ["1 mark"],
+              "neither": []
+            }
+          },
+          "continuityKey": "c9-double-layer",
+          "ariaLabel": "Two-set Venn diagram showing one mark in each exclusive region and two marks corrected to one in the overlap"
+        },
+        "steps": [
+          {"title": "Add the set totals", "body": "An A-only or B-only object receives one mark. A shared object receives two."},
+          {"title": "Repair only the duplicate", "body": "Removing one overlap mark leaves every object in the union with exactly one mark."}
+        ],
+        "takeaway": "Subtract the overlap because addition duplicated it—not because overlaps are forbidden."
+      }
+    },
+    {
+      "id": "flower-bed-anchor",
+      "phase": "competition-application",
+      "kind": "problem",
+      "purpose": "Use the approved authentic visualization to turn the local one-copy repair into a complete numerical strategy.",
+      "expectedRealization": "The two physical overlaps contribute 150 duplicate counts to 1300, leaving 1150 distinct plants.",
+      "transitionIn": "Now make that extra layer physical. A plant can sit in two named beds, but the garden still contains only one plant in that location.",
+      "transitionOut": "The flower beds show a reliable ledger: add what each group contributes, then correct every repeated contribution.",
+      "estimatedSeconds": 250,
+      "source": "bank",
+      "problemId": "amc8-1999-09",
+      "role": "anchor",
+      "presentation": "full-prompt",
+      "whyNow": "The overlapping beds make shared plants literal immediately after the learner identifies the need to remove one duplicate layer.",
+      "entryBridge": "First add the three printed bed totals; then ask which physical plants appeared in more than one total.",
+      "exitBridge": "The raw total 1300 contains 150 extra copies, so the garden has 1150 plants.",
+      "reusedRepresentation": "C8's overlapping regions become translucent flower beds whose shared plants visibly receive a second layer.",
+      "animation": {"mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "How are the three beds arranged, and which pair does not overlap?",
+        "What raw count results from adding all three bed totals?",
+        "Which plants changed color twice, and how many duplicate copies is that altogether?",
+        "What correction leaves one copy of every physical plant?",
+        "Which answer choice matches the repaired total?"
+      ],
+      "correctFeedback": "Correct—removing the 50 and 100 duplicated plants from 1300 leaves 1150.",
+      "incorrectFeedback": "Keep the plants in both overlaps, but count each only once: identify the extra copies inside 1300.",
+      "resolution": {
+        "animation": {"kind": "problem-animation"},
+        "steps": [
+          {"title": "Add the named beds", "body": "The three supplied totals count every bed contribution.", "math": "500 + 450 + 350 = 1300"},
+          {"title": "Find the repeated contributions", "body": "The 50 plants in A ∩ B and 100 plants in A ∩ C each occur in two bed totals.", "math": "50 + 100 = 150"},
+          {"title": "Remove one extra copy", "body": "Subtract each overlap once so every plant remains represented once.", "math": "1300 − 50 − 100 = 1150"},
+          {"title": "Another way: rebuild disjoint regions", "body": "A-only has 350 plants, B-only has 400, and C-only has 250. Adding those with the two shared regions also gives 1150.", "math": "350 + 50 + 400 + 100 + 250 = 1150"}
+        ],
+        "takeaway": "The subtraction removes duplicate counts, not the overlapping plants themselves."
+      },
+      "sourceLabelTiming": "completion"
+    },
+    {
+      "id": "name-the-correction",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name inclusion–exclusion only after the learner has discovered and executed the duplicate-layer repair.",
+      "expectedRealization": "The two-set formula is a compact record of add both totals, then remove the duplicated intersection once.",
+      "transitionIn": "You repaired the count before needing a rule. Now compress that exact action into notation.",
+      "transitionOut": "The minus sign has a reason: it changes two copies of every shared object into one.",
+      "estimatedSeconds": 75,
+      "name": "Two-set inclusion–exclusion",
+      "conciseDefinition": "Add the two set sizes, then subtract their intersection once because it was included twice.",
+      "formalization": "|A ∪ B| = |A| + |B| − |A ∩ B|",
+      "memoryHook": "Add the groups; correct the copies."
+    },
+    {
+      "id": "disjoint-check",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Repair the belief that inclusion–exclusion always demands a positive subtraction by making the overlap explicitly zero.",
+      "expectedRealization": "For disjoint sets the same formula subtracts zero, so direct addition is valid.",
+      "transitionIn": "The formula follows the overlap rather than imposing one. Test it where the circles do not touch.",
+      "transitionOut": "Direct addition is not a competing rule; it is inclusion–exclusion with a zero-sized intersection.",
+      "estimatedSeconds": 75,
+      "prompt": "Seven students choose chess and five different students choose go. No student chooses both. How many choose chess or go?",
+      "response": {"kind": "numeric", "answer": 12, "feedback": "The intersection has size zero."},
+      "correctFeedback": "Yes—7 + 5 − 0 = 12.",
+      "incorrectFeedback": "No one belongs to both sets, so the correction term is zero rather than a positive number.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "venn-builder",
+          "data": {
+            "universeLabel": "Game choices",
+            "leftLabel": "Chess",
+            "rightLabel": "Go",
+            "regions": {"leftOnly": ["7"], "intersection": ["0"], "rightOnly": ["5"], "neither": []}
+          },
+          "ariaLabel": "Disjoint chess and go groups with counts 7, 0, and 5"
+        },
+        "steps": [
+          {"title": "Measure the overlap", "body": "No student chooses both, so |Chess ∩ Go| = 0."},
+          {"title": "Use the same ledger", "body": "There is no duplicate contribution to remove.", "math": "7 + 5 − 0 = 12"}
+        ],
+        "takeaway": "Subtract the actual overlap; for disjoint sets, that means subtracting zero."
+      }
+    },
+    {
+      "id": "practice-robotics-art",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Give independent near transfer on the two-set formula with a fresh context and no supplied region decomposition.",
+      "expectedRealization": "The 6 students in both clubs are the only duplicated contribution, so the union is 35.",
+      "transitionIn": "The flower-bed picture has disappeared; preserve the same one-copy ledger using only group totals.",
+      "transitionOut": "The context changed, but the correction still followed the objects counted twice.",
+      "estimatedSeconds": 130,
+      "source": "generated",
+      "problemId": "original-c9-robotics-art",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "A standard two-group count checks that the learner can use the discovered method without relying on the anchor animation.",
+      "entryBridge": "Ask how many times a student in both clubs appears in 24 + 17.",
+      "exitBridge": "Subtracting the six repeated memberships leaves 35 distinct students.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["What does 24 + 17 count twice?", "How many copies should each student contribute to the union?"],
+      "correctFeedback": "Correct—35 students join at least one club.",
+      "incorrectFeedback": "The six students in both clubs appear once in each club total, so remove one of those two copies.",
+      "resolution": {
+        "visual": {
+          "primitive": "venn-builder",
+          "data": {
+            "universeLabel": "Students in at least one club",
+            "leftLabel": "Robotics: 24",
+            "rightLabel": "Art: 17",
+            "regions": {"leftOnly": ["18"], "intersection": ["6"], "rightOnly": ["11"], "neither": []}
+          },
+          "ariaLabel": "Robotics and art Venn diagram with 18 robotics only, 6 both, and 11 art only"
+        },
+        "steps": [
+          {"title": "Add both club totals", "body": "This produces 41 membership-counts, including two for each student in both clubs.", "math": "24 + 17 = 41"},
+          {"title": "Correct the overlap", "body": "Remove one copy for each of the six shared students.", "math": "41 − 6 = 35"}
+        ],
+        "takeaway": "Whole-group totals are safe to add once every repeated membership is corrected."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "three-set-copy-audit",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Derive the need for the triple-intersection correction by following one object through the add-singles and subtract-pairs stages.",
+      "expectedRealization": "An object in all three sets goes from three copies to zero after all three pair intersections are subtracted, so the triple intersection must be added once.",
+      "transitionIn": "Two circles needed one correction. With three circles, follow one object that satisfies all three conditions instead of guessing the next signs.",
+      "transitionOut": "Subtracting every pair fixes objects in exactly two sets, but it erases an all-three object completely.",
+      "estimatedSeconds": 105,
+      "prompt": "An object belongs to A, B, and C. Adding |A| + |B| + |C| gives it 3 copies. Then we subtract A ∩ B, A ∩ C, and B ∩ C once each. How many copies remain?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "zero", "text": "0 copies"},
+          {"id": "one", "text": "1 copy"},
+          {"id": "two", "text": "2 copies"},
+          {"id": "three", "text": "3 copies"}
+        ],
+        "correctId": "zero",
+        "feedback": {
+          "zero": "Three starting copies minus one for each of the three pairs leaves zero.",
+          "one": "Count how many pair intersections contain an all-three object: all three of them do.",
+          "two": "Each of the three pair subtractions removes one copy, not just one subtraction total.",
+          "three": "The object belongs to every pair intersection, so the pair stage changes its multiplicity."
+        }
+      },
+      "correctFeedback": "Right—3 − 3 = 0, so the all-three region must be restored once.",
+      "incorrectFeedback": "An all-three object lies in AB, AC, and BC. Start at three copies and remove one for each pair.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "Add the 3 set totals", "choices": ["3 copies"]},
+              {"label": "Subtract the 3 pair overlaps", "choices": ["3 − 3 = 0 copies"]},
+              {"label": "Restore the triple overlap", "choices": ["0 + 1 = 1 copy"]}
+            ]
+          },
+          "ariaLabel": "Copy ledger for an object in all three sets: three copies, then zero, then one"
+        },
+        "steps": [
+          {"title": "Add singles", "body": "The object appears once in each whole-set total, producing three copies."},
+          {"title": "Subtract pairs", "body": "It also appears in all three pair intersections, so three copies are removed.", "math": "3 − 3 = 0"},
+          {"title": "Restore the missing copy", "body": "The union needs one copy, so add the all-three intersection once.", "math": "0 + 1 = 1"}
+        ],
+        "takeaway": "The triple term is added because the pair corrections removed an all-three object too many times."
+      }
+    },
+    {
+      "id": "name-three-set-ledger",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Formalize the learner-derived three-set ledger without turning it into an unexplained sign mnemonic.",
+      "expectedRealization": "Add single-set totals, subtract all pair overlaps, and add the triple overlap so every union member has multiplicity one.",
+      "transitionIn": "Your copy audit determined the final correction. Write exactly what that audit did.",
+      "transitionOut": "The formula is now a checkable ledger: test any region and it should finish with one copy.",
+      "estimatedSeconds": 85,
+      "name": "Three-set inclusion–exclusion",
+      "conciseDefinition": "Add the three set sizes, subtract all three pair intersections, then add the triple intersection once.",
+      "formalization": "|A ∪ B ∪ C| = |A| + |B| + |C| − |A ∩ B| − |A ∩ C| − |B ∩ C| + |A ∩ B ∩ C|",
+      "memoryHook": "Do not chant signs; make every region finish with one copy."
+    },
+    {
+      "id": "practice-divisibility",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Transfer two-set inclusion–exclusion to constructed arithmetic sets where the overlap must be counted independently.",
+      "expectedRealization": "There are 15 multiples of 2, 6 multiples of 5, and 3 multiples of 10, so the union has 18 integers.",
+      "transitionIn": "Before using three groups numerically, make sure the two-group ledger survives when no overlap count is supplied.",
+      "transitionOut": "The shared numbers 10, 20, and 30 explain the entire correction; the formula did not invent them.",
+      "estimatedSeconds": 155,
+      "source": "generated",
+      "problemId": "original-c9-divisible-two-or-five",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The learner must generate each set size and recognize that the intersection consists of multiples of 10.",
+      "entryBridge": "Count the multiples of 2 and 5, then identify which integers appear in both lists.",
+      "exitBridge": "Fifteen plus six includes 10, 20, and 30 twice; subtracting those three copies leaves 18.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["How many multiples does each condition produce?", "Which numbers satisfy both conditions?"],
+      "correctFeedback": "Correct—18 integers are divisible by 2 or 5.",
+      "incorrectFeedback": "The overlap consists of multiples of lcm(2, 5) = 10: 10, 20, and 30.",
+      "resolution": {
+        "visual": {
+          "primitive": "venn-builder",
+          "data": {
+            "universeLabel": "Integers 1 through 30",
+            "leftLabel": "Divisible by 2",
+            "rightLabel": "Divisible by 5",
+            "regions": {
+              "leftOnly": ["12 numbers"],
+              "intersection": ["10", "20", "30"],
+              "rightOnly": ["5", "15", "25"],
+              "neither": ["12 numbers"]
+            }
+          },
+          "ariaLabel": "Numbers 1 through 30 partitioned by divisibility by 2 and 5"
+        },
+        "steps": [
+          {"title": "Count each whole set", "body": "There are 30 ÷ 2 = 15 multiples of 2 and 30 ÷ 5 = 6 multiples of 5."},
+          {"title": "Count the intersection", "body": "A number divisible by both is a multiple of 10: 10, 20, or 30.", "math": "|A ∩ B| = 3"},
+          {"title": "Correct the duplicate list entries", "body": "Subtract the three shared numbers once.", "math": "15 + 6 − 3 = 18"}
+        ],
+        "takeaway": "When the overlap is unstated, construct it from the two conditions before correcting the count."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-three-clubs",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Require independent use of the derived three-set ledger, including the higher-order overlap correction.",
+      "expectedRealization": "The single totals contribute 48, pair corrections remove 15, and the triple correction restores 2, giving 35.",
+      "transitionIn": "Now every part of the three-set ledger carries a number. Track the all-three students all the way to one copy.",
+      "transitionOut": "Thirty-five is not a sign-pattern result; every possible membership type finishes counted exactly once.",
+      "estimatedSeconds": 175,
+      "source": "generated",
+      "problemId": "original-c9-three-clubs",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This is the first complete three-set calculation after the learner has derived why the triple intersection must be restored.",
+      "entryBridge": "Add the three club totals, subtract all three pair totals, then inspect what happened to the two students in all three.",
+      "exitBridge": "The ledger 48 − 15 + 2 gives 35 students in at least one club.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["What is the total of the three whole-set counts?", "What is the total of the three pair overlaps?", "Why must the two all-three students be added back?"],
+      "correctFeedback": "Correct—35 students belong to at least one club.",
+      "incorrectFeedback": "After subtracting all three pair overlaps, the two all-three students have zero copies. Restore them once.",
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "Whole clubs", "choices": ["18 + 16 + 14 = 48"]},
+              {"label": "Pair overlaps", "choices": ["6 + 5 + 4 = 15"]},
+              {"label": "All three", "choices": ["restore 2"]}
+            ]
+          },
+          "ariaLabel": "Three-stage inclusion-exclusion ledger with 48 single counts, 15 pair counts removed, and 2 triple counts restored"
+        },
+        "steps": [
+          {"title": "Add singles", "body": "Count all memberships supplied by the three club totals.", "math": "18 + 16 + 14 = 48"},
+          {"title": "Subtract pairs", "body": "Remove one copy for every membership in each listed pair intersection.", "math": "48 − 6 − 5 − 4 = 33"},
+          {"title": "Restore the triple intersection", "body": "Each all-three student was removed once for every pair after being added three times, so add those two students once.", "math": "33 + 2 = 35"}
+        ],
+        "takeaway": "For three sets, the triple intersection repairs the overcorrection made by subtracting all pairs."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "c9-consolidate",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate the multiplicity model, zero-overlap case, and three-set correction before opening a broader question.",
+      "expectedRealization": "Every inclusion–exclusion correction is justified by making each union member contribute one final copy.",
+      "transitionIn": "Flower beds, clubs, and integers used different labels. The invariant was the number of copies carried by each object.",
+      "transitionOut": "You can rebuild the rule from copy counts even when the number of conditions grows.",
+      "estimatedSeconds": 110,
+      "prompt": "Which statements correctly explain inclusion–exclusion? Select all four.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "two-copy", "text": "In two sets, a shared object is added twice and therefore needs one copy subtracted."},
+          {"id": "disjoint", "text": "For disjoint sets, the intersection is zero, so direct addition still matches the formula."},
+          {"id": "triple", "text": "In three sets, an all-three object has zero copies after the three pair subtractions, so it is added once."},
+          {"id": "goal", "text": "A reliable check is that every object in the union finishes with exactly one copy."},
+          {"id": "stop-pairs", "text": "For three sets, subtracting the pair overlaps is always the final step."}
+        ],
+        "correctIds": ["two-copy", "disjoint", "triple", "goal"],
+        "feedback": "Test each claim on an object in exactly one, exactly two, or all three sets."
+      },
+      "correctFeedback": "Yes—those four statements derive the method from multiplicity instead of memorized signs.",
+      "incorrectFeedback": "Follow an all-three object: three additions followed by three pair subtractions leave zero, not one.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "In exactly one set", "choices": ["1 → 1 → 1 copy"]},
+              {"label": "In exactly two sets", "choices": ["2 → 1 → 1 copy"]},
+              {"label": "In all three sets", "choices": ["3 → 0 → 1 copy"]}
+            ]
+          },
+          "ariaLabel": "Multiplicity check for objects in exactly one, exactly two, and all three sets"
+        },
+        "steps": [
+          {"title": "One set", "body": "One whole-set total includes the object, and no correction touches it."},
+          {"title": "Exactly two sets", "body": "Two additions and one pair subtraction leave one copy.", "math": "2 − 1 = 1"},
+          {"title": "All three sets", "body": "Three additions and three pair subtractions leave zero, so the triple term restores one.", "math": "3 − 3 + 1 = 1"}
+        ],
+        "takeaway": "Inclusion–exclusion is a one-copy invariant: every member of the union must finish counted once."
+      }
+    },
+    {
+      "id": "more-sets-hook",
+      "phase": "reflection",
+      "kind": "reflection",
+      "purpose": "Create a forward-looking question only after the lesson's one-copy invariant has been consolidated.",
+      "expectedRealization": "The same multiplicity audit can guide corrections for four or more overlapping conditions.",
+      "transitionIn": "The three-set formula is no longer something you have to trust: you can reconstruct it by auditing copies.",
+      "prompt": "If one object satisfied four conditions, how many copies would it have after adding the four set totals, subtracting all six pair overlaps, and adding all four triple overlaps? What final correction would make one copy remain?",
+      "takeaway": "For larger families of sets, keep auditing multiplicity: the needed correction is whatever returns each union member to one copy."
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {"near": 3, "mixed": 2, "challenge": 1},
+    "sessionSelection": [
+      {"source": "generated", "transferLevel": "near", "count": 2},
+      {"source": "generated", "transferLevel": "mixed", "count": 2},
+      {"source": "generated", "transferLevel": "challenge", "count": 1}
+    ],
+    "excludeProblemIds": [
+      "amc8-1999-09",
+      "original-c9-robotics-art",
+      "original-c9-divisible-two-or-five",
+      "original-c9-three-clubs"
+    ],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "C9",
+    "evidenceBeatIds": ["practice-robotics-art", "practice-divisibility", "practice-three-clubs"],
+    "minIndependentPracticeItems": 3,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.2.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "mathinking-lesson-skill-1.0.0",
+    "notes": [
+      "Draft technique lesson authored with the repo-local mathinking-lesson Skill and the approved C9 mapping.",
+      "The opening and three-set interactions keep completed copy ledgers hidden until submission.",
+      "The approved 1999 AMC 8 Problem 9 is the sole bank problem and uses its controlled five-step animation after the learner answers.",
+      "Existing venn-builder and choice-grid primitives cover every required visual; no renderer infrastructure was changed.",
+      "The generated pool includes enough non-integrated items to satisfy the declared fresh practice mix after lesson-used problems are excluded."
+    ]
+  }
+}
