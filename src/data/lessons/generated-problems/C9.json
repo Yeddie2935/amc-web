@@ -1,0 +1,464 @@
+[
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C9",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["C9"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c9-robotics-art",
+      "title": "Two Club Lists",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Inclusion-exclusion",
+      "difficulty": 1,
+      "statement": "At a school, 24 students join robotics, 17 join art, and 6 join both clubs. How many students join robotics or art?",
+      "choices": [
+        {"label": "A", "text": "29"},
+        {"label": "B", "text": "35"},
+        {"label": "C", "text": "41"},
+        {"label": "D", "text": "47"},
+        {"label": "E", "text": "102"}
+      ],
+      "answer": "B",
+      "shortAnswer": "35",
+      "hints": ["Students in both clubs appear in both whole-club totals.", "Subtract the six duplicated memberships once."],
+      "solutionSteps": [
+        {"title": "Add the club totals", "body": "There are 24 + 17 = 41 club memberships."},
+        {"title": "Correct the overlap", "body": "The 6 students in both clubs were counted twice, so 41 − 6 = 35 distinct students."}
+      ],
+      "tags": ["inclusion-exclusion", "union", "clubs"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "direct inclusion-exclusion calculation 24+17−6=35",
+        "independent disjoint-region calculation (24−6)+6+(17−6)=18+6+11=35",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Both the whole-set ledger and the disjoint-region reconstruction give 35."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C9",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["C9"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c9-language-fair",
+      "title": "Language Fair",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Inclusion-exclusion",
+      "difficulty": 1,
+      "statement": "At a language fair, 31 visitors attend a Spanish session, 22 attend a French session, and 9 attend both. How many attend at least one of the two sessions?",
+      "choices": [
+        {"label": "A", "text": "35"},
+        {"label": "B", "text": "40"},
+        {"label": "C", "text": "44"},
+        {"label": "D", "text": "53"},
+        {"label": "E", "text": "62"}
+      ],
+      "answer": "C",
+      "shortAnswer": "44",
+      "hints": ["At least one means the union.", "The 9 visitors in both totals need one copy removed."],
+      "solutionSteps": [
+        {"title": "Add both sessions", "body": "The two attendance totals sum to 31 + 22 = 53."},
+        {"title": "Remove the repeated visitors", "body": "Subtract the 9 visitors counted in both lists: 53 − 9 = 44."}
+      ],
+      "tags": ["inclusion-exclusion", "union", "at least one"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "direct inclusion-exclusion calculation 31+22−9=44",
+        "independent exclusive-region sum (31−9)+9+(22−9)=22+9+13=44",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["The two independent region accounts agree on 44 visitors."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C9",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["C9"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c9-disjoint-shelves",
+      "title": "Disjoint Shelves",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Inclusion-exclusion",
+      "difficulty": 1,
+      "statement": "A display has 18 mystery books and 12 fantasy books. No book is in both categories. How many books are mystery or fantasy?",
+      "choices": [
+        {"label": "A", "text": "6"},
+        {"label": "B", "text": "18"},
+        {"label": "C", "text": "24"},
+        {"label": "D", "text": "30"},
+        {"label": "E", "text": "216"}
+      ],
+      "answer": "D",
+      "shortAnswer": "30",
+      "hints": ["Translate no book is in both into an intersection size.", "Subtract zero from the sum."],
+      "solutionSteps": [
+        {"title": "Measure the intersection", "body": "The categories are disjoint, so their intersection has size 0."},
+        {"title": "Use the union ledger", "body": "18 + 12 − 0 = 30 books."}
+      ],
+      "tags": ["inclusion-exclusion", "disjoint sets", "zero overlap"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "inclusion-exclusion calculation 18+12−0=30",
+        "independent disjoint-union addition 18+12=30",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["The zero intersection makes inclusion-exclusion reduce to direct addition."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C9",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["C9"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c9-orchestra-neither",
+      "title": "Orchestra Sections",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Inclusion-exclusion",
+      "difficulty": 1,
+      "statement": "An orchestra has 50 musicians. Of these, 29 play a string instrument, 24 play a wind instrument, and 11 play both. How many play neither a string nor a wind instrument?",
+      "choices": [
+        {"label": "A", "text": "3"},
+        {"label": "B", "text": "8"},
+        {"label": "C", "text": "11"},
+        {"label": "D", "text": "18"},
+        {"label": "E", "text": "42"}
+      ],
+      "answer": "B",
+      "shortAnswer": "8",
+      "hints": ["First find how many play at least one kind of instrument.", "Subtract that union from all 50 musicians."],
+      "solutionSteps": [
+        {"title": "Count the union", "body": "29 + 24 − 11 = 42 musicians play strings or winds."},
+        {"title": "Take the complement", "body": "The remaining 50 − 42 = 8 musicians play neither."}
+      ],
+      "tags": ["inclusion-exclusion", "complement", "neither"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "two-stage calculation 29+24−11=42 then 50−42=8",
+        "independent outside-region calculation 50−(18+11+13)=8",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["The region counts 18, 11, 13, and 8 sum back to the 50-person universe."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C9",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["C9"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c9-divisible-two-or-five",
+      "title": "Two Divisibility Tests",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Inclusion-exclusion",
+      "difficulty": 2,
+      "statement": "How many integers from 1 through 30 are divisible by 2 or by 5?",
+      "choices": [
+        {"label": "A", "text": "15"},
+        {"label": "B", "text": "18"},
+        {"label": "C", "text": "19"},
+        {"label": "D", "text": "21"},
+        {"label": "E", "text": "30"}
+      ],
+      "answer": "B",
+      "shortAnswer": "18",
+      "hints": ["Count multiples of 2 and multiples of 5 separately.", "Their intersection consists of multiples of 10."],
+      "solutionSteps": [
+        {"title": "Count each set", "body": "There are 15 multiples of 2 and 6 multiples of 5 through 30."},
+        {"title": "Count the intersection", "body": "The shared multiples 10, 20, and 30 give an intersection of size 3."},
+        {"title": "Correct the duplicate count", "body": "15 + 6 − 3 = 18 integers."}
+      ],
+      "tags": ["inclusion-exclusion", "divisibility", "least common multiple"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "floor-count inclusion-exclusion ⌊30/2⌋+⌊30/5⌋−⌊30/10⌋=15+6−3=18",
+        "independent complement listing of 12 integers divisible by neither, giving 30−12=18",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Both floor counting and complement enumeration confirm 18."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C9",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["C9"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c9-three-clubs",
+      "title": "Three Clubs",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Inclusion-exclusion",
+      "difficulty": 2,
+      "statement": "At a school, 18 students are in math club, 16 are in science club, and 14 are in chess club. The math and science clubs share 6 students, math and chess share 5, and science and chess share 4. Two students are in all three clubs. How many students are in at least one of the clubs?",
+      "choices": [
+        {"label": "A", "text": "31"},
+        {"label": "B", "text": "33"},
+        {"label": "C", "text": "35"},
+        {"label": "D", "text": "37"},
+        {"label": "E", "text": "48"}
+      ],
+      "answer": "C",
+      "shortAnswer": "35",
+      "hints": ["Subtract all three pair intersections after adding the three club totals.", "The all-three students were then removed too many times, so restore them once."],
+      "solutionSteps": [
+        {"title": "Add all three set sizes", "body": "18 + 16 + 14 = 48 memberships."},
+        {"title": "Subtract the pair intersections", "body": "48 − 6 − 5 − 4 = 33."},
+        {"title": "Restore the triple intersection", "body": "Add the 2 all-three students once: 33 + 2 = 35."}
+      ],
+      "tags": ["inclusion-exclusion", "three sets", "triple intersection"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "three-set inclusion-exclusion calculation 18+16+14−6−5−4+2=35",
+        "independent seven-region reconstruction: 9 math-only, 8 science-only, 7 chess-only, 4 MS-only, 3 MC-only, 2 SC-only, and 2 all-three sum to 35",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["The pair totals include the triple members; the seven non-overlapping regions are all nonnegative and total 35."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C9",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["C9"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c9-athletics-neither",
+      "title": "Athletics Sign-Ups",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Inclusion-exclusion",
+      "difficulty": 2,
+      "statement": "Among 72 students, 38 sign up for soccer, 29 for track, and 14 for both. How many sign up for neither sport?",
+      "choices": [
+        {"label": "A", "text": "5"},
+        {"label": "B", "text": "14"},
+        {"label": "C", "text": "19"},
+        {"label": "D", "text": "33"},
+        {"label": "E", "text": "53"}
+      ],
+      "answer": "C",
+      "shortAnswer": "19",
+      "hints": ["First count soccer or track.", "Neither is the complement of that union among all 72 students."],
+      "solutionSteps": [
+        {"title": "Find at least one", "body": "38 + 29 − 14 = 53 students sign up for soccer or track."},
+        {"title": "Find neither", "body": "72 − 53 = 19 students sign up for neither."}
+      ],
+      "tags": ["inclusion-exclusion", "complement", "neither"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "union-complement calculation 72−(38+29−14)=19",
+        "independent four-region reconstruction 24 soccer-only +14 both +15 track-only +19 neither =72",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["The disjoint regions sum to the full 72-student universe."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C9",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["C9"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c9-exactly-one-team",
+      "title": "Exactly One Team",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Inclusion-exclusion",
+      "difficulty": 2,
+      "statement": "A school has 26 students on the chess team, 21 on the debate team, and 9 on both teams. How many students are on exactly one of the two teams?",
+      "choices": [
+        {"label": "A", "text": "20"},
+        {"label": "B", "text": "29"},
+        {"label": "C", "text": "38"},
+        {"label": "D", "text": "47"},
+        {"label": "E", "text": "56"}
+      ],
+      "answer": "B",
+      "shortAnswer": "29",
+      "hints": ["Exactly one excludes the overlap entirely.", "Remove the 9 shared students from each whole-team total."],
+      "solutionSteps": [
+        {"title": "Find each exclusive region", "body": "Chess-only has 26 − 9 = 17 students; debate-only has 21 − 9 = 12."},
+        {"title": "Combine the disjoint regions", "body": "17 + 12 = 29 students are on exactly one team."}
+      ],
+      "tags": ["inclusion-exclusion", "exactly one", "exclusive regions"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exclusive-region calculation (26−9)+(21−9)=17+12=29",
+        "independent union-minus-overlap calculation (26+21−9)−9=38−9=29",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["Both equivalent decompositions give 29 students in exactly one team."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "C9",
+    "purpose": "practice",
+    "transferLevel": "challenge",
+    "targetConcepts": ["C9"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-c9-three-drinks-neither",
+      "title": "Three-Drink Survey",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Counting & Probability",
+      "subcategory": "Inclusion-exclusion",
+      "difficulty": 3,
+      "statement": "In a survey of 100 people, 55 like tea, 48 like coffee, and 30 like cocoa. Also, 28 like both tea and coffee, 18 like both tea and cocoa, 16 like both coffee and cocoa, and 10 like all three. How many like none of the three drinks?",
+      "choices": [
+        {"label": "A", "text": "9"},
+        {"label": "B", "text": "19"},
+        {"label": "C", "text": "29"},
+        {"label": "D", "text": "71"},
+        {"label": "E", "text": "81"}
+      ],
+      "answer": "B",
+      "shortAnswer": "19",
+      "hints": ["Use three-set inclusion-exclusion to find the union first.", "Subtract the union from 100."],
+      "solutionSteps": [
+        {"title": "Add the single-set totals", "body": "55 + 48 + 30 = 133."},
+        {"title": "Correct pair and triple multiplicities", "body": "133 − 28 − 18 − 16 + 10 = 81 people like at least one drink."},
+        {"title": "Take the complement", "body": "100 − 81 = 19 people like none."}
+      ],
+      "tags": ["inclusion-exclusion", "three sets", "complement", "challenge"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "three-set union and complement calculation 100−(55+48+30−28−18−16+10)=19",
+        "independent seven-region reconstruction: 19 tea-only, 14 coffee-only, 6 cocoa-only, 18 TC-only, 8 TCa-only, 6 CCa-only, and 10 all-three total 81, leaving 19",
+        "answer-choice uniqueness audit",
+        "manual wording and bank-novelty review"
+      ],
+      "notes": ["All seven union regions are nonnegative and sum to 81, independently confirming 19 outside."]
+    }
+  }
+]

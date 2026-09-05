@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { loadResolvedProblemMappings } from "./problem-mapping-resolver.mjs";
 
 const root = process.cwd();
 const curriculumDir = path.join(root, "src", "data", "curriculum");
@@ -14,15 +15,6 @@ const curriculumFiles = [
   "geometry.json",
   "problem-solving.json",
 ];
-const mappingFiles = [
-  "problem-mapping-foundations.json",
-  "problem-mapping-algebra.json",
-  "problem-mapping-number-theory.json",
-  "problem-mapping-counting-probability.json",
-  "problem-mapping-geometry.json",
-  "problem-mapping-problem-solving.json",
-];
-
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
 }
@@ -53,7 +45,7 @@ function sameStringSet(a = [], b = []) {
 
 const nodes = curriculumFiles.flatMap((file) => readJson(path.join(curriculumDir, file)));
 const nodeById = new Map(nodes.map((node) => [node.id, node]));
-const mappings = mappingFiles.flatMap((file) => readJson(path.join(curriculumDir, file)));
+const { mappings } = loadResolvedProblemMappings(curriculumDir);
 const mappingByLesson = new Map(mappings.map((mapping) => [mapping.lessonId, mapping]));
 
 const sampleProblemsSource = fs.readFileSync(path.join(root, "src", "data", "sampleProblems.ts"), "utf8");

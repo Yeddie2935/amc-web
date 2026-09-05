@@ -10,6 +10,7 @@ import c5LessonData from "./counting-probability/C5.json";
 import c6LessonData from "./counting-probability/C6.json";
 import c7LessonData from "./counting-probability/C7.json";
 import c8LessonData from "./counting-probability/C8.json";
+import c9LessonData from "./counting-probability/C9.json";
 import c1GeneratedProblemData from "./generated-problems/C1.json";
 import c2GeneratedProblemData from "./generated-problems/C2.json";
 import c3GeneratedProblemData from "./generated-problems/C3.json";
@@ -18,6 +19,7 @@ import c5GeneratedProblemData from "./generated-problems/C5.json";
 import c6GeneratedProblemData from "./generated-problems/C6.json";
 import c7GeneratedProblemData from "./generated-problems/C7.json";
 import c8GeneratedProblemData from "./generated-problems/C8.json";
+import c9GeneratedProblemData from "./generated-problems/C9.json";
 
 export interface LessonBundle {
   lesson: LessonSpec;
@@ -48,6 +50,9 @@ const c7GeneratedProblemArtifacts =
 const c8Lesson = c8LessonData as LessonSpec;
 const c8GeneratedProblemArtifacts =
   c8GeneratedProblemData as GeneratedProblemArtifact[];
+const c9Lesson = c9LessonData as LessonSpec;
+const c9GeneratedProblemArtifacts =
+  c9GeneratedProblemData as GeneratedProblemArtifact[];
 
 /**
  * Declarative lesson catalog. Adding another lesson only requires registering
@@ -108,6 +113,13 @@ const lessonRegistry = new Map<string, LessonBundle>([
     {
       lesson: c8Lesson,
       generatedProblemArtifacts: c8GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    c9Lesson.lessonId,
+    {
+      lesson: c9Lesson,
+      generatedProblemArtifacts: c9GeneratedProblemArtifacts,
     },
   ],
 ]);
