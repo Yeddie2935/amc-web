@@ -1,0 +1,57 @@
+[
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F5", "purpose": "practice", "transferLevel": "near", "targetConcepts": ["F5"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f5-quarter-increase", "title": "A Quarter More", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Percent change", "difficulty": 1,
+      "statement": "A quantity increases from 80 by 25%. What is the new quantity?",
+      "choices": [{"label": "A", "text": "85"}, {"label": "B", "text": "95"}, {"label": "C", "text": "100"}, {"label": "D", "text": "105"}, {"label": "E", "text": "120"}],
+      "answer": "C", "shortAnswer": "100", "hints": ["Twenty-five percent is one quarter of the original 80."],
+      "solutionSteps": [{"title": "Find and add the change", "body": "25% of 80 is 20, so the new quantity is 80 + 20 = 100. Equivalently, 80 × 1.25 = 100."}],
+      "tags": ["percent increase", "reference base"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Change method: one quarter of 80 is 20, and 80+20=100.", "Independent multiplier and option audit: 80×1.25=100; only C matches."], "notes": ["The original base is explicit."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F5", "purpose": "practice", "transferLevel": "near", "targetConcepts": ["F5"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f5-fifteen-off", "title": "Fifteen Percent Off", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Percent change", "difficulty": 1,
+      "statement": "A $200 price is reduced by 15%. What is the new price?",
+      "choices": [{"label": "A", "text": "$30"}, {"label": "B", "text": "$150"}, {"label": "C", "text": "$170"}, {"label": "D", "text": "$185"}, {"label": "E", "text": "$230"}],
+      "answer": "C", "shortAnswer": "$170", "hints": ["A 15% decrease leaves 85% of the original price."],
+      "solutionSteps": [{"title": "Keep eighty-five percent", "body": "$200 × 0.85 = $170. The removed amount is $30."}],
+      "tags": ["percent decrease", "money"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Retained-factor method: 200×0.85=170.", "Independent change subtraction: 15% of 200 is 30, and 200−30=170; only C matches."], "notes": ["Choice A is the discount amount, separating change from final value."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F5", "purpose": "practice", "transferLevel": "mixed", "targetConcepts": ["F5"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f5-two-discounts", "title": "Two Different Discounts", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Successive percent change", "difficulty": 2,
+      "statement": "An item is discounted 10% and then discounted 20% from its new price. What single percent discount from the original price is equivalent?",
+      "choices": [{"label": "A", "text": "26%"}, {"label": "B", "text": "28%"}, {"label": "C", "text": "30%"}, {"label": "D", "text": "32%"}, {"label": "E", "text": "80%"}],
+      "answer": "B", "shortAnswer": "28%", "hints": ["Multiply the two percentages that remain."],
+      "solutionSteps": [{"title": "Compose remaining factors", "body": "The item keeps 90% and then 80%: 0.90 × 0.80 = 0.72. It keeps 72%, so the total discount is 28%."}],
+      "tags": ["successive changes", "discounts", "multipliers"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Multiplier composition: 0.9×0.8=0.72 retained, hence 0.28 discounted.", "Independent $100 model: $10 is removed first, then $18 from $90, totaling $28; only B matches."], "notes": ["The percentages differ from the bank problem and test transfer of the method."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F5", "purpose": "practice", "transferLevel": "mixed", "targetConcepts": ["F5"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f5-recover-start", "title": "Recover the Starting Amount", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Reverse percentage", "difficulty": 2,
+      "statement": "After increasing by 25%, a quantity is 150. What was the original quantity?",
+      "choices": [{"label": "A", "text": "100"}, {"label": "B", "text": "112.5"}, {"label": "C", "text": "120"}, {"label": "D", "text": "125"}, {"label": "E", "text": "187.5"}],
+      "answer": "C", "shortAnswer": "120", "hints": ["The final amount is 125% of the original, not 125% of itself."],
+      "solutionSteps": [{"title": "Undo the multiplier", "body": "The increase multiplies the original by 1.25, so the original is 150 ÷ 1.25 = 120."}],
+      "tags": ["reverse percentage", "percent increase"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Inverse-factor method: 150/1.25=120.", "Independent forward check: 25% of 120 is 30 and 120+30=150; only C returns the final amount."], "notes": ["The final amount is not reused as the original base."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F5", "purpose": "practice", "transferLevel": "challenge", "targetConcepts": ["F5"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f5-rate-change", "title": "Points versus Percent Change", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Percentage points", "difficulty": 2,
+      "statement": "A survey response rate rises from 32% to 40%. What are the increase in percentage points and the relative percent increase, respectively?",
+      "choices": [{"label": "A", "text": "8 points and 8%"}, {"label": "B", "text": "8 points and 20%"}, {"label": "C", "text": "8 points and 25%"}, {"label": "D", "text": "25 points and 8%"}, {"label": "E", "text": "40 points and 25%"}],
+      "answer": "C", "shortAnswer": "8 percentage points and 25%", "hints": ["Subtract for points; compare that difference with the original 32% for relative change."],
+      "solutionSteps": [{"title": "Compute both meanings", "body": "40% − 32% = 8 percentage points. Relative to the original rate, 8/32 = 1/4 = 25%."}],
+      "tags": ["percentage points", "relative change"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Direct definitions: 40−32=8 points and (40−32)/32=8/32=25%.", "Independent 100-response model: responses rise from 32 to 40, an increase of 8; 8 is one quarter of 32, confirming 25%. Only C contains both values."], "notes": ["Both requested measures and their order are explicit."]}
+  }
+]

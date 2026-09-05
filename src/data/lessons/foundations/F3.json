@@ -1,0 +1,235 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "F3",
+  "curriculumNodeId": "F3",
+  "title": "Ratios & Proportions",
+  "lessonType": "foundation",
+  "status": "draft",
+  "estimatedMinutes": 23,
+  "coreInsight": "A ratio describes a multiplicative relationship or repeatable batch, and proportional situations preserve that relationship as quantities scale.",
+  "targetLearnerRealization": "A ratio is a repeatable multiplicative batch; scaling one quantity requires scaling the corresponding quantity by the same factor.",
+  "learningObjectives": [
+    "Distinguish part-to-part from part-to-whole comparisons.",
+    "Interpret a ratio as a repeatable batch.",
+    "Scale corresponding quantities by the same factor.",
+    "Recognize and complete proportional relationships without relying on cross-multiplication as a starting rule."
+  ],
+  "hardPrerequisites": ["F2"],
+  "narrativePredecessor": "F2",
+  "continuity": {
+    "openingCallback": "Return to the red and blue counters and distinguish a direct comparison from a part-whole fraction.",
+    "closingSeeds": ["A ratio can compare quantities carrying different units.", "Dividing both quantities by the same count can reveal an amount per one unit."],
+    "nextLessonIds": ["F4"]
+  },
+  "misconceptionTargets": [
+    {"misconception": "Ratio problems should be solved by additive differences.", "beatIds": ["sports-car-batches", "add-or-scale", "missing-batch"]},
+    {"misconception": "Part-to-part and part-to-whole ratios are interchangeable.", "beatIds": ["which-comparison", "name-ratio-proportion", "ratio-recap"]},
+    {"misconception": "Cross-multiplication is the meaning of proportion rather than one consequence of it.", "beatIds": ["sports-car-batches", "equivalent-batches", "name-ratio-proportion"]},
+    {"misconception": "Corresponding quantities can be paired in any order.", "beatIds": ["corresponding-order", "missing-batch", "ratio-recap"]}
+  ],
+  "beats": [
+    {
+      "id": "which-comparison",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Use the predecessor's counter mixture to distinguish part-to-part and part-to-whole comparisons.",
+      "expectedRealization": "The same objects support different ratios depending on what is being compared.",
+      "transitionIn": "The bag held 3 red counters and 5 blue counters. Keep the objects, but change the comparison.",
+      "estimatedSeconds": 70,
+      "prompt": "Which pair correctly describes red-to-blue and red-to-total, in that order?",
+      "visual": {"primitive": "choice-grid", "data": {"groups": [
+        {"label": "Red", "choices": ["●", "●", "●"]}, {"label": "Blue", "choices": ["●", "●", "●", "●", "●"]}
+      ]}, "continuityKey": "f3-counter-batch", "ariaLabel": "Three red counters and five blue counters"},
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "3:5 and 3:8"}, {"id": "b", "text": "3:8 and 3:5"}, {"id": "c", "text": "5:3 and 8:3"}, {"id": "d", "text": "3:5 and 5:8"}
+      ], "correctId": "a"},
+      "correctFeedback": "Right. Red-to-blue compares 3 with 5; red-to-total compares 3 with all 8.",
+      "incorrectFeedback": "Name the two quantities in order before writing their counts.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Read the order", "body": "Red-to-blue is 3:5 because those groups contain 3 and 5 counters."},
+        {"title": "Change the second quantity", "body": "Red-to-total is 3:8 because the whole bag contains 3 + 5 = 8 counters."}
+      ], "takeaway": "A ratio's order and named quantities are part of its meaning."}
+    },
+    {
+      "id": "sports-car-batches",
+      "phase": "competition-application",
+      "kind": "problem",
+      "source": "bank",
+      "problemId": "amc8-2009-02",
+      "role": "anchor",
+      "presentation": "animation-first",
+      "purpose": "Discover proportional scaling by duplicating an authentic 4-to-7 batch.",
+      "expectedRealization": "Reaching 28 sports cars requires seven whole batches, so the paired sedan count must also scale sevenfold.",
+      "transitionIn": "The 3-to-5 counter relationship was one batch. Now watch a 4-to-7 relationship repeat until its first count reaches a target.",
+      "estimatedSeconds": 175,
+      "whyNow": "The authentic sports-car/sedan relationship literally displays the lesson's core multiplicative structure as repeatable batches.",
+      "entryBridge": "Treat 4 sports cars paired with 7 sedans as one indivisible batch.",
+      "exitBridge": "Seven copies of both sides preserve the relationship: 4:7 becomes 28:49.",
+      "reusedRepresentation": "Two named groups held together as one batch, extending the red-and-blue counter comparison.",
+      "animation": {"mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "At the first step, identify the two counts in one batch.",
+        "When the empty batch slots appear, compute 28 ÷ 4 to decide how many copies are needed.",
+        "At the warning step, explain why multiplying 28 by 4 scales the wrong quantity.",
+        "When sedans appear in every batch, count 7 groups of 7.",
+        "Use the final check to verify both quantities were multiplied by 7."
+      ],
+      "correctFeedback": "Exactly. Seven complete 4-to-7 batches contain 28 sports cars and 49 sedans.",
+      "incorrectFeedback": "Find how many groups of 4 make 28, then use that same number of groups of 7.",
+      "resolution": {"animation": {"kind": "problem-animation", "placement": "before-steps"}, "steps": [
+        {"title": "Count batches", "body": "28 ÷ 4 = 7, so the target contains seven copies of the original batch."},
+        {"title": "Scale the partner", "body": "Each batch contains 7 sedans, so seven batches contain 7 × 7 = 49 sedans."},
+        {"title": "Check both sides", "body": "4 × 7 = 28 and 7 × 7 = 49. Both corresponding quantities used the same scale factor, so the answer is D."}
+      ], "takeaway": "Scale both quantities by the same factor."},
+      "sourceLabelTiming": "before"
+    },
+    {
+      "id": "add-or-scale",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Contrast multiplicative scaling with preserving an additive difference.",
+      "expectedRealization": "A constant difference does not preserve a ratio.",
+      "transitionIn": "The original batch had three more sedans than sports cars. Test whether keeping that difference keeps the relationship.",
+      "estimatedSeconds": 75,
+      "prompt": "Starting from 4 sports cars to 7 sedans, which pair preserves the same relationship?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "8 sports cars to 11 sedans, because both increased by 4."},
+        {"id": "b", "text": "8 sports cars to 14 sedans, because both counts doubled."},
+        {"id": "c", "text": "12 sports cars to 15 sedans, because the difference stays 3."},
+        {"id": "d", "text": "7 sports cars to 4 sedans, because the counts are unchanged."}
+      ], "correctId": "b"},
+      "correctFeedback": "Yes. Doubling 4 and 7 gives 8 and 14.",
+      "incorrectFeedback": "Ask whether each new count is the same multiple of its original count.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Test the scale factor", "body": "8 ÷ 4 = 2 and 14 ÷ 7 = 2, so both quantities doubled."},
+        {"title": "Reject additive thinking", "body": "The pair 8:11 keeps the difference 3, but 8/11 is not equal to 4/7."}
+      ], "takeaway": "Proportions preserve multiplication, not a fixed difference."}
+    },
+    {
+      "id": "equivalent-batches",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Show that shrinking or enlarging whole batches produces equivalent ratios.",
+      "expectedRealization": "Dividing both counts by a common factor reveals the same simplest batch.",
+      "transitionIn": "A batch can be repeated. It can also be grouped back into smaller identical batches.",
+      "estimatedSeconds": 75,
+      "prompt": "Which ratio describes the same red-to-blue relationship as 6:10?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "3:5"}, {"id": "b", "text": "5:3"}, {"id": "c", "text": "6:4"}, {"id": "d", "text": "8:12"}
+      ], "correctId": "a"},
+      "correctFeedback": "Right. Dividing both counts by 2 reveals the 3-to-5 batch.",
+      "incorrectFeedback": "Use one common divisor on both quantities and preserve their order.",
+      "allowRetry": true,
+      "resolution": {"visual": {"primitive": "bars-and-groups", "data": {"bars": [
+        {"label": "Red: 6 = 2 × 3", "segments": 6, "filled": 6}, {"label": "Blue: 10 = 2 × 5", "segments": 10, "filled": 10}
+      ]}, "continuityKey": "f3-counter-batch", "ariaLabel": "Six red units and ten blue units grouped as two copies of a three-to-five batch"},
+      "steps": [{"body": "6:10 = (2 × 3):(2 × 5). Removing the common factor 2 leaves 3:5 without changing the relationship."}],
+      "takeaway": "Equivalent ratios are scaled copies of one batch."}
+    },
+    {
+      "id": "corresponding-order",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Make correspondence and order explicit before proportion notation is formalized.",
+      "expectedRealization": "Each position must continue to name the same quantity across equivalent ratios.",
+      "transitionIn": "Scaling preserves a batch only if the same kinds of quantities stay aligned.",
+      "estimatedSeconds": 70,
+      "prompt": "A paint mix uses 3 cups blue for every 5 cups white. Which equality keeps corresponding colors in the same positions?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "3/5 = 9/15"}, {"id": "b", "text": "3/5 = 15/9"}, {"id": "c", "text": "5/3 = 9/15"}, {"id": "d", "text": "3/5 = 12/15"}
+      ], "correctId": "a"},
+      "correctFeedback": "Correct. Blue stays over blue, white stays over white, and both counts are tripled.",
+      "incorrectFeedback": "Label the numerator and denominator on both sides before checking the scale factor.",
+      "allowRetry": true,
+      "resolution": {"steps": [{"body": "3 blue becomes 9 blue and 5 white becomes 15 white. Thus 3/5 = 9/15. Reversing only one side changes which quantities correspond."}], "takeaway": "Keep labels and order attached to ratio numbers."}
+    },
+    {
+      "id": "name-ratio-proportion",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name ratios and proportions after repeated batches, scale factors, and correspondence have been experienced.",
+      "expectedRealization": "A proportion states that two ordered comparisons preserve one multiplicative relationship.",
+      "transitionIn": "The car batches and paint batches used the same structure.",
+      "estimatedSeconds": 45,
+      "name": "Ratio and proportion",
+      "conciseDefinition": "A ratio compares two quantities in a stated order. A proportion says that two ratios describe the same multiplicative relationship.",
+      "formalization": "a:b = ka:kb, or a/b = ka/kb, for a nonzero scale factor k",
+      "memoryHook": "Same labels, same order, same scale factor."
+    },
+    {
+      "id": "missing-batch",
+      "phase": "independent-transfer",
+      "kind": "interaction",
+      "purpose": "Require independent proportional scaling in a new context.",
+      "expectedRealization": "The scale factor can be found from either corresponding pair and applied to the other.",
+      "transitionIn": "Use the named structure without car icons or a written cross-product rule.",
+      "estimatedSeconds": 85,
+      "prompt": "A model uses 5 square pieces for every 2 triangular pieces. A larger model has 8 triangular pieces. How many square pieces preserve the design?",
+      "response": {"kind": "numeric", "answer": 20, "feedback": "Compare 8 triangles with the original 2 triangles, then scale the 5 squares by the same factor."},
+      "correctFeedback": "Yes. The triangle count is multiplied by 4, so the square count is also multiplied by 4.",
+      "incorrectFeedback": "Eight triangles make four batches of two triangles. Each batch needs five squares.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Find the scale", "body": "8 ÷ 2 = 4, so the larger model contains four original batches."},
+        {"title": "Scale the partner", "body": "5 × 4 = 20 square pieces."},
+        {"title": "Check correspondence", "body": "5:2 and 20:8 both compare squares with triangles and both simplify to the same batch."}
+      ], "takeaway": "Find the batch count from one pair; apply it to the corresponding partner."}
+    },
+    {
+      "id": "ratio-recap",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate ratio meaning before introducing rates.",
+      "expectedRealization": "Order, labels, and common scaling jointly determine a proportion.",
+      "transitionIn": "The contexts changed, but every valid comparison passed the same checks.",
+      "estimatedSeconds": 70,
+      "prompt": "Select every condition required for two ratios to describe the same proportional relationship.",
+      "response": {"kind": "multi-select", "options": [
+        {"id": "labels", "text": "Corresponding positions name the same kinds of quantities."},
+        {"id": "factor", "text": "Both quantities are scaled by the same factor."},
+        {"id": "difference", "text": "The difference between the two counts stays fixed."},
+        {"id": "order", "text": "The comparison order stays consistent."},
+        {"id": "swap", "text": "One ratio may be reversed without changing the other."}
+      ], "correctIds": ["labels", "factor", "order"], "feedback": "Think about what made 4:7 equal 28:49 and what made 3/5 equal 9/15."},
+      "correctFeedback": "Exactly. Labels and order identify the comparison; a shared factor preserves it.",
+      "incorrectFeedback": "A fixed difference and a one-sided reversal do not preserve a multiplicative batch.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Name", "body": "State which quantities occupy the first and second positions."},
+        {"title": "Scale", "body": "Multiply or divide both corresponding counts by the same nonzero factor."},
+        {"title": "Check", "body": "Reduce both ratios to the same batch or compare their matching scale factors."}
+      ], "takeaway": "A proportion preserves an ordered, labeled multiplicative relationship."}
+    },
+    {
+      "id": "units-per-one",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Create the forward need for rates by attaching unlike units and asking for a per-one comparison.",
+      "expectedRealization": "A ratio with different units can be scaled to describe an amount per one unit.",
+      "transitionIn": "So far the paired counts were cars with cars or colors with colors. Now let the two sides carry different units.",
+      "estimatedSeconds": 60,
+      "prompt": "A cyclist travels 36 miles in 3 hours. Which question would turn this ratio into a useful per-one comparison?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "How many miles are traveled in 1 hour?"}, {"id": "b", "text": "What is 36 + 3?"}, {"id": "c", "text": "Which unit comes first alphabetically?"}, {"id": "d", "text": "How many hours are in 36 miles without choosing an order?"}
+      ], "correctId": "a"},
+      "correctFeedback": "Yes. Scaling 36 miles in 3 hours down to one hour creates miles per hour.",
+      "incorrectFeedback": "Keep the ordered quantities and ask what amount corresponds to exactly one hour.",
+      "allowRetry": true,
+      "resolution": {"steps": [{"body": "Divide both quantities by 3: 36 miles in 3 hours becomes 12 miles in 1 hour. The relationship now carries a compound unit—miles per hour—which will guide both meaning and calculation."}], "takeaway": "A per-one ratio with units is a rate."}
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {"near": 2, "mixed": 2, "challenge": 1},
+    "sessionSelection": [
+      {"source": "generated", "transferLevel": "near", "count": 2}, {"source": "generated", "transferLevel": "mixed", "count": 2}, {"source": "generated", "transferLevel": "challenge", "count": 1}
+    ],
+    "excludeProblemIds": ["amc8-2009-02"], "requireFreshGeneratedItems": true
+  },
+  "mastery": {"skillId": "F3-ratio-scaling", "evidenceBeatIds": ["missing-batch", "ratio-recap"], "minIndependentPracticeItems": 5, "recommendedAccuracyThreshold": 0.8, "weightMixedTransferMore": true},
+  "generation": {"curriculumVersion": "1.0.0", "mappingVersion": "1.0.0", "generatorVersion": "1.0.0", "notes": [
+    "The approved 2009 bank problem is the discovery anchor; later micro-checks contrast multiplicative and additive reasoning.",
+    "The lesson remains draft pending human pedagogical review."
+  ]}
+}

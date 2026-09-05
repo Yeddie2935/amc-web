@@ -1,0 +1,248 @@
+[
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "F1",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["F1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-f1-neighborhood-product",
+      "title": "Find the Product's Neighborhood",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "Estimation",
+      "difficulty": 1,
+      "statement": "Without calculating exactly, which number is closest to 49 × 203?",
+      "choices": [
+        {"label": "A", "text": "1,000"},
+        {"label": "B", "text": "5,000"},
+        {"label": "C", "text": "10,000"},
+        {"label": "D", "text": "50,000"},
+        {"label": "E", "text": "100,000"}
+      ],
+      "answer": "C",
+      "shortAnswer": "10,000",
+      "hints": ["Replace both factors with nearby friendly numbers."],
+      "solutionSteps": [
+        {"title": "Round nearby", "body": "Use 49 ≈ 50 and 203 ≈ 200."},
+        {"title": "Multiply the estimate", "body": "50 × 200 = 10,000, so choice C is closest."}
+      ],
+      "tags": ["estimation", "products", "magnitude"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "Friendly-factor recomputation: 49 ≈ 50 and 203 ≈ 200, giving 50 × 200 = 10,000.",
+        "Independent exact and distance audit: 49 × 203 = 9,947; its distances from choices A through E are 8,947, 4,947, 53, 40,053, and 90,053, so C is uniquely closest."
+      ],
+      "notes": ["The widely separated choices make estimation sufficient."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "F1",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["F1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-f1-display-check",
+      "title": "Check the Display",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "Reasonableness",
+      "difficulty": 1,
+      "statement": "A calculator display says 603 × 48 = 2,894. Which comparison proves that the displayed result is impossible?",
+      "choices": [
+        {"label": "A", "text": "603 × 48 is greater than 600 × 40 = 24,000."},
+        {"label": "B", "text": "603 × 48 is less than 600 × 40 = 24,000."},
+        {"label": "C", "text": "603 × 48 is greater than 700 × 50 = 35,000."},
+        {"label": "D", "text": "603 × 48 is less than 600 × 4 = 2,400."},
+        {"label": "E", "text": "603 × 48 must be odd."}
+      ],
+      "answer": "A",
+      "shortAnswer": "The product is greater than 24,000.",
+      "hints": ["Replace each positive factor with a smaller friendly number."],
+      "solutionSteps": [
+        {"title": "Build a lower bound", "body": "Because 603 > 600 and 48 > 40, their product is greater than 600 × 40 = 24,000."},
+        {"title": "Compare", "body": "The displayed 2,894 is below 24,000, so it is impossible. Choice A gives the valid comparison."}
+      ],
+      "tags": ["estimation", "bounds", "reasonableness"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "Monotonic lower-bound proof: for positive factors, 603 > 600 and 48 > 40 imply 603 × 48 > 24,000, immediately excluding 2,894.",
+        "Independent exact and option audit: 603 × 48 = 603 × (50 − 2) = 30,150 − 1,206 = 28,944. Only choice A states a true comparison that proves the display impossible."
+      ],
+      "notes": ["The exact product is used only for independent validation, not required by the learner solution."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "F1",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["F1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-f1-three-part-sum",
+      "title": "Three Deliveries",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "Estimation",
+      "difficulty": 1,
+      "statement": "A warehouse receives deliveries of 3,987, 2,014, and 1,002 items. Which number is closest to the total number of items received?",
+      "choices": [
+        {"label": "A", "text": "5,000"},
+        {"label": "B", "text": "6,000"},
+        {"label": "C", "text": "7,000"},
+        {"label": "D", "text": "8,000"},
+        {"label": "E", "text": "9,000"}
+      ],
+      "answer": "C",
+      "shortAnswer": "7,000",
+      "hints": ["Round each delivery to the nearest thousand before adding."],
+      "solutionSteps": [
+        {"title": "Round the addends", "body": "3,987 ≈ 4,000, 2,014 ≈ 2,000, and 1,002 ≈ 1,000."},
+        {"title": "Add the estimate", "body": "4,000 + 2,000 + 1,000 = 7,000, so choice C is closest."}
+      ],
+      "tags": ["estimation", "addition", "magnitude"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "Nearest-thousand estimate: 4,000 + 2,000 + 1,000 = 7,000.",
+        "Independent exact and choice-distance audit: 3,987 + 2,014 + 1,002 = 7,003, only 3 from C and at least 997 from every other choice."
+      ],
+      "notes": ["This transfers magnitude control from products to a multi-addend sum."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "F1",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["F1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-f1-hours-in-month",
+      "title": "Hours in a Month",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "Estimation with units",
+      "difficulty": 1,
+      "statement": "A 31-day month contains 24 hours per day. Which number is closest to the total number of hours in the month?",
+      "choices": [
+        {"label": "A", "text": "75 hours"},
+        {"label": "B", "text": "250 hours"},
+        {"label": "C", "text": "500 hours"},
+        {"label": "D", "text": "750 hours"},
+        {"label": "E", "text": "7,500 hours"}
+      ],
+      "answer": "D",
+      "shortAnswer": "750 hours",
+      "hints": ["Use 30 days as a nearby friendly number, and keep the unit hours."],
+      "solutionSteps": [
+        {"title": "Use a friendly month", "body": "A 30-day month would contain 30 × 24 = 720 hours."},
+        {"title": "Choose the scale", "body": "One extra day adds 24 hours, putting the exact total at 744 hours, closest to 750 hours."}
+      ],
+      "tags": ["estimation", "units", "time"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "Friendly-number estimate: 30 × 24 = 720 hours, which lies near 750 and far from the other choices.",
+        "Independent exact and distance audit: 31 × 24 = 744; its distance from 750 is 6, while its distances from 500 and 7,500 are 244 and 6,756, with the remaining choices farther still."
+      ],
+      "notes": ["The unit remains attached throughout the estimate and exact check."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "F1",
+    "purpose": "practice",
+    "transferLevel": "challenge",
+    "targetConcepts": ["F1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-f1-product-bounds",
+      "title": "Trap a Product Between Bounds",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "Estimation and bounds",
+      "difficulty": 2,
+      "statement": "Use 190 < 198 < 200 and 50 < 51 < 52. Which interval is guaranteed to contain 198 × 51?",
+      "choices": [
+        {"label": "A", "text": "0 < 198 × 51 < 5,000"},
+        {"label": "B", "text": "9,500 < 198 × 51 < 10,400"},
+        {"label": "C", "text": "10,000 < 198 × 51 < 10,050"},
+        {"label": "D", "text": "10,200 < 198 × 51 < 12,000"},
+        {"label": "E", "text": "20,000 < 198 × 51 < 25,000"}
+      ],
+      "answer": "B",
+      "shortAnswer": "9,500 < 198 × 51 < 10,400",
+      "hints": ["For positive numbers, multiply a lower bound by a lower bound and an upper bound by an upper bound."],
+      "solutionSteps": [
+        {"title": "Find a lower bound", "body": "Because 198 > 190 and 51 > 50, the product is greater than 190 × 50 = 9,500."},
+        {"title": "Find an upper bound", "body": "Because 198 < 200 and 51 < 52, the product is less than 200 × 52 = 10,400."},
+        {"title": "Trap the product", "body": "Together, 9,500 < 198 × 51 < 10,400, which is choice B."}
+      ],
+      "tags": ["estimation", "bounds", "products"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "Positive-factor bound proof: 190 × 50 = 9,500 is a strict lower bound and 200 × 52 = 10,400 is a strict upper bound.",
+        "Independent exact and distractor audit: 198 × 51 = 198 × (50 + 1) = 9,900 + 198 = 10,098. It lies only in B; it falsifies C and D at their nearest endpoints and is far outside A and E."
+      ],
+      "notes": ["The supplied inequalities keep the challenge focused on magnitude reasoning rather than multiplication fluency."]
+    }
+  }
+]

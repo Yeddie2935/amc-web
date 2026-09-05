@@ -1,0 +1,57 @@
+[
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F7", "purpose": "practice", "transferLevel": "near", "targetConcepts": ["F7"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f7-read-table", "title": "Read a Table Pair", "sourceType": "Original", "contest": "Original", "category": "Statistics", "subcategory": "Tables", "difficulty": 1,
+      "statement": "A table pairs time in minutes with distance in meters: (0, 0), (2, 5), (4, 10), and (6, 15). What distance corresponds to 4 minutes?",
+      "choices": [{"label": "A", "text": "2 meters"}, {"label": "B", "text": "4 meters"}, {"label": "C", "text": "5 meters"}, {"label": "D", "text": "10 meters"}, {"label": "E", "text": "15 meters"}],
+      "answer": "D", "shortAnswer": "10 meters", "hints": ["Find the row whose first entry is 4 minutes."],
+      "solutionSteps": [{"title": "Read the paired row", "body": "The pair (4, 10) means that at 4 minutes the distance is 10 meters."}],
+      "tags": ["tables", "paired values", "units"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Direct row lookup maps input 4 to output 10.", "Independent proportional check: the table increases 5 meters per 2 minutes, so 4 minutes is two intervals and 2×5=10; only D matches."], "notes": ["Units distinguish the input and output entries."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F7", "purpose": "practice", "transferLevel": "near", "targetConcepts": ["F7"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f7-axis-scale", "title": "Count the Axis Steps", "sourceType": "Original", "contest": "Original", "category": "Statistics", "subcategory": "Graph scale", "difficulty": 1,
+      "statement": "A vertical graph axis is labeled 0, 25, 50, 75, 100 at equally spaced ticks. A point lies on the third tick above 0. What value does it represent?",
+      "choices": [{"label": "A", "text": "3"}, {"label": "B", "text": "25"}, {"label": "C", "text": "50"}, {"label": "D", "text": "75"}, {"label": "E", "text": "100"}],
+      "answer": "D", "shortAnswer": "75", "hints": ["Count tick values, not just tick marks."],
+      "solutionSteps": [{"title": "Use the scale", "body": "The ticks above 0 represent 25, 50, and 75. The third tick therefore represents 75."}],
+      "tags": ["graphs", "axis scale"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Sequential tick reading gives 25, 50, 75 for the first three ticks above zero.", "Independent multiplication check: three intervals ×25 units/interval =75; only D matches."], "notes": ["The distractor 3 captures ignoring the scale."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F7", "purpose": "practice", "transferLevel": "mixed", "targetConcepts": ["F7"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f7-story-shape", "title": "Match a Water-Level Story", "sourceType": "Original", "contest": "Original", "category": "Statistics", "subcategory": "Graph interpretation", "difficulty": 1,
+      "statement": "A tank fills steadily for 4 minutes, remains unchanged for 2 minutes, and then drains steadily. Which graph description matches water level versus time?",
+      "choices": [{"label": "A", "text": "rise, then horizontal, then fall"}, {"label": "B", "text": "fall, then horizontal, then rise"}, {"label": "C", "text": "rise continuously with no flat part"}, {"label": "D", "text": "horizontal throughout"}, {"label": "E", "text": "fall continuously with no flat part"}],
+      "answer": "A", "shortAnswer": "rise, then horizontal, then fall", "hints": ["Translate each story interval into how the vertical water-level variable changes."],
+      "solutionSteps": [{"title": "Translate in order", "body": "Filling increases level, unchanged level makes a horizontal segment, and draining decreases level. The shape is rise, flat, fall."}],
+      "tags": ["graphs", "story", "trend"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Clause-by-clause variable translation yields positive, zero, then negative change.", "Independent option audit confirms only A preserves all three intervals and their order."], "notes": ["The context differs from the race anchor."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F7", "purpose": "practice", "transferLevel": "mixed", "targetConcepts": ["F7"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f7-table-extend", "title": "Extend a Constant Table", "sourceType": "Original", "contest": "Original", "category": "Statistics", "subcategory": "Tables and rate", "difficulty": 1,
+      "statement": "A table shows time in minutes 0, 2, 4, 6 and water added in liters 0, 3, 6, 9. If the same trend continues, how many liters have been added after 10 minutes?",
+      "choices": [{"label": "A", "text": "10"}, {"label": "B", "text": "12"}, {"label": "C", "text": "15"}, {"label": "D", "text": "18"}, {"label": "E", "text": "30"}],
+      "answer": "C", "shortAnswer": "15 liters", "hints": ["Every 2 minutes adds 3 liters; count intervals to 10 minutes."],
+      "solutionSteps": [{"title": "Continue the repeated change", "body": "Ten minutes contains five 2-minute intervals. At 3 liters per interval, 5×3=15 liters are added."}],
+      "tags": ["tables", "constant change", "trend"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Interval count: 10/2=5 intervals and 5×3=15 liters.", "Independent unit-rate check: 3/2=1.5 liters/minute and 1.5×10=15; only C matches."], "notes": ["The table supports extension because a constant trend is stated."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F7", "purpose": "practice", "transferLevel": "challenge", "targetConcepts": ["F7"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f7-truncated-bars", "title": "A Misleading Bar Scale", "sourceType": "Original", "contest": "Original", "category": "Statistics", "subcategory": "Misleading graphs", "difficulty": 2,
+      "statement": "A bar chart's vertical axis starts at 90 instead of 0. One bar reaches 92 and another reaches 96, so the visible portion of the second bar is three times as tall as the first. Which statement correctly compares the actual values?",
+      "choices": [{"label": "A", "text": "96 is three times 92."}, {"label": "B", "text": "96 is twice 92."}, {"label": "C", "text": "The values differ by 4, and 96 is about 4.3% greater than 92."}, {"label": "D", "text": "The values differ by 6 because the axis starts at 90."}, {"label": "E", "text": "The actual values are equal."}],
+      "answer": "C", "shortAnswer": "They differ by 4; 96 is about 4.3% greater than 92.", "hints": ["Compare the labeled values, not only the visible lengths above the truncated baseline."],
+      "solutionSteps": [{"title": "Read values before shapes", "body": "The actual difference is 96−92=4. Relative to 92, the increase is 4/92≈0.0435, or about 4.3%. The truncated axis exaggerates the visual difference."}],
+      "tags": ["graphs", "scale", "reasonableness"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Direct value comparison: 96−92=4 and 4/92×100≈4.3478%, about 4.3%.", "Independent ratio and option audit: 96/92≈1.0435, neither 2 nor 3; only C matches both the absolute and relative comparisons."], "notes": ["The wording explains why visible bar fragments differ sharply without endorsing that visual ratio."]}
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F3", "purpose": "practice", "transferLevel": "near", "targetConcepts": ["F3"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f3-counter-order", "title": "Name the Counter Ratio", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Ratios", "difficulty": 1,
+      "statement": "A tray contains 6 red counters and 4 blue counters. What is the red-to-blue ratio in simplest form?",
+      "choices": [{"label": "A", "text": "2:3"}, {"label": "B", "text": "3:2"}, {"label": "C", "text": "3:5"}, {"label": "D", "text": "4:6"}, {"label": "E", "text": "6:10"}],
+      "answer": "B", "shortAnswer": "3:2", "hints": ["Keep red first and divide both counts by the same common factor."],
+      "solutionSteps": [{"title": "Preserve order and simplify", "body": "Red-to-blue is 6:4. Dividing both counts by 2 gives 3:2."}],
+      "tags": ["ratios", "order", "simplifying"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Direct count and common-factor reduction: 6:4 = 3:2.", "Independent fraction audit: 6/4 = 1.5 and only choice B has first-to-second quotient 1.5 in simplest form."], "notes": ["Part order is explicit."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F3", "purpose": "practice", "transferLevel": "near", "targetConcepts": ["F3"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f3-scale-packets", "title": "Scale the Packet Batch", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Proportions", "difficulty": 1,
+      "statement": "For every 5 green packets in a shipment there are 8 yellow packets. If there are 20 green packets, how many yellow packets are there?",
+      "choices": [{"label": "A", "text": "23"}, {"label": "B", "text": "28"}, {"label": "C", "text": "32"}, {"label": "D", "text": "40"}, {"label": "E", "text": "80"}],
+      "answer": "C", "shortAnswer": "32", "hints": ["Find how many batches of 5 make 20."],
+      "solutionSteps": [{"title": "Find and apply the scale", "body": "20 ÷ 5 = 4 batches. Scale 8 yellow packets by the same factor: 8 × 4 = 32."}],
+      "tags": ["ratios", "proportions", "scale factor"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Batch count: 20/5 = 4 and four groups of 8 total 32.", "Independent proportion audit: 5/8 = 20/x gives 5x = 160 and x = 32; only C matches."], "notes": ["The context differs from the teaching anchor while preserving near transfer."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F3", "purpose": "practice", "transferLevel": "mixed", "targetConcepts": ["F3"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f3-equivalent-ratio", "title": "Find the Equivalent Ratio", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Equivalent ratios", "difficulty": 1,
+      "statement": "Which ratio is equivalent to 12:18 and written in simplest whole-number form?",
+      "choices": [{"label": "A", "text": "1:6"}, {"label": "B", "text": "2:3"}, {"label": "C", "text": "3:2"}, {"label": "D", "text": "6:9"}, {"label": "E", "text": "12:6"}],
+      "answer": "B", "shortAnswer": "2:3", "hints": ["Divide both entries by their greatest common factor."],
+      "solutionSteps": [{"title": "Remove the common scale", "body": "Both 12 and 18 are divisible by 6. Dividing both by 6 gives 2:3."}],
+      "tags": ["ratios", "equivalence", "simplifying"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Greatest-common-factor reduction: 12:18 divided by 6 is 2:3.", "Independent quotient and simplicity audit: 12/18 = 2/3; B alone equals this value and has relatively prime entries."], "notes": ["Choice D is equivalent but deliberately not simplest, as the prompt specifies."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F3", "purpose": "practice", "transferLevel": "mixed", "targetConcepts": ["F3"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f3-model-loaves", "title": "Scale a Recipe", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Proportions", "difficulty": 1,
+      "statement": "A recipe uses 3 cups of flour for every 2 loaves. At the same ratio, how many cups of flour are needed for 8 loaves?",
+      "choices": [{"label": "A", "text": "6"}, {"label": "B", "text": "9"}, {"label": "C", "text": "10"}, {"label": "D", "text": "12"}, {"label": "E", "text": "24"}],
+      "answer": "D", "shortAnswer": "12 cups", "hints": ["Compare 8 loaves with the 2-loaf batch."],
+      "solutionSteps": [{"title": "Scale the whole batch", "body": "Eight loaves are 4 batches of 2. Four batches use 4 × 3 = 12 cups of flour."}],
+      "tags": ["ratios", "recipes", "scale factor"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Repeated-batch calculation: 8/2 = 4 batches and 4×3 = 12 cups.", "Independent unit-ratio check: 3/2 cups per loaf times 8 loaves equals 12 cups; only D matches."], "notes": ["Units stay paired with corresponding quantities."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "F3", "purpose": "practice", "transferLevel": "challenge", "targetConcepts": ["F3"], "inspirationProblemIds": [],
+    "problem": {"id": "original-f3-two-stage-scale", "title": "Complete a Two-Stage Scale", "sourceType": "Original", "contest": "Original", "category": "Algebra", "subcategory": "Proportions", "difficulty": 2,
+      "statement": "The ratio of square tiles to triangular tiles is 7:9. A design with the same ratio has 36 triangular tiles. How many square tiles does it have?",
+      "choices": [{"label": "A", "text": "21"}, {"label": "B", "text": "27"}, {"label": "C", "text": "28"}, {"label": "D", "text": "34"}, {"label": "E", "text": "44"}],
+      "answer": "C", "shortAnswer": "28", "hints": ["Keep triangular tiles in the second position and find the factor from 9 to 36."],
+      "solutionSteps": [{"title": "Follow corresponding positions", "body": "The triangular count scales from 9 to 36 by a factor of 4. Scale the square count by 4 as well: 7 × 4 = 28."}],
+      "tags": ["ratios", "correspondence", "proportions"], "sourceName": "Mathinking", "license": "Original"},
+    "validation": {"status": "validated", "answerVerified": true, "solutionVerified": true, "uniquenessVerified": true, "prerequisiteAuditPassed": true, "wordingReviewed": true, "notParaphraseOfBank": true,
+      "validationMethods": ["Corresponding scale-factor method: 36/9 = 4, so 7×4 = 28.", "Independent cross-product audit: x/36 = 7/9 implies 9x = 252 and x = 28; only C satisfies the ordered ratio."], "notes": ["The challenge stresses correspondence rather than larger arithmetic."]}
+  }
+]

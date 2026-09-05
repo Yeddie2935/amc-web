@@ -1,0 +1,281 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "F7",
+  "curriculumNodeId": "F7",
+  "title": "Graphs, Tables & Data",
+  "lessonType": "foundation",
+  "status": "draft",
+  "estimatedMinutes": 24,
+  "coreInsight": "Graphs and tables encode relationships; scale, position, shape, and change all carry mathematical meaning.",
+  "targetLearnerRealization": "A graph tells a story about variables: slope, flatness, intersections, and scale must be interpreted in context rather than as a literal picture.",
+  "learningObjectives": [
+    "Interpret graph segments as changes in related variables rather than pictures of physical paths.",
+    "Read axis labels and scales before comparing values.",
+    "Distinguish current height from rate of change.",
+    "Translate between tables, graphs, and contextual trends."
+  ],
+  "hardPrerequisites": ["F1", "F2"],
+  "narrativePredecessor": "F6",
+  "continuity": {
+    "openingCallback": "Replace a compressed numerical summary with a display that preserves when and how the values change.",
+    "closingSeeds": ["A constant rate appears as a straight line with constant steepness.", "Coordinates and equations can describe every point on a line."],
+    "nextLessonIds": ["A6"]
+  },
+  "misconceptionTargets": [
+    {"misconception": "A graph is a picture of a real scene rather than a representation of variables.", "beatIds": ["flat-story", "race-graph", "downward-means"]},
+    {"misconception": "Axis scale can be ignored.", "beatIds": ["read-the-scale", "graph-recap"]},
+    {"misconception": "A taller point or bar always means a faster rate of change.", "beatIds": ["height-or-rate", "graph-recap"]},
+    {"misconception": "Reading one value is the same as understanding the trend.", "beatIds": ["table-pattern", "temperature-trend", "graph-recap"]}
+  ],
+  "beats": [
+    {
+      "id": "flat-story",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Translate one story event into variable behavior before showing the full authentic graph choices.",
+      "expectedRealization": "If time advances while distance stays fixed, a distance-time graph is horizontal.",
+      "transitionIn": "A single mean hid when values changed. A graph can keep time visible—but only if we read what each direction measures.",
+      "estimatedSeconds": 70,
+      "prompt": "A runner stops for a rest. Time continues, but distance from the start does not change. What should a distance-versus-time graph do during the rest?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "Rise, because time is passing."},
+        {"id": "b", "text": "Stay horizontal, because distance is unchanged."},
+        {"id": "c", "text": "Fall, because the runner is tired."},
+        {"id": "d", "text": "Disappear, because the runner stopped."}
+      ], "correctId": "b"},
+      "correctFeedback": "Exactly. Moving right records passing time; unchanged height records unchanged distance.",
+      "incorrectFeedback": "Track each variable separately: time changes, distance does not.",
+      "allowRetry": true,
+      "resolution": {"steps": [{"body": "Horizontal motion on the page does not mean the runner moves horizontally. It means the horizontal-axis variable changes while the vertical-axis variable stays constant."}], "takeaway": "Read a graph as two variables changing together, not as a picture of the path."
+      }
+    },
+    {
+      "id": "race-graph",
+      "phase": "competition-application",
+      "kind": "problem",
+      "source": "bank",
+      "problemId": "amc8-2019-05",
+      "role": "anchor",
+      "presentation": "animation-first",
+      "purpose": "Build graph features from a motion story and eliminate choices one requirement at a time.",
+      "expectedRealization": "Steady motion, rest, direction, and finish order each impose a distinct graph condition.",
+      "transitionIn": "Keep the flat-rest rule. Now combine it with steady motion and a finish order in a complete race story.",
+      "estimatedSeconds": 190,
+      "whyNow": "The authentic tortoise-and-hare problem makes the core representational misconceptions visible in one coherent distance-time story.",
+      "entryBridge": "Translate each sentence into a requirement before judging any whole graph.",
+      "exitBridge": "One graph survives because every segment and endpoint matches a variable behavior in the story.",
+      "reusedRepresentation": "A distance-time display built event by event.",
+      "animation": {"mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "At the race step, watch which animal moves steadily and where the hare's distance freezes.",
+        "At the first elimination step, reject any tortoise line whose steepness changes.",
+        "At the second elimination step, require a flat hare segment and reject a downward segment as moving backward.",
+        "At the final comparison, identify which animal reaches the finish distance at the earlier time."
+      ],
+      "correctFeedback": "Yes. Graph B alone shows a steady tortoise, a hare who rests without moving backward, and the tortoise finishing first.",
+      "incorrectFeedback": "Test the choices in pieces: steady tortoise, flat hare nap, no backward motion, then finish order.",
+      "resolution": {"animation": {"kind": "problem-animation", "placement": "before-steps"}, "steps": [
+        {"title": "Steady tortoise", "body": "A constant slow pace requires one straight rising line, eliminating D."},
+        {"title": "Hare's nap", "body": "A stop requires a horizontal segment. E never stops, while C moves downward and therefore back toward the start."},
+        {"title": "Finish order", "body": "A and B have suitable shapes, but only B has the tortoise reach the finish distance first. The answer is B."}
+      ], "takeaway": "Translate story clauses into graph properties, then test every property."
+      },
+      "sourceLabelTiming": "before"
+    },
+    {
+      "id": "downward-means",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Separate a graph's geometric appearance from the physical scene it represents.",
+      "expectedRealization": "A downward distance-time segment means distance decreases, not merely slowing or traveling downhill.",
+      "transitionIn": "One race choice sloped downward. Name what that geometry says about the variables.",
+      "estimatedSeconds": 70,
+      "prompt": "On a graph of distance from home versus time, what does a downward segment mean?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "The traveler is moving downhill."},
+        {"id": "b", "text": "The traveler is slowing down but still moving away."},
+        {"id": "c", "text": "The distance from home is decreasing as time passes."},
+        {"id": "d", "text": "Time is moving backward."}
+      ], "correctId": "c"},
+      "correctFeedback": "Correct. The vertical variable decreases, so the traveler is getting closer to home.",
+      "incorrectFeedback": "Read the axis variables rather than imagining the drawn line as terrain.",
+      "allowRetry": true,
+      "resolution": {"steps": [{"body": "As the graph moves right, time increases. If it moves downward, the vertical quantity—distance from home—decreases. The physical road could be flat, uphill, or downhill; the graph does not show terrain."}], "takeaway": "Graph direction describes variable change, not the shape of the real path."
+      }
+    },
+    {
+      "id": "read-the-scale",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Make axis scale essential to reading a plotted value.",
+      "expectedRealization": "Tick spacing has numerical meaning and cannot be treated as one unit automatically.",
+      "transitionIn": "Graph direction tells how a variable changes. Tick labels tell how much it changes.",
+      "estimatedSeconds": 80,
+      "prompt": "The plotted point is at time 3 and height 60. What value does it show?",
+      "visual": {"primitive": "data-graph", "data": {
+        "xMin": 0, "xMax": 4, "xStep": 1, "yMin": 0, "yMax": 100, "yStep": 20,
+        "xLabel": "time (minutes)", "yLabel": "water (liters)",
+        "points": [{"x": 3, "y": 60, "label": "measurement"}]
+      }, "continuityKey": "f7-scale-graph", "ariaLabel": "A graph with minutes from zero to four and liters from zero to one hundred in steps of twenty, with a point at three minutes and sixty liters"},
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "3 liters"}, {"id": "b", "text": "6 liters"}, {"id": "c", "text": "20 liters"}, {"id": "d", "text": "60 liters"}
+      ], "correctId": "d"},
+      "correctFeedback": "Yes. The vertical ticks count by 20, placing the point at 60 liters.",
+      "incorrectFeedback": "Read the vertical tick labels and their step size before reading the point's height.",
+      "allowRetry": true,
+      "resolution": {"steps": [{"body": "The vertical labels are 0, 20, 40, 60, 80, and 100. At time 3, the point aligns with 60 liters."}], "takeaway": "Read labels, units, and tick steps before interpreting position."
+      }
+    },
+    {
+      "id": "height-or-rate",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Distinguish a current amount from its rate of change.",
+      "expectedRealization": "A lower line can be changing faster than a higher line.",
+      "transitionIn": "Height answers “how much now.” Steepness answers “how fast is it changing.”",
+      "estimatedSeconds": 80,
+      "prompt": "At noon, Tank A contains 80 liters and is gaining 4 liters per minute. Tank B contains 60 liters and is gaining 7 liters per minute. Which statement is true?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "Tank A's graph is higher, but Tank B's graph is steeper."},
+        {"id": "b", "text": "Tank A's graph is both higher and steeper."},
+        {"id": "c", "text": "Tank B's graph is higher because 7 > 4."},
+        {"id": "d", "text": "The two graphs must have equal steepness."}
+      ], "correctId": "a"},
+      "correctFeedback": "Exactly. Eighty exceeds sixty, but seven liters per minute exceeds four liters per minute.",
+      "incorrectFeedback": "Separate the current liters from the liters added per minute.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Compare height", "body": "At noon, Tank A has the greater amount: 80 liters versus 60."},
+        {"title": "Compare rate", "body": "Tank B changes faster: 7 liters per minute versus 4, so its line is steeper."}
+      ], "takeaway": "Height represents amount; steepness represents rate of change."
+      }
+    },
+    {
+      "id": "table-pattern",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Translate a table's repeated change into a graph description.",
+      "expectedRealization": "Equal input steps with equal output changes produce a steady straight trend.",
+      "transitionIn": "A table can expose exact values; compare successive rows to predict the graph's shape.",
+      "estimatedSeconds": 80,
+      "prompt": "A table lists time 0, 2, 4, 6 minutes and distance 0, 3, 6, 9 meters. Which graph description matches?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "A straight rising line through the four points."},
+        {"id": "b", "text": "A horizontal line because the time steps are equal."},
+        {"id": "c", "text": "A falling line because 2 is less than 3."},
+        {"id": "d", "text": "Four unrelated points with no trend."}
+      ], "correctId": "a"},
+      "correctFeedback": "Right. Every 2-minute increase adds 3 meters, so the rate and steepness stay constant.",
+      "incorrectFeedback": "Compare each row with the next: the same time increase produces the same distance increase.",
+      "allowRetry": true,
+      "resolution": {"visual": {"primitive": "data-graph", "data": {
+        "xMin": 0, "xMax": 6, "xStep": 2, "yMin": 0, "yMax": 9, "yStep": 3,
+        "xLabel": "time (minutes)", "yLabel": "distance (meters)", "slope": 1.5, "intercept": 0, "lineLabel": "3 meters every 2 minutes",
+        "points": [{"x": 0, "y": 0}, {"x": 2, "y": 3}, {"x": 4, "y": 6}, {"x": 6, "y": 9}]
+      }, "continuityKey": "f7-table-line", "ariaLabel": "Four table points aligned on a straight rising distance-time graph"},
+      "steps": [{"body": "The points (0,0), (2,3), (4,6), and (6,9) align because each equal run of 2 minutes has the same rise of 3 meters."}], "takeaway": "Repeated change in a table becomes constant steepness on a graph."
+      }
+    },
+    {
+      "id": "name-graph-reading",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name the representational features after learners have used them.",
+      "expectedRealization": "Axes, scale, points, segments, and trends each encode distinct information.",
+      "transitionIn": "The race, tank, and table displays all used the same visual grammar.",
+      "estimatedSeconds": 50,
+      "name": "Variables, axes, scale, and trend",
+      "conciseDefinition": "Axes name the related variables and units; scale assigns values to positions; points record paired values; segments and overall shape show how the relationship changes.",
+      "formalization": "horizontal change = input change; vertical change = output change; steepness compares the two changes",
+      "memoryHook": "Labels, scale, point, pattern."
+    },
+    {
+      "id": "temperature-trend",
+      "phase": "independent-transfer",
+      "kind": "interaction",
+      "purpose": "Require interpretation of a multi-point display beyond reading one value.",
+      "expectedRealization": "A trend statement must account for the sequence of values, including reversals or flat portions.",
+      "transitionIn": "Use the visual grammar on data that rises and then falls rather than moving at one steady rate.",
+      "estimatedSeconds": 85,
+      "prompt": "Which statement best describes the full temperature pattern?",
+      "visual": {"primitive": "data-graph", "data": {
+        "xMin": 0, "xMax": 4, "xStep": 1, "yMin": 10, "yMax": 30, "yStep": 5,
+        "xLabel": "hours after noon", "yLabel": "temperature (°C)",
+        "points": [{"x": 0, "y": 18, "label": "noon"}, {"x": 1, "y": 23}, {"x": 2, "y": 27}, {"x": 3, "y": 25}, {"x": 4, "y": 20}]
+      }, "continuityKey": "f7-temperature-data", "ariaLabel": "Temperature points rising from eighteen to twenty-seven degrees and then falling to twenty degrees"},
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "Temperature rises throughout all four hours."},
+        {"id": "b", "text": "Temperature falls throughout all four hours."},
+        {"id": "c", "text": "Temperature rises to a peak after 2 hours, then falls."},
+        {"id": "d", "text": "Temperature never changes because all points share one graph."}
+      ], "correctId": "c"},
+      "correctFeedback": "Correct. The full sequence rises to 27°C and then reverses downward.",
+      "incorrectFeedback": "Read the points from left to right and note where the direction changes.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Read the rise", "body": "The values move from 18 to 23 to 27°C during the first two hours."},
+        {"title": "Read the reversal", "body": "They then fall to 25 and 20°C. One value alone would miss the peak and change in direction."}
+      ], "takeaway": "A trend describes the relationship across values, not just one point."
+      }
+    },
+    {
+      "id": "graph-recap",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate variable, scale, height, rate, and trend interpretation.",
+      "expectedRealization": "Reliable graph reading is a sequence of contextual checks.",
+      "transitionIn": "Every display became trustworthy only after several questions were answered in order.",
+      "estimatedSeconds": 75,
+      "prompt": "Select every reliable graph-reading habit.",
+      "response": {"kind": "multi-select", "options": [
+        {"id": "axes", "text": "Name both axis variables and units."},
+        {"id": "scale", "text": "Read tick values before comparing heights."},
+        {"id": "rate", "text": "Separate current amount from rate of change."},
+        {"id": "picture", "text": "Treat the line as a literal picture of the physical path."},
+        {"id": "single", "text": "Use one point to describe every trend."}
+      ], "correctIds": ["axes", "scale", "rate"], "feedback": "Keep the checks that connect visual features to named variables and discard picture-reading shortcuts."},
+      "correctFeedback": "Exactly. Context, scale, and change turn marks on a page into mathematical meaning.",
+      "incorrectFeedback": "A graph encodes variables; it is not scenery, and one point cannot reveal a whole trend.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Orient", "body": "Read variable names, units, and scales."},
+        {"title": "Decode", "body": "Interpret point height as amount and segment steepness as rate of change."},
+        {"title": "Synthesize", "body": "Follow the full display to describe flat portions, reversals, intersections, and trends."}
+      ], "takeaway": "Labels, scale, point, pattern."
+      }
+    },
+    {
+      "id": "from-line-to-rule",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Create the successor need to connect a constant-rate line with coordinates and an equation.",
+      "expectedRealization": "A line's repeated rise and run can be encoded as a numerical rule.",
+      "transitionIn": "The table's straight line rose 3 meters whenever time ran 2 minutes. That repeated move can become a rule.",
+      "estimatedSeconds": 60,
+      "prompt": "What should a rule for that distance-time line preserve?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "a", "text": "Every coordinate pair and the constant rise of 3 for each run of 2."},
+        {"id": "b", "text": "Only the final point, while ignoring all earlier points."},
+        {"id": "c", "text": "The visual color but none of the values."},
+        {"id": "d", "text": "A different rate between every pair of points."}
+      ], "correctId": "a"},
+      "correctFeedback": "Yes. One equation should generate every point while preserving the line's constant rate.",
+      "incorrectFeedback": "The rule must describe the entire straight relationship, not one isolated feature.",
+      "allowRetry": true,
+      "resolution": {"steps": [{"body": "Coordinates name each plotted pair, and the constant rise/run gives the line's slope. Connecting those pieces to an equation will let one symbolic rule describe the entire graph."}], "takeaway": "A constant-rate graph invites a coordinate rule for the whole line."
+      }
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {"near": 2, "mixed": 2, "challenge": 1},
+    "sessionSelection": [
+      {"source": "generated", "transferLevel": "near", "count": 2}, {"source": "generated", "transferLevel": "mixed", "count": 2}, {"source": "generated", "transferLevel": "challenge", "count": 1}
+    ],
+    "excludeProblemIds": ["amc8-2019-05"], "requireFreshGeneratedItems": true
+  },
+  "mastery": {"skillId": "F7-graphs-tables-data", "evidenceBeatIds": ["temperature-trend", "graph-recap"], "minIndependentPracticeItems": 5, "recommendedAccuracyThreshold": 0.8, "weightMixedTransferMore": true},
+  "generation": {"curriculumVersion": "1.0.0", "mappingVersion": "1.0.0", "generatorVersion": "1.0.0", "notes": [
+    "The approved tortoise-and-hare problem is the discovery anchor; later checks vary scale, variables, and representations.",
+    "The lesson remains draft pending human pedagogical review."
+  ]}
+}

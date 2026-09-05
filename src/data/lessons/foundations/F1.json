@@ -1,0 +1,371 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "F1",
+  "curriculumNodeId": "F1",
+  "title": "Number Sense & Estimation",
+  "lessonType": "foundation",
+  "status": "draft",
+  "estimatedMinutes": 24,
+  "coreInsight": "Numbers carry magnitude and structure; estimation and reasonableness can reveal what an exact answer should look like before calculation.",
+  "targetLearnerRealization": "Before calculating exactly, magnitude and structure can eliminate impossible answers and suggest an efficient path.",
+  "learningObjectives": [
+    "Estimate products by replacing awkward factors with nearby friendly numbers.",
+    "Use bounds and place value to reject impossible results.",
+    "Decide when an estimate settles a question and when exact calculation is still needed.",
+    "Transfer estimation to a rate and unit-conversion setting."
+  ],
+  "hardPrerequisites": [],
+  "narrativePredecessor": null,
+  "continuity": {
+    "closingSeeds": [
+      "Magnitude can be located before a number is written exactly.",
+      "Whole-number marks leave unnamed positions between them on a number line."
+    ],
+    "nextLessonIds": ["F2"]
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "Exact calculation is always better than estimation.",
+      "beatIds": ["magnitude-sort", "name-estimation", "exact-or-estimate", "control-the-answer"]
+    },
+    {
+      "misconception": "An answer that comes from valid arithmetic does not need a reasonableness check.",
+      "beatIds": ["calculator-sanity-check", "contest-product", "control-the-answer"]
+    },
+    {
+      "misconception": "The written form of a number is more important than its magnitude or structure.",
+      "beatIds": ["magnitude-sort", "friendly-factors", "contest-product", "between-whole-numbers"]
+    }
+  ],
+  "beats": [
+    {
+      "id": "magnitude-sort",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Create a need to judge scale before doing exact multiplication.",
+      "expectedRealization": "The leading digits and place values locate a product's scale without an exact calculation.",
+      "transitionIn": "Three products are deliberately awkward. Place each one in the right neighborhood before multiplying exactly.",
+      "transitionOut": "A product's neighborhood can be known before its exact address.",
+      "estimatedSeconds": 105,
+      "prompt": "Sort each product into the neighborhood where its value belongs. Estimate—do not calculate each exact product.",
+      "response": {
+        "kind": "sort",
+        "items": [
+          {"id": "small", "text": "48 × 19"},
+          {"id": "middle", "text": "398 × 21"},
+          {"id": "large", "text": "2,004 × 49"}
+        ],
+        "buckets": [
+          {"id": "thousand", "text": "about 1,000"},
+          {"id": "ten-thousand", "text": "about 10,000"},
+          {"id": "hundred-thousand", "text": "about 100,000"}
+        ],
+        "correctBucketByItem": {
+          "small": "thousand",
+          "middle": "ten-thousand",
+          "large": "hundred-thousand"
+        },
+        "feedback": "Replace each factor with a nearby number that is easy to multiply."
+      },
+      "correctFeedback": "Exactly. Friendly factors reveal all three scales without exact multiplication.",
+      "incorrectFeedback": "Try 50 × 20, 400 × 20, and 2,000 × 50. Compare the number of zeros in those products.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              {"label": "about 1,000", "items": ["48 × 19 ≈ 50 × 20 = 1,000"]},
+              {"label": "about 10,000", "items": ["398 × 21 ≈ 400 × 20 = 8,000"]},
+              {"label": "about 100,000", "items": ["2,004 × 49 ≈ 2,000 × 50 = 100,000"]}
+            ]
+          },
+          "continuityKey": "f1-magnitude-neighborhoods",
+          "ariaLabel": "The three products grouped into neighborhoods near one thousand, ten thousand, and one hundred thousand"
+        },
+        "steps": [
+          {"title": "Keep the size", "body": "Round each factor to a nearby friendly number, then multiply the friendly pair."},
+          {"title": "Read place value", "body": "The three estimates land in different place-value neighborhoods, so exact arithmetic is unnecessary for this sort."}
+        ],
+        "takeaway": "Estimate first when the scale alone can settle the question."
+      }
+    },
+    {
+      "id": "calculator-sanity-check",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Surface an absurd calculator-style result and make bounds override blind trust in written arithmetic.",
+      "expectedRealization": "A result outside simple bounds is impossible even if it looks calculator-produced.",
+      "transitionIn": "Use the first product's neighborhood to inspect a result instead of recomputing it.",
+      "estimatedSeconds": 75,
+      "prompt": "A display reports 48 × 19 = 9,120. Which check proves immediately that the display is wrong?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "a", "text": "48 is even."},
+          {"id": "b", "text": "48 × 19 is less than 50 × 20 = 1,000."},
+          {"id": "c", "text": "19 is close to 20."},
+          {"id": "d", "text": "9,120 has a zero in it."}
+        ],
+        "correctId": "b"
+      },
+      "correctFeedback": "Right. The simple upper bound makes 9,120 impossible.",
+      "incorrectFeedback": "Look for a statement that puts the actual product below a known number.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Build an upper bound", "body": "Both factors are positive, with 48 < 50 and 19 < 20. Therefore 48 × 19 < 50 × 20 = 1,000."},
+          {"title": "Reject the display", "body": "Since 9,120 is greater than 1,000, it cannot be the product. The exact value is 912, but the bound already settled the question."}
+        ],
+        "takeaway": "Arithmetic deserves a reasonableness check."
+      }
+    },
+    {
+      "id": "friendly-factors",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Practice choosing nearby factors that preserve magnitude and simplify multiplication.",
+      "expectedRealization": "Useful rounding changes the numbers a little while making the structure much easier.",
+      "transitionIn": "A bound can reject a result. A well-chosen estimate can also predict one.",
+      "estimatedSeconds": 70,
+      "prompt": "Which friendly-number product gives the most useful quick estimate for 612 × 39?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "a", "text": "600 × 40 = 24,000"},
+          {"id": "b", "text": "60 × 40 = 2,400"},
+          {"id": "c", "text": "700 × 30 = 21,000"},
+          {"id": "d", "text": "600 × 400 = 240,000"}
+        ],
+        "correctId": "a"
+      },
+      "correctFeedback": "Yes. Both replacements stay close and make the product immediate.",
+      "incorrectFeedback": "Preserve the place value of each factor and change each number as little as practical.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Round nearby", "body": "612 is close to 600, and 39 is close to 40."},
+          {"title": "Use the easy structure", "body": "6 × 4 = 24, then the three zeros give 24,000. The exact product, 23,868, is close to the estimate."}
+        ],
+        "takeaway": "Friendly numbers should simplify the work without changing the scale."
+      }
+    },
+    {
+      "id": "name-estimation",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name estimation and reasonableness only after learners have used both ideas.",
+      "expectedRealization": "An estimate is a deliberate nearby value that predicts or checks an exact result.",
+      "transitionIn": "The same move sorted products, rejected an impossible display, and predicted a result.",
+      "estimatedSeconds": 45,
+      "name": "Estimation and reasonableness",
+      "conciseDefinition": "An estimate replaces quantities with nearby, easier ones to predict magnitude. A reasonableness check compares a result with that prediction or with reliable bounds.",
+      "formalization": "nearby friendly factors → easy product → expected scale",
+      "memoryHook": "Control the size before chasing the digits."
+    },
+    {
+      "id": "contest-product",
+      "phase": "competition-application",
+      "kind": "problem",
+      "source": "bank",
+      "problemId": "amc8-2017-04",
+      "role": "guided",
+      "presentation": "full-prompt",
+      "purpose": "Apply factor rounding in an authentic contest problem designed to be solved by approximation.",
+      "expectedRealization": "Opposite-looking decimal and whole-number scales can recombine into a manageable product.",
+      "transitionIn": "Now the two factors look much less friendly, but their leading digits and place values still control the product.",
+      "estimatedSeconds": 150,
+      "whyNow": "The learner has chosen friendly factors and used scale checks; this contest problem makes approximation the intended solution rather than a fallback.",
+      "entryBridge": "Round each factor to one useful leading digit, then compare the estimate with the answer choices.",
+      "exitBridge": "The estimate selected a widely separated choice without requiring the exact product.",
+      "reusedRepresentation": "Nearby friendly-number cards carried from the opening estimates.",
+      "animation": {
+        "mode": "whole",
+        "controlledByLesson": true,
+        "autoplay": false,
+        "showPlayerControls": false
+      },
+      "learnerPrompts": [
+        "Before advancing the animation, what nearby numbers preserve the size of both factors?",
+        "After the factors shift, combine their leading digits and powers of ten. Which answer choice has that magnitude?"
+      ],
+      "correctFeedback": "Exactly. 0.0003 × 8,000,000 = 2,400, so choice D is closest.",
+      "incorrectFeedback": "Track both the leading digits and place value: 3 × 8 = 24, while 0.0001 × 1,000,000 = 100.",
+      "resolution": {
+        "animation": {"kind": "problem-animation", "placement": "before-steps"},
+        "steps": [
+          {"title": "Round the factors", "body": "Use 0.000315 ≈ 0.0003 and 7,928,564 ≈ 8,000,000."},
+          {"title": "Multiply the friendly numbers", "body": "Three ten-thousandths times eight million is 2,400.", "math": "3 × 10⁻⁴ · 8 × 10⁶ = 24 × 10² = 2,400"},
+          {"title": "Use the choice spacing", "body": "The choices are far apart in magnitude. An estimate near 2,400 identifies D; exact multiplication would add work without changing the decision."}
+        ],
+        "takeaway": "When choices are widely separated, magnitude can be enough."
+      },
+      "sourceLabelTiming": "before"
+    },
+    {
+      "id": "exact-or-estimate",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Distinguish a question settled by estimation from one whose close options require exact calculation.",
+      "expectedRealization": "Estimation controls the answer but does not always finish the answer.",
+      "transitionIn": "The contest choices were far apart. Move them close together and ask what the same estimate can still prove.",
+      "estimatedSeconds": 85,
+      "prompt": "For 247 × 31, the estimate 250 × 30 = 7,500 is quick. The choices are 7,500, 7,600, 7,657, and 7,750. What should you do next?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "a", "text": "Choose 7,500 because an estimate is always the answer."},
+          {"id": "b", "text": "Calculate more exactly because several choices are near 7,500."},
+          {"id": "c", "text": "Choose 7,750 because estimates always round down."},
+          {"id": "d", "text": "Reject every choice because none equals 250 × 30."}
+        ],
+        "correctId": "b"
+      },
+      "correctFeedback": "Right. The estimate narrows the search, but the close choices demand exact work.",
+      "incorrectFeedback": "An estimate predicts a neighborhood. Check whether only one choice occupies that neighborhood.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Use the estimate", "body": "A result around 7,500 is plausible, but all four choices are close enough that magnitude alone does not decide."},
+          {"title": "Finish exactly", "body": "247 × 31 = 247 × 30 + 247 = 7,410 + 247 = 7,657."}
+        ],
+        "takeaway": "Estimate first; calculate exactly when the remaining choices are too close."
+      }
+    },
+    {
+      "id": "lightning-transfer",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "bank",
+      "problemId": "amc8-2001-05",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Transfer magnitude control to a rate, time, and unit-conversion setting.",
+      "expectedRealization": "Estimation remains useful when a product must be interpreted and converted before rounding.",
+      "transitionIn": "The next estimate is not just a bare product: its units must travel from feet per second to feet and then to miles.",
+      "estimatedSeconds": 180,
+      "whyNow": "After pure product estimation and a decision about exactness, the same habit must survive rate language, units, and rounding to the nearest half-mile.",
+      "entryBridge": "First estimate how many feet sound covers in ten seconds; then compare that distance with miles.",
+      "exitBridge": "The units changed, but the same magnitude check kept the final rounding under control.",
+      "reusedRepresentation": "A scale of nearby values, now labeled in feet and miles.",
+      "animation": {
+        "mode": "whole",
+        "controlledByLesson": true,
+        "autoplay": false,
+        "showPlayerControls": false
+      },
+      "learnerPrompts": [
+        "Before advancing, about how many feet does sound travel in 10 seconds?",
+        "After the distance appears in feet, use about 5,000 feet per mile to predict the number of miles.",
+        "When 2.06 appears, compare its distance from 2 and 2.5 before choosing."
+      ],
+      "correctFeedback": "Yes. The sound travels about two miles, and 2.06 is nearer 2 than 2.5.",
+      "incorrectFeedback": "Multiply the rate by 10 seconds, then remember that one mile is a little more than 5,000 feet. Round to the nearest half-mile, not automatically upward.",
+      "resolution": {
+        "animation": {"kind": "problem-animation", "placement": "before-steps"},
+        "steps": [
+          {"title": "Find the distance", "body": "The sound travels for 10 seconds at 1,088 feet per second.", "math": "1,088 × 10 = 10,880 feet"},
+          {"title": "Predict the miles", "body": "Since 10,880 is a little more than twice 5,280, the distance should be a little more than 2 miles."},
+          {"title": "Convert and round", "body": "10,880 ÷ 5,280 ≈ 2.06 miles. This is closer to 2 than to 2.5, so the answer is C."}
+        ],
+        "takeaway": "Carry units through the estimate, then round to the nearest allowed value."
+      },
+      "sourceLabelTiming": "before"
+    },
+    {
+      "id": "control-the-answer",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate estimation as a decision-making tool rather than a substitute for all exact arithmetic.",
+      "expectedRealization": "A complete estimation habit predicts scale, checks plausibility, and notices when precision is still needed.",
+      "transitionIn": "Across a display check, a contest product, and a distance, the estimate did different jobs.",
+      "estimatedSeconds": 75,
+      "prompt": "Which actions belong in a strong estimate-first habit? Select every one that applies.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "scale", "text": "Predict the answer's scale with nearby friendly numbers."},
+          {"id": "reject", "text": "Reject a result that violates reliable bounds."},
+          {"id": "precision", "text": "Calculate more exactly if several choices remain plausible."},
+          {"id": "trust", "text": "Trust any exact-looking display without checking it."},
+          {"id": "always", "text": "Always replace the exact answer with the estimate."}
+        ],
+        "correctIds": ["scale", "reject", "precision"],
+        "feedback": "An estimate may predict, check, or narrow a result; it does not automatically replace exact work."
+      },
+      "correctFeedback": "Exactly. Estimate first to control the answer, then use only as much precision as the question needs.",
+      "incorrectFeedback": "Keep actions that use magnitude to guide or check work. Remove claims that an estimate is always final or that a display needs no check.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Predict", "body": "Nearby friendly numbers reveal the likely scale."},
+          {"title": "Check", "body": "Bounds can expose impossible results even before an exact recalculation."},
+          {"title": "Decide", "body": "Widely separated choices may need only an estimate; close choices may require exact work."}
+        ],
+        "takeaway": "Control the size before chasing the digits."
+      }
+    },
+    {
+      "id": "between-whole-numbers",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Create a forward question about naming magnitudes that lie between whole numbers.",
+      "expectedRealization": "Whole-number labels do not name every possible position on a number line.",
+      "transitionIn": "Magnitude tells us where a number lives. But whole-number marks do not name every possible location.",
+      "estimatedSeconds": 60,
+      "prompt": "A measured length lands strictly between 2 and 3 on this line. What new need does that create?",
+      "visual": {
+        "primitive": "number-line",
+        "data": {"min": 0, "max": 4, "tickStep": 1, "label": "Whole-number marks from 0 to 4"},
+        "continuityKey": "f1-number-line-gap",
+        "ariaLabel": "A number line with whole-number marks zero through four and unmarked positions between them"
+      },
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "a", "text": "We need ways to name and compare quantities between whole numbers."},
+          {"id": "b", "text": "The length must actually equal 2 or 3."},
+          {"id": "c", "text": "Only whole numbers have magnitude."},
+          {"id": "d", "text": "Estimation makes measurement impossible."}
+        ],
+        "correctId": "a"
+      },
+      "correctFeedback": "Yes. The gap contains real magnitudes that need names and comparisons.",
+      "incorrectFeedback": "The measurement exists even though no whole-number tick names its exact position.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"body": "A point between 2 and 3 has a definite magnitude, but neither neighboring whole number names it exactly. Fractions and decimals will let us name those positions; percents will give another way to describe the same quantities."}
+        ],
+        "takeaway": "The number line continues inside every whole-number gap."
+      }
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {"near": 2, "mixed": 2, "challenge": 1},
+    "sessionSelection": [
+      {"source": "generated", "transferLevel": "near", "count": 2},
+      {"source": "generated", "transferLevel": "mixed", "count": 2},
+      {"source": "generated", "transferLevel": "challenge", "count": 1}
+    ],
+    "excludeProblemIds": ["amc8-2017-04", "amc8-2001-05"],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "F1-estimation-reasonableness",
+    "evidenceBeatIds": ["exact-or-estimate", "lightning-transfer", "control-the-answer"],
+    "minIndependentPracticeItems": 5,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.0.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "1.0.0",
+    "notes": [
+      "The generated opening isolates magnitude before formal vocabulary or contextual load.",
+      "The approved 2017 problem is guided because approximation is the intended method; the approved 2001 problem supplies independent transfer through rate, units, and rounding.",
+      "The lesson remains draft pending human pedagogical review."
+    ]
+  }
+}
