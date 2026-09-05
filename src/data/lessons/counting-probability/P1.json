@@ -1,0 +1,749 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "P1",
+  "curriculumNodeId": "P1",
+  "title": "Probability as Counting",
+  "lessonType": "foundation",
+  "status": "draft",
+  "estimatedMinutes": 30,
+  "coreInsight": "Probability measures an event relative to a complete probability model; for equally likely discrete outcomes, it is the fraction of the sample space that is favorable.",
+  "targetLearnerRealization": "Probability compares a target event with a complete sample space; favorable/total works only when the elementary outcomes are equally likely.",
+  "learningObjectives": [
+    "Build a complete sample space of equally likely elementary outcomes.",
+    "Represent an event as a subset of that sample space and calculate its probability as favorable outcomes divided by total outcomes.",
+    "Distinguish equally likely elementary outcomes from summarized categories that may have different likelihoods."
+  ],
+  "hardPrerequisites": [
+    "F2",
+    "C1",
+    "C2"
+  ],
+  "narrativePredecessor": "C2",
+  "continuity": {
+    "openingCallback": "Reuse C2's complete outcome grid for two coin tosses, then mark the leaves that make an event happen.",
+    "closingSeeds": [
+      "A probability denominator describes the outcomes still possible in the current sample space.",
+      "When an object is removed without replacement, the sample space for the next draw changes."
+    ],
+    "nextLessonIds": [
+      "P2",
+      "P3"
+    ]
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "All outcomes that are easy to list are equally likely.",
+      "beatIds": [
+        "head-count-trap",
+        "labeled-spinner",
+        "authentic-penny-match",
+        "probability-recap"
+      ]
+    },
+    {
+      "misconception": "The sample space can be incomplete.",
+      "beatIds": [
+        "rebuild-coin-grid",
+        "mark-one-head",
+        "authentic-penny-match",
+        "practice-two-spinners",
+        "probability-recap"
+      ]
+    },
+    {
+      "misconception": "Probability is just the number of favorable outcomes.",
+      "beatIds": [
+        "compare-to-whole",
+        "name-probability-model",
+        "guided-at-least-one-head",
+        "probability-recap"
+      ]
+    },
+    {
+      "misconception": "The numerator and denominator may refer to different universes.",
+      "beatIds": [
+        "compare-to-whole",
+        "guided-at-least-one-head",
+        "practice-number-cards",
+        "probability-recap"
+      ]
+    }
+  ],
+  "beats": [
+    {
+      "id": "rebuild-coin-grid",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Briefly reactivate C2's completeness audit and immediately turn the completed list toward chance.",
+      "expectedRealization": "Two successive fair coin tosses have four complete, distinct outcomes.",
+      "transitionIn": "Last time, a list was trustworthy only when every finished path appeared once. Rebuild one tiny list we can audit completely.",
+      "estimatedSeconds": 70,
+      "prompt": "A fair coin is tossed twice. How many complete outcomes belong in the grid?",
+      "visual": {
+        "primitive": "choice-grid",
+        "data": {
+          "groups": [
+            {
+              "label": "First toss",
+              "choices": ["H", "T"]
+            },
+            {
+              "label": "Second toss",
+              "choices": ["H", "T"]
+            }
+          ]
+        },
+        "continuityKey": "p1-two-coin-space",
+        "ariaLabel": "Heads or tails on each of two successive fair coin tosses"
+      },
+      "response": {
+        "kind": "numeric",
+        "answer": 4,
+        "feedback": "Count complete two-toss records, not the two labels on a coin."
+      },
+      "correctFeedback": "Yes—HH, HT, TH, and TT complete the grid.",
+      "incorrectFeedback": "Give each possible first toss both possible second-toss endings.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "outcome-grid",
+          "data": {
+            "rows": ["First H", "First T"],
+            "columns": ["Second H", "Second T"],
+            "cells": [["HH", "HT"], ["TH", "TT"]]
+          },
+          "continuityKey": "p1-two-coin-space",
+          "ariaLabel": "Complete two by two outcome grid HH, HT, TH, TT"
+        },
+        "steps": [
+          {
+            "title": "Finish every branch",
+            "body": "After either first toss, the second toss can be H or T.",
+            "math": "2 × 2 = 4"
+          }
+        ],
+        "takeaway": "The four cells are the complete two-toss outcomes, and each is equally likely for a fair coin."
+      }
+    },
+    {
+      "id": "mark-one-head",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Have the learner locate an event inside a complete outcome space before giving formal vocabulary.",
+      "expectedRealization": "Exactly one head occurs in two of the four equally likely cells, HT and TH.",
+      "transitionIn": "Keep all four cells. Now ask a question about which of those finished outcomes count as a success.",
+      "estimatedSeconds": 65,
+      "prompt": "How many cells show exactly one head?",
+      "visual": {
+        "primitive": "outcome-grid",
+        "data": {
+          "rows": ["First H", "First T"],
+          "columns": ["Second H", "Second T"],
+          "cells": [["HH", "HT"], ["TH", "TT"]]
+        },
+        "continuityKey": "p1-two-coin-space",
+        "ariaLabel": "Neutral two-toss outcome grid before any successful cells are marked"
+      },
+      "response": {
+        "kind": "numeric",
+        "answer": 2,
+        "feedback": "Inspect all four complete records and count the ones containing one H."
+      },
+      "correctFeedback": "Right—HT and TH are the two successes.",
+      "incorrectFeedback": "HH has two heads and TT has none; check the other two cells.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "outcome-grid",
+          "data": {
+            "rows": ["First H", "First T"],
+            "columns": ["Second H", "Second T"],
+            "cells": [["HH", "✓ HT"], ["✓ TH", "TT"]]
+          },
+          "continuityKey": "p1-two-coin-space",
+          "ariaLabel": "Outcome grid with HT and TH marked as the outcomes having exactly one head"
+        },
+        "steps": [
+          {
+            "title": "Test the same condition everywhere",
+            "body": "HT and TH each contain exactly one H; HH and TT do not."
+          }
+        ],
+        "takeaway": "A chance question selects some outcomes from the complete set."
+      }
+    },
+    {
+      "id": "compare-to-whole",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Elicit the favorable-to-total ratio and repair favorable-count-only thinking.",
+      "expectedRealization": "The two successful cells must be compared with all four equally likely cells, giving 2/4.",
+      "transitionIn": "Two successes alone do not say how likely the event is. Two successes out of four possibilities is different from two out of twenty.",
+      "estimatedSeconds": 75,
+      "prompt": "Which fraction measures the chance of getting exactly one head?",
+      "visual": {
+        "primitive": "outcome-grid",
+        "data": {
+          "rows": ["First H", "First T"],
+          "columns": ["Second H", "Second T"],
+          "cells": [["HH", "✓ HT"], ["✓ TH", "TT"]]
+        },
+        "continuityKey": "p1-two-coin-space",
+        "ariaLabel": "Four equally likely outcomes with two successful outcomes marked"
+      },
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "count", "text": "2, because there are two successes"},
+          {"id": "ratio", "text": "2/4, because two of the four equally likely outcomes succeed"},
+          {"id": "labels", "text": "1/2, because a coin has two face labels"}
+        ],
+        "correctId": "ratio",
+        "feedback": {
+          "count": "A count needs a complete total for comparison.",
+          "ratio": "Exactly—the numerator and denominator refer to the same four-cell grid.",
+          "labels": "The experiment has two tosses, so its elementary outcomes are the four complete records."
+        }
+      },
+      "correctFeedback": "Exactly—2 favorable outcomes out of 4 total outcomes.",
+      "incorrectFeedback": "Use the marked cells for the numerator and every cell in that same grid for the denominator.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {
+            "title": "Count the marked part",
+            "body": "There are two outcomes with exactly one head.",
+            "math": "favorable = 2"
+          },
+          {
+            "title": "Compare with the whole grid",
+            "body": "The complete grid contains four equally likely outcomes.",
+            "math": "2/4 = 1/2"
+          }
+        ],
+        "takeaway": "The numerator and denominator must describe the same experiment and the same complete outcome space."
+      }
+    },
+    {
+      "id": "head-count-trap",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Expose the mistake of treating summarized outcome categories as equally likely.",
+      "expectedRealization": "The labels 0 heads, 1 head, and 2 heads hide different numbers of equally likely elementary outcomes.",
+      "transitionIn": "The four-cell grid can be summarized with just three labels: 0 heads, 1 head, or 2 heads. A shorter list can hide unequal weights.",
+      "estimatedSeconds": 90,
+      "prompt": "For two fair tosses, are the three head-count labels equally likely?",
+      "visual": {
+        "primitive": "choice-grid",
+        "data": {
+          "groups": [
+            {
+              "label": "Possible head counts",
+              "choices": ["0 heads", "1 head", "2 heads"]
+            }
+          ]
+        },
+        "ariaLabel": "Three possible summarized head-count labels with no probabilities shown"
+      },
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "equal", "text": "Yes. There are three labels, so each has chance 1/3."},
+          {"id": "one-more", "text": "No. One head is more likely than either zero heads or two heads."},
+          {"id": "extremes", "text": "No. Zero heads and two heads are more likely than one head."}
+        ],
+        "correctId": "one-more",
+        "feedback": {
+          "equal": "Labels are categories, not necessarily equally likely elementary outcomes. Reopen the four-cell grid.",
+          "one-more": "Yes. The one-head category contains two cells; each extreme contains one.",
+          "extremes": "The two mixed outcomes HT and TH both belong to the one-head category."
+        }
+      },
+      "correctFeedback": "Right—the three category names do not carry equal weight.",
+      "incorrectFeedback": "Sort HH, HT, TH, and TT by head count, then compare the group sizes.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "sort-into-cases",
+          "data": {
+            "cases": [
+              {"label": "0 heads", "items": ["TT"]},
+              {"label": "1 head", "items": ["HT", "TH"]},
+              {"label": "2 heads", "items": ["HH"]}
+            ]
+          },
+          "ariaLabel": "Four elementary outcomes sorted into head-count categories of sizes one, two, and one"
+        },
+        "steps": [
+          {
+            "title": "Look beneath each label",
+            "body": "The three categories contain 1, 2, and 1 equally likely cells.",
+            "math": "P(0)=1/4, P(1)=2/4, P(2)=1/4"
+          },
+          {
+            "title": "Check coverage and overlap",
+            "body": "Every one of HH, HT, TH, and TT appears in exactly one category, so the grouping is complete and non-overlapping."
+          }
+        ],
+        "takeaway": "Easy-to-name categories are not automatically equally likely. Count the equally likely elementary outcomes inside them."
+      }
+    },
+    {
+      "id": "name-probability-model",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Attach formal probability language to the learner's favorable-part versus complete-whole discovery.",
+      "expectedRealization": "For equally likely elementary outcomes, an event's probability is favorable outcomes divided by all outcomes in the sample space.",
+      "transitionIn": "You already used the idea: build the complete equally likely grid, mark the cells that satisfy the question, and compare marked cells with all cells. Now name the pieces.",
+      "estimatedSeconds": 75,
+      "name": "Sample space, event, and probability",
+      "conciseDefinition": "The sample space is the complete set of possible elementary outcomes. An event is the subset that satisfies the question.",
+      "formalization": "When all elementary outcomes are equally likely, P(event) = (number of favorable outcomes)/(number of outcomes in the sample space).",
+      "memoryHook": "Build the whole, mark the event, then compare part to whole."
+    },
+    {
+      "id": "labeled-spinner",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Test equal-likelihood at the elementary-section level when visible labels repeat.",
+      "expectedRealization": "A fair four-section spinner has four equally likely sections even when only three different letters appear.",
+      "transitionIn": "The formula is short, but it carries a condition: the things in the denominator must be equally likely. Repeated labels make that condition visible.",
+      "estimatedSeconds": 80,
+      "prompt": "A fair spinner has four equal sections labeled A, A, B, C. What is the probability of landing on A?",
+      "visual": {
+        "primitive": "outcome-grid",
+        "data": {
+          "rows": ["Equal sections"],
+          "columns": ["1", "2", "3", "4"],
+          "cells": [["A", "A", "B", "C"]]
+        },
+        "ariaLabel": "Four equal spinner sections labeled A, A, B, and C with no successful sections marked"
+      },
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "third", "text": "1/3, because A, B, and C are the three labels"},
+          {"id": "half", "text": "2/4 = 1/2, because two of the four equal sections say A"},
+          {"id": "two", "text": "2, because two sections say A"}
+        ],
+        "correctId": "half",
+        "feedback": {
+          "third": "The three letter categories do not have equal numbers of sections.",
+          "half": "Exactly. The equal sections—not the distinct labels—are the elementary outcomes.",
+          "two": "Two is the favorable count; compare it with all four equal sections."
+        }
+      },
+      "correctFeedback": "Yes—two favorable equal sections out of four total sections.",
+      "incorrectFeedback": "Use the four physical sections as the equally likely outcomes.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "outcome-grid",
+          "data": {
+            "rows": ["Equal sections"],
+            "columns": ["1", "2", "3", "4"],
+            "cells": [["✓ A", "✓ A", "B", "C"]]
+          },
+          "ariaLabel": "Four equal spinner sections with both A sections marked as favorable"
+        },
+        "steps": [
+          {
+            "title": "Choose the elementary outcomes",
+            "body": "The four equal physical sections are equally likely. The letter categories A, B, and C are not.",
+            "math": "P(A)=2/4=1/2"
+          }
+        ],
+        "takeaway": "Equal geometry gives equal likelihood to sections; repeated labels combine sections into a larger event."
+      }
+    },
+    {
+      "id": "guided-at-least-one-head",
+      "phase": "guided-problem",
+      "kind": "problem",
+      "purpose": "Apply the complete-space and favorable-subset method to a fresh two-coin event with a worked visual resolution.",
+      "expectedRealization": "At least one head includes three of the four equally likely two-coin outcomes.",
+      "transitionIn": "Use the full routine on the familiar four-cell model, but change the event being marked.",
+      "transitionOut": "The event changed from exactly one head to at least one head, while the complete four-cell denominator stayed fixed.",
+      "estimatedSeconds": 130,
+      "source": "generated",
+      "problemId": "original-p1-at-least-one-head",
+      "role": "anchor",
+      "presentation": "full-prompt",
+      "whyNow": "The learner has discovered and named the method and can now coordinate an inclusive event with the unchanged sample space.",
+      "entryBridge": "List both coins in order, then mark every record except the one with no heads.",
+      "exitBridge": "HH, HT, and TH are three favorable cells in the same complete four-cell grid.",
+      "reusedRepresentation": "The discovery grid is reused with a new event marked.",
+      "animation": {
+        "mode": "none",
+        "controlledByLesson": true,
+        "autoplay": false,
+        "showPlayerControls": false
+      },
+      "learnerPrompts": [
+        "What are the four equally likely elementary outcomes?",
+        "Which outcomes contain at least one H?",
+        "Do the favorable count and total count refer to the same grid?"
+      ],
+      "correctFeedback": "Correct—three of the four equally likely outcomes contain at least one head.",
+      "incorrectFeedback": "Write HH, HT, TH, TT, then remove only the outcome with zero heads.",
+      "resolution": {
+        "visual": {
+          "primitive": "outcome-grid",
+          "data": {
+            "rows": ["Coin 1: H", "Coin 1: T"],
+            "columns": ["Coin 2: H", "Coin 2: T"],
+            "cells": [["✓ HH", "✓ HT"], ["✓ TH", "TT"]]
+          },
+          "continuityKey": "p1-two-coin-space",
+          "ariaLabel": "Complete two-coin grid with HH, HT, and TH marked for at least one head"
+        },
+        "steps": [
+          {
+            "title": "Build the whole",
+            "body": "Two ordered coin results give HH, HT, TH, and TT, each with probability 1/4."
+          },
+          {
+            "title": "Mark the event",
+            "body": "At least one head includes HH, HT, and TH. Only TT fails.",
+            "math": "P(at least one H)=3/4"
+          },
+          {
+            "title": "Another way",
+            "body": "It is shorter to subtract the one all-tails outcome from the whole.",
+            "math": "1-1/4=3/4"
+          }
+        ],
+        "takeaway": "An event may collect several elementary outcomes; its probability is their share of the complete equally likely space."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "authentic-penny-match",
+      "phase": "competition-application",
+      "kind": "problem",
+      "purpose": "Transfer from one two-coin grid to an asymmetric joint sample space while confronting unequal head-count categories.",
+      "expectedRealization": "Keiko's two outcomes pair with Ephraim's four outcomes to make eight equally likely joint outcomes, three of which have matching head counts.",
+      "transitionIn": "Now the two people do not toss the same number of coins. Head-count labels become even more tempting, so return to complete elementary outcomes.",
+      "transitionOut": "The three matching leaves mattered only relative to all eight equally likely joint leaves.",
+      "estimatedSeconds": 210,
+      "source": "bank",
+      "problemId": "amc8-2000-21",
+      "role": "guided",
+      "presentation": "full-prompt",
+      "whyNow": "The learner can build and mark a small equal-likelihood space; this approved problem now tests whether that reasoning survives unequal numbers of coins and summarized head-count categories.",
+      "entryBridge": "Pair each Keiko result with every ordered two-penny result for Ephraim before comparing head counts.",
+      "exitBridge": "Matching on one head contributes two leaves, and matching on zero heads contributes one more; both cases belong in the event.",
+      "reusedRepresentation": "The two-coin outcome grid expands into a joint tree of equally likely leaves with matching leaves colored.",
+      "animation": {
+        "mode": "whole",
+        "controlledByLesson": true,
+        "autoplay": false,
+        "showPlayerControls": false
+      },
+      "learnerPrompts": [
+        "What are the eight equally likely joint outcomes?",
+        "Are the possible head counts themselves equally likely?",
+        "Which leaves match when Keiko has zero heads, and which match when she has one head?"
+      ],
+      "correctFeedback": "Yes—three of the eight equally likely joint outcomes have matching head counts.",
+      "incorrectFeedback": "Do not stop with Keiko's one-head case. Open her tails branch and check the zero-head match too.",
+      "resolution": {
+        "animation": {
+          "kind": "problem-animation"
+        },
+        "steps": [
+          {
+            "title": "Build all joint leaves",
+            "body": "Keiko has 2 outcomes and Ephraim has 4 ordered outcomes, so pairing them creates 8 equally likely joint outcomes.",
+            "math": "2 × 4 = 8"
+          },
+          {
+            "title": "Mark both matching cases",
+            "body": "Keiko's T matches Ephraim's TT at zero heads. Keiko's H matches Ephraim's HT and TH at one head.",
+            "math": "1+2=3 favorable leaves"
+          },
+          {
+            "title": "Compare event with sample space",
+            "body": "Three of the eight equally likely leaves match.",
+            "math": "P(match)=3/8"
+          }
+        ],
+        "takeaway": "Count equally likely complete outcomes, not head-count labels, and include every disjoint way the event can happen."
+      },
+      "sourceLabelTiming": "completion"
+    },
+    {
+      "id": "practice-fair-spinner",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check near transfer to repeated labels on equally sized spinner sections.",
+      "expectedRealization": "Three red sections among six equal sections give probability 3/6=1/2.",
+      "transitionIn": "Leave coins behind. The representation changes, but the denominator still comes from equally likely elementary outcomes.",
+      "transitionOut": "Distinct color names were not the denominator; the six equal sections were.",
+      "estimatedSeconds": 105,
+      "source": "generated",
+      "problemId": "original-p1-fair-spinner",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "A near-transfer item checks the equal-section interpretation without the two-stage coin structure.",
+      "entryBridge": "Treat each equal section as one elementary outcome even when a color repeats.",
+      "exitBridge": "The three red sections form one event inside the six-section sample space.",
+      "reusedRepresentation": "The labeled-spinner model returns with a different number of equal sections.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["What are the equally likely outcomes?", "How many of those outcomes are red?"],
+      "correctFeedback": "Correct—3 of 6 equal sections are red, so the probability is 1/2.",
+      "incorrectFeedback": "Count physical sections, not distinct color names.",
+      "resolution": {
+        "visual": {
+          "primitive": "outcome-grid",
+          "data": {
+            "rows": ["Equal sections"],
+            "columns": ["1", "2", "3", "4", "5", "6"],
+            "cells": [["✓ R", "✓ R", "✓ R", "B", "G", "G"]]
+          },
+          "ariaLabel": "Six equal spinner sections with three red sections marked"
+        },
+        "steps": [{"body": "Three of the six equally likely sections are red.", "math": "3/6=1/2"}],
+        "takeaway": "Repeated labels combine elementary outcomes; they do not reduce the denominator to the number of distinct labels."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-matching-coins",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Check near transfer on a different event in the familiar two-coin sample space.",
+      "expectedRealization": "The matching outcomes HH and TT occupy two of four equally likely cells.",
+      "transitionIn": "Return once to the four-cell coin grid, but let the event collect the two matching extremes.",
+      "transitionOut": "A verbal event became a precise subset: HH and TT, two cells out of four.",
+      "estimatedSeconds": 100,
+      "source": "generated",
+      "problemId": "original-p1-matching-coins",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This verifies that the learner can define a new event without changing a familiar sample space.",
+      "entryBridge": "List the ordered results, then mark those whose two faces agree.",
+      "exitBridge": "Both matching outcomes are included, and neither mixed outcome is.",
+      "reusedRepresentation": "The original four-cell coin grid is reused for a matching event.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["Which two outcomes have matching faces?", "How many total equally likely outcomes remain in the grid?"],
+      "correctFeedback": "Correct—HH and TT are 2 of the 4 equally likely outcomes.",
+      "incorrectFeedback": "Matching means both H or both T; keep all four outcomes in the denominator.",
+      "resolution": {
+        "visual": {
+          "primitive": "outcome-grid",
+          "data": {"rows": ["First H", "First T"], "columns": ["Second H", "Second T"], "cells": [["✓ HH", "HT"], ["TH", "✓ TT"]]},
+          "ariaLabel": "Four two-coin outcomes with HH and TT marked as matching"
+        },
+        "steps": [{"body": "HH and TT match; HT and TH do not.", "math": "P(match)=2/4=1/2"}],
+        "takeaway": "Changing the event changes the numerator, not the complete sample space."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-number-cards",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Transfer the method to a one-stage numerical sample space and enforce a shared numerator and denominator universe.",
+      "expectedRealization": "Among cards 1 through 8, only 3 and 6 are multiples of 3, giving 2/8=1/4.",
+      "transitionIn": "Coins and spinners supplied visible cells. A numbered set can serve as the same kind of complete space.",
+      "transitionOut": "The favorable cards and total cards came from the same set 1 through 8.",
+      "estimatedSeconds": 105,
+      "source": "generated",
+      "problemId": "original-p1-number-cards",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "A mixed representation checks whether the learner can construct the event from a numerical property.",
+      "entryBridge": "Write the full card set first, then test divisibility by 3 one card at a time.",
+      "exitBridge": "Two favorable cards out of the same eight-card universe simplify to one fourth.",
+      "reusedRepresentation": "The outcome grid becomes a lineup of equally likely numbered cards.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["What is the complete set of cards?", "Which cards are multiples of 3?"],
+      "correctFeedback": "Correct—3 and 6 are the two favorable cards among eight.",
+      "incorrectFeedback": "List 1 through 8, then mark only numbers divisible by 3 with no remainder.",
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "All cards", "choices": ["1", "2", "✓ 3", "4", "5", "✓ 6", "7", "8"]}
+            ]
+          },
+          "ariaLabel": "Eight numbered cards with 3 and 6 marked as multiples of 3"
+        },
+        "steps": [{"body": "The complete sample space is 1 through 8. Its favorable subset is {3, 6}.", "math": "P(multiple of 3)=2/8=1/4"}],
+        "takeaway": "Build the denominator and numerator from the same universe."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-two-spinners",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Require a complete product sample space before testing a sum condition.",
+      "expectedRealization": "A two-section and three-section fair spinner create six equally likely ordered pairs, three with an even sum.",
+      "transitionIn": "Now the complete space is not handed to you. Build it from two successive choices, just as in C1 and C2, then mark the event.",
+      "transitionOut": "The 2-by-3 grid proved both completeness and equal weighting before any favorable count was used.",
+      "estimatedSeconds": 125,
+      "source": "generated",
+      "problemId": "original-p1-two-spinners",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "This mixed item combines prior product-space construction with the new favorable-to-total comparison.",
+      "entryBridge": "Pair every result from the 1-2 spinner with every result from the 1-2-3 spinner.",
+      "exitBridge": "Three even-sum cells among six equally likely cells give one half.",
+      "reusedRepresentation": "C1's rectangular choice grid becomes a probability sample space.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["How many ordered pairs fill the complete grid?", "Which pairs have an even sum?"],
+      "correctFeedback": "Correct—three of the six equally likely pairs have an even sum.",
+      "incorrectFeedback": "Make both rows of the 2-by-3 grid, then check each sum's parity.",
+      "resolution": {
+        "visual": {
+          "primitive": "outcome-grid",
+          "data": {"rows": ["First: 1", "First: 2"], "columns": ["Second: 1", "Second: 2", "Second: 3"], "cells": [["✓ (1,1)", "(1,2)", "✓ (1,3)"], ["(2,1)", "✓ (2,2)", "(2,3)"]]},
+          "ariaLabel": "Two by three spinner outcome grid with the three even-sum pairs marked"
+        },
+        "steps": [
+          {"title": "Complete the grid", "body": "Two first-spinner results pair with three second-spinner results.", "math": "2×3=6"},
+          {"title": "Mark even sums", "body": "The pairs (1,1), (1,3), and (2,2) have even sums.", "math": "P(even sum)=3/6=1/2"}
+        ],
+        "takeaway": "First certify the sample space; then count the event inside it."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "practice-product-even",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "purpose": "Challenge the learner to count a complement in a twelve-outcome product space without losing the complete denominator.",
+      "expectedRealization": "A product is odd only when both factors are odd, so four of twelve pairs are odd and eight are favorable.",
+      "transitionIn": "For the final challenge, the grid has twelve cells. A useful opposite event can shorten the marking without changing the denominator.",
+      "transitionOut": "Counting the four odd-product exceptions exposed all eight favorable cells without listing them one by one.",
+      "estimatedSeconds": 150,
+      "source": "generated",
+      "problemId": "original-p1-product-even",
+      "role": "transfer",
+      "presentation": "independent",
+      "whyNow": "The challenge preserves the primary complete-space method while rewarding an elegant complement count grounded in parity.",
+      "entryBridge": "Build the 3-by-4 space, then ask when a product fails to be even.",
+      "exitBridge": "The four odd-odd pairs are the complete complement, leaving eight of twelve pairs favorable.",
+      "reusedRepresentation": "The rectangular spinner grid scales up and is audited through its complement.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["How many equally likely ordered pairs are there?", "Exactly when is a product odd?", "How many cells remain for an even product?"],
+      "correctFeedback": "Correct—8 of the 12 equally likely pairs have an even product, so the probability is 2/3.",
+      "incorrectFeedback": "Count odd products first: both spinner results must be odd.",
+      "resolution": {
+        "visual": {
+          "primitive": "outcome-grid",
+          "data": {
+            "rows": ["First: 1", "First: 2", "First: 3"],
+            "columns": ["Second: 1", "Second: 2", "Second: 3", "Second: 4"],
+            "cells": [["odd", "✓ even", "odd", "✓ even"], ["✓ even", "✓ even", "✓ even", "✓ even"], ["odd", "✓ even", "odd", "✓ even"]]
+          },
+          "ariaLabel": "Three by four outcome grid showing eight even products and four odd products"
+        },
+        "steps": [
+          {"title": "Keep the complete denominator", "body": "The two fair spinners make 3×4=12 equally likely ordered pairs.", "math": "total=12"},
+          {"title": "Count the opposite event", "body": "A product is odd only for odd-odd pairs. There are 2 odd choices on each spinner, so 2×2=4 odd-product pairs.", "math": "odd=4"},
+          {"title": "Return to the target event", "body": "The remaining eight pairs have even products.", "math": "P(even)=8/12=2/3"}
+        ],
+        "takeaway": "A complement can simplify the favorable count, but both counts still live inside the same complete sample space."
+      },
+      "sourceLabelTiming": "hidden"
+    },
+    {
+      "id": "probability-recap",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate the full probability-as-counting routine and its equal-likelihood condition before looking forward.",
+      "expectedRealization": "A valid favorable-over-total calculation requires a complete nonduplicated space, equally likely elementary outcomes, and one shared universe.",
+      "transitionIn": "Coins, cards, and spinners all used the same audit. Gather the checks before the sample space begins to change.",
+      "estimatedSeconds": 90,
+      "prompt": "Which checks make favorable/total a valid probability calculation here? Select all four.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "complete", "text": "The sample space contains every possible elementary outcome."},
+          {"id": "once", "text": "Each elementary outcome is counted exactly once."},
+          {"id": "equal", "text": "The elementary outcomes in the denominator are equally likely."},
+          {"id": "same", "text": "The favorable outcomes are a subset of that same sample space."},
+          {"id": "labels", "text": "Every easy-to-name category gets one equal share."}
+        ],
+        "correctIds": ["complete", "once", "equal", "same"],
+        "feedback": "Audit the whole space, its weights, and the relationship between the event and that whole."
+      },
+      "correctFeedback": "Exactly—complete, nonduplicated, equally likely, and one shared universe.",
+      "incorrectFeedback": "Named categories may contain different numbers of elementary outcomes; keep the four structural checks.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "1. Build the whole", "choices": ["Complete and counted once"]},
+              {"label": "2. Check the model", "choices": ["Elementary outcomes equally likely"]},
+              {"label": "3. Mark the event", "choices": ["Favorable outcomes come from that whole"]},
+              {"label": "4. Compare", "choices": ["favorable / total"]}
+            ]
+          },
+          "ariaLabel": "Four-step probability-as-counting audit"
+        },
+        "steps": [
+          {"body": "A complete, nonduplicated list establishes the denominator."},
+          {"body": "Equal likelihood makes a simple count ratio valid."},
+          {"body": "The event selects favorable outcomes from that exact denominator.", "math": "P(event)=favorable/total"}
+        ],
+        "takeaway": "Build the whole, check equal likelihood, mark the event, and compare part to that same whole."
+      }
+    },
+    {
+      "id": "dependent-events-hook",
+      "phase": "reflection",
+      "kind": "reflection",
+      "purpose": "Create the precise unresolved question that leads to P2 after P1 has been consolidated.",
+      "expectedRealization": "If an outcome is removed before a second draw, the second sample space may have a different total and composition.",
+      "transitionIn": "So far, every trial used a fixed complete space. Keep the audit, but disturb the space itself.",
+      "estimatedSeconds": 50,
+      "prompt": "A bag holds three tiles. You draw one and do not put it back. Before the second draw, what happened to the denominator—and could the favorable part have changed too?",
+      "takeaway": "Next, we will let an earlier outcome change the sample space for what happens afterward."
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {"near": 2, "mixed": 2, "challenge": 1},
+    "sessionSelection": [
+      {"source": "generated", "transferLevel": "near", "count": 2},
+      {"source": "generated", "transferLevel": "mixed", "count": 2},
+      {"source": "generated", "transferLevel": "challenge", "count": 1}
+    ],
+    "excludeProblemIds": [
+      "original-p1-at-least-one-head",
+      "amc8-2000-21"
+    ],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "P1",
+    "evidenceBeatIds": [
+      "practice-fair-spinner",
+      "practice-matching-coins",
+      "practice-number-cards",
+      "practice-two-spinners",
+      "practice-product-even"
+    ],
+    "minIndependentPracticeItems": 5,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.2.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "mathinking-lesson-skill-1.0.0",
+    "notes": [
+      "Draft foundation lesson authored with the repository-local mathinking-lesson Skill and the compact P1 context packet.",
+      "The opening reactivates C2's completeness audit only long enough to transform its two-coin grid into a probability model.",
+      "The approved AMC 8 2000 Problem 21 appears in its guided role after equal likelihood and summarized-category traps have been discovered.",
+      "All declarative visuals reuse existing generic primitives; the mapped penny-match-tree animation is reused without renderer changes.",
+      "Generated questions were independently enumerated and checked with complementary arithmetic or parity arguments."
+    ]
+  }
+}
