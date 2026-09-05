@@ -1,0 +1,246 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "S2",
+  "curriculumNodeId": "S2",
+  "title": "Logic & Constraint Elimination",
+  "lessonType": "technique",
+  "status": "draft",
+  "estimatedMinutes": 30,
+  "coreInsight": "Every clue removes possibilities; a solution is justified only when all constraints hold and competing possibilities are eliminated.",
+  "targetLearnerRealization": "Each logical clue removes possibilities; a solution is justified only when all clues hold simultaneously and alternatives are eliminated.",
+  "learningObjectives": [
+    "Maintain a complete set of candidates while applying clues one at a time.",
+    "Combine clues rather than treating each clue as a separate puzzle.",
+    "Distinguish a statement from its unsupported converse.",
+    "Verify that the final candidate satisfies every clue and is unique."
+  ],
+  "hardPrerequisites": ["F1"],
+  "narrativePredecessor": "F1",
+  "continuity": {
+    "openingCallback": "Use a small visible set of positions so reasonableness becomes exact elimination: each clue makes some states impossible.",
+    "closingSeeds": [
+      "Equations and inequalities can encode constraints that shrink the same candidate set.",
+      "Casework is reliable when its cases cover every surviving possibility without overlap.",
+      "Exactly-one-true conditions must be checked globally, not statement by statement."
+    ],
+    "nextLessonIds": []
+  },
+  "misconceptionTargets": [
+    {"misconception": "Clues may be used independently without checking their interaction.", "beatIds": ["four-token-puzzle", "authentic-money-order", "practice-workshop-days", "logic-recap"]},
+    {"misconception": "The converse of a statement is automatically true.", "beatIds": ["converse-trap", "authentic-money-order", "logic-recap"]},
+    {"misconception": "Finding one candidate is enough without checking uniqueness.", "beatIds": ["prove-the-survivor", "authentic-truth-statements", "practice-door-signs", "logic-recap"]},
+    {"misconception": "Unstated assumptions from a diagram or story can be treated as constraints.", "beatIds": ["four-token-puzzle", "practice-workshop-days", "logic-recap"]}
+  ],
+  "beats": [
+    {
+      "id": "four-token-puzzle", "phase": "puzzle", "kind": "problem", "source": "generated", "problemId": "original-s2-four-tokens", "role": "anchor", "presentation": "full-prompt",
+      "purpose": "Create a complete four-state universe in which interacting clues force one arrangement.",
+      "expectedRealization": "A clue removes arrangements, and the unique solution appears only after all three clues act on the same candidate set.",
+      "transitionIn": "A rough size check can reject impossible numbers. Here the universe is small enough to reject impossible arrangements one by one.",
+      "transitionOut": "Yellow was forced into the first position only after the adjacency, interior-position, and left-of clues were combined.",
+      "whyNow": "A four-token board isolates logical elimination without arithmetic and includes an adjacency clue whose interaction with the others is decisive.",
+      "entryBridge": "Keep all four colors available until a clue rules out a placement; do not add clues from how the tokens happen to be drawn.",
+      "exitBridge": "The only full order is Yellow, Green, Red, Blue, so Yellow occupies position 1.",
+      "reusedRepresentation": "Four ranked slots with candidate colors removed as clues accumulate.",
+      "animation": {"mode": "none", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["Where can the Red-Blue block fit?", "Which placements survive Green's restriction?", "Does the final order satisfy every clue?"],
+      "correctFeedback": "Correct—the only order satisfying all three clues is Yellow, Green, Red, Blue.",
+      "incorrectFeedback": "Try the Red-Blue block in positions 1-2, 2-3, and 3-4, then apply both remaining clues.",
+      "resolution": {
+        "visual": {"primitive": "choice-grid", "data": {"groups": [{"label": "Position", "choices": ["1: Yellow", "2: Green", "3: Red", "4: Blue"]}]}, "continuityKey": "s2-token-board", "ariaLabel": "The unique token order Yellow, Green, Red, Blue in positions one through four"},
+        "steps": [
+          {"title": "Test the Red-Blue block", "body": "Red immediately left of Blue allows only positions 1-2, 2-3, or 3-4."},
+          {"title": "Combine the other clues", "body": "Green must be interior and Yellow must be left of Green. The first two block placements fail; Red-Blue in 3-4 leaves Yellow-Green in 1-2."},
+          {"title": "Verify", "body": "The order Yellow, Green, Red, Blue satisfies all three clues, and every other block position was eliminated."}
+        ],
+        "takeaway": "Keep one shared candidate set, apply every clue to it, and verify the lone survivor."
+      },
+      "sourceLabelTiming": "hidden", "estimatedSeconds": 170
+    },
+    {
+      "id": "converse-trap", "phase": "notice", "kind": "interaction",
+      "purpose": "Separate a one-way implication from its converse before the authentic comparison puzzle.",
+      "expectedRealization": "A clue of the form if P then Q does not justify if Q then P.",
+      "transitionIn": "Some clues point in only one direction. Reversing their wording can invent a restriction that was never given.",
+      "estimatedSeconds": 80,
+      "prompt": "A rule says, “If a card is gold, then it has a star.” You see a card with a star. What can you conclude?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "gold", "text": "It must be gold."},
+        {"id": "maybe", "text": "It may be gold, but the rule does not force that."},
+        {"id": "not-gold", "text": "It cannot be gold."},
+        {"id": "no-star", "text": "It cannot have a star."}
+      ], "correctId": "maybe", "feedback": {"gold": "That reverses the given implication.", "maybe": "Right. Gold guarantees a star; a star does not guarantee gold.", "not-gold": "Gold cards are allowed to have stars.", "no-star": "The observed card already has a star."}},
+      "correctFeedback": "Right—the clue runs from gold to star, not automatically from star to gold.",
+      "incorrectFeedback": "Ask what the rule guarantees about gold cards, then compare that with what is known about all starred cards.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title": "Use the stated direction", "body": "Gold → star is guaranteed."},
+        {"title": "Do not invent the converse", "body": "Star → gold was never stated; nongold cards may also have stars."}
+      ], "takeaway": "A logical arrow cannot be reversed without additional information."}
+    },
+    {
+      "id": "name-constraint-elimination", "phase": "name", "kind": "concept",
+      "purpose": "Name constraint elimination after the learner has maintained and narrowed a candidate set.",
+      "expectedRealization": "Constraint elimination means removing only states that contradict stated clues until all survivors can be checked.",
+      "transitionIn": "You kept possible arrangements alive, removed only those contradicted by a clue, and checked the remaining order.",
+      "estimatedSeconds": 55,
+      "name": "Constraint elimination",
+      "conciseDefinition": "Begin with every possible state, then use each stated clue to remove states that cannot work.",
+      "formalization": "survivors = candidates satisfying clue 1 and clue 2 and every remaining clue",
+      "memoryHook": "State the universe. Cross out with reasons. Check the survivor."
+    },
+    {
+      "id": "authentic-money-order", "phase": "competition-application", "kind": "problem", "source": "bank", "problemId": "amc8-1999-06", "role": "guided", "presentation": "full-prompt",
+      "purpose": "Apply interacting inequality clues to eliminate four people from the least position.",
+      "expectedRealization": "Every person except Moe is proved greater than someone, while the combined arrows place Moe below four people.",
+      "transitionIn": "Replace colored positions with five people and replace placement clues with more-than arrows.",
+      "transitionOut": "Moe is least because the clue graph forces every other person above someone and places Moe beneath Bo, Coe, and Joe, with Flo above the chain.",
+      "whyNow": "The approved comparison problem is a compact authentic test of combining several one-way inequalities without inventing converses.",
+      "entryBridge": "Draw each stated comparison as an arrow from more money to less money, preserving the arrow direction exactly.",
+      "exitBridge": "All given arrows fit one shared order relation, and Moe is the only candidate that survives for least.",
+      "reusedRepresentation": "The four-slot elimination board becomes a directed comparison graph.",
+      "animation": {"mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["Who is below Flo?", "Who is above Moe?", "How does the Joe-Bo comparison connect the clues?", "Which candidate remains for least?", "Have the other four candidates all been eliminated?"],
+      "correctFeedback": "Correct—Moe is forced below Bo, Coe, and Joe, and Flo is also above members of that chain.",
+      "incorrectFeedback": "Record only the stated greater-than arrows, then eliminate anyone proved to have more than another person.",
+      "resolution": {"animation": {"kind": "problem-animation", "placement": "before-steps"}, "steps": [
+        {"title": "Apply all comparisons", "body": "Flo is above Bo and Joe; Bo and Coe are above Moe; Joe is above Moe and below Bo."},
+        {"title": "Eliminate candidates for least", "body": "Bo, Coe, Flo, and Joe are each proved above another person. Moe is below Bo, Coe, and Joe."},
+        {"title": "Check the conclusion", "body": "Every clue is consistent with Moe as least, and each competing person has been ruled out."}
+      ], "takeaway": "The conclusion comes from the intersection of all clues, not from any clue read alone."},
+      "sourceLabelTiming": "completion", "estimatedSeconds": 190
+    },
+    {
+      "id": "prove-the-survivor", "phase": "notice", "kind": "interaction",
+      "purpose": "Distinguish a plausible candidate from a uniquely justified solution.",
+      "expectedRealization": "A solution needs both satisfaction of every clue and elimination of every alternative.",
+      "transitionIn": "Moe fits the clues. Finish the proof by saying why that is stronger than merely finding a plausible name.",
+      "estimatedSeconds": 70,
+      "prompt": "Which statement completes the justification that Moe is the unique least?",
+      "response": {"kind": "single-choice", "options": [
+        {"id": "fits", "text": "Moe appears in several clues."},
+        {"id": "one", "text": "One clue says Bo has more than Moe."},
+        {"id": "all", "text": "Moe fits every clue, and each other person is proved to have more than someone."},
+        {"id": "picture", "text": "Moe is drawn lowest in the diagram."}
+      ], "correctId": "all"},
+      "correctFeedback": "Exactly—check the candidate and eliminate every competitor.",
+      "incorrectFeedback": "A unique conclusion needs a reason the candidate works and reasons the alternatives cannot.",
+      "allowRetry": true,
+      "resolution": {"steps": [{"body": "All clues hold with Moe least. Bo, Coe, Flo, and Joe cannot be least because each is explicitly greater than someone."}], "takeaway": "Existence says a candidate works; uniqueness says no other candidate works."
+      }
+    },
+    {
+      "id": "authentic-truth-statements", "phase": "competition-application", "kind": "problem", "source": "bank", "problemId": "amc8-2004-13", "role": "transfer", "presentation": "independent",
+      "purpose": "Transfer from local ordering clues to a global exactly-one-true constraint.",
+      "expectedRealization": "Each complete ordering must be tested against all three statements, and only one ordering produces exactly one truth.",
+      "transitionIn": "The next condition does not compare just one pair. “Exactly one is true” judges all three statements together.",
+      "transitionOut": "Amy, Celine, Bill is the only order whose full truth count is one.",
+      "whyNow": "The approved transfer changes the constraint type while preserving the complete-candidates, eliminate, and verify routine.",
+      "entryBridge": "List all six age orders, evaluate all three statements for each order, and keep only truth count 1.",
+      "exitBridge": "Only Amy, Celine, Bill survives, with statement III true and statements I and II false.",
+      "reusedRepresentation": "The candidate board becomes a table of complete orders and truth counts.",
+      "animation": {"mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["What are all six complete age orders?", "How many statements are true for each order?", "Which orders violate exactly one?", "Is there one survivor?", "Which statement is true in that survivor?"],
+      "correctFeedback": "Correct—Amy, Celine, Bill makes exactly statement III true.",
+      "incorrectFeedback": "Do not choose a statement in isolation. Count truths for every complete ordering.",
+      "resolution": {"animation": {"kind": "problem-animation", "placement": "before-steps"}, "steps": [
+        {"title": "Test complete orders", "body": "Evaluate statements I, II, and III for each of the six possible age rankings."},
+        {"title": "Enforce the global count", "body": "Cross out any order with zero, two, or three true statements."},
+        {"title": "Verify the survivor", "body": "For Amy, Celine, Bill: Bill is not oldest, Amy is oldest, and Celine is not youngest. Exactly statement III is true."}
+      ], "takeaway": "A global truth condition must be checked across all statements at once."},
+      "sourceLabelTiming": "completion", "estimatedSeconds": 190
+    },
+    {
+      "id": "practice-three-boxes", "phase": "independent-transfer", "kind": "problem", "source": "generated", "problemId": "original-s2-three-boxes", "role": "transfer", "presentation": "independent",
+      "purpose": "Assess a near ordering deduction with a forced middle item.", "expectedRealization": "Combining both comparisons places Emerald between Ruby and Sapphire.",
+      "transitionIn": "Return to three objects and let two comparisons force the middle position.", "transitionOut": "Emerald is neither greatest nor least because both inequalities meet around it.",
+      "whyNow": "A short near item checks conjunction of clues without a large candidate table.", "entryBridge": "Place all three gems on one greater-to-less line.", "exitBridge": "Ruby > Emerald > Sapphire forces Emerald into the middle.",
+      "animation": {"mode": "none", "controlledByLesson": true}, "learnerPrompts": ["Which gem is below Ruby and above Sapphire?"],
+      "correctFeedback": "Correct—Emerald lies between Ruby and Sapphire.", "incorrectFeedback": "Combine both comparisons into one chain.",
+      "resolution": {"steps": [{"body": "Ruby is heavier than Emerald, and Emerald is heavier than Sapphire, so the order is Ruby > Emerald > Sapphire."}], "takeaway": "Clues become stronger when their shared object connects them."},
+      "sourceLabelTiming": "hidden", "estimatedSeconds": 90
+    },
+    {
+      "id": "practice-book-shelf", "phase": "independent-transfer", "kind": "problem", "source": "generated", "problemId": "original-s2-book-shelf", "role": "transfer", "presentation": "independent",
+      "purpose": "Assess elimination across all arrangements of three objects.", "expectedRealization": "C cannot be third and A must precede B, so B is forced third.",
+      "transitionIn": "Now a clue leaves two possible full orders, but both force the same book into one position.", "transitionOut": "The exact first two positions can vary; the asked-for third position is still forced.",
+      "whyNow": "This item distinguishes a uniquely answered question from a uniquely determined full arrangement.", "entryBridge": "List the placements allowed by A before B, then remove those with C third.", "exitBridge": "C-A-B and A-C-B both survive, and both place B third.",
+      "animation": {"mode": "none", "controlledByLesson": true}, "learnerPrompts": ["Which full orders survive both clues?", "What do the survivors agree about?"],
+      "correctFeedback": "Correct—B is third in every surviving arrangement.", "incorrectFeedback": "The full order need not be unique. Check which book is third in every survivor.",
+      "resolution": {"visual": {"primitive": "choice-grid", "data": {"groups": [{"label": "Surviving orders", "choices": ["C-A-B", "A-C-B"]}]}, "ariaLabel": "Two surviving book orders, both ending with B"}, "steps": [{"body": "A before B and C not third leave C-A-B and A-C-B. Both put B third."}], "takeaway": "A requested fact can be forced even when other details remain undecided."},
+      "sourceLabelTiming": "hidden", "estimatedSeconds": 100
+    },
+    {
+      "id": "practice-door-signs", "phase": "independent-transfer", "kind": "problem", "source": "generated", "problemId": "original-s2-door-signs", "role": "transfer", "presentation": "independent",
+      "purpose": "Assess an exactly-one-true constraint in a smaller fresh setting.", "expectedRealization": "Testing each prize location against all three signs leaves only door B.",
+      "transitionIn": "Use the truth-count table again, now with three possible prize locations instead of six age orders.", "transitionOut": "Door B alone makes exactly one sign true.",
+      "whyNow": "This mixed item requires global truth evaluation without copying the authentic statements.", "entryBridge": "Make one row for prize at A, B, and C; count true signs across each row.", "exitBridge": "The truth counts are 2, 1, and 2, so B is the unique survivor.",
+      "animation": {"mode": "none", "controlledByLesson": true}, "learnerPrompts": ["How many signs are true for each prize location?", "Which row has truth count one?"],
+      "correctFeedback": "Correct—only prize at B makes exactly one sign true.", "incorrectFeedback": "Evaluate all three signs for each possible prize door.",
+      "resolution": {"visual": {"primitive": "choice-grid", "data": {"groups": [{"label": "Prize at A", "choices": ["2 true"]}, {"label": "Prize at B", "choices": ["1 true"]}, {"label": "Prize at C", "choices": ["2 true"]}]}, "ariaLabel": "Truth counts two, one, and two for prize locations A, B, and C"}, "steps": [{"body": "At B, sign I is false, sign II is false, and sign III is true. The other locations each make two signs true."}], "takeaway": "Exactly one true is a constraint on the whole row of statements."},
+      "sourceLabelTiming": "hidden", "estimatedSeconds": 115
+    },
+    {
+      "id": "practice-workshop-days", "phase": "independent-transfer", "kind": "problem", "source": "generated", "problemId": "original-s2-workshop-days", "role": "transfer", "presentation": "independent",
+      "purpose": "Assess interacting position and adjacency constraints in a four-item schedule.", "expectedRealization": "M on day 1 and the J-K-L chain force K onto day 3.",
+      "transitionIn": "Return to four slots, but let the positions be days and the linked block contain three workshops.", "transitionOut": "The schedule is forced by the stated clues alone; no topic or title supplies an extra ordering rule.",
+      "whyNow": "This mixed representation checks adjacency, order, and resistance to unstated assumptions.", "entryBridge": "Place M first, then fit J before K with L immediately after K into the remaining days.", "exitBridge": "The only schedule is M, J, K, L, so K is on day 3.",
+      "animation": {"mode": "none", "controlledByLesson": true}, "learnerPrompts": ["Which slots remain after M?", "Where can the K-L block fit while J stays earlier?"],
+      "correctFeedback": "Correct—the only schedule is M, J, K, L.", "incorrectFeedback": "After M occupies day 1, fit the K-L block into consecutive remaining days and leave room for J before K.",
+      "resolution": {"visual": {"primitive": "choice-grid", "data": {"groups": [{"label": "Days 1-4", "choices": ["M", "J", "K", "L"]}]}, "ariaLabel": "Unique workshop schedule M, J, K, L across four days"}, "steps": [{"body": "K-L cannot occupy days 2-3 because no remaining day before K is available for J. Thus K-L uses days 3-4 and J uses day 2."}], "takeaway": "Use only stated position relationships, and make them act on one shared schedule."},
+      "sourceLabelTiming": "hidden", "estimatedSeconds": 120
+    },
+    {
+      "id": "practice-two-true", "phase": "independent-transfer", "kind": "problem", "source": "generated", "problemId": "original-s2-two-true", "role": "transfer", "presentation": "independent",
+      "purpose": "Assess a global exactly-two-true condition with semantic negation.", "expectedRealization": "Only Celine as culprit makes Bo's and Celine's statements true together.",
+      "transitionIn": "For the final challenge, change the target truth count from one to two and keep the suspect meanings consistent.", "transitionOut": "Celine is forced because the other culprit choices produce only one true statement.",
+      "whyNow": "The challenge requires complete candidate testing and careful interpretation of an innocence statement.", "entryBridge": "Assume each possible culprit in turn and record the truth values of all three claims.", "exitBridge": "The truth counts for Ava, Bo, and Celine as culprit are 1, 1, and 2.",
+      "animation": {"mode": "none", "controlledByLesson": true}, "learnerPrompts": ["What does each statement mean under each culprit choice?", "Which row has exactly two truths?"],
+      "correctFeedback": "Correct—Celine as culprit makes exactly two statements true.", "incorrectFeedback": "Test Ava, Bo, and Celine separately; count all three truth values in each row.",
+      "resolution": {"steps": [{"title": "Test all suspects", "body": "If Ava did it, only 'Bo is innocent' is true. If Bo did it, only 'Bo did it' is true. If Celine did it, 'Celine did it' and 'Bo is innocent' are true."}], "takeaway": "A truth-count condition is proved by checking every complete candidate, not by finding one appealing statement."},
+      "sourceLabelTiming": "hidden", "estimatedSeconds": 130
+    },
+    {
+      "id": "logic-recap", "phase": "reflection", "kind": "interaction",
+      "purpose": "Consolidate the complete constraint-elimination proof routine.",
+      "expectedRealization": "A justified solution states the universe, uses only valid clue directions, combines constraints, and proves uniqueness.",
+      "transitionIn": "Tokens, money, ages, books, schedules, and suspects all used the same discipline.",
+      "estimatedSeconds": 90,
+      "prompt": "Which checks belong in a reliable constraint-elimination argument? Select all four.",
+      "response": {"kind": "multi-select", "options": [
+        {"id": "universe", "text": "Begin with every candidate allowed by the problem."},
+        {"id": "stated", "text": "Remove a candidate only for a stated clue and in a justified direction."},
+        {"id": "together", "text": "Apply all clues to the same surviving set."},
+        {"id": "unique", "text": "Check the survivor and rule out every alternative."},
+        {"id": "picture", "text": "Treat spacing, drawing size, or story expectations as extra clues."}
+      ], "correctIds": ["universe", "stated", "together", "unique"], "feedback": "Keep completeness, justified elimination, interaction, and uniqueness."},
+      "correctFeedback": "Exactly—complete candidates, stated reasons, interacting clues, and a uniqueness check.",
+      "incorrectFeedback": "A drawing or expectation is not a constraint unless the problem says so.",
+      "allowRetry": true,
+      "resolution": {"visual": {"primitive": "choice-grid", "data": {"groups": [
+        {"label": "1. List", "choices": ["Every candidate"]}, {"label": "2. Eliminate", "choices": ["Only with stated clues"]}, {"label": "3. Combine", "choices": ["One shared survivor set"]}, {"label": "4. Prove", "choices": ["All clues + no rival"]}
+      ]}, "ariaLabel": "Four-stage constraint elimination checklist"}, "takeaway": "State the universe. Cross out with reasons. Check the survivor."
+      }
+    },
+    {
+      "id": "constraint-language-hook", "phase": "reflection", "kind": "reflection",
+      "purpose": "Connect the visual elimination routine to symbolic constraints without introducing a new lesson.",
+      "expectedRealization": "Different mathematical forms can describe the same shrinking candidate set.",
+      "transitionIn": "So far the clues were words, arrows, positions, and truth counts. The same eliminations can be written symbolically.",
+      "estimatedSeconds": 50,
+      "prompt": "If a clue such as “Bo has more than Joe” becomes B > J, how might a collection of equations or inequalities serve as another candidate filter?",
+      "takeaway": "Words, diagrams, equations, inequalities, and cases can all encode constraints; the proof still depends on their shared survivors."
+    }
+  ],
+  "practice": {"generatedPoolMinimum": {"near": 2, "mixed": 2, "challenge": 1}, "sessionSelection": [
+    {"source": "generated", "transferLevel": "near", "count": 2}, {"source": "generated", "transferLevel": "mixed", "count": 2}, {"source": "generated", "transferLevel": "challenge", "count": 1}
+  ], "excludeProblemIds": ["original-s2-four-tokens", "amc8-1999-06", "amc8-2004-13"], "requireFreshGeneratedItems": true},
+  "mastery": {"skillId": "S2", "evidenceBeatIds": ["practice-three-boxes", "practice-book-shelf", "practice-door-signs", "practice-workshop-days", "practice-two-true"], "minIndependentPracticeItems": 5, "recommendedAccuracyThreshold": 0.8, "weightMixedTransferMore": true},
+  "generation": {"curriculumVersion": "1.2.0", "mappingVersion": "1.0.0", "generatorVersion": "mathinking-lesson-skill-1.0.0", "notes": [
+    "Draft technique lesson authored from the approved S2 compact context packet.",
+    "The generated token puzzle establishes elimination before terminology; both approved AMC problems then extend the same candidate-board representation.",
+    "Converse, clue interaction, uniqueness, and unstated-assumption misconceptions are surfaced and repaired explicitly.",
+    "All generated answers were independently verified by complete arrangement or truth-table enumeration.",
+    "No lesson-specific renderer infrastructure was added."
+  ]}
+}

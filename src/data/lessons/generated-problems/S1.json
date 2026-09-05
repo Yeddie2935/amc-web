@@ -1,0 +1,270 @@
+[
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "S1",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["S1", "A1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-s1-display-chain",
+      "title": "Recover the Starting Display",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Problem Solving",
+      "subcategory": "Working backwards",
+      "difficulty": 1,
+      "statement": "A number machine starts with a whole number, adds 5, triples the result, and then subtracts 4. The final display is 29. What was the starting number?",
+      "choices": [
+        {"label": "A", "text": "4"},
+        {"label": "B", "text": "6"},
+        {"label": "C", "text": "8"},
+        {"label": "D", "text": "11"},
+        {"label": "E", "text": "18"}
+      ],
+      "answer": "B",
+      "shortAnswer": "6",
+      "hints": [
+        "Begin at 29 and undo the subtraction before the earlier operations.",
+        "The inverse trail is add 4, divide by 3, then subtract 5."
+      ],
+      "solutionSteps": [
+        {"title": "Reverse the operations", "body": "Starting at 29, add 4 to get 33, divide by 3 to get 11, and subtract 5 to get 6."},
+        {"title": "Check forward", "body": "Starting with 6 gives 6 + 5 = 11, then 33, then 33 − 4 = 29."}
+      ],
+      "tags": ["working backwards", "inverse operations", "number machine"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "inverse-chain computation: 29 + 4 = 33, 33 / 3 = 11, and 11 - 5 = 6",
+        "independent forward substitution: (6 + 5) times 3 minus 4 equals 29",
+        "answer-choice substitution audit"
+      ],
+      "notes": ["Recomputed answer: 6. The affine forward rule is one-to-one, so the starting whole number is unique."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "S1",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["S1", "A1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-s1-lab-log",
+      "title": "Read the Lab Log Backward",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Problem Solving",
+      "subcategory": "Working backwards",
+      "difficulty": 1,
+      "statement": "A lab log records three changes to a sample count. From 9 to 10, the count decreased by 4. From 10 to 11, the count tripled. From 11 to noon, the count increased by 2. At noon the count was 32. What was the count at 9?",
+      "choices": [
+        {"label": "A", "text": "8"},
+        {"label": "B", "text": "10"},
+        {"label": "C", "text": "12"},
+        {"label": "D", "text": "14"},
+        {"label": "E", "text": "18"}
+      ],
+      "answer": "D",
+      "shortAnswer": "14",
+      "hints": [
+        "The increase by 2 was the latest change, so undo it first.",
+        "Read the log upward: subtract 2, divide by 3, then add 4."
+      ],
+      "solutionSteps": [
+        {"title": "Read from noon backward", "body": "Before the increase by 2, the count was 32 − 2 = 30. Before tripling, it was 30 / 3 = 10. Before the decrease by 4, it was 10 + 4 = 14."},
+        {"title": "Replay the log", "body": "Starting with 14 gives 10 at 10, 30 at 11, and 32 at noon."}
+      ],
+      "tags": ["working backwards", "chronological order", "verification"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "reverse chronological computation: 32 - 2 = 30, 30 / 3 = 10, and 10 + 4 = 14",
+        "independent forward replay: (14 - 4) times 3 plus 2 equals 32",
+        "answer-choice replay audit"
+      ],
+      "notes": ["Recomputed answer: 14. Each recorded change is invertible, so the reconstructed earlier count is unique."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "S1",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["S1", "C2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-s1-two-move-machine",
+      "title": "Two Ways at Each Move",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Problem Solving",
+      "subcategory": "Working backwards",
+      "difficulty": 2,
+      "statement": "A machine changes a positive whole number by either adding 4 or multiplying by 2. After exactly two moves, the display is 20. How many different starting numbers are possible?",
+      "choices": [
+        {"label": "A", "text": "1"},
+        {"label": "B", "text": "2"},
+        {"label": "C", "text": "3"},
+        {"label": "D", "text": "4"},
+        {"label": "E", "text": "6"}
+      ],
+      "answer": "D",
+      "shortAnswer": "4",
+      "hints": [
+        "One move before 20, the display could have been 16 or 10.",
+        "Undo both possible operations from each of those values."
+      ],
+      "solutionSteps": [
+        {"title": "One move back", "body": "Undoing +4 gives 16, and undoing multiplication by 2 gives 10."},
+        {"title": "Two moves back", "body": "The predecessors of 16 are 12 and 8. The predecessors of 10 are 6 and 5. Thus there are four distinct positive starts."},
+        {"title": "Check every route", "body": "The routes are 12 → 16 → 20, 8 → 16 → 20, 6 → 10 → 20, and 5 → 10 → 20."}
+      ],
+      "tags": ["working backwards", "branching", "complete search"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive two-level inverse tree yielding distinct starts 12, 8, 6, and 5",
+        "independent enumeration of the four ordered operation sequences and their unique starts",
+        "forward replay of every candidate and answer-choice audit"
+      ],
+      "notes": ["Recomputed answer: 4 possible starts. The four operation sequences ++, +times, times+, and timestimes yield four distinct starts here."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "S1",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["S1", "A1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-s1-delivery-record",
+      "title": "Reconstruct the Sticker Stock",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Problem Solving",
+      "subcategory": "Working backwards",
+      "difficulty": 2,
+      "statement": "A club began with some stickers. It gave away 7, then received enough new stickers to double the amount remaining, and finally used 5. It then had 17 stickers. How many stickers did it begin with?",
+      "choices": [
+        {"label": "A", "text": "11"},
+        {"label": "B", "text": "12"},
+        {"label": "C", "text": "17"},
+        {"label": "D", "text": "18"},
+        {"label": "E", "text": "29"}
+      ],
+      "answer": "D",
+      "shortAnswer": "18",
+      "hints": [
+        "Before the club used 5 stickers, it had 22.",
+        "Undo the doubling before undoing the first giveaway."
+      ],
+      "solutionSteps": [
+        {"title": "Reverse the events", "body": "Add back the 5 used stickers to get 22. Halve 22 to undo the doubling, giving 11. Add back the 7 given away, giving 18."},
+        {"title": "Replay the events", "body": "Starting with 18, giving away 7 leaves 11, doubling gives 22, and using 5 leaves 17."}
+      ],
+      "tags": ["working backwards", "inventory", "inverse operations"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "reverse event reconstruction: 17 + 5 = 22, 22 / 2 = 11, and 11 + 7 = 18",
+        "independent forward inventory audit: 18 - 7 = 11, 11 times 2 = 22, and 22 - 5 = 17",
+        "answer-choice substitution audit"
+      ],
+      "notes": ["Recomputed answer: 18. The full event sequence verifies the reconstructed starting stock."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "S1",
+    "purpose": "practice",
+    "transferLevel": "challenge",
+    "targetConcepts": ["S1", "C2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-s1-state-machine",
+      "title": "Three Steps Before Four",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Problem Solving",
+      "subcategory": "Working backwards",
+      "difficulty": 3,
+      "statement": "A machine acts on a positive whole number. If the input is even, it divides the input by 2. If the input is odd, it adds 5. Which is the sum of all starting numbers that reach 4 after exactly three machine steps?",
+      "choices": [
+        {"label": "A", "text": "32"},
+        {"label": "B", "text": "38"},
+        {"label": "C", "text": "43"},
+        {"label": "D", "text": "49"},
+        {"label": "E", "text": "55"}
+      ],
+      "answer": "D",
+      "shortAnswer": "49",
+      "hints": [
+        "Work back one complete level at a time from 4.",
+        "The predecessor 2v always uses the even door. The candidate v - 5 works only when it is positive and odd."
+      ],
+      "solutionSteps": [
+        {"title": "One step back", "body": "Only 8 reaches 4: the even route gives 8 / 2 = 4, while 4 - 5 is not positive."},
+        {"title": "Two steps back", "body": "The predecessors of 8 are 16 and 3, because 16 / 2 = 8 and odd 3 becomes 3 + 5 = 8."},
+        {"title": "Three steps back", "body": "The predecessors of 16 are 32 and 11. The only predecessor of 3 is 6. The starting values are 32, 11, and 6."},
+        {"title": "Verify and add", "body": "The forward paths are 32 → 16 → 8 → 4, 11 → 16 → 8 → 4, and 6 → 3 → 8 → 4. Their sum is 49."}
+      ],
+      "tags": ["working backwards", "conditional machine", "predecessor tree"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "exhaustive constrained inverse tree: {4} to {8} to {16, 3} to {32, 11, 6}",
+        "independent forward simulation of every positive start from 1 through 32 confirms exactly 6, 11, and 32 reach 4 on step three",
+        "sum recomputation 32 + 11 + 6 = 49 and answer-choice audit"
+      ],
+      "notes": ["Recomputed answer: 49. Invalid v - 5 branches were rejected when nonpositive or even, since an even input would take the halving door."]
+    }
+  }
+]

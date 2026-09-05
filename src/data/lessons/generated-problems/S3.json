@@ -1,0 +1,74 @@
+[
+  {
+    "schemaVersion":"1.0.0","lessonId":"S3","purpose":"teaching","transferLevel":"discovery","targetConcepts":["S3","N1"],"inspirationProblemIds":[],
+    "problem":{"id":"original-s3-even-moves-anchor","title":"Five Moves from Twenty","sourceType":"Original","contest":"Original","category":"Problem Solving","subcategory":"Parity and invariants","difficulty":1,
+      "statement":"A display starts at 20. On each of exactly five moves, a player either adds 4 or subtracts 2. Which number could be the final display?",
+      "choices":[{"label":"A","text":"15"},{"label":"B","text":"22"},{"label":"C","text":"27"},{"label":"D","text":"31"},{"label":"E","text":"35"}],"answer":"B","shortAnswer":"22",
+      "hints":["Track whether the display is odd or even after each allowed move.","After using parity to eliminate, construct five moves to the remaining choice."],
+      "solutionSteps":[{"title":"Track parity","body":"The display begins even. Adding 4 or subtracting 2 preserves evenness, so every reachable final display is even."},{"title":"Verify the survivor","body":"Only 22 is even among the choices, and it is reachable: 20 + 4 + 4 − 2 − 2 − 2 = 22."}],
+      "tags":["parity","invariant","move process"],"sourceName":"Mathinking","license":"Original"},
+    "validation":{"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods":["parity invariant eliminates all four odd choices","independent enumeration by number a of add-four moves gives final 10 + 6a for a from 0 through 5","explicit five-move construction to 22 and answer-choice audit"],
+      "notes":["The reachable set is {10,16,22,28,34,40}; 22 is the sole offered member."]}
+  },
+  {
+    "schemaVersion":"1.0.0","lessonId":"S3","purpose":"practice","transferLevel":"near","targetConcepts":["S3"],"inspirationProblemIds":[],
+    "problem":{"id":"original-s3-odd-sum","title":"Five Odd Addends","sourceType":"Original","contest":"Original","category":"Problem Solving","subcategory":"Parity","difficulty":1,
+      "statement":"Five odd integers are added. What must be the parity of their sum?",
+      "choices":[{"label":"A","text":"Odd"},{"label":"B","text":"Even"},{"label":"C","text":"It depends on their sizes"},{"label":"D","text":"The sum must be zero"}],"answer":"A","shortAnswer":"Odd",
+      "hints":["Pair four of the odd addends.","Odd + odd is even."],
+      "solutionSteps":[{"title":"Pair the terms","body":"Two pairs of odd integers each have even sums. Adding the fifth odd integer to those even totals gives an odd sum."}],
+      "tags":["parity","odd integers","sum"],"sourceName":"Mathinking","license":"Original"},
+    "validation":{"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods":["pairing proof reduces five odd addends to even plus even plus odd","independent residue calculation 1+1+1+1+1 is congruent to 1 modulo 2","answer-choice audit"],
+      "notes":["Any sum of an odd number of odd integers is odd."]}
+  },
+  {
+    "schemaVersion":"1.0.0","lessonId":"S3","purpose":"practice","transferLevel":"near","targetConcepts":["S3"],"inspirationProblemIds":[],
+    "problem":{"id":"original-s3-even-process","title":"Two Even Changes","sourceType":"Original","contest":"Original","category":"Problem Solving","subcategory":"Parity and invariants","difficulty":1,
+      "statement":"A display starts at 18. On each of exactly two moves, a player either adds 6 or subtracts 4. Which number could be the final display?",
+      "choices":[{"label":"A","text":"19"},{"label":"B","text":"20"},{"label":"C","text":"21"},{"label":"D","text":"23"},{"label":"E","text":"25"}],"answer":"B","shortAnswer":"20",
+      "hints":["Both allowed changes preserve parity.","Check whether the remaining even choice has a two-move route."],
+      "solutionSteps":[{"title":"Use parity","body":"Starting even and adding or subtracting an even number keeps the display even, so only 20 can work among the choices."},{"title":"Construct a route","body":"The route 18 + 6 − 4 = 20 uses exactly two moves."}],
+      "tags":["parity","reachability","invariant"],"sourceName":"Mathinking","license":"Original"},
+    "validation":{"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods":["parity invariant eliminates four odd choices","independent enumeration of the four move sequences gives endpoints 30, 20, 20, and 10","explicit construction and answer-choice audit"],
+      "notes":["20 is the only offered reachable endpoint."]}
+  },
+  {
+    "schemaVersion":"1.0.0","lessonId":"S3","purpose":"practice","transferLevel":"mixed","targetConcepts":["S3"],"inspirationProblemIds":[],
+    "problem":{"id":"original-s3-color-toggle","title":"Seventeen Color Switches","sourceType":"Original","contest":"Original","category":"Problem Solving","subcategory":"Invariants and cycles","difficulty":2,
+      "statement":"A token begins on its black side. Each move flips it to the opposite color, black to white or white to black. What color shows after exactly 17 moves?",
+      "choices":[{"label":"A","text":"Black"},{"label":"B","text":"White"},{"label":"C","text":"Both colors"},{"label":"D","text":"Cannot be determined"}],"answer":"B","shortAnswer":"White",
+      "hints":["Two moves return the token to its starting color.","Pair 16 of the 17 moves."],
+      "solutionSteps":[{"title":"Use the two-step cycle","body":"Eight pairs of moves return the token to black after 16 moves. The seventeenth move flips it to white."}],
+      "tags":["state cycle","parity of moves","invariant strategy"],"sourceName":"Mathinking","license":"Original"},
+    "validation":{"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods":["pairing 16 moves into eight full black-white-black cycles","independent parity-of-move-count rule: odd flips reverse the starting color","answer-choice audit"],
+      "notes":["The final color is uniquely white."]}
+  },
+  {
+    "schemaVersion":"1.0.0","lessonId":"S3","purpose":"practice","transferLevel":"mixed","targetConcepts":["S3"],"inspirationProblemIds":[],
+    "problem":{"id":"original-s3-conserved-sum","title":"Counters Between Two Boxes","sourceType":"Original","contest":"Original","category":"Problem Solving","subcategory":"Invariants","difficulty":2,
+      "statement":"Two boxes begin with 4 and 9 counters. Each move transfers exactly 3 counters from one box to the other, and a move is allowed only when the giving box has at least 3 counters. Which pair of box counts is impossible after any number of moves?",
+      "choices":[{"label":"A","text":"(7, 6)"},{"label":"B","text":"(1, 12)"},{"label":"C","text":"(10, 3)"},{"label":"D","text":"(13, 0)"},{"label":"E","text":"(8, 6)"}],"answer":"E","shortAnswer":"(8, 6)",
+      "hints":["What happens to the total number of counters during a transfer?","Check the sum in each offered pair."],
+      "solutionSteps":[{"title":"Find the invariant","body":"The boxes begin with 4 + 9 = 13 counters. Every move adds 3 to one box and subtracts 3 from the other, so the total stays 13."},{"title":"Compare choices","body":"Choices A-D total 13 and are reached by repeated transfers. Choice E totals 14, so it is impossible."}],
+      "tags":["invariant","conserved sum","transfers"],"sourceName":"Mathinking","license":"Original"},
+    "validation":{"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods":["conserved-total proof fixes every reachable sum at 13","independent enumeration of reachable states (1,12), (4,9), (7,6), (10,3), and (13,0)","answer-choice audit"],
+      "notes":["(8,6) is uniquely impossible because its total is 14."]}
+  },
+  {
+    "schemaVersion":"1.0.0","lessonId":"S3","purpose":"practice","transferLevel":"challenge","targetConcepts":["S3"],"inspirationProblemIds":[],
+    "problem":{"id":"original-s3-two-coin-flips","title":"Flip Exactly Two Coins","sourceType":"Original","contest":"Original","category":"Problem Solving","subcategory":"Parity invariants","difficulty":3,
+      "statement":"Six coins begin with tails showing. On each move, exactly two coins are flipped. Which number of heads is impossible after any number of moves?",
+      "choices":[{"label":"A","text":"0"},{"label":"B","text":"2"},{"label":"C","text":"3"},{"label":"D","text":"4"},{"label":"E","text":"6"}],"answer":"C","shortAnswer":"3",
+      "hints":["The two selected coins are TT, HT, or HH before a move.","Find the change in the head count in each case."],
+      "solutionSteps":[{"title":"Classify one move","body":"Flipping TT changes the head count by +2, flipping one head and one tail changes it by 0, and flipping HH changes it by −2."},{"title":"Use the invariant","body":"The count starts at 0 and changes only by even amounts, so it always remains even. Three heads is impossible; 0, 2, 4, and 6 are all constructible."}],
+      "tags":["parity invariant","coins","impossibility"],"sourceName":"Mathinking","license":"Original"},
+    "validation":{"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods":["case proof that every move changes head count by -2, 0, or 2","independent construction of 0, 2, 4, and 6 heads and parity exclusion of 3","answer-choice audit"],
+      "notes":["Three is the only odd choice and therefore the unique impossible head count."]}
+  }
+]

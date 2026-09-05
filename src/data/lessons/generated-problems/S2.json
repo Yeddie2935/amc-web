@@ -1,0 +1,101 @@
+[
+  {
+    "schemaVersion": "1.0.0", "lessonId": "S2", "purpose": "teaching", "transferLevel": "discovery", "targetConcepts": ["S2"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-s2-four-tokens", "title": "Four Tokens in a Row", "sourceType": "Original", "contest": "Original", "category": "Problem Solving", "subcategory": "Logic and constraints", "difficulty": 1,
+      "statement": "Red, Blue, Green, and Yellow tokens occupy positions 1 through 4, one token per position. Red is immediately left of Blue. Green is not in position 1 or 4. Yellow is left of Green. Which token is in position 1?",
+      "choices": [{"label":"A","text":"Red"},{"label":"B","text":"Blue"},{"label":"C","text":"Green"},{"label":"D","text":"Yellow"}],
+      "answer": "D", "shortAnswer": "Yellow",
+      "hints": ["Try the Red-Blue block in positions 1-2, 2-3, and 3-4.", "Apply both Green's restriction and Yellow's left-of clue to each block position."],
+      "solutionSteps": [
+        {"title":"Test the block","body":"Red-Blue in 1-2 leaves positions 3-4 for Green and Yellow, but Green must be 3 and then Yellow cannot be left of Green. Red-Blue in 2-3 leaves only endpoints for Green, which is forbidden."},
+        {"title":"Use the survivor","body":"Red-Blue must be in 3-4. Green then occupies position 2 and Yellow occupies position 1. The unique order is Yellow, Green, Red, Blue."}
+      ],
+      "tags": ["logic", "ordering", "constraint elimination"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods": ["exhaustive test of the three possible Red-Blue block positions", "independent enumeration of all 24 token permutations", "answer-choice audit"],
+      "notes": ["Exactly one permutation satisfies all three clues: Yellow, Green, Red, Blue."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "S2", "purpose": "practice", "transferLevel": "near", "targetConcepts": ["S2"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-s2-three-boxes", "title": "The Middle Gem", "sourceType": "Original", "contest": "Original", "category": "Problem Solving", "subcategory": "Logic and constraints", "difficulty": 1,
+      "statement": "Ruby is heavier than Emerald. Emerald is heavier than Sapphire. Which gem has the middle weight?",
+      "choices": [{"label":"A","text":"Ruby"},{"label":"B","text":"Emerald"},{"label":"C","text":"Sapphire"},{"label":"D","text":"Cannot be determined"}],
+      "answer": "B", "shortAnswer": "Emerald",
+      "hints": ["Write both comparisons with the heavier gem on the left.", "Connect the two comparisons through Emerald."],
+      "solutionSteps": [{"title":"Join the clues","body":"The comparisons form Ruby > Emerald > Sapphire, so Emerald is between the other two weights."}],
+      "tags": ["logic", "inequalities", "ordering"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods": ["transitive ordering Ruby greater than Emerald greater than Sapphire", "independent audit of all six strict rankings", "answer-choice audit"],
+      "notes": ["Emerald is uniquely the middle gem."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "S2", "purpose": "practice", "transferLevel": "near", "targetConcepts": ["S2"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-s2-book-shelf", "title": "The Third Book", "sourceType": "Original", "contest": "Original", "category": "Problem Solving", "subcategory": "Logic and constraints", "difficulty": 1,
+      "statement": "Books A, B, and C are placed in positions 1 through 3, one book per position. A is somewhere before B, and C is not in position 3. Which book must be in position 3?",
+      "choices": [{"label":"A","text":"A"},{"label":"B","text":"B"},{"label":"C","text":"C"},{"label":"D","text":"No book is forced"}],
+      "answer": "B", "shortAnswer": "B",
+      "hints": ["List the orders in which A appears before B.", "Remove any order ending in C."],
+      "solutionSteps": [{"title":"List survivors","body":"The orders with A before B are ABC, ACB, and CAB. Removing ABC because C is third leaves ACB and CAB; both place B third."}],
+      "tags": ["logic", "ordering", "forced position"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods": ["exhaustive enumeration of six book orders", "independent case split on C in position 1 or 2", "answer-choice audit"],
+      "notes": ["Two full orders survive, but both force B into position 3."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "S2", "purpose": "practice", "transferLevel": "mixed", "targetConcepts": ["S2"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-s2-door-signs", "title": "Exactly One Door Sign", "sourceType": "Original", "contest": "Original", "category": "Problem Solving", "subcategory": "Truth statements", "difficulty": 2,
+      "statement": "A prize is behind exactly one of doors A, B, and C. Three signs say: I. The prize is behind A. II. The prize is not behind B. III. The prize is not behind A. Exactly one sign is true. Which door hides the prize?",
+      "choices": [{"label":"A","text":"Door A"},{"label":"B","text":"Door B"},{"label":"C","text":"Door C"},{"label":"D","text":"It cannot be determined"}],
+      "answer": "B", "shortAnswer": "Door B",
+      "hints": ["Assume each door in turn and count true signs.", "The required truth count is exactly one."],
+      "solutionSteps": [
+        {"title":"Count each row","body":"Prize at A makes signs I and II true. Prize at B makes only sign III true. Prize at C makes signs II and III true."},
+        {"title":"Keep the required row","body":"Only Door B has exactly one true sign."}
+      ],
+      "tags": ["logic", "truth table", "exactly one"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods": ["complete three-row truth table with counts 2, 1, and 2", "independent direct substitution of each prize location", "answer-choice audit"],
+      "notes": ["Door B is the unique location producing exactly one true sign."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "S2", "purpose": "practice", "transferLevel": "mixed", "targetConcepts": ["S2"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-s2-workshop-days", "title": "Four Workshop Days", "sourceType": "Original", "contest": "Original", "category": "Problem Solving", "subcategory": "Logic and constraints", "difficulty": 2,
+      "statement": "Workshops J, K, L, and M are scheduled on days 1 through 4, one per day. J is before K. L is immediately after K. M is on day 1. On which day is K?",
+      "choices": [{"label":"A","text":"Day 1"},{"label":"B","text":"Day 2"},{"label":"C","text":"Day 3"},{"label":"D","text":"Day 4"}],
+      "answer": "C", "shortAnswer": "Day 3",
+      "hints": ["Place M first.", "Fit the consecutive K-L block while leaving an earlier position for J."],
+      "solutionSteps": [{"title":"Fit the block","body":"With M on day 1, K-L cannot be days 2-3 because J would have no open earlier day. Therefore K-L is days 3-4 and J is day 2."}],
+      "tags": ["logic", "scheduling", "adjacency"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods": ["case audit of the possible consecutive K-L positions", "independent enumeration of all 24 workshop schedules", "answer-choice audit"],
+      "notes": ["The unique schedule is M, J, K, L, so K is on day 3."]}
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "S2", "purpose": "practice", "transferLevel": "challenge", "targetConcepts": ["S2"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-s2-two-true", "title": "Exactly Two Suspect Statements", "sourceType": "Original", "contest": "Original", "category": "Problem Solving", "subcategory": "Truth statements", "difficulty": 3,
+      "statement": "Exactly one of Ava, Bo, and Celine caused a spill. Ava says, “Bo did it.” Bo says, “Celine did it.” Celine says, “Bo is innocent.” Exactly two statements are true. Who caused the spill?",
+      "choices": [{"label":"A","text":"Ava"},{"label":"B","text":"Bo"},{"label":"C","text":"Celine"},{"label":"D","text":"There is no possible culprit"}],
+      "answer": "C", "shortAnswer": "Celine",
+      "hints": ["Assume each person is the culprit in turn.", "Count all three statements under each assumption."],
+      "solutionSteps": [
+        {"title":"Test Ava and Bo","body":"If Ava did it, only Celine's statement is true. If Bo did it, only Ava's statement is true."},
+        {"title":"Test Celine","body":"If Celine did it, Bo's statement and Celine's statement are true while Ava's is false. This gives exactly two truths."}
+      ],
+      "tags": ["logic", "truth statements", "uniqueness"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods": ["complete culprit truth table with truth counts 1, 1, and 2", "independent semantic evaluation of each quoted claim", "answer-choice audit"],
+      "notes": ["Celine is the unique culprit producing exactly two true statements."]}
+  }
+]

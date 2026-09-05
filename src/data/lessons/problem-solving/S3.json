@@ -1,0 +1,246 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "S3",
+  "curriculumNodeId": "S3",
+  "title": "Parity & Invariants",
+  "lessonType": "technique",
+  "status": "draft",
+  "estimatedMinutes": 30,
+  "coreInsight": "Instead of tracking every detail of a process, track a coarse property that remains fixed or changes predictably.",
+  "targetLearnerRealization": "Instead of tracking every detail, track a coarse property such as parity that remains fixed or changes predictably under the allowed operations.",
+  "learningObjectives": [
+    "Track odd/even state without computing every exact intermediate value.",
+    "Explain why an operation preserves or toggles parity for all allowed inputs.",
+    "Use an invariant to prove an end state possible or impossible.",
+    "Choose a property that is actually preserved or changes predictably."
+  ],
+  "hardPrerequisites": ["N1"],
+  "narrativePredecessor": "N1",
+  "continuity": {
+    "openingCallback": "Compress divisibility by 2 into two remainder states—odd and even—then track those states through a long process.",
+    "closingSeeds": [
+      "Remainders other than parity can also remain fixed or cycle predictably.",
+      "A preserved total or coloring can expose impossibility without reconstructing a process.",
+      "An invariant needs a general reason, not just a collection of successful examples."
+    ],
+    "nextLessonIds": []
+  },
+  "misconceptionTargets": [
+    {"misconception": "Matching parity means two numbers are equal.", "beatIds": ["same-parity-not-same", "authentic-square-parity", "invariant-recap"]},
+    {"misconception": "Several examples prove an invariant.", "beatIds": ["why-parity-persists", "authentic-odd-expressions", "invariant-recap"]},
+    {"misconception": "Any simple quantity is useful to track even if it is not preserved.", "beatIds": ["choose-the-property", "practice-conserved-sum", "invariant-recap"]},
+    {"misconception": "Parity arguments require computing exact values first.", "beatIds": ["even-move-puzzle", "predictable-toggle", "practice-color-toggle", "practice-two-coin-flips"]}
+  ],
+  "beats": [
+    {
+      "id": "even-move-puzzle", "phase": "puzzle", "kind": "problem", "source": "generated", "problemId": "original-s3-even-moves-anchor", "role": "anchor", "presentation": "full-prompt",
+      "purpose": "Make an exact five-step search feel unnecessary once every move is seen to preserve evenness.",
+      "expectedRealization": "Starting even and adding or subtracting even amounts keeps every reachable display even.",
+      "transitionIn": "Divisibility by 2 gives every whole number one of two states. Track only that state while the display changes.",
+      "transitionOut": "We found a reachable answer without listing all 32 move sequences: the display never left the even state.",
+      "whyNow": "A move process distinguishes invariant reasoning from merely evaluating a parity expression.",
+      "entryBridge": "Ignore the exact path at first. Ask what +4 and −2 do to an even display.",
+      "exitBridge": "Every reachable result is even, and 22 is reached by +4, +4, −2, −2, −2.",
+      "reusedRepresentation": "A display carries an odd/even color while its exact number changes.",
+      "animation": {"mode": "none", "controlledByLesson": true},
+      "learnerPrompts": ["What parity does 20 have?", "Does either allowed move change that parity?", "Which offered display has the required parity and a valid path?"],
+      "correctFeedback": "Correct—22 stays compatible with evenness and is reached by a valid five-move sequence.",
+      "incorrectFeedback": "Both +4 and −2 preserve evenness. Eliminate every odd choice, then verify the remaining even choice with five moves.",
+      "resolution": {
+        "visual": {"primitive": "choice-grid", "data": {"groups": [{"label": "Parity trail", "choices": ["20 even", "+4 or −2", "even", "+4 or −2", "even", "…", "even"]}]}, "continuityKey": "s3-parity-state", "ariaLabel": "A process whose display remains even after every add-four or subtract-two move"},
+        "steps": [
+          {"title": "Track the coarse state", "body": "Adding 4 adds two pairs; subtracting 2 removes one pair. Neither move changes an even total into an odd total."},
+          {"title": "Verify reachability", "body": "Two +4 moves and three −2 moves total a change of +2.", "math": "20 + 4 + 4 − 2 − 2 − 2 = 22"}
+        ],
+        "takeaway": "When every move preserves a property, the property can replace a large exact search."
+      },
+      "sourceLabelTiming": "hidden", "estimatedSeconds": 150
+    },
+    {
+      "id": "predictable-toggle", "phase": "try", "kind": "interaction",
+      "purpose": "Show that a useful tracked property may toggle predictably rather than remain fixed.",
+      "expectedRealization": "Adding an odd number switches parity each time, so an odd number of moves flips the starting parity.",
+      "transitionIn": "A property need not stay frozen to be useful. It can follow a simple rhythm.",
+      "estimatedSeconds": 80,
+      "prompt": "A display starts even and adds 5 on each move. What parity must it have after 7 moves?",
+      "response": {"kind": "single-choice", "options": [
+        {"id":"even","text":"Even, because it started even."}, {"id":"odd","text":"Odd, because parity switches seven times."}, {"id":"unknown","text":"Cannot be known without the starting value."}, {"id":"equal","text":"It must equal 35."}
+      ], "correctId": "odd"},
+      "correctFeedback": "Right—adding an odd number flips parity, and seven flips reverse the starting state.",
+      "incorrectFeedback": "Follow only the labels: even → odd → even → odd, one switch per move.",
+      "allowRetry": true,
+      "resolution": {"visual": {"primitive": "choice-grid", "data": {"groups": [{"label":"Moves 0-7","choices":["E","O","E","O","E","O","E","O"]}]}, "continuityKey": "s3-parity-state", "ariaLabel": "Parity alternates from even to odd across seven add-five moves"}, "steps": [{"body":"Adding 5 adds an odd amount, so each move toggles parity. Seven toggles end odd."}], "takeaway": "Predictable change can be tracked as efficiently as preservation."
+      }
+    },
+    {
+      "id": "why-parity-persists", "phase": "notice", "kind": "interaction",
+      "purpose": "Replace example-based confidence with a general structural explanation.",
+      "expectedRealization": "Adding 4 preserves parity because four is two complete pairs for every whole-number input.",
+      "transitionIn": "Examples suggest the pattern. A proof must explain why no untested whole number can break it.",
+      "estimatedSeconds": 75,
+      "prompt": "Why does adding 4 preserve parity for every whole number?",
+      "response": {"kind": "single-choice", "options": [
+        {"id":"examples","text":"It worked for 2, 5, and 10."}, {"id":"pairs","text":"Four is two complete pairs, so it changes the pair count but not the leftover-one status."}, {"id":"larger","text":"The result is always larger."}, {"id":"digit","text":"The last digit always stays the same."}
+      ], "correctId": "pairs"},
+      "correctFeedback": "Exactly—adding complete pairs cannot create or remove an unpaired one.",
+      "incorrectFeedback": "Choose the reason that applies to every whole number, including ones not tested.",
+      "allowRetry": true,
+      "resolution": {"steps": [
+        {"title":"Even input","body":"An even number is all pairs. Adding two more pairs keeps it all pairs."},
+        {"title":"Odd input","body":"An odd number is pairs plus one. Adding two pairs leaves the same single leftover."}
+      ], "takeaway": "An invariant is established by the structure of every allowed move, not by a few examples."
+      }
+    },
+    {
+      "id": "name-invariant", "phase": "name", "kind": "concept",
+      "purpose": "Name invariants after the learner has used preserved and toggling parity states.",
+      "expectedRealization": "An invariant is a property that stays fixed, while a predictable state rule can serve the same tracking purpose.",
+      "transitionIn": "The exact numbers wandered, but their two-color state either stayed put or followed a fixed switching rule.",
+      "estimatedSeconds": 55,
+      "name": "Invariant",
+      "conciseDefinition": "An invariant is a property that remains unchanged through every allowed move. A property that changes by a fixed rule can also compress the process.",
+      "formalization": "even ± even = even; odd ± even = odd; adding odd toggles parity",
+      "memoryHook": "Track what survives—or what changes on a schedule."
+    },
+    {
+      "id": "authentic-odd-expressions", "phase": "guided-problem", "kind": "problem", "source": "bank", "problemId": "amc8-2005-08", "role": "transfer", "presentation": "full-prompt",
+      "purpose": "Apply parity compression to five symbolic expressions and distinguish counterexample elimination from proof of the survivor.",
+      "expectedRealization": "A sample can eliminate options, but odd-times-odd structure proves 3mn must always be odd.",
+      "transitionIn": "Now the changing objects are expressions. Replace each positive odd integer by the state odd and propagate only that information.",
+      "transitionOut": "The sample pair removed four choices; the multiplication rule proved the survivor for every positive odd m and n.",
+      "whyNow": "The additional approved parity problem makes the difference between finding counterexamples and proving a universal parity claim explicit.",
+      "entryBridge": "Use m = n = 1 to eliminate expressions that can be even, then prove the remaining expression stays odd for arbitrary odd inputs.",
+      "exitBridge": "Since 3, m, and n are all odd, 3mn is a product of odd factors and must be odd.",
+      "reusedRepresentation": "Odd/even state colors replace exact variable values in an operation table.",
+      "animation": {"mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": ["What states do m and n begin in?", "Which choices fail at m = n = 1?", "What parity rule proves the survivor?", "Why is one sample enough to eliminate but not enough to prove must?"],
+      "correctFeedback": "Correct—3mn is odd for every positive odd m and n.",
+      "incorrectFeedback": "Use the sample to eliminate, then use odd × odd = odd to prove the surviving expression.",
+      "resolution": {"animation": {"kind":"problem-animation","placement":"before-steps"}, "steps": [
+        {"title":"Eliminate with a counterexample","body":"At m = n = 1, choices A-D are even, so none of them must always be odd."},
+        {"title":"Prove the survivor","body":"The product mn is odd, and multiplying by odd 3 keeps it odd. This reasoning covers every allowed m and n."}
+      ], "takeaway":"Examples can disprove a must-statement; a structural rule proves the survivor."},
+      "sourceLabelTiming":"completion", "estimatedSeconds":180
+    },
+    {
+      "id": "authentic-square-parity", "phase": "competition-application", "kind": "problem", "source": "bank", "problemId": "amc8-2014-13", "role": "guided", "presentation": "independent",
+      "purpose": "Use a four-case parity table to infer an impossibility without knowing n or m.",
+      "expectedRealization": "Squares preserve parity, so an even square-sum requires matching input parity and therefore an even ordinary sum.",
+      "transitionIn": "Squaring changes magnitude dramatically. Ask whether it changes the two-color parity state.",
+      "transitionOut": "The even/even and odd/odd cases survive; both force n + m even, so an odd sum is impossible.",
+      "whyNow": "The approved square problem transfers parity tracking through a nonlinear operation and rewards case completeness.",
+      "entryBridge": "First prove a square has the same parity as its base, then test only the four parity pairs for n and m.",
+      "exitBridge": "The condition removes both mixed-parity pairs, leaving same parity without claiming n and m are equal.",
+      "reusedRepresentation": "The two-color operation table expands into a two-by-two parity-pair grid.",
+      "animation": {"mode":"whole","controlledByLesson":true,"autoplay":false,"showPlayerControls":false},
+      "learnerPrompts": ["Does squaring preserve evenness and oddness?", "Which of the four parity pairs make n² + m² even?", "What parity does n + m have in both survivors?"],
+      "correctFeedback": "Correct—n + m odd is impossible.",
+      "incorrectFeedback": "Reduce n and m to even or odd, then test the four state pairs rather than exact values.",
+      "resolution": {"animation":{"kind":"problem-animation","placement":"before-steps"}, "steps":[
+        {"title":"Preserve square parity","body":"An even square is even and an odd square is odd."},
+        {"title":"Keep the even square-sums","body":"Even + even and odd + odd are even; the mixed cases are odd."},
+        {"title":"Read the survivors","body":"Both surviving cases give n + m even, so n + m odd cannot occur."}
+      ], "takeaway":"Compressing infinitely many integer pairs into four parity cases can prove an impossibility."},
+      "sourceLabelTiming":"completion", "estimatedSeconds":180
+    },
+    {
+      "id": "same-parity-not-same", "phase": "notice", "kind": "interaction",
+      "purpose": "Repair the inference that matching parity forces equal values.",
+      "expectedRealization": "Parity retains only a remainder class and discards magnitude.",
+      "transitionIn": "The square condition forced n and m into the same color class. It did not recover their exact values.",
+      "estimatedSeconds": 70,
+      "prompt": "Which pair shows that two numbers can have the same parity without being equal?",
+      "response": {"kind":"single-choice","options":[{"id":"a","text":"2 and 8"},{"id":"b","text":"2 and 7"},{"id":"c","text":"5 and 6"},{"id":"d","text":"9 and 10"}],"correctId":"a"},
+      "correctFeedback":"Right—2 and 8 are different numbers but both even.",
+      "incorrectFeedback":"Look for two unequal numbers that are both even or both odd.",
+      "allowRetry":true,
+      "resolution":{"steps":[{"body":"Parity records only the remainder after division by 2. Many different integers share each remainder."}],"takeaway":"An invariant deliberately keeps useful information and discards details such as exact size."}
+    },
+    {
+      "id": "choose-the-property", "phase": "play", "kind": "interaction",
+      "purpose": "Make property selection depend on the allowed moves rather than simplicity alone.",
+      "expectedRealization": "The sum is useful for a transfer-three move because it is provably preserved, while individual values are not.",
+      "transitionIn": "Parity is useful only when the operations control parity. A different process may preserve a different feature.",
+      "estimatedSeconds":80,
+      "prompt":"A move adds 3 to one box count and subtracts 3 from the other. Which quantity is guaranteed to stay fixed?",
+      "response":{"kind":"single-choice","options":[{"id":"first","text":"The first box count"},{"id":"second","text":"The second box count"},{"id":"sum","text":"The sum of the two counts"},{"id":"difference","text":"The difference between the counts"}],"correctId":"sum"},
+      "correctFeedback":"Exactly—the +3 and −3 cancel in the total.",
+      "incorrectFeedback":"Write how each proposed quantity changes after one move.",
+      "allowRetry":true,
+      "resolution":{"steps":[{"body":"If the counts are a and b, one move gives a + 3 and b − 3. Their sum is still a + b.","math":"(a + 3) + (b − 3) = a + b"}],"takeaway":"Choose a property by proving how every allowed move affects it."}
+    },
+    {
+      "id":"practice-odd-sum","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-s3-odd-sum","role":"transfer","presentation":"independent",
+      "purpose":"Assess direct parity composition without exact values.","expectedRealization":"Five odd addends have an odd sum because an odd count of odd states reduces to odd.",
+      "transitionIn":"Apply the two-state arithmetic to a sum whose exact terms are unknown.","transitionOut":"The number of odd addends, not their exact sizes, determined the sum's parity.",
+      "whyNow":"A near item checks parity compression in a familiar arithmetic setting.","entryBridge":"Pair four of the odd addends, then inspect the leftover one.","exitBridge":"Two odd pairs make even totals, and the fifth odd addend makes the full sum odd.",
+      "animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["How can the odd addends be paired?","What parity remains after the pairs?"],
+      "correctFeedback":"Correct—the sum of five odd integers is odd.","incorrectFeedback":"Odd + odd is even; pair four terms and inspect the fifth.",
+      "resolution":{"steps":[{"body":"Two pairs of odd numbers each make even sums. Adding the remaining odd number makes the total odd."}],"takeaway":"Parity can determine a sum without revealing any exact addend."},"sourceLabelTiming":"hidden","estimatedSeconds":90
+    },
+    {
+      "id":"practice-even-process","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-s3-even-process","role":"transfer","presentation":"independent",
+      "purpose":"Assess preservation plus reachability in a two-move process.","expectedRealization":"Only 20 is even and reachable from 18 after two allowed moves.",
+      "transitionIn":"Return to a moving display and use parity to eliminate before checking a short path.","transitionOut":"Parity removed four choices; one exact two-move check confirmed 20.",
+      "whyNow":"The item preserves the anchor method with new moves and a shorter independent search.","entryBridge":"Both +6 and −4 preserve evenness; then test the remaining even choice for two moves.","exitBridge":"The route 18 + 6 − 4 reaches 20.",
+      "animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["What parity is preserved?","Can the remaining choice be reached in exactly two moves?"],
+      "correctFeedback":"Correct—20 is reached by +6 and then −4.","incorrectFeedback":"Eliminate odd displays first, then construct a two-move route to the even choice.",
+      "resolution":{"steps":[{"body":"Starting even and adding or subtracting even numbers keeps the display even."},{"body":"The exact route 18 → 24 → 20 uses two allowed moves."}],"takeaway":"An invariant can narrow the search, while a final construction verifies possibility."},"sourceLabelTiming":"hidden","estimatedSeconds":100
+    },
+    {
+      "id":"practice-color-toggle","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-s3-color-toggle","role":"transfer","presentation":"independent",
+      "purpose":"Transfer predictable toggling from number parity to a two-color state.","expectedRealization":"Seventeen color switches carry black to white.",
+      "transitionIn":"Replace odd and even with black and white. The same two-state rhythm remains.","transitionOut":"An odd number of switches ends on the opposite color without tracing all seventeen positions.",
+      "whyNow":"A mixed representation tests the general state-tracking strategy rather than parity vocabulary.","entryBridge":"Pair sixteen switches into eight returns, then account for the last switch.","exitBridge":"Sixteen switches return to black; the seventeenth moves to white.",
+      "animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["What do two switches do?","What remains after pairing sixteen switches?"],
+      "correctFeedback":"Correct—the token must be white after seventeen switches.","incorrectFeedback":"Every two switches return to the starting color; then handle the one unpaired switch.",
+      "resolution":{"steps":[{"body":"Eight pairs of switches return the token to black. One additional switch changes it to white."}],"takeaway":"A predictable two-state cycle can replace a long step-by-step trace."},"sourceLabelTiming":"hidden","estimatedSeconds":95
+    },
+    {
+      "id":"practice-conserved-sum","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-s3-conserved-sum","role":"transfer","presentation":"independent",
+      "purpose":"Transfer invariant selection from parity to a preserved total.","expectedRealization":"The move preserves total 13, so a pair totaling 14 is impossible.",
+      "transitionIn":"Now the useful feature is not a color class. Track the total shared by two boxes.","transitionOut":"The individual counts wandered, but their sum stayed 13 and ruled out the offered total 14.",
+      "whyNow":"This mixed item broadens invariant reasoning beyond odd and even.","entryBridge":"Compute the starting total once, then prove one move leaves it unchanged.","exitBridge":"Every reachable pair totals 13; (8, 6) totals 14.",
+      "animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["What does +3 and −3 do to the sum?","Which option violates the preserved total?"],
+      "correctFeedback":"Correct—(8, 6) is impossible because its total is 14 instead of 13.","incorrectFeedback":"The starting sum is 13, and every move adds and subtracts the same amount.",
+      "resolution":{"steps":[{"body":"The initial sum is 4 + 9 = 13. Every move changes the sum by +3 − 3 = 0."},{"body":"The first four choices total 13 and follow repeated transfers; (8, 6) totals 14, so it cannot occur."}],"takeaway":"A conserved total can prove impossibility even when exact states change."},"sourceLabelTiming":"hidden","estimatedSeconds":115
+    },
+    {
+      "id":"practice-two-coin-flips","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-s3-two-coin-flips","role":"transfer","presentation":"independent",
+      "purpose":"Assess a nontrivial invariant where one move can change an exact count by −2, 0, or +2.","expectedRealization":"Flipping exactly two coins preserves the parity of the number of heads, so three heads is impossible from zero.",
+      "transitionIn":"For the final challenge, one move has three possible numerical effects. Ask what all three effects share.","transitionOut":"The head count may rise, fall, or stay fixed, but it always changes by an even amount.",
+      "whyNow":"The challenge requires deriving the invariant from cases rather than receiving it in the rule.","entryBridge":"Classify the two flipped coins as TT, HT, or HH and record the change in heads.","exitBridge":"The changes +2, 0, and −2 preserve even head-count parity, so 3 heads is unreachable.",
+      "animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["How can the two chosen coins currently face?","What head-count change occurs in each case?","Which offered count has the wrong parity?"],
+      "correctFeedback":"Correct—three heads is impossible because every move preserves an even head count.","incorrectFeedback":"A two-coin flip changes the head count by +2, 0, or −2.",
+      "resolution":{"visual":{"primitive":"choice-grid","data":{"groups":[{"label":"Flip TT","choices":["heads +2"]},{"label":"Flip HT","choices":["heads unchanged"]},{"label":"Flip HH","choices":["heads −2"]}]},"ariaLabel":"Three cases for flipping two coins, changing the number of heads by plus two, zero, or minus two"},"steps":[{"body":"All six coins begin tails, so the head count starts at 0, an even number. Every possible move changes it by an even amount."}],"takeaway":"When every move preserves parity, an odd target is impossible no matter how the moves are chosen."},"sourceLabelTiming":"hidden","estimatedSeconds":135
+    },
+    {
+      "id":"invariant-recap","phase":"reflection","kind":"interaction",
+      "purpose":"Consolidate property choice, proof, compression, and conclusion.","expectedRealization":"A sound invariant argument chooses a move-controlled property, proves its behavior generally, and compares it with the target.",
+      "transitionIn":"Displays, expressions, squares, colors, box totals, and coins all became smaller state descriptions.","estimatedSeconds":90,
+      "prompt":"Which checks belong in a reliable invariant argument? Select all four.",
+      "response":{"kind":"multi-select","options":[
+        {"id":"property","text":"Choose a property connected to the allowed moves."},{"id":"prove","text":"Explain its behavior for every allowed move."},{"id":"compress","text":"Track the property instead of unnecessary exact details."},{"id":"target","text":"Compare the forced property with the proposed end state."},{"id":"examples","text":"Treat several successful examples as a complete proof."}
+      ],"correctIds":["property","prove","compress","target"],"feedback":"Keep selection, general proof, compressed tracking, and target comparison."},
+      "correctFeedback":"Exactly—choose, prove, track, and compare.","incorrectFeedback":"Examples can suggest an invariant, but every allowed move needs a general explanation.","allowRetry":true,
+      "resolution":{"visual":{"primitive":"choice-grid","data":{"groups":[{"label":"1. Choose","choices":["Move-controlled property"]},{"label":"2. Prove","choices":["Every allowed move"]},{"label":"3. Track","choices":["Coarse state only"]},{"label":"4. Decide","choices":["Compare with target"]}]},"ariaLabel":"Four-stage invariant reasoning checklist"},"takeaway":"Track what survives—or what changes on a schedule—and prove why."
+      }
+    },
+    {
+      "id":"beyond-parity-hook","phase":"reflection","kind":"reflection",
+      "purpose":"Open the broader search for useful invariants without prescribing a successor lesson.","expectedRealization":"When parity is too coarse, other remainders, totals, or colorings may capture the move structure.",
+      "transitionIn":"Parity gave two states, but some processes treat all odd and even values alike while preserving something finer.","estimatedSeconds":50,
+      "prompt":"If every move adds 3, parity keeps changing. What happens instead to the remainder after division by 3, and why might that be the better property to track?",
+      "takeaway":"The best invariant is the one whose behavior is controlled by the operations in front of you."
+    }
+  ],
+  "practice":{"generatedPoolMinimum":{"near":2,"mixed":2,"challenge":1},"sessionSelection":[{"source":"generated","transferLevel":"near","count":2},{"source":"generated","transferLevel":"mixed","count":2},{"source":"generated","transferLevel":"challenge","count":1}],"excludeProblemIds":["original-s3-even-moves-anchor","amc8-2005-08","amc8-2014-13"],"requireFreshGeneratedItems":true},
+  "mastery":{"skillId":"S3","evidenceBeatIds":["practice-odd-sum","practice-even-process","practice-color-toggle","practice-conserved-sum","practice-two-coin-flips"],"minIndependentPracticeItems":5,"recommendedAccuracyThreshold":0.8,"weightMixedTransferMore":true},
+  "generation":{"curriculumVersion":"1.2.0","mappingVersion":"1.0.0","generatorVersion":"mathinking-lesson-skill-1.0.0","notes":[
+    "Draft technique lesson authored from the approved S3 compact context packet.",
+    "The generated move puzzle establishes invariant reasoning before terminology; both approved AMC parity problems reuse the two-state representation.",
+    "Preservation, predictable toggling, general proof, property selection, and loss of exact magnitude are addressed explicitly.",
+    "All generated answers were independently verified by exact reachability enumeration or a second invariant argument.",
+    "No lesson-specific renderer infrastructure was added."
+  ]}
+}
