@@ -3,6 +3,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  loadResolvedProblemMappings,
+  problemMappingFiles,
+} from "../../../../tools/problem-mapping-resolver.mjs";
 
 const curriculumFiles = [
   "foundations.json",
@@ -12,7 +16,7 @@ const curriculumFiles = [
   "geometry.json",
   "problem-solving.json",
 ];
-const mappingFiles = curriculumFiles.map((file) => `problem-mapping-${file}`);
+const mappingFiles = problemMappingFiles;
 
 export function findRepoRoot(start) {
   let current = path.resolve(start);
@@ -195,6 +199,11 @@ export function mappingGateFor(mapping) {
   };
 }
 
+export function loadContextMappings(repoRoot) {
+  const curriculumDirectory = path.join(repoRoot, "src", "data", "curriculum");
+  return loadResolvedProblemMappings(curriculumDirectory).mappings;
+}
+
 function loadRepositoryContext(repoRoot, lessonId) {
   const curriculumDirectory = path.join(repoRoot, "src", "data", "curriculum");
   const lessonsDirectory = path.join(repoRoot, "src", "data", "lessons");
@@ -202,9 +211,7 @@ function loadRepositoryContext(repoRoot, lessonId) {
   const nodes = curriculumFiles.flatMap((file) =>
     readJson(path.join(curriculumDirectory, file))
   );
-  const mappings = mappingFiles.flatMap((file) =>
-    readJson(path.join(curriculumDirectory, file))
-  );
+  const mappings = loadContextMappings(repoRoot);
   const node = nodes.find((candidate) => candidate.id === lessonId);
   const mapping = mappings.find((candidate) => candidate.lessonId === lessonId);
   if (!node) {

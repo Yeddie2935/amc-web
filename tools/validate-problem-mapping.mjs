@@ -1,16 +1,14 @@
 import fs from "node:fs";
 import path from "node:path";
+import { spawnSync } from "node:child_process";
+import {
+  loadContextMappings,
+  mappingGateFor,
+} from "../.agents/skills/mathinking-lesson/scripts/lesson_context.mjs";
+import { loadResolvedProblemMappings } from "./problem-mapping-resolver.mjs";
 
 const root = process.cwd();
 const curriculumDir = path.join(root, "src", "data", "curriculum");
-const mappingFiles = [
-  "problem-mapping-foundations.json",
-  "problem-mapping-algebra.json",
-  "problem-mapping-number-theory.json",
-  "problem-mapping-counting-probability.json",
-  "problem-mapping-geometry.json",
-  "problem-mapping-problem-solving.json",
-];
 const nodeFiles = [
   "foundations.json",
   "algebra.json",
@@ -20,19 +18,7 @@ const nodeFiles = [
   "problem-solving.json",
 ];
 
-const baseMappings = mappingFiles.flatMap((file) =>
-  JSON.parse(fs.readFileSync(path.join(curriculumDir, file), "utf8"))
-);
-const overrides = JSON.parse(
-  fs.readFileSync(path.join(curriculumDir, "problem-mapping-review-overrides.json"), "utf8")
-);
-const overridesByLesson = Object.fromEntries(
-  overrides.map((override) => [override.lessonId, override])
-);
-const mappings = baseMappings.map((mapping) => ({
-  ...mapping,
-  ...(overridesByLesson[mapping.lessonId] ?? {}),
-}));
+const { overrides, mappings } = loadResolvedProblemMappings(curriculumDir);
 const nodes = nodeFiles.flatMap((file) =>
   JSON.parse(fs.readFileSync(path.join(curriculumDir, file), "utf8"))
 );
@@ -134,6 +120,72 @@ for (const nodeId of nodeIds) {
   if (!seenLessons.has(nodeId)) errors.push(`Missing mapping for ${nodeId}.`);
 }
 
+const mappingsByLesson = new Map(
+  mappings.map((mapping) => [mapping.lessonId, mapping])
+);
+const contextMappingsByLesson = new Map(
+  loadContextMappings(root).map((mapping) => [mapping.lessonId, mapping])
+);
+for (const node of nodes) {
+  const mapping = mappingsByLesson.get(node.id);
+  if (!mapping) continue;
+  try {
+    const contextMapping = contextMappingsByLesson.get(node.id);
+    const contextMappingGate = mappingGateFor(contextMapping);
+    const expectedApproved = mapping.reviewStatus === "approved";
+    if (contextMappingGate.reviewStatus !== mapping.reviewStatus) {
+      errors.push(
+        `${node.id}: context review status ${contextMappingGate.reviewStatus} ` +
+          `does not match mapping validator status ${mapping.reviewStatus}.`
+      );
+    }
+    if (contextMappingGate.approved !== expectedApproved) {
+      errors.push(
+        `${node.id}: context approved=${contextMappingGate.approved} ` +
+          `does not match mapping validator approved=${expectedApproved}.`
+      );
+    }
+  } catch (error) {
+    errors.push(`${node.id}: context mapping resolution failed: ${error.message}`);
+  }
+}
+
+const contextScript = path.join(
+  root,
+  ".agents",
+  "skills",
+  "mathinking-lesson",
+  "scripts",
+  "lesson_context.mjs"
+);
+const c9Result = spawnSync(process.execPath, [contextScript, "C9", "--compact"], {
+  cwd: root,
+  encoding: "utf8",
+});
+if (c9Result.status !== 0) {
+  const detail =
+    c9Result.error?.message ?? c9Result.stderr?.trim() ?? "no error output";
+  errors.push(
+    `C9: compact context command exited ${c9Result.status ?? "without a status"}: ` +
+      detail
+  );
+} else {
+  try {
+    const c9Context = JSON.parse(c9Result.stdout);
+    if (c9Context.mappingGate.approved !== true) {
+      errors.push("C9: compact context mappingGate.approved is not true.");
+    }
+    if (c9Context.mappingGate.reviewStatus !== "approved") {
+      errors.push("C9: compact context reviewStatus is not approved.");
+    }
+    if (c9Result.stdout.includes("amc8-2019-??")) {
+      errors.push("C9: compact context still contains stale candidate amc8-2019-??.");
+    }
+  } catch (error) {
+    errors.push(`C9: compact context did not emit valid JSON: ${error.message}`);
+  }
+}
+
 if (warnings.length) {
   console.warn("Problem mapping warnings:");
   for (const warning of warnings) console.warn(`- ${warning}`);
@@ -150,4 +202,7 @@ const bankPreferred = mappings.filter((mapping) => mapping.preferredSource === "
 const generatedPreferred = mappings.length - bankPreferred;
 console.log(
   `Problem mapping valid: ${mappings.length} lessons, ${approved} approved, ${bankPreferred} bank-led, ${generatedPreferred} generated-led.`
+);
+console.log(
+  `Lesson context mappings agree for ${nodes.length} lessons; C9 compact context exits 0 with its approved override.`
 );

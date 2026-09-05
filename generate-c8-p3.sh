@@ -50,6 +50,8 @@ Do not commit and do not push. Finish after $lesson."
     exit 1
   fi
 
+  node tools/verify-authored-lesson.mjs "$lesson" || exit 1
+
   echo
   echo "=== Independent final gates for $lesson ==="
 
@@ -85,4 +87,3 @@ git log --oneline -5
 echo
 echo "C8, C9, C10, P1, P2, and P3 are committed locally."
 echo "Nothing was pushed automatically."
-
