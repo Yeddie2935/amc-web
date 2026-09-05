@@ -1,7 +1,7 @@
 #!/bin/bash
 set -u
 
-LESSONS=("C8" "C9" "C10" "P1" "P2" "P3")
+LESSONS=("C9" "C10" "P1" "P2" "P3")
 
 echo "=== Mathinking unattended lesson batch ==="
 
@@ -85,5 +85,5 @@ echo "BATCH COMPLETE"
 echo "======================================"
 git log --oneline -5
 echo
-echo "C8, C9, C10, P1, P2, and P3 are committed locally."
+echo "C9, C10, P1, P2, and P3 are committed locally."
 echo "Nothing was pushed automatically."
