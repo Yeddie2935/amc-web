@@ -1,0 +1,588 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "A4",
+  "curriculumNodeId": "A4",
+  "title": "Inequalities, Bounds & Optimization",
+  "lessonType": "technique",
+  "status": "draft",
+  "estimatedMinutes": 28,
+  "coreInsight": "Many problems ask for a range of feasible values or an extreme feasible value rather than one exact equality.",
+  "targetLearnerRealization": "An inequality describes a whole feasible region, and optimization means choosing an extreme value that still lies inside that region.",
+  "learningObjectives": [
+    "Translate at least, at most, greater than, and less than conditions into inequalities.",
+    "Represent feasible values on a number line with correct open or closed endpoints.",
+    "Solve one-variable linear inequalities while reversing the inequality when multiplying or dividing by a negative.",
+    "Apply integer restrictions after solving an inequality.",
+    "Find a requested minimum or maximum only after establishing feasibility."
+  ],
+  "hardPrerequisites": ["A2"],
+  "narrativePredecessor": "A2",
+  "continuity": {
+    "openingCallback": "Compare the single value that makes x + 7 = 18 true with all values that make x + 7 ≤ 18 true.",
+    "closingSeeds": [
+      "A constraint can leave an interval of feasible values instead of one answer.",
+      "Several constraints can trim a feasible region before an extreme is chosen.",
+      "With two varying quantities, the feasible set can become a region of ordered pairs."
+    ],
+    "nextLessonIds": []
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "An inequality has one numerical answer.",
+      "beatIds": ["capacity-puzzle", "translate-at-most", "festival-optimization", "feasible-before-extreme"]
+    },
+    {
+      "misconception": "Endpoint inclusion does not matter.",
+      "beatIds": ["endpoint-choice", "practice-qualifying-time", "practice-donation-boxes"]
+    },
+    {
+      "misconception": "Equation rules can be copied blindly when multiplying or dividing by negatives.",
+      "beatIds": ["negative-direction", "practice-negative-bound"]
+    },
+    {
+      "misconception": "Optimization can ignore feasibility constraints.",
+      "beatIds": ["festival-optimization", "feasible-before-extreme", "block-wall-transfer", "practice-rectangle-limit"]
+    }
+  ],
+  "beats": [
+    {
+      "id": "capacity-puzzle",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Turn a familiar one-value equation into a many-value capacity constraint.",
+      "expectedRealization": "Several values can satisfy one inequality.",
+      "transitionIn": "The equation x + 7 = 18 has one solution. Change “equals 18” to “is at most 18,” and the question changes shape.",
+      "estimatedSeconds": 95,
+      "prompt": "A bin holds at most 18 kilograms and already contains 7 kilograms. Which amounts x could be added? Select every amount that works.",
+      "visual": {
+        "primitive": "number-line",
+        "data": {"min": 0, "max": 18, "tickStep": 3, "label": "Possible added mass x, in kilograms"},
+        "continuityKey": "bin-capacity-line",
+        "ariaLabel": "An unshaded number line from zero to eighteen kilograms"
+      },
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "zero", "text": "0 kilograms"},
+          {"id": "six", "text": "6 kilograms"},
+          {"id": "eleven", "text": "11 kilograms"},
+          {"id": "twelve", "text": "12 kilograms"},
+          {"id": "eighteen", "text": "18 kilograms"}
+        ],
+        "correctIds": ["zero", "six", "eleven"],
+        "feedback": "Add each proposed amount to the 7 kilograms already in the bin."
+      },
+      "correctFeedback": "Exactly. Every selected value keeps the total at or below 18 kilograms.",
+      "incorrectFeedback": "Test each amount in 7 + x ≤ 18. More than one value works, but the total may not exceed 18.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "number-line",
+          "data": {
+            "min": 0,
+            "max": 18,
+            "tickStep": 3,
+            "interval": {"lower": 0, "upper": 11, "lowerClosed": true, "upperClosed": true, "label": "Allowed: 0 ≤ x ≤ 11"}
+          },
+          "continuityKey": "bin-capacity-line",
+          "ariaLabel": "The allowed interval from zero through eleven kilograms, including both endpoints"
+        },
+        "steps": [
+          {"title": "Find the boundary", "body": "The capacity rule is 7 + x ≤ 18. Subtracting 7 from both sides gives x ≤ 11."},
+          {"title": "Keep the physical condition", "body": "An added mass cannot be negative, so every value from 0 through 11 is feasible."}
+        ],
+        "takeaway": "An inequality can describe a whole interval of solutions, not just one number."
+      }
+    },
+    {
+      "id": "translate-at-most",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Connect verbal boundary language to the correct inequality symbol.",
+      "expectedRealization": "At most includes the boundary and allows every smaller value.",
+      "transitionIn": "The shaded interval came from one phrase: “at most 18 kilograms.” Record that phrase symbolically.",
+      "estimatedSeconds": 70,
+      "prompt": "Which statement says that 7 kilograms plus x kilograms may equal 18 but may not exceed it?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "equal", "text": "7 + x = 18"},
+          {"id": "less-equal", "text": "7 + x ≤ 18"},
+          {"id": "less", "text": "7 + x < 18"},
+          {"id": "greater-equal", "text": "7 + x ≥ 18"}
+        ],
+        "correctId": "less-equal"
+      },
+      "correctFeedback": "Yes. The symbol ≤ keeps 18 available while excluding totals above it.",
+      "incorrectFeedback": "“At most” points toward smaller totals and includes the stated boundary.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Read both parts of the symbol", "body": "The < part says the total may be smaller than 18; the added bar says equality at 18 is also allowed."}
+        ],
+        "takeaway": "At most means ≤; at least means ≥."
+      }
+    },
+    {
+      "id": "endpoint-choice",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Make endpoint inclusion a mathematical decision rather than a drawing convention.",
+      "expectedRealization": "A strict inequality excludes its boundary and uses an open endpoint.",
+      "transitionIn": "The bar under ≤ admitted the boundary. Remove that bar and test the boundary again.",
+      "estimatedSeconds": 80,
+      "prompt": "A room must contain fewer than 40 people. Which statement about the boundary value 40 is correct?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "included", "text": "40 is allowed, so the endpoint is closed."},
+          {"id": "excluded", "text": "40 is not allowed, so the endpoint is open."},
+          {"id": "only", "text": "40 is the only solution."},
+          {"id": "unknown", "text": "The phrase gives no information about 40."}
+        ],
+        "correctId": "excluded"
+      },
+      "correctFeedback": "Right. “Fewer than 40” means p < 40, so 40 is excluded.",
+      "incorrectFeedback": "Substitute p = 40 into the phrase “fewer than 40” and decide whether it is true.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "number-line",
+          "data": {
+            "min": 0,
+            "max": 50,
+            "tickStep": 10,
+            "interval": {"lower": 0, "upper": 40, "lowerClosed": true, "upperClosed": false, "label": "Whole-number occupancies with 0 ≤ p < 40"}
+          },
+          "ariaLabel": "A number line shaded from zero through values below forty, closed at zero and open at forty"
+        },
+        "steps": [
+          {"title": "Test the boundary", "body": "The sentence p < 40 is false when p = 40, so the mark at 40 stays open."}
+        ],
+        "takeaway": "Use a closed endpoint for ≤ or ≥ and an open endpoint for < or >."
+      }
+    },
+    {
+      "id": "positive-transform",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Extend equality-preserving moves to an inequality with a positive coefficient.",
+      "expectedRealization": "Adding, subtracting, or dividing by a positive number preserves the inequality direction.",
+      "transitionIn": "Endpoints record the final bound. Reach that bound with the same matched operations used for equations.",
+      "estimatedSeconds": 85,
+      "prompt": "Which interval solves 3x + 4 ≤ 19?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "le5", "text": "x ≤ 5"},
+          {"id": "ge5", "text": "x ≥ 5"},
+          {"id": "le15", "text": "x ≤ 15"},
+          {"id": "eq5", "text": "x = 5 only"}
+        ],
+        "correctId": "le5"
+      },
+      "correctFeedback": "Yes. Subtract 4, then divide by positive 3; all values at or below 5 remain allowed.",
+      "incorrectFeedback": "Apply each operation to both sides: first subtract 4, then divide both sides by positive 3.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "number-line",
+          "data": {
+            "min": -5,
+            "max": 8,
+            "tickStep": 1,
+            "interval": {"lower": null, "upper": 5, "lowerClosed": false, "upperClosed": true, "label": "x ≤ 5"}
+          },
+          "ariaLabel": "A number line shaded left without bound through a closed endpoint at five"
+        },
+        "steps": [
+          {"title": "Subtract equally", "body": "3x + 4 ≤ 19 becomes 3x ≤ 15 after subtracting 4 from both sides."},
+          {"title": "Divide by a positive number", "body": "Dividing both sides by 3 gives x ≤ 5. The order direction stays the same."}
+        ],
+        "takeaway": "The familiar equation moves still work; the result is an interval rather than one value."
+      }
+    },
+    {
+      "id": "negative-direction",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Surface and repair blind copying of the inequality direction through division by a negative.",
+      "expectedRealization": "Multiplying or dividing by a negative reverses order, so the inequality symbol must reverse.",
+      "transitionIn": "Positive division preserved the order. A negative divisor changes which side contains the greater numbers.",
+      "estimatedSeconds": 105,
+      "prompt": "Solve -2x < 6. Which result survives a check with x = 0?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "lt-neg3", "text": "x < -3"},
+          {"id": "gt-neg3", "text": "x > -3"},
+          {"id": "lt3", "text": "x < 3"},
+          {"id": "gt3", "text": "x > 3"}
+        ],
+        "correctId": "gt-neg3"
+      },
+      "correctFeedback": "Correct. Zero makes the original inequality true and lies in x > -3.",
+      "incorrectFeedback": "The test value x = 0 gives 0 < 6, so the final interval must contain 0. Dividing by -2 reverses order.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "number-line",
+          "data": {
+            "min": -8,
+            "max": 5,
+            "tickStep": 1,
+            "interval": {"lower": -3, "upper": null, "lowerClosed": false, "upperClosed": false, "label": "x > -3"}
+          },
+          "ariaLabel": "A number line with an open endpoint at negative three and shading to the right without bound"
+        },
+        "steps": [
+          {"title": "Watch the order reverse", "body": "Dividing -2x < 6 by -2 changes x's side from the smaller product to the greater quotient, giving x > -3."},
+          {"title": "Check values on both sides", "body": "x = 0 works because 0 < 6. But x = -4 fails because 8 < 6 is false."}
+        ],
+        "takeaway": "Reverse the inequality direction whenever both sides are multiplied or divided by a negative number."
+      }
+    },
+    {
+      "id": "name-feasible-interval",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name inequalities, bounds, feasible values, and optimization after learners have encountered each need.",
+      "expectedRealization": "Solving finds the feasible set; optimizing selects an extreme within it.",
+      "estimatedSeconds": 65,
+      "name": "Feasible intervals and extreme values",
+      "conciseDefinition": "An inequality compares quantities and describes all values that make the comparison true. Those values are feasible. Optimization asks for the greatest or least feasible value.",
+      "formalization": "solve the constraints → mark the feasible set → apply whole-number or other restrictions → choose the requested extreme",
+      "memoryHook": "Feasible first; extreme second."
+    },
+    {
+      "id": "festival-optimization",
+      "phase": "play",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a4-festival-tickets",
+      "role": "anchor",
+      "presentation": "full-prompt",
+      "purpose": "Use a clean budget constraint to separate solving an interval from maximizing over whole numbers.",
+      "expectedRealization": "The inequality yields several feasible counts, while the word greatest selects one boundary count.",
+      "transitionIn": "A budget is another upper bound. First find every whole-number ticket count that fits; only then answer “greatest.”",
+      "whyNow": "The learner has built and transformed intervals and is ready to distinguish the feasible set from its maximum.",
+      "entryBridge": "Let t be a nonnegative whole number of ride tickets and keep admission inside the total cost.",
+      "exitBridge": "The boundary count fits exactly, while the next whole number crosses the budget.",
+      "reusedRepresentation": "A closed whole-number interval ending at the greatest affordable count.",
+      "animation": {"mode": "none", "controlledByLesson": true},
+      "learnerPrompts": ["Which inequality describes the budget, and which feasible whole number lies farthest to the right?"],
+      "correctFeedback": "Correct. The feasible counts are 0 through 6, so the greatest is 6.",
+      "incorrectFeedback": "Subtract the 16-dollar admission first, divide the remaining budget by 7, and check the next whole ticket count.",
+      "resolution": {
+        "visual": {
+          "primitive": "number-line",
+          "data": {
+            "min": 0,
+            "max": 8,
+            "tickStep": 1,
+            "interval": {"lower": 0, "upper": 6, "lowerClosed": true, "upperClosed": true, "label": "Feasible whole-number counts: 0 through 6"}
+          },
+          "ariaLabel": "A number line shaded from zero through six, including both endpoints"
+        },
+        "steps": [
+          {"title": "Solve the budget constraint", "body": "16 + 7t ≤ 58 gives 7t ≤ 42, then t ≤ 6."},
+          {"title": "Apply the counting restriction", "body": "Ticket counts are nonnegative whole numbers, so the feasible set is 0, 1, 2, 3, 4, 5, 6."},
+          {"title": "Optimize and verify", "body": "The greatest feasible count is 6. It costs 16 + 7(6) = 58 dollars; 7 tickets would cost 65 dollars."}
+        ],
+        "takeaway": "The inequality answers what is feasible; “greatest” chooses the rightmost feasible whole number."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 150
+    },
+    {
+      "id": "feasible-before-extreme",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Make the two logical stages of optimization explicit and correctly ordered.",
+      "expectedRealization": "A single optimum is justified only after the complete feasible set is known.",
+      "transitionIn": "Six answered the festival question, but 0 through 5 also obeyed the budget. Separate those two facts.",
+      "estimatedSeconds": 85,
+      "prompt": "Which explanation correctly separates feasibility from optimization?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "correct", "text": "Feasibility gives 0 through 6; optimization then selects 6 as greatest."},
+          {"id": "only", "text": "Feasibility gives only 6 because smaller counts do not spend the full budget."},
+          {"id": "reverse", "text": "Optimization gives 0 through 6; feasibility then selects 6."},
+          {"id": "outside", "text": "Optimization should compare 6 with 7 even though 7 exceeds the budget."}
+        ],
+        "correctId": "correct"
+      },
+      "correctFeedback": "Yes. Feasibility produces the set; optimization selects one edge of it.",
+      "incorrectFeedback": "First identify every count that obeys the budget, then use “greatest” to choose from that set.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Keep the jobs distinct", "body": "The constraint proves why 0 through 6 are allowed. The optimization word greatest then selects 6 from those allowed counts."}
+        ],
+        "takeaway": "Never optimize over values before proving that they are feasible."
+      }
+    },
+    {
+      "id": "block-wall-transfer",
+      "phase": "competition-application",
+      "kind": "problem",
+      "source": "bank",
+      "problemId": "amc8-2000-12",
+      "role": "transfer",
+      "presentation": "full-prompt",
+      "purpose": "Apply constraint-first optimization to a structural contest problem where the tempting unconstrained minimum is invalid.",
+      "expectedRealization": "The fewest blocks per isolated row is not the wall optimum because adjacent rows must also satisfy staggering.",
+      "transitionIn": "A budget ruled out ticket counts that were too large. In this wall, a construction rule rules out the tempting smallest count.",
+      "whyNow": "The learner can distinguish feasibility from optimization; the wall tests that distinction without requiring formal inequality notation for every construction rule.",
+      "entryBridge": "Treat each candidate wall as feasible only if it is 100 feet long, 7 feet high, even at both ends, and has staggered vertical joins.",
+      "exitBridge": "The minimum comes from the smallest surviving row pattern, alternated enough times to satisfy every join constraint.",
+      "reusedRepresentation": "Candidate counts are rejected by constraints before the smallest survivor is chosen.",
+      "animation": {"mode": "whole", "controlledByLesson": true, "autoplay": false, "showPlayerControls": false},
+      "learnerPrompts": [
+        "Why is 50 the fewest blocks for one 100-foot row?",
+        "Which staggering constraint makes seven copies of that row infeasible?",
+        "Why does a shifted row require 51 blocks?",
+        "Among feasible seven-row arrangements, why is 353 minimal?"
+      ],
+      "correctFeedback": "Correct. Four 50-block rows and three shifted 51-block rows give the smallest feasible total, 353.",
+      "incorrectFeedback": "Check the staggering rule before minimizing. Adjacent rows cannot use the same vertical join locations.",
+      "resolution": {
+        "animation": {"kind": "problem-animation", "placement": "before-steps"},
+        "steps": [
+          {"title": "Find the unconstrained row minimum", "body": "A 100-foot row needs at least 100 ÷ 2 = 50 blocks, achieved by using only 2-foot blocks."},
+          {"title": "Reject the repeated-row trap", "body": "If every row uses that same pattern, all vertical joins line up. The wall is not feasible."},
+          {"title": "Build the cheapest shifted row", "body": "A 1-foot block at each end shifts the joins; 49 two-foot blocks fill the middle. That row uses 1 + 49 + 1 = 51 blocks."},
+          {"title": "Optimize among feasible walls", "body": "Alternation allows at most four 50-block rows among seven rows, so the minimum is 4(50) + 3(51) = 353 blocks."}
+        ],
+        "takeaway": "A smaller-looking candidate is irrelevant if it violates a constraint; optimize only among survivors."
+      },
+      "sourceLabelTiming": "before",
+      "estimatedSeconds": 210
+    },
+    {
+      "id": "practice-aquarium-jugs",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a4-aquarium-jugs",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Assess an inclusive upper bound and maximum whole-number count.",
+      "whyNow": "Return to a clean capacity setting after the layered wall constraint.",
+      "entryBridge": "Translate “at most” before choosing the greatest full-jug count.",
+      "exitBridge": "The boundary count is safe exactly; the next count is not.",
+      "animation": {"mode": "none", "controlledByLesson": true},
+      "learnerPrompts": ["Which inequality bounds the full-jug count, and does equality at 40 liters count?"],
+      "correctFeedback": "Correct. Nine jugs reach 40 liters exactly, so 9 is the greatest safe count.",
+      "incorrectFeedback": "Solve 13 + 3j ≤ 40, then test the boundary count and the next whole number.",
+      "resolution": {
+        "steps": [
+          {"title": "Find the feasible counts", "body": "13 + 3j ≤ 40 gives j ≤ 9."},
+          {"title": "Choose the maximum", "body": "Nine jugs give 40 liters and ten give 43, so 9 is greatest."}
+        ],
+        "takeaway": "An inclusive capacity can make equality the optimal boundary."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 100
+    },
+    {
+      "id": "practice-negative-bound",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a4-negative-bound",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Assess reversal under negative division and selection of a minimum integer.",
+      "whyNow": "The next constraint is symbolic and tests whether order is preserved correctly.",
+      "entryBridge": "Keep the endpoint included, but watch what dividing by -4 does to the direction.",
+      "exitBridge": "Substitution confirms both the reversed direction and the included endpoint.",
+      "animation": {"mode": "none", "controlledByLesson": true},
+      "learnerPrompts": ["After isolating -4x, which direction must the inequality face?"],
+      "correctFeedback": "Correct. The solution is x ≥ -4, whose smallest integer is -4.",
+      "incorrectFeedback": "Subtract 3, then reverse the inequality when dividing both sides by -4.",
+      "resolution": {
+        "visual": {
+          "primitive": "number-line",
+          "data": {"min": -7, "max": 5, "tickStep": 1, "interval": {"lower": -4, "upper": null, "lowerClosed": true, "upperClosed": false, "label": "x ≥ -4"}},
+          "ariaLabel": "A number line with a closed endpoint at negative four and shading to the right"
+        },
+        "steps": [
+          {"title": "Reverse on negative division", "body": "-4x + 3 ≤ 19 becomes -4x ≤ 16, then x ≥ -4."},
+          {"title": "Check the requested extreme", "body": "At x = -4, the left side equals 19. Smaller integers fail, so -4 is the minimum."}
+        ],
+        "takeaway": "The reversed inequality determines which endpoint can be the minimum."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 110
+    },
+    {
+      "id": "practice-qualifying-time",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a4-qualifying-time",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Assess strict endpoint exclusion under a whole-number recording rule.",
+      "whyNow": "Change an inclusive capacity into a strict performance boundary.",
+      "entryBridge": "Decide whether 52 itself belongs before choosing the greatest whole number.",
+      "exitBridge": "The open endpoint removes 52, leaving 51 as the nearest feasible integer.",
+      "animation": {"mode": "none", "controlledByLesson": true},
+      "learnerPrompts": ["What does “less than 52” do to the endpoint?"],
+      "correctFeedback": "Correct. Since 52 is excluded, 51 is the greatest qualifying whole-number time.",
+      "incorrectFeedback": "The word “less” is strict: exclude 52, then use the whole-number recording rule.",
+      "resolution": {
+        "steps": [
+          {"title": "Exclude the boundary", "body": "The rule is t < 52, so 52 does not qualify."},
+          {"title": "Use integer feasibility", "body": "The greatest whole number below 52 is 51."}
+        ],
+        "takeaway": "An open endpoint can move a whole-number optimum one step inward."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 90
+    },
+    {
+      "id": "practice-donation-boxes",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a4-donation-boxes",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Assess an inclusive lower bound and least feasible whole-number count.",
+      "whyNow": "Reverse the optimization direction from a maximum under a cap to a minimum needed for a goal.",
+      "entryBridge": "“At least” points toward counts large enough to reach the goal; choose the leftmost feasible whole number.",
+      "exitBridge": "Eight reaches the boundary exactly, while seven remains short.",
+      "animation": {"mode": "none", "controlledByLesson": true},
+      "learnerPrompts": ["Which lower-bound inequality represents the goal, and which feasible whole number is least?"],
+      "correctFeedback": "Correct. Eight boxes reach 125 books exactly; seven are not enough.",
+      "incorrectFeedback": "Solve 37 + 11b ≥ 125, then compare the smallest candidate with the whole number just below it.",
+      "resolution": {
+        "steps": [
+          {"title": "Find the feasible set", "body": "37 + 11b ≥ 125 gives b ≥ 8."},
+          {"title": "Choose the minimum", "body": "Eight boxes reach 125; seven reach only 114. The least feasible count is 8."}
+        ],
+        "takeaway": "For an at-least goal, the optimum is often the leftmost feasible whole number."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 105
+    },
+    {
+      "id": "practice-rectangle-limit",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a4-rectangle-limit",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Assess multi-step constrained optimization with geometry and integer side lengths.",
+      "whyNow": "Finish with an objective that must be computed after a separate perimeter constraint is solved.",
+      "entryBridge": "Use the perimeter to bound the width before calculating any candidate area.",
+      "exitBridge": "The greatest feasible width produces the greatest area because the length grows with it.",
+      "animation": {"mode": "none", "controlledByLesson": true},
+      "learnerPrompts": ["What is the greatest feasible width, and why does it also maximize w(w + 3)?"],
+      "correctFeedback": "Correct. Width 10 and length 13 meet the perimeter limit and give area 130.",
+      "incorrectFeedback": "Write 2w + 2(w + 3) ≤ 46, find the greatest whole-number width, and only then compute area.",
+      "resolution": {
+        "steps": [
+          {"title": "Bound the width", "body": "2w + 2(w + 3) ≤ 46 simplifies to 4w + 6 ≤ 46, so w ≤ 10."},
+          {"title": "Optimize the area", "body": "For positive w, both w and w + 3 increase with w. The greatest feasible width 10 gives length 13 and area 130."},
+          {"title": "Check feasibility", "body": "The perimeter is 2(10) + 2(13) = 46. Width 11 would require perimeter 50."}
+        ],
+        "takeaway": "Solve the constraint first, then evaluate the objective at the justified extreme."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 130
+    },
+    {
+      "id": "constraint-routine",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate translation, transformation, endpoint, feasibility, and optimization safeguards.",
+      "expectedRealization": "A reliable solution proves the feasible set before selecting and checking an extreme.",
+      "transitionIn": "Bins, tickets, walls, water, times, donations, and rectangles used the same safeguards. Gather them into one routine.",
+      "estimatedSeconds": 115,
+      "prompt": "Which actions belong in a reliable constraint-and-optimization routine? Select all four.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "translate", "text": "Translate every limit and keep the variable's meaning and domain visible."},
+          {"id": "solve", "text": "Use matched operations, reversing direction after multiplying or dividing by a negative."},
+          {"id": "mark", "text": "Mark the feasible set with correct open or closed endpoints and integer restrictions."},
+          {"id": "optimize", "text": "Choose the requested extreme from the feasible set and check nearby boundary values."}
+        ],
+        "correctIds": ["translate", "solve", "mark", "optimize"],
+        "feedback": "Each action protects a different part of the argument."
+      },
+      "correctFeedback": "Yes—translate, solve carefully, mark feasibility, then optimize and check.",
+      "incorrectFeedback": "All four are needed: constraints define the set, transformations preserve it, endpoints describe it, and optimization selects from it.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "1. Translate", "choices": ["limits", "units", "domain"]},
+              {"label": "2. Solve", "choices": ["matched operations", "reverse for negatives"]},
+              {"label": "3. Mark", "choices": ["feasible interval", "endpoint inclusion"]},
+              {"label": "4. Optimize", "choices": ["requested extreme", "boundary check"]}
+            ]
+          },
+          "ariaLabel": "Four stages of solving and optimizing under constraints"
+        },
+        "steps": [
+          {"title": "Keep the proof in order", "body": "A minimum or maximum is justified only after every constraint and domain restriction has identified the values allowed to compete."}
+        ],
+        "takeaway": "Feasible first; extreme second; check the boundary and its neighbor."
+      }
+    },
+    {
+      "id": "two-variable-region-hook",
+      "phase": "reflection",
+      "kind": "reflection",
+      "purpose": "Extend the feasible-set idea to two varying quantities without claiming an unmapped successor.",
+      "expectedRealization": "With two variables, a constraint can describe many feasible pairs rather than an interval of single values.",
+      "transitionIn": "One number line was enough when only x varied. Now let two choices share one limit.",
+      "estimatedSeconds": 55,
+      "prompt": "A snack cart can carry at most 30 items split between fruit cups f and sandwiches s. What might the feasible pairs look like, and where would you search if profit depended differently on f and s?",
+      "takeaway": "When two quantities vary, constraints create a region of feasible pairs, and an optimum must still come from inside that region."
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {"near": 2, "mixed": 2, "challenge": 1},
+    "sessionSelection": [
+      {"source": "generated", "transferLevel": "near", "count": 2},
+      {"source": "generated", "transferLevel": "mixed", "count": 2},
+      {"source": "generated", "transferLevel": "challenge", "count": 1}
+    ],
+    "excludeProblemIds": ["original-a4-festival-tickets", "amc8-2000-12"],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "A4",
+    "evidenceBeatIds": [
+      "practice-aquarium-jugs",
+      "practice-negative-bound",
+      "practice-qualifying-time",
+      "practice-donation-boxes",
+      "practice-rectangle-limit"
+    ],
+    "minIndependentPracticeItems": 5,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.2.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "mathinking-lesson-skill-1.0.0",
+    "notes": [
+      "Design: the opening changes the familiar equality x + 7 = 18 into the capacity inequality x + 7 ≤ 18, exposing a solution interval. The central tension is that endpoint and direction choices change which values are feasible. With no named successor, the closing extends the idea to a two-variable feasible region.",
+      "Beat outline: capacity puzzle -> translate at most -> inspect endpoints -> transform a positive inequality -> discover negative reversal -> name feasible intervals -> generated budget anchor -> separate feasibility from optimization -> authentic block-wall transfer -> five independent problems -> consolidation -> two-variable hook.",
+      "The number-line primitive is a generic, serializable, accessible static visual. Attempt states remain unshaded whenever shading would reveal an answer; completed intervals appear only in resolutions.",
+      "The block-wall animation appears only after submission. Its four learner prompts match the scene's four declared states, so the tempting 350-block arrangement and the 353-block optimum are revealed at the appropriate time.",
+      "All generated answers were verified algebraically and independently through boundary checks, option audits, or enumeration. The lesson remains draft pending human pedagogical review."
+    ]
+  }
+}

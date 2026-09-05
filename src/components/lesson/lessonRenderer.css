@@ -406,6 +406,135 @@
   text-align: center;
 }
 
+.fmj-lesson-number-line {
+  display: grid;
+  gap: 4px;
+  overflow-x: auto;
+}
+
+.fmj-lesson-number-line svg {
+  display: block;
+  width: 100%;
+  min-width: 300px;
+}
+
+.fmj-number-line-axis {
+  stroke: #64748b;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.fmj-number-line-axis-fill {
+  fill: #64748b;
+}
+
+.fmj-number-line-interval {
+  stroke: #2563eb;
+  stroke-width: 11;
+  stroke-linecap: round;
+}
+
+.fmj-number-line-interval-fill {
+  fill: #2563eb;
+}
+
+.fmj-number-line-endpoint {
+  fill: var(--fmj-surface);
+  stroke: #1d4ed8;
+  stroke-width: 4;
+}
+
+.fmj-number-line-endpoint.closed {
+  fill: #2563eb;
+}
+
+.fmj-number-line-tick {
+  stroke: #475569;
+  stroke-width: 2;
+}
+
+.fmj-number-line-label {
+  fill: #334155;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.fmj-lesson-number-line p {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #dbeafe;
+  color: #1e3a8a;
+  font-weight: 900;
+}
+
+.fmj-lesson-data-graph {
+  display: grid;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.fmj-lesson-data-graph svg {
+  display: block;
+  width: 100%;
+  min-width: 320px;
+}
+
+.fmj-data-graph-field {
+  fill: var(--fmj-surface);
+  stroke: var(--fmj-border);
+}
+
+.fmj-data-graph-grid {
+  stroke: #e2e8f0;
+  stroke-width: 1;
+}
+
+.fmj-data-graph-axis {
+  stroke: #64748b;
+  stroke-width: 2.5;
+}
+
+.fmj-data-graph-line {
+  stroke: #2563eb;
+  stroke-linecap: round;
+  stroke-width: 4;
+}
+
+.fmj-data-graph-point {
+  fill: #0d9488;
+  stroke: #fff;
+  stroke-width: 2;
+}
+
+.fmj-data-graph-rise-run {
+  fill: none;
+  stroke: #d97706;
+  stroke-dasharray: 7 5;
+  stroke-width: 4;
+}
+
+.fmj-lesson-data-graph text {
+  fill: #475569;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.fmj-lesson-data-graph .fmj-data-graph-axis-label {
+  fill: #1f2a44;
+  font-size: 14px;
+}
+
+.fmj-lesson-data-graph p {
+  margin: 0;
+  color: #1e3a8a;
+  font-weight: 800;
+  text-align: center;
+}
+
 .fmj-lesson-choice-grid,
 .fmj-lesson-case-grid {
   display: grid;

@@ -1,0 +1,108 @@
+[
+  {
+    "schemaVersion": "1.0.0", "lessonId": "A3", "purpose": "practice", "transferLevel": "near",
+    "targetConcepts": ["A3", "A2"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a3-animals", "title": "Chickens and Rabbits", "sourceType": "Original", "contest": "Original",
+      "category": "Algebra", "subcategory": "Systems of equations", "difficulty": 1,
+      "statement": "A pen holds 12 animals, all chickens or rabbits. Altogether they have 34 legs. How many rabbits are in the pen?",
+      "choices": [{"label":"A","text":"3"},{"label":"B","text":"4"},{"label":"C","text":"5"},{"label":"D","text":"6"},{"label":"E","text":"7"}],
+      "answer": "C", "shortAnswer": "5",
+      "hints": ["Let c + r = 12 and 2c + 4r = 34.", "Compare with the leg total if all twelve animals were chickens."],
+      "solutionSteps": [
+        {"title":"Write both constraints","body":"The system is c + r = 12 and 2c + 4r = 34."},
+        {"title":"Eliminate and check","body":"Double the first equation and subtract to get 2r = 10, so r = 5 and c = 7. Then 7 + 5 = 12 and 2(7) + 4(5) = 34."}
+      ],
+      "tags": ["systems", "heads and legs", "elimination"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {
+      "status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods": ["elimination: subtract 2c + 2r = 24 from 2c + 4r = 34 to obtain r = 5", "independent baseline count: twelve chickens give 24 legs and each rabbit replacement adds 2, so the 10-leg gap requires 5 rabbits; all options audited"],
+      "notes": ["The animal context differs from both mapped bank problems and uses only prerequisite linear-equation skills."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "A3", "purpose": "practice", "transferLevel": "near",
+    "targetConcepts": ["A3", "A2"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a3-coins", "title": "Dimes and Quarters", "sourceType": "Original", "contest": "Original",
+      "category": "Algebra", "subcategory": "Systems of equations", "difficulty": 1,
+      "statement": "A jar contains 14 coins, all dimes or quarters, worth 245 cents altogether. How many quarters are in the jar?",
+      "choices": [{"label":"A","text":"5"},{"label":"B","text":"6"},{"label":"C","text":"7"},{"label":"D","text":"8"},{"label":"E","text":"9"}],
+      "answer": "C", "shortAnswer": "7",
+      "hints": ["Use cents: d + q = 14 and 10d + 25q = 245.", "Compare the value with fourteen dimes."],
+      "solutionSteps": [
+        {"title":"Align and subtract","body":"Multiply d + q = 14 by 10, then subtract it from 10d + 25q = 245. This gives 15q = 105, so q = 7."},
+        {"title":"Check","body":"Seven quarters and seven dimes make 14 coins worth 175 + 70 = 245 cents."}
+      ],
+      "tags": ["systems", "coins", "elimination"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {
+      "status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods": ["elimination in cents: (245 - 140) / 15 = 7 quarters", "independent substitution and exhaustive choice audit: only 7 quarters with 7 dimes totals 14 coins and 245 cents"]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "A3", "purpose": "practice", "transferLevel": "mixed",
+    "targetConcepts": ["A3", "A2"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a3-tickets", "title": "Two Ticket Prices", "sourceType": "Original", "contest": "Original",
+      "category": "Algebra", "subcategory": "Systems of equations", "difficulty": 2,
+      "statement": "A theater sold 20 tickets. Adult tickets cost 8 dollars and child tickets cost 5 dollars. The total revenue was 127 dollars. How many adult tickets were sold?",
+      "choices": [{"label":"A","text":"7"},{"label":"B","text":"8"},{"label":"C","text":"9"},{"label":"D","text":"10"},{"label":"E","text":"11"}],
+      "answer": "C", "shortAnswer": "9",
+      "hints": ["Let a + c = 20 and 8a + 5c = 127.", "Scale the complete count equation by five."],
+      "solutionSteps": [
+        {"title":"Eliminate","body":"Multiply a + c = 20 by 5 to obtain 5a + 5c = 100. Subtract from 8a + 5c = 127 to get 3a = 27, so a = 9."},
+        {"title":"Check","body":"Then c = 11, and 9 + 11 = 20 while 8(9) + 5(11) = 127."}
+      ],
+      "tags": ["systems", "tickets", "elimination"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {
+      "status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods": ["equation elimination: revenue minus five times ticket count gives 3a = 27, hence a = 9", "independent baseline audit: twenty child tickets earn 100 dollars; each adult replacement adds 3 dollars, so a 27-dollar gap needs 9 replacements; all choices evaluated"]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "A3", "purpose": "practice", "transferLevel": "mixed",
+    "targetConcepts": ["A3", "A2"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a3-sum-difference", "title": "A Sum and a Difference", "sourceType": "Original", "contest": "Original",
+      "category": "Algebra", "subcategory": "Systems of equations", "difficulty": 2,
+      "statement": "Two numbers x and y satisfy x + y = 23 and x - y = 7. What is x?",
+      "choices": [{"label":"A","text":"8"},{"label":"B","text":"12"},{"label":"C","text":"15"},{"label":"D","text":"16"},{"label":"E","text":"30"}],
+      "answer": "C", "shortAnswer": "15",
+      "hints": ["Add corresponding sides of the two equations.", "The y and -y terms will cancel."],
+      "solutionSteps": [
+        {"title":"Add equations","body":"Adding x + y = 23 and x - y = 7 gives 2x = 30, so x = 15."},
+        {"title":"Check the pair","body":"Then y = 8. The pair satisfies 15 + 8 = 23 and 15 - 8 = 7."}
+      ],
+      "tags": ["systems", "sum and difference", "elimination"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {
+      "status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods": ["direct addition of the equations gives 2x = 30 and x = 15", "independent reconstruction: half of the sum-plus-difference is (23 + 7) / 2 = 15; exhaustive option substitution confirms uniqueness"]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0", "lessonId": "A3", "purpose": "practice", "transferLevel": "challenge",
+    "targetConcepts": ["A3", "A2"], "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a3-rectangle", "title": "Rectangle from Two Clues", "sourceType": "Original", "contest": "Original",
+      "category": "Algebra", "subcategory": "Systems and geometry", "difficulty": 2,
+      "statement": "A rectangle has perimeter 34 units. Its length is 5 units greater than its width. What is its area in square units?",
+      "choices": [{"label":"A","text":"55"},{"label":"B","text":"60"},{"label":"C","text":"64"},{"label":"D","text":"66"},{"label":"E","text":"72"}],
+      "answer": "D", "shortAnswer": "66",
+      "hints": ["Use l + w = 17 and l - w = 5.", "Find both dimensions before calculating area."],
+      "solutionSteps": [
+        {"title":"Translate and solve","body":"The perimeter gives l + w = 17, and the difference gives l - w = 5. Adding yields 2l = 22, so l = 11 and w = 6."},
+        {"title":"Check and answer","body":"The perimeter is 2(11) + 2(6) = 34 and the difference is 5. The area is 11 × 6 = 66 square units."}
+      ],
+      "tags": ["systems", "rectangle", "area"], "sourceName": "Mathinking", "license": "Original"
+    },
+    "validation": {
+      "status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,
+      "validationMethods": ["system solution: l + w = 17 and l - w = 5 give l = 11, w = 6, area 66", "independent factor-pair audit: among positive factor pairs for each offered area, only 11 by 6 has perimeter 34 and side difference 5"]
+    }
+  }
+]

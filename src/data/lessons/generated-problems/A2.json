@@ -1,0 +1,224 @@
+[
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "A2",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["A2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a2-ticket-rolls",
+      "title": "Tickets in the Drawer",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "One-step linear equations",
+      "difficulty": 1,
+      "statement": "A drawer contains r unused tickets and 18 used tickets, for 45 tickets altogether. Which value of r makes r + 18 = 45 true?",
+      "choices": [
+        {"label": "A", "text": "17"}, {"label": "B", "text": "27"}, {"label": "C", "text": "37"}, {"label": "D", "text": "53"}, {"label": "E", "text": "63"}
+      ],
+      "answer": "B",
+      "shortAnswer": "27",
+      "hints": ["Undo the added 18 on both sides.", "Check your value by adding 18."],
+      "solutionSteps": [
+        {"title": "Preserve equality", "body": "Subtract 18 from both sides: r + 18 - 18 = 45 - 18, so r = 27."},
+        {"title": "Check", "body": "27 + 18 = 45, so the original total is correct."}
+      ],
+      "tags": ["linear equations", "inverse operations", "checking"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "inverse-operation derivation: 45 - 18 = 27",
+        "independent substitution and option audit: only 27 + 18 equals 45"
+      ],
+      "notes": ["The prompt supplies the equation so it isolates equality-preserving subtraction without additional translation load."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "A2",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["A2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a2-equal-packs",
+      "title": "Six Equal Packs",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "One-step linear equations",
+      "difficulty": 1,
+      "statement": "Six identical packs contain 42 markers altogether. If p is the number of markers in one pack, what value of p makes 6p = 42 true?",
+      "choices": [
+        {"label": "A", "text": "6"}, {"label": "B", "text": "7"}, {"label": "C", "text": "8"}, {"label": "D", "text": "36"}, {"label": "E", "text": "48"}
+      ],
+      "answer": "B",
+      "shortAnswer": "7",
+      "hints": ["Split both sides into six equal groups.", "Multiply your proposed pack size by six to check."],
+      "solutionSteps": [
+        {"title": "Divide both sides", "body": "6p ÷ 6 = 42 ÷ 6, so p = 7."},
+        {"title": "Check", "body": "Six packs of seven markers contain 6(7) = 42 markers."}
+      ],
+      "tags": ["linear equations", "division", "equal groups"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "equal-group derivation: 42 markers divided among 6 packs gives 7 per pack",
+        "independent multiplication and option audit: only 6 × 7 equals 42"
+      ]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "A2",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["A2", "A1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a2-farm-stand",
+      "title": "Farm Stand Earnings",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "Two-step linear equations",
+      "difficulty": 1,
+      "statement": "A farm stand begins the day with 11 dollars in change and earns 4 dollars for each basket sold. At one point the cash box holds 47 dollars. If b baskets have been sold, what is b?",
+      "choices": [
+        {"label": "A", "text": "7"}, {"label": "B", "text": "8"}, {"label": "C", "text": "9"}, {"label": "D", "text": "11"}, {"label": "E", "text": "14"}
+      ],
+      "answer": "C",
+      "shortAnswer": "9",
+      "hints": ["Write 4b + 11 = 47.", "Undo the fixed 11 before dividing by four."],
+      "solutionSteps": [
+        {"title": "Write and simplify", "body": "The relationship is 4b + 11 = 47. Subtract 11 from both sides to get 4b = 36."},
+        {"title": "Isolate and check", "body": "Divide both sides by 4 to get b = 9. Then 4(9) + 11 = 47."}
+      ],
+      "tags": ["linear equations", "word problem", "inverse operations"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "equation derivation: (47 - 11) / 4 = 9 baskets",
+        "independent forward construction and option audit: starting at 11 and adding nine groups of 4 reaches 47; no other choice does"
+      ]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "A2",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["A2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a2-two-sides",
+      "title": "The Same Unknown on Both Sides",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "Variables on both sides",
+      "difficulty": 2,
+      "statement": "Which value of x makes 3x + 9 = 2x + 17 true?",
+      "choices": [
+        {"label": "A", "text": "6"}, {"label": "B", "text": "7"}, {"label": "C", "text": "8"}, {"label": "D", "text": "9"}, {"label": "E", "text": "10"}
+      ],
+      "answer": "C",
+      "shortAnswer": "8",
+      "hints": ["Subtract 2x from both sides.", "Check that both original expressions have the same value."],
+      "solutionSteps": [
+        {"title": "Preserve equality", "body": "Subtract 2x from both sides to get x + 9 = 17."},
+        {"title": "Finish and check", "body": "Subtract 9 from both sides, giving x = 8. Both original sides then equal 33."}
+      ],
+      "tags": ["linear equations", "variables on both sides", "checking"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "symbolic difference: subtracting 2x and 9 from both sides yields x = 8",
+        "independent exhaustive option substitution: left and right are equal only at choice C, where both equal 33"
+      ]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "A2",
+    "purpose": "practice",
+    "transferLevel": "challenge",
+    "targetConcepts": ["A2", "A1"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a2-consecutive",
+      "title": "Consecutive Sum",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "Linear equation modeling",
+      "difficulty": 2,
+      "statement": "Two consecutive positive integers have sum 41. What is the larger integer?",
+      "choices": [
+        {"label": "A", "text": "19"}, {"label": "B", "text": "20"}, {"label": "C", "text": "21"}, {"label": "D", "text": "22"}, {"label": "E", "text": "23"}
+      ],
+      "answer": "C",
+      "shortAnswer": "21",
+      "hints": ["Represent the smaller integer by n and the next one by n + 1.", "Set their sum equal to 41."],
+      "solutionSteps": [
+        {"title": "Translate", "body": "Let n be the smaller integer. Then n + (n + 1) = 41."},
+        {"title": "Solve", "body": "Combine like terms: 2n + 1 = 41. Subtract 1 from both sides and divide both sides by 2, giving n = 20."},
+        {"title": "Answer and check", "body": "The larger integer is 21, and 20 + 21 = 41."}
+      ],
+      "tags": ["linear equations", "consecutive integers", "modeling"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "algebraic derivation: n + (n + 1) = 41 gives n = 20 and larger integer 21",
+        "independent parity and adjacency check: the pair centered on 20.5 is 20 and 21; only choice C is the larger member and the sum is 41"
+      ]
+    }
+  }
+]

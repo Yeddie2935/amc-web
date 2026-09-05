@@ -1,0 +1,574 @@
+{
+  "schemaVersion": "1.0.0",
+  "lessonId": "A2",
+  "curriculumNodeId": "A2",
+  "title": "Linear Equations",
+  "lessonType": "foundation",
+  "status": "draft",
+  "estimatedMinutes": 29,
+  "coreInsight": "Solving an equation means finding values that make a statement true, and valid transformations preserve equality.",
+  "targetLearnerRealization": "Solving an equation preserves one equality while undoing operations until the unknown is isolated; the resulting value must make the original equation true.",
+  "learningObjectives": [
+    "Interpret an equation as a claim that two sides have equal values.",
+    "Preserve equality by applying the same operation to both sides.",
+    "Solve one-step and two-step linear equations by undoing operations in reverse order.",
+    "Explain why a variable keeps one value while equivalent equations change form.",
+    "Check a proposed solution in the original equation and its story."
+  ],
+  "hardPrerequisites": ["A1"],
+  "narrativePredecessor": "A1",
+  "continuity": {
+    "openingCallback": "Take up the unresolved equation 137 + 16w = 521 by asking which simplifications preserve its equality.",
+    "closingSeeds": [
+      "One equation in two unknown quantities can have several solutions.",
+      "A second independent equality can narrow several possibilities to one.",
+      "Replacing equality with at least or at most changes one solution into a range."
+    ],
+    "nextLessonIds": ["A3"]
+  },
+  "misconceptionTargets": [
+    {
+      "misconception": "Terms can be moved across the equal sign by changing their sign without justification.",
+      "beatIds": ["remove-matched-weights", "justify-subtraction", "practice-farm-stand"]
+    },
+    {
+      "misconception": "The variable's value changes during the solving process.",
+      "beatIds": ["same-value-new-form", "practice-two-sides"]
+    },
+    {
+      "misconception": "Different operations may be applied to the two sides of an equation.",
+      "beatIds": ["balance-puzzle", "share-both-sides", "practice-ticket-rolls"]
+    },
+    {
+      "misconception": "A solution does not need to be checked in the original relationship.",
+      "beatIds": ["check-the-bag", "contest-score", "practice-consecutive"]
+    }
+  ],
+  "beats": [
+    {
+      "id": "balance-puzzle",
+      "phase": "puzzle",
+      "kind": "interaction",
+      "purpose": "Turn the prior equality question into a concrete test of what preserves a true statement.",
+      "expectedRealization": "Changing only one side destroys equality; a matched change can preserve it.",
+      "transitionIn": "The expression 137 + 16w became an equation when it was set equal to 521. To simplify any equation safely, first decide what its equals sign protects.",
+      "estimatedSeconds": 85,
+      "prompt": "A level balance has three identical sealed bags and two unit weights on the left, and fourteen unit weights on the right. Two unit weights are removed only from the left. What must happen?",
+      "visual": {
+        "primitive": "slot-filler",
+        "data": {
+          "groups": [
+            {"label": "Left pan", "pattern": "[bag] [bag] [bag] + 1 + 1", "calculation": "3x + 2"},
+            {"label": "Right pan", "pattern": "1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1", "calculation": "14"}
+          ],
+          "total": "The pans begin level: 3x + 2 = 14."
+        },
+        "continuityKey": "three-bag-balance",
+        "ariaLabel": "A level balance with three identical bags and two unit weights opposite fourteen unit weights"
+      },
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "level", "text": "It stays level because only the bags matter."},
+          {"id": "left-up", "text": "The left pan rises because it is now lighter."},
+          {"id": "right-up", "text": "The right pan rises because it is now lighter."},
+          {"id": "unknown", "text": "Nothing can be predicted without opening a bag."}
+        ],
+        "correctId": "left-up"
+      },
+      "correctFeedback": "Yes. Removing weight from just one side breaks the balance.",
+      "incorrectFeedback": "The sealed bags do not change. Compare the total weight removed from each pan.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Protect the equality", "body": "The pans were level, so their total weights were equal. Removing two units from only the left makes that side two units lighter."},
+          {"title": "Repair the move", "body": "Removing two units from both sides preserves the equality: 3x + 2 - 2 = 14 - 2, so 3x = 12."}
+        ],
+        "takeaway": "A change preserves equality when it changes both sides in the same way."
+      }
+    },
+    {
+      "id": "remove-matched-weights",
+      "phase": "try",
+      "kind": "interaction",
+      "purpose": "Have the learner choose and record the matched subtraction that exposes the bag groups.",
+      "expectedRealization": "Subtracting two from both sides produces an equivalent, simpler equation.",
+      "transitionIn": "The one-sided move tipped the balance. Make the same subtraction on both pans instead.",
+      "estimatedSeconds": 75,
+      "prompt": "Which equation correctly records removing two unit weights from both sides of 3x + 2 = 14?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "a", "text": "3x = 14"},
+          {"id": "b", "text": "3x + 2 = 12"},
+          {"id": "c", "text": "3x + 2 - 2 = 14 - 2"},
+          {"id": "d", "text": "3x + 2 + 2 = 14 - 2"}
+        ],
+        "correctId": "c"
+      },
+      "correctFeedback": "Exactly. Both sides lose two, leaving 3x = 12.",
+      "incorrectFeedback": "Write the subtraction twice: once for each complete side of the equality.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              {"label": "Left after removing 2", "pattern": "[bag] [bag] [bag]", "calculation": "3x + 2 - 2 = 3x"},
+              {"label": "Right after removing 2", "pattern": "12 unit weights", "calculation": "14 - 2 = 12"}
+            ],
+            "total": "The new balance says 3x = 12."
+          },
+          "continuityKey": "three-bag-balance",
+          "ariaLabel": "Three bags balance twelve unit weights after two units are removed from each side"
+        },
+        "steps": [
+          {"title": "Undo the added two", "body": "Subtracting two undoes the +2 on the left. Applying the same subtraction on the right keeps the two totals equal.", "math": "3x + 2 - 2 = 14 - 2"}
+        ],
+        "takeaway": "Show the same operation on both sides before simplifying."
+      }
+    },
+    {
+      "id": "share-both-sides",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Create the second balance-preserving move by partitioning both sides into equal groups.",
+      "expectedRealization": "Dividing both sides by the number of equal bags isolates one bag without changing its value.",
+      "transitionIn": "Three bags now balance twelve units. Find one bag by making three equal groups on each side.",
+      "estimatedSeconds": 85,
+      "prompt": "Which statement preserves 3x = 12 and shows the weight of one bag?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "a", "text": "3x ÷ 3 = 12 ÷ 3, so x = 4"},
+          {"id": "b", "text": "3x ÷ 3 = 12, so x = 12"},
+          {"id": "c", "text": "3x = 12 ÷ 3, so 3x = 4"},
+          {"id": "d", "text": "3x - 3 = 12 - 3, so x = 9"}
+        ],
+        "correctId": "a"
+      },
+      "correctFeedback": "Yes. Splitting each entire side into three equal groups leaves one bag balancing four units.",
+      "incorrectFeedback": "A fair split must divide the whole left side and the whole right side by three.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "slot-filler",
+          "data": {
+            "groups": [
+              {"label": "Group 1", "pattern": "[bag] ↔ 4 units", "calculation": "x = 4"},
+              {"label": "Group 2", "pattern": "[bag] ↔ 4 units", "calculation": "x = 4"},
+              {"label": "Group 3", "pattern": "[bag] ↔ 4 units", "calculation": "x = 4"}
+            ],
+            "total": "Both sides were divided into the same three groups."
+          },
+          "continuityKey": "three-bag-balance",
+          "ariaLabel": "The balance split into three groups, each pairing one bag with four unit weights"
+        },
+        "steps": [
+          {"title": "Divide complete sides", "body": "The left side contains three copies of x. Dividing both sides by three preserves equality and leaves x = 4.", "math": "3x/3 = 12/3"}
+        ],
+        "takeaway": "Undo multiplication by dividing both complete sides by the same nonzero number."
+      }
+    },
+    {
+      "id": "check-the-bag",
+      "phase": "notice",
+      "kind": "interaction",
+      "purpose": "Make checking in the original equation part of the meaning of solution.",
+      "expectedRealization": "A solution is a value that makes the original equality true.",
+      "transitionIn": "The simplified balance suggests x = 4. Test that value where the puzzle began.",
+      "estimatedSeconds": 65,
+      "prompt": "Which check proves that 4 is a solution of the original equation 3x + 2 = 14?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "a", "text": "3 + 4 + 2 = 9"},
+          {"id": "b", "text": "3(4) + 2 = 12 + 2 = 14"},
+          {"id": "c", "text": "4 = 4"},
+          {"id": "d", "text": "14 - 2 = 12"}
+        ],
+        "correctId": "b"
+      },
+      "correctFeedback": "Right. Substitution makes the original left side equal the original right side.",
+      "incorrectFeedback": "Replace every x in the original equation with 4 and evaluate both sides.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Return to the original claim", "body": "Three bags of weight four plus two unit weights total fourteen, so the original balance is true.", "math": "3(4) + 2 = 14"}
+        ],
+        "takeaway": "A value is a solution only when it makes the original equation true."
+      }
+    },
+    {
+      "id": "name-equivalent-equations",
+      "phase": "name",
+      "kind": "concept",
+      "purpose": "Name solving and equivalent equations after learners have enacted both ideas.",
+      "expectedRealization": "The equation changes form during solving, while its solution remains the same.",
+      "estimatedSeconds": 55,
+      "name": "Solving with equivalent equations",
+      "conciseDefinition": "To solve an equation is to find every value that makes it true. Equivalent equations have exactly the same solutions.",
+      "formalization": "3x + 2 = 14 → 3x = 12 → x = 4. Each arrow applies one operation to both sides, so every equation has the same solution.",
+      "memoryHook": "Undo on both sides; simplify; check the start."
+    },
+    {
+      "id": "justify-subtraction",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Replace sign-changing shorthand with a balance-preserving justification.",
+      "expectedRealization": "Subtracting seven from both sides, rather than moving a term, justifies the new equation.",
+      "transitionIn": "Use the same balance logic even when no pans are drawn.",
+      "estimatedSeconds": 85,
+      "prompt": "Maya changes 5x + 7 = 32 into 5x = 25. Which explanation makes her step valid?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "a", "text": "The +7 jumps across the equals sign and becomes -7."},
+          {"id": "b", "text": "Subtracting 7 from both sides preserves equality; then each side simplifies."},
+          {"id": "c", "text": "The equals sign changes addition into subtraction."},
+          {"id": "d", "text": "Seven may be deleted because x is unknown."}
+        ],
+        "correctId": "b"
+      },
+      "correctFeedback": "Yes. The visible operation is -7 on each complete side.",
+      "incorrectFeedback": "Ask what operation was applied to both equal totals before either side was simplified.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Write the legal move", "body": "Subtract seven from both sides: 5x + 7 - 7 = 32 - 7."},
+          {"title": "Then simplify", "body": "The left becomes 5x and the right becomes 25. Dividing both sides by five gives x = 5."}
+        ],
+        "takeaway": "The sign change is the result of subtracting equally, not a rule about crossing the equals sign."
+      }
+    },
+    {
+      "id": "same-value-new-form",
+      "phase": "play",
+      "kind": "interaction",
+      "purpose": "Separate the fixed solution value from changing equation forms.",
+      "expectedRealization": "Equivalent equations describe the same unknown value in simpler forms.",
+      "estimatedSeconds": 75,
+      "prompt": "During 4x - 5 = 23 → 4x = 28 → x = 7, what changes?",
+      "response": {
+        "kind": "single-choice",
+        "options": [
+          {"id": "a", "text": "x changes from 23 to 28 to 7."},
+          {"id": "b", "text": "The value of x changes each time an operation is used."},
+          {"id": "c", "text": "The equation's form changes, but x has value 7 throughout every true line."},
+          {"id": "d", "text": "Nothing changes because all three lines look different."}
+        ],
+        "correctId": "c"
+      },
+      "correctFeedback": "Exactly. We uncover the same value through simpler equivalent equations.",
+      "incorrectFeedback": "Substitute 7 into all three equations and check whether each line is true.",
+      "allowRetry": true,
+      "resolution": {
+        "steps": [
+          {"title": "Test one value in every form", "body": "For x = 7: 4(7) - 5 = 23, 4(7) = 28, and 7 = 7. The statements change; the solution does not."}
+        ],
+        "takeaway": "Solving reveals a fixed value through a chain of equivalent equations."
+      }
+    },
+    {
+      "id": "contest-score",
+      "phase": "competition-application",
+      "kind": "problem",
+      "source": "bank",
+      "problemId": "amc8-2002-17",
+      "role": "guided",
+      "presentation": "full-prompt",
+      "purpose": "Apply equality-preserving operations to the approved contest-scoring relationship, then connect to a structural flip solution.",
+      "expectedRealization": "A correct answer and its corresponding avoided penalty create a net seven-point change.",
+      "transitionIn": "A balance can compare scores as well as weights. Here correct and incorrect answers contribute different signed amounts to one fixed total.",
+      "whyNow": "The learner has solved two-step equations and can now translate the contest's paired correct/incorrect counts without treating terms as movable tokens.",
+      "entryBridge": "Let c count correct answers. Because all ten problems were answered, 10 - c counts incorrect answers.",
+      "exitBridge": "The value c = 7 makes both the ten-answer condition and the original score true.",
+      "reusedRepresentation": "Two equal score totals simplified by applying justified operations to both complete sides.",
+      "animation": {
+        "mode": "whole",
+        "controlledByLesson": true,
+        "autoplay": false,
+        "showPlayerControls": false
+      },
+      "learnerPrompts": [
+        "How do c correct cards and 10 - c incorrect cards cover all ten answers?",
+        "How does each group contribute to the total score of 29?",
+        "Why does changing one answer from incorrect to correct raise the score by 7?"
+      ],
+      "correctFeedback": "Yes. Seven correct and three incorrect answers give 35 - 6 = 29 points.",
+      "incorrectFeedback": "Count the incorrect answers as 10 - c, include their two-point penalties, and keep the whole score equal to 29.",
+      "resolution": {
+        "animation": {"kind": "problem-animation", "placement": "after-steps"},
+        "steps": [
+          {"title": "Write the original relationship", "body": "c correct answers earn 5c points, while 10 - c incorrect answers lose 2(10 - c) points.", "math": "5c - 2(10 - c) = 29"},
+          {"title": "Simplify without changing the balance", "body": "Distribute -2 and combine the c terms: 5c - 20 + 2c = 29, so 7c - 20 = 29."},
+          {"title": "Undo on both sides", "body": "Add 20 to both sides to get 7c = 49, then divide both sides by 7 to get c = 7."},
+          {"title": "Check the story", "body": "Seven correct and three incorrect answers produce 7(5) - 3(2) = 35 - 6 = 29 points, and 7 + 3 = 10 answers."}
+        ],
+        "takeaway": "A solution must satisfy every condition in the original story."
+      },
+      "sourceLabelTiming": "before",
+      "estimatedSeconds": 190
+    },
+    {
+      "id": "guppy-transfer",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "bank",
+      "problemId": "amc8-2024-12",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Transfer equation solving to accumulated offsets and independently verify the result against the total.",
+      "expectedRealization": "Each tank can be expressed from one fixed unknown, and subtracting the known offsets preserves equality.",
+      "transitionIn": "The score problem tied two groups to one total. Now four related quantities must share one total.",
+      "whyNow": "This approved transfer changes the surface from signed scores to accumulated differences while preserving a one-variable linear equation.",
+      "entryBridge": "Let x be the number of guppies in the first tank. Build every later tank from that same x before using the total 90.",
+      "exitBridge": "The four checked tank counts show that equivalent equations preserved both the differences and the total.",
+      "reusedRepresentation": "Equal base groups plus known offsets, simplified by removing offsets from both sides and dividing both sides equally.",
+      "animation": {
+        "mode": "whole",
+        "controlledByLesson": true,
+        "autoplay": false,
+        "showPlayerControls": false
+      },
+      "learnerPrompts": [
+        "What total and successive differences must all four tanks satisfy?",
+        "Why are the offsets from the first tank 0, 1, 3, and 6?",
+        "Which equal operation changes 4x + 10 = 90 into 4x = 80?",
+        "How does 20, 21, 23, 26 check every original condition?"
+      ],
+      "correctFeedback": "Correct. The fourth tank has x + 6 = 26 guppies.",
+      "incorrectFeedback": "Accumulate the differences from the first tank: +0, +1, +3, and +6. Then solve the total equation and check all four counts.",
+      "resolution": {
+        "animation": {"kind": "problem-animation", "placement": "after-steps"},
+        "steps": [
+          {"title": "Use one unknown consistently", "body": "The tank counts are x, x + 1, x + 3, and x + 6 because the increases accumulate."},
+          {"title": "Preserve equality", "body": "Their total gives 4x + 10 = 90. Subtract 10 from both sides, then divide both sides by 4: 4x = 80, so x = 20."},
+          {"title": "Answer and check", "body": "The fourth tank has 20 + 6 = 26. The counts 20, 21, 23, and 26 have differences 1, 2, and 3 and sum to 90."}
+        ],
+        "takeaway": "Keep one variable value across every expression, then check every original relationship."
+      },
+      "sourceLabelTiming": "completion",
+      "estimatedSeconds": 180
+    },
+    {
+      "id": "practice-ticket-rolls",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a2-ticket-rolls",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Assess one-step addition equations and matched subtraction.",
+      "whyNow": "Begin fresh practice with a direct inverse-operation decision.",
+      "entryBridge": "Return to one unknown total and show the operation on both sides.",
+      "exitBridge": "The check confirms that the isolated value fits the original total.",
+      "animation": {"mode": "none", "controlledByLesson": true},
+      "learnerPrompts": ["Which operation undoes the fixed 18 while preserving equality?"],
+      "correctFeedback": "Correct. Subtracting 18 from both sides gives r = 27.",
+      "incorrectFeedback": "Undo the added 18 by applying the same subtraction to both sides.",
+      "resolution": {
+        "steps": [
+          {"title": "Subtract equally", "body": "r + 18 - 18 = 45 - 18, so r = 27."},
+          {"title": "Check", "body": "27 + 18 = 45, so the original equation is true."}
+        ],
+        "takeaway": "Undo an addition with equal subtraction on both sides."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 90
+    },
+    {
+      "id": "practice-equal-packs",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a2-equal-packs",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Assess one-step multiplication equations and matched division.",
+      "whyNow": "Follow subtraction with the other balance move from the opening.",
+      "entryBridge": "This time the unknown appears in equal groups with no fixed amount attached.",
+      "exitBridge": "Dividing complete sides identifies one pack and preserves the total.",
+      "animation": {"mode": "none", "controlledByLesson": true},
+      "learnerPrompts": ["How can both complete sides be split into six equal groups?"],
+      "correctFeedback": "Correct. Dividing both sides by 6 gives p = 7.",
+      "incorrectFeedback": "Six identical packs share the total equally; divide both sides by six.",
+      "resolution": {
+        "steps": [
+          {"title": "Divide equally", "body": "6p ÷ 6 = 42 ÷ 6, so p = 7."},
+          {"title": "Check", "body": "Six packs of seven contain 6(7) = 42 items."}
+        ],
+        "takeaway": "Undo multiplication by dividing both sides by the same nonzero number."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 90
+    },
+    {
+      "id": "practice-farm-stand",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a2-farm-stand",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Assess two-step solving and justification without term-moving language.",
+      "whyNow": "Combine the two inverse operations in a fresh money context.",
+      "entryBridge": "Now undo a fixed start before splitting equal earnings.",
+      "exitBridge": "The original earnings equation verifies the number of baskets.",
+      "animation": {"mode": "none", "controlledByLesson": true},
+      "learnerPrompts": ["What should be undone first, and why must it happen on both sides?"],
+      "correctFeedback": "Correct. Subtract 11 from both sides, then divide both sides by 4 to get b = 9.",
+      "incorrectFeedback": "Undo the outside +11 first on both sides; then undo multiplication by four.",
+      "resolution": {
+        "steps": [
+          {"title": "Undo in reverse order", "body": "From 4b + 11 = 47, subtract 11 from both sides to get 4b = 36, then divide both sides by 4 to get b = 9."},
+          {"title": "Check the story", "body": "Four dollars for each of nine baskets plus eleven dollars gives 4(9) + 11 = 47."}
+        ],
+        "takeaway": "Undo operations in reverse order and show each equal change."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 105
+    },
+    {
+      "id": "practice-two-sides",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a2-two-sides",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Assess collecting one variable value from both sides of an equality.",
+      "whyNow": "Extend the same balance moves to an equation with variable terms on both sides.",
+      "entryBridge": "Both pans now contain copies of the same unknown amount.",
+      "exitBridge": "The check shows that one value satisfies both original expressions.",
+      "animation": {"mode": "none", "controlledByLesson": true},
+      "learnerPrompts": ["Which equal subtraction leaves all variable copies on one side?"],
+      "correctFeedback": "Correct. Subtract 2x from both sides, then subtract 9 from both sides to get x = 8.",
+      "incorrectFeedback": "Remove the same 2x from both complete sides before simplifying constants.",
+      "resolution": {
+        "steps": [
+          {"title": "Remove equal variable groups", "body": "From 3x + 9 = 2x + 17, subtract 2x from both sides to get x + 9 = 17."},
+          {"title": "Finish and check", "body": "Subtract 9 from both sides: x = 8. Then 3(8) + 9 = 33 and 2(8) + 17 = 33."}
+        ],
+        "takeaway": "The same x appears on both sides and keeps one value throughout the solution."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 110
+    },
+    {
+      "id": "practice-consecutive",
+      "phase": "independent-transfer",
+      "kind": "problem",
+      "source": "generated",
+      "problemId": "original-a2-consecutive",
+      "role": "transfer",
+      "presentation": "independent",
+      "purpose": "Assess a challenge translation, solution, and full original-condition check.",
+      "whyNow": "Finish practice by translating a relation between two numbers into one equation.",
+      "entryBridge": "The unknown now generates a second related quantity before the total is imposed.",
+      "exitBridge": "The check verifies order, difference, and sum—not just the algebraic line.",
+      "animation": {"mode": "none", "controlledByLesson": true},
+      "learnerPrompts": ["If n is the smaller number, how does the next consecutive number depend on the same n?"],
+      "correctFeedback": "Correct. n + (n + 1) = 41 gives n = 20, so the larger number is 21.",
+      "incorrectFeedback": "Represent the consecutive numbers as n and n + 1, then set their complete sum equal to 41.",
+      "resolution": {
+        "steps": [
+          {"title": "Translate", "body": "Let n be the smaller number. The next consecutive integer is n + 1, so n + (n + 1) = 41."},
+          {"title": "Preserve and simplify", "body": "Combine like terms to get 2n + 1 = 41. Subtract 1 from both sides and divide both sides by 2: n = 20."},
+          {"title": "Check every condition", "body": "The numbers 20 and 21 are consecutive and their sum is 41, so the larger number is 21."}
+        ],
+        "takeaway": "Check the answer against every condition in the original relationship."
+      },
+      "sourceLabelTiming": "hidden",
+      "estimatedSeconds": 120
+    },
+    {
+      "id": "solution-routine",
+      "phase": "reflection",
+      "kind": "interaction",
+      "purpose": "Consolidate the full equality-preserving routine before opening the successor question.",
+      "expectedRealization": "A complete solution preserves equality, isolates the unknown, and verifies the original claim.",
+      "transitionIn": "Weights, scores, tanks, packs, and consecutive numbers all used the same safeguards. Gather them into one routine.",
+      "estimatedSeconds": 105,
+      "prompt": "Which actions belong in a reliable equation-solving routine? Select all four.",
+      "response": {
+        "kind": "multi-select",
+        "options": [
+          {"id": "meaning", "text": "Read what each side and the variable mean."},
+          {"id": "both", "text": "Apply each undoing operation to both complete sides."},
+          {"id": "simplify", "text": "Simplify toward an isolated variable without changing its value."},
+          {"id": "check", "text": "Substitute the result into the original equation and story."}
+        ],
+        "correctIds": ["meaning", "both", "simplify", "check"],
+        "feedback": "Each action protects a different part of the reasoning."
+      },
+      "correctFeedback": "Yes—interpret, preserve, isolate, and check.",
+      "incorrectFeedback": "All four matter: meaning guides the equation, matched operations preserve it, simplification reveals the value, and checking proves it works.",
+      "allowRetry": true,
+      "resolution": {
+        "visual": {
+          "primitive": "choice-grid",
+          "data": {
+            "groups": [
+              {"label": "1. Interpret", "choices": ["quantities and units"]},
+              {"label": "2. Preserve", "choices": ["same operation on both sides"]},
+              {"label": "3. Isolate", "choices": ["equivalent simpler equations"]},
+              {"label": "4. Verify", "choices": ["original equation and story"]}
+            ]
+          },
+          "ariaLabel": "Four parts of a reliable equation-solving routine"
+        },
+        "steps": [
+          {"title": "Keep the logic visible", "body": "Writing matched operations explains why every new equation has the same solutions. A final substitution confirms that no arithmetic or translation error slipped through."}
+        ],
+        "takeaway": "Undo on both sides, simplify toward the unknown, and check the original claim."
+      }
+    },
+    {
+      "id": "two-unknown-hook",
+      "phase": "reflection",
+      "kind": "reflection",
+      "purpose": "Create a concrete need for a second independent equation in the next lesson.",
+      "expectedRealization": "One equation can leave many pairs possible when two quantities are unknown.",
+      "transitionIn": "One unknown and one independent equality were enough to pin down a value. Now let two quantities vary.",
+      "estimatedSeconds": 55,
+      "prompt": "A shelf holds 18 books split between novels n and biographies b, so n + b = 18. The pairs (1,17), (2,16), and many others work. What different fact about the same books could narrow all those pairs to one?",
+      "takeaway": "With two unknown quantities, a second independent relationship can select one pair."
+    }
+  ],
+  "practice": {
+    "generatedPoolMinimum": {"near": 2, "mixed": 2, "challenge": 1},
+    "sessionSelection": [
+      {"source": "generated", "transferLevel": "near", "count": 2},
+      {"source": "generated", "transferLevel": "mixed", "count": 2},
+      {"source": "generated", "transferLevel": "challenge", "count": 1}
+    ],
+    "excludeProblemIds": ["amc8-2002-17", "amc8-2024-12"],
+    "requireFreshGeneratedItems": true
+  },
+  "mastery": {
+    "skillId": "A2",
+    "evidenceBeatIds": [
+      "practice-ticket-rolls",
+      "practice-equal-packs",
+      "practice-farm-stand",
+      "practice-two-sides",
+      "practice-consecutive"
+    ],
+    "minIndependentPracticeItems": 5,
+    "recommendedAccuracyThreshold": 0.8,
+    "weightMixedTransferMore": true
+  },
+  "generation": {
+    "curriculumVersion": "1.2.0",
+    "mappingVersion": "1.0.0",
+    "generatorVersion": "mathinking-lesson-skill-1.0.0",
+    "notes": [
+      "Design: A1's unresolved 137 + 16w = 521 question leads directly to a smaller physical balance; the tension is whether symbolic shortcuts preserve equality. The central realization is that the equation changes form while its solution stays fixed. The forward question asks what happens with two unknown quantities.",
+      "Beat outline: balance puzzle -> matched subtraction -> matched division -> original check -> name equivalent equations -> justify subtraction -> fixed-value comparison -> guided contest application -> guppy transfer -> five independent problems -> consolidation -> two-unknown hook.",
+      "The opening uses existing slot-filler visuals as an inspectable balance strip. No drag behavior is claimed because the current declarative response schema does not encode object manipulation.",
+      "The contest-score animation appears only in its post-submission resolution, so the final answer is not revealed before learner action. Its three prompts match the three scene states. The guppy animation likewise appears only after a correct transfer response, with four synchronized prompts.",
+      "All generated answers were verified by inverse operations and independently by direct substitution or exhaustive option evaluation. The lesson remains draft pending human pedagogical review."
+    ]
+  }
+}

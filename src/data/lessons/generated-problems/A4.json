@@ -1,0 +1,271 @@
+[
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "A4",
+    "purpose": "teaching",
+    "transferLevel": "discovery",
+    "targetConcepts": ["A4", "A2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a4-festival-tickets",
+      "title": "Festival Tickets",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "Inequalities and optimization",
+      "difficulty": 1,
+      "statement": "Nia has 58 dollars for a festival. Admission costs 16 dollars, and each ride ticket costs 7 dollars. What is the greatest number of whole ride tickets she can buy without spending more than 58 dollars?",
+      "choices": [
+        {"label": "A", "text": "4"},
+        {"label": "B", "text": "5"},
+        {"label": "C", "text": "6"},
+        {"label": "D", "text": "7"},
+        {"label": "E", "text": "8"}
+      ],
+      "answer": "C",
+      "shortAnswer": "6",
+      "hints": ["Write 16 + 7t ≤ 58.", "Find all allowed whole-number values before choosing the greatest one."],
+      "solutionSteps": [
+        {"title": "Find the feasible values", "body": "The budget gives 16 + 7t ≤ 58. Subtract 16 to get 7t ≤ 42, then divide by 7 to get t ≤ 6."},
+        {"title": "Optimize and check", "body": "Because t is a nonnegative whole number, 0 through 6 are feasible and the greatest is 6. Six tickets cost 58 dollars total; seven would cost 65 dollars."}
+      ],
+      "tags": ["inequality", "budget", "integer feasibility", "maximum"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "inequality derivation: (58 - 16) / 7 = 6, so every feasible whole-number ticket count is at most 6",
+        "independent boundary audit: 16 + 7(6) = 58 is allowed while 16 + 7(7) = 65 is not; every listed smaller count is feasible"
+      ],
+      "notes": ["The problem separates finding the feasible whole-number set from selecting its greatest member."]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "A4",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["A4"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a4-aquarium-jugs",
+      "title": "Aquarium Jugs",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "Capacity inequality",
+      "difficulty": 1,
+      "statement": "An aquarium can safely hold at most 40 liters. It already contains 13 liters. Water is added in full 3-liter jugs. What is the greatest number of jugs that can be added safely?",
+      "choices": [
+        {"label": "A", "text": "7"}, {"label": "B", "text": "8"}, {"label": "C", "text": "9"}, {"label": "D", "text": "10"}, {"label": "E", "text": "11"}
+      ],
+      "answer": "C",
+      "shortAnswer": "9",
+      "hints": ["Write 13 + 3j ≤ 40.", "Check the boundary count and the next whole number."],
+      "solutionSteps": [
+        {"title": "Solve the capacity constraint", "body": "13 + 3j ≤ 40 gives 3j ≤ 27, so j ≤ 9."},
+        {"title": "Choose and check the maximum", "body": "Nine jugs give 13 + 27 = 40 liters, which is allowed. Ten jugs would give 43 liters, so 9 is greatest."}
+      ],
+      "tags": ["inequality", "capacity", "maximum"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "capacity calculation: floor((40 - 13) / 3) = floor(9) = 9 jugs",
+        "independent adjacent-value check: 9 jugs reaches 40 exactly and 10 reaches 43; all answer choices were evaluated"
+      ]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "A4",
+    "purpose": "practice",
+    "transferLevel": "near",
+    "targetConcepts": ["A4", "A2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a4-negative-bound",
+      "title": "A Negative Multiplier",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "Linear inequalities",
+      "difficulty": 1,
+      "statement": "What is the smallest integer x that satisfies -4x + 3 ≤ 19?",
+      "choices": [
+        {"label": "A", "text": "-6"}, {"label": "B", "text": "-5"}, {"label": "C", "text": "-4"}, {"label": "D", "text": "4"}, {"label": "E", "text": "5"}
+      ],
+      "answer": "C",
+      "shortAnswer": "-4",
+      "hints": ["Subtract 3 from both sides first.", "Dividing an inequality by a negative reverses its direction."],
+      "solutionSteps": [
+        {"title": "Preserve, then reverse", "body": "Subtract 3 to get -4x ≤ 16. Dividing both sides by -4 reverses the inequality, so x ≥ -4."},
+        {"title": "Choose and check the endpoint", "body": "The smallest allowed integer is -4. Substitution gives -4(-4) + 3 = 19, so the endpoint is included."}
+      ],
+      "tags": ["inequality", "negative divisor", "minimum", "closed endpoint"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "symbolic derivation: -4x ≤ 16 becomes x ≥ -4 after division by -4",
+        "independent option substitution: -4 gives 19 and works; -5 and -6 give values above 19, while larger offered values work but are not smallest"
+      ]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "A4",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["A4"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a4-qualifying-time",
+      "title": "Qualifying Time",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "Strict inequalities",
+      "difficulty": 1,
+      "statement": "To qualify for a relay, a runner's time must be less than 52 seconds. If times are recorded as whole numbers of seconds, what is the greatest qualifying time?",
+      "choices": [
+        {"label": "A", "text": "49"}, {"label": "B", "text": "50"}, {"label": "C", "text": "51"}, {"label": "D", "text": "52"}, {"label": "E", "text": "53"}
+      ],
+      "answer": "C",
+      "shortAnswer": "51",
+      "hints": ["Translate “less than 52” with an open endpoint.", "Use the whole-number condition before choosing the greatest value."],
+      "solutionSteps": [
+        {"title": "Read the endpoint", "body": "The condition is t < 52, so 52 itself is excluded."},
+        {"title": "Use the recording rule", "body": "Among whole-number times below 52, the greatest is 51 seconds."}
+      ],
+      "tags": ["strict inequality", "open endpoint", "integer feasibility", "maximum"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "order argument: the greatest integer strictly below 52 is 51",
+        "independent choice audit: 51 is below 52, 52 is excluded, larger choices fail, and smaller choices are not greatest"
+      ]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "A4",
+    "purpose": "practice",
+    "transferLevel": "mixed",
+    "targetConcepts": ["A4", "A2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a4-donation-boxes",
+      "title": "Donation Boxes",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "Minimum under a lower bound",
+      "difficulty": 2,
+      "statement": "A club has collected 37 books and wants at least 125. Each full donation box adds 11 books. What is the least number of full boxes the club needs?",
+      "choices": [
+        {"label": "A", "text": "6"}, {"label": "B", "text": "7"}, {"label": "C", "text": "8"}, {"label": "D", "text": "9"}, {"label": "E", "text": "10"}
+      ],
+      "answer": "C",
+      "shortAnswer": "8",
+      "hints": ["Write 37 + 11b ≥ 125.", "Find the least whole number at or above the bound."],
+      "solutionSteps": [
+        {"title": "Solve the lower bound", "body": "37 + 11b ≥ 125 gives 11b ≥ 88, so b ≥ 8."},
+        {"title": "Optimize and check", "body": "Eight boxes reach exactly 37 + 88 = 125 books. Seven reach only 114, so 8 is least."}
+      ],
+      "tags": ["inequality", "lower bound", "minimum", "integer feasibility"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "lower-bound calculation: (125 - 37) / 11 = 8, so b ≥ 8",
+        "independent adjacent-value check: 8 boxes reach 125 while 7 reach 114; all offered counts were audited"
+      ]
+    }
+  },
+  {
+    "schemaVersion": "1.0.0",
+    "lessonId": "A4",
+    "purpose": "practice",
+    "transferLevel": "challenge",
+    "targetConcepts": ["A4", "A2"],
+    "inspirationProblemIds": [],
+    "problem": {
+      "id": "original-a4-rectangle-limit",
+      "title": "Rectangle Under a Perimeter Limit",
+      "sourceType": "Original",
+      "contest": "Original",
+      "category": "Algebra",
+      "subcategory": "Constrained optimization",
+      "difficulty": 2,
+      "statement": "A rectangle has positive whole-number side lengths. Its length is 3 units more than its width, and its perimeter is at most 46 units. What is the greatest possible area?",
+      "choices": [
+        {"label": "A", "text": "96"}, {"label": "B", "text": "108"}, {"label": "C", "text": "120"}, {"label": "D", "text": "130"}, {"label": "E", "text": "143"}
+      ],
+      "answer": "D",
+      "shortAnswer": "130",
+      "hints": ["Let the width be w and the length be w + 3.", "First find the greatest feasible width, then compute its area."],
+      "solutionSteps": [
+        {"title": "Find the feasible widths", "body": "The perimeter condition is 2w + 2(w + 3) ≤ 46. Thus 4w + 6 ≤ 46, so w ≤ 10."},
+        {"title": "Optimize and check", "body": "For positive widths, w(w + 3) increases as w increases, so use w = 10 and length 13. The area is 130, and the perimeter is 46."}
+      ],
+      "tags": ["inequality", "geometry", "integer feasibility", "maximum area"],
+      "sourceName": "Mathinking",
+      "license": "Original"
+    },
+    "validation": {
+      "status": "validated",
+      "answerVerified": true,
+      "solutionVerified": true,
+      "uniquenessVerified": true,
+      "prerequisiteAuditPassed": true,
+      "wordingReviewed": true,
+      "notParaphraseOfBank": true,
+      "validationMethods": [
+        "constraint derivation: 2w + 2(w + 3) ≤ 46 gives positive integer widths 1 through 10 and boundary area 10 × 13 = 130",
+        "independent enumeration: areas w(w + 3) for w = 1,...,10 increase by 2w + 4 each step; w = 11 would have perimeter 50 and is infeasible"
+      ]
+    }
+  }
+]

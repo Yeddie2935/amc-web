@@ -97,9 +97,9 @@ export function VehicleWheelSwapScene({ problem, step, totalSteps }: AnimatedSce
           {totalChildren} children
         </text>
         <rect x={barX} y={headsY} width={barW} height={barH} rx={6} fill="#f8fafc" stroke="#cbd5e1" strokeWidth={1.4} />
-        <motion.rect x={barX} y={headsY} height={barH} rx={6} animate={{ width: fewHeadsW }} fill={`${BIKE}33`} stroke={BIKE} strokeWidth={1.6} transition={{ type: "spring", stiffness: 170, damping: 20 }} />
+        <rect x={barX} y={headsY} width={fewHeadsW} height={barH} rx={6} fill={`${BIKE}33`} stroke={BIKE} strokeWidth={1.6} />
         <motion.g animate={{ x: barX + barW - manyHeadsW }} transition={{ type: "spring", stiffness: 170, damping: 20 }}>
-          <motion.rect y={headsY} height={barH} rx={6} animate={{ width: manyHeadsW }} fill={`${TRIKE}33`} stroke={TRIKE} strokeWidth={1.6} transition={{ type: "spring", stiffness: 170, damping: 20 }} />
+          <rect y={headsY} width={manyHeadsW} height={barH} rx={6} fill={`${TRIKE}33`} stroke={TRIKE} strokeWidth={1.6} />
         </motion.g>
         <BicycleIcon cx={barX + 14} cy={headsY + barH / 2} s={0.9} />
         <AnimatePresence>
@@ -114,9 +114,9 @@ export function VehicleWheelSwapScene({ problem, step, totalSteps }: AnimatedSce
           wheels (target {targetWheels})
         </text>
         <rect x={barX} y={wheelsY} width={barW} height={barH} rx={6} fill="none" stroke="#cbd5e1" strokeWidth={1.4} strokeDasharray="3 3" />
-        <motion.rect x={barX} y={wheelsY} height={barH} rx={6} animate={{ width: fewWheelsW }} fill={`${BIKE}44`} stroke={BIKE} strokeWidth={1.6} transition={{ type: "spring", stiffness: 170, damping: 20 }} />
+        <rect x={barX} y={wheelsY} width={fewWheelsW} height={barH} rx={6} fill={`${BIKE}44`} stroke={BIKE} strokeWidth={1.6} />
         <motion.g animate={{ x: barX + fewWheelsW }} transition={{ type: "spring", stiffness: 170, damping: 20 }}>
-          <motion.rect y={wheelsY} height={barH} rx={6} animate={{ width: manyWheelsW }} fill={`${TRIKE}44`} stroke={TRIKE} strokeWidth={1.6} transition={{ type: "spring", stiffness: 170, damping: 20 }} />
+          <rect y={wheelsY} width={manyWheelsW} height={barH} rx={6} fill={`${TRIKE}44`} stroke={TRIKE} strokeWidth={1.6} />
         </motion.g>
         <line x1={barX + barW} y1={wheelsY - 6} x2={barX + barW} y2={wheelsY + barH + 6} stroke={INK} strokeWidth={1.4} />
 

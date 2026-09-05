@@ -158,14 +158,15 @@ export function LineBoxHitScene({ problem, step, totalSteps }: AnimatedSceneProp
         <g clipPath="url(#lbPlot)">
           {/* integer grid */}
           {ticks(vx0, vx1).map((v) => (
-            <motion.line key={`gx${v}`} animate={{ x1: tx(v), x2: tx(v) }} y1={PY} y2={PY + PH} stroke={v === 0 ? AXIS : GRID} strokeWidth={v === 0 ? 1.4 : 0.8} transition={{ type: "spring", stiffness: 90, damping: 20 }} />
+            <motion.line key={`gx${v}`} initial={false} animate={{ x1: tx(v), x2: tx(v), y1: PY, y2: PY + PH }} stroke={v === 0 ? AXIS : GRID} strokeWidth={v === 0 ? 1.4 : 0.8} transition={{ type: "spring", stiffness: 90, damping: 20 }} />
           ))}
           {ticks(vy0, vy1).map((v) => (
-            <motion.line key={`gy${v}`} x1={PX} x2={PX + PW} animate={{ y1: ty(v), y2: ty(v) }} stroke={v === 0 ? AXIS : GRID} strokeWidth={v === 0 ? 1.4 : 0.8} transition={{ type: "spring", stiffness: 90, damping: 20 }} />
+            <motion.line key={`gy${v}`} initial={false} animate={{ x1: PX, x2: PX + PW, y1: ty(v), y2: ty(v) }} stroke={v === 0 ? AXIS : GRID} strokeWidth={v === 0 ? 1.4 : 0.8} transition={{ type: "spring", stiffness: 90, damping: 20 }} />
           ))}
 
           {/* the rectangle */}
           <motion.rect
+            initial={false}
             animate={{ x: tx(bx0), y: ty(by1), width: (bx1 - bx0) * S, height: (by1 - by0) * S }}
             fill="#eef2ff"
             stroke={INK}
@@ -183,10 +184,10 @@ export function LineBoxHitScene({ problem, step, totalSteps }: AnimatedSceneProp
             return (
               <motion.line
                 key={L.name}
+                initial={false}
                 animate={{ x1: tx(p.a[0]), y1: ty(p.a[1]), x2: tx(p.b[0]), y2: ty(p.b[1]), opacity: dim ? 0.2 : 1 }}
                 stroke={HUE[i % HUE.length]}
                 strokeWidth={2}
-                initial={{ opacity: 0 }}
                 transition={{ type: "spring", stiffness: 90, damping: 20 }}
               />
             );
@@ -251,14 +252,14 @@ export function LineBoxHitScene({ problem, step, totalSteps }: AnimatedSceneProp
         {/* axis numbers */}
         {ticks(vx0, vx1).map((v) =>
           roomy || v % 5 === 0 ? (
-            <motion.text key={`tx${v}`} animate={{ x: tx(v) }} y={PY + PH + 11} textAnchor="middle" fontSize="8" fontWeight="700" fill={AXIS} fontFamily={numberFont} transition={{ type: "spring", stiffness: 90, damping: 20 }}>
+            <motion.text key={`tx${v}`} initial={false} animate={{ x: tx(v) }} y={PY + PH + 11} textAnchor="middle" fontSize="9" fontWeight="700" fill={AXIS} fontFamily={numberFont} transition={{ type: "spring", stiffness: 90, damping: 20 }}>
               {v}
             </motion.text>
           ) : null
         )}
         {ticks(vy0, vy1).map((v) =>
           roomy || v % 5 === 0 ? (
-            <motion.text key={`tyl${v}`} x={PX - 5} animate={{ y: ty(v) + 3 }} textAnchor="end" fontSize="8" fontWeight="700" fill={AXIS} fontFamily={numberFont} transition={{ type: "spring", stiffness: 90, damping: 20 }}>
+            <motion.text key={`tyl${v}`} x={PX - 5} initial={false} animate={{ y: ty(v) + 3 }} textAnchor="end" fontSize="9" fontWeight="700" fill={AXIS} fontFamily={numberFont} transition={{ type: "spring", stiffness: 90, damping: 20 }}>
               {v}
             </motion.text>
           ) : null
