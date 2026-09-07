@@ -28,6 +28,28 @@ import f6LessonData from "./foundations/F6.json";
 import f6GeneratedProblemData from "./generated-problems/F6.json";
 import f7LessonData from "./foundations/F7.json";
 import f7GeneratedProblemData from "./generated-problems/F7.json";
+import g1LessonData from "./geometry/G1.json";
+import g1GeneratedProblemData from "./generated-problems/G1.json";
+import g2LessonData from "./geometry/G2.json";
+import g2GeneratedProblemData from "./generated-problems/G2.json";
+import g3LessonData from "./geometry/G3.json";
+import g3GeneratedProblemData from "./generated-problems/G3.json";
+import g4LessonData from "./geometry/G4.json";
+import g4GeneratedProblemData from "./generated-problems/G4.json";
+import g5LessonData from "./geometry/G5.json";
+import g5GeneratedProblemData from "./generated-problems/G5.json";
+import g6LessonData from "./geometry/G6.json";
+import g6GeneratedProblemData from "./generated-problems/G6.json";
+import g7LessonData from "./geometry/G7.json";
+import g7GeneratedProblemData from "./generated-problems/G7.json";
+import g8LessonData from "./geometry/G8.json";
+import g8GeneratedProblemData from "./generated-problems/G8.json";
+import g9LessonData from "./geometry/G9.json";
+import g9GeneratedProblemData from "./generated-problems/G9.json";
+import g10LessonData from "./geometry/G10.json";
+import g10GeneratedProblemData from "./generated-problems/G10.json";
+import g11LessonData from "./geometry/G11.json";
+import g11GeneratedProblemData from "./generated-problems/G11.json";
 import type {
   GeneratedProblemArtifact,
   LessonSpec,
@@ -242,6 +264,17 @@ const lessonRegistry = new Map<string, LessonBundle>([
   ["A6", { lesson: a6LessonData as LessonSpec, generatedProblemArtifacts: a6GeneratedProblemData as GeneratedProblemArtifact[] }],
   ["A7", { lesson: a7LessonData as LessonSpec, generatedProblemArtifacts: a7GeneratedProblemData as GeneratedProblemArtifact[] }],
   ["A8", { lesson: a8LessonData as LessonSpec, generatedProblemArtifacts: a8GeneratedProblemData as GeneratedProblemArtifact[] }],
+  ["G1", { lesson: g1LessonData as LessonSpec, generatedProblemArtifacts: g1GeneratedProblemData as GeneratedProblemArtifact[] }],
+  ["G2", { lesson: g2LessonData as LessonSpec, generatedProblemArtifacts: g2GeneratedProblemData as GeneratedProblemArtifact[] }],
+  ["G3", { lesson: g3LessonData as LessonSpec, generatedProblemArtifacts: g3GeneratedProblemData as GeneratedProblemArtifact[] }],
+  ["G4", { lesson: g4LessonData as LessonSpec, generatedProblemArtifacts: g4GeneratedProblemData as GeneratedProblemArtifact[] }],
+  ["G5", { lesson: g5LessonData as LessonSpec, generatedProblemArtifacts: g5GeneratedProblemData as GeneratedProblemArtifact[] }],
+  ["G6", { lesson: g6LessonData as LessonSpec, generatedProblemArtifacts: g6GeneratedProblemData as GeneratedProblemArtifact[] }],
+  ["G7", { lesson: g7LessonData as LessonSpec, generatedProblemArtifacts: g7GeneratedProblemData as GeneratedProblemArtifact[] }],
+  ["G8", { lesson: g8LessonData as LessonSpec, generatedProblemArtifacts: g8GeneratedProblemData as GeneratedProblemArtifact[] }],
+  ["G9", { lesson: g9LessonData as LessonSpec, generatedProblemArtifacts: g9GeneratedProblemData as GeneratedProblemArtifact[] }],
+  ["G10", { lesson: g10LessonData as LessonSpec, generatedProblemArtifacts: g10GeneratedProblemData as GeneratedProblemArtifact[] }],
+  ["G11", { lesson: g11LessonData as LessonSpec, generatedProblemArtifacts: g11GeneratedProblemData as GeneratedProblemArtifact[] }],
   [
     c1Lesson.lessonId,
     {
