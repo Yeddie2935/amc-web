@@ -1,0 +1,44 @@
+[
+  {"schemaVersion":"1.0.0","lessonId":"N1","purpose":"teaching","transferLevel":"discovery","targetConcepts":["N1"],"inspirationProblemIds":[],
+    "problem":{"id":"original-n1-six-groups","title":"Groups of Six","sourceType":"Original","contest":"Original","category":"Number Theory","subcategory":"Divisibility","difficulty":1,
+      "statement":"Which number of tiles can be separated into groups of 6 with no tiles left over?","choices":[{"label":"A","text":"34"},{"label":"B","text":"36"},{"label":"C","text":"38"},{"label":"D","text":"40"},{"label":"E","text":"44"}],"answer":"B","shortAnswer":"36",
+      "hints":["Count by sixes.","A divisible total must leave remainder zero."],"solutionSteps":[{"title":"Find a complete boundary","body":"The multiples of 6 near the choices are 30, 36, and 42. Only 36 appears, and 36 = 6 × 6 with no remainder."}],
+      "tags":["divisibility","equal groups","remainder"],"sourceName":"Mathinking","license":"Original"},
+    "validation":{"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,"validationMethods":["direct division of every choice by 6","independent nearby-multiples list 30, 36, 42","answer-choice audit"],"notes":["Only 36 has remainder zero when divided by 6."]}
+  },
+  {"schemaVersion":"1.0.0","lessonId":"N1","purpose":"practice","transferLevel":"near","targetConcepts":["N1"],"inspirationProblemIds":[],
+    "problem":{"id":"original-n1-pack-boxes","title":"Pack Tennis Balls","sourceType":"Original","contest":"Original","category":"Number Theory","subcategory":"Divisibility","difficulty":1,
+      "statement":"Fifty-two tennis balls are packed equally into boxes holding 4 balls each. How many full boxes are used, and how many balls remain?","choices":[{"label":"A","text":"12 boxes, 4 remain"},{"label":"B","text":"13 boxes, 0 remain"},{"label":"C","text":"13 boxes, 1 remains"},{"label":"D","text":"14 boxes, 0 remain"}],"answer":"B","shortAnswer":"13 boxes, 0 remain",
+      "hints":["Count in groups of four.","Use 52 = 4 × q + r."],"solutionSteps":[{"title":"Form equal groups","body":"Since 4 × 13 = 52, thirteen full boxes use every ball and the remainder is zero."}],
+      "tags":["divisibility","quotient","remainder"],"sourceName":"Mathinking","license":"Original"},
+    "validation":{"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,"validationMethods":["direct calculation 52 divided by 4 equals 13 remainder 0","independent repeated-addition count of thirteen groups","answer-choice audit"],"notes":["The remainder-zero grouping is exact."]}
+  },
+  {"schemaVersion":"1.0.0","lessonId":"N1","purpose":"practice","transferLevel":"near","targetConcepts":["N1"],"inspirationProblemIds":[],
+    "problem":{"id":"original-n1-factor-language","title":"Read a Factor Fact","sourceType":"Original","contest":"Original","category":"Number Theory","subcategory":"Divisibility vocabulary","difficulty":1,
+      "statement":"Which statement is true?","choices":[{"label":"A","text":"56 is a divisor of 8"},{"label":"B","text":"8 is a divisor of 56"},{"label":"C","text":"8 is a multiple of 56"},{"label":"D","text":"7 is the remainder when 56 is divided by 8"}],"answer":"B","shortAnswer":"8 is a divisor of 56",
+      "hints":["Use 7 × 8 = 56.","A divisor is the number doing the exact dividing."],"solutionSteps":[{"title":"Use the product","body":"Because 56 = 8 × 7, dividing 56 by 8 gives a whole-number quotient and remainder zero. Thus 8 is a divisor of 56."}],
+      "tags":["factor","divisor","multiple"],"sourceName":"Mathinking","license":"Original"},
+    "validation":{"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,"validationMethods":["product identity 7 times 8 equals 56","independent direct division 56 divided by 8 equals 7 remainder 0","answer-choice semantic audit"],"notes":["Only choice B has the relationship direction correct."]}
+  },
+  {"schemaVersion":"1.0.0","lessonId":"N1","purpose":"practice","transferLevel":"mixed","targetConcepts":["N1"],"inspirationProblemIds":[],
+    "problem":{"id":"original-n1-last-digit","title":"What the Final Zero Guarantees","sourceType":"Original","contest":"Original","category":"Number Theory","subcategory":"Divisibility tests","difficulty":1,
+      "statement":"Which list contains every number among 2, 5, and 10 that divides 3270?","choices":[{"label":"A","text":"2 only"},{"label":"B","text":"5 only"},{"label":"C","text":"2 and 5 only"},{"label":"D","text":"2, 5, and 10"}],"answer":"D","shortAnswer":"2, 5, and 10",
+      "hints":["Write 3270 as 327 tens and 0 ones.","Ten is divisible by each listed divisor."],"solutionSteps":[{"title":"Use place value","body":"The final zero means 3270 consists of complete tens. Since each ten is divisible by 2, 5, and 10, all three divide 3270."}],
+      "tags":["divisibility tests","ones digit","place value"],"sourceName":"Mathinking","license":"Original"},
+    "validation":{"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,"validationMethods":["place-value decomposition 3270 equals 327 times 10","independent direct divisions give quotients 1635, 654, and 327","answer-choice audit"],"notes":["All three listed divisors divide the number exactly."]}
+  },
+  {"schemaVersion":"1.0.0","lessonId":"N1","purpose":"practice","transferLevel":"mixed","targetConcepts":["N1"],"inspirationProblemIds":[],
+    "problem":{"id":"original-n1-missing-nine","title":"A Digit for Divisibility by Nine","sourceType":"Original","contest":"Original","category":"Number Theory","subcategory":"Divisibility tests","difficulty":2,
+      "statement":"The three-digit number 4A2 is divisible by 9. What is the digit A?","choices":[{"label":"A","text":"1"},{"label":"B","text":"2"},{"label":"C","text":"3"},{"label":"D","text":"6"},{"label":"E","text":"9"}],"answer":"C","shortAnswer":"3",
+      "hints":["Add the known digits first.","Make 6 + A a multiple of 9."],"solutionSteps":[{"title":"Use the digit sum","body":"The digit sum is 4 + A + 2 = 6 + A, which ranges from 6 to 15. The only multiple of 9 in that range is 9, so A = 3."},{"title":"Check","body":"432 = 9 × 48."}],
+      "tags":["divisibility by 9","missing digit","place value"],"sourceName":"Mathinking","license":"Original"},
+    "validation":{"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,"validationMethods":["digit-sum constraint 6+A equals 9","independent direct multiplication 9 times 48 equals 432","answer-choice audit"],"notes":["A = 3 is the unique digit solution."]}
+  },
+  {"schemaVersion":"1.0.0","lessonId":"N1","purpose":"practice","transferLevel":"challenge","targetConcepts":["N1"],"inspirationProblemIds":[],
+    "problem":{"id":"original-n1-common-boundary","title":"Two Divisibility Boundaries","sourceType":"Original","contest":"Original","category":"Number Theory","subcategory":"Divisibility","difficulty":2,
+      "statement":"What is the least whole number greater than 50 that is divisible by both 6 and 8?","choices":[{"label":"A","text":"54"},{"label":"B","text":"56"},{"label":"C","text":"64"},{"label":"D","text":"72"},{"label":"E","text":"96"}],"answer":"D","shortAnswer":"72",
+      "hints":["List multiples of 8 greater than 50 in order.","Test each list entry for divisibility by 6."],"solutionSteps":[{"title":"Search in order","body":"The multiples of 8 above 50 begin 56, 64, and 72. The first two are not divisible by 6, while 72 = 6 × 12."},{"title":"Verify both conditions","body":"Also 72 = 8 × 9, so 72 is divisible by both 6 and 8 and no smaller candidate above 50 works."}],
+      "tags":["divisibility","common multiple","least value"],"sourceName":"Mathinking","license":"Original"},
+    "validation":{"status":"validated","answerVerified":true,"solutionVerified":true,"uniquenessVerified":true,"prerequisiteAuditPassed":true,"wordingReviewed":true,"notParaphraseOfBank":true,"validationMethods":["ordered enumeration of multiples of 8 above 50","independent product checks 72 equals 6 times 12 and 8 times 9","answer-choice audit"],"notes":["72 is the exact least common divisible value above 50."]}
+  }
+]

@@ -49,6 +49,13 @@ import s1LessonData from "./problem-solving/S1.json";
 import s2LessonData from "./problem-solving/S2.json";
 import s3LessonData from "./problem-solving/S3.json";
 import s4LessonData from "./problem-solving/S4.json";
+import n1LessonData from "./number-theory/N1.json";
+import n2LessonData from "./number-theory/N2.json";
+import n3LessonData from "./number-theory/N3.json";
+import n4LessonData from "./number-theory/N4.json";
+import n5LessonData from "./number-theory/N5.json";
+import n6LessonData from "./number-theory/N6.json";
+import n7LessonData from "./number-theory/N7.json";
 import c1GeneratedProblemData from "./generated-problems/C1.json";
 import c2GeneratedProblemData from "./generated-problems/C2.json";
 import c3GeneratedProblemData from "./generated-problems/C3.json";
@@ -66,6 +73,13 @@ import s1GeneratedProblemData from "./generated-problems/S1.json";
 import s2GeneratedProblemData from "./generated-problems/S2.json";
 import s3GeneratedProblemData from "./generated-problems/S3.json";
 import s4GeneratedProblemData from "./generated-problems/S4.json";
+import n1GeneratedProblemData from "./generated-problems/N1.json";
+import n2GeneratedProblemData from "./generated-problems/N2.json";
+import n3GeneratedProblemData from "./generated-problems/N3.json";
+import n4GeneratedProblemData from "./generated-problems/N4.json";
+import n5GeneratedProblemData from "./generated-problems/N5.json";
+import n6GeneratedProblemData from "./generated-problems/N6.json";
+import n7GeneratedProblemData from "./generated-problems/N7.json";
 
 export interface LessonBundle {
   lesson: LessonSpec;
@@ -123,6 +137,27 @@ const s3GeneratedProblemArtifacts =
 const s4Lesson = s4LessonData as LessonSpec;
 const s4GeneratedProblemArtifacts =
   s4GeneratedProblemData as GeneratedProblemArtifact[];
+const n1Lesson = n1LessonData as LessonSpec;
+const n1GeneratedProblemArtifacts =
+  n1GeneratedProblemData as GeneratedProblemArtifact[];
+const n2Lesson = n2LessonData as LessonSpec;
+const n2GeneratedProblemArtifacts =
+  n2GeneratedProblemData as GeneratedProblemArtifact[];
+const n3Lesson = n3LessonData as LessonSpec;
+const n3GeneratedProblemArtifacts =
+  n3GeneratedProblemData as GeneratedProblemArtifact[];
+const n4Lesson = n4LessonData as LessonSpec;
+const n4GeneratedProblemArtifacts =
+  n4GeneratedProblemData as GeneratedProblemArtifact[];
+const n5Lesson = n5LessonData as LessonSpec;
+const n5GeneratedProblemArtifacts =
+  n5GeneratedProblemData as GeneratedProblemArtifact[];
+const n6Lesson = n6LessonData as LessonSpec;
+const n6GeneratedProblemArtifacts =
+  n6GeneratedProblemData as GeneratedProblemArtifact[];
+const n7Lesson = n7LessonData as LessonSpec;
+const n7GeneratedProblemArtifacts =
+  n7GeneratedProblemData as GeneratedProblemArtifact[];
 const f1Lesson = f1LessonData as LessonSpec;
 const f1GeneratedProblemArtifacts =
   f1GeneratedProblemData as GeneratedProblemArtifact[];
@@ -324,6 +359,55 @@ const lessonRegistry = new Map<string, LessonBundle>([
     {
       lesson: s4Lesson,
       generatedProblemArtifacts: s4GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    n1Lesson.lessonId,
+    {
+      lesson: n1Lesson,
+      generatedProblemArtifacts: n1GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    n2Lesson.lessonId,
+    {
+      lesson: n2Lesson,
+      generatedProblemArtifacts: n2GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    n3Lesson.lessonId,
+    {
+      lesson: n3Lesson,
+      generatedProblemArtifacts: n3GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    n4Lesson.lessonId,
+    {
+      lesson: n4Lesson,
+      generatedProblemArtifacts: n4GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    n5Lesson.lessonId,
+    {
+      lesson: n5Lesson,
+      generatedProblemArtifacts: n5GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    n6Lesson.lessonId,
+    {
+      lesson: n6Lesson,
+      generatedProblemArtifacts: n6GeneratedProblemArtifacts,
+    },
+  ],
+  [
+    n7Lesson.lessonId,
+    {
+      lesson: n7Lesson,
+      generatedProblemArtifacts: n7GeneratedProblemArtifacts,
     },
   ],
 ]);
