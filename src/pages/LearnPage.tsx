@@ -1,67 +1,70 @@
-import { sampleProblems } from "../data/sampleProblems";
-import type { DifficultyLevel } from "../types/amc";
-import { filterProblemsBySkill } from "../lib/problemFilters";
-import { SKILL_LANES } from "../lib/skills";
-import { getDifficultyDescription } from "../lib/problemUtils";
 import { SiteHeader } from "../components/layout/SiteHeader";
 import { SiteFooter } from "../components/layout/SiteFooter";
+import { curriculumMeta, curriculumNodes } from "../data/curriculum";
 import { usePageMeta } from "../hooks/usePageMeta";
 
-const DIFFICULTY_LEVELS: DifficultyLevel[] = [1, 2, 3, 4, 5];
+function lessonTypeLabel(type: "foundation" | "technique" | "connector") {
+  if (type === "foundation") return "Foundation";
+  if (type === "technique") return "Technique";
+  return "Connector";
+}
 
 export function LearnPage() {
   usePageMeta(
-    "Learn AMC 8 Math — Fun Math Journey",
-    "Explore AMC 8 topics by skill and difficulty. Guided lessons in algebra, geometry, number theory, counting and probability, and more."
+    "Learn Competition Math — Mathinking",
+    "Explore all 50 interactive Mathinking lessons across foundations, algebra, number theory, counting and probability, geometry, and problem-solving strategy."
   );
+
   return (
     <>
       <SiteHeader currentPage="learn" />
       <main className="fmj-page">
         <section className="fmj-page-heading">
           <p className="fmj-eyebrow">Learn</p>
-          <h1>Choose a skill lane.</h1>
+          <h1>Explore all 50 lessons.</h1>
           <p>
-            Each lane should eventually contain concept notes, warmups, AMC
-            examples, challenge problems, and animations. Pick a difficulty level
-            to jump straight to focused practice.
+            Work through the full Mathinking curriculum, from core quantitative
+            reasoning to contest-math techniques and problem-solving strategy.
+            Choose any lesson below to open its interactive investigation.
           </p>
         </section>
 
-        <section className="fmj-learn-grid">
-          {SKILL_LANES.map((lane) => {
-            const laneProblems = filterProblemsBySkill(sampleProblems, lane.id);
-            return (
-              <div key={lane.id} className="fmj-learn-card">
-                <a className="fmj-learn-card-link" href={`/practice?skill=${lane.id}`}>
-                  <strong>{lane.title}</strong>
-                  <span>{laneProblems.length} loaded problems</span>
-                </a>
-                <p>{lane.description}</p>
-                <div className="fmj-difficulty-row">
-                  {DIFFICULTY_LEVELS.map((level) => {
-                    const count = laneProblems.filter(
-                      (problem) => problem.difficulty === level
-                    ).length;
-                    return (
-                      <a
-                        key={level}
-                        href={`/practice?skill=${lane.id}&difficulty=${level}`}
-                        className={`fmj-difficulty-pill level-${level} ${
-                          count === 0 ? "empty" : ""
-                        }`}
-                        title={getDifficultyDescription(level)}
-                      >
-                        <span>Level {level}</span>
-                        <small>{count}</small>
-                      </a>
-                    );
-                  })}
-                </div>
+        {curriculumMeta.strandOrder.map((strand) => {
+          const lessons = curriculumNodes.filter((node) => node.strand === strand);
+          const sectionId = `learn-${strand}`;
+
+          return (
+            <section key={strand} aria-labelledby={sectionId}>
+              <div className="fmj-page-heading">
+                <p className="fmj-eyebrow">
+                  {lessons.length} lesson{lessons.length === 1 ? "" : "s"}
+                </p>
+                <h2 id={sectionId}>{curriculumMeta.strandLabels[strand]}</h2>
               </div>
-            );
-          })}
-        </section>
+
+              <div className="fmj-learn-grid">
+                {lessons.map((lesson) => (
+                  <a
+                    key={lesson.id}
+                    className="fmj-learn-card fmj-learn-card-link"
+                    href={`/learn/${lesson.id}`}
+                  >
+                    <strong>
+                      {lesson.id} · {lesson.title}
+                    </strong>
+                    <p>{lesson.coreInsight}</p>
+                    <span>
+                      {lessonTypeLabel(lesson.lessonType)}
+                      {lesson.hardPrerequisites.length > 0
+                        ? ` · Prerequisites: ${lesson.hardPrerequisites.join(", ")}`
+                        : " · No prerequisites"}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          );
+        })}
       </main>
       <SiteFooter />
     </>
