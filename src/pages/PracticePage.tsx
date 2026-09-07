@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import type { Problem } from "../types/amc";
+import type { DifficultyLevel, Problem } from "../types/amc";
 import { sampleProblems } from "../data/sampleProblems";
 import { useLocalProgress } from "../hooks/useLocalProgress";
 import { SiteHeader } from "../components/layout/SiteHeader";
@@ -8,8 +8,11 @@ import { PracticeLauncher } from "../components/practice/PracticeLauncher";
 import { ProblemWorkspace } from "../components/problem/ProblemWorkspace";
 import { buildPracticeSession } from "../lib/buildPracticeSession";
 import { filterProblemsBySkill } from "../lib/problemFilters";
-import { normalizeSkillId } from "../lib/skills";
+import { normalizeSkillId, SKILL_LANES } from "../lib/skills";
+import { getDifficultyDescription } from "../lib/problemUtils";
 import { usePageMeta } from "../hooks/usePageMeta";
+
+const DIFFICULTY_LEVELS: DifficultyLevel[] = [1, 2, 3, 4, 5];
 
 function getSkillTitle(skill: string | null) {
   if (!skill) return "Start a focused session.";
@@ -134,6 +137,52 @@ export function PracticePage() {
           <p className="fmj-eyebrow">Practice</p>
           <h1>{practiceTitle}</h1>
           <p>{practiceDescription}</p>
+        </section>
+
+        <section aria-labelledby="practice-skill-lanes">
+          <div className="fmj-page-heading">
+            <p className="fmj-eyebrow">Browse practice</p>
+            <h2 id="practice-skill-lanes">Choose a skill lane.</h2>
+            <p>
+              Each lane contains AMC examples, challenge problems, and animations.
+              Pick a difficulty level to jump straight to focused practice.
+            </p>
+          </div>
+
+          <div className="fmj-learn-grid">
+            {SKILL_LANES.map((lane) => {
+              const laneProblems = filterProblemsBySkill(sampleProblems, lane.id);
+              return (
+                <div key={lane.id} className="fmj-learn-card">
+                  <a className="fmj-learn-card-link" href={`/practice?skill=${lane.id}`}>
+                    <strong>{lane.title}</strong>
+                    <span>{laneProblems.length} loaded problems</span>
+                  </a>
+                  <p>{lane.description}</p>
+                  <div className="fmj-difficulty-row">
+                    {DIFFICULTY_LEVELS.map((level) => {
+                      const count = laneProblems.filter(
+                        (problem) => problem.difficulty === level
+                      ).length;
+                      return (
+                        <a
+                          key={level}
+                          href={`/practice?skill=${lane.id}&difficulty=${level}`}
+                          className={`fmj-difficulty-pill level-${level} ${
+                            count === 0 ? "empty" : ""
+                          }`}
+                          title={getDifficultyDescription(level)}
+                        >
+                          <span>Level {level}</span>
+                          <small>{count}</small>
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </section>
 
         {(selectedSkill || selectedDifficulty !== null) &&
