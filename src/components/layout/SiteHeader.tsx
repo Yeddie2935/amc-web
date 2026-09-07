@@ -8,8 +8,8 @@ export function SiteHeader({ currentPage = "home" }: SiteHeaderProps) {
       <a className="fmj-logo" href="/">
         <span className="fmj-logo-mark">∑</span>
         <span>
-          <strong>Math Thinking</strong>
-          <small>AMC 8 from the ground up</small>
+          <strong>Mathinking</strong>
+          <small>Competition math, made visible</small>
         </span>
       </a>
 
