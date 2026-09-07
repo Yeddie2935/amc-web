@@ -2,8 +2,8 @@ export function SiteFooter() {
   return (
     <footer className="fmj-site-footer">
       <div>
-        <strong>Fun Math Journey</strong>
-        <p>Free competition math practice for individual students.</p>
+        <strong>Mathinking</strong>
+        <p>Free competition math lessons, practice, and animated explanations.</p>
       </div>
 
       <div className="fmj-footer-links">
