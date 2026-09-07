@@ -24545,7 +24545,7 @@ const amc2009Problems: Problem[] = [
       {
         "title": "Make a cube",
         "body": "To make exponents multiples of 3, multiply by 3·5^2, so y=75.",
-        "equation": "y=3\cdot5^2=75"
+        "equation": "y=3\\cdot5^2=75"
       },
       {
         "title": "Add the multipliers",

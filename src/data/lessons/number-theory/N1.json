@@ -1,0 +1,133 @@
+{
+  "schemaVersion":"1.0.0","lessonId":"N1","curriculumNodeId":"N1","title":"Divisibility","lessonType":"foundation","status":"draft","estimatedMinutes":30,
+  "coreInsight":"Divisibility asks whether a quantity can be partitioned into equal groups with no remainder; digit tests are consequences of place-value structure rather than magic rules.",
+  "targetLearnerRealization":"Divisibility means forming equal groups with no remainder; familiar digit tests are shortcuts that come from place-value structure rather than arbitrary rules.",
+  "learningObjectives":["Interpret divisibility as equal grouping with remainder zero.","Use divisor, factor, and multiple with distinct meanings.","Explain divisibility tests for 2, 5, 10, and 9 from place value.","Use a digit test only under its justified condition and retain remainder information."],
+  "hardPrerequisites":["F1"],"narrativePredecessor":"F1",
+  "continuity":{"openingCallback":"Move from estimating a quantity's size to asking whether it lands exactly on an equal-group boundary.","closingSeeds":["Prime factorization repeatedly splits a composite number into divisors.","Divisibility is the remainder-zero case of a broader remainder system.","Odd/even parity records only the remainder after division by 2."],"nextLessonIds":["N2","N5","S3"]},
+  "misconceptionTargets":[
+    {"misconception":"Divisor, factor, and multiple are interchangeable words.","beatIds":["language-triangle","practice-factor-language","divisibility-recap"]},
+    {"misconception":"1 is prime.","beatIds":["one-is-special","prime-factor-hook"]},
+    {"misconception":"A divisibility test can be applied outside the condition under which it was derived.","beatIds":["last-digit-structure","digit-sum-structure","authentic-remainder-transfer","divisibility-recap"]},
+    {"misconception":"The remainder can be ignored when discussing divisibility.","beatIds":["equal-groups-puzzle","remainder-zero","practice-pack-boxes","authentic-remainder-transfer"]}
+  ],
+  "beats":[
+    {
+      "id":"equal-groups-puzzle","phase":"puzzle","kind":"problem","source":"generated","problemId":"original-n1-six-groups","role":"anchor","presentation":"full-prompt",
+      "purpose":"Create the need for remainder zero by comparing candidate totals under equal grouping.","expectedRealization":"Only a total landing exactly on a six-group boundary can be split with no leftovers.",
+      "transitionIn":"A magnitude estimate locates a number roughly. Equal grouping asks a sharper question: does the number land exactly on a boundary?","transitionOut":"Thirty-six worked because six complete groups used every tile; the other totals left unfinished groups.",
+      "whyNow":"A concrete grouping puzzle establishes meaning before vocabulary or digit shortcuts.","entryBridge":"Try to form groups of six and keep any leftover tiles visible.","exitBridge":"Six groups of six use all 36 tiles, so the remainder is zero.","reusedRepresentation":"Tiles arranged as complete equal groups with leftovers separated.",
+      "animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["How many complete groups of six form?","Are any tiles left over?"],
+      "correctFeedback":"Correct—36 makes six complete groups of six with no leftovers.","incorrectFeedback":"Divide each choice by 6 and keep the remainder visible.",
+      "resolution":{"visual":{"primitive":"bars-and-groups","data":{"bars":[{"label":"Group 1","segments":6,"filled":6,"valueLabel":"6 tiles"},{"label":"Group 2","segments":6,"filled":6,"valueLabel":"6 tiles"},{"label":"Group 3","segments":6,"filled":6,"valueLabel":"6 tiles"},{"label":"Group 4","segments":6,"filled":6,"valueLabel":"6 tiles"},{"label":"Group 5","segments":6,"filled":6,"valueLabel":"6 tiles"},{"label":"Group 6","segments":6,"filled":6,"valueLabel":"6 tiles"}]},"continuityKey":"n1-equal-groups","ariaLabel":"Thirty-six tiles arranged into six equal groups of six with no leftovers"},"steps":[{"body":"The equation 36 = 6 × 6 uses every tile. A remainder of zero is the decisive feature."}],"takeaway":"Exact equal grouping means no remainder is left behind."},"sourceLabelTiming":"hidden","estimatedSeconds":120
+    },
+    {
+      "id":"remainder-zero","phase":"try","kind":"interaction","purpose":"Contrast a nearly complete grouping with true divisibility.","expectedRealization":"A positive remainder means the divisor does not divide the total exactly.",
+      "transitionIn":"Now move two tiles past that exact boundary.","estimatedSeconds":75,
+      "prompt":"When 38 tiles are placed into groups of 6, six groups form and 2 tiles remain. Is 38 divisible by 6?",
+      "response":{"kind":"single-choice","options":[{"id":"yes","text":"Yes, because six groups formed."},{"id":"no","text":"No, because the remainder is 2."},{"id":"almost","text":"Yes, because 38 is close to 36."}],"correctId":"no"},
+      "correctFeedback":"Right—divisibility requires remainder zero, not merely some complete groups.","incorrectFeedback":"The two leftover tiles are part of the answer to the grouping question.","allowRetry":true,
+      "resolution":{"steps":[{"body":"38 = 6 × 6 + 2. The remainder 2 proves the split is not exact."}],"takeaway":"A number d divides n only when dividing n by d leaves remainder 0."
+      }
+    },
+    {
+      "id":"language-triangle","phase":"notice","kind":"interaction","purpose":"Attach distinct relational roles to divisor, factor, and multiple.","expectedRealization":"In 6 × 6 = 36, 6 is a factor and divisor of 36, while 36 is a multiple of 6.",
+      "transitionIn":"The same exact grouping can be read in three directions. Keep track of which number acts on which.","estimatedSeconds":80,
+      "prompt":"Which statement correctly describes 6 × 6 = 36?",
+      "response":{"kind":"single-choice","options":[{"id":"right","text":"6 is a divisor and factor of 36; 36 is a multiple of 6."},{"id":"swap","text":"36 is a divisor of 6; 6 is a multiple of 36."},{"id":"same","text":"Divisor and multiple are interchangeable names."},{"id":"remainder","text":"6 is the remainder of 36."}],"correctId":"right"},
+      "correctFeedback":"Exactly—factor and divisor point into the product; multiple points out to the product.","incorrectFeedback":"Ask which smaller number divides 36 exactly and which larger number appears in the multiplication list of 6.","allowRetry":true,
+      "resolution":{"steps":[{"body":"Because 36 = 6 × 6, each 6 is a factor of 36. Since 36 ÷ 6 has remainder zero, 6 is a divisor of 36. The product 36 is a multiple of 6."}],"takeaway":"A divisor divides the number; a factor builds the number; a multiple is built from the factor."
+      }
+    },
+    {
+      "id":"name-divisibility","phase":"name","kind":"concept","purpose":"Name divisibility only after exact grouping and remainder have been experienced.","expectedRealization":"Divisibility is an exact relationship equivalent to a whole-number product and remainder zero.",
+      "transitionIn":"You have already identified the decisive condition: every object belongs to a complete equal group.","estimatedSeconds":55,
+      "name":"Divisibility","conciseDefinition":"A whole number n is divisible by d when n can be written as d times a whole number, with no remainder.","formalization":"d divides n ⇔ n = d × q for a whole number q ⇔ n ÷ d has remainder 0","memoryHook":"Complete groups, zero leftovers."
+    },
+    {
+      "id":"last-digit-structure","phase":"play","kind":"interaction","purpose":"Derive 2, 5, and 10 tests from the grouping behavior of tens.","expectedRealization":"All complete tens are divisible by 2, 5, and 10, so only the ones digit can change those divisibility decisions.",
+      "transitionIn":"Large numbers contain complete bundles of ten. For some divisors, every such bundle disappears into equal groups.","estimatedSeconds":95,
+      "prompt":"Why can the ones digit decide divisibility by 2, 5, and 10?",
+      "response":{"kind":"single-choice","options":[{"id":"bundles","text":"Every group of 10 is divisible by 2, 5, and 10, so only leftover ones can affect the remainder."},{"id":"magic","text":"The final digit is always the largest digit."},{"id":"sum","text":"The digits always add to the number."},{"id":"all","text":"The ones digit decides divisibility by every divisor."}],"correctId":"bundles"},
+      "correctFeedback":"Right—tens contribute remainder zero for those three divisors.","incorrectFeedback":"Split a number into complete tens plus its ones digit and examine each divisor.","allowRetry":true,
+      "resolution":{"steps":[{"body":"Write n = 10q + r, where r is the ones digit. Because 10q is divisible by 2, 5, and 10, n has the same remainder behavior as r for those divisors."},{"body":"This argument does not justify using only the ones digit for an arbitrary divisor."}],"takeaway":"A digit test is a place-value shortcut whose valid divisor must be justified."
+      }
+    },
+    {
+      "id":"digit-sum-structure","phase":"notice","kind":"interaction","purpose":"Derive the digit-sum test for 9 from each power of ten leaving remainder one.","expectedRealization":"Modulo 9, each place-value unit contributes like one, so a number and its digit sum have the same remainder.",
+      "transitionIn":"For 9, tens do not disappear completely: each 10 is one more than a multiple of 9. That leftover one repeats at every place.","estimatedSeconds":100,
+      "prompt":"Without dividing 372 by 9, what does its digit sum tell you?",
+      "response":{"kind":"single-choice","options":[{"id":"yes","text":"372 is divisible by 9 because its last digit is even."},{"id":"no","text":"372 is not divisible by 9 because 3 + 7 + 2 = 12 is not divisible by 9."},{"id":"ten","text":"372 is divisible by 9 because 10 is close to 9."},{"id":"unknown","text":"A digit sum can never answer a divisibility question."}],"correctId":"no"},
+      "correctFeedback":"Correct—the digit sum leaves remainder 3 modulo 9, so the original number does too.","incorrectFeedback":"Use 100 ≡ 1 and 10 ≡ 1 modulo 9, so 372 has the same remainder as 3 + 7 + 2.","allowRetry":true,
+      "resolution":{"steps":[{"body":"Because 100 = 99 + 1 and 10 = 9 + 1, 3 hundreds, 7 tens, and 2 ones have the same remainder as 3 + 7 + 2."},{"body":"The sum 12 = 9 + 3 leaves remainder 3, so 372 is not divisible by 9."}],"takeaway":"Digit sums work for 9 because every base-ten place has remainder 1 when divided by 9."
+      }
+    },
+    {
+      "id":"authentic-missing-eleven","phase":"competition-application","kind":"problem","source":"bank","problemId":"amc8-2014-08","role":"guided","presentation":"full-prompt",
+      "purpose":"Apply a structurally explained divisibility condition to a missing digit.","expectedRealization":"Equal payment forces divisibility by 11, and the alternating digit balance determines A = 3.",
+      "transitionIn":"A digit test can become a constraint on an unknown digit. Here equal shares first tell us which divisor matters.","transitionOut":"The alternating difference forced A = 3, and direct division confirmed 132 = 11 × 12.",
+      "whyNow":"The approved problem converts equal grouping into an 11-divisibility digit constraint after digit tests have been treated as structural shortcuts.","entryBridge":"Translate equal payment by 11 people into remainder zero, then track how A changes the alternating digit difference.","exitBridge":"Only A = 3 makes 1 + 2 − A equal zero in the possible range.","reusedRepresentation":"Place-value digit tiles collapse into a smaller remainder calculation.",
+      "animation":{"mode":"whole","controlledByLesson":true,"autoplay":false,"showPlayerControls":false},"learnerPrompts":["Why must the total be a multiple of 11?","What alternating difference do the digits produce?","Which digit makes that difference a multiple of 11?"],
+      "correctFeedback":"Correct—A = 3 makes the total $132, or $12 per member.","incorrectFeedback":"Equal shares require a multiple of 11; test the alternating difference 1 + 2 − A.",
+      "resolution":{"animation":{"kind":"problem-animation","placement":"before-steps"},"steps":[{"body":"Eleven equal payments require the total 1A2 to be divisible by 11."},{"body":"The alternating difference is 1 + 2 − A = 3 − A. For a digit A, only zero is a possible multiple of 11 in this range, so A = 3."},{"body":"Check: 132 ÷ 11 = 12 with remainder zero."}],"takeaway":"Use the condition to choose the divisor, then apply only the test justified for that divisor."},
+      "sourceLabelTiming":"completion","estimatedSeconds":175
+    },
+    {
+      "id":"one-is-special","phase":"notice","kind":"interaction","purpose":"Repair the classification of 1 before prime factorization begins.","expectedRealization":"One has only one positive divisor, so it is neither prime nor composite under the two-divisor definition.",
+      "transitionIn":"Factors describe how a number can be built. Before splitting numbers further, settle the smallest positive case.","estimatedSeconds":75,
+      "prompt":"A prime number has exactly two positive divisors: 1 and itself. Why is 1 not prime?",
+      "response":{"kind":"single-choice","options":[{"id":"one","text":"Its list of positive divisors contains only 1, not two distinct divisors."},{"id":"odd","text":"It is odd."},{"id":"small","text":"Every number below 10 is not prime."},{"id":"factor","text":"It divides every whole number."}],"correctId":"one"},
+      "correctFeedback":"Exactly—1 has one positive divisor, not exactly two.","incorrectFeedback":"Count distinct positive divisors of 1.","allowRetry":true,
+      "resolution":{"steps":[{"body":"The only positive divisor of 1 is 1. Prime numbers require two distinct positive divisors, so 1 is neither prime nor composite."}],"takeaway":"Definitions depend on exact counts; “almost two divisors” is not prime."
+      }
+    },
+    {
+      "id":"authentic-remainder-transfer","phase":"independent-transfer","kind":"problem","source":"bank","problemId":"amc8-2018-07","role":"transfer","presentation":"independent",
+      "purpose":"Combine a digit-sum divisibility constraint with a separate remainder computation.","expectedRealization":"The 9-test determines U = 7, but a new divisor requires a new justified shortcut and an explicit remainder.",
+      "transitionIn":"One number now faces two different divisors. Keep their tests separate instead of treating a digit trick as universal.","transitionOut":"The digit sum fixed 20187; the last three digits then left remainder 3 upon division by 8.",
+      "whyNow":"The approved transfer tests whether the learner chooses a test by divisor and preserves remainder information beyond the zero case.","entryBridge":"Use divisibility by 9 to find U, then start a fresh remainder-by-8 calculation on the completed number.","exitBridge":"Since 1000 is divisible by 8, only 187 affects the remainder, and 187 = 8 × 23 + 3.","reusedRepresentation":"Digit tiles first collapse to a sum, then a justified last-three-digit tail.",
+      "animation":{"mode":"whole","controlledByLesson":true,"autoplay":false,"showPlayerControls":false},"learnerPrompts":["Which U makes the digit sum a multiple of 9?","Why is that rule finished once U is known?","Why do the last three digits control the remainder modulo 8?"],
+      "correctFeedback":"Correct—U = 7 and 20187 leaves remainder 3 when divided by 8.","incorrectFeedback":"First make 11 + U a multiple of 9. Then divide the completed last three digits 187 by 8 and retain the remainder.",
+      "resolution":{"animation":{"kind":"problem-animation","placement":"before-steps"},"steps":[{"body":"The digit sum is 11 + U. The only digit making it a multiple of 9 is U = 7, giving 20187."},{"body":"Because 1000 is divisible by 8, the leading 20 thousands contribute remainder zero. Compute with 187."},{"body":"187 = 8 × 23 + 3, so the requested remainder is 3."}],"takeaway":"Every divisor needs its own justification, and a nonzero remainder must stay in the conclusion."},
+      "sourceLabelTiming":"completion","estimatedSeconds":180
+    },
+    {
+      "id":"practice-pack-boxes","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-n1-pack-boxes","role":"transfer","presentation":"independent",
+      "purpose":"Assess exact grouping and quotient interpretation.","expectedRealization":"Fifty-two divides into thirteen groups of four with remainder zero.","transitionIn":"Return to physical grouping and report both exactness and group count.","transitionOut":"The equation 52 = 4 × 13 certifies divisibility and names the quotient.","whyNow":"A near item checks the foundation meaning without digit shortcuts.","entryBridge":"Form complete groups of four and record any remainder.","exitBridge":"Thirteen full boxes use all 52 balls.","animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["How many groups form?","What remainder remains?"],"correctFeedback":"Correct—52 ÷ 4 = 13 with remainder zero.","incorrectFeedback":"Count by fours to 52 and check for leftovers.","resolution":{"steps":[{"body":"Since 4 × 13 = 52, all balls fill 13 boxes and none remain."}],"takeaway":"A whole-number quotient and remainder zero certify divisibility."},"sourceLabelTiming":"hidden","estimatedSeconds":90
+    },
+    {
+      "id":"practice-factor-language","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-n1-factor-language","role":"transfer","presentation":"independent",
+      "purpose":"Assess divisor/factor/multiple directionality.","expectedRealization":"Eight divides 56 exactly, so 8 is a divisor and factor while 56 is its multiple.","transitionIn":"Use one multiplication fact to read the relationship in both directions.","transitionOut":"The same equation supports different words because the numbers play different roles.","whyNow":"A near vocabulary item prevents relational language from drifting.","entryBridge":"Begin with 7 × 8 = 56.","exitBridge":"Eight is a factor and divisor of 56; 56 is a multiple of 8.","animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["Which number divides the other?","Which number is the product?"],"correctFeedback":"Correct—8 is a divisor of 56.","incorrectFeedback":"Use 56 ÷ 8 = 7 with remainder zero.","resolution":{"steps":[{"body":"Because 56 = 8 × 7, 8 is a factor and divisor of 56, and 56 is a multiple of 8."}],"takeaway":"Keep the direction of each divisibility word attached to an equation."},"sourceLabelTiming":"hidden","estimatedSeconds":90
+    },
+    {
+      "id":"practice-last-digit","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-n1-last-digit","role":"transfer","presentation":"independent",
+      "purpose":"Assess structural last-digit tests for 2, 5, and 10.","expectedRealization":"A final zero makes 3270 divisible by all three listed divisors.","transitionIn":"Now let complete tens handle the large part and inspect only the leftover ones digit.","transitionOut":"The final zero contributes remainder zero for 2, 5, and 10.","whyNow":"A mixed item coordinates three tests with a shared place-value reason.","entryBridge":"Separate 327 tens from 0 ones.","exitBridge":"3270 is divisible by 2, 5, and 10.","animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["Which divisors divide every complete ten?","What does the ones digit contribute?"],"correctFeedback":"Correct—3270 is divisible by 2, 5, and 10.","incorrectFeedback":"A final zero can be grouped by 2, 5, or 10 with no remainder.","resolution":{"steps":[{"body":"The number is 327 complete tens with no extra ones. Ten is divisible by 2, 5, and 10, so the whole number is divisible by all three."}],"takeaway":"The last-digit shortcut is justified by complete base-ten bundles."},"sourceLabelTiming":"hidden","estimatedSeconds":95
+    },
+    {
+      "id":"practice-missing-nine","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-n1-missing-nine","role":"transfer","presentation":"independent",
+      "purpose":"Assess a missing digit under the 9-divisibility condition.","expectedRealization":"The digit sum 6 + A must equal 9, forcing A = 3.","transitionIn":"Use the digit sum as a compact remainder calculation, not a memorized incantation.","transitionOut":"A = 3 makes 432's digit sum 9 and direct division confirms 48 groups of 9.","whyNow":"A mixed item mirrors the constraint form while using the previously derived 9-test rather than the bank problem's 11-test.","entryBridge":"Replace each place value by its remainder 1 modulo 9.","exitBridge":"4 + 3 + 2 = 9, and 432 = 9 × 48.","animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["What is the known digit sum?","Which digit reaches a multiple of 9?"],"correctFeedback":"Correct—A = 3.","incorrectFeedback":"The digit sum is 4 + A + 2 = 6 + A; make it a multiple of 9.","resolution":{"steps":[{"body":"For digit A, 6 + A ranges from 6 through 15. The only multiple of 9 in that range is 9, so A = 3."},{"body":"Check: 432 ÷ 9 = 48 with remainder zero."}],"takeaway":"A digit test turns a whole-number divisibility condition into a smaller remainder constraint."},"sourceLabelTiming":"hidden","estimatedSeconds":105
+    },
+    {
+      "id":"practice-common-boundary","phase":"independent-transfer","kind":"problem","source":"generated","problemId":"original-n1-common-boundary","role":"transfer","presentation":"independent",
+      "purpose":"Assess systematic search for the first shared divisible value.","expectedRealization":"Seventy-two is the first multiple of 8 above 50 that is also divisible by 6.","transitionIn":"For the final challenge, find a number that lands on two equal-group boundaries at once.","transitionOut":"Listing multiples in order proved both that 72 works and that no smaller value above 50 does.","whyNow":"The challenge combines divisibility meaning with a complete bounded search without requiring prime factorization.","entryBridge":"List multiples of 8 above 50 and test each for division by 6.","exitBridge":"56 and 64 fail division by 6; 72 = 8 × 9 = 6 × 12.","animation":{"mode":"none","controlledByLesson":true},"learnerPrompts":["What are the first multiples of 8 above 50?","Which first has remainder zero when divided by 6?"],"correctFeedback":"Correct—72 is the least qualifying number.","incorrectFeedback":"Check 56, 64, and 72 in order.","resolution":{"steps":[{"body":"The multiples of 8 above 50 begin 56, 64, 72. The first two are not divisible by 6; 72 = 6 × 12."}],"takeaway":"An ordered candidate list can prove a least common boundary."},"sourceLabelTiming":"hidden","estimatedSeconds":115
+    },
+    {
+      "id":"divisibility-recap","phase":"reflection","kind":"interaction","purpose":"Consolidate meaning, language, test justification, and remainder discipline.","expectedRealization":"A sound divisibility claim connects exact grouping, correct relational language, and a justified shortcut.",
+      "transitionIn":"Groups, digits, payments, and remainders all point back to the same exact condition.","estimatedSeconds":90,
+      "prompt":"Which checks belong in a reliable divisibility argument? Select all four.",
+      "response":{"kind":"multi-select","options":[{"id":"zero","text":"Require remainder zero for a divisibility claim."},{"id":"product","text":"Confirm the number equals divisor × whole-number quotient."},{"id":"direction","text":"Keep divisor/factor and multiple roles in the correct direction."},{"id":"justify","text":"Use a digit test only for a divisor whose place-value behavior justifies it."},{"id":"ignore","text":"Ignore a small remainder if most groups are complete."}],"correctIds":["zero","product","direction","justify"],"feedback":"Keep exactness, product structure, word direction, and justified shortcuts."},
+      "correctFeedback":"Exactly—zero remainder, whole-number product, correct roles, and a justified test.","incorrectFeedback":"Any nonzero remainder means the division is not exact.","allowRetry":true,
+      "resolution":{"visual":{"primitive":"choice-grid","data":{"groups":[{"label":"Meaning","choices":["Complete groups; remainder 0"]},{"label":"Equation","choices":["n = d × q"]},{"label":"Language","choices":["d divides n; n is a multiple"]},{"label":"Shortcut","choices":["Derived from place value"]}]},"ariaLabel":"Four-part divisibility checklist"},"takeaway":"Complete groups, zero leftovers—and explain any shortcut."
+      }
+    },
+    {
+      "id":"prime-factor-hook","phase":"reflection","kind":"reflection","purpose":"Create the successor question about numbers that cannot be split into smaller nontrivial factors.","expectedRealization":"Repeated factor splitting ends differently for prime and composite numbers, with 1 requiring separate treatment.",
+      "transitionIn":"Some numbers have many divisor pairs; others have no positive divisor except 1 and themselves.","estimatedSeconds":50,
+      "prompt":"If you keep splitting 60 into factor pairs, which numbers should end the branches—and why must 1 not count as one of those prime endpoints?",
+      "takeaway":"Next, we will split composite numbers until every branch ends in a genuine prime factor."
+    }
+  ],
+  "practice":{"generatedPoolMinimum":{"near":2,"mixed":2,"challenge":1},"sessionSelection":[{"source":"generated","transferLevel":"near","count":2},{"source":"generated","transferLevel":"mixed","count":2},{"source":"generated","transferLevel":"challenge","count":1}],"excludeProblemIds":["original-n1-six-groups","amc8-2014-08","amc8-2018-07"],"requireFreshGeneratedItems":true},
+  "mastery":{"skillId":"N1","evidenceBeatIds":["practice-pack-boxes","practice-factor-language","practice-last-digit","practice-missing-nine","practice-common-boundary"],"minIndependentPracticeItems":5,"recommendedAccuracyThreshold":0.8,"weightMixedTransferMore":true},
+  "generation":{"curriculumVersion":"1.2.0","mappingVersion":"1.0.0","generatorVersion":"mathinking-lesson-skill-1.0.0","notes":["Draft foundation lesson authored from the approved N1 compact context packet.","Equal grouping creates the meaning before place-value shortcuts; both approved AMC problems then use divisor-specific digit reasoning.","Divisor/factor/multiple language, the status of 1, test conditions, and nonzero remainders are repaired explicitly.","All generated answers were independently checked by direct division and a separate product, enumeration, or remainder argument.","No lesson-specific renderer infrastructure was added."]}
+}
