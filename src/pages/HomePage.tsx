@@ -33,6 +33,107 @@ const STARTING_POINTS = [
   },
 ];
 
+function LessonPreviewShell({
+  className = "",
+  lessonLabel,
+  labelledBy,
+  children,
+}: {
+  className?: string;
+  lessonLabel: string;
+  labelledBy: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <aside className={`fmj-home-preview ${className}`.trim()} aria-labelledby={labelledBy}>
+      <div className="fmj-home-preview-topline">
+        <span>Inside a lesson</span>
+        <span>{lessonLabel}</span>
+      </div>
+      {children}
+    </aside>
+  );
+}
+
+function ComplementaryCountingPreview() {
+  return (
+    <LessonPreviewShell
+      className="fmj-home-preview-c5"
+      lessonLabel="C5 · Complementary Counting"
+      labelledBy="home-c5-preview-title"
+    >
+      <p className="fmj-home-preview-label">Try it</p>
+      <h2 id="home-c5-preview-title">How many 3-digit numbers contain at least one 0?</h2>
+
+      <div className="fmj-home-complement-panels">
+        <div className="fmj-home-math-panel">
+          <small>All 3-digit numbers</small>
+          <div className="fmj-home-digit-slots" aria-label="9 choices times 10 choices times 10 choices">
+            <span>1–9</span><b>×</b><span>0–9</span><b>×</b><span>0–9</span>
+          </div>
+          <strong>9 × 10 × 10 = <em>900</em></strong>
+        </div>
+
+        <div className="fmj-home-math-panel">
+          <small>No zeros</small>
+          <div className="fmj-home-digit-slots" aria-label="9 choices times 9 choices times 9 choices">
+            <span>1–9</span><b>×</b><span>1–9</span><b>×</b><span>1–9</span>
+          </div>
+          <strong>9 × 9 × 9 = <em>729</em></strong>
+        </div>
+      </div>
+
+      <div className="fmj-home-big-equation" aria-label="900 minus 729 equals 171">
+        <span>900</span><b>−</b><span>729</span><b>=</b><em>171</em>
+      </div>
+
+      <p className="fmj-home-preview-point">
+        Instead of untangling overlapping zero-cases, count everything, count the clean opposite, and subtract.
+      </p>
+      <a className="fmj-home-inline-link" href="/learn/C5">
+        Open the full lesson →
+      </a>
+    </LessonPreviewShell>
+  );
+}
+
+function DivisorCountingPreview() {
+  return (
+    <LessonPreviewShell
+      className="fmj-home-preview-n4"
+      lessonLabel="N4 · Factors & Divisor Counting"
+      labelledBy="home-n4-preview-title"
+    >
+      <p className="fmj-home-preview-label">Try it</p>
+      <h3 id="home-n4-preview-title">How many divisors does 72 have?</h3>
+
+      <div className="fmj-home-factorization" aria-label="72 equals 2 cubed times 3 squared">
+        <span>72</span><b>=</b><em>2<sup>3</sup></em><b>·</b><em>3<sup>2</sup></em>
+      </div>
+
+      <div className="fmj-home-exponent-choice">
+        <small>Exponent for 2</small>
+        <div><span>0</span><span>1</span><span>2</span><span>3</span></div>
+      </div>
+      <div className="fmj-home-exponent-choice">
+        <small>Exponent for 3</small>
+        <div><span>0</span><span>1</span><span>2</span></div>
+      </div>
+
+      <div className="fmj-home-n4-payoff" aria-label="4 times 3 equals 12">
+        <span>4 × 3 =</span><em>12</em>
+      </div>
+
+      <p className="fmj-home-preview-point">
+        Each divisor chooses one exponent for every prime. You don't memorize the formula—you see where 12 comes from.
+      </p>
+      <a className="fmj-home-inline-link" href="/learn/N4">
+        Open the full lesson →
+      </a>
+    </LessonPreviewShell>
+  );
+}
+
 export function HomePage() {
   usePageMeta(
     "Mathinking — Learn Competition Math by Thinking",
@@ -79,57 +180,30 @@ export function HomePage() {
             </div>
           </div>
 
-          <aside className="fmj-home-preview" aria-labelledby="home-preview-title">
-            <div className="fmj-home-preview-topline">
-              <span>Inside a lesson</span>
-              <span>A7 · Patterns & Sequences</span>
-            </div>
-            <p className="fmj-home-preview-label">Try it</p>
-            <h2 id="home-preview-title">What comes next?</h2>
-            <div className="fmj-home-sequence" aria-label="Sequence one, two, four, blank">
-              <span>1</span>
-              <span>2</span>
-              <span>4</span>
-              <span>?</span>
-            </div>
-
-            <div className="fmj-home-rule-pair">
-              <div>
-                <small>Rule A</small>
-                <strong>Double each term → 8</strong>
-              </div>
-              <div>
-                <small>Rule B</small>
-                <strong>Add 1, then 2, then 3 → 7</strong>
-              </div>
-            </div>
-
-            <p className="fmj-home-preview-point">
-              Same first three terms. Two valid rules. The real question isn't
-              “what number looks right?”—it's “what rule actually defines the sequence?”
-            </p>
-            <a className="fmj-home-inline-link" href="/learn/A7">
-              Open the full lesson →
-            </a>
-          </aside>
+          <ComplementaryCountingPreview />
         </section>
 
         <section className="fmj-home-method" aria-labelledby="home-method-title">
-          <div className="fmj-home-section-copy">
+          <div className="fmj-home-section-copy fmj-home-method-copy">
             <p className="fmj-home-kicker">How a Mathinking lesson works</p>
             <h2 id="home-method-title">The explanation comes after you have something to notice.</h2>
             <p>
               Instead of opening with a formula, lessons are built around the moment
-              where the idea becomes useful.
+              where the idea becomes useful—then they keep going until you can use it yourself.
             </p>
           </div>
 
-          <ol className="fmj-home-method-flow">
-            <li><span>01</span><strong>Try</strong><p>Make a prediction or attack a small version first.</p></li>
-            <li><span>02</span><strong>Notice</strong><p>Use a visual, animation, or counterexample to expose the structure.</p></li>
-            <li><span>03</span><strong>Name</strong><p>Only then compress the pattern into a reusable mathematical idea.</p></li>
-            <li><span>04</span><strong>Transfer</strong><p>Recognize the same idea when an AMC problem disguises it.</p></li>
-          </ol>
+          <div className="fmj-home-method-content">
+            <ol className="fmj-home-method-flow">
+              <li><span>01</span><strong>Try</strong><p>Start with a problem before the idea is named.</p></li>
+              <li><span>02</span><strong>Notice</strong><p>Use a visual, animation, or counterexample to expose the structure.</p></li>
+              <li><span>03</span><strong>Name</strong><p>Only then compress the pattern into a reusable mathematical idea.</p></li>
+              <li><span>04</span><strong>Transfer</strong><p>Recognize the same idea in a new setting, often inside an AMC problem.</p></li>
+              <li><span>05</span><strong>Practice</strong><p>Use the idea independently until it starts to stick.</p></li>
+            </ol>
+
+            <DivisorCountingPreview />
+          </div>
         </section>
 
         <section className="fmj-home-curriculum" aria-labelledby="home-curriculum-title">
