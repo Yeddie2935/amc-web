@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { SiteHeader } from "../components/layout/SiteHeader";
 import { SiteFooter } from "../components/layout/SiteFooter";
 import { AttributionNotice } from "../components/attribution/AttributionNotice";
@@ -42,7 +43,7 @@ function LessonPreviewShell({
   className?: string;
   lessonLabel: string;
   labelledBy: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <aside className={`fmj-home-preview ${className}`.trim()} aria-labelledby={labelledBy}>
