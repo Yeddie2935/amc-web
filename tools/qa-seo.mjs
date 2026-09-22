@@ -4,6 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import { spawn } from "node:child_process";
 import { once } from "node:events";
+import { checkHomeEquation } from "./check-home-equation.mjs";
 
 const base=process.env.SEO_QA_BASE_URL??"http://127.0.0.1:4173";
 const pause=ms=>new Promise(r=>setTimeout(r,ms));
@@ -129,6 +130,8 @@ try {
     const shot=await page.send("Page.captureScreenshot",{format:"png",captureBeyondViewport:false});await fs.writeFile(path.join(".seo-build",`mobile-${name}.png`),Buffer.from(shot.data,"base64"));
   }
   results.push("390px mobile layout checks and screenshots");
+  await checkHomeEquation(page);
+  results.push("Homepage equation fits at nine mobile/tablet/desktop widths, with bounded typography");
   await fs.writeFile(".seo-build/qa-results.json",JSON.stringify(results,null,2));
   console.log(results.map(r=>`PASS ${r}`).join("\n"));
 } finally {

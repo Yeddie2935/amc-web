@@ -1,6 +1,6 @@
 # Mathinking SEO implementation specification
 
-Status: **Implementation authorized by the user; local implementation prepared. Production deployment remains pending release review.** See [implementation results and release checklist](seo-implementation.md) for current test results, deviations, and remaining work. The proposal below is retained as the design baseline, not a claim that every release gate has passed.
+Status: **The owner has merged and deployed the implementation.** See the [post-merge live regression report](seo-live-regression.md) for deployed-site verification and the local-only homepage typography follow-up. The proposal below is retained as the design baseline, not a claim that every release gate has passed.
 
 Date: September 22, 2026. Source baseline: `2cba8fc`. Input: [SEO audit and marketing plan](seo-marketing-plan.md).
 
