@@ -1,6 +1,6 @@
 # SEO implementation and release review
 
-September 22, 2026. Baseline: `2cba8fc`. Implements the [technical specification](seo-technical-spec.md) and [marketing plan](seo-marketing-plan.md). Changes are local and uncommitted; no production deployment, account changes, or outreach has been performed.
+September 22, 2026. Baseline: `2cba8fc`. Implements the [technical specification](seo-technical-spec.md) and [marketing plan](seo-marketing-plan.md). The owner committed the SEO changes as `e9c185b`, merged PR #10 (`7c56e69`), and deployed through the existing workflow. The [post-merge live regression report](seo-live-regression.md) records current production verification and a local-only homepage typography fix. The pre-release checklist below is retained as history and guidance for future releases; no CLI deployment or domain-setting changes were made by the assistant.
 
 Owner constraint: preserve original shared animation scenes and problem animation data so archive behavior cannot be changed by a lesson/SEO adjustment. The attempted FactorTripleScene font-size edit was undone; no shared animation scene or bank-data changes remain. Any later lesson readability work must be isolated to lesson presentation and separately checked against archive behavior. The existing N4 font-size gate remains unresolved; do not weaken the test or silently modify a shared scene to clear it.
 

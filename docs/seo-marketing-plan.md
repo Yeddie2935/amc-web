@@ -2,7 +2,7 @@
 
 Implementation companions: [SEO technical specification](seo-technical-spec.md) and [local implementation results / release checklist](seo-implementation.md).
 
-Audit date: September 22, 2026. Scope: public production responses, selected JavaScript-rendered pages, the local React/Vite source, and current Google Search documentation. Findings below describe the pre-implementation baseline. Application and repository deployment configuration have since been updated locally under the user's authorization; production has not been deployed. See the implementation results for current status.
+Audit date: September 22, 2026. Scope: public production responses, selected JavaScript-rendered pages, the local React/Vite source, and current Google Search documentation. Findings below describe the pre-implementation baseline. The owner subsequently merged and deployed the SEO implementation; see the [post-merge live regression report](seo-live-regression.md) for current verification and the small homepage follow-up.
 
 Source re-examined after the user's pull on September 22, 2026, at commit `2cba8fc` (`Merge pull request #9 from Yeddie2935/homepage-dual-lesson-showcase`). This revision incorporates the new homepage, lesson directory, practice navigation, and unified header/footer branding. Live measurements below are retained from the earlier same-day audit; they were not remeasured for this source-only revision.
 
