@@ -1,0 +1,32 @@
+{
+  "problemIds": [
+    "amc8-1999-01", "amc8-1999-02", "amc8-1999-03",
+    "amc8-2026-01", "amc8-2026-02", "amc8-2026-03", "amc8-2026-04",
+    "amc8-2026-05", "amc8-2026-06", "amc8-2026-07", "amc8-2026-08",
+    "amc8-2026-09", "amc8-2026-10", "amc8-2026-11", "amc8-2026-13",
+    "amc8-2026-14", "amc8-2026-16", "amc8-2026-18", "amc8-2026-19",
+    "amc8-2026-20", "amc8-2026-21", "amc8-2026-22", "amc8-2026-23",
+    "amc8-2026-24", "amc8-2026-25"
+  ],
+  "pilotReview": {"status": "implementation-reviewed", "date": "2026-09-22", "notes": "docs/seo-implementation.md"},
+  "diagramDescriptions": {
+    "amc8-1999-02": ["Clock face with twelve evenly spaced hour marks; compare the positions of 10 and 12 for ten o'clock."],
+    "amc8-2026-02": ["A five-row, seven-column array. The outer border is all 1s; the next border is all 2s; the middle row has three 3s at its center."],
+    "amc8-2026-06": ["A 10-meter by 8-meter rectangle with a shaded strip one meter wide inside every edge."],
+    "amc8-2026-09": ["The square root of (16 times the square root of 81), divided by the square root of (81 times the square root of 16)."],
+    "amc8-2026-11": ["A rectangle tiled with squares of side lengths 1, 1, 2, 3, and 5. A connected spiral consists of one quarter-circle arc inside each square."],
+    "amc8-2026-13": ["A square drawn over staggered rows of unit squares. From its left vertex to its top vertex, the displacement is three units right and one unit up; to its bottom vertex it is one unit right and three units down."],
+    "amc8-2026-19": ["Miguel walks from the park entrance toward a tree. Luna runs ahead to the tree and then back toward Miguel along the same straight route."],
+    "amc8-2026-21": ["A five-pointed star with a vertex at every tip and crossing. Each outer vertex has two inner neighbors; each inner vertex has two outer and two inner neighbors."],
+    "amc8-2026-23": ["Five touching coins in two staggered rows: three along the bottom and two above. A taut elastic band surrounds the entire arrangement."],
+    "amc8-2026-25": ["Equilateral triangle ABC surrounds a shaded equiangular hexagon. Starting at its top horizontal edge and going clockwise, the hexagon sides measure 2, 2, 2, 3, 1, and 3." ]
+  },
+  "recaps": {
+    "C1": {"title": "Add alternatives; multiply stages", "paragraphs": ["Choosing one of 2 shirts and then one of 3 pairs of pants creates 2 × 3 = 6 outfits. Each shirt has three continuations.", "If instead you choose one item from 2 shirts or 3 pairs of pants, the alternatives are disjoint: there are 2 + 3 = 5 choices. Check what one completed outcome contains before deciding how to count."]},
+    "C5": {"title": "Count three-digit numbers containing a zero", "paragraphs": ["There are 9 × 10 × 10 = 900 three-digit numbers. The first digit cannot be zero.", "There are 9 × 9 × 9 = 729 with no zero anywhere. Subtract this complement: 900 − 729 = 171 contain at least one zero."]},
+    "N4": {"title": "See why 72 has twelve positive divisors", "paragraphs": ["Write 72 = 2³ × 3². Each positive divisor chooses an exponent for 2 from 0, 1, 2, 3 and an exponent for 3 from 0, 1, 2.", "These independent choices give 4 × 3 = 12 divisors. Each exponent pair produces exactly one divisor."]},
+    "F1": {"title": "Estimate before calculating", "paragraphs": ["For 198 × 5, estimate with 200 × 5 = 1000. The exact product should be slightly smaller.", "Subtract the two extra groups of five: 1000 − 10 = 990. The estimate helps you catch an answer with the wrong size."]},
+    "C4": {"title": "Make cases that cover every outcome once", "paragraphs": ["Count two-digit numbers using only 1 and 2. Separate the cases by the tens digit: 11 and 12 begin with 1; 21 and 22 begin with 2.", "Every allowed number belongs to exactly one case. The two cases contribute 2 + 2 = 4 numbers, with no overlap and nothing missing."]},
+    "G4": {"title": "Subtract a missing area", "paragraphs": ["An 8-by-5 rectangle has area 40 square units. Removing a 3-by-2 rectangle from one corner removes 6 square units.", "The remaining L-shaped region has area 40 − 6 = 34 square units. Label a decomposition so that its pieces neither overlap nor leave gaps."]}
+  }
+}

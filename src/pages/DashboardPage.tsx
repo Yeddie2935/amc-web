@@ -3,25 +3,22 @@ import { summarizeByCategory } from "../lib/problemUtils";
 import { useLocalProgress } from "../hooks/useLocalProgress";
 import { SiteHeader } from "../components/layout/SiteHeader";
 import { SiteFooter } from "../components/layout/SiteFooter";
-import { usePageMeta } from "../hooks/usePageMeta";
 
-export function DashboardPage() {
-  usePageMeta(
-    "My Progress — Fun Math Journey",
-    "Track your AMC 8 practice progress. See solved problems, missed problems, and performance by skill category."
-  );
+export function DashboardPage({ embedded = false }: { embedded?: boolean } = {}) {
+  const Container = embedded ? "div" : "main";
+  const Heading = embedded ? "h2" : "h1";
   const { progress, stats, resetProgress } = useLocalProgress(sampleProblems);
   const byCategory = summarizeByCategory(sampleProblems);
 
   return (
     <>
-      <SiteHeader currentPage="dashboard" />
-      <main className="fmj-page">
+      {!embedded && <SiteHeader currentPage="dashboard" />}
+      <Container className={embedded ? "fmj-interactive-body" : "fmj-page"}>
         <section className="fmj-page-heading">
           <p className="fmj-eyebrow">Dashboard</p>
-          <h1>Your progress.</h1>
+          <Heading>Your progress.</Heading>
           <p>
-            This is local-only for now, which is perfect for anonymous-first launch.
+            Your progress is saved on this browser.
           </p>
         </section>
 
@@ -76,8 +73,8 @@ export function DashboardPage() {
         <button type="button" className="fmj-reset-progress" onClick={resetProgress}>
           Reset local progress
         </button>
-      </main>
-      <SiteFooter />
+      </Container>
+      {!embedded && <SiteFooter />}
     </>
   );
 }

@@ -1,13 +1,8 @@
 import { SiteHeader } from "../components/layout/SiteHeader";
 import { SiteFooter } from "../components/layout/SiteFooter";
 import { Card } from "../components/common/Card";
-import { usePageMeta } from "../hooks/usePageMeta";
 
 export function TipsPage() {
-  usePageMeta(
-    "How to Prepare for AMC 8 — Study Tips & Strategy | Fun Math Journey",
-    "Practical AMC 8 preparation tips: which topics to study, how to manage time, common mistakes to avoid, and a week-by-week study plan."
-  );
 
   return (
     <>
@@ -69,12 +64,11 @@ export function TipsPage() {
         </Card>
 
         <Card>
-          <h2>Start with problems, not lessons</h2>
+          <h2>Try a problem, then develop the idea</h2>
           <p>
-            The fastest way to improve on the AMC 8 is to attempt problems
-            slightly above your current level, get them wrong, and then read the
-            solution carefully. Passive review of formulas rarely transfers to
-            competition problems.
+            Try a problem slightly above your current level, notice where you
+            get stuck, and use a guided lesson to explore the underlying idea.
+            Then apply what you learned to another problem.
           </p>
           <p>
             A good starting routine: spend 5 minutes attempting a problem
@@ -83,7 +77,7 @@ export function TipsPage() {
             your first approach, and that elegance is worth learning.
           </p>
           <p>
-            <a href="/learn">Browse problems by topic and difficulty →</a>
+            <a href="/practice">Browse problems by topic and difficulty →</a>
           </p>
         </Card>
 

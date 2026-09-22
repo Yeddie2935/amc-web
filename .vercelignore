@@ -1,0 +1,13 @@
+# Upload build inputs, not local tooling, credentials, or review artifacts.
+.git/
+.agents/
+.claude/
+.codex/
+.vscode/
+.seo-build/
+node_modules/
+dist/
+docs/
+scripts/
+.env*
+.DS_Store

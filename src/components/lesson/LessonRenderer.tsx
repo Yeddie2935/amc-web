@@ -13,9 +13,9 @@ import { VisualPrimitiveHost } from "./VisualPrimitiveHost";
 import "./lessonRenderer.css";
 
 export interface LessonRendererProps {
-  lesson: LessonSpec;
+  lesson: Pick<LessonSpec, "lessonId" | "title" | "beats">;
   /** Generated artifacts are supplied by the future lesson data loader. */
-  generatedProblemArtifacts?: readonly GeneratedProblemArtifact[];
+  generatedProblemArtifacts?: readonly Pick<GeneratedProblemArtifact, "problem">[];
 }
 
 interface BeatFrameProps {
@@ -24,7 +24,7 @@ interface BeatFrameProps {
   isActive: boolean;
   completed: boolean;
   isLast: boolean;
-  generatedProblemArtifacts: readonly GeneratedProblemArtifact[];
+  generatedProblemArtifacts: readonly Pick<GeneratedProblemArtifact, "problem">[];
   onComplete: () => void;
 }
 
@@ -106,7 +106,7 @@ function BeatContent({
 }: {
   beat: LessonBeat;
   completed: boolean;
-  generatedProblemArtifacts: readonly GeneratedProblemArtifact[];
+  generatedProblemArtifacts: readonly Pick<GeneratedProblemArtifact, "problem">[];
   onResolved: () => void;
 }) {
   switch (beat.kind) {

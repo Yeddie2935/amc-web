@@ -1,49 +1,24 @@
 import { Analytics } from "@vercel/analytics/react";
 import { HomePage } from "./pages/HomePage";
 import { LearnPage } from "./pages/LearnPage";
-import { PracticePage } from "./pages/PracticePage";
-import { ArchivePage } from "./pages/ArchivePage";
-import { DashboardPage } from "./pages/DashboardPage";
-import { ProblemBankPage } from "./pages/ProblemBankPage";
-import { LicensePage } from "./pages/LicensePage";
 import { TipsPage } from "./pages/TipsPage";
-import { LessonPage } from "./pages/LessonPage";
+import { LicensePage } from "./pages/LicensePage";
+import { PublicContentPage } from "./pages/PublicContentPage";
+import { usePageMeta } from "./hooks/usePageMeta";
+import type { PageData } from "./seo/types";
 import "./styles/amcComponents.css";
 import "./styles/amcDiagramPatch.css";
 import "./styles/fmjAnimations.css";
 import "./styles/fmjScalablePlatform.css";
 import "./styles/fmjAnimationFix.css";
+import "./styles/seoPages.css";
 
-function App() {
-  const path = window.location.pathname;
-  const lessonPathMatch = path.match(/^\/learn\/([^/]+)\/?$/);
-  let lessonId: string | null = null;
-
-  if (lessonPathMatch) {
-    try {
-      lessonId = decodeURIComponent(lessonPathMatch[1]);
-    } catch {
-      lessonId = lessonPathMatch[1];
-    }
-  }
-
-  let page;
-  if (lessonId) page = <LessonPage lessonId={lessonId} />;
-  else if (path.startsWith("/learn")) page = <LearnPage />;
-  else if (path.startsWith("/practice")) page = <PracticePage />;
-  else if (path.startsWith("/archive")) page = <ArchivePage />;
-  else if (path.startsWith("/dashboard")) page = <DashboardPage />;
-  else if (path.startsWith("/problems")) page = <ProblemBankPage />;
-  else if (path.startsWith("/license")) page = <LicensePage />;
-  else if (path.startsWith("/tips")) page = <TipsPage />;
-  else page = <HomePage />;
-
-  return (
-    <>
-      {page}
-      <Analytics />
-    </>
-  );
+export default function App({ page }: { page: PageData }) {
+  usePageMeta(page);
+  const content = page.kind === "home" ? <HomePage problemCount={page.problemCount!} />
+    : page.kind === "learn" ? <LearnPage />
+    : page.kind === "tips" ? <TipsPage />
+    : page.kind === "license" ? <LicensePage />
+    : <PublicContentPage page={page} />;
+  return <>{content}<Analytics /></>;
 }
-
-export default App;
