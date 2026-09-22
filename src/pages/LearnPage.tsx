@@ -1,7 +1,6 @@
 import { SiteHeader } from "../components/layout/SiteHeader";
 import { SiteFooter } from "../components/layout/SiteFooter";
 import { curriculumMeta, curriculumNodes } from "../data/curriculum";
-import { usePageMeta } from "../hooks/usePageMeta";
 
 function lessonTypeLabel(type: "foundation" | "technique" | "connector") {
   if (type === "foundation") return "Foundation";
@@ -10,10 +9,6 @@ function lessonTypeLabel(type: "foundation" | "technique" | "connector") {
 }
 
 export function LearnPage() {
-  usePageMeta(
-    "Learn Competition Math — Mathinking",
-    "Explore all 50 interactive Mathinking lessons across foundations, algebra, number theory, counting and probability, geometry, and problem-solving strategy."
-  );
 
   return (
     <>
@@ -21,7 +16,7 @@ export function LearnPage() {
       <main className="fmj-page">
         <section className="fmj-page-heading">
           <p className="fmj-eyebrow">Learn</p>
-          <h1>Explore all 50 lessons.</h1>
+          <h1>Explore all {curriculumNodes.length} lessons.</h1>
           <p>
             Work through the full Mathinking curriculum, from core quantitative
             reasoning to contest-math techniques and problem-solving strategy.
@@ -44,22 +39,19 @@ export function LearnPage() {
 
               <div className="fmj-learn-grid">
                 {lessons.map((lesson) => (
-                  <a
+                  <div
                     key={lesson.id}
                     className="fmj-learn-card fmj-learn-card-link"
-                    href={`/learn/${lesson.id}`}
                   >
-                    <strong>
+                    <a href={`/learn/${lesson.id}`}><strong>
                       {lesson.id} · {lesson.title}
-                    </strong>
+                    </strong></a>
                     <p>{lesson.coreInsight}</p>
                     <span>
                       {lessonTypeLabel(lesson.lessonType)}
-                      {lesson.hardPrerequisites.length > 0
-                        ? ` · Prerequisites: ${lesson.hardPrerequisites.join(", ")}`
-                        : " · No prerequisites"}
+                      {lesson.hardPrerequisites.length > 0 ? <> · Prerequisites: {lesson.hardPrerequisites.map((id,i) => <span key={id}>{i > 0 ? ", " : ""}<a href={`/learn/${id}`}>{id}</a></span>)}</> : " · No prerequisites"}
                     </span>
-                  </a>
+                  </div>
                 ))}
               </div>
             </section>

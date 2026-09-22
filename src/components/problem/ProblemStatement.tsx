@@ -1,12 +1,15 @@
 import type { Problem } from "../../types/amc";
+import type { DiagramInfo } from "../../seo/types";
 import { CategoryBadge } from "./CategoryBadge";
 import { DifficultyBadge } from "./DifficultyBadge";
 
 interface ProblemStatementProps {
   problem: Problem;
+  showTitle?: boolean;
+  diagrams?: DiagramInfo[];
 }
 
-export function ProblemStatement({ problem }: ProblemStatementProps) {
+export function ProblemStatement({ problem, showTitle = true, diagrams }: ProblemStatementProps) {
   return (
     <article className="fmj-problem-statement">
       <div className="fmj-problem-card-top">
@@ -14,7 +17,7 @@ export function ProblemStatement({ problem }: ProblemStatementProps) {
         <DifficultyBadge difficulty={problem.difficulty} />
       </div>
 
-      <h2>{problem.title}</h2>
+      {showTitle && <h2>{problem.title}</h2>}
 
       {problem.needsDiagram && (!problem.imageUrls || problem.imageUrls.length === 0) && (
         <p className="fmj-diagram-note">
@@ -29,7 +32,7 @@ export function ProblemStatement({ problem }: ProblemStatementProps) {
         <div className="fmj-problem-images">
           {problem.imageUrls.map((url, index) => (
             <figure key={url} className="fmj-problem-image-frame">
-              <img src={url} alt={`${problem.title} diagram ${index + 1}`} />
+              <img src={url} alt={diagrams?.[index]?.alt ?? `${problem.title} diagram ${index + 1}`} width={diagrams?.[index]?.width} height={diagrams?.[index]?.height} />
               <figcaption>Diagram {index + 1}</figcaption>
             </figure>
           ))}

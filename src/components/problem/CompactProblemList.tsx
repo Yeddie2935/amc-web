@@ -1,5 +1,6 @@
 import type { Problem } from "../../types/amc";
 import type { ProblemProgress } from "../../types/progress";
+import publication from "../../seo/content-overrides.json";
 import {
   getDifficultyLabel,
   getProblemSourceLabel,
@@ -33,8 +34,7 @@ export function CompactProblemList({
       {problems.map((problem) => {
         const status = getProblemStatus(problem, progress);
         return (
-          <button
-            key={problem.id}
+          <div className="fmj-compact-row-wrapper" key={problem.id}><button
             type="button"
             className={`fmj-compact-row ${
               selectedProblemId === problem.id ? "selected" : ""
@@ -49,7 +49,7 @@ export function CompactProblemList({
               <span>{getDifficultyLabel(problem.difficulty).replace(" · ", " ")}</span>
               <em className={`status-${status}`}>{status}</em>
             </div>
-          </button>
+          </button>{publication.problemIds.includes(problem.id) && <a href={`/problems/${problem.id}`}>Open full solution</a>}</div>
         );
       })}
     </div>

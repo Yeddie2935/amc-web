@@ -10,7 +10,6 @@ import { buildPracticeSession } from "../lib/buildPracticeSession";
 import { filterProblemsBySkill } from "../lib/problemFilters";
 import { normalizeSkillId, SKILL_LANES } from "../lib/skills";
 import { getDifficultyDescription } from "../lib/problemUtils";
-import { usePageMeta } from "../hooks/usePageMeta";
 
 const DIFFICULTY_LEVELS: DifficultyLevel[] = [1, 2, 3, 4, 5];
 
@@ -29,11 +28,9 @@ function getSkillTitle(skill: string | null) {
   return titles[skill] ?? "Skill Practice";
 }
 
-export function PracticePage() {
-  usePageMeta(
-    "Practice AMC 8 Problems — Fun Math Journey",
-    "Practice AMC 8 math problems one at a time with progress tracking. Filter by skill and difficulty across algebra, geometry, number theory, and more."
-  );
+export function PracticePage({ embedded = false }: { embedded?: boolean } = {}) {
+  const Container = embedded ? "div" : "main";
+  const Heading = embedded ? "h2" : "h1";
   const urlParams = new URLSearchParams(window.location.search);
 
   // Supports both URL styles:
@@ -72,10 +69,10 @@ export function PracticePage() {
 
   const recommendedMissed = useMemo(
     () =>
-      skillProblems.filter((problem) =>
+      filteredProblems.filter((problem) =>
         progressApi.progress.missedIds.includes(problem.id)
       ),
-    [skillProblems, progressApi.progress]
+    [filteredProblems, progressApi.progress]
   );
 
   useEffect(() => {
@@ -88,20 +85,20 @@ export function PracticePage() {
   }, [selectedSkill, selectedDifficulty]);
 
   function startSession(type: "mixed" | "unsolved" | "missed" | "challenge") {
-    let pool = skillProblems;
+    let pool = filteredProblems;
 
     if (type === "unsolved") {
-      pool = skillProblems.filter(
+      pool = filteredProblems.filter(
         (problem) => !progressApi.progress.solvedIds.includes(problem.id)
       );
     }
 
     if (type === "missed") {
-      pool = recommendedMissed.length > 0 ? recommendedMissed : skillProblems;
+      pool = recommendedMissed.length > 0 ? recommendedMissed : filteredProblems;
     }
 
     if (type === "challenge") {
-      pool = skillProblems.filter((problem) => problem.difficulty >= 4);
+      pool = filteredProblems.filter((problem) => problem.difficulty >= 4);
     }
 
     setSessionProblems(buildPracticeSession(pool, null, null));
@@ -127,19 +124,20 @@ export function PracticePage() {
       } available${selectedSkill ? " in this skill lane" : ""}${
         selectedDifficulty ? ` at Level ${selectedDifficulty}` : ""
       }.`
-    : "Practice mode should feel different from archive browsing: fewer distractions, one clean problem at a time, and progress tracking.";
+    : "Choose a practice session, work through one problem at a time, and review your reasoning.";
 
   return (
     <>
-      <SiteHeader currentPage="practice" />
-      <main className="fmj-page">
+      {!embedded && <SiteHeader currentPage="practice" />}
+      <Container className={embedded ? "fmj-interactive-body" : "fmj-page"}>
         <section className="fmj-page-heading">
           <p className="fmj-eyebrow">Practice</p>
-          <h1>{practiceTitle}</h1>
+          <Heading>{practiceTitle}</Heading>
           <p>{practiceDescription}</p>
+          {((urlParams.has("skill") || urlParams.has("category")) && !selectedSkill || urlParams.has("difficulty") && selectedDifficulty === null) && <p role="alert">Some practice filters were not recognized and have been ignored. Choose a skill and difficulty from the links above.</p>}
         </section>
 
-        <section aria-labelledby="practice-skill-lanes">
+        {!embedded && <section aria-labelledby="practice-skill-lanes">
           <div className="fmj-page-heading">
             <p className="fmj-eyebrow">Browse practice</p>
             <h2 id="practice-skill-lanes">Choose a skill lane.</h2>
@@ -156,7 +154,7 @@ export function PracticePage() {
                 <div key={lane.id} className="fmj-learn-card">
                   <a className="fmj-learn-card-link" href={`/practice?skill=${lane.id}`}>
                     <strong>{lane.title}</strong>
-                    <span>{laneProblems.length} loaded problems</span>
+                    <span>{laneProblems.length} problems available</span>
                   </a>
                   <p>{lane.description}</p>
                   <div className="fmj-difficulty-row">
@@ -183,7 +181,7 @@ export function PracticePage() {
               );
             })}
           </div>
-        </section>
+        </section>}
 
         {(selectedSkill || selectedDifficulty !== null) &&
           filteredProblems.length === 0 && (
@@ -221,8 +219,8 @@ export function PracticePage() {
             />
           </>
         )}
-      </main>
-      <SiteFooter />
+      </Container>
+      {!embedded && <SiteFooter />}
     </>
   );
 }

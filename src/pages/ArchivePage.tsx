@@ -7,13 +7,10 @@ import { SiteHeader } from "../components/layout/SiteHeader";
 import { SiteFooter } from "../components/layout/SiteFooter";
 import { CompactProblemList } from "../components/problem/CompactProblemList";
 import { ProblemWorkspace } from "../components/problem/ProblemWorkspace";
-import { usePageMeta } from "../hooks/usePageMeta";
 
-export function ArchivePage() {
-  usePageMeta(
-    "AMC 8 Archive — Fun Math Journey",
-    "Browse all AMC 8 competition problems by year. Step-by-step explanations for every problem."
-  );
+export function ArchivePage({ embedded = false }: { embedded?: boolean } = {}) {
+  const Container = embedded ? "div" : "main";
+  const Heading = embedded ? "h2" : "h1";
   const progressApi = useLocalProgress(sampleProblems);
   const years = [...getAvailableYears(sampleProblems)].reverse();
   const [selectedYear, setSelectedYear] = useState(years[0] ?? 1999);
@@ -33,11 +30,11 @@ export function ArchivePage() {
 
   return (
     <>
-      <SiteHeader currentPage="archive" />
-      <main className="fmj-page">
+      {!embedded && <SiteHeader currentPage="archive" />}
+      <Container className={embedded ? "fmj-interactive-body" : "fmj-page"}>
         <section className="fmj-page-heading">
           <p className="fmj-eyebrow">AMC Archive</p>
-          <h1>Browse by contest year.</h1>
+          <Heading>Browse by contest year.</Heading>
           <p>
             This mode keeps the original AMC structure: year first, then problems
             1 through 25.
@@ -79,8 +76,8 @@ export function ArchivePage() {
             />
           </aside>
         </section>
-      </main>
-      <SiteFooter />
+      </Container>
+      {!embedded && <SiteFooter />}
     </>
   );
 }

@@ -1,10 +1,10 @@
-import { useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import type { Problem } from "../../types/amc";
 import type { ProblemAttempt, ProblemProgress } from "../../types/progress";
 import { getProblemSourceLabel } from "../../lib/problemUtils";
 import { Button } from "../common/Button";
 import { ProblemStatement } from "./ProblemStatement";
-import { AnimationRenderer } from "../animation/AnimationRenderer";
+const AnimationRenderer = lazy(() => import("../animation/AnimationRenderer").then(m => ({ default: m.AnimationRenderer })));
 
 interface ProblemWorkspaceProps {
   problem: Problem;
@@ -166,7 +166,7 @@ export function ProblemWorkspace({
           {showAnimation ? "Hide animated explanation" : "Play animated explanation"}
         </button>
 
-        {showAnimation && <AnimationRenderer problem={problem} />}
+        {showAnimation && <Suspense fallback={<p>Loading visual explanation…</p>}><AnimationRenderer problem={problem} /></Suspense>}
       </section>
 
       {onNext && (

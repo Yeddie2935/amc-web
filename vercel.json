@@ -1,8 +1,480 @@
 {
-  "rewrites": [
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
     {
-      "source": "/(.*)",
-      "destination": "/"
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "mathinking.org"
+        }
+      ],
+      "destination": "https://www.mathinking.org/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/learn/f1",
+      "destination": "/learn/F1",
+      "permanent": true
+    },
+    {
+      "source": "/learn/f2",
+      "destination": "/learn/F2",
+      "permanent": true
+    },
+    {
+      "source": "/learn/f3",
+      "destination": "/learn/F3",
+      "permanent": true
+    },
+    {
+      "source": "/learn/f4",
+      "destination": "/learn/F4",
+      "permanent": true
+    },
+    {
+      "source": "/learn/f5",
+      "destination": "/learn/F5",
+      "permanent": true
+    },
+    {
+      "source": "/learn/f6",
+      "destination": "/learn/F6",
+      "permanent": true
+    },
+    {
+      "source": "/learn/f7",
+      "destination": "/learn/F7",
+      "permanent": true
+    },
+    {
+      "source": "/learn/a1",
+      "destination": "/learn/A1",
+      "permanent": true
+    },
+    {
+      "source": "/learn/a2",
+      "destination": "/learn/A2",
+      "permanent": true
+    },
+    {
+      "source": "/learn/a3",
+      "destination": "/learn/A3",
+      "permanent": true
+    },
+    {
+      "source": "/learn/a4",
+      "destination": "/learn/A4",
+      "permanent": true
+    },
+    {
+      "source": "/learn/a5",
+      "destination": "/learn/A5",
+      "permanent": true
+    },
+    {
+      "source": "/learn/a6",
+      "destination": "/learn/A6",
+      "permanent": true
+    },
+    {
+      "source": "/learn/a7",
+      "destination": "/learn/A7",
+      "permanent": true
+    },
+    {
+      "source": "/learn/a8",
+      "destination": "/learn/A8",
+      "permanent": true
+    },
+    {
+      "source": "/learn/n1",
+      "destination": "/learn/N1",
+      "permanent": true
+    },
+    {
+      "source": "/learn/n2",
+      "destination": "/learn/N2",
+      "permanent": true
+    },
+    {
+      "source": "/learn/n3",
+      "destination": "/learn/N3",
+      "permanent": true
+    },
+    {
+      "source": "/learn/n4",
+      "destination": "/learn/N4",
+      "permanent": true
+    },
+    {
+      "source": "/learn/n5",
+      "destination": "/learn/N5",
+      "permanent": true
+    },
+    {
+      "source": "/learn/n6",
+      "destination": "/learn/N6",
+      "permanent": true
+    },
+    {
+      "source": "/learn/n7",
+      "destination": "/learn/N7",
+      "permanent": true
+    },
+    {
+      "source": "/learn/c1",
+      "destination": "/learn/C1",
+      "permanent": true
+    },
+    {
+      "source": "/learn/c2",
+      "destination": "/learn/C2",
+      "permanent": true
+    },
+    {
+      "source": "/learn/c3",
+      "destination": "/learn/C3",
+      "permanent": true
+    },
+    {
+      "source": "/learn/c4",
+      "destination": "/learn/C4",
+      "permanent": true
+    },
+    {
+      "source": "/learn/c5",
+      "destination": "/learn/C5",
+      "permanent": true
+    },
+    {
+      "source": "/learn/c6",
+      "destination": "/learn/C6",
+      "permanent": true
+    },
+    {
+      "source": "/learn/c7",
+      "destination": "/learn/C7",
+      "permanent": true
+    },
+    {
+      "source": "/learn/c8",
+      "destination": "/learn/C8",
+      "permanent": true
+    },
+    {
+      "source": "/learn/c9",
+      "destination": "/learn/C9",
+      "permanent": true
+    },
+    {
+      "source": "/learn/c10",
+      "destination": "/learn/C10",
+      "permanent": true
+    },
+    {
+      "source": "/learn/p1",
+      "destination": "/learn/P1",
+      "permanent": true
+    },
+    {
+      "source": "/learn/p2",
+      "destination": "/learn/P2",
+      "permanent": true
+    },
+    {
+      "source": "/learn/p3",
+      "destination": "/learn/P3",
+      "permanent": true
+    },
+    {
+      "source": "/learn/g1",
+      "destination": "/learn/G1",
+      "permanent": true
+    },
+    {
+      "source": "/learn/g2",
+      "destination": "/learn/G2",
+      "permanent": true
+    },
+    {
+      "source": "/learn/g3",
+      "destination": "/learn/G3",
+      "permanent": true
+    },
+    {
+      "source": "/learn/g4",
+      "destination": "/learn/G4",
+      "permanent": true
+    },
+    {
+      "source": "/learn/g5",
+      "destination": "/learn/G5",
+      "permanent": true
+    },
+    {
+      "source": "/learn/g6",
+      "destination": "/learn/G6",
+      "permanent": true
+    },
+    {
+      "source": "/learn/g7",
+      "destination": "/learn/G7",
+      "permanent": true
+    },
+    {
+      "source": "/learn/g8",
+      "destination": "/learn/G8",
+      "permanent": true
+    },
+    {
+      "source": "/learn/g9",
+      "destination": "/learn/G9",
+      "permanent": true
+    },
+    {
+      "source": "/learn/g10",
+      "destination": "/learn/G10",
+      "permanent": true
+    },
+    {
+      "source": "/learn/g11",
+      "destination": "/learn/G11",
+      "permanent": true
+    },
+    {
+      "source": "/learn/s1",
+      "destination": "/learn/S1",
+      "permanent": true
+    },
+    {
+      "source": "/learn/s2",
+      "destination": "/learn/S2",
+      "permanent": true
+    },
+    {
+      "source": "/learn/s3",
+      "destination": "/learn/S3",
+      "permanent": true
+    },
+    {
+      "source": "/learn/s4",
+      "destination": "/learn/S4",
+      "permanent": true
+    },
+    {
+      "source": "/index",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/index",
+      "destination": "/learn",
+      "permanent": true
+    },
+    {
+      "source": "/practice/index",
+      "destination": "/practice",
+      "permanent": true
+    },
+    {
+      "source": "/archive/index",
+      "destination": "/archive",
+      "permanent": true
+    },
+    {
+      "source": "/problems/index",
+      "destination": "/problems",
+      "permanent": true
+    },
+    {
+      "source": "/dashboard/index",
+      "destination": "/dashboard",
+      "permanent": true
+    },
+    {
+      "source": "/tips/index",
+      "destination": "/tips",
+      "permanent": true
+    },
+    {
+      "source": "/license/index",
+      "destination": "/license",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/dashboard",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/content/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/practice",
+      "has": [
+        {
+          "type": "query",
+          "key": "skill"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/practice",
+      "has": [
+        {
+          "type": "query",
+          "key": "category"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/practice",
+      "has": [
+        {
+          "type": "query",
+          "key": "difficulty"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/practice",
+      "has": [
+        {
+          "type": "query",
+          "key": "session"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/problems",
+      "has": [
+        {
+          "type": "query",
+          "key": "q"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/problems",
+      "has": [
+        {
+          "type": "query",
+          "key": "problem"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/problems",
+      "has": [
+        {
+          "type": "query",
+          "key": "year"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/problems",
+      "has": [
+        {
+          "type": "query",
+          "key": "category"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/problems",
+      "has": [
+        {
+          "type": "query",
+          "key": "difficulty"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/problems",
+      "has": [
+        {
+          "type": "query",
+          "key": "status"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
     }
   ]
 }

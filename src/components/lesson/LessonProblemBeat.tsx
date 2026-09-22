@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { sampleProblems } from "../../data/sampleProblems";
+import { useContext, useState } from "react";
+import { LessonBankContext } from "./LessonBankContext";
 import { getProblemSourceLabel } from "../../lib/problemUtils";
 import type { Problem } from "../../types/amc";
 import type {
@@ -15,7 +15,7 @@ import { LessonResolution } from "./LessonResolution";
 
 interface LessonProblemBeatProps {
   beat: LessonProblemBeatSpec;
-  generatedProblemArtifacts: readonly GeneratedProblemArtifact[];
+  generatedProblemArtifacts: readonly Pick<GeneratedProblemArtifact, "problem">[];
   completed: boolean;
   onResolved: () => void;
 }
@@ -24,9 +24,6 @@ type AnimationStepSelection =
   | { stepIndices: number[]; error?: never }
   | { stepIndices?: never; error: string };
 
-const bankProblemById = new Map(
-  sampleProblems.map((problem) => [problem.id, problem] as const)
-);
 
 export function selectLessonAnimationSteps(
   animation: LessonProblemAnimationPlan | null | undefined,
@@ -186,9 +183,10 @@ export function LessonProblemBeat({
 }: LessonProblemBeatProps) {
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const bankProblems = useContext(LessonBankContext);
   const problem =
     beat.source === "bank"
-      ? bankProblemById.get(beat.problemId)
+      ? bankProblems.find(problem => problem.id === beat.problemId)
       : generatedProblemArtifacts.find(
           (artifact) => artifact.problem.id === beat.problemId
         )?.problem;

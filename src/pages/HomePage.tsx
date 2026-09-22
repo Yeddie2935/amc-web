@@ -3,8 +3,6 @@ import { SiteHeader } from "../components/layout/SiteHeader";
 import { SiteFooter } from "../components/layout/SiteFooter";
 import { AttributionNotice } from "../components/attribution/AttributionNotice";
 import { curriculumMeta, curriculumNodes } from "../data/curriculum";
-import { sampleProblems } from "../data/sampleProblems";
-import { usePageMeta } from "../hooks/usePageMeta";
 import "../styles/homePage.css";
 
 const STRAND_SUMMARIES: Record<string, string> = {
@@ -135,11 +133,7 @@ function DivisorCountingPreview() {
   );
 }
 
-export function HomePage() {
-  usePageMeta(
-    "Mathinking — Learn Competition Math by Thinking",
-    "Free AMC 8 lessons that teach the reasoning behind competition math with guided discovery, visuals, animations, and targeted practice."
-  );
+export function HomePage({ problemCount }: { problemCount: number }) {
 
   return (
     <>
@@ -158,7 +152,7 @@ export function HomePage() {
 
             <div className="fmj-home-actions">
               <a className="fmj-home-action fmj-home-action-primary" href="/learn">
-                Explore the 50 lessons
+                Explore the {curriculumNodes.length} lessons
               </a>
               <a className="fmj-home-action fmj-home-action-secondary" href="/practice">
                 Practice a problem
@@ -175,8 +169,8 @@ export function HomePage() {
                 <span>curriculum strands</span>
               </div>
               <div>
-                <strong>{sampleProblems.length}</strong>
-                <span>AMC 8 problems loaded</span>
+                <strong>{problemCount}</strong>
+                <span>AMC 8 problems</span>
               </div>
             </div>
           </div>
@@ -212,7 +206,7 @@ export function HomePage() {
             <p className="fmj-home-kicker">The full curriculum is live</p>
             <h2 id="home-curriculum-title">Pick the topic that's actually costing you points.</h2>
             <p>
-              All 50 lessons are now on Learn. You can follow the curriculum or jump
+              All {curriculumNodes.length} lessons are on Learn. You can follow the curriculum or jump
               directly to the idea you need.
             </p>
           </div>
@@ -256,7 +250,7 @@ export function HomePage() {
             <h2 id="home-new-title">Mathinking is no longer just a problem browser.</h2>
           </div>
           <div className="fmj-home-new-list">
-            <p><strong>50 guided lessons.</strong> Foundations through problem-solving strategy are now available from Learn.</p>
+            <p><strong>{curriculumNodes.length} guided lessons.</strong> Foundations through problem-solving strategy are available from Learn.</p>
             <p><strong>Practice has its own home.</strong> Filter the AMC bank by skill and difficulty without mixing it into the lesson catalog.</p>
             <p><strong>Real problems stay connected.</strong> Lessons use AMC questions, written reasoning, and animated explanations when they genuinely help teach the idea.</p>
           </div>
